@@ -1,0 +1,2 @@
+Welcome to my sample External program Text read .Now you can see this note pad text will be readed in my program .
+From by program the note pad text can be edited.

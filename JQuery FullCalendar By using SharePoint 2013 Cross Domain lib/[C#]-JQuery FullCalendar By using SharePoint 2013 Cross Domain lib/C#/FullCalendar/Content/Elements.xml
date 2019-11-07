@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Content">
+    <File Path="Content\App.css" Url="Content/App.css" />
+  <File Path="Content\fullcalendar.css" Url="Content/fullcalendar.css" />
+<File Path="Content\fullcalendar.print.css" Url="Content/fullcalendar.print.css" />
+<File Path="Content\theme.css" Url="Content/theme.css" />
+</Module>
+</Elements>

@@ -1,0 +1,7 @@
+V1
+1. Fixed call to throw in bisection
+2. Changed findBounds algo
+3. Added TestXirrBugs function
+4. Removed the NewValue functions everywhere
+V2
+1. Fixed order of parameter and naming to the Rate function

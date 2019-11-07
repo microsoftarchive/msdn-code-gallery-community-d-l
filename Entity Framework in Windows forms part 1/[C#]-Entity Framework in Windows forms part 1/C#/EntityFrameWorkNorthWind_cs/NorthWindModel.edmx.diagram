@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="af037bdb1fa24592ae486688ddd69587" Name="Diagram1">
+        <EntityTypeShape EntityType="NORTHWNDModel.AuditLog" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NORTHWNDModel.Category" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NORTHWNDModel.Customer" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NORTHWNDModel.Order_Detail" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NORTHWNDModel.Order" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NORTHWNDModel.Product" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="NORTHWNDModel.Supplier" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NORTHWNDModel.sysdiagram" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="NORTHWNDModel.FK_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="NORTHWNDModel.FK_Orders_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="NORTHWNDModel.FK_Order_Details_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="NORTHWNDModel.FK_Order_Details_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="NORTHWNDModel.FK_Products_Suppliers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

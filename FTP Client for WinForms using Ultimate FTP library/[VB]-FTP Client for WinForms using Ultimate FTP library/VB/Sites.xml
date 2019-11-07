@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<sites>
+  <add address="" port="" userName="" password="" security="0" desc="&lt;Empty&gt;"/>
+  <add address="ftp.globalscape.com" port="21" userName="" password="" security="0" desc="FTP GlobalSCAPE Download Site"/>
+  <add address="demo.componentpro.com" port="21" userName="test" password="test" security="0" desc="ComponentPro FTP Test Server - standard FTP"/>
+  <add address="demo.componentpro.com" port="21" userName="test" password="test" security="2" desc="ComponentPro FTP Test Server - with TLS/SSL explicit"/>
+  <add address="demo.componentpro.com" port="990" userName="test" password="test" security="1" desc="ComponentPro FTP Test Server - with TLS/SSL port 990 implicit"/>
+</sites>

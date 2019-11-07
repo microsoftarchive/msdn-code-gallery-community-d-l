@@ -1,0 +1,24 @@
+﻿<Window x:Class="EasyWpfLoginNavigateExample.View.Window1" WindowStartupLocation="CenterScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Example 2 - MVVM" Height="300" Width="300"
+        xmlns:model="clr-namespace:EasyWpfLoginNavigateExample.Model"
+        xmlns:view="clr-namespace:EasyWpfLoginNavigateExample.View">
+    <Window.Resources>
+        <Style TargetType="MenuItem" x:Key="MyMenuStyle">
+            <Setter Property="Header" Value="{Binding Header}" />
+            <Setter Property="ItemsSource" Value="{Binding Children}" />
+            <Setter Property="Command" Value="{Binding Command}" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="26*"/>
+        </Grid.RowDefinitions>
+        <Menu ItemsSource="{Binding TheMenu}" ItemContainerStyle="{StaticResource MyMenuStyle}" />
+        <ContentControl Content="{Binding SubView}" HorizontalAlignment="Right" />
+        <Border x:Name="Stage" Grid.Row="1"/>
+        <view:LoginControl Grid.Row="1"/>
+    </Grid>
+</Window>

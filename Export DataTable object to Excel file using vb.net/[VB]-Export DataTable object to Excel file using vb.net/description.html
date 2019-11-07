@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7bd86db-8a7a-43ce-8954-21f8f839f51bCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Export DataTable object to Excel file using vb.net</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Export DataTable object to Excel file using vb.net</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            VB.Net, Excel 2010, DataTable
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Excel, VB.Net, COM Interop, DataTable, Data Export
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">10/17/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Export-DataTable-object-to-b3e2c1f0">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p><em>The sample applciation demonstrates that how you can export the datatable object in c# to excel format.</em></p>
+<h1><span>How to use</span></h1>
+<p><em>1. Download the sample project.</em></p>
+<p><em>2. Open with your visual studio.</em></p>
+<p><em>3. Build the project and Run.</em></p>
+<p><span style="font-size:20px; font-weight:bold">Description</span></p>
+<p><em>Let's say we have a datatable object that contains the emoloyees' details ( employee id, name and age). And we need to export this data to an excel file. For it firstly i create a datatable object of the employees' details at runtime. I am using DataGrodVoew
+ cxontrol to show this data with the help of its DataSource property.</em></p>
+<p><em>The sample application allows you to chosse the your excel file name and the option for inserting the column names in to excel file ot not.</em></p>
+<p><em>We need to add the reference of the <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/Microsoft.Office.Interop.excel.aspx"  title="Auto generated link to Microsoft.Office.Interop.excel">Microsoft.Office.Interop.excel</a> library.</em></p>
+<h1>Code</h1>
+<p><strong>Create the datatable and set datasource to datagridview.</strong></p>
+<p>The following code shows how to create the data table object at runtime.</p>
+<p><strong></strong></p>
+<div class="scriptcode"><strong>
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">Private Sub Form1_Load(ByVal sender As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Object.aspx"  title="Auto generated link to System.Object">System.Object</a>, ByVal e As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>) Handles MyBase.Load
+        DataGridView1.DataSource = GetDatatable()
+    End Sub
+    Private Function GetDatatable() As DataTable
+        Dim dt As New DataTable
+        dt.Columns.Add(&quot;id&quot;)
+        dt.Columns.Add(&quot;Name&quot;)
+
+        dt.Rows.Add()
+        dt.Rows(0)(0) = &quot;1&quot;
+        dt.Rows(0)(1) = &quot;David&quot;
+
+        dt.Rows.Add()
+        dt.Rows(1)(0) = &quot;2&quot;
+        dt.Rows(1)(1) = &quot;Ram&quot;
+
+        dt.Rows.Add()
+        dt.Rows(2)(0) = &quot;3&quot;
+        dt.Rows(2)(1) = &quot;John&quot;
+        Return dt
+    End Function</pre>
+<div class="preview">
+<pre class="js">Private&nbsp;Sub&nbsp;Form1_Load(ByVal&nbsp;sender&nbsp;As&nbsp;System.<span class="js__object">Object</span>,&nbsp;ByVal&nbsp;e&nbsp;As&nbsp;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.EventArgs.aspx"  title="Auto generated link to System.EventArgs">System.EventArgs</a>)&nbsp;Handles&nbsp;MyBase.Load&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DataGridView1.DataSource&nbsp;=&nbsp;GetDatatable()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;Sub&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Private&nbsp;<span class="js__object">Function</span>&nbsp;GetDatatable()&nbsp;As&nbsp;DataTable&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;dt&nbsp;As&nbsp;New&nbsp;DataTable&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Columns.Add(<span class="js__string">&quot;id&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Columns.Add(<span class="js__string">&quot;Name&quot;</span>)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Rows.Add()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Rows(<span class="js__num">0</span>)(<span class="js__num">0</span>)&nbsp;=&nbsp;<span class="js__string">&quot;1&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Rows(<span class="js__num">0</span>)(<span class="js__num">1</span>)&nbsp;=&nbsp;<span class="js__string">&quot;David&quot;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Rows.Add()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Rows(<span class="js__num">1</span>)(<span class="js__num">0</span>)&nbsp;=&nbsp;<span class="js__string">&quot;2&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Rows(<span class="js__num">1</span>)(<span class="js__num">1</span>)&nbsp;=&nbsp;<span class="js__string">&quot;Ram&quot;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Rows.Add()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Rows(<span class="js__num">2</span>)(<span class="js__num">0</span>)&nbsp;=&nbsp;<span class="js__string">&quot;3&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dt.Rows(<span class="js__num">2</span>)(<span class="js__num">1</span>)&nbsp;=&nbsp;<span class="js__string">&quot;John&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;dt&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;<span class="js__object">Function</span></pre>
+</div>
+</div>
+</strong></div>
+<p><strong></p>
+<div class="endscriptcode">&nbsp;Exmport to Excel</div>
+<div class="endscriptcode"></div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">    Private Sub ExportToExcel(ByVal dtTemp As DataTable, ByVal filepath As String)
+        Dim strFileName As String = filepath
+        If <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.File.Exists.aspx"  title="Auto generated link to System.IO.File.Exists">System.IO.File.Exists</a>(strFileName) Then
+            If (MessageBox.Show(&quot;Do you want to replace from the existing file?&quot;, &quot;Export to Excel&quot;, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) = System.Windows.Forms.DialogResult.Yes) Then
+                <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.File.Delete.aspx"  title="Auto generated link to System.IO.File.Delete">System.IO.File.Delete</a>(strFileName)
+            Else
+                Return
+            End If
+       
+        End If
+        Dim _excel As New Excel.Application
+        Dim wBook As Excel.Workbook
+        Dim wSheet As Excel.Worksheet
+
+        wBook = _excel.Workbooks.Add()
+        wSheet = wBook.ActiveSheet()
+
+        Dim dt As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Data.DataTable.aspx"  title="Auto generated link to System.Data.DataTable">System.Data.DataTable</a> = dtTemp
+        Dim dc As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Data.DataColumn.aspx"  title="Auto generated link to System.Data.DataColumn">System.Data.DataColumn</a>
+        Dim dr As <a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Data.DataRow.aspx"  title="Auto generated link to System.Data.DataRow">System.Data.DataRow</a>
+        Dim colIndex As Integer = 0
+        Dim rowIndex As Integer = 0
+        If CheckBox1.Checked Then
+            For Each dc In dt.Columns
+                colIndex = colIndex &#43; 1
+                wSheet.Cells(1, colIndex) = dc.ColumnName
+            Next
+        End If
+        For Each dr In dt.Rows
+            rowIndex = rowIndex &#43; 1
+            colIndex = 0
+            For Each dc In dt.Columns
+                colIndex = colIndex &#43; 1
+                wSheet.Cells(rowIndex &#43; 1, colIndex) = dr(dc.ColumnName)
+            Next
+        Next
+        wSheet.Columns.AutoFit()
+        wBook.SaveAs(strFileName)
+
+        ReleaseObject(wSheet)
+        wBook.Close(False)
+        ReleaseObject(wBook)
+        _excel.Quit()
+        ReleaseObject(_excel)
+        GC.Collect()
+
+        MessageBox.Show(&quot;File Export Successfully!&quot;)
+    End Sub
+    Private Sub ReleaseObject(ByVal o As Object)
+        Try
+            While (<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.InteropServices.Marshal.ReleaseComObject.aspx"  title="Auto generated link to System.Runtime.InteropServices.Marshal.ReleaseComObject">System.Runtime.InteropServices.Marshal.ReleaseComObject</a>(o) &gt; 0)
+            End While
+        Catch
+        Finally
+            o = Nothing
+        End Try
+    End Sub</pre>
+<div class="preview">
+<pre class="js">&nbsp;&nbsp;&nbsp;&nbsp;Private&nbsp;Sub&nbsp;ExportToExcel(ByVal&nbsp;dtTemp&nbsp;As&nbsp;DataTable,&nbsp;ByVal&nbsp;filepath&nbsp;As&nbsp;<span class="js__object">String</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;strFileName&nbsp;As&nbsp;<span class="js__object">String</span>&nbsp;=&nbsp;filepath&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.File.Exists.aspx"  title="Auto generated link to System.IO.File.Exists">System.IO.File.Exists</a>(strFileName)&nbsp;Then&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;(MessageBox.Show(<span class="js__string">&quot;Do&nbsp;you&nbsp;want&nbsp;to&nbsp;replace&nbsp;from&nbsp;the&nbsp;existing&nbsp;file?&quot;</span>,&nbsp;<span class="js__string">&quot;Export&nbsp;to&nbsp;Excel&quot;</span>,&nbsp;MessageBoxButtons.YesNo,&nbsp;MessageBoxIcon.Question,&nbsp;MessageBoxDefaultButton.Button2)&nbsp;=&nbsp;System.Windows.Forms.DialogResult.Yes)&nbsp;Then&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.File.Delete.aspx"  title="Auto generated link to System.IO.File.Delete">System.IO.File.Delete</a>(strFileName)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Else&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Return&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;_excel&nbsp;As&nbsp;New&nbsp;Excel.Application&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;wBook&nbsp;As&nbsp;Excel.Workbook&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;wSheet&nbsp;As&nbsp;Excel.Worksheet&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wBook&nbsp;=&nbsp;_excel.Workbooks.Add()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wSheet&nbsp;=&nbsp;wBook.ActiveSheet()&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;dt&nbsp;As&nbsp;System.Data.DataTable&nbsp;=&nbsp;dtTemp&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;dc&nbsp;As&nbsp;System.Data.DataColumn&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;dr&nbsp;As&nbsp;System.Data.DataRow&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;colIndex&nbsp;As&nbsp;Integer&nbsp;=&nbsp;<span class="js__num">0</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;rowIndex&nbsp;As&nbsp;Integer&nbsp;=&nbsp;<span class="js__num">0</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If&nbsp;CheckBox1.Checked&nbsp;Then&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;Each&nbsp;dc&nbsp;In&nbsp;dt.Columns&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colIndex&nbsp;=&nbsp;colIndex&nbsp;&#43;&nbsp;<span class="js__num">1</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wSheet.Cells(<span class="js__num">1</span>,&nbsp;colIndex)&nbsp;=&nbsp;dc.ColumnName&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;If&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;Each&nbsp;dr&nbsp;In&nbsp;dt.Rows&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rowIndex&nbsp;=&nbsp;rowIndex&nbsp;&#43;&nbsp;<span class="js__num">1</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colIndex&nbsp;=&nbsp;<span class="js__num">0</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;Each&nbsp;dc&nbsp;In&nbsp;dt.Columns&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;colIndex&nbsp;=&nbsp;colIndex&nbsp;&#43;&nbsp;<span class="js__num">1</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wSheet.Cells(rowIndex&nbsp;&#43;&nbsp;<span class="js__num">1</span>,&nbsp;colIndex)&nbsp;=&nbsp;dr(dc.ColumnName)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wSheet.Columns.AutoFit()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wBook.SaveAs(strFileName)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ReleaseObject(wSheet)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wBook.Close(False)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ReleaseObject(wBook)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_excel.Quit()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ReleaseObject(_excel)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GC.Collect()&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MessageBox.Show(<span class="js__string">&quot;File&nbsp;Export&nbsp;Successfully!&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;Sub&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Private&nbsp;Sub&nbsp;ReleaseObject(ByVal&nbsp;o&nbsp;As&nbsp;<span class="js__object">Object</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Try&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;While&nbsp;(<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Runtime.InteropServices.Marshal.ReleaseComObject.aspx"  title="Auto generated link to System.Runtime.InteropServices.Marshal.ReleaseComObject">System.Runtime.InteropServices.Marshal.ReleaseComObject</a>(o)&nbsp;&gt;&nbsp;<span class="js__num">0</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;While&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Catch&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Finally&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;o&nbsp;=&nbsp;Nothing&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;Try&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;Sub</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<br>
+</strong>
+<p></p>
+<p>&nbsp;</p>
+<h1><span>Source Code Files</span></h1>
+<ul>
+<li>Form1.vb contains all code for creating data table at run time and export to excel.
+</li></ul>
+<h1>More Information</h1>
+<p><em>When you works with any office component programming, some time </em>Office application does not quit after automation:&nbsp;</p>
+<p><a href="http://support.microsoft.com/kb/317109">http://support.microsoft.com/kb/317109</a>&nbsp;</p>
+<p>How ever i hope you will not face this problem with the above sample code.</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

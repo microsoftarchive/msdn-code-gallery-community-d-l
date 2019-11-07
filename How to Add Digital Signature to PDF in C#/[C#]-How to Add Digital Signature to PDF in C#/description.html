@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="/Areas/Epx/Themes/Windows/Content/Header.css" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="/Areas/Epx/Themes/Windows/Content/sprite.css" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="/Areas/Epx/Themes/Windows/Content/UhfHeader.css" data-do-not-move="true" />
+<link rel="stylesheet" href="https://statics-uhf-eus.akamaized.net/west-european/shell/_scrf/css/themes=default.device=uplevel_web_pc/b7-cff691/fe-0f62aa/c5-84ba17/8c-ba3760/c1-2e7f30/24-7b7ef4/41-e95610/a7-b05f22?ver=2.0" type="text/css" media="all" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:sprite,1:SelectLocaleFromPopUp;/Areas/Epx/Themes/Windows/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=DE5116690A08C5955D6936A17A6B72BE" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Areas/Epx/Themes/Windows/Content/UhfFooter.css?v=636626369923802619" data-do-not-move="true" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to Add Digital Signature to PDF in C#</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" /><link href="description/74f5e2d5-48ff-48fd-89a6-5d584eb9c40bBrand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/windowsdesktop/content/windowsdesktop/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/windowsdesktop/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to Add Digital Signature to PDF in C#</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, ASP.NET, Windows Forms, VB.Net
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Digital Signature, PDF API
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">6/8/2018</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MIT</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/windowsdesktop/How-to-Add-Digital-f807080f">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p>This is <a href="http://www.iditect.com/product/pdf-sign/">iDiTect .NET PDF Digital Signer</a> sample code project. Developers are allowed using the full featured trial library to add digital signature to PDF in C#.</p>
+<p>As advanced component build by iDiTect, it can digital sign PDF with text or/and image. &quot;SHA1&quot;, &quot;SHA256&quot; and &quot;SHA512&quot; algorithm are embedded in the component, users can customized signature infomation about contact, location, reason, sign field name, and
+ inserting rectagle in the PDF page. Besides, if you have a signed PDF document already, this library can also
+<a href="http://www.iditect.com/tutorial/check-pdf-signature/">detect the signature information in c#</a>.</p>
+<p>The library is thread safe, can be integrate in any Winforms desktop project and ASP.NET web programming. Both 32 and 64 bits support, require .NET framework 4.0&#43;.</p>
+<p>This trial package are only allowed to use in evaluation test, any other use need the
+<a href="http://www.iditect.com/pricing.html">license</a>.</p>
+<p class="text-center">If the trial key in the download package is expired, please go to
+<a href="http://www.iditect.com/download/iDiTect.Trial.zip">iditect to download the newest demo zip</a> for the fresh trial key.</p>
+<p>&nbsp;</p>
+<h1>C# Sample for Signing PDF with Text</h1>
+<p><em>Following is a C# sample to creating text signature to PDF.</em><span style="font-size:small"><em>&nbsp;</em></span><em>
+</em></p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">//Input your certificate and password
+PdfCertificate cert = new PdfCertificate(&quot;test.pfx&quot;, &quot;iditect&quot;);
+PdfSigner signer = new PdfSigner(&quot;sample.pdf&quot;, cert);
+
+//Set signature information
+signer.SignatureInfo.Contact = &quot;123456789&quot;;
+signer.SignatureInfo.Reason = &quot;Sign by iDiTect&quot;;
+signer.SignatureInfo.Location = &quot;World Wide Web&quot;;
+//Field name need to be unique in the same pdf document
+signer.SignatureInfo.FieldName = &quot;iDiTect Sign Field&quot;;
+//Sign in target page
+signer.SignatureInfo.PageId = 0;
+//Sign in target area
+signer.SignatureInfo.Rect = new Rectangle(50, 100, 100, 50);
+signer.SignatureAlgorithm = SignatureAlgorithm.SHA256;
+signer.SignatureType = SignatureType.Text;
+
+signer.Sign(&quot;signed.pdf&quot;);</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__com">//Input&nbsp;your&nbsp;certificate&nbsp;and&nbsp;password</span>&nbsp;
+PdfCertificate&nbsp;cert&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;PdfCertificate(<span class="cs__string">&quot;test.pfx&quot;</span>,&nbsp;<span class="cs__string">&quot;iditect&quot;</span>);&nbsp;
+PdfSigner&nbsp;signer&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;PdfSigner(<span class="cs__string">&quot;sample.pdf&quot;</span>,&nbsp;cert);&nbsp;
+&nbsp;
+<span class="cs__com">//Set&nbsp;signature&nbsp;information</span>&nbsp;
+signer.SignatureInfo.Contact&nbsp;=&nbsp;<span class="cs__string">&quot;123456789&quot;</span>;&nbsp;
+signer.SignatureInfo.Reason&nbsp;=&nbsp;<span class="cs__string">&quot;Sign&nbsp;by&nbsp;iDiTect&quot;</span>;&nbsp;
+signer.SignatureInfo.Location&nbsp;=&nbsp;<span class="cs__string">&quot;World&nbsp;Wide&nbsp;Web&quot;</span>;&nbsp;
+<span class="cs__com">//Field&nbsp;name&nbsp;need&nbsp;to&nbsp;be&nbsp;unique&nbsp;in&nbsp;the&nbsp;same&nbsp;pdf&nbsp;document</span>&nbsp;
+signer.SignatureInfo.FieldName&nbsp;=&nbsp;<span class="cs__string">&quot;iDiTect&nbsp;Sign&nbsp;Field&quot;</span>;&nbsp;
+<span class="cs__com">//Sign&nbsp;in&nbsp;target&nbsp;page</span>&nbsp;
+signer.SignatureInfo.PageId&nbsp;=&nbsp;<span class="cs__number">0</span>;&nbsp;
+<span class="cs__com">//Sign&nbsp;in&nbsp;target&nbsp;area</span>&nbsp;
+signer.SignatureInfo.Rect&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;Rectangle(<span class="cs__number">50</span>,&nbsp;<span class="cs__number">100</span>,&nbsp;<span class="cs__number">100</span>,&nbsp;<span class="cs__number">50</span>);&nbsp;
+signer.SignatureAlgorithm&nbsp;=&nbsp;SignatureAlgorithm.SHA256;&nbsp;
+signer.SignatureType&nbsp;=&nbsp;SignatureType.Text;&nbsp;
+&nbsp;
+signer.Sign(<span class="cs__string">&quot;signed.pdf&quot;</span>);</pre>
+</div>
+</div>
+</div>
+<h1>C# Sample for Signing PDF with Image</h1>
+<p><em>Following is a C# sample to creating image signature to PDF.</em><span style="font-size:small"><em>
+</em></span></p>
+<p><span style="font-size:small"><em>&nbsp;</em></span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><em><span>C#</span></em></div>
+<div class="pluginLinkHolder"><em><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></em></div>
+<em><span class="hidden">csharp</span>
+<pre class="hidden">//Input your certificate and password
+PdfCertificate cert = new PdfCertificate(&quot;test.pfx&quot;, &quot;iditect&quot;);
+PdfSigner signer = new PdfSigner(&quot;sample.pdf&quot;, cert);
+
+//Support commonly used image format, like jpg, png, gif
+signer.SignatureImageFile = &quot;sample.jpg&quot;;
+//Field name need to be unique in the same pdf document
+signer.SignatureInfo.FieldName = &quot;iDiTect Sign&quot;;
+//Sign in target page
+signer.SignatureInfo.PageId = 0;
+//Sign in target area
+signer.SignatureInfo.Rect = new Rectangle(50, 100, 100, 50);
+signer.SignatureAlgorithm = SignatureAlgorithm.SHA256;
+signer.SignatureType = SignatureType.Image;
+
+signer.Sign(&quot;signed.pdf&quot;);</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__com">//Input&nbsp;your&nbsp;certificate&nbsp;and&nbsp;password</span>&nbsp;
+PdfCertificate&nbsp;cert&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;PdfCertificate(<span class="cs__string">&quot;test.pfx&quot;</span>,&nbsp;<span class="cs__string">&quot;iditect&quot;</span>);&nbsp;
+PdfSigner&nbsp;signer&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;PdfSigner(<span class="cs__string">&quot;sample.pdf&quot;</span>,&nbsp;cert);&nbsp;
+&nbsp;
+<span class="cs__com">//Support&nbsp;commonly&nbsp;used&nbsp;image&nbsp;format,&nbsp;like&nbsp;jpg,&nbsp;png,&nbsp;gif</span>&nbsp;
+signer.SignatureImageFile&nbsp;=&nbsp;<span class="cs__string">&quot;sample.jpg&quot;</span>;&nbsp;
+<span class="cs__com">//Field&nbsp;name&nbsp;need&nbsp;to&nbsp;be&nbsp;unique&nbsp;in&nbsp;the&nbsp;same&nbsp;pdf&nbsp;document</span>&nbsp;
+signer.SignatureInfo.FieldName&nbsp;=&nbsp;<span class="cs__string">&quot;iDiTect&nbsp;Sign&quot;</span>;&nbsp;
+<span class="cs__com">//Sign&nbsp;in&nbsp;target&nbsp;page</span>&nbsp;
+signer.SignatureInfo.PageId&nbsp;=&nbsp;<span class="cs__number">0</span>;&nbsp;
+<span class="cs__com">//Sign&nbsp;in&nbsp;target&nbsp;area</span>&nbsp;
+signer.SignatureInfo.Rect&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;Rectangle(<span class="cs__number">50</span>,&nbsp;<span class="cs__number">100</span>,&nbsp;<span class="cs__number">100</span>,&nbsp;<span class="cs__number">50</span>);&nbsp;
+signer.SignatureAlgorithm&nbsp;=&nbsp;SignatureAlgorithm.SHA256;&nbsp;
+signer.SignatureType&nbsp;=&nbsp;SignatureType.Image;&nbsp;
+&nbsp;
+signer.Sign(<span class="cs__string">&quot;signed.pdf&quot;</span>);</pre>
+</div>
+</em></div>
+</div>
+<div class="endscriptcode"><em>&nbsp;For full details about adding text/image signature to pdf in c#, please see
+<a href="http://www.iditect.com/tutorial/sign-pdf/">this page</a>.</em></div>
+<p><em><br>
+</em></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

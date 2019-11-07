@@ -1,0 +1,48 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WPFSample.Controls">
+
+    <!-- OverlayTextControl -->
+    <Style x:Key="{x:Type local:OverlayTextControl}" 
+           TargetType="{x:Type local:OverlayTextControl}">
+
+        <Setter Property="Background" 
+                Value="Transparent"/>
+        <Setter Property="BorderBrush" 
+                Value="Transparent" />
+        <Setter Property="BorderThickness" 
+                Value="1"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:OverlayTextControl}">
+                    <Border Name="InnerBorder"
+                            Margin="6, 3, 3, 2"
+                            Padding="{TemplateBinding Padding}"
+                            Background="Transparent">
+                        <TextBlock Text="{TemplateBinding Text}" 
+                                   VerticalAlignment="Center" 
+                                   HorizontalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsActive" 
+                                 Value="False">
+                            <Setter Property="Visibility" 
+                                    Value="Collapsed" 
+                                    TargetName="InnerBorder"/>
+                        </Trigger>
+                        <Trigger Property="IsActive" 
+                                 Value="True">
+                            <Setter Property="Visibility" 
+                                    Value="Visible" 
+                                    TargetName="InnerBorder"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- OverlayTextControl -->
+    
+</ResourceDictionary>

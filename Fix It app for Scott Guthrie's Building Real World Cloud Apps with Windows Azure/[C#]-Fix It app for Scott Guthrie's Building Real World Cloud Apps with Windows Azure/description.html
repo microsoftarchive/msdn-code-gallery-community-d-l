@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=62DBC035A4A8AD76676CA11B61CB6C59" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/5bfd43cc-808d-4397-8478-c2bcd8ea1846Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=60546B18CCC226DE9D7A404EDD74623E" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Fix It app for Scott Guthrie&#39;s Building Real World Cloud Apps with Windows Azure</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Fix It app for Scott Guthrie&#39;s Building Real World Cloud Apps with Windows Azure</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, ASP.NET, Microsoft Azure, .NET Framework, ASP.NET MVC 4, Windows Azure SQL Database
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            ASP.NET, Microsoft Azure, Web Development, Windows Azure Queues, Windows Azure Web Sites, Windows Azure Cache Service
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web, Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/22/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Fix-It-app-for-Building-cdd80df4">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>This is a Visual Studio project that accompanies the e-book <a href="http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction">
+Building Real-World Cloud Apps with Windows Azure</a>. The code demonstrates best practices for cloud apps as presented in the e-book, such as:</p>
+<ul>
+<li>Storing automation scripts with code in source control </li><li>Using automation scripts for environment creation and deployment </li><li>Asynchronous programming </li><li>Dependency injection </li><li>Data partitioning </li><li>Blob storage </li><li>Transient fault handling </li><li>Instrumentation </li><li>Queue-centric work pattern </li></ul>
+<h1><span>Building the Sample</span></h1>
+<p>There are two versions of the app you can run:</p>
+<ul>
+<li>The base version is designed to run in a Windows Azure Web Site. </li><li>The queues version has a front-end web site and a back-end service. The front-end communicates with the back-end via Windows Azure Storage Queues. The front-end is designed to run in a Windows Azure Web Site, the back-end is designed to run in a Windows
+ Azure Cloud Service. </li></ul>
+<p>The following instructions apply to the base version:</p>
+<ol>
+<li>Install <a href="http://www.visualstudio.com/en-us/downloads">Visual Studio 2013 or Visual Studio 2013 Express for Web</a>.
+</li><li>Install the <a href="http://go.microsoft.com/fwlink/p/?linkid=323510&amp;clcid=0x409">
+Windows Azure SDK for .NET for Visual Studio 2013.</a> </li><li>Download the .zip file. </li><li>In File Explorer, right-click the&nbsp;.zip file and click Properties, then in the Properties window click Unblock.
+</li><li>Unzip the file. </li><li>Double-click the .sln file to launch Visual Studio. </li><li>From the Tools menu, click Library Package Manager, then Package Manager Console.
+</li><li>In the Package Manager Console (PMC), click Restore. </li><li>Exit Visual Studio. </li><li>Start the <a href="http://msdn.microsoft.com/en-us/library/windowsazure/hh403989.aspx">
+Windows Azure storage emulator</a>. </li><li>Restart Visual Studio, opening the solution file you closed in the previous step.
+</li><li>Make sure the FixIt project is set as the startup project, and then press CTRL&#43;F5 to run the project.
+</li></ol>
+<p>Instructions that explain how to use the included PowerShell scripts to deploy the application to Windows Azure, and how to run and deploy the queues version of the application, are in
+<a href="http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/the-fix-it-sample-application">
+Appendix: The Fix It Sample Application</a>.</p>
+<h1>Description</h1>
+<p>The sample app is a simple work item ticketing system called &ldquo;Fix It!&rdquo;&nbsp; When you need something fixed, you create a ticket and assign it to someone, and others can log in and see the tickets assigned to them and mark tickets as completed
+ when the work is done.</p>
+<p>It&rsquo;s a standard Visual Studio web project. It is built on ASP.NET MVC and&nbsp; uses a SQL Server database. It can run locally in IIS Express&nbsp; and can be deployed to a Windows Azure Web Site to run in the cloud. For the queues version, the back-end
+ code that processes the queue messages is deployed to a&nbsp;worker role in a&nbsp;Windows Azure Cloud Service.</p>
+<p><img id="104147" src="description/image001.png" alt="" width="631" height="582"></p>
+<p>You can log in using forms authentication and a local database or by using a social provider such as Google.</p>
+<p><img id="104148" src="description/image002.png" alt="" width="632" height="463"></p>
+<p>Once you&rsquo;re logged in you can create a ticket, assign it to someone, and upload a picture of what you want to get fixed.</p>
+<p><img id="104150" src="description/image004.png" alt="" width="619" height="577"></p>
+<p><img id="104151" src="description/image005.png" alt="" width="621" height="575"></p>
+<p>You can track the progress of work items you created.</p>
+<p><img id="104152" src="description/image006.png" alt="" width="621" height="368"></p>
+<p>You can see tickets that are assigned to you and select one to see the details.</p>
+<p><img id="104153" src="description/image007.png" alt="" width="620" height="309"></p>
+<p><img id="104154" src="description/image008.png" alt="" width="621" height="744"></p>
+<p>&nbsp;</p>
+<h1>Source Code Folders</h1>
+<ul>
+<li>Automation - PowerShell scripts for environment creation and deployment. </li><li>MyFixIt - The Web project. </li><li>MyFixIt.Logging - Instrumentation code (logging interface and implementation).
+</li><li>MyFixIt.Persistence - Code for handling storage and retrieval of Tasks and their image files.
+</li><li>MyFixIt.Tests - Unit tests. </li><li>MyFixIt.WorkerRole - Worker role project, used for queues version of the app only.
+</li><li>MyFixIt.CloudService - Windows Azure Cloud Service deployment project, used for queues version of the app only.
+</li><li>packages - NuGet packages. </li></ul>
+<h1>More Information</h1>
+<p>For more information, see <a href="http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction">
+Building Real-World Cloud Apps with Windows Azure</a>.</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

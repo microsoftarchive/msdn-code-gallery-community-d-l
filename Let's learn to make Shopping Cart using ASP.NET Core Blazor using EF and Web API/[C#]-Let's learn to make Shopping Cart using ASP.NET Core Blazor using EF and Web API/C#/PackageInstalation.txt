@@ -1,0 +1,6 @@
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+
+Install-Package Microsoft.EntityFrameworkCore.Tools
+
+
+Scaffold-DbContext "Server= YourServerName;Database=ShoppingDB;user id=SQLID;password=SQLPWD;Trusted_Connection=True;MultipleActiveResultSets=true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables ItemDetails ,ShoppingDetails

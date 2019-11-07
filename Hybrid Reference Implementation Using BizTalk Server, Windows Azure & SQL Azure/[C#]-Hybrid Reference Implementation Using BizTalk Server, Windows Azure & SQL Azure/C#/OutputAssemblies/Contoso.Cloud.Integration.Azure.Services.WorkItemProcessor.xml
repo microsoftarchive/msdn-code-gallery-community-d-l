@@ -1,0 +1,445 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor</name>
+    </assembly>
+    <members>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings">
+            <summary>
+            Implements a configuration section which provides access to the configuration settings used by the Work Item Processor service.
+            </summary>
+        </member>
+        <member name="F:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.CloudStorageAccountProperty">
+            <summary>
+            The names of application-specific configuration properties.
+            </summary>
+        </member>
+        <member name="F:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.SectionName">
+            <summary>
+            The name of the configuration section represented by this type.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings"/> object with default settings.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.#ctor(Contoso.Cloud.Integration.Framework.Configuration.ApplicationConfigurationSettings)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings"/> object using the specified default settings.
+            </summary>
+            <param name="baseSettings">The custom default settings.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.CloudStorageAccount">
+            <summary>
+            Gets or sets the name of the Windows Azure storage account which hosts the working queues.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.WorkItemQueue">
+            <summary>
+            Gets or sets the name of the Windows Azure queue from which work items awaiting processing will be dequeued.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.OutputQueue">
+            <summary>
+            Gets or sets the name of the Windows Azure queue to which processing results will be enqueued.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.WorkItemQueueVisibilityTimeout">
+            <summary>
+            Gets or sets the queue item visibility timeout for the input queue.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.OutputQueueVisibilityTimeout">
+            <summary>
+            Gets or sets the queue item visibility timeout for the output queue.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.InventoryDatabase">
+            <summary>
+            Gets or sets the name of the connection string definition for the Inventory database.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.HandlingPolicyName">
+            <summary>
+            Gets or sets the name of the business rules policy being used for performing work item processing.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.DequeueBatchSize">
+            <summary>
+            Gets or sets the queue item batch size when communicating with Windows Azure queue storage service.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.MinimumIdleInterval">
+            <summary>
+            Gets or sets the time interval defining the minimum delay when polling an empty queue.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Configuration.WorkItemProcessorConfigurationSettings.MaximumIdleInterval">
+            <summary>
+            Gets or sets the time interval defining the maximum delay when polling an empty queue.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.IWorkItemQueueSubscriberExtension">
+            <summary>
+            Defines a contract that must be implemented by an extension responsible for processing work items found in the input queue.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InputQueueSubscriberExtension">
+            <summary>
+            Implements the extension responsible for processing work items found in the input queue. 
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InputQueueSubscriberExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InputQueueSubscriberExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InputQueueSubscriberExtension.OnNext(System.Xml.Linq.XDocument)">
+            <summary>
+            Gets called by the provider to notify this subscriber about a new item retrieved from the queue.
+            </summary>
+            <param name="item">The queue item retrieved from the source queue.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InputQueueSubscriberExtension.OnCompleted">
+            <summary>
+            Gets called by the provider to indicate that it has finished processing queue items and is about to terminate.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InputQueueSubscriberExtension.OnError(System.Exception)">
+            <summary>
+            Gets called by the provider to indicate that data is unavailable, inaccessible, or corrupted, 
+            or that the provider has experienced some other error condition.
+            </summary>
+            <param name="error">The exception that resulted in an error condition.</param>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InterRoleEventSubscriberExtension">
+            <summary>
+            Implements the extension responsible for receiving and handling inter-role communication events.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InterRoleEventSubscriberExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InterRoleEventSubscriberExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InterRoleEventSubscriberExtension.OnNext(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.InterRoleCommunicationEvent)">
+            <summary>
+            Gets called by the provider to notify this subscriber about a new inter-role communication event.
+            </summary>
+            <param name="e">The received inter-role communication event.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InterRoleEventSubscriberExtension.OnCompleted">
+            <summary>
+            Gets called by the provider to indicate that it has finished processing an inter-role communication event.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.InterRoleEventSubscriberExtension.OnError(System.Exception)">
+            <summary>
+            Gets called by the provider to indicate that data is unavailable, inaccessible, or corrupted, 
+            or that the provider has experienced some other error condition.
+            </summary>
+            <param name="error">The exception that resulted in an error condition.</param>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.OutputQueueSubscriberExtension">
+            <summary>
+            Implements the extension responsible for processing work items found in the output queue. 
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.OutputQueueSubscriberExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.OutputQueueSubscriberExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.OutputQueueSubscriberExtension.OnNext(System.Xml.Linq.XDocument)">
+            <summary>
+            Gets called by the provider to notify this subscriber about a new item retrieved from the queue.
+            </summary>
+            <param name="inventoryDoc">The queue item retrieved from the source queue.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.OutputQueueSubscriberExtension.OnCompleted">
+            <summary>
+            Gets called by the provider to indicate that it has finished processing queue items and is about to terminate.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.OutputQueueSubscriberExtension.OnError(System.Exception)">
+            <summary>
+            Gets called by the provider to indicate that data is unavailable, inaccessible, or corrupted, 
+            or that the provider has experienced some other error condition.
+            </summary>
+            <param name="error">The exception that resulted in an error condition.</param>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.IScalableTransformServiceClientExtension">
+            <summary>
+            Defines a contract that must be implemented by an extension responsible for interoperating with the Scalable Transform service.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.IScalableTransformServiceClientExtension.ApplyTransform(System.String,System.Xml.Linq.XDocument)">
+            <summary>
+            Applies the specified transformation map against the input document.
+            </summary>
+            <param name="transformName">Either partial or fully qualified name of the transformation map.</param>
+            <param name="input">The input document that needs to be transformed.</param>
+            <returns>The results from transformation.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.ScalableTransformServiceClientExtension">
+            <summary>
+            Implements the extension responsible for interoperating with the Scalable Transform service.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.ScalableTransformServiceClientExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.ScalableTransformServiceClientExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.ScalableTransformServiceClientExtension.ApplyTransform(System.String,System.Xml.Linq.XDocument)">
+            <summary>
+            Applies the specified transformation map against the input document.
+            </summary>
+            <param name="transformName">Either partial or fully qualified name of the transformation map.</param>
+            <param name="input">The input document that needs to be transformed.</param>
+            <returns>The results from transformation.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.WorkQueueLocationResolverExtension">
+            <summary>
+            Implements the extension responsible for dynamically resolving the location of a given queue at runtime.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.WorkQueueLocationResolverExtension.GetQueueLocation(System.String)">
+            <summary>
+            Resolves the exact location of a given queue by its name.
+            </summary>
+            <param name="queueName">The name of the Windows Azure queue.</param>
+            <returns>The location of the queue in the Windows Azure storage infrastructure.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.WorkQueueLocationResolverExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.WorkQueueLocationResolverExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.IWorkItemProcessorConfigurationExtension">
+            <summary>
+            Defines a contract that must be implemented by an extension responsible for providing 
+            access to the Work Item Processor service configuration settings.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.IWorkItemProcessorConfigurationExtension.Settings">
+            <summary>
+            Returns configuration settings used by the Work Item Processor service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.WorkItemProcessorConfigurationExtension">
+            <summary>
+            Implements the extension responsible for providing access to the Work Item Processor service configuration settings.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.WorkItemProcessorConfigurationExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.WorkItemProcessorConfigurationExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Extensions.WorkItemProcessorConfigurationExtension.Settings">
+            <summary>
+            Returns configuration settings used by the Work Item Processor service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.ExceptionMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.ExceptionMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.ExceptionMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.ExceptionMessages.ServiceBusEndpointNotFound">
+            <summary>
+              Looks up a localized string similar to The definition for a Windows Azure Service Bus endpoint {0} has not been found in the configuration file or source. Please ensure that the definition with the above name exists..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.ExceptionMessages.StoreInventoryDataOperationFailed">
+            <summary>
+              Looks up a localized string similar to Unable to store the inventory data due to one or more server errors. Please see the exception details for more information..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.ExceptionMessages.UnableToResolveDataTransferObjectType">
+            <summary>
+              Looks up a localized string similar to Unable to resolve the type of a DTO object for work item type {0}. Please ensure that the {1} policy returns a valid result..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.ExceptionMessages.UnableToResolveTransformName">
+            <summary>
+              Looks up a localized string similar to Unable to resolve the name of the transformation map for work item type {0}. Please ensure that the {1} policy returns a valid result..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.ExceptionMessages.UnrecognizedDataTransferObjectType">
+            <summary>
+              Looks up a localized string similar to The type of the specified DTO object has not been recognized or unsupported by the Data Acccess Web Service client..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.ExceptionMessages.UnrecognizedObject">
+            <summary>
+              Looks up a localized string similar to Unable to read {0} object from the input XML document. The XML content cannot be recognized as  a valid serialized version of {0}..
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.Resources.StringDictionaryFactValueDataTransferObjectType">
+            <summary>
+              Looks up a localized string similar to Data Transfer Object Type.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.Resources.StringDictionaryFactValueDequeueListenerCount">
+            <summary>
+              Looks up a localized string similar to Dequeue Listener Count.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.Resources.StringDictionaryFactValueTransformName">
+            <summary>
+              Looks up a localized string similar to Transform Name.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.TraceLogMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.TraceLogMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.TraceLogMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.TraceLogMessages.DequeueTaskCountInfo">
+            <summary>
+              Looks up a localized string similar to {2} dequeue tasks will be activated to handle document type {0} of {1} bytes in size..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.TraceLogMessages.ScopeDeserializeDataTransferObjects">
+            <summary>
+              Looks up a localized string similar to OutputQueueSubscriberExtension -&gt; OnNext -&gt; Deserialize DTO Objects.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.TraceLogMessages.ScopeInvokeEntityFrameworkAPI">
+            <summary>
+              Looks up a localized string similar to OutputQueueSubscriberExtension -&gt; OnNext -&gt; Invoke EF API.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.Properties.TraceLogMessages.ScopeInvokeWebServiceAPI">
+            <summary>
+              Looks up a localized string similar to OutputQueueSubscriberExtension -&gt; OnNext -&gt; Invoke Web Service API Method.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.WorkItemProcessorWorkerRole">
+            <summary>
+            Implements a worker role dedicated to work items processing.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.WorkItemProcessorWorkerRole.OnRoleRun">
+            <summary>
+            Extends the Run phase that is called by Windows Azure runtime after the role instance has been initialized.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.WorkItemProcessorWorkerRole.OnRoleStart">
+            <summary>
+            Extends the OnStart phase that is called by Windows Azure runtime to initialize the role instance.
+            </summary>
+            <returns>True if initialization succeeds, otherwise false.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.WorkItemProcessorWorkerRole.OnRoleStop">
+            <summary>
+            Extends the OnStop phase that is called by Windows Azure runtime when the role instance is to be stopped.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.WorkItemProcessorWorkerRole.HandleQueueEmptyEvent(System.Object,System.Int32,System.TimeSpan@)">
+            <summary>
+            Implements a callback delegate which will be invoked whenever there is no more work available on the queue.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="idleCount">The value indicating how many times the queue listener has been idle.</param>
+            <param name="delay">The time interval during which the queue listener will be instructed to sleep before performing next unit of work.</param>
+            <returns>A boolean flag indicating that the queue listener should stop processing any further work and must terminate.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.WorkItemProcessorWorkerRole.HandleQueueWorkDetectedEvent(System.Object)">
+            <summary>
+            Implements a callback delegate to be invoked whenever a new work has arrived to a queue while the queue listener was idle.
+            </summary>
+            <param name="sender">The source of the event.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.WorkItemProcessor.WorkItemProcessorWorkerRole.GetOptimalDequeueTaskCount(System.Int32)">
+            <summary>
+            Returns the number of queue tasks that would be required to handle the workload in a queue given its current depth.
+            </summary>
+            <param name="currentDepth">The approximate number of items in the queue.</param>
+            <returns>The optimal number of dequeue tasks.</returns>
+        </member>
+    </members>
+</doc>

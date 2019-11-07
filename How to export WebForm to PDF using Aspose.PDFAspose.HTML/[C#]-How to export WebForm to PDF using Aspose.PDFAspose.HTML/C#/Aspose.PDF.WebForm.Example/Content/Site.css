@@ -1,0 +1,57 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+caption {
+    caption-side: top
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+}
+.ExportButton {
+    float:right;
+}
+.GridPager a, .GridPager span {
+    display: block;
+    height: 32px;
+    width: 32px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.GridPager a {    
+    color: mediumvioletred;
+    border: 1px solid #969696;
+}
+
+.GridPager span {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}

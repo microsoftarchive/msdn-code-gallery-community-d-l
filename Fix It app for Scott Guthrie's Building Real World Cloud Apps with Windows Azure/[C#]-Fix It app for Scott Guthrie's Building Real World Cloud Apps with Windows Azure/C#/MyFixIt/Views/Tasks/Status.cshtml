@@ -1,0 +1,58 @@
+@*
+//
+// Copyright (C) Microsoft Corporation.  All rights reserved.
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+*@
+
+@model IEnumerable<MyFixIt.Persistence.FixItTask>
+
+@{
+    ViewBag.Title = "Below is the status on FixIts you've opened";
+}
+
+<h2>FixIts You've Opened</h2>
+
+<p>
+    Below is the status of the FixIts you've already opened:
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>Thing to Fix</th>
+        <th>Assigned To</th>
+        <th>Status</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Owner)
+        </td>
+        <td>
+            @if (item.IsDone) {
+                <span>Fixed</span>
+            }
+            else {
+                <span>Open</span>   
+            }
+        </td>
+    </tr>
+}
+
+</table>
+
+<a href="/Tasks/Create">Create a New FixIt</a>

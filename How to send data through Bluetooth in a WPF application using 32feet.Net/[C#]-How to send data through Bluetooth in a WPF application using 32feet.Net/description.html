@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to send data through Bluetooth in a WPF application using 32feet.Net</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to send data through Bluetooth in a WPF application using 32feet.Net</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, WPF, XAML, Bluetooth
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Bluetooth, Bluetooth communication
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">10/15/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>Sample that show how to send data through Bluetooth in a WPF application using 32feet.Net</p>
+<p><span>&nbsp;</span></p>
+<h1><span>Building the Sample</span></h1>
+<p><em><em>You only need Visual Studio 2012/Visual Studio 2013.</em></em></p>
+<p><em><br>
+</em></p>
+<p><span style="font-size:20px; font-weight:bold">Description</span></p>
+<p>For a complete description please read the following article</p>
+<p><a href="http://wp.me/p4LXhq-GG">How to send data through Bluetooth in a WPF application using 32feet.Net</a></p>
+<p>&nbsp;</p>
+<h1><a class="anchor" name="user-content-running-the-wpf-application" href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://github.com/saramgsilva/BluetoothSampleUsing32feet.Net#running-the-wpf-application"></a>Running the WPF Application</h1>
+<p>For test the application we need two devices, where in the first device we will run as &ldquo;Sender&rdquo; and in the second device we will run as &ldquo;Receiver&rdquo;.</p>
+<blockquote>
+<h2>The &ldquo;Receiver&rdquo; can start listening</h2>
+</blockquote>
+<p><a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/c2efc9ef3fa1cb885d31871f53292b7b2efece8c/687474703a2f2f69312e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e646461362e706e673f773d353834" ><img src="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/c2efc9ef3fa1cb885d31871f53292b7b2efece8c/687474703a2f2f69312e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e646461362e706e673f773d353834" alt="" style="display:block; margin-left:auto; margin-right:auto"></a></p>
+<blockquote>
+<h2>The &ldquo;Sender&rdquo; is searching for available devices</h2>
+</blockquote>
+<p><a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/eab4dcee57177c1474b9b8ff4420fbd684312f83/687474703a2f2f69302e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e646461372e706e673f773d353834" ><img src="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/eab4dcee57177c1474b9b8ff4420fbd684312f83/687474703a2f2f69302e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e646461372e706e673f773d353834" alt="" style="display:block; margin-left:auto; margin-right:auto"></a></p>
+<blockquote>
+<h2>The &ldquo;Receiver&rdquo; is starting for listening</h2>
+</blockquote>
+<p><a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/eab4dcee57177c1474b9b8ff4420fbd684312f83/687474703a2f2f69302e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e646461372e706e673f773d353834" ><img src="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/eab4dcee57177c1474b9b8ff4420fbd684312f83/687474703a2f2f69302e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e646461372e706e673f773d353834" alt="" style="display:block; margin-left:auto; margin-right:auto"></a></p>
+<blockquote>
+<h2>The &ldquo;Sender&rdquo; can select a device for send the message</h2>
+</blockquote>
+<p><a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/0ab006ed0fc83e4fb1bd8b2d4caa970c7bd8341d/687474703a2f2f69322e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e646461382e706e673f773d353834" ><img src="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/0ab006ed0fc83e4fb1bd8b2d4caa970c7bd8341d/687474703a2f2f69322e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e646461382e706e673f773d353834" alt="" style="display:block; margin-left:auto; margin-right:auto"></a></p>
+<blockquote>
+<h2>The &ldquo;Sender&rdquo; will send a message for the selected device</h2>
+</blockquote>
+<h2><a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/326be1fc6c8419d4d9e0189bf34219ff4537cccd/687474703a2f2f69312e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e646461392e706e673f773d353834" ><img src="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/326be1fc6c8419d4d9e0189bf34219ff4537cccd/687474703a2f2f69312e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e646461392e706e673f773d353834" alt="" style="display:block; margin-left:auto; margin-right:auto"></a></h2>
+<blockquote>
+<h2 style="text-align:left">The &ldquo;Receiver&rdquo; received data sent by &ldquo;Sender&rdquo;</h2>
+</blockquote>
+<p><a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/28694891ff389ff6d96e553058f44922a73faf45/687474703a2f2f69312e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e64646131302e706e673f773d353834" ><img src="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/28694891ff389ff6d96e553058f44922a73faf45/687474703a2f2f69312e77702e636f6d2f7777772e736172616d6773696c76612e636f6d2f77702d636f6e74656e742f75706c6f6164732f323031342f31302f3130303731345f313232355f486f77746f73656e64646131302e706e673f773d353834" alt="" style="display:block; margin-left:auto; margin-right:auto"></a></p>
+<p>&nbsp;</p>
+<h1><span style="font-size:x-large">Nuget</span></h1>
+<p>In&nbsp;<a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://www.nuget.org/">Nuget</a>&nbsp;is available the nuget package with the classes created in this sample:</p>
+<p style="text-align:left"><a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://www.nuget.org/packages/32feet.Net-MVVMServices/">32feet.Net - MVVM Services for Bluetooth communication</a></p>
+<p style="text-align:left">&nbsp;</p>
+<blockquote>
+<h2>Installing the 32feet.Net - MVVM Services for Bluetooth communication</h2>
+</blockquote>
+<p><a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/fa4ac0c7be44468c70e77e630b199400226401e8/687474703a2f2f73392e706f7374696d672e6f72672f36396e616a74356d372f6e756765742e706e67" ><img src="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://camo.githubusercontent.com/fa4ac0c7be44468c70e77e630b199400226401e8/687474703a2f2f73392e706f7374696d672e6f72672f36396e616a74356d372f6e756765742e706e67" alt="" width="600" height="400" style="display:block; margin-left:NaNpx; margin-right:NaNpx"></a></p>
+<h1>Run the sample</h1>
+<p>To debug the app and then run it, press F5 or use&nbsp;<strong>Debug</strong>&nbsp;&gt;&nbsp;<strong>Start Debugging</strong>. To run the app without&nbsp;&nbsp; debugging, press Ctrl&#43;F5 or use&nbsp;<strong>Debug</strong>&nbsp;&gt;&nbsp;<strong>Start Without
+ Debugging</strong>.</p>
+<p>&nbsp;</p>
+<h1>See Also</h1>
+<ul>
+<li><a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://github.com/saramgsilva/ModernUISamples">https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://github.com/saramgsilva/ModernUISamples</a>
+</li><li><a href="http://saramgsilva.github.io/ModernUISamples"><span lang="en-GB">http://saramgsilva.github.io/</span><span lang="pt">ModernUISamples</span></a>
+</li></ul>
+<p>&nbsp;</p>
+<h1>More Information</h1>
+<p><em><em>Ask me on twitter <a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://twitter.com/saramgsilva">@saramgsilva</a></em></em></p>
+<p>&nbsp;</p>
+<h1>Follow me</h1>
+<blockquote>
+<p><a href="http://www.saramgsilva.com/">My blog: typeof(saramgsilva)</a></p>
+<p><a href="https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://code.msdn.microsoft.com/how-to-send-data-through-037ef93e/https://twitter.com/saramgsilva">My twitter @saramgsilva</a></p>
+</blockquote>
+
+</div>
+
+
+    </div>
+</body>
+</html>

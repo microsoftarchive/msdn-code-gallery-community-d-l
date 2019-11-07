@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:Banner,2:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Shared/Content:1,/Areas/Epx/Themes/Base/Content:2&amp;amp;hashKey=43176693215A318AD0042E0718980CBA" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/0aac1760-b513-488a-ba57-e31d9413a075Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Il controllo DataGrid in WPF</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Il controllo DataGrid in WPF</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Tecnologie">Tecnologie</label>
+                        <div id="Tecnologie">
+                            WPF, .NET Framework, .NET Framework 4.0
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Argomenti">Argomenti</label>
+                        <div id="Argomenti">
+                            Controls, Data Binding, XAML, GridView
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">it-IT</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Ultimo aggiornamento</label>
+                    <div id="LastUpdated">25/04/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">Licenza</label>
+                    <div id="License">
+                        <a href="license.rtf">Licenza di Apache, versione 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Il-controllo-DataGrid-in-230577b3">Visualizza questo esempio online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copiare il codice';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p>&nbsp;</p>
+<p style="page-break-after:avoid; margin-top:0.18cm; margin-bottom:0.18cm"><span style="font-size:x-large"><strong>Introduction</strong></span></p>
+<p style="margin-top:0.18cm; margin-bottom:0.18cm"><em>In questo esempio vedremo l'utilizzo del controllo DataGrid in Wpf , e come interagire con una sorgente Dati mediante l'utilizzo del DataBinding.</em></p>
+<p>&nbsp;</p>
+<p style="page-break-after:avoid; margin-top:0.18cm; margin-bottom:0.18cm"><span style="font-size:x-large"><strong>Building the Sample</strong></span></p>
+<p style="margin-top:0.18cm; margin-bottom:0.18cm"><em>Per poter testare sul proprio pc l'esempio e necessario che sia installato il Framework 4.0 ClientProfile , mentre per poter visualizzare il codice e necessaria la versione 2010 sp1 di VisualStudio.</em></p>
+<h1><span style="font-size:20px; font-weight:bold">Description</span></h1>
+<p style="margin-top:0.18cm; margin-bottom:0.18cm"><em>Nella maggior parte delle applicazioni in circolazione spesso e necessario interagire con delle fonti dati che possono essere DataBase , file xml , applicazioni Web ed altro.Per tutto ci&ograve; in wpf
+ &egrave; disponibile una markup extension che esegue il legame tr&agrave; i controlli e la sorgente dati : il DataBinding. Questa markupextension contenuta nel linguaggio XAML ci permette la visualizzazione dei dati di una tabella contenuta all'internno di
+ un DataBase, si rivela utile anche nel caso di un applicazione per la visualizzazione Master/Details , nel caso di filtri e ordinamento dei dati prelevati mediante query da un DataBase o anche una collection.In se il databinding e abbastanza complesso e senza
+ dubbio non basta un articolo per descrivere tutte le funzionalit&agrave; , ma su Msdn Library si trovano diversi articoli che parlano in maniera chiara ed esaustiva , un esempio lo si trova a questo
+</em><a href="http://msdn.microsoft.com/en-us/library/ms750612.aspx"><span style="color:#0000ff"><em><span style="text-decoration:underline">link .
+</span></em></span></a><em>Tornando all'esempio , verranno eseguite le classiche query pi&ugrave; utilizzate per l'inserimento , la cancellazione e la modifica dei dati , il tutto poi visualizzato all'interno di un controllo DataGrid.
+</em></p>
+<p style="margin-top:0.18cm; margin-bottom:0.18cm"><em>Questa &egrave; la parte di codice XAML interessante , la quale esegue come detto in precedenza il legame tr&agrave; il controllo DataGrid e la sorgente Dati.</em></p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Modifica script</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">&lt;DataGrid.Columns&gt;
+                &lt;DataGridTextColumn Binding=&quot;{Binding ID}&quot; Header=&quot;ID&quot; /&gt;
+                &lt;DataGridTextColumn Binding=&quot;{Binding NOME}&quot; Header=&quot;NOME&quot; /&gt;
+                &lt;DataGridTextColumn Binding=&quot;{Binding COGNOME}&quot; Header=&quot;COGNOME&quot; /&gt;
+                &lt;DataGridTextColumn Binding=&quot;{Binding INDIRIZZO}&quot; Header=&quot;INDIRIZZO&quot; /&gt;
+                &lt;DataGridTextColumn Binding=&quot;{Binding TELEFONO}&quot; Header=&quot;TELEFONO&quot; /&gt;
+                &lt;DataGridTextColumn Binding=&quot;{Binding NAZIONALITA}&quot; Header=&quot;NAZIONALITA&quot; /&gt;
+            &lt;/DataGrid.Columns&gt;</pre>
+<div class="preview">
+<pre class="xaml"><span class="xaml__tag_start">&lt;DataGrid</span>.Columns<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;DataGridTextColumn</span>&nbsp;<span class="xaml__attr_name">Binding</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;ID}&quot;</span>&nbsp;<span class="xaml__attr_name">Header</span>=<span class="xaml__attr_value">&quot;ID&quot;</span>&nbsp;<span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;DataGridTextColumn</span>&nbsp;<span class="xaml__attr_name">Binding</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;NOME}&quot;</span>&nbsp;<span class="xaml__attr_name">Header</span>=<span class="xaml__attr_value">&quot;NOME&quot;</span>&nbsp;<span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;DataGridTextColumn</span>&nbsp;<span class="xaml__attr_name">Binding</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;COGNOME}&quot;</span>&nbsp;<span class="xaml__attr_name">Header</span>=<span class="xaml__attr_value">&quot;COGNOME&quot;</span>&nbsp;<span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;DataGridTextColumn</span>&nbsp;<span class="xaml__attr_name">Binding</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;INDIRIZZO}&quot;</span>&nbsp;<span class="xaml__attr_name">Header</span>=<span class="xaml__attr_value">&quot;INDIRIZZO&quot;</span>&nbsp;<span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;DataGridTextColumn</span>&nbsp;<span class="xaml__attr_name">Binding</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;TELEFONO}&quot;</span>&nbsp;<span class="xaml__attr_name">Header</span>=<span class="xaml__attr_value">&quot;TELEFONO&quot;</span>&nbsp;<span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;DataGridTextColumn</span>&nbsp;<span class="xaml__attr_name">Binding</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;NAZIONALITA}&quot;</span>&nbsp;<span class="xaml__attr_name">Header</span>=<span class="xaml__attr_value">&quot;NAZIONALITA&quot;</span>&nbsp;<span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/DataGrid.Columns&gt;</pre>
+</div>
+</div>
+</div>
+<p style="margin-top:0.18cm; margin-bottom:0.18cm">Con DataGid.Columns otteniamo l'insieme delle Colonne di un Controllo DataGrid , mentre DataGridTextColumn rappresenta una cella all'interno del controllo DataGrid che ospita un contenuto testuale. Queste celle
+ anno a loro volta impostata la propriet&agrave; Binding. Tale propriet&agrave; ottiene o imposta l'associazione che associa la colonna a una propriet&agrave; nell'origine dati. Questa Istruzione di codice {Binding ID} per esempio associa tale cellla al campo
+ ID di una tabella e cosi via tutte le altre. Infine L'istruzione di codice Header= &quot;ID&quot; visualizza all'utente il campo della tabella che stiamo al momento visualizzando a cui tale cella fa riferimento.</p>
+<p style="margin-top:0.18cm; margin-bottom:0.18cm">A livello di codice ho mostrato la parte pi&ugrave; interessante , ma nell'esempio e disponibile tutto il codice per l'inserimento , la cancellazione e la modifica dei dati mediante query , non che il codice
+ XAML per la disposizione degli oggetti sul Form.L'esempio e disponibile al momento in C# , a breve sar&agrave; disponibile anche in VisualBasic.</p>
+<p style="page-break-after:avoid; margin-top:0.18cm; margin-bottom:0.18cm"><span style="font-size:x-large"><strong>More Information</strong></span></p>
+<p style="margin-top:0.18cm; margin-bottom:0.18cm">&nbsp;</p>
+<div><span>Questo articolo &egrave; stato creato da Piero Sbressa per la parte riguardante VisualBasic e Carmelo La Monica per quanto riguard la parte in C# . Potete contattarli ai seguenti riferimenti.<br>
+</span></div>
+<div></div>
+<div>Piero Sbressa</div>
+<div></div>
+<div><a href="http://code.msdn.microsoft.com/Il-controllo-DataGrid-in-230577b3/mailto:pierosbressa@crystalweb.it">pierosbressa@crystalweb.it</a></div>
+<div></div>
+<div><a href="http://www.crystalweb.it"><span style="text-decoration:underline"><span style="font-size:x-small"><span>www.crystalweb.it</span></span></span></a><br>
+<span style="font-size:x-small">&nbsp;</span></div>
+<div><span style="font-size:x-small">&nbsp;</span></div>
+<div><span style="font-size:x-small">Carmelo La Monica</span></div>
+<div><span style="font-size:x-small">&nbsp;</span></div>
+<div><span style="font-size:x-small"><a href="http://community.visual-basic.it/carmelolamonica/default.aspx">http://community.visual-basic.it/carmelolamonica/default.aspx</a></span></div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

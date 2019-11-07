@@ -1,0 +1,77 @@
+﻿<SettingsFlyout
+    x:Class="AzureMobile.Samples.FieldEngineer.Flyout.PreferencesFlyout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMobile.Samples.FieldEngineer.Flyout"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    IconSource="Assets/SmallLogo.png"
+    Title="Preferences"
+    Width="450"
+    HeaderBackground="{StaticResource FlyoutHeaderBackgroundBrush}">
+
+    <SettingsFlyout.Resources>
+        <Style x:Key="FlyoutBodyToggleSwitchStyle" TargetType="ToggleSwitch">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="SemiLight"/>
+            <Setter Property="Foreground" Value="{StaticResource FlyoutHeaderBackgroundBrush}"/>
+            <Setter Property="Margin" Value="0,10,0,0"></Setter>
+        </Style>
+        <Style x:Key="FlyoutBodyButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="{StaticResource FlyoutHeaderBackgroundBrush}"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+    </SettingsFlyout.Resources>
+
+    <StackPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Width="369">
+
+        <!-- The StackPanel(s) below define individual content sections -->
+
+        <!-- Content Section 1-->
+        <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}" Height="400">
+
+            <!-- Section 1 body -->
+            <StackPanel Orientation="Vertical" Margin="0,20,0,20">
+                <ToggleSwitch x:Name="StorageModeToggleSwitch" Header="Mode"  OnContent="Online" OffContent="Offline" Toggled="StorageModeToggleSwitch_Toggled"
+                              Style="{StaticResource FlyoutBodyToggleSwitchStyle}">
+                    <ToggleSwitch.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Style="{StaticResource TitleTextBlockStyle}" Text="Mode" Foreground="{StaticResource FlyoutHeaderBackgroundBrush}"/>
+                        </DataTemplate>
+                    </ToggleSwitch.HeaderTemplate>
+                </ToggleSwitch>
+            </StackPanel>
+            <Grid x:Name="OnlineMode">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Row="0" Text="Mobile Service URL" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBox x:Name="MobileServiceURL" Grid.Row="1" Margin="0,2,0,2"/>
+                <TextBlock Grid.Row="2" Text="Mobile Service Access Key" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBox x:Name="MobileServiceAccessKey" Grid.Row="3" Margin="0,2,0,2"/>
+                <TextBlock Grid.Row="4" Text="Image Blob Location URL" Style="{StaticResource BodyTextBlockStyle}"/>
+                <TextBox x:Name="ImageBlobLocationURL" Grid.Row="5" Margin="0,2,0,2" />
+            </Grid>
+
+            <TextBlock Visibility="Collapsed" x:Name="ErrorTextBlock" Style="{StaticResource BodyTextBlockStyle}" Foreground="Red" Margin="10"></TextBlock>
+            <TextBlock Visibility="Collapsed" x:Name="StatusTextBlock" Style="{StaticResource BodyTextBlockStyle}" Margin="10"></TextBlock>
+            <ProgressRing Visibility="Collapsed" x:Name="ProgressBar" HorizontalAlignment="Left" HorizontalContentAlignment="Left"
+                          Margin="10" VerticalAlignment="Center" VerticalContentAlignment="Center" 
+                          Foreground="{StaticResource FlyoutHeaderBackgroundBrush}"/>
+        </StackPanel>
+
+        <!-- Save button to save the user preferences -->
+        <Button Content="Save" x:Name="SaveButton" Click="SaveButton_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+
+    </StackPanel>
+</SettingsFlyout>

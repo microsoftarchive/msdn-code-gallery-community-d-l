@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Copyright © Microsoft Corporation. All rights reserved. -->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Internet Explorer Developer Sample</title>
+    <link rel="stylesheet" type="text/css" href="css/base-sdk.css" />
+    <link rel="stylesheet" type="text/css" href="css/allscenarios.css" />
+    <script type="text/javascript" src="script/base-sdk.js"></script>
+</head>
+<body role="application">
+    <div id="header" role="contentinfo"></div>
+
+    <h1 id="sampleTitle">HTML5 Drag and Drop</h1>
+
+    <!--Sample title-->
+    <h2>Scenario 1: Enabling draggable elements</h2>
+    <p>
+        <a href="default.html">Back to scenarios menu</a>
+    </p>
+
+    <!--Description and code snippet-->
+    <div class="descRegion" role="region" aria-labelledby="descLabel" aria-live="assertive">
+        <h3 id="descLabel">Description</h3>
+        <div class="descContent">
+            <p>
+                Set the draggable attribute to 'true' to let elements be dragged on the page, or to
+                'false' to block elements from being dragged. 
+            </p>
+            <h3 class="codeLabel">Code</h3>
+<pre>
+&lt;pre&gt;
+    &lt;!-- Enable draggable &lt;div&gt; elements, and block images and links --&gt;
+    &lt;div draggable="true"&gt;This div is draggable &lt;/div&gt;
+    &lt;div draggable="true"&gt;
+        &lt;p&gt;
+            This div is draggable and contains some &lt;a href=""&gt;links&lt;/a&gt;
+            and images which are not draggable.
+        &lt;/p&gt;
+        &lt;img draggable="false" alt="smiley flower" src="images/smiley.png" /&gt;
+        &lt;p&gt;
+            &lt;a draggable="false" href=""&gt;another link&lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+&lt;/pre&gt;
+</pre>
+        </div>
+    </div>
+
+    <!--Rendered result-->
+    <div class="resultRegion" role="region" aria-labelledby="resultLabel" aria-live="assertive">
+        <h3 id="resultLabel">Result</h3>
+        <div class="resultContent">
+            <p>Try dragging these elements to see what happens.</p>
+            <!-- draggable div -->
+            <div draggable="true" class="draggable">This div is draggable </div>
+            <div draggable="true" class="draggable"><p>This div is draggable and contains some <a href="http://www.bing.com">links</a> and images which are not draggable.</p>
+                <img  alt="smiley flower" draggable="false" src="images/smiley.png"/>
+                <p><a href="" draggable="false">another link</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer" role="contentinfo"></div>
+</body>
+</html>

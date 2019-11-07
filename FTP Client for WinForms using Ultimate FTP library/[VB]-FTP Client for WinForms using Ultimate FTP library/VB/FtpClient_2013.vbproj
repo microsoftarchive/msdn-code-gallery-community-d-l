@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7B101B6E-F35C-4ACE-AAAF-00FDA04CC2F4}</ProjectGuid>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+    <OutputType>WinExe</OutputType>
+    <RootNamespace></RootNamespace>
+    <AssemblyName>FtpClient</AssemblyName>
+    <ApplicationIcon>Ftp.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DefineConstants>ASYNC=True, FTP=True</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DefineConstants>ASYNC=True, FTP=True</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientController.vb" />
+    <Compile Include="ClientController_Delete.vb" />
+    <Compile Include="ClientController_Directory.vb" />
+    <Compile Include="ClientController_Download.vb" />
+    <Compile Include="ClientController_Move.vb" />
+    <Compile Include="ClientController_Upload.vb" />
+    <Compile Include="Ftp\ExecCommand.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ftp\ExecCommand.Designer.vb">
+      <DependentUpon>ExecCommand.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FileMask.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileMask.Designer.vb">
+      <DependentUpon>FileMask.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FileOperation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileOperation.Designer.vb">
+      <DependentUpon>FileOperation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FolderNamePrompt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FolderNamePrompt.Designer.vb">
+      <DependentUpon>FolderNamePrompt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ftp\FtpClientPlugin.vb" />
+    <Compile Include="Ftp\FtpLoginInfo.vb" />
+    <Compile Include="Ftp\FtpSettingInfo.vb">
+    </Compile>
+    <Compile Include="IClientView.vb" />
+    <Compile Include="ClientController_Connection.vb">
+    </Compile>
+    <Compile Include="ClientController_Fields.vb">
+    </Compile>
+    <Compile Include="ClientController_List.vb">
+    </Compile>
+    <Compile Include="Main_View.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RichTextBoxTraceListener.vb" />
+    <Compile Include="Messages.vb" />
+    <Compile Include="NewNamePrompt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewNamePrompt.Designer.vb">
+      <DependentUpon>NewNamePrompt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ftp\FtpPropertiesForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ftp\FtpPropertiesForm.Designer.vb">
+      <DependentUpon>FtpPropertiesForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ftp\Security\CertProvider.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ftp\Security\CertProvider.Designer.vb">
+      <DependentUpon>CertProvider.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Ftp\Security\CertTextExtractor.vb" />
+    <Compile Include="Ftp\Security\CertValidator.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ftp\Security\CertValidator.Designer.vb">
+      <DependentUpon>CertValidator.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ShellAPI.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SiteLoader.vb" />
+    <Compile Include="MirrorFolders.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MirrorFolders.Designer.vb">
+      <DependentUpon>MirrorFolders.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DragAndDropListView.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FileIconManager.vb" />
+    <Compile Include="ListViewItemSorters.vb">
+    </Compile>
+    <Compile Include="Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MoveToRemoteFolder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveToRemoteFolder.Designer.vb">
+      <DependentUpon>MoveToRemoteFolder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordPrompt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordPrompt.Designer.vb">
+      <DependentUpon>PasswordPrompt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SettingInfo.vb">
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoginInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Program.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <EmbeddedResource Include="Ftp\ExecCommand.resx">
+      <DependentUpon>ExecCommand.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileMask.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FileMask.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileOperation.resx">
+      <DependentUpon>FileOperation.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FolderNamePrompt.resx">
+      <DependentUpon>FolderNamePrompt.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewNamePrompt.resx">
+      <DependentUpon>NewNamePrompt.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ftp\FtpPropertiesForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FtpPropertiesForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ftp\Security\CertProvider.resx">
+      <DependentUpon>CertProvider.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ftp\Security\CertValidator.resx">
+      <DependentUpon>CertValidator.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MirrorFolders.resx">
+      <DependentUpon>MirrorFolders.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveToRemoteFolder.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MoveToRemoteFolder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordPrompt.resx">
+      <DependentUpon>PasswordPrompt.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting.resx">
+      <DependentUpon>Setting.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Setting.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting.Designer.vb">
+      <DependentUpon>Setting.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Util.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cert.gif" />
+    <Content Include="Ftp.ico" />
+    <Content Include="res\CreateDir.png" />
+    <Content Include="res\Delete.png" />
+    <Content Include="res\Download.png" />
+    <Content Include="res\Login.png" />
+    <Content Include="res\Logout.png" />
+    <Content Include="res\Move.png" />
+    <Content Include="res\Refresh.png" />
+    <Content Include="res\Settings.png" />
+    <Content Include="res\Upload.png" />
+    <Content Include="res\View.png" />
+    <Content Include="Sites.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ComponentPro.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>e:\ComponentPro\UltimateStudio v6.0.40508\Bin\Net4_0\ComponentPro.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentPro.FileSystem">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>e:\ComponentPro\UltimateStudio v6.0.40508\Bin\Net4_0\ComponentPro.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentPro.Network">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>e:\ComponentPro\UltimateStudio v6.0.40508\Bin\Net4_0\ComponentPro.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentPro.Ftp">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>e:\ComponentPro\UltimateStudio v6.0.40508\Bin\Net4_0\ComponentPro.Ftp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

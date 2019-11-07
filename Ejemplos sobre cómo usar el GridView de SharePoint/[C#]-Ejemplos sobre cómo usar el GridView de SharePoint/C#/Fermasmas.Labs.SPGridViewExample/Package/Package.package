@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="f96448de-c547-42a2-8ae1-bc78937a1284" solutionId="f96448de-c547-42a2-8ae1-bc78937a1284" resetWebServer="false" name="Fermasmas.Labs.SPGridViewExample" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="0a3e2f34-e195-4d06-a024-c0e168a1846d" />
+    <featureReference itemId="84738d8d-45d8-4d3a-9b21-bba6670dd98d" />
+  </features>
+  <projectItems>
+    <projectItemReference itemId="5b917112-e010-4dca-8480-73005e6a9d6c" />
+  </projectItems>
+</package>

@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=EC831D2F780A53CF4C404B53E768954F" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/37291231-1877-48cc-91e7-6d4add5fb81bCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=DF234F4FF3DA5D35A03D2829D4F99E0D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Forms Authentication with Multiple Login Pages</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Forms Authentication with Multiple Login Pages</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            ASP.NET
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            forms authentication
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">7/14/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Forms-Authentication-with-469d2236">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<div style="text-align:justify">Have you ever come across a situation where you want to have multiple login pages with Forms Authentication.&nbsp; Forms Authentication directly supports one login page, but there is a work around. Today we will see how to achieve
+ this.</div>
+<div></div>
+<div style="text-align:justify">For an example let&rsquo;s say you want two login pages where one is for administrators and other is for customers.<br>
+<br>
+</div>
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="text-align:center; margin-left:auto; margin-right:auto">
+<tbody>
+<tr>
+<td><a href="http://lh6.ggpht.com/-_xY6BSvKDas/UO53fFuXoVI/AAAAAAAABHo/4R99uyNgIZc/s1600-h/image%25255B37%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="description/image_thumb%255B15%255D.png" alt="image" width="594" height="201" style="border-width:0px; float:none; margin-left:auto; display:block; margin-right:auto; border-style:solid"></a></td>
+</tr>
+<tr>
+<td class="tr-caption">Default.aspx</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<div style="text-align:justify">When the user clicks on Admin, he should be redirected to administrators&rsquo;&nbsp; content where the user will have to authenticate himself as an administrator. When the user clicks on Customer, he will be redirected&nbsp;
+ to customers&rsquo; content again where the user will have to authenticate himself as a customer. Administrators login page will have some different content and customers login page will have some other.</div>
+<div style="text-align:justify">&nbsp;</div>
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="text-align:center; margin-left:auto; margin-right:auto">
+<tbody>
+<tr>
+<td><a href="http://lh6.ggpht.com/-llxRJeG-jHs/UO53igWlbbI/AAAAAAAABH4/qQUQRWmx5WM/s1600-h/image%25255B38%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="description/image_thumb%255B16%255D.png" alt="image" width="594" height="295" style="border-width:0px; float:none; margin-left:auto; display:block; margin-right:auto; border-style:solid"></a></td>
+</tr>
+<tr>
+<td class="tr-caption">Admin Login Page</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="text-align:center; margin-left:auto; margin-right:auto">
+<tbody>
+<tr>
+<td><a href="http://lh4.ggpht.com/-fiEmk-Abqi8/UO53mij7JFI/AAAAAAAABII/l0u6qH8_1UQ/s1600-h/image%25255B39%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="description/image_thumb%255B17%255D.png" alt="image" width="594" height="285" style="border-width:0px; float:none; margin-left:auto; display:block; margin-right:auto; border-style:solid"></a></td>
+</tr>
+<tr>
+<td class="tr-caption">Customer Login Page</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<div style="text-align:justify">I have a web application and I have two folders inside my project. One is for Administrators and the other is for Customers. I will create a login page and a sample page inside Admin folder and create another login page and a
+ sample page inside Customer folder. Here is what I have after completing previous steps.</div>
+<p>&nbsp;</p>
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="text-align:center; margin-left:auto; margin-right:auto">
+<tbody>
+<tr>
+<td><a href="http://lh5.ggpht.com/-dakNRueBtM4/UO53p4vL01I/AAAAAAAABIY/o6qGpEopdCo/s1600-h/image%25255B40%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="description/image_thumb%255B18%255D.png" alt="image" width="241" height="347" style="border-width:0px; float:none; margin-left:auto; display:block; margin-right:auto; border-style:solid"></a></td>
+</tr>
+<tr>
+<td class="tr-caption">Folders inside Solution Explorer</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<div style="text-align:justify">For demonstration purposes in my admin login page I have a drop down where I can select which type of credentials I am going to try in admin login. If login with admin credentials I should be able to see admin content. If I login
+ with customer credentials, I should prompted with admin login again.</div>
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="text-align:center; margin-left:auto; margin-right:auto">
+<tbody>
+<tr>
+<td><a href="http://lh4.ggpht.com/-H5CXoRqlbCY/UO53srUn6HI/AAAAAAAABIo/mI28216VPbg/s1600-h/image%25255B41%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="description/image_thumb%255B19%255D.png" alt="image" width="369" height="347" style="border-width:0px; float:none; margin-left:auto; display:block; margin-right:auto; border-style:solid"></a></td>
+</tr>
+<tr>
+<td class="tr-caption">Admin Login Page</td>
+</tr>
+</tbody>
+</table>
+<p><br>
+In my admin login button click event I have following code.</p>
+<div id="codeSnippetWrapper" style="overflow:auto; font-size:8pt; border:1px solid silver; font-family:'Courier New',courier,monospace; width:97.5%; padding:4px; direction:ltr; margin:20px 0px 10px; line-height:12pt; max-height:600px; background-color:#f4f4f4">
+<span style="font-size:8pt; line-height:12pt; color:blue">protected</span><span style="font-size:8pt; line-height:12pt">
+</span><span style="font-size:8pt; line-height:12pt; color:blue">void</span><span style="font-size:8pt; line-height:12pt"> Button1_Click(</span><span style="font-size:8pt; line-height:12pt; color:blue">object</span><span style="font-size:8pt; line-height:12pt">
+ sender, EventArgs e)</span><br>
+<pre id="codeSnippet" style="border-style:none; overflow:visible; font-size:8pt; font-family:'Courier New',courier,monospace; width:100%; color:black; padding:0px; direction:ltr; margin:0em; line-height:12pt">{<br>    <span style="color:blue">string</span> userData = <span style="color:#006080">&quot;&quot;</span>;<br>    <span style="color:blue">string</span> userName = <span style="color:#006080">&quot;&quot;</span>;<br><br>    <span style="color:blue">if</span> (DropDownList1.SelectedIndex == 0) <span style="color:green">// admin</span><br>    {<br>        userData = <span style="color:#006080">&quot;Admin&quot;</span>; <span style="color:green">// set userData</span><br>        userName = <span style="color:#006080">&quot;Admin User Name&quot;</span>; <br>    }<br>    <span style="color:blue">else</span> <span style="color:blue">if</span> (DropDownList1.SelectedIndex == 1) <span style="color:green">//customer</span><br>    {<br>        userData = <span style="color:#006080">&quot;Customer&quot;</span>; <span style="color:green">// set userData</span><br>        userName = <span style="color:#006080">&quot;Customer User Name&quot;</span>;<br>    }<br><br>    <span style="color:green">// initialize FormsAuthentication</span><br>    FormsAuthentication.Initialize();<br><br>    <span style="color:green">// create a new ticket used for authentication</span><br>    FormsAuthenticationTicket authTicket = <span style="color:blue">new</span> FormsAuthenticationTicket(1, userName, DateTime.Now, DateTime.Now.AddMinutes(15), <span style="color:blue">false</span>, userData);<br><br>    <span style="color:green">// encrypt the cookie using the machine key for secure transport</span><br>    <span style="color:blue">string</span> encTicket = FormsAuthentication.Encrypt(authTicket);<br><br>    <span style="color:green">// create and add the cookies to the list for outgoing response</span><br>    HttpCookie faCookie = <span style="color:blue">new</span> HttpCookie(FormsAuthentication.FormsCookieName, encTicket);<br><br>    Response.Cookies.Add(faCookie);<br><br>    Response.Redirect(<span style="color:#006080">&quot;/Admin/WebForm1.aspx&quot;</span>);<br>}</pre>
+</div>
+<p>Next I am modifying the global.asax file. I am adding the &ldquo;Application_AuthenticateRequest&rdquo; event.</p>
+<div id="codeSnippetWrapper" style="overflow:auto; font-size:8pt; border:1px solid silver; font-family:'Courier New',courier,monospace; width:97.5%; padding:4px; direction:ltr; margin:20px 0px 10px; line-height:12pt; max-height:600px; background-color:#f4f4f4">
+<span style="font-size:8pt; line-height:12pt; color:blue">protected</span><span style="font-size:8pt; line-height:12pt">
+</span><span style="font-size:8pt; line-height:12pt; color:blue">void</span><span style="font-size:8pt; line-height:12pt"> Application_AuthenticateRequest(</span><span style="font-size:8pt; line-height:12pt; color:blue">object</span><span style="font-size:8pt; line-height:12pt">
+ sender, EventArgs e)</span><br>
+<pre id="codeSnippet" style="border-style:none; overflow:visible; font-size:8pt; font-family:'Courier New',courier,monospace; width:100%; color:black; padding:0px; direction:ltr; margin:0em; line-height:12pt">{<br>    <span style="color:blue">if</span> (HttpContext.Current.User != <span style="color:blue">null</span>)<br>    {<br>        <span style="color:blue">if</span> (HttpContext.Current.User.Identity.IsAuthenticated)<br>        {<br>            <span style="color:blue">if</span> (HttpContext.Current.User.Identity <span style="color:blue">is</span> FormsIdentity)<br>            {<br>                <span style="color:green">//HttpCookie cookie = HttpContext.Current.Request.Cookies[&quot;UserRole&quot;];</span><br>                FormsIdentity id = (FormsIdentity)HttpContext.Current.User.Identity;<br>                FormsAuthenticationTicket ticket = id.Ticket;<br><br>                <span style="color:green">// get the stored user-data, in this case it's our users' role information</span><br>                <span style="color:blue">string</span> userData = ticket.UserData;<br>                <span style="color:blue">string</span>[] roles = userData.Split(<span style="color:#006080">','</span>);<br>                HttpContext.Current.User = <span style="color:blue">new</span> GenericPrincipal(id, roles);<br>            }<br>        }<br>    }<br>}</pre>
+</div>
+<p>Now I am modifying the &ldquo;web.config&rdquo; file as follows.</p>
+<div id="codeSnippetWrapper" style="overflow:auto; font-size:8pt; border:1px solid silver; font-family:'Courier New',courier,monospace; width:97.5%; padding:4px; direction:ltr; margin:20px 0px 10px; line-height:12pt; max-height:200px; background-color:#f4f4f4">
+<span style="font-size:8pt; line-height:12pt; color:blue">&lt;</span><span style="font-size:8pt; line-height:12pt; color:maroon">authentication</span><span style="font-size:8pt; line-height:12pt">
+</span><span style="font-size:8pt; line-height:12pt; color:red">mode</span><span style="font-size:8pt; line-height:12pt; color:blue">=&quot;Forms&quot;</span><span style="font-size:8pt; line-height:12pt; color:blue">&gt;</span><br>
+<pre id="codeSnippet" style="border-style:none; overflow:visible; font-size:8pt; font-family:'Courier New',courier,monospace; width:100%; color:black; padding:0px; direction:ltr; margin:0em; line-height:12pt">   <span style="color:blue">&lt;</span><span style="color:maroon">forms</span> <span style="color:red">name</span><span style="color:blue">=&quot;LoginCookie&quot;</span> <span style="color:red">loginUrl</span><span style="color:blue">=&quot;Login.aspx&quot;</span> <span style="color:red">protection</span><span style="color:blue">=&quot;None&quot;</span> <span style="color:red">path</span><span style="color:blue">=&quot;/&quot;</span> <span style="color:red">defaultUrl</span><span style="color:blue">=&quot;Login.aspx&quot;</span> <span style="color:red">timeout</span><span style="color:blue">=&quot;30&quot;</span> <span style="color:blue">/&gt;</span><br><span style="color:blue">&lt;/</span><span style="color:maroon">authentication</span><span style="color:blue">&gt;</span><br><span style="color:blue">&lt;</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>   <span style="color:blue">&lt;</span><span style="color:maroon">deny</span> <span style="color:red">users</span><span style="color:blue">=&quot;?&quot;</span> <span style="color:blue">/&gt;</span><br><span style="color:blue">&lt;/</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span></pre>
+</div>
+<div style="text-align:justify">Now I need to secure directories with role based Forms Authentication. For that again I am modifying the &ldquo;web.config&rdquo; file as follows.</div>
+<div id="codeSnippetWrapper" style="overflow:auto; font-size:8pt; border:1px solid silver; font-family:'Courier New',courier,monospace; width:97.5%; padding:4px; direction:ltr; margin:20px 0px 10px; line-height:12pt; max-height:1300px; background-color:#f4f4f4">
+<span style="font-size:8pt; line-height:12pt; color:green">&lt;!--for admin folder allow users having the role 'Admin' and deny other--&gt;</span><br>
+<pre id="codeSnippet" style="border-style:none; overflow:visible; font-size:8pt; font-family:'Courier New',courier,monospace; width:100%; color:black; padding:0px; direction:ltr; margin:0em; line-height:12pt"><span style="color:blue">&lt;</span><span style="color:maroon">location</span> <span style="color:red">path</span><span style="color:blue">=&quot;Admin&quot;</span> <span style="color:red">allowOverride</span><span style="color:blue">=&quot;true&quot;</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br>        <span style="color:blue">&lt;</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>            <span style="color:blue">&lt;</span><span style="color:maroon">allow</span> <span style="color:red">roles</span><span style="color:blue">=&quot;Admin&quot;</span> <span style="color:blue">/&gt;</span><br>            <span style="color:blue">&lt;</span><span style="color:maroon">deny</span> <span style="color:red">users</span><span style="color:blue">=&quot;*&quot;</span><span style="color:blue">/&gt;</span><br>        <span style="color:blue">&lt;/</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;/</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br><span style="color:blue">&lt;/</span><span style="color:maroon">location</span><span style="color:blue">&gt;</span><br><br><span style="color:green">&lt;!--for content folder allow all--&gt;</span><br><span style="color:blue">&lt;</span><span style="color:maroon">location</span> <span style="color:red">path</span><span style="color:blue">=&quot;Content&quot;</span> <span style="color:red">allowOverride</span><span style="color:blue">=&quot;true&quot;</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br>        <span style="color:blue">&lt;</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>            <span style="color:blue">&lt;</span><span style="color:maroon">allow</span> <span style="color:red">users</span><span style="color:blue">=&quot;*&quot;</span> <span style="color:blue">/&gt;</span><br>        <span style="color:blue">&lt;/</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;/</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br><span style="color:blue">&lt;/</span><span style="color:maroon">location</span><span style="color:blue">&gt;</span><br><br><span style="color:green">&lt;!--for scripts folder allow all--&gt;</span><br><span style="color:blue">&lt;</span><span style="color:maroon">location</span> <span style="color:red">path</span><span style="color:blue">=&quot;Scripts&quot;</span> <span style="color:red">allowOverride</span><span style="color:blue">=&quot;true&quot;</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br>        <span style="color:blue">&lt;</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>            <span style="color:blue">&lt;</span><span style="color:maroon">allow</span> <span style="color:red">users</span><span style="color:blue">=&quot;*&quot;</span> <span style="color:blue">/&gt;</span><br>        <span style="color:blue">&lt;/</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;/</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br><span style="color:blue">&lt;/</span><span style="color:maroon">location</span><span style="color:blue">&gt;</span><br><br><span style="color:green">&lt;!--for images folder allow all--&gt;</span><br><span style="color:blue">&lt;</span><span style="color:maroon">location</span> <span style="color:red">path</span><span style="color:blue">=&quot;Images&quot;</span> <span style="color:red">allowOverride</span><span style="color:blue">=&quot;true&quot;</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br>        <span style="color:blue">&lt;</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>            <span style="color:blue">&lt;</span><span style="color:maroon">allow</span> <span style="color:red">users</span><span style="color:blue">=&quot;*&quot;</span> <span style="color:blue">/&gt;</span><br>        <span style="color:blue">&lt;/</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;/</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br><span style="color:blue">&lt;/</span><span style="color:maroon">location</span><span style="color:blue">&gt;</span><br><br><span style="color:green">&lt;!--for login.aspx allow all--&gt;</span><br><span style="color:blue">&lt;</span><span style="color:maroon">location</span> <span style="color:red">path</span><span style="color:blue">=&quot;Login.aspx&quot;</span> <span style="color:red">allowOverride</span><span style="color:blue">=&quot;true&quot;</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br>        <span style="color:blue">&lt;</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>            <span style="color:blue">&lt;</span><span style="color:maroon">allow</span> <span style="color:red">users</span><span style="color:blue">=&quot;*&quot;</span><span style="color:blue">/&gt;</span><br>        <span style="color:blue">&lt;/</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;/</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br><span style="color:blue">&lt;/</span><span style="color:maroon">location</span><span style="color:blue">&gt;</span><br><br><span style="color:green">&lt;!--for default.aspx allow all--&gt;</span><br><span style="color:blue">&lt;</span><span style="color:maroon">location</span> <span style="color:red">path</span><span style="color:blue">=&quot;Default.aspx&quot;</span> <span style="color:red">allowOverride</span><span style="color:blue">=&quot;true&quot;</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br>        <span style="color:blue">&lt;</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>            <span style="color:blue">&lt;</span><span style="color:maroon">allow</span> <span style="color:red">users</span><span style="color:blue">=&quot;*&quot;</span><span style="color:blue">/&gt;</span><br>        <span style="color:blue">&lt;/</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;/</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br><span style="color:blue">&lt;/</span><span style="color:maroon">location</span><span style="color:blue">&gt;</span><br><br><span style="color:green">&lt;!--for Admin/Login.aspx allow all--&gt;</span><br><span style="color:blue">&lt;</span><span style="color:maroon">location</span> <span style="color:red">path</span><span style="color:blue">=&quot;Admin/Login.aspx&quot;</span> <span style="color:red">allowOverride</span><span style="color:blue">=&quot;true&quot;</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br>        <span style="color:blue">&lt;</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>            <span style="color:blue">&lt;</span><span style="color:maroon">allow</span> <span style="color:red">users</span><span style="color:blue">=&quot;*&quot;</span><span style="color:blue">/&gt;</span><br>        <span style="color:blue">&lt;/</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;/</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br><span style="color:blue">&lt;/</span><span style="color:maroon">location</span><span style="color:blue">&gt;</span><br><br><span style="color:green">&lt;!--for Customer/Login.aspx allow all--&gt;</span><br><span style="color:blue">&lt;</span><span style="color:maroon">location</span> <span style="color:red">path</span><span style="color:blue">=&quot;Customer/Login.aspx&quot;</span> <span style="color:red">allowOverride</span><span style="color:blue">=&quot;true&quot;</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br>        <span style="color:blue">&lt;</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>            <span style="color:blue">&lt;</span><span style="color:maroon">allow</span> <span style="color:red">users</span><span style="color:blue">=&quot;*&quot;</span><span style="color:blue">/&gt;</span><br>        <span style="color:blue">&lt;/</span><span style="color:maroon">authorization</span><span style="color:blue">&gt;</span><br>    <span style="color:blue">&lt;/</span><span style="color:maroon"><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/system.web.aspx"  title="Auto generated link to system.web">system.web</a></span><span style="color:blue">&gt;</span><br><span style="color:blue">&lt;/</span><span style="color:maroon">location</span><span style="color:blue">&gt;</span></pre>
+</div>
+<div style="text-align:justify">As you saw above loginUrl in the forms element can be only one. So I have created a page inside root called &ldquo;Login&rdquo; and I am not interested in the design of that page. Just in Page_Load event I am writing the following
+ code. In here what I am doing is, when the main login page is loading it will identify the request type (admin or customer) by analysing the url and redirect to the relevant login page.</div>
+<div id="codeSnippetWrapper" style="overflow:auto; font-size:8pt; border:1px solid silver; font-family:'Courier New',courier,monospace; width:97.5%; padding:4px; direction:ltr; margin:20px 0px 10px; line-height:12pt; max-height:600px; background-color:#f4f4f4">
+<span style="font-size:8pt; line-height:12pt; color:blue">protected</span><span style="font-size:8pt; line-height:12pt">
+</span><span style="font-size:8pt; line-height:12pt; color:blue">void</span><span style="font-size:8pt; line-height:12pt"> Page_Load(</span><span style="font-size:8pt; line-height:12pt; color:blue">object</span><span style="font-size:8pt; line-height:12pt">
+ sender, EventArgs e)</span><br>
+<pre id="codeSnippet" style="border-style:none; overflow:visible; font-size:8pt; font-family:'Courier New',courier,monospace; width:100%; color:black; padding:0px; direction:ltr; margin:0em; line-height:12pt">{<br>    <span style="color:blue">char</span>[] character = { <span style="color:#006080">'/'</span> };<br><br>    <span style="color:blue">if</span> (Request[<span style="color:#006080">&quot;ReturnUrl&quot;</span>] != <span style="color:blue">null</span>)<br>    {<br>        <span style="color:green">// Request[&quot;ReturnUrl&quot;].ToString() -&gt; </span><br>        <span style="color:green">// http://localhost:1965/Admin/Login.aspx;</span><br>        <span style="color:green">// http://localhost:1965/Customer/Login.aspx</span><br><br>        <span style="color:blue">string</span>[] strs = Request[<span style="color:#006080">&quot;ReturnUrl&quot;</span>].Split(character);<br><br>        <span style="color:green">// if the second part is Admin go to admin login</span><br>        <span style="color:blue">if</span> (strs[1] == <span style="color:#006080">&quot;Admin&quot;</span>)<br>        {<br>            Response.Redirect(<span style="color:#006080">@&quot;/Admin/Login.aspx&quot;</span>);<br>        }<br>        <span style="color:green">// if the second part is Customer go to customer login</span><br>        <span style="color:blue">else</span> <span style="color:blue">if</span> (strs[1] == <span style="color:#006080">&quot;Customer&quot;</span>)<br>        {<br>            Response.Redirect(<span style="color:#006080">@&quot;/Customer/Login.aspx&quot;</span>);<br>        }<br>    }<br>}</pre>
+</div>
+<p>Now I am all set. In my Default.aspx, I have two hyperlinks for admin content and customer content.</p>
+<div id="codeSnippetWrapper" style="overflow:auto; font-size:8pt; border:1px solid silver; font-family:'Courier New',courier,monospace; width:97.5%; padding:4px; direction:ltr; margin:20px 0px 10px; line-height:12pt; max-height:200px; background-color:#f4f4f4">
+<span style="font-size:8pt; line-height:12pt; color:blue">&lt;</span><span style="font-size:8pt; line-height:12pt; color:maroon">asp:HyperLink</span><span style="font-size:8pt; line-height:12pt">
+</span><span style="font-size:8pt; line-height:12pt; color:red">ID</span><span style="font-size:8pt; line-height:12pt; color:blue">=&quot;HyperLink1&quot;</span><span style="font-size:8pt; line-height:12pt">
+</span><span style="font-size:8pt; line-height:12pt; color:red">runat</span><span style="font-size:8pt; line-height:12pt; color:blue">=&quot;server&quot;</span><span style="font-size:8pt; line-height:12pt">
+</span><span style="font-size:8pt; line-height:12pt; color:red">NavigateUrl</span><span style="font-size:8pt; line-height:12pt; color:blue">=&quot;~/Admin/WebForm1.aspx&quot;</span><span style="font-size:8pt; line-height:12pt; color:blue">&gt;</span><span style="font-size:8pt; line-height:12pt">Admin</span><span style="font-size:8pt; line-height:12pt; color:blue">&lt;/</span><span style="font-size:8pt; line-height:12pt; color:maroon">asp:HyperLink</span><span style="font-size:8pt; line-height:12pt; color:blue">&gt;</span><br>
+<pre id="codeSnippet" style="border-style:none; overflow:visible; font-size:8pt; font-family:'Courier New',courier,monospace; width:100%; color:black; padding:0px; direction:ltr; margin:0em; line-height:12pt"><span style="color:blue">&lt;</span><span style="color:maroon">br</span> <span style="color:blue">/&gt;</span><br><span style="color:blue">&lt;</span><span style="color:maroon">asp:HyperLink</span> <span style="color:red">ID</span><span style="color:blue">=&quot;HyperLink2&quot;</span> <span style="color:red">runat</span><span style="color:blue">=&quot;server&quot;</span> <span style="color:red">NavigateUrl</span><span style="color:blue">=&quot;~/Customer/WebForm1.aspx&quot;</span><span style="color:blue">&gt;</span>Customer<span style="color:blue">&lt;/</span><span style="color:maroon">asp:HyperLink</span><span style="color:blue">&gt;</span></pre>
+</div>
+<p>So in the admin login when I logged in with admin credentials I can see the admin content. If I logged in with customer credentials I will be redirected to admin login page again.<br>
+<br>
+</p>
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="text-align:center; margin-left:auto; margin-right:auto">
+<tbody>
+<tr>
+<td><a href="http://lh4.ggpht.com/-pLaCJ8of6e8/UO53vqz_xvI/AAAAAAAABI4/mmXOo2bhJ70/s1600-h/image%25255B42%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="description/image_thumb%255B20%255D.png" alt="image" width="594" height="163" style="border-width:0px; float:none; margin-left:auto; display:block; margin-right:auto; border-style:solid"></a></td>
+</tr>
+<tr>
+<td class="tr-caption">Admin Can View Admin Content</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="text-align:center; margin-left:auto; margin-right:auto">
+<tbody>
+<tr>
+<td><a href="http://lh4.ggpht.com/-akDXdZnE5rk/UO53ymSfzMI/AAAAAAAABJI/6ual6QWH484/s1600-h/image%25255B43%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="description/image_thumb%255B21%255D.png" alt="image" width="594" height="302" style="border-width:0px; float:none; margin-left:auto; display:block; margin-right:auto; border-style:solid"></a></td>
+</tr>
+<tr>
+<td class="tr-caption">Customer Can't View Admin Content</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<div style="text-align:justify">I am not going to show you how to do this for the customer&rsquo;s login page. The concept is the same.&nbsp;</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

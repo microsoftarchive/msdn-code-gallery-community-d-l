@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=5CF4E24D59324FBE66CF8C9A49A3F942" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=F8E8917DA8158DB3E7C6F07AA1FFC4F3" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Entity Framework 5 Sample Provider</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Entity Framework 5 Sample Provider</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SQL Server, ADO.NET Entity Framework, Entity Framework
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            ADO.NET Entity Framework, Entity Framework Provider
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Web, Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">12/16/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/Entity-Framework-Sample-6a9801d0">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>This sample only applies to&nbsp;Entity Framework 5</h1>
+<p><em>Entity Framework 6&nbsp;introduces some changes&nbsp;for providers, in particular namespace changes and some new optimizations that providers can optionally implement, such as a more efficient translation for Enumerable.Contains(), among others.
+</em></p>
+<p><em>Rather than working with a separate sample, for EF6 we recommend&nbsp;looking at the actual implementation of the providers for SQL Server and SQL Server CE, which&nbsp;are included in our open source repository at
+<a href="http://entityframework.codeplex.com">http://entityframework.codeplex.com</a>.
+<em>For more information about implementing Entity Framework 6 providers,&nbsp;consult the EF documentation at
+</em><a href="http://msdn.com/EF"><em>http://msdn.com/EF</em></a><em>. </em></em></p>
+<p><em>Information about Entity Framework 7 and its new provider&nbsp;API can be currently found in the EF7 open source repository at
+<a href="https://code.msdn.microsoft.com/Entity-Framework-Sample-6a9801d0/https://github.com/aspnet/entityframework/">https://code.msdn.microsoft.com/Entity-Framework-Sample-6a9801d0/https://github.com/aspnet/entityframework/</a>.
+</em></p>
+<h1>Introduction</h1>
+<p>This is a sample Entity Framework&nbsp;provider for SQL Server that demonstrates how to&nbsp;create a custom provider that supports the new features introduced in Entity Framework 5 -&nbsp;spatial types, table valued functions and stored procedures with
+ multiple result sets.</p>
+<h1><span>Building the Sample</span></h1>
+<p>Visual Studio 11 and .NET Framework 4.5 are required to build this sample. Tests are using xUnit testing framework. Required packages will be downloaded from nuget automatically if needed when building the project.</p>
+<h1><span style="font-size:20px">Testing the Sample</span></h1>
+<p>Tests require the NorthwindEF5 database. To create the database use the CreateNorthwindEFDB.sql script from the NorthwindEFModel\Database folder (e.g. sqlcmd -S .\sqlexpress -E -i CreateNorthwindEFDB.sql)</p>
+<p>Tests are using xUnit testing framework. To be able to run tests inside the Visual Studio 11 you need&nbsp;to install a test runner. You can get one here:&nbsp;<a href="http://visualstudiogallery.msdn.microsoft.com/463c5987-f82b-46c8-a97e-b1cde42b9099">http://visualstudiogallery.msdn.microsoft.com/463c5987-f82b-46c8-a97e-b1cde42b9099</a></p>
+<h1><span style="font-size:20px">Description</span></h1>
+<p>The sample Entity Framework ADO.NET provider for SQL server shows how to build your own provider for Entity Framework in particular,</p>
+<ul>
+<li>Creating a povider factory </li><li>Implementing provider services </li><li>Implementing spatial services </li><li>Writing a provider manifest </li><li>Generating&nbsp;SQL queries and commands </li><li>Implementing schema views for reverse engineering (including TFVs) </li></ul>
+<p>The project contains also a sample Data Designer Extensibility (DDEX) provider that can plug-in into the Entity Framework Designer design time experience in Visual Studio.</p>
+<h1><span>Projects included in the sample</span></h1>
+<ul>
+<li>SampleEntityFrameworkProvider - Entity Framework Sample Provider </li><li>ProviderTests - tests for the Sample Entity Framework Provider </li><li>NorthwindEFModel - Entity Framework model shared by projects. Based on Northwind database.
+</li><li>FunctionStubGenerator - Used to generate SampleEntityFrameworkProvider\SampleProviderFunctions.cs file
+</li><li>EdmGenTests - Reverse-engineer the database using the Entity Framework Sample Provider
+</li><li>DdexProvider - Sample Data Designer Extensibility (DDEX) provider </li></ul>
+<h1>More Information</h1>
+<p>Useful links:</p>
+<ul>
+<li><a href="http://blogs.msdn.com/b/adonet/">http://blogs.msdn.com/b/adonet/</a>&nbsp;ADO.NET team blog
+</li><li><a href="http://archive.msdn.microsoft.com/EFSampleProvider">http://archive.msdn.microsoft.com/EFSampleProvider</a> - Sample provider for Entity Framework 4
+</li><li><a href="http://blogs.msdn.com/b/adonet/archive/2011/01/05/writing-an-ef-enabled-ado-net-provider.aspx">http://blogs.msdn.com/b/adonet/archive/2011/01/05/writing-an-ef-enabled-ado-net-provider.aspx</a>
+</li><li><a href="http://blogs.msdn.com/b/adonet/archive/2007/03/16/ado-net-orcas-sample-provider.aspx">http://blogs.msdn.com/b/adonet/archive/2007/03/16/ado-net-orcas-sample-provider.aspx</a>&nbsp;
+</li></ul>
+
+</div>
+
+
+    </div>
+</body>
+</html>

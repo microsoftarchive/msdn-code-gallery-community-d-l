@@ -1,0 +1,299 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:im1="clr-namespace:IdentityMine.Avalon.Controls;assembly=Chart"
+			xmlns:im2="clr-namespace:IdentityMine.Avalon.Controls;assembly=ChartRotator"
+		xmlns:im3="clr-namespace:IdentityMine.Avalon.Controls;assembly=ChartVisuals"
+    >
+	<im3:ChartVisuals x:Key="ChartVisuals" />
+	<im3:ChartVisualConverter x:Key="ChartVisualConverterReference" />
+  <!-- ***************************************************************************************************** -->
+  <!-- Charting Resources -->
+  <!-- ***************************************************************************************************** -->
+  <ObjectDataProvider x:Key="Series1DSO" ObjectType="{x:Type im1:SeriesDataItems}" />
+  <ObjectDataProvider x:Key="Series2DSO" ObjectType="{x:Type im1:SeriesDataItems}" />
+  <ObjectDataProvider x:Key="Series3DSO" ObjectType="{x:Type im1:SeriesDataItems}" />
+  <ObjectDataProvider x:Key="Series4DSO" ObjectType="{x:Type im1:SeriesDataItems}" />
+  <ObjectDataProvider x:Key="Series5DSO" ObjectType="{x:Type im1:SeriesDataItems}" />
+
+  <Style x:Key="ChartStyle" TargetType="{x:Type im1:Chart}">
+    <Setter Property="Width" Value="200.0" />
+    <Setter Property="Height" Value="100.0" />
+    <Setter Property="Opacity" Value=".8" />
+    <Setter Property="SeriesStyle" Value="{DynamicResource SeriesStyle}" />
+    <Setter Property="ShadowStyle" Value="{DynamicResource ShadowStyle}" />
+    <Setter Property="FillStyle" Value="{DynamicResource FillStyle}" />
+    <Setter Property="GridStyle" Value="{DynamicResource GridStyleEmpty}" />
+  </Style>
+
+  <DrawingBrush x:Key="GridBrush" Viewport="4,4,4,4" ViewportUnits="Absolute" TileMode="FlipXY">
+    <DrawingBrush.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Geometry="M0,0 L1,0 1,0.1, 0,0.1Z">
+            <GeometryDrawing.Brush>
+              <SolidColorBrush Color="#35000000" />
+            </GeometryDrawing.Brush>
+          </GeometryDrawing>
+          <GeometryDrawing Geometry="M0,0 L0,1 0.1,1, 0.1,0Z">
+            <GeometryDrawing.Brush>
+              <SolidColorBrush Color="#35000000" />
+            </GeometryDrawing.Brush>
+          </GeometryDrawing>
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingBrush.Drawing>
+  </DrawingBrush>
+
+  <Style x:Key="GridStyle" TargetType="{x:Type Canvas}">
+    <Setter Property="Background" Value="{DynamicResource GridBrush}" />
+  </Style>
+
+  <LinearGradientBrush x:Key="FillBrush" StartPoint="1,0" EndPoint="1,1" Opacity=".5">
+    <LinearGradientBrush.GradientStops>
+      <GradientStop Color="Transparent" Offset="0.0" />
+      <GradientStop Color="#50E53035" Offset="0.25" />
+      <GradientStop Color="#E53035" Offset="0.75" />
+      <GradientStop Color="DarkRed" Offset="1.0" />
+    </LinearGradientBrush.GradientStops>
+  </LinearGradientBrush>
+
+  <Style x:Key="FillStyle" TargetType="{x:Type Path}">
+    <Setter Property="Fill" Value="{DynamicResource FillBrush}" />
+  </Style>
+
+  <Style x:Key="SeriesStyle" TargetType="{x:Type Path}">
+    <Setter Property="Stroke">
+      <Setter.Value>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+          <GradientBrush.GradientStops>
+            <GradientStopCollection>
+              <GradientStop Color="#E53035" Offset="0" />
+              <GradientStop Color="#9A3035" Offset="1" />
+            </GradientStopCollection>
+          </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="StrokeThickness" Value="1.0" />
+    <Setter Property="StrokeLineJoin" Value="Miter" />
+  </Style>
+
+  <Style x:Key="ShadowStyle" TargetType="{x:Type Path}">
+    <Setter Property="Stroke" Value="transparent" />
+   <!-- <Setter Property="Stroke" Value="#25333333" />-->
+    <Setter Property="StrokeThickness" Value="0.0" />
+    <Setter Property="StrokeLineJoin" Value="Miter" />
+  </Style>
+  <Style x:Key="ChartLabelStyle" TargetType="{x:Type Label}" >
+    <Setter Property="Margin" Value="2,2,2,2" />
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+    <Setter Property="Width" Value="Auto" />
+    <Setter Property="Height" Value="Auto" />
+    <Setter Property="FontFamily" Value="Helvetica Neue LT Std" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="Foreground" Value="Gray" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+  </Style>
+
+  <DrawingBrush x:Key="EmptyBrush" />
+
+  <Style x:Key="MyGridStyle" TargetType="{x:Type Canvas}">
+    <Setter Property="Background" Value="{DynamicResource EmptyBrush}" />
+  </Style>
+
+  <Style x:Key="MyFillStyle" TargetType="{x:Type Path}">
+    <Setter Property="Fill">
+      <Setter.Value>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+          <GradientBrush.GradientStops>
+            <GradientStopCollection>
+              <GradientStop Color="DarkRed" Offset="0" />
+              <GradientStop Color="Transparent" Offset="1" />
+            </GradientStopCollection>
+          </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style x:Key="SeriesStyle2" TargetType="{x:Type Path}">
+    <Setter Property="Stroke">
+      <Setter.Value>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+          <GradientBrush.GradientStops>
+            <GradientStopCollection>
+              <GradientStop Color="#859669" Offset="0" />
+              <GradientStop Color="#8B9C75" Offset="1" />
+            </GradientStopCollection>
+          </GradientBrush.GradientStops>
+        </LinearGradientBrush>
+      </Setter.Value>
+    </Setter>
+    <Setter Property="StrokeThickness" Value="1.0" />
+    <Setter Property="StrokeLineJoin" Value="Miter" />
+  </Style>
+
+  <LinearGradientBrush x:Key="FillBrush2" StartPoint="1,0" EndPoint="1,1" Opacity=".5">
+    <LinearGradientBrush.GradientStops>
+      <GradientStop Color="Transparent" Offset="0.0" />
+      <GradientStop Color="#50EAF6DD" Offset="0.25" />
+      <GradientStop Color="#EEFEDA" Offset="0.75" />
+      <GradientStop Color="#8B9C75" Offset="1.0" />
+    </LinearGradientBrush.GradientStops>
+  </LinearGradientBrush>
+
+  <Style x:Key="FillStyle2" TargetType="{x:Type Path}">
+    <Setter Property="Fill" Value="{DynamicResource FillBrush2}" />
+  </Style>
+
+  <Style x:Key="ChartStyle2" TargetType="{x:Type im1:Chart}">
+    <Setter Property="Width" Value="200.0" />
+    <Setter Property="Height" Value="100.0" />
+    <Setter Property="Opacity" Value=".8" />
+    <Setter Property="SeriesStyle" Value="{DynamicResource SeriesStyle2}" />
+    <Setter Property="ShadowStyle" Value="{DynamicResource ShadowStyle}" />
+    <Setter Property="FillStyle" Value="{DynamicResource FillStyle2}" />
+    <Setter Property="GridStyle" Value="{DynamicResource GridStyleEmpty}" />
+  </Style>
+
+  <Style x:Key="ChartStyleOrangeStatus" TargetType="{x:Type im1:Chart}">
+    <Setter Property="Width" Value="200.0" />
+    <Setter Property="Height" Value="100.0" />
+    <Setter Property="Opacity" Value=".8" />
+    <Setter Property="ShadowStyle" Value="{DynamicResource ShadowStyleEmpty}" />
+    <Setter Property="FillStyle" Value="{DynamicResource FillStyleEmpty}" />
+    <Setter Property="GridStyle" Value="{DynamicResource GridStyleEmpty}" />
+    <Setter Property="SeriesStyle" Value="{DynamicResource SeriesStyleOrange}" />
+  </Style>
+
+  <Style x:Key="ChartStyleRedStatus" TargetType="{x:Type im1:Chart}">
+    <Setter Property="Width" Value="200.0" />
+    <Setter Property="Height" Value="100.0" />
+    <Setter Property="Opacity" Value=".8" />
+    <Setter Property="ShadowStyle" Value="{DynamicResource ShadowStyleEmpty}" />
+    <Setter Property="FillStyle" Value="{DynamicResource FillStyleEmpty}" />
+    <Setter Property="GridStyle" Value="{DynamicResource GridStyleEmpty}" />
+    <Setter Property="SeriesStyle" Value="{DynamicResource SeriesStyleRed}" />
+  </Style>
+
+  <Style x:Key="ChartStyleGreenStatus" TargetType="{x:Type im1:Chart}">
+    <Setter Property="Width" Value="200.0" />
+    <Setter Property="Height" Value="100.0" />
+    <Setter Property="Opacity" Value=".8" />
+    <Setter Property="ShadowStyle" Value="{DynamicResource ShadowStyleEmpty}" />
+    <Setter Property="FillStyle" Value="{DynamicResource FillStyleEmpty}" />
+    <Setter Property="GridStyle" Value="{DynamicResource GridStyleEmpty}" />
+    <Setter Property="SeriesStyle" Value="{DynamicResource SeriesStyleGreen}" />
+  </Style>
+
+  <Style x:Key="ChartStyleYellowStatus" TargetType="{x:Type im1:Chart}">
+    <Setter Property="Width" Value="200.0" />
+    <Setter Property="Height" Value="100.0" />
+    <Setter Property="Opacity" Value=".8" />
+    <Setter Property="ShadowStyle" Value="{DynamicResource ShadowStyleEmpty}" />
+    <Setter Property="FillStyle" Value="{DynamicResource FillStyleEmpty}" />
+    <Setter Property="GridStyle" Value="{DynamicResource GridStyleEmpty}" />
+    <Setter Property="SeriesStyle" Value="{DynamicResource SeriesStyleYellow}" />
+  </Style>
+
+  <Style x:Key="SeriesStyleOrange" TargetType="{x:Type Path}">
+    <Setter Property="Stroke" Value="Orange" />
+    <Setter Property="StrokeThickness" Value="1.0" />
+    <Setter Property="StrokeLineJoin" Value="Miter" />
+  </Style>
+
+  <Style x:Key="SeriesStyleYellow" TargetType="{x:Type Path}">
+    <Setter Property="Stroke" Value="Gold" />
+    <Setter Property="StrokeThickness" Value="1.0" />
+    <Setter Property="StrokeLineJoin" Value="Miter" />
+  </Style>
+
+  <Style x:Key="SeriesStyleGreen" TargetType="{x:Type Path}">
+    <Setter Property="Stroke" Value="Green" />
+    <Setter Property="StrokeThickness" Value="1.0" />
+    <Setter Property="StrokeLineJoin" Value="Miter" />
+  </Style>
+
+  <Style x:Key="SeriesStyleRed" TargetType="{x:Type Path}">
+    <Setter Property="Stroke" Value="Red" />
+    <Setter Property="StrokeThickness" Value="1.0" />
+    <Setter Property="StrokeLineJoin" Value="Miter" />
+  </Style>
+
+  <Style x:Key="GridStyleEmpty" TargetType="{x:Type Canvas}">
+    <Setter Property="Background" Value="Transparent" />
+  </Style>
+
+  <Style x:Key="FillStyleEmpty" TargetType="{x:Type Path}">
+    <Setter Property="Fill" Value="Transparent" />
+  </Style>
+
+  <Style x:Key="ShadowStyleEmpty" TargetType="{x:Type Path}">
+    <Setter Property="Stroke" Value="Transparent" />
+    <Setter Property="StrokeThickness" Value="0" />
+    <Setter Property="StrokeLineJoin" Value="Miter" />
+  </Style>
+
+  <!-- Charts -->
+  <VisualBrush x:Key="ECGSinusRhythmChartVisualBrush">
+    <VisualBrush.Visual>
+      <Grid Width="200" Height="200">
+        <Canvas ClipToBounds="False" Width="200" Height="200" >
+          <Canvas Width="200" Height="200" Canvas.Left="0" Canvas.Top="0" >
+            <im1:Chart Canvas.Left="0" Canvas.Top="0" DataContext="{Binding Source={StaticResource Series1DSO}}" ItemsSource="{Binding}" Width="200" Height="180" UpdateInterval="1000"  Style="{DynamicResource ChartStyle}" />
+          </Canvas>
+        </Canvas>
+      </Grid>
+    </VisualBrush.Visual>
+  </VisualBrush>
+
+  <VisualBrush x:Key="ECGJunctionalTachyChartVisualBrush">
+    <VisualBrush.Visual>
+      <Grid Width="200" Height="200">
+        <Canvas ClipToBounds="False" Width="200" Height="200" >
+          <Canvas Width="200" Height="200" Canvas.Left="0" Canvas.Top="0" >
+            <im1:Chart Canvas.Left="0" Canvas.Top="0" DataContext="{Binding Source={StaticResource Series2DSO}}" ItemsSource="{Binding}" Width="200" Height="180" UpdateInterval="1000"  Style="{DynamicResource ChartStyle2}" />
+          </Canvas>
+        </Canvas>
+      </Grid>
+    </VisualBrush.Visual>
+  </VisualBrush>
+
+  <VisualBrush x:Key="ECGAcceleratedIVRChartVisualBrush">
+    <VisualBrush.Visual>
+      <Grid Width="200" Height="200">
+        <Canvas ClipToBounds="False" Width="200" Height="200" >
+          <Canvas Width="200" Height="200" Canvas.Left="0" Canvas.Top="0" >
+            <im1:Chart Canvas.Left="0" Canvas.Top="0" DataContext="{Binding Source={StaticResource Series3DSO}}" ItemsSource="{Binding}" Width="200" Height="180" UpdateInterval="1000"  Style="{DynamicResource ChartStyle}" />
+          </Canvas>
+        </Canvas>
+      </Grid>
+    </VisualBrush.Visual>
+  </VisualBrush>
+
+  <VisualBrush x:Key="PulseChartVisualBrush">
+    <VisualBrush.Visual>
+      <Grid Width="200" Height="200">
+        <Canvas ClipToBounds="False" Width="200" Height="200" >
+          <Canvas Width="200" Height="200" Canvas.Left="0" Canvas.Top="0" >
+            <im1:Chart Canvas.Left="0" Canvas.Top="0" DataContext="{Binding Source={StaticResource Series4DSO}}" ItemsSource="{Binding}" Width="200" Height="180" UpdateInterval="1000"  Style="{DynamicResource ChartStyle2}" />
+          </Canvas>
+        </Canvas>
+      </Grid>
+    </VisualBrush.Visual>
+  </VisualBrush>
+
+  <VisualBrush x:Key="O2SaturationChartVisualBrush">
+    <VisualBrush.Visual>
+      <Grid Width="200" Height="200">
+        <Canvas ClipToBounds="False" Width="200" Height="200" >
+          <Canvas Width="200" Height="200" Canvas.Left="0" Canvas.Top="0" >
+            <im1:Chart Canvas.Left="0" Canvas.Top="0" DataContext="{Binding Source={StaticResource Series5DSO}}" ItemsSource="{Binding}" Width="200" Height="180" UpdateInterval="1000"  Style="{DynamicResource ChartStyle}" />
+          </Canvas>
+        </Canvas>
+      </Grid>
+    </VisualBrush.Visual>
+  </VisualBrush>
+ 
+</ResourceDictionary>

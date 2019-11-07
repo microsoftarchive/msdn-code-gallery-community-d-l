@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<brl xmlns="http://schemas.microsoft.com/businessruleslanguage/2002">
+  <ruleset name="Contoso.Cloud.Integration.Demo.LoanApplicationProcessingService">
+    <version major="1" minor="0" description="" modifiedby="YOURDOMAIN\youraccount" date="2011-02-17T23:40:19.9986712-08:00" />
+    <configuration />
+    <bindings>
+      <class ref="BeginTrackingActivityTask" class="BeginTrackingActivityTask" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.BizTalk.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.BizTalk.Core\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.BizTalk.Core.dll-->
+        <namespace>Contoso.Cloud.Integration.BizTalk.Core.RuntimeTasks</namespace>
+      </class>
+      <class ref="ExecuteRulesEnginePolicyTask" class="ExecuteRulesEnginePolicyTask" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.BizTalk.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.BizTalk.Core\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.BizTalk.Core.dll-->
+        <namespace>Contoso.Cloud.Integration.BizTalk.Core.RuntimeTasks</namespace>
+      </class>
+      <class ref="UpdateTrackingActivityTask" class="UpdateTrackingActivityTask" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.BizTalk.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.BizTalk.Core\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.BizTalk.Core.dll-->
+        <namespace>Contoso.Cloud.Integration.BizTalk.Core.RuntimeTasks</namespace>
+      </class>
+      <class ref="PolicyExecutionInfo" class="PolicyExecutionInfo" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.BizTalk.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.BizTalk.Core\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.BizTalk.Core.dll-->
+        <namespace>Contoso.Cloud.Integration.BizTalk.Core.RulesEngine</namespace>
+      </class>
+    </bindings>
+    <rule name="Process Loan Application" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="c53f8d66-2ca3-4ce9-9c2e-0af4ed075317" element="d9b4b295-7c6b-49e7-99b2-9f753104114a" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <vocabularylink uri="1f98ff58-5543-42d1-a3bc-f3ac5761e637" element="b3e77582-a202-4801-87ca-32de806ba0f1" />
+                    <string>http://schemas.microsoft.com/BizTalk/2003/soap-properties#MethodName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <string>Contoso.Cloud.Integration.Demo/ILoanApplicationProcessingService/SubmitApplication</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="c53f8d66-2ca3-4ce9-9c2e-0af4ed075317" element="3d019dfa-2669-4705-9485-77340d7ac096" />
+          <classmember member="SetActivityInfo" sideeffects="true">
+            <classref ref="BeginTrackingActivityTask" />
+            <argument>
+              <constant>
+                <string>LoanApplicationProcess</string>
+              </constant>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="c53f8d66-2ca3-4ce9-9c2e-0af4ed075317" element="d9b4b295-7c6b-49e7-99b2-9f753104114a" />
+                <classmember member="GetParameterAsString" sideeffects="true">
+                  <classref ref="PolicyExecutionInfo" />
+                  <argument>
+                    <constant>
+                      <vocabularylink uri="1f98ff58-5543-42d1-a3bc-f3ac5761e637" element="c9e9282b-2377-4d0a-9362-05e0d37ec04d" />
+                      <string>http://schemas.microsoft.com/BizTalk/2003/system-properties#InterchangeID</string>
+                    </constant>
+                  </argument>
+                </classmember>
+              </function>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="c53f8d66-2ca3-4ce9-9c2e-0af4ed075317" element="6cc756d6-e31b-420e-88b3-42003890bea2" />
+          <classmember member="UpdateDateTimeMilestone" sideeffects="true">
+            <classref ref="BeginTrackingActivityTask" />
+            <argument>
+              <constant>
+                <string>LoanApplicationStarted</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="b9bd2340-1e15-41ff-975b-96d0002a3b62" element="41ddc967-269e-4a62-8d41-0076ed66db7e" />
+          <classmember member="SetPolicyInfo" sideeffects="true">
+            <classref ref="ExecuteRulesEnginePolicyTask" />
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.Demo.LoanRequestProcessing</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="c53f8d66-2ca3-4ce9-9c2e-0af4ed075317" element="112aa3fa-bed8-4ab5-9d98-91fead1f33d9" />
+          <classmember member="SetActivityInfo" sideeffects="true">
+            <classref ref="UpdateTrackingActivityTask" />
+            <argument>
+              <constant>
+                <string>LoanApplicationProcess</string>
+              </constant>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="c53f8d66-2ca3-4ce9-9c2e-0af4ed075317" element="d9b4b295-7c6b-49e7-99b2-9f753104114a" />
+                <classmember member="GetParameterAsString" sideeffects="true">
+                  <classref ref="PolicyExecutionInfo" />
+                  <argument>
+                    <constant>
+                      <vocabularylink uri="1f98ff58-5543-42d1-a3bc-f3ac5761e637" element="c9e9282b-2377-4d0a-9362-05e0d37ec04d" />
+                      <string>http://schemas.microsoft.com/BizTalk/2003/system-properties#InterchangeID</string>
+                    </constant>
+                  </argument>
+                </classmember>
+              </function>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="c53f8d66-2ca3-4ce9-9c2e-0af4ed075317" element="c46ec2b9-e918-4cd7-a6ea-61ab49aedd04" />
+          <classmember member="SetActivityDataXPath" sideeffects="true">
+            <classref ref="UpdateTrackingActivityTask" />
+            <argument>
+              <constant>
+                <string>LoanFinalDecision</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>LoanDecision</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="c53f8d66-2ca3-4ce9-9c2e-0af4ed075317" element="8443caa6-aa7d-4472-b3e1-1f470d9f7d95" />
+          <classmember member="UpdateDateTimeMilestone" sideeffects="true">
+            <classref ref="UpdateTrackingActivityTask" />
+            <argument>
+              <constant>
+                <string>LoanFinalDecisionMade</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="c53f8d66-2ca3-4ce9-9c2e-0af4ed075317" element="7f7b79a9-83e7-43e8-b2d4-c089e19e8b1a" />
+          <classmember member="EnableContinuationWithXPath" sideeffects="true">
+            <classref ref="BeginTrackingActivityTask" />
+            <argument>
+              <constant>
+                <string>LoanApplicationID</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+  </ruleset>
+</brl>

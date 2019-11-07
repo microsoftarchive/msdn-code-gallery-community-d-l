@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <Association Name="Invoice_Patient">
+    <End Role="Patient" Type="LightSwitchApplication.Patient" Multiplicity="1" />
+    <End Role="Invoice" Type="LightSwitchApplication.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="Invoice_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Invoice_InvoiceDetail">
+    <End Role="Invoice" Type="LightSwitchApplication.Invoice" Multiplicity="1" />
+    <End Role="InvoiceDetail" Type="LightSwitchApplication.InvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceDetail">
+        <PropertyRef Name="Invoice_InvoiceDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Appointment_Patient">
+    <End Role="Patient" Type="LightSwitchApplication.Patient" Multiplicity="1" />
+    <End Role="Appointment" Type="LightSwitchApplication.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="Appointment_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Street" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Street2" Type="String" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="State" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Zip" Type="String" Nullable="false" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="PrimaryPhone" Type="String" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="SecondaryPhone" Type="String" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Email" Type="String" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="PolicyNumber" Type="String" Nullable="false" MaxLength="12" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Invoices" Relationship="LightSwitchApplication.Invoice_Patient" ToRole="Invoice" FromRole="Patient" />
+    <NavigationProperty Name="Appointments" Relationship="LightSwitchApplication.Appointment_Patient" ToRole="Appointment" FromRole="Patient" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="InvoiceDate" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="InvoiceDue" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="InvoiceStatus" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="ShipDate" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Invoice_Patient" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Patient" Relationship="LightSwitchApplication.Invoice_Patient" ToRole="Patient" FromRole="Invoice" />
+    <NavigationProperty Name="InvoiceDetails" Relationship="LightSwitchApplication.Invoice_InvoiceDetail" ToRole="InvoiceDetail" FromRole="Invoice" />
+  </EntityType>
+  <EntityType Name="InvoiceDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="18" Scale="2" ConcurrencyMode="Fixed" />
+    <Property Name="Product_ProductID" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="Invoice_InvoiceDetail" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Invoice" Relationship="LightSwitchApplication.Invoice_InvoiceDetail" ToRole="Invoice" FromRole="InvoiceDetail" />
+  </EntityType>
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="AppointmentTime" Type="DateTime" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="AppointmentType" Type="Int16" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="DoctorNotes" Type="String" MaxLength="255" ConcurrencyMode="Fixed" />
+    <Property Name="Appointment_Patient" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Patient" Relationship="LightSwitchApplication.Appointment_Patient" ToRole="Patient" FromRole="Appointment" />
+  </EntityType>
+  <EntityContainer Name="ApplicationDataObjectContext" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Patients" EntityType="LightSwitchApplication.Patient" />
+    <EntitySet Name="Invoices" EntityType="LightSwitchApplication.Invoice" />
+    <EntitySet Name="InvoiceDetails" EntityType="LightSwitchApplication.InvoiceDetail" />
+    <EntitySet Name="Appointments" EntityType="LightSwitchApplication.Appointment" />
+    <AssociationSet Name="Invoice_Patient" Association="LightSwitchApplication.Invoice_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="Invoice_InvoiceDetail" Association="LightSwitchApplication.Invoice_InvoiceDetail">
+      <End Role="Invoice" EntitySet="Invoices" />
+      <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="Appointment_Patient" Association="LightSwitchApplication.Appointment_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Appointment" EntitySet="Appointments" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

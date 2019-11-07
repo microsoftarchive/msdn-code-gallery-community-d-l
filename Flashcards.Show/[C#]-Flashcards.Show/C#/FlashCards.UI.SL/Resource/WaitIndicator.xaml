@@ -1,0 +1,124 @@
+﻿<UserControl 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:conv="clr-namespace:FlashCards.UI.Converters"
+    xmlns:tk="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+    xmlns:common="clr-namespace:FlashCards.UI.Common"
+    xmlns:vsm="clr-namespace:System.Windows;assembly=System.Windows" 
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+    xmlns:id="clr-namespace:Interactivity.Data"
+    mc:Ignorable="d"
+    x:Class="FlashCards.UI.WaitIndicator"
+	x:Name="This"
+	d:DesignWidth="835" 
+    d:DesignHeight="605" 
+    >
+    <UserControl.Resources>
+        <conv:ObjectToVisibility x:Key="objectToVisibility" />
+    </UserControl.Resources>
+
+    <UserControl.Visibility>
+        <Binding ElementName="This" Path="IsWaiting" Converter="{StaticResource objectToVisibility}" ConverterParameter="True" />
+    </UserControl.Visibility>
+    
+    <Border Background="#CC000000">
+        <vsm:VisualStateManager.VisualStateGroups>
+            <vsm:VisualStateGroup x:Name="IsRotating">
+                <vsm:VisualState x:Name="StartRotate">
+                    <Storyboard RepeatBehavior="Forever">
+                        <DoubleAnimationUsingKeyFrames 
+                            BeginTime="00:00:00" 
+    					    Storyboard.TargetName="RotateTransName"  Storyboard.TargetProperty="Angle"
+                            >
+                            <SplineDoubleKeyFrame KeyTime="00:00:001.5" Value="360" />
+                        </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                </vsm:VisualState>
+                <vsm:VisualState 
+                    x:Name="StopRotate">
+                </vsm:VisualState>
+            </vsm:VisualStateGroup>
+        </vsm:VisualStateManager.VisualStateGroups>
+        
+        <Grid Height="345" Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <i:Interaction.Behaviors>
+                <id:DataStateSwitchBehavior Binding='{Binding IsWaiting, ElementName=This}'>
+                    <id:DataStateSwitchCase Value='True' State='StartRotate'/>
+                    <id:DataStateSwitchCase Value='False' State='StopRotate'/>
+                </id:DataStateSwitchBehavior>
+            </i:Interaction.Behaviors>
+            
+            <tk:Viewbox Stretch="Uniform" RenderTransformOrigin="0.5,0.5" Margin="0" d:LayoutOverrides="Width" VerticalAlignment="Top">
+                <tk:Viewbox.RenderTransform>
+    				<TransformGroup>
+    					<ScaleTransform ScaleX="0.5" ScaleY="0.5"/>
+    					<SkewTransform/>
+    					<RotateTransform/>
+    					<TranslateTransform/>
+    				</TransformGroup>
+                </tk:Viewbox.RenderTransform>
+    			<Grid x:Name="LayoutRoot" RenderTransformOrigin="0.5,0.5" Width="150" Height="150" VerticalAlignment="Top" >
+    				<Grid.RenderTransform>
+    					<TransformGroup>
+    						<ScaleTransform/>
+    						<SkewTransform/>
+                            <RotateTransform x:Name="RotateTransName" />
+    						<TranslateTransform/>
+    					</TransformGroup>
+    				</Grid.RenderTransform>
+    				<Grid.RowDefinitions>
+    					<RowDefinition Height="*"/>
+    					<RowDefinition Height="Auto" />
+    					<RowDefinition Height="*" />
+    				</Grid.RowDefinitions>
+                    <Path Fill="{Binding IndicatorBrush, ElementName=This}" Grid.Row="1" Stretch="Fill" Data="F1 M24.590056,21.653008 C18.611462,19.563008 15.624035,16.885008 17.00745,14.071008 18.402081,11.241008 23.973128,8.8400081 31.85485,7.2430081 L43.183892,11.194008 48.063231,1.3050081 11.08868,8.0566406E-06 21.707319,3.7050081 C10.456796,5.9950081 2.4741214,9.4440081 0.47751801,13.488008 -3.489516,21.546008 17.695418,28.935008 47.81646,30.000008 L50.000011,25.580008 C39.478585,25.208008 30.587344,23.741008 24.590056,21.653008" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Grid.RowSpan="2" Margin="40.5,-25,42.48,-42" Width="67.02"  >
+    					<Path.RenderTransform>
+    						<TransformGroup>
+    							<ScaleTransform/>
+    							<SkewTransform/>
+    							<RotateTransform Angle="-90"/>
+    							<TranslateTransform/>
+    						</TransformGroup>
+                        </Path.RenderTransform>
+    				</Path>
+                    <Path Fill="{Binding IndicatorBrush, ElementName=This}" Grid.Row="0" Stretch="Fill"  Data="F1M293.6484,484.876C292.0494,482.786,291.2504,480.108,291.6204,477.294C291.9934,474.464,293.4834,472.063,295.5914,470.466L298.6214,474.417L299.9264,464.528L290.0374,463.223L292.8774,466.928C289.8684,469.218,287.7334,472.667,287.1994,476.711C286.1384,484.769,291.8044,492.158,299.8604,493.223L300.4444,488.803C297.6304,488.431,295.2524,486.964,293.6484,484.876" RenderTransformOrigin="0.5,0.5" Margin="40.5,-41.5,42.5,-25.5" Grid.RowSpan="2" UseLayoutRounding="False" >
+                        <Path.RenderTransform>
+    						<TransformGroup>
+    							<ScaleTransform/>
+    							<SkewTransform/>
+    							<RotateTransform Angle="90"/>
+    							<TranslateTransform/>
+    						</TransformGroup>
+                        </Path.RenderTransform>
+    				</Path>
+    				<Rectangle Height="{Binding ActualHeight, ElementName=text}" Grid.Row="1" />
+    			</Grid>
+            </tk:Viewbox>
+    		<Grid HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,240,0,0">
+                <StackPanel>
+                    <TextBlock 
+                        x:Name="text" 
+                        Text="{Binding Text, ElementName=This}" 
+                        TextWrapping="Wrap" 
+                        TextAlignment="Center"
+				        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"  
+				        Foreground="{Binding Foreground, ElementName=This}" 
+				        FontSize="{Binding FontSize, ElementName=This}"
+				        FontFamily="{Binding FontFamily, ElementName=This}"
+                        />
+                    <Button 
+    				    x:Name="button" 
+    				    Content="{StaticResource Resource_WaitIndicator_CancelButton}" 
+    				    common:ButtonService.Command="{Binding CancelCommand, ElementName=This}" 
+    				    Foreground="{Binding Foreground, ElementName=This}"
+    				    FontSize="{Binding FontSize, ElementName=This}"
+    				    FontFamily="{Binding FontFamily, ElementName=This}" Style="{StaticResource Button_Style}"
+                        />
+                </StackPanel>
+            </Grid>
+    	</Grid>
+    </Border>
+</UserControl>

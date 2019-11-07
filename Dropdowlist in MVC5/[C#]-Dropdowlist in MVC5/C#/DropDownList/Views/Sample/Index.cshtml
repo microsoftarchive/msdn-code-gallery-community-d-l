@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#State").prop("disabled", true);
+        $("#Country").change(function () {
+            if ($("#Country").val() != "Select") {
+                var CountryOptions = {};
+                CountryOptions.url = "/Sample/states";
+                CountryOptions.type = "POST";
+                CountryOptions.data = JSON.stringify({ Country: $("#Country").val() });
+                CountryOptions.datatype = "json";
+                CountryOptions.contentType = "application/json";
+                CountryOptions.success = function (StatesList) {
+                    $("#State").empty();
+                    for (var i = 0; i < StatesList.length; i++) {
+                        $("#State").append("<option>" + StatesList[i] + "</option>");
+                    }
+                    $("#State").prop("disabled", false);
+                };
+                CountryOptions.error = function () { alert("Error in Getting States!!"); };
+                $.ajax(CountryOptions);
+            }
+            else {
+                $("#State").empty();
+                $("#State").prop("disabled", true);
+            }
+        });
+    });
+</script>
+
+@using (Html.BeginForm("Index", "Sample", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <h4>Select Country & States</h4>
+    <hr />
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.Label("Select Country:", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownList("Country", ViewData["Countries"] as SelectList, new { @class = "form-control" })
+        </div>
+    </div><br />
+    <div class="form-group">
+        @Html.Label("Select States:", new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            <select id="State"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Submit" />
+        </div>
+    </div>
+}
+
+

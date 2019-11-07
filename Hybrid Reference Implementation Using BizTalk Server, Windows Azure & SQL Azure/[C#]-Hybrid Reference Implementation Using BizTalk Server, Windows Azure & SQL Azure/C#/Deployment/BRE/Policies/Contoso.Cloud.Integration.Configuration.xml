@@ -1,0 +1,2553 @@
+<?xml version="1.0" encoding="utf-8"?>
+<brl xmlns="http://schemas.microsoft.com/businessruleslanguage/2002">
+  <ruleset name="Contoso.Cloud.Integration.Configuration">
+    <version major="1" minor="0" description="" modifiedby="YOURDOMAIN\youraccount" date="2011-02-17T20:38:36.5149404-08:00" />
+    <configuration />
+    <bindings>
+      <class ref="XPathQueryCollection" class="XPathQueryCollection" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework.Configuration</namespace>
+      </class>
+      <class ref="ApplicationDiagnosticSettings" class="ApplicationDiagnosticSettings" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework.Configuration</namespace>
+      </class>
+      <class ref="ConnectionStringView" class="ConnectionStringView" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework.Configuration</namespace>
+      </class>
+      <class ref="NamespaceCollection" class="NamespaceCollection" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework.Configuration</namespace>
+      </class>
+      <class ref="TimeSpan" class="TimeSpan">
+        <assembly>mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</assembly>
+        <!--C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.dll-->
+        <namespace>System</namespace>
+      </class>
+      <class ref="OnPremisesBufferedTraceListener" class="OnPremisesBufferedTraceListener" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Azure.Services.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Azure.Services.Framework.Logging</namespace>
+      </class>
+      <class ref="CloudDiagnosticTraceListener" class="CloudDiagnosticTraceListener" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Azure.Services.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Azure.Services.Framework.Logging</namespace>
+      </class>
+      <class ref="ApplicationConfigurationSettings" class="ApplicationConfigurationSettings" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework.Configuration</namespace>
+      </class>
+      <class ref="ServiceBusConfigurationSettings" class="ServiceBusConfigurationSettings" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework.Configuration</namespace>
+      </class>
+      <class ref="SsoConfigurationUtility" class="SsoConfigurationUtility" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.BizTalk.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.BizTalk.Core\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.BizTalk.Core.dll-->
+        <namespace>Contoso.Cloud.Integration.BizTalk.Core.Configuration</namespace>
+      </class>
+      <class ref="RetryPolicyConfigurationSettings" class="RetryPolicyConfigurationSettings" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework.Configuration</namespace>
+      </class>
+      <class ref="FormattedEtwTraceListener" class="FormattedEtwTraceListener" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.BizTalk.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.BizTalk.Core\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.BizTalk.Core.dll-->
+        <namespace>Contoso.Cloud.Integration.BizTalk.Core.Logging</namespace>
+      </class>
+      <class ref="WellKnownTraceCategory" class="WellKnownTraceCategory" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework</namespace>
+      </class>
+      <class ref="ScalableTransformConfigurationSettings" class="ScalableTransformConfigurationSettings" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Azure.Services.ScalableTransform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.ScalableTransform\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.ScalableTransform.dll-->
+        <namespace>Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration</namespace>
+      </class>
+      <class ref="LoggingConfigurationView" class="LoggingConfigurationView" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework.Configuration</namespace>
+      </class>
+      <class ref="StorageAccountConfigurationSettings" class="StorageAccountConfigurationSettings" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework.Configuration</namespace>
+      </class>
+      <class ref="SourceLevels" class="SourceLevels">
+        <assembly>System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\System\v4.0_4.0.0.0__b77a5c561934e089\System.dll-->
+        <namespace>System.Diagnostics</namespace>
+      </class>
+      <class ref="PolicyExecutionInfo" class="PolicyExecutionInfo" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.BizTalk.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.BizTalk.Core\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.BizTalk.Core.dll-->
+        <namespace>Contoso.Cloud.Integration.BizTalk.Core.RulesEngine</namespace>
+      </class>
+      <class ref="ServiceBusEndpointCollection" class="ServiceBusEndpointCollection" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Framework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Framework\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Framework.dll-->
+        <namespace>Contoso.Cloud.Integration.Framework.Configuration</namespace>
+      </class>
+    </bindings>
+    <rule name="Set Work Item Scheduler Configuration" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <string>SectionName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <string>WorkItemSchedulerConfiguration</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>Cloud Storage Account</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-APPDATA-STORAGEACCNAME-HERE]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>Destination Queue</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>InventoryBatchQueue</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>XML Batch Size</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>100</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>Handling Policy Name</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.WorkItemHandling</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set Logging Configuration (Global)" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <string>SectionName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="fbf70b2b-8733-43ca-ae75-f8c977558d55" />
+              <string>loggingConfiguration</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="61d23df8-ade8-43b1-8ff1-348b7983b96a" />
+          <classmember member="ConfigureEventLogTraceListener" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <constant>
+                <string>.</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Application</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a6d4d562-5b21-401e-ab4d-d261540b3b71" />
+                <classmember member="EventLogTraceListenerName" sideeffects="true">
+                  <classref ref="LoggingConfigurationView" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="173ec738-96da-4574-ad24-02fc2d96b5ca" />
+                <classmember member="TraceError" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="b71a075a-6065-4897-99d3-ec7d6311313b" />
+                <classmember member="FormattedDebugTraceListenerName" sideeffects="true">
+                  <classref ref="LoggingConfigurationView" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="31b042e1-f0e5-4790-91a5-aa9b5f68e390" />
+                <classmember member="TraceInfo" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="b71a075a-6065-4897-99d3-ec7d6311313b" />
+                <classmember member="FormattedDebugTraceListenerName" sideeffects="true">
+                  <classref ref="LoggingConfigurationView" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="8fed975d-7671-4dfa-95a5-ef40e9c5dd89" />
+                <classmember member="TraceDetails" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="b71a075a-6065-4897-99d3-ec7d6311313b" />
+                <classmember member="FormattedDebugTraceListenerName" sideeffects="true">
+                  <classref ref="LoggingConfigurationView" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="3d906b43-0e86-4696-8c51-d1dabeca5383" />
+                <classmember member="TraceWarning" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="b71a075a-6065-4897-99d3-ec7d6311313b" />
+                <classmember member="FormattedDebugTraceListenerName" sideeffects="true">
+                  <classref ref="LoggingConfigurationView" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="173ec738-96da-4574-ad24-02fc2d96b5ca" />
+                <classmember member="TraceError" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="b71a075a-6065-4897-99d3-ec7d6311313b" />
+                <classmember member="FormattedDebugTraceListenerName" sideeffects="true">
+                  <classref ref="LoggingConfigurationView" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="cd553596-c78c-44b5-b47e-deef5be0444b" />
+                <classmember member="TraceIn" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="b71a075a-6065-4897-99d3-ec7d6311313b" />
+                <classmember member="FormattedDebugTraceListenerName" sideeffects="true">
+                  <classref ref="LoggingConfigurationView" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="ea5c7be8-2d21-4ce3-a352-453fb4bc642b" />
+                <classmember member="TraceOut" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="b71a075a-6065-4897-99d3-ec7d6311313b" />
+                <classmember member="FormattedDebugTraceListenerName" sideeffects="true">
+                  <classref ref="LoggingConfigurationView" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="5d601a1a-6253-4a17-a78a-85b1928e264f" />
+                <classmember member="TraceStartScope" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="b71a075a-6065-4897-99d3-ec7d6311313b" />
+                <classmember member="FormattedDebugTraceListenerName" sideeffects="true">
+                  <classref ref="LoggingConfigurationView" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="63b1b537-f51d-47a0-8cfc-48836140dc29" />
+                <classmember member="TraceEndScope" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set Logging Configuration (Azure)" priority="0" active="true">
+      <if>
+        <and>
+          <compare operator="equal">
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+            <lhs>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+                <classmember member="GetParameterAsString" sideeffects="true">
+                  <classref ref="PolicyExecutionInfo" />
+                  <argument>
+                    <constant>
+                      <string>SectionName</string>
+                    </constant>
+                  </argument>
+                </classmember>
+              </function>
+            </lhs>
+            <rhs>
+              <constant>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="fbf70b2b-8733-43ca-ae75-f8c977558d55" />
+                <string>loggingConfiguration</string>
+              </constant>
+            </rhs>
+          </compare>
+          <match>
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="949cabdb-16a5-42cf-a80d-e45fec6d0a62" />
+            <pattern>
+              <constant>
+                <string>^Azure*</string>
+              </constant>
+            </pattern>
+            <input>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+                <classmember member="GetParameterAsString" sideeffects="true">
+                  <classref ref="PolicyExecutionInfo" />
+                  <argument>
+                    <constant>
+                      <string>ApplicationName</string>
+                    </constant>
+                  </argument>
+                </classmember>
+              </function>
+            </input>
+          </match>
+        </and>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="12ef1296-0ee1-487e-9a01-f800be6630e2" />
+          <classmember member="AddTraceListener" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="503930e7-2715-447b-ab65-7294dea3e8f1" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="CloudDiagnosticTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="5adff6f7-d059-4af3-bc28-e8d4fbf396f9" />
+                <classmember member="ListenerTypeName" sideeffects="true">
+                  <classref ref="CloudDiagnosticTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="12ef1296-0ee1-487e-9a01-f800be6630e2" />
+          <classmember member="AddTraceListener" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="6df37e1a-a289-47d2-b6e0-b58833a46e68" />
+                <classmember member="ListenerTypeName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="0779e157-0c43-4b4b-a7c3-f15969dfe42d" />
+          <classmember member="ConfigureTraceListenerProperty" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="dd367d12-5be0-408a-8adb-d7f2b0ce30df" />
+                <string>diagnosticServiceEndpoint</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>DiagnosticLoggingService</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="0779e157-0c43-4b4b-a7c3-f15969dfe42d" />
+          <classmember member="ConfigureTraceListenerProperty" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="47675f18-ee11-4162-a8ff-e93642e2b37b" />
+                <string>inMemoryQueueCapacity</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>100000</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="0779e157-0c43-4b4b-a7c3-f15969dfe42d" />
+          <classmember member="ConfigureTraceListenerProperty" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="425572d6-dac5-4eae-8896-0ab60664e1c5" />
+                <string>diagnosticQueueEventBatchSize</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>50</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="503930e7-2715-447b-ab65-7294dea3e8f1" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="CloudDiagnosticTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="31b042e1-f0e5-4790-91a5-aa9b5f68e390" />
+                <classmember member="TraceInfo" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="503930e7-2715-447b-ab65-7294dea3e8f1" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="CloudDiagnosticTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="8fed975d-7671-4dfa-95a5-ef40e9c5dd89" />
+                <classmember member="TraceDetails" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="503930e7-2715-447b-ab65-7294dea3e8f1" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="CloudDiagnosticTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="3d906b43-0e86-4696-8c51-d1dabeca5383" />
+                <classmember member="TraceWarning" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="503930e7-2715-447b-ab65-7294dea3e8f1" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="CloudDiagnosticTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="173ec738-96da-4574-ad24-02fc2d96b5ca" />
+                <classmember member="TraceError" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="503930e7-2715-447b-ab65-7294dea3e8f1" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="CloudDiagnosticTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="cd553596-c78c-44b5-b47e-deef5be0444b" />
+                <classmember member="TraceIn" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="503930e7-2715-447b-ab65-7294dea3e8f1" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="CloudDiagnosticTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="ea5c7be8-2d21-4ce3-a352-453fb4bc642b" />
+                <classmember member="TraceOut" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="503930e7-2715-447b-ab65-7294dea3e8f1" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="CloudDiagnosticTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="5d601a1a-6253-4a17-a78a-85b1928e264f" />
+                <classmember member="TraceStartScope" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="503930e7-2715-447b-ab65-7294dea3e8f1" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="CloudDiagnosticTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="63b1b537-f51d-47a0-8cfc-48836140dc29" />
+                <classmember member="TraceEndScope" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="31b042e1-f0e5-4790-91a5-aa9b5f68e390" />
+                <classmember member="TraceInfo" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="8fed975d-7671-4dfa-95a5-ef40e9c5dd89" />
+                <classmember member="TraceDetails" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="3d906b43-0e86-4696-8c51-d1dabeca5383" />
+                <classmember member="TraceWarning" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="173ec738-96da-4574-ad24-02fc2d96b5ca" />
+                <classmember member="TraceError" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="cd553596-c78c-44b5-b47e-deef5be0444b" />
+                <classmember member="TraceIn" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="ea5c7be8-2d21-4ce3-a352-453fb4bc642b" />
+                <classmember member="TraceOut" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="5d601a1a-6253-4a17-a78a-85b1928e264f" />
+                <classmember member="TraceStartScope" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="f8f14857-e33c-445b-96d7-917a56ba466b" element="489d3cce-faa9-4bee-a8c3-ba2d96b42593" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="OnPremisesBufferedTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="63b1b537-f51d-47a0-8cfc-48836140dc29" />
+                <classmember member="TraceEndScope" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set Scalable Transform Service Configuration" priority="0" active="true">
+      <if>
+        <match>
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="949cabdb-16a5-42cf-a80d-e45fec6d0a62" />
+          <pattern>
+            <constant>
+              <string>ScalableTransformConfiguration</string>
+            </constant>
+          </pattern>
+          <input>
+            <function>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <string>SectionName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </input>
+        </match>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="b5b30dd3-cb59-441a-9fb2-374e687c0be3" element="bb70418f-91ab-4070-a3c2-c36ad3bd4251" />
+          <classmember member="AddStorageAccount" sideeffects="true">
+            <classref ref="ScalableTransformConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-APPDATA-STORAGEACCNAME-HERE]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="b5b30dd3-cb59-441a-9fb2-374e687c0be3" element="d0ab7714-d5a6-48b9-b155-b6c89ec58d06" />
+          <classmember member="set_CacheStorageAccount" sideeffects="true">
+            <classref ref="ScalableTransformConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-APPDATA-STORAGEACCNAME-HERE]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="b5b30dd3-cb59-441a-9fb2-374e687c0be3" element="ba01299b-0291-4ff2-87a7-65538226b677" />
+          <classmember member="SetBlobCacheTimeToLiveInSeconds" sideeffects="true">
+            <classref ref="ScalableTransformConfigurationSettings" />
+            <argument>
+              <constant>
+                <int>3600</int>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="b5b30dd3-cb59-441a-9fb2-374e687c0be3" element="f2a4ccda-5551-4bf9-8fb8-0c2c42fa32d2" />
+          <classmember member="SetMemoryCacheTimeToLiveInSeconds" sideeffects="true">
+            <classref ref="ScalableTransformConfigurationSettings" />
+            <argument>
+              <constant>
+                <int>600</int>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set Diagnostic Settings" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <string>SectionName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="74e72fa0-5d45-4cd9-b91f-34ca8aaca30f" />
+              <string>ApplicationDiagnosticConfiguration</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="07e5671f-d550-47d9-b3cb-31e484d2e867" />
+          <classmember member="EnableDiagnostic" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="81564331-5191-465e-8b54-a6282d43ce35" />
+          <classmember member="EnableCrashDumpCollection" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="66f84d5b-9a32-4cca-8629-aa0167190156" />
+          <classmember member="set_DiagnosticStorageAccount" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-DIAGDATA-STORAGEACCNAME-HERE]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="c259f6c7-3a3b-4de9-8ced-43604f28a563" />
+          <classmember member="SetDefaultTransferPeriodInSeconds" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+            <argument>
+              <constant>
+                <int>30</int>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="c33a15c8-143f-4d14-b205-a9b9ce73260a" />
+          <classmember member="set_DefaultTransferFilter" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAAMAAAAL</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="36b47b76-d230-4675-936f-d33456d7b65c" />
+          <classmember member="set_TraceLogsTransferFilter" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="bc1fe856-b2d3-4698-9090-f5264739219f" />
+          <classmember member="set_DiagnosticLogsTransferFilter" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="d954a5af-f6b9-4597-b24d-85adae8ecef1" />
+          <classmember member="AddEventLogDataSource" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+            <argument>
+              <constant>
+                <string>Application!*</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="d954a5af-f6b9-4597-b24d-85adae8ecef1" />
+          <classmember member="AddEventLogDataSource" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+            <argument>
+              <constant>
+                <string>System!*</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="855ec437-fc8c-4e4e-82ba-4ee843f07993" />
+          <classmember member="AddPerformanceCounter" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+            <argument>
+              <constant>
+                <string>\Processor(_Total)\% Processor Time</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="TimeSpan" encoding="base64">AAEAAAD/////AQAAAAAAAAAEAQAAAA9TeXN0ZW0uVGltZVNwYW4BAAAABl90aWNrcwAJAOH1BQAAAAAL</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="4a6ec3e8-dc54-4fcf-8067-e767b2893c7c" element="855ec437-fc8c-4e4e-82ba-4ee843f07993" />
+          <classmember member="AddPerformanceCounter" sideeffects="true">
+            <classref ref="ApplicationDiagnosticSettings" />
+            <argument>
+              <constant>
+                <string>\Memory\Available Mbytes</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="TimeSpan" encoding="base64">AAEAAAD/////AQAAAAAAAAAEAQAAAA9TeXN0ZW0uVGltZVNwYW4BAAAABl90aWNrcwAJAOH1BQAAAAAL</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set Work Item Processor Configuration" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <string>SectionName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <string>WorkItemProcessorConfiguration</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>Cloud Storage Account</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-APPDATA-STORAGEACCNAME-HERE]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>Work Item Queue</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>InventoryBatchQueue</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>Work Item Queue Visibility Timeout</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>00:05:00</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>Output Item Queue</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>DBUpdateRequestQueue</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>Output Queue Visibility Timeout</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>00:05:00</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>Target Database</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>InventoryDatabase</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="55644072-3b41-4aaa-8093-e466ec0b9444" />
+          <classmember member="ChangeSetting" sideeffects="true">
+            <classref ref="ApplicationConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>Handling Policy Name</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.WorkItemHandling</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set Database Connection Strings" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <string>SectionName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="fe67a628-d778-4867-8429-f8ac8b2597fb" />
+              <string>connectionStrings</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="6fa6c998-d6d9-47df-8edd-ca77392371ab" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="ConnectionStringView" />
+            <argument>
+              <constant>
+                <string>PersistenceQueue</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Server=tcp:[PUT-YOUR-SQLAZURE-SERVERNAME-HERE].database.windows.net;Database=PersistenceQueue;User ID=[PUT-YOUR-SQLAZURE-USERNAME-HERE];Password=[PUT-YOUR-SQLAZURE-USERPWORD-HERE];Trusted_Connection=False;Encrypt=True</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="6fa6c998-d6d9-47df-8edd-ca77392371ab" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="ConnectionStringView" />
+            <argument>
+              <constant>
+                <string>InventoryDatabase</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>metadata=res://*/Data.ContosoInventory.csdl|res://*/Data.ContosoInventory.ssdl|res://*/Data.ContosoInventory.msl;provider=System.Data.SqlClient;provider connection string="Server=tcp:[PUT-YOUR-SQLAZURE-SERVERNAME-HERE].database.windows.net;Database=ContosoInventory;User ID=[PUT-YOUR-SQLAZURE-USERNAME-HERE];Password=[PUT-YOUR-SQLAZURE-USERPWORD-HERE];Trusted_Connection=False;Encrypt=True"</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set Logging Configuration (BizTalk)" priority="0" active="true">
+      <if>
+        <and>
+          <compare operator="equal">
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+            <lhs>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+                <classmember member="GetParameterAsString" sideeffects="true">
+                  <classref ref="PolicyExecutionInfo" />
+                  <argument>
+                    <constant>
+                      <string>SectionName</string>
+                    </constant>
+                  </argument>
+                </classmember>
+              </function>
+            </lhs>
+            <rhs>
+              <constant>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="fbf70b2b-8733-43ca-ae75-f8c977558d55" />
+                <string>loggingConfiguration</string>
+              </constant>
+            </rhs>
+          </compare>
+          <match>
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="949cabdb-16a5-42cf-a80d-e45fec6d0a62" />
+            <pattern>
+              <constant>
+                <string>^BTSNTSvc*</string>
+              </constant>
+            </pattern>
+            <input>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+                <classmember member="GetParameterAsString" sideeffects="true">
+                  <classref ref="PolicyExecutionInfo" />
+                  <argument>
+                    <constant>
+                      <string>ApplicationName</string>
+                    </constant>
+                  </argument>
+                </classmember>
+              </function>
+            </input>
+          </match>
+        </and>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="12ef1296-0ee1-487e-9a01-f800be6630e2" />
+          <classmember member="AddTraceListener" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="2bb318f8-edb0-4e9e-bb27-f4bf95b4717e" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="FormattedEtwTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="5ad49107-dd94-4202-b684-1871737f0a98" />
+                <classmember member="ListenerTypeName" sideeffects="true">
+                  <classref ref="FormattedEtwTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="2bb318f8-edb0-4e9e-bb27-f4bf95b4717e" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="FormattedEtwTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="31b042e1-f0e5-4790-91a5-aa9b5f68e390" />
+                <classmember member="TraceInfo" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="2bb318f8-edb0-4e9e-bb27-f4bf95b4717e" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="FormattedEtwTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="8fed975d-7671-4dfa-95a5-ef40e9c5dd89" />
+                <classmember member="TraceDetails" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="2bb318f8-edb0-4e9e-bb27-f4bf95b4717e" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="FormattedEtwTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="3d906b43-0e86-4696-8c51-d1dabeca5383" />
+                <classmember member="TraceWarning" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="2bb318f8-edb0-4e9e-bb27-f4bf95b4717e" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="FormattedEtwTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="173ec738-96da-4574-ad24-02fc2d96b5ca" />
+                <classmember member="TraceError" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="2bb318f8-edb0-4e9e-bb27-f4bf95b4717e" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="FormattedEtwTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="cd553596-c78c-44b5-b47e-deef5be0444b" />
+                <classmember member="TraceIn" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="2bb318f8-edb0-4e9e-bb27-f4bf95b4717e" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="FormattedEtwTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="ea5c7be8-2d21-4ce3-a352-453fb4bc642b" />
+                <classmember member="TraceOut" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="2bb318f8-edb0-4e9e-bb27-f4bf95b4717e" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="FormattedEtwTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="5d601a1a-6253-4a17-a78a-85b1928e264f" />
+                <classmember member="TraceStartScope" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a0f650fb-67dc-43ac-a225-52bf6b6c9fc8" />
+          <classmember member="EnableListenerForEventCategory" sideeffects="true">
+            <classref ref="LoggingConfigurationView" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="2bb318f8-edb0-4e9e-bb27-f4bf95b4717e" />
+                <classmember member="ListenerName" sideeffects="true">
+                  <classref ref="FormattedEtwTraceListener" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="63b1b537-f51d-47a0-8cfc-48836140dc29" />
+                <classmember member="TraceEndScope" sideeffects="true">
+                  <classref ref="WellKnownTraceCategory" />
+                </classmember>
+              </function>
+            </argument>
+            <argument>
+              <constant>
+                <object classref="SourceLevels" encoding="base64">AAEAAAD/////AQAAAAAAAAAMAgAAAElTeXN0ZW0sIFZlcnNpb249NC4wLjAuMCwgQ3VsdHVyZT1uZXV0cmFsLCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAfU3lzdGVtLkRpYWdub3N0aWNzLlNvdXJjZUxldmVscwEAAAAHdmFsdWVfXwAIAgAAAP////8L</object>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set XPath Query Library Content" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <string>SectionName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="3b5bb0cb-a289-4a67-b356-131778973531" />
+              <string>XPathQueryLibrary</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="714e3ca6-4af7-460d-8e6f-44eef8be0ae3" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="NamespaceCollection" />
+            <argument>
+              <constant>
+                <string>ContosoInternalSchemas</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>ns0</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="714e3ca6-4af7-460d-8e6f-44eef8be0ae3" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="NamespaceCollection" />
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.ServiceContracts</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>sc</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="714e3ca6-4af7-460d-8e6f-44eef8be0ae3" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="NamespaceCollection" />
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.Demo</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>demo</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>InventoryReportRoot</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>/ns0:InventoryReport</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>InventoryHeader</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>{$InventoryReportRoot}/Header</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>InventoryReferenceNumber</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>{$InventoryHeader}/ReferenceNumber</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>InventoryItems</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>{$InventoryReportRoot}/Items</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>InventoryItemCount</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>count({$InventoryItems})</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>InventoryItemBatchTemplate</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>{$InventoryItems}[position() &gt;= {0} and position() &lt;= {1}]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>InventorySummary</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>{$InventoryReportRoot}/Summary</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>InventoryIRRSegment</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>{$InventoryReportRoot}/IRR</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>GetConfigurationSectionName</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>/sc:GetConfigurationSection/sc:sectionName</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>PersistDataStreamResult</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>/sc:PersistDataStreamResponse/sc:PersistDataStreamResult</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>LoanApplicationID</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>/demo:SubmitApplication/demo:LoanApplication/demo:ApplicationID</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e56b9d8b-6aa5-4631-9405-4d33ec529bb2" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="XPathQueryCollection" />
+            <argument>
+              <constant>
+                <string>LoanDecision</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>/demo:SubmitApplication/demo:LoanApplication/demo:Decision</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set Service Bus Configuration" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <string>SectionName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="d3c35ed6-07ff-4f7f-9f2b-d9fb5133558b" />
+              <string>ServiceBusConfiguration</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a2e56cd5-7f90-46e6-997f-68a1e1291f30" />
+          <classmember member="set_DefaultIssuerName" sideeffects="true">
+            <classref ref="ServiceBusConfigurationSettings" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="ef666388-3a1d-4890-962d-3649054b44a4" />
+                <classmember member="Read" sideeffects="true">
+                  <classref ref="SsoConfigurationUtility" />
+                  <argument>
+                    <constant>
+                      <string>Contoso.Cloud.Integration</string>
+                    </constant>
+                  </argument>
+                  <argument>
+                    <constant>
+                      <string>DefaultIssuerName</string>
+                    </constant>
+                  </argument>
+                </classmember>
+              </function>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="204effb1-1adc-4255-b7c4-1654d90aed86" />
+          <classmember member="set_DefaultIssuerSecret" sideeffects="true">
+            <classref ref="ServiceBusConfigurationSettings" />
+            <argument>
+              <function>
+                <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="ef666388-3a1d-4890-962d-3649054b44a4" />
+                <classmember member="Read" sideeffects="true">
+                  <classref ref="SsoConfigurationUtility" />
+                  <argument>
+                    <constant>
+                      <string>Contoso.Cloud.Integration</string>
+                    </constant>
+                  </argument>
+                  <argument>
+                    <constant>
+                      <string>DefaultIssuerSecret</string>
+                    </constant>
+                  </argument>
+                </classmember>
+              </function>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a5cdee01-c9d8-46c8-8134-363024c25906" />
+          <classmember member="set_DefaultEndpoint" sideeffects="true">
+            <classref ref="ServiceBusConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>GenericCloudRequestOnRamp</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a777eff3-67b9-4cb9-9b1c-caa8947f21e3" />
+          <classmember member="AddRelayEndpoint" sideeffects="true">
+            <classref ref="ServiceBusEndpointCollection" />
+            <argument>
+              <constant>
+                <string>GenericCloudRequestResponseOnRamp</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-SB-NAMESPACE-HERE]</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.GenericCloudRequestResponseOnRamp</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a777eff3-67b9-4cb9-9b1c-caa8947f21e3" />
+          <classmember member="AddRelayEndpoint" sideeffects="true">
+            <classref ref="ServiceBusEndpointCollection" />
+            <argument>
+              <constant>
+                <string>GenericCloudRequestOnRamp</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-SB-NAMESPACE-HERE]</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.GenericCloudRequestOnRamp</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a777eff3-67b9-4cb9-9b1c-caa8947f21e3" />
+          <classmember member="AddRelayEndpoint" sideeffects="true">
+            <classref ref="ServiceBusEndpointCollection" />
+            <argument>
+              <constant>
+                <string>PersistenceService</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-SB-NAMESPACE-HERE]</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.ServiceContracts.IPersistenceService</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a777eff3-67b9-4cb9-9b1c-caa8947f21e3" />
+          <classmember member="AddRelayEndpoint" sideeffects="true">
+            <classref ref="ServiceBusEndpointCollection" />
+            <argument>
+              <constant>
+                <string>ScalableTransformService</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-SB-NAMESPACE-HERE]</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.ServiceContracts.IScalableTransformationService</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a777eff3-67b9-4cb9-9b1c-caa8947f21e3" />
+          <classmember member="AddRelayEndpoint" sideeffects="true">
+            <classref ref="ServiceBusEndpointCollection" />
+            <argument>
+              <constant>
+                <string>DiagnosticLoggingService</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-SB-NAMESPACE-HERE]</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.ServiceContracts.IDiagnosticLoggingService</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a6daf08e-a7ac-45c7-b3f2-01a7203f0619" />
+          <classmember member="AddEventingEndpoint" sideeffects="true">
+            <classref ref="ServiceBusEndpointCollection" />
+            <argument>
+              <constant>
+                <string>InterRoleCommunication</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-SB-NAMESPACE-HERE]</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.ServiceContracts.IInterRoleCommunicationService</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a777eff3-67b9-4cb9-9b1c-caa8947f21e3" />
+          <classmember member="AddRelayEndpoint" sideeffects="true">
+            <classref ref="ServiceBusEndpointCollection" />
+            <argument>
+              <constant>
+                <string>LoanApplication</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-SB-NAMESPACE-HERE]</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>Contoso.Cloud.Integration.Demo.LoanApplication</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set Retry Policy Configuration" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <string>SectionName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="b928c148-b545-48cc-b470-ebb7cfcaa3cc" />
+              <string>RetryPolicyConfiguration</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="827a8d18-d87a-4b0b-9b0e-172b18b71a46" />
+          <classmember member="AddFixedIntervalPolicy" sideeffects="true">
+            <classref ref="RetryPolicyConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>FixedIntervalDefault</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <int>10</int>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <int>100</int>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="85d09814-babc-4df9-b85d-b6fdaeccb7d8" />
+          <classmember member="AddIncrementalIntervalPolicy" sideeffects="true">
+            <classref ref="RetryPolicyConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>IncrementalIntervalDefault</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <int>10</int>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <int>100</int>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <int>50</int>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="940e90e0-3972-4542-83a7-f97e989e3932" />
+          <classmember member="AddExponentialIntervalPolicy" sideeffects="true">
+            <classref ref="RetryPolicyConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>ExponentialIntervalDefault</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <int>10</int>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <int>100</int>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <int>1000</int>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <int>100</int>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="2abf4398-ade3-480e-adb1-dc66212d3e17" />
+          <classmember member="set_DefaultPolicy" sideeffects="true">
+            <classref ref="RetryPolicyConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>FixedIntervalDefault</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="8fb838f7-58a7-4053-b853-04191670004e" />
+          <classmember member="set_DefaultSqlConnectionPolicy" sideeffects="true">
+            <classref ref="RetryPolicyConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>FixedIntervalDefault</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="84f99d58-1ff0-41de-bf38-13783b7805fa" />
+          <classmember member="set_DefaultSqlCommandPolicy" sideeffects="true">
+            <classref ref="RetryPolicyConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>FixedIntervalDefault</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="ee045e8b-4728-49c0-817e-05336a36fafe" />
+          <classmember member="set_DefaultCommunicationPolicy" sideeffects="true">
+            <classref ref="RetryPolicyConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>ExponentialIntervalDefault</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="c142e642-cf94-42c2-aa92-c4b9c47843bf" />
+          <classmember member="set_DefaultStoragePolicy" sideeffects="true">
+            <classref ref="RetryPolicyConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>IncrementalIntervalDefault</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Set Storage Account Configuration" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="eec10715-6dd1-4997-bdfb-3ca7ae9b99ae" />
+              <classmember member="GetParameterAsString" sideeffects="true">
+                <classref ref="PolicyExecutionInfo" />
+                <argument>
+                  <constant>
+                    <string>SectionName</string>
+                  </constant>
+                </argument>
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="e817ea24-682f-43df-99ca-aef4c24d883d" />
+              <string>StorageAccountConfiguration</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="c7751e09-257d-42c9-8ace-7286d9934561" />
+          <classmember member="AddAccount" sideeffects="true">
+            <classref ref="StorageAccountConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-APPDATA-STORAGEACCNAME-HERE]</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-APPDATA-STORAGEACCKEY-HERE]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="c7751e09-257d-42c9-8ace-7286d9934561" />
+          <classmember member="AddAccount" sideeffects="true">
+            <classref ref="StorageAccountConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-DIAGDATA-STORAGEACCNAME-HERE]</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-DIAGDATA-STORAGEACCKEY-HERE]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="dbe45917-935a-4b76-88a5-518cdf922d44" />
+          <classmember member="set_DefaultBlobStorage" sideeffects="true">
+            <classref ref="StorageAccountConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-APPDATA-STORAGEACCNAME-HERE]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="a96d5c65-ddf0-4e92-8bdb-ec1f58124856" />
+          <classmember member="set_DefaultQueueStorage" sideeffects="true">
+            <classref ref="StorageAccountConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-APPDATA-STORAGEACCNAME-HERE]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="83100bfc-0778-4137-8745-339c0f4535b3" element="ff708d54-c797-4dc7-b29d-244d160a371f" />
+          <classmember member="set_DefaultTableStorage" sideeffects="true">
+            <classref ref="StorageAccountConfigurationSettings" />
+            <argument>
+              <constant>
+                <string>[PUT-YOUR-APPDATA-STORAGEACCNAME-HERE]</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+  </ruleset>
+</brl>

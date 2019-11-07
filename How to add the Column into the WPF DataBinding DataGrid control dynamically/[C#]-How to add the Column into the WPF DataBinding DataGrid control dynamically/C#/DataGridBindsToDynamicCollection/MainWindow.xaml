@@ -1,0 +1,16 @@
+﻿<Window x:Class="DataGridBindsToDynamicCollection.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <StackPanel Orientation="Horizontal">
+      <Button Content="Add Column" Click="AddColumn_Click" Margin="5"/>
+      <Button Content="Add Row" Click="AddRow_Click" Margin="5"/>
+    </StackPanel>
+    <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserReorderColumns="False" Grid.Row="1"/>
+  </Grid>
+</Window>

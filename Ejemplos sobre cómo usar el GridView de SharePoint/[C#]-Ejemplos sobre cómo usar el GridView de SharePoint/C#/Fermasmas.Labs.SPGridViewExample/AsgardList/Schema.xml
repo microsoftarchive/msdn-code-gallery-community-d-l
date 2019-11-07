@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<List xmlns:ows="Microsoft SharePoint" Title="AsgardList" FolderCreation="FALSE" Direction="$Resources:Direction;" Url="Lists/Fermasmas.Labs.SPGridViewExample-AsgardList" BaseType="0" xmlns="http://schemas.microsoft.com/sharepoint/">
+  <MetaData>
+    <ContentTypes>
+      <ContentType ID="0x01008fa32c23979b4973897e64ea4f36bec3" Name="AsgardContentType" Group="Tipo de contenido Asgard" Description="Tipo de contenido que soporta contenido sobre los Asgard." Inherits="TRUE" Version="1">
+        <FieldRefs>
+          <FieldRef ID="{06CF0FF5-59EF-41A0-A53C-B90FB660EAC5}" Name="Name" DisplayName="Nombre" />
+          <FieldRef ID="{D8618586-4030-44F1-826D-A3CCEBFE4AAB}" Name="Influence" DisplayName="Influencia" />
+          <FieldRef ID="{FF571E75-6A69-481A-AED2-3CB271F8420E}" Name="Gender" DisplayName="Género" />
+        </FieldRefs>
+      </ContentType>
+    </ContentTypes>
+    <Fields>
+      <Field ID="{06cf0ff5-59ef-41a0-a53c-b90fb660eac5}" Name="Name" DisplayName="Nombre" Type="Text" />
+      <Field ID="{d8618586-4030-44f1-826d-a3ccebfe4aab}" Name="Influence" DisplayName="Influencia" Type="Choice">
+    <CHOICES>
+      <CHOICE>Æsir</CHOICE>
+      <CHOICE>Ásynjur</CHOICE>
+    </CHOICES>
+  </Field>
+      <Field ID="{ff571e75-6a69-481a-aed2-3cb271f8420e}" Name="Gender" DisplayName="Género" Type="Choice">
+    <CHOICES>
+      <CHOICE>Masculino</CHOICE>
+      <CHOICE>Femenino</CHOICE>
+    </CHOICES>
+  </Field>
+    </Fields>
+    <Views>
+      <View BaseViewID="0" Type="HTML" MobileView="TRUE" TabularView="FALSE">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="LinkTitleNoMenu" />
+          <FieldRef Name="Name" />
+          <FieldRef Name="Influence" />
+          <FieldRef Name="Gender" />
+        </ViewFields>
+        <Query>
+          <GroupBy Collapse="False">
+            <FieldRef Name="Gender" />
+          </GroupBy>
+          <OrderBy>
+            <FieldRef Name="Modified" Ascending="TRUE" />
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="AddNewAnnouncement" Location="Resource(wss,addnewitem)" />
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_ONET_HOME)" />
+        </ParameterBindings>
+      </View>
+      <View BaseViewID="1" Type="HTML" WebPartZoneID="Main" DisplayName="$Resources:core,objectiv_schema_mwsidcamlidC24;" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" SetupPath="pages\viewpage.aspx" ImageUrl="/_layouts/images/generic.png" Url="AllItems.aspx">
+        <Toolbar Type="Standard" />
+        <XslLink Default="TRUE">main.xsl</XslLink>
+        <RowLimit Paged="TRUE">30</RowLimit>
+        <ViewFields>
+          <FieldRef Name="LinkTitle" />
+          <FieldRef Name="Name" />
+          <FieldRef Name="Influence" />
+          <FieldRef Name="Gender" />
+        </ViewFields>
+        <Query>
+          <GroupBy Collapse="False">
+            <FieldRef Name="Gender" />
+          </GroupBy>
+          <OrderBy>
+            <FieldRef Name="Modified" Ascending="TRUE" />
+          </OrderBy>
+        </Query>
+        <ParameterBindings>
+          <ParameterBinding Name="NoAnnouncements" Location="Resource(wss,noXinviewofY_LIST)" />
+          <ParameterBinding Name="NoAnnouncementsHowTo" Location="Resource(wss,noXinviewofY_DEFAULT)" />
+        </ParameterBindings>
+      </View>
+    </Views>
+    <Forms>
+      <Form Type="DisplayForm" Url="DispForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="EditForm" Url="EditForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+      <Form Type="NewForm" Url="NewForm.aspx" SetupPath="pages\form.aspx" WebPartZoneID="Main" />
+    </Forms>
+  </MetaData>
+</List>

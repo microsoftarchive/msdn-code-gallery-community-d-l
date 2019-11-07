@@ -1,0 +1,38 @@
+﻿<Application x:Class="ApplicationNavigation.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml" xmlns:model="clr-namespace:ApplicationNavigation.Model">
+    <Application.Resources>
+
+        <x:Array x:Key="People" Type="model:Person" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+            <model:Person>
+                <model:Person.Id>1</model:Person.Id>
+                <model:Person.FirstName>Peter</model:Person.FirstName>
+                <model:Person.LastName>Laker</model:Person.LastName>
+                <model:Person.Age>42</model:Person.Age>
+                <model:Person.DepartmentId>1</model:Person.DepartmentId>
+                <model:Person.HappyRating>90</model:Person.HappyRating>
+                <model:Person.StartDate>12/12/12 0:0:0</model:Person.StartDate>
+            </model:Person>
+            <model:Person>
+                <model:Person.Id>2</model:Person.Id>
+                <model:Person.FirstName>Joe</model:Person.FirstName>
+                <model:Person.LastName>Bloggs</model:Person.LastName>
+                <model:Person.Age>30</model:Person.Age>
+                <model:Person.DepartmentId>3</model:Person.DepartmentId>
+                <model:Person.HappyRating>50</model:Person.HappyRating>
+                <model:Person.StartDate>11/11/11</model:Person.StartDate>
+            </model:Person>
+            <model:Person>
+                <model:Person.Id>3</model:Person.Id>
+                <model:Person.FirstName>Jane</model:Person.FirstName>
+                <model:Person.LastName>Doe</model:Person.LastName>
+                <model:Person.Age>24</model:Person.Age>
+                <model:Person.DepartmentId>2</model:Person.DepartmentId>
+                <model:Person.HappyRating>0</model:Person.HappyRating>
+                <model:Person.IsDead>True</model:Person.IsDead>
+            </model:Person>
+        </x:Array>
+
+    </Application.Resources>
+</Application>

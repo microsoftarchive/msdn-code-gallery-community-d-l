@@ -1,0 +1,1690 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:im1="clr-namespace:IdentityMine.Avalon.Controls;assembly=Chart"
+ 		xmlns:im2="clr-namespace:IdentityMine.Avalon.Controls;assembly=ChartRotator"
+    xmlns:imPatientHelper="clr-namespace:IdentityMine.Avalon.Controls;assembly=PatientHelper"
+    xmlns:local="clr-namespace:Avalon_Patient_Monitoring"
+    xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+    >
+
+  <DrawingImage x:Key="MagnifyDrawingImage">
+    <DrawingImage.Drawing>
+      <DrawingGroup>
+        <DrawingGroup.Children>
+          <GeometryDrawing Brush="#FFFFFFFF" Geometry="M 37.5132,16.3246C 43.2782,16.3246 47.9518,20.9981 47.9518,26.7632C 47.9518,32.5282 43.2782,37.2018 37.5132,37.2018C 31.7481,37.2018 27.0746,32.5282 27.0746,26.7632C 27.0746,20.9981 31.7481,16.3246 37.5132,16.3246 Z M 27.5432,34.9045L 29.4288,36.7901L 17.2901,48.9288L 15.4045,47.0432L 27.5432,34.9045 Z ">
+            <GeometryDrawing.Pen>
+              <Pen Thickness="4" LineJoin="Round" Brush="#FF000000"/>
+            </GeometryDrawing.Pen>
+          </GeometryDrawing>
+
+        </DrawingGroup.Children>
+      </DrawingGroup>
+    </DrawingImage.Drawing>
+  </DrawingImage>
+  
+  <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+		<Grid RenderTransformOrigin="0.5,0.5">
+
+			<Grid.RenderTransform>
+				<TransformGroup>
+					<TranslateTransform X="0" Y="0"/>
+					<ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+					<SkewTransform AngleX="0" AngleY="0"/>
+					<RotateTransform Angle="0"/>
+					<TranslateTransform X="0" Y="0"/>
+					<TranslateTransform X="0" Y="0"/>
+				</TransformGroup>
+			</Grid.RenderTransform>
+
+			<Ellipse Fill="#333333" Height="20" Width="20"  RenderTransformOrigin="0.5,0.5"  >
+				<Ellipse.RenderTransform>
+					<TransformGroup>
+						<TranslateTransform X="0" Y="0"/>
+						<ScaleTransform ScaleX="1.02" ScaleY="1.02"/>
+						<SkewTransform AngleX="0" AngleY="0"/>
+						<RotateTransform Angle="0"/>
+						<TranslateTransform X="0" Y="0"/>
+						<TranslateTransform X="0" Y="0"/>
+					</TransformGroup>
+				</Ellipse.RenderTransform>
+			</Ellipse>
+
+		</Grid>
+
+	</ControlTemplate>
+
+	<ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+		<Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
+	</ControlTemplate>
+
+	<Style x:Key="RosterSelectorComboBox" TargetType="{x:Type ComboBox}">
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="OverridesDefaultStyle" Value="true"/>
+
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ComboBox}">
+					<Grid >
+						<ToggleButton 
+						  Name="ToggleButton" 
+						  Template="{StaticResource ComboBoxToggleButton}" 
+               
+						  Focusable="false"
+						  IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+						  ClickMode="Press" d:LayoutOverrides="GridBox" />
+						<ContentPresenter
+						  Name="ContentSite"
+						  IsHitTestVisible="False" 
+						  Content="{TemplateBinding SelectionBoxItem}"
+           
+              />
+
+						<Popup 
+						  Name="Popup"
+						  Placement="Center"
+						  IsOpen="{TemplateBinding IsDropDownOpen}"
+						  AllowsTransparency="True" 
+						  Focusable="False"
+						  VerticalOffset="0"
+              >
+							<Grid 
+							  x:Name="DropDown"
+							  SnapsToDevicePixels="True"                
+							  Height="80" Width="30"
+                >
+								<Border 
+								  x:Name="DropDownBorder"
+								  Margin="0,0,0,0"
+                  />
+								<Rectangle Fill="#666666" RadiusX="15" RadiusY="15" Margin="0" />
+								<StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" Margin="0" />
+							</Grid>
+						</Popup>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="HasItems" Value="false">
+							<Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+						</Trigger>
+						<Trigger Property="IsGrouping" Value="true">
+							<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+						</Trigger>
+						<Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+							<Setter TargetName="DropDownBorder" Property="CornerRadius" Value="4"/>
+							<Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0"/>
+						</Trigger>
+						<Trigger Property="IsEditable"
+							 Value="true">
+							<Setter Property="IsTabStop" Value="false"/>
+
+							<Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+		</Style.Triggers>
+	</Style>
+
+	<!-- SimpleStyles: ComboBoxItem -->
+
+	<Style x:Key="PatientRosterComboBoxItem" TargetType="{x:Type ComboBoxItem}">
+		<Setter Property="SnapsToDevicePixels" Value="true"/>
+		<Setter Property="OverridesDefaultStyle" Value="true"/>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type ComboBoxItem}">
+					<Border Width="20"
+					  Name="Border" Opacity="0.5"
+         
+					  SnapsToDevicePixels="true">
+						<ContentPresenter />
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsMouseOver" Value="true">
+							<Setter TargetName="Border" Property="Opacity" Value="1"/>
+						</Trigger>
+						<Trigger Property="IsHighlighted" Value="true">
+							<!--<Setter TargetName="Border" Property="Background" Value="{StaticResource SelectedBackgroundBrush}"/>-->
+						</Trigger>
+						<Trigger Property="IsEnabled" Value="false">
+							<Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+
+
+	<ControlTemplate x:Key="DetailBackgroundTemplate">
+		<Grid >
+			<!-- ***************************************************************************************************** -->
+			<!-- Fake Dropshadow Grid -->
+			<!-- ***************************************************************************************************** -->
+			<Rectangle Stroke="#127D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="8" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="0,2,2,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#267D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="7" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="1,3,3,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#307D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="6" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="2,4,4,4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#447D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="5" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="3,5,5,5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#587D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="4" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="4,6,6,6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#727D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="3" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="5,7,7,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#867D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="2" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="6,8,8,8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Grid  Margin="7,9,9,9"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+				<Grid Name="Layer1" >
+					<Grid.RowDefinitions>
+						<RowDefinition Height="131" />
+						<RowDefinition Height="*" />
+						<RowDefinition Height="62" />
+					</Grid.RowDefinitions>
+					<Rectangle Stroke="#353535" RadiusX="13" RadiusY="13" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle1" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+						<Shape.Fill>
+							<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+								<GradientBrush.GradientStops>
+									<GradientStopCollection>
+										<GradientStop Color="sc#1.000000, 0.181945, 0.181945, 0.181940" Offset="0" />
+										<GradientStop Color="sc#1.000000, 0.050554, 0.050554, 0.050550" Offset="1" />
+									</GradientStopCollection>
+								</GradientBrush.GradientStops>
+								<Brush.RelativeTransform>
+									<TransformGroup>
+										<TransformGroup.Children>
+											<TransformCollection>
+												<TranslateTransform X="-0.5" Y="-0.5" />
+												<ScaleTransform ScaleX="0.57706863698486544" ScaleY="0.57706863698486544" />
+												<SkewTransform AngleX="0" AngleY="0" />
+												<RotateTransform Angle="180.09126119927151" />
+												<TranslateTransform X="0.5" Y="0.5" />
+												<TranslateTransform X="0.15754803259457642" Y="-0.4692373900102072" />
+											</TransformCollection>
+										</TransformGroup.Children>
+									</TransformGroup>
+								</Brush.RelativeTransform>
+							</LinearGradientBrush>
+						</Shape.Fill>
+					</Rectangle>
+					<Rectangle Opacity="0.65"  RadiusX="4.75000000000003" RadiusY="4.75000000000003" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle1_Copy2" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="8,0,8,1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Width="Auto" Height="3">
+						<Shape.Fill>
+							<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+								<GradientBrush.GradientStops>
+									<GradientStopCollection>
+										<GradientStop Color="sc#1.000000, 0.914143, 0.914143, 0.914110" Offset="0.52981514609421343" />
+										<GradientStop Color="sc#0.000000, 1.000000, 1.000000, 0.999880" Offset="0.69566189624329011" />
+									</GradientStopCollection>
+								</GradientBrush.GradientStops>
+								<Brush.RelativeTransform>
+									<TransformGroup>
+										<TransformGroup.Children>
+											<TransformCollection>
+												<TranslateTransform X="-0.5" Y="-0.5" />
+												<ScaleTransform ScaleX="0.50044400049956883" ScaleY="0.50044400049956883" />
+												<SkewTransform AngleX="0" AngleY="0" />
+												<RotateTransform Angle="270.00000000000006" />
+												<TranslateTransform X="0.5" Y="0.5" />
+												<TranslateTransform X="-0.13074712643678146" Y="0.24988905536127062" />
+											</TransformCollection>
+										</TransformGroup.Children>
+									</TransformGroup>
+								</Brush.RelativeTransform>
+							</LinearGradientBrush>
+						</Shape.Fill>
+					</Rectangle>
+					<Rectangle Opacity="0.85"  RadiusX="5.125" RadiusY="5.125" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle1_Copy1" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="8,1,8,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Height="3">
+						<Shape.Fill>
+							<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+								<GradientBrush.GradientStops>
+									<GradientStopCollection>
+										<GradientStop Color="sc#1.000000, 0.914143, 0.914143, 0.914110" Offset="0.54308288610613942" />
+										<GradientStop Color="sc#0.000000, 1.000000, 1.000000, 0.999880" Offset="0.6890280262373264" />
+									</GradientStopCollection>
+								</GradientBrush.GradientStops>
+								<Brush.RelativeTransform>
+									<TransformGroup>
+										<TransformGroup.Children>
+											<TransformCollection>
+												<TranslateTransform X="-0.5" Y="-0.5" />
+												<ScaleTransform ScaleX="0.71875000198589822" ScaleY="0.71875000198589822" />
+												<SkewTransform AngleX="0" AngleY="0" />
+												<RotateTransform Angle="90.004066810596811" />
+												<TranslateTransform X="0.5" Y="0.5" />
+												<TranslateTransform X="-0.13101142365557361" Y="-0.23437499997456734" />
+											</TransformCollection>
+										</TransformGroup.Children>
+									</TransformGroup>
+								</Brush.RelativeTransform>
+							</LinearGradientBrush>
+						</Shape.Fill>
+					</Rectangle>
+				</Grid>
+			</Grid>
+		</Grid>
+	</ControlTemplate>
+	<ControlTemplate x:Key="MasterBackgroundTemplate">
+		<Grid>
+      <Rectangle Fill="sc#1.000000, 0.716650, 0.716650, 0.716650" RadiusX="13" RadiusY="13" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"    Margin="8" />
+
+      <!-- ***************************************************************************************************** -->
+			<!-- Fake Dropshadow Grid -->
+			<!-- ***************************************************************************************************** -->
+			<Rectangle Stroke="#127D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="8" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3" Margin="2,2,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#267D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="7" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3" Margin="3,3,1,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#307D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="6" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3" Margin="4,4,2,4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#447D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="5" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3" Margin="5,5,3,5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#587D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="4" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3" Margin="6,6,4,6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#727D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="3" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3" Margin="7,7,5,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#867D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="2" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3" Margin="8,8,6,8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+
+			<Rectangle RadiusX="13" RadiusY="13" StrokeThickness="8" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3" Margin="2,2,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+				<Rectangle.Stroke>
+					<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+						<GradientBrush.GradientStops>
+							<GradientStopCollection>
+								<GradientStop Color="Transparent" Offset="0.10" />
+								<GradientStop Color="#DCDCDC" Offset="0.15" />
+								<GradientStop Color="#DCDCDC" Offset="1" />
+							</GradientStopCollection>
+						</GradientBrush.GradientStops>
+						<Brush.RelativeTransform>
+							<TransformGroup>
+								<TransformGroup.Children>
+									<TransformCollection>
+										<TranslateTransform X="-0.5" Y="-0.5" />
+										<ScaleTransform ScaleX="1" ScaleY="1" />
+										<SkewTransform AngleX="0" AngleY="0" />
+										<RotateTransform Angle="90" />
+										<TranslateTransform X="0.5" Y="0.5" />
+										<TranslateTransform X="0" Y="0" />
+									</TransformCollection>
+								</TransformGroup.Children>
+							</TransformGroup>
+						</Brush.RelativeTransform>
+					</LinearGradientBrush>
+				</Rectangle.Stroke>
+			</Rectangle>
+			<Rectangle  RadiusX="13" RadiusY="13" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="rec_leftbtmshadow" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Margin="10,0,6,10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" >
+				<Shape.Fill>
+					<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+						<GradientBrush.GradientStops>
+							<GradientStopCollection>
+								<GradientStop Color="sc#1.000000, 0.239118, 0.239118, 0.239110" Offset="1" />
+								<GradientStop Color="sc#1.000000, 0.239118, 0.239118, 0.239110" Offset="0.35" />
+								<GradientStop Color="Transparent" Offset="0.1" />
+								<GradientStop Color="Transparent" Offset="0" />
+							</GradientStopCollection>
+						</GradientBrush.GradientStops>
+						<Brush.RelativeTransform>
+							<TransformGroup>
+								<TransformGroup.Children>
+									<TransformCollection>
+										<RotateTransform Angle="90" />
+									</TransformCollection>
+								</TransformGroup.Children>
+							</TransformGroup>
+						</Brush.RelativeTransform>
+					</LinearGradientBrush>
+				</Shape.Fill>
+			</Rectangle>
+			<Rectangle RadiusX="13" RadiusY="13" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="rec_topshadow" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2" Margin="9,9,6,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto"  >
+				<Rectangle.Stroke>
+					<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+						<GradientBrush.GradientStops>
+							<GradientStopCollection>
+								<GradientStop Color="sc#1.000000, 1.000000, 1.000000, 1.000000" Offset="0.12692307692307664" />
+								<GradientStop Color="sc#0.000000, 0.878000, 0.878000, 0.878000" Offset="1" />
+							</GradientStopCollection>
+						</GradientBrush.GradientStops>
+						<Brush.RelativeTransform>
+							<TransformGroup>
+								<TransformGroup.Children>
+									<TransformCollection>
+										<TranslateTransform X="-0.5" Y="-0.5" />
+										<ScaleTransform ScaleX="0.79369049711309059" ScaleY="0.79369049711309059" />
+										<SkewTransform AngleX="0" AngleY="0" />
+										<RotateTransform Angle="78.607334372217522" />
+										<TranslateTransform X="0.5" Y="0.5" />
+										<TranslateTransform X="-0.02777810279723214" Y="-0.23260847476342972" />
+									</TransformCollection>
+								</TransformGroup.Children>
+							</TransformGroup>
+						</Brush.RelativeTransform>
+					</LinearGradientBrush>
+				</Rectangle.Stroke>
+			</Rectangle>
+			<Rectangle  RadiusX="13" RadiusY="13" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle113" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="1" Margin="9,0,6,9" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Width="Auto" Height="200" >
+				<Rectangle.Stroke>
+					<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+						<GradientBrush.GradientStops>
+							<GradientStopCollection>
+								<GradientStop Color="sc#1.000000, 1.000000, 1.000000, 1.000000" Offset="1" />
+								<GradientStop Color="sc#0.000000, 1.000000, 1.000000, 1.000000" Offset="0.4583638583638594" />
+							</GradientStopCollection>
+						</GradientBrush.GradientStops>
+						<Brush.RelativeTransform>
+							<TransformGroup>
+								<TransformGroup.Children>
+									<TransformCollection>
+										<TranslateTransform X="-0.5" Y="-0.5" />
+										<ScaleTransform ScaleX="0.79369049711309059" ScaleY="0.79369049711309059" />
+										<SkewTransform AngleX="0" AngleY="0" />
+										<RotateTransform Angle="78.607334372217522" />
+										<TranslateTransform X="0.5" Y="0.5" />
+										<TranslateTransform X="-0.02777810279723214" Y="-0.23260847476342972" />
+									</TransformCollection>
+								</TransformGroup.Children>
+							</TransformGroup>
+						</Brush.RelativeTransform>
+					</LinearGradientBrush>
+				</Rectangle.Stroke>
+			</Rectangle>
+			<Rectangle  RadiusX="13" RadiusY="13" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle2" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="3" Margin="10,10,6,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Height="140.244396232181" >
+				<Rectangle.Fill>
+					<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+						<GradientBrush.GradientStops>
+							<GradientStopCollection>
+								<GradientStop Color="sc#1.000000, 0.167488, 0.167488, 0.167480" Offset="0" />
+								<GradientStop Color="sc#0.000000, 1.000000, 1.000000, 1.000000" Offset="1" />
+							</GradientStopCollection>
+						</GradientBrush.GradientStops>
+						<Brush.RelativeTransform>
+							<TransformGroup>
+								<TransformGroup.Children>
+									<TransformCollection>
+										<TranslateTransform X="-0.5" Y="-0.5" />
+										<ScaleTransform ScaleX="0.79369049711309059" ScaleY="0.79369049711309059" />
+										<SkewTransform AngleX="0" AngleY="0" />
+										<RotateTransform Angle="78.607334372217522" />
+										<TranslateTransform X="0.5" Y="0.5" />
+										<TranslateTransform X="-0.02777810279723214" Y="-0.23260847476342972" />
+									</TransformCollection>
+								</TransformGroup.Children>
+							</TransformGroup>
+						</Brush.RelativeTransform>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+		</Grid>
+	</ControlTemplate>
+
+
+  <DataTemplate x:Key="PatientDetailHeaderTemplate">
+    <Grid>
+      <Grid Name="TopDetails1">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="117" />
+          <ColumnDefinition Width="165" />
+          <ColumnDefinition Width="0.396094464029248*" />
+          <ColumnDefinition Width="0.603905535970752*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="0.333*" />
+          <RowDefinition Height="0.333*" />
+          <RowDefinition Height="0.333*" />
+        </Grid.RowDefinitions>
+        <Rectangle  Fill="sc#1.000000, 1.000000, 1.000000, 1.000000" RadiusX="5" RadiusY="5" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle115" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="3" Margin="10,0,5,0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="90" Height="90" />
+        <TextBlock Name="DoctorName1" Text="Dr. Johnson, Robert" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="sc#1.000000, 1.000000, 1.000000, 1.000000"  Padding="5,5,5,5" FontSize="14" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="Doctor1" Text="Doctor" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" Foreground="sc#1.000000, 0.516980, 0.516980, 0.516980" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="14" TextAlignment="Right" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="LocationPlace1" Text="{Binding XPath=roomNumber}" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="5,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="sc#1.000000, 1.000000, 1.000000, 1.000000" Padding="5,5,5,5" FontSize="14" />
+        <TextBlock Name="Location1" Text="Location" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" Foreground="sc#1.000000, 0.516980, 0.516980, 0.516980" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="14" TextAlignment="Right" />
+        <TextBlock Name="Facility1" Text="Facility" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" Foreground="sc#1.000000, 0.516980, 0.516980, 0.516980" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="14" TextAlignment="Right" />
+        <TextBlock Name="FacilityPlace1" Text="GUIDN" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="5,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="sc#1.000000, 1.000000, 1.000000, 1.000000"  Padding="5,5,5,5" FontSize="14"   />
+        <TextBlock Name="Details_PatienName1" Text="{Binding XPath=lastName}" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="20" Foreground="sc#1.000000, 1.000000, 1.000000, 1.000000" />
+        <TextBlock Name="Details_PatientRoomNumber1" Text="{Binding XPath=roomNumber}" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,15,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="52.9600000000002" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="20" Foreground="sc#1.000000, 1.000000, 1.000000, 1.000000"  />
+        <TextBlock Name="Details_PatienAgeSex1" Text="{Binding XPath=agesex}" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="16" Foreground="sc#1.000000, 0.444101, 0.444101, 0.444100" />
+        <TextBlock Name="Details_PatientDX1" Text="{Binding XPath=primaryicd9}" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="16" Foreground="sc#1.000000, 0.444101, 0.444101, 0.444100" />
+        <Image Name="Details_PatientImage" Source="{Binding XPath=image}" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="3" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="90" Height="90" Margin="13,0,0,0" />
+      </Grid>
+    </Grid>
+  </DataTemplate>
+  
+  <ControlTemplate x:Key="ChartsListItemTemplate">
+    <Grid Background="White" x:Name="ChartsListItemGrid" Width="104" Height="90" Margin="3">
+      <!--<Grid.BitmapEffect>
+        <DropShadowBitmapEffect Opacity="0.1" />
+      </Grid.BitmapEffect> -->
+      <Rectangle Fill="white" Stroke="#cccccc" />
+      <DockPanel LastChildFill="True">
+        <TextBlock DockPanel.Dock="Top" Text="{Binding XPath=.}" Margin="5,5,5,0"  FontSize="12" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330"/>
+        <Grid Margin="5,2,5,5">
+          <Rectangle Fill="white" Stroke="#cccccc" />
+          <Rectangle Margin="3"  Fill="{Binding XPath=., Converter={StaticResource ChartVisualConverterReference}, ConverterParameter={StaticResource ChartVisuals}}" />
+        </Grid>
+      </DockPanel>
+    </Grid>
+  </ControlTemplate>
+
+  <Style x:Key="ChartsListItemStyle" TargetType="{x:Type ListBoxItem}">
+    <Setter Property="Background" Value="Transparent" />
+    <Setter Property="Template" Value="{DynamicResource ChartsListItemTemplate}" />
+    <Setter Property="HorizontalContentAlignment" Value="Left" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Cursor" Value="Hand" />
+    <Setter Property="Padding" Value="0,0,0,0" />
+  </Style>
+
+  <ControlTemplate x:Key="PatientDetailLiveMonitorsTemplate">
+			<Grid Name="ChartQuadDropZone" Background="White">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="30"/>
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+     
+        <TextBlock Name="LabelCharts" Text="Live Monitors" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="16" Foreground="sc#1.000000, 0.123433, 0.123433, 0.123430" />
+        <ListBox x:Name="LiveChartsListBox" Margin="5"  Width="Auto" Height="Auto" Grid.Row="1" VerticalAlignment="Stretch" AllowDrop="True" Style="{StaticResource LooklessWrappingListBox}"  IsSynchronizedWithCurrentItem="True" DataContext="{Binding Source={StaticResource HealthDataXML}, XPath=/healthFirst/charts}" ItemContainerStyle="{StaticResource ChartsListItemStyle}" >
+          <ListBox.ItemsSource>
+            <Binding Mode="Default" XPath="chart[. = 'empty']"/>
+          </ListBox.ItemsSource>
+        </ListBox>
+			</Grid>
+        
+	</ControlTemplate>
+
+  <ControlTemplate x:Key="PatientDetailSelectorTemplate">
+    <Grid >
+      <Expander Template="{DynamicResource PatientDetailsHorizontalExpander}" HorizontalAlignment="Left" >
+        <StackPanel Width="170">
+          <Expander Name="LiveMonitorsExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="LiveMonitors" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <Grid  Margin="5,0">
+              <Rectangle RadiusX="4" RadiusY="4" Fill="White" />
+              <ListBox Name="LiveMonitorsSelectorListBox"   Style="{StaticResource LooklessListBox}"  IsSynchronizedWithCurrentItem="True" DataContext="{Binding Source={StaticResource HealthDataXML}, XPath=/healthFirst/charts/chart}" ItemsSource="{Binding}" ItemContainerStyle="{StaticResource ChartsListItemStyle}" />
+            </Grid>
+          </Expander>
+					<Expander Name="VitalSignsExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="Vital Signs" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+					</Expander>
+					<Expander Name="AlertsExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="Alerts" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+          </Expander>
+          <Expander Name="AllergiesExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+           HorizontalAlignment="Left" Header="Allergies" 
+           ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+          </Expander>
+          <Expander Name="IandOTotalsExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="I and O Totals" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+          </Expander>
+          <Expander Name="IVandDripsViewExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="IV &amp; Drips View" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+          </Expander>
+          <Expander Name="MedicationsExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="Medications" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+          </Expander>
+          <Expander Name="LaboratoryResultsExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="Laboratory Results" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+          </Expander>
+          <Expander Name="MicroResultsExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="Micro Results" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+          </Expander>
+          <Expander Name="OrdersExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="Orders" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+          </Expander>
+          <Expander Name="DocumentationExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="Documentation" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+          </Expander>
+          <Expander Name="IssuesExpander" Template="{StaticResource PatientDetailsExpander}" Grid.Row="1" Width="170"
+					 HorizontalAlignment="Left" Header="Issues" 
+					 ExpandDirection="Down" IsExpanded="False" >
+            <TextBlock Foreground="White"  Text="Empty" />
+          </Expander>
+
+        </StackPanel>
+			</Expander>
+		</Grid>
+	</ControlTemplate>
+  
+	<ControlTemplate x:Key="PatientDetailWorkspaceTemplate">
+		<Grid Background="{x:Null}">
+      
+      <Grid.RowDefinitions>
+        <RowDefinition Height="30" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      
+			<Label Name="Label_LiveMonitoring" Grid.Row="0" Content="Workspace" HorizontalAlignment="Left" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="16" Foreground="sc#1.000000, 0.225464, 0.225464, 0.225460"  />
+      <Grid Margin="20" Grid.Row="1">
+        <Rectangle Stroke="#cccccc" />
+        <im2:ChartRotator  Name="ChartRotator3D" AllowDrop="True"  Background="transparent"   />
+      </Grid>
+		</Grid>
+	</ControlTemplate>
+	<ControlTemplate x:Key="PatientDetailDataGridTemplate">
+    <Grid Background="{x:Null}">
+
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition  />
+        <ColumnDefinition  />
+        <ColumnDefinition  />
+      </Grid.ColumnDefinitions>
+			<Grid Margin="0,0,4.83169060316868E-13,5.6843418860808E-14" Width="Auto" Height="Auto" Grid.Column="1" x:Name="Background2">
+				<Rectangle RadiusX="6" RadiusY="6" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,20,2.00000000000006,2.00000000000051" Width="Auto" Height="Auto" Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="Rectangle1">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+							<LinearGradientBrush.RelativeTransform>
+								<TransformGroup>
+									<TranslateTransform X="-0.5" Y="-0.5"/>
+									<ScaleTransform ScaleX="0.787555433262117" ScaleY="0.787555433262117"/>
+									<SkewTransform AngleX="0" AngleY="0"/>
+									<RotateTransform Angle="62.733808090668944"/>
+									<TranslateTransform X="0.5" Y="0.5"/>
+									<TranslateTransform X="0.06696915806640942" Y="-0.10844847010882244"/>
+								</TransformGroup>
+							</LinearGradientBrush.RelativeTransform>
+							<GradientStop Color="sc#1.000000, 1.000000, 1.000000, 1.000000" Offset="1"/>
+							<GradientStop Color="sc#1.000000, 0.576757, 0.576757, 0.576750" Offset="0"/>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Rectangle RadiusX="6" RadiusY="6" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="2,17,2.00000000000006,0" Width="Auto" Height="18.6666666666667" Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="Rectangle2">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+							<LinearGradientBrush.RelativeTransform>
+								<TransformGroup>
+									<TranslateTransform X="-0.5" Y="-0.5"/>
+									<ScaleTransform ScaleX="0.787555433262117" ScaleY="0.787555433262117"/>
+									<SkewTransform AngleX="0" AngleY="0"/>
+									<RotateTransform Angle="89.913926238086162"/>
+									<TranslateTransform X="0.5" Y="0.5"/>
+									<TranslateTransform X="0.063151191732367745" Y="0.087980101319749843"/>
+								</TransformGroup>
+							</LinearGradientBrush.RelativeTransform>
+							<GradientStop Color="sc#0.000000, 1.000000, 1.000000, 1.000000" Offset="1"/>
+							<GradientStop Color="sc#1.000000, 0.154058, 0.154058, 0.154050" Offset="0.64922480620155"/>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Rectangle RadiusX="6" RadiusY="6" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="2,2,2.00000000000006,0" Width="Auto" Height="28.8471615720525" Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="Rectangle3">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+							<LinearGradientBrush.RelativeTransform>
+								<TransformGroup>
+									<TranslateTransform X="-0.5" Y="-0.5"/>
+									<ScaleTransform ScaleX="0.787555433262117" ScaleY="0.787555433262117"/>
+									<SkewTransform AngleX="0" AngleY="0"/>
+									<RotateTransform Angle="89.7724044894367"/>
+									<TranslateTransform X="0.5" Y="0.5"/>
+									<TranslateTransform X="0.066969158066409532" Y="-0.10844847010882239"/>
+								</TransformGroup>
+							</LinearGradientBrush.RelativeTransform>
+							<GradientStop Color="sc#1.000000, 1.000000, 1.000000, 1.000000" Offset="1"/>
+							<GradientStop Color="sc#1.000000, 0.460151, 0.460151, 0.460150" Offset="0"/>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+			</Grid>
+			<Grid Margin="0,0,4.83169060316868E-13,5.6843418860808E-14" Width="Auto" Height="Auto" Grid.Column="2" x:Name="Grid">
+				<Rectangle RadiusX="6" RadiusY="6" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="2,20,2.00000000000006,2.00000000000051" Width="Auto" Height="Auto" Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="Rectangle4">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+							<LinearGradientBrush.RelativeTransform>
+								<TransformGroup>
+									<TranslateTransform X="-0.5" Y="-0.5"/>
+									<ScaleTransform ScaleX="0.787555433262117" ScaleY="0.787555433262117"/>
+									<SkewTransform AngleX="0" AngleY="0"/>
+									<RotateTransform Angle="62.733808090668944"/>
+									<TranslateTransform X="0.5" Y="0.5"/>
+									<TranslateTransform X="0.06696915806640942" Y="-0.10844847010882244"/>
+								</TransformGroup>
+							</LinearGradientBrush.RelativeTransform>
+							<GradientStop Color="sc#1.000000, 1.000000, 1.000000, 1.000000" Offset="1"/>
+							<GradientStop Color="sc#1.000000, 0.576757, 0.576757, 0.576750" Offset="0"/>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Rectangle RadiusX="6" RadiusY="6" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="2,17,2.00000000000006,0" Width="Auto" Height="18.6666666666667" Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="Rectangle5">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+							<LinearGradientBrush.RelativeTransform>
+								<TransformGroup>
+									<TranslateTransform X="-0.5" Y="-0.5"/>
+									<ScaleTransform ScaleX="0.787555433262117" ScaleY="0.787555433262117"/>
+									<SkewTransform AngleX="0" AngleY="0"/>
+									<RotateTransform Angle="89.913926238086162"/>
+									<TranslateTransform X="0.5" Y="0.5"/>
+									<TranslateTransform X="0.063151191732367745" Y="0.087980101319749843"/>
+								</TransformGroup>
+							</LinearGradientBrush.RelativeTransform>
+							<GradientStop Color="sc#0.000000, 1.000000, 1.000000, 1.000000" Offset="1"/>
+							<GradientStop Color="sc#1.000000, 0.154058, 0.154058, 0.154050" Offset="0.64922480620155"/>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Rectangle RadiusX="6" RadiusY="6" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="2,2,2.00000000000006,0" Width="Auto" Height="28.8471615720525" Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1" x:Name="Rectangle6">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+							<LinearGradientBrush.RelativeTransform>
+								<TransformGroup>
+									<TranslateTransform X="-0.5" Y="-0.5"/>
+									<ScaleTransform ScaleX="0.787555433262117" ScaleY="0.787555433262117"/>
+									<SkewTransform AngleX="0" AngleY="0"/>
+									<RotateTransform Angle="89.7724044894367"/>
+									<TranslateTransform X="0.5" Y="0.5"/>
+									<TranslateTransform X="0.066969158066409532" Y="-0.10844847010882239"/>
+								</TransformGroup>
+							</LinearGradientBrush.RelativeTransform>
+							<GradientStop Color="sc#1.000000, 1.000000, 1.000000, 1.000000" Offset="1"/>
+							<GradientStop Color="sc#1.000000, 0.460151, 0.460151, 0.460150" Offset="0"/>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+			</Grid>
+      <Grid x:Name="Background1">
+      <Rectangle  RadiusX="6" RadiusY="6" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle1113" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="2,20,2.00000000000006,2.00000000000051" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+        <Shape.Fill>
+          <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientBrush.GradientStops>
+              <GradientStopCollection>
+                <GradientStop Color="sc#1.000000, 1.000000, 1.000000, 1.000000" Offset="1" />
+                <GradientStop Color="sc#1.000000, 0.576757, 0.576757, 0.576750" Offset="0" />
+              </GradientStopCollection>
+            </GradientBrush.GradientStops>
+            <Brush.RelativeTransform>
+              <TransformGroup>
+                <TransformGroup.Children>
+                  <TransformCollection>
+                    <TranslateTransform X="-0.5" Y="-0.5" />
+                    <ScaleTransform ScaleX="0.787555433262117" ScaleY="0.787555433262117" />
+                    <SkewTransform AngleX="0" AngleY="0" />
+                    <RotateTransform Angle="62.733808090668944" />
+                    <TranslateTransform X="0.5" Y="0.5" />
+                    <TranslateTransform X="0.06696915806640942" Y="-0.10844847010882244" />
+                  </TransformCollection>
+                </TransformGroup.Children>
+              </TransformGroup>
+            </Brush.RelativeTransform>
+          </LinearGradientBrush>
+        </Shape.Fill>
+      </Rectangle>
+      <Rectangle  RadiusX="6" RadiusY="6" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle1114" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="2,17,2.00000000000006,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Height="18.6666666666667">
+        <Shape.Fill>
+          <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientBrush.GradientStops>
+              <GradientStopCollection>
+                <GradientStop Color="sc#0.000000, 1.000000, 1.000000, 1.000000" Offset="1" />
+                <GradientStop Color="sc#1.000000, 0.154058, 0.154058, 0.154050" Offset="0.64922480620155" />
+              </GradientStopCollection>
+            </GradientBrush.GradientStops>
+            <Brush.RelativeTransform>
+              <TransformGroup>
+                <TransformGroup.Children>
+                  <TransformCollection>
+                    <TranslateTransform X="-0.5" Y="-0.5" />
+                    <ScaleTransform ScaleX="0.787555433262117" ScaleY="0.787555433262117" />
+                    <SkewTransform AngleX="0" AngleY="0" />
+                    <RotateTransform Angle="89.913926238086162" />
+                    <TranslateTransform X="0.5" Y="0.5" />
+                    <TranslateTransform X="0.063151191732367745" Y="0.087980101319749843" />
+                  </TransformCollection>
+                </TransformGroup.Children>
+              </TransformGroup>
+            </Brush.RelativeTransform>
+          </LinearGradientBrush>
+        </Shape.Fill>
+      </Rectangle>
+      <Rectangle  RadiusX="6" RadiusY="6" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle1115" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="2,2,2.00000000000006,0" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Height="28.8471615720525">
+        <Shape.Fill>
+          <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientBrush.GradientStops>
+              <GradientStopCollection>
+                <GradientStop Color="sc#1.000000, 1.000000, 1.000000, 1.000000" Offset="1" />
+                <GradientStop Color="sc#1.000000, 0.460151, 0.460151, 0.460150" Offset="0" />
+              </GradientStopCollection>
+            </GradientBrush.GradientStops>
+            <Brush.RelativeTransform>
+              <TransformGroup>
+                <TransformGroup.Children>
+                  <TransformCollection>
+                    <TranslateTransform X="-0.5" Y="-0.5" />
+                    <ScaleTransform ScaleX="0.787555433262117" ScaleY="0.787555433262117" />
+                    <SkewTransform AngleX="0" AngleY="0" />
+                    <RotateTransform Angle="89.7724044894367" />
+                    <TranslateTransform X="0.5" Y="0.5" />
+                    <TranslateTransform X="0.066969158066409532" Y="-0.10844847010882239" />
+                  </TransformCollection>
+                </TransformGroup.Children>
+              </TransformGroup>
+            </Brush.RelativeTransform>
+          </LinearGradientBrush>
+        </Shape.Fill>
+      </Rectangle>
+    </Grid>
+      <Grid Name="VS_TextData" Grid.Column="0" Margin="15,5,5,5">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="27" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Name="lbl_time" Text="Time" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" />
+        <TextBlock Name="lbl_heartrate" Text="Heart Rate" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="0,0,4.263256414560614,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy2" Text="Resp Rate" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="1" Margin="0,0,4.263256414560614,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy3" Text="bp Sys" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="4" Grid.RowSpan="1" Margin="0,0,4.263256414560614,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy4" Text="bp Dias" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="5" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy5" Text="bp Mean" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="6" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy6" Text="temp C" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="7" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy1" Text="9:15 am" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330"  TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy7" Text="10:00 am" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330"  TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy9" Text="28" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy10" Text="138" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="4" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy11" Text="68" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="5" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy12" Text="91" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="6" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy13" Text="37" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="7" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy8" Text="74" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy14" Text="78" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy15" Text="24" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy16" Text="140" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="4" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy17" Text="70" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="5" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy19" Text="93" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="6" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy18" Text="37.2" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="7" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="Label_VS" Text="Vital Signs" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="sc#1.000000, 0.081179, 0.081179, 0.081170" FontSize="11" Padding="0,0,0,0" TextAlignment="Left" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy20" Text="12-Jun" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="11" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center"  TextTrimming="CharacterEllipsis"/>
+        <TextBlock Name="lbl_time_Copy21" Text="12-Jun" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="11" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center"  TextTrimming="CharacterEllipsis"/>
+			</Grid>
+
+			
+			<Grid Name="Issues_TextData" Grid.Column="1" Margin="15,5,5,5" HorizontalAlignment="Stretch" >
+				<Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="27" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+        <Button Name="lbl_time2" Content="Diagnosis" Style="{StaticResource LooklessButton}" HorizontalAlignment="Left"  Command="imPatientHelper:PatientCommands.LaunchDocumentWindow" CommandParameter="DiagnosticsWindow" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="0,0,0,0"  VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" />
+        <TextBlock Name="lbl_heartrate2" Text="Test" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy24" Text="Pain" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy25" Text="Blood Pressure" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="4" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy31" Text="15:30" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" TextAlignment="Center" />
+        <TextBlock Name="lbl_time_Copy32" Text="16:44" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" TextAlignment="Center" />
+        <TextBlock Name="lbl_time_Copy33" Text="20:10" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="4" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" TextAlignment="Center" />
+        <TextBlock Name="lbl_time_Copy38" Text="16:33" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" TextAlignment="Center" />
+        <TextBlock Name="Label_Issues" Text="Observations" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="sc#1.000000, 0.081179, 0.081179, 0.081170" FontSize="12" Padding="0,0,0,0" />
+        <TextBlock Name="lbl_Status" Text="Status" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="11" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" />
+      </Grid>
+
+      <Grid Name="VS_TextData1" Grid.Column="2" Margin="15,5,5,5">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+          <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="26" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+          <RowDefinition Height="*" />
+
+        </Grid.RowDefinitions>
+        <TextBlock Name="lbl_time1" Text="Left Knee" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_heartrate1" Text="Knee X-ray" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="0,0,4.263256414560614,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <Button Style="{StaticResource LooklessButton}" HorizontalAlignment="Left"  Name="lbl_time_Copy22" Content="Ultrasound" Command="imPatientHelper:PatientCommands.LaunchVideoAnnotationWindow" CommandParameter="XRay" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="1" Margin="0,0,4.263256414560614,0" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" />
+        <TextBlock Name="lbl_time_Copy23" Text="Patient Room" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="4" Grid.RowSpan="1" Margin="0,0,4.263256414560614,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy27" Text="Hi-Res Image" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" TextAlignment="Center" />
+        <TextBlock Name="lbl_time_Copy28" Text="15:30" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy29" Text="16:44" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy30" Text="Live Feed" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="4" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy34" Text="16:33" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+        <TextBlock Name="lbl_time_Copy35" Text="Video" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" />
+        <TextBlock Name="lbl_time_Copy36" Text="Hi-Res Image" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" TextAlignment="Center" />
+        <TextBlock Name="lbl_time_Copy37" Text="Live Video" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="4" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="10" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextTrimming="CharacterEllipsis" TextAlignment="Center" />
+        <TextBlock Name="Label_Alerts" Text="Radiology" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="sc#1.000000, 0.081179, 0.081179, 0.081170" FontSize="12" Padding="0,0,0,0" />
+        <TextBlock Name="lbl_time_Copy41" Text="Type" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="11" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" />
+        <TextBlock Name="lbl_time_Copy42" Text="Time" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" FontFamily="{StaticResource FontFamilyBrand1}" FontSize="11" Padding="0,0,0,0" Foreground="sc#1.000000, 0.110331, 0.110331, 0.110330" TextAlignment="Center" TextTrimming="CharacterEllipsis" />
+				<!--
+        <Button Opacity="0" Padding="0" Margin="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" />
+        <Button Click="OnVideoAnnotationShow" Opacity="0" Padding="0" Margin="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" />
+        <Button Opacity="0" Padding="0" Margin="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" />
+        <Button Opacity="0" Padding="0" Margin="0" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Center" Width="Auto" Height="Auto" />
+        -->
+			</Grid>
+		</Grid>
+	</ControlTemplate>
+
+	<ControlTemplate x:Key="PatientOverviewHeaderBackgroundTemplate">
+		<Grid>
+			<!-- ***************************************************************************************************** -->
+			<!-- Fake Dropshadow Grid -->
+			<!-- ***************************************************************************************************** -->
+			<Rectangle Stroke="#127D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="8" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="0,2,2,2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#267D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="7" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="1,3,3,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#307D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="6" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="2,4,4,4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#447D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="5" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="3,5,5,5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#587D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="4" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="4,6,6,6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#727D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="3" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="5,7,7,7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+			<Rectangle Stroke="#867D7D7D" RadiusX="13" RadiusY="13" StrokeThickness="2" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="6,8,8,8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+
+			<Rectangle Stroke="#7D7D7D" Fill="#F8F8F8" RadiusX="13" RadiusY="13" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="2" Margin="7,9,9,9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+		</Grid>
+	</ControlTemplate>
+
+
+
+	<DataTemplate x:Key="PatientOverviewChartTemplate">
+		<Grid HorizontalAlignment="Stretch">
+			<TextBlock Name="chartNameText"  Text="{Binding XPath=chart}" HorizontalAlignment="Left" FontSize="18" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="sc#1.000000, 0.095858, 0.095858, 0.095850" VerticalAlignment="Top" Margin="10,0,0,0" />
+			<Button HorizontalAlignment="Right" VerticalAlignment="Top" x:Name="SettingsButton" Content="settings" Margin="0,0,18,0"  />
+			<Grid   Name="chartBackground" Margin="10,30,20,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+				<Grid.RowDefinitions>
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="40" />
+					<ColumnDefinition Width="0.753640776699029*" />
+					<ColumnDefinition Width="0.180825242718446*"/>
+					<ColumnDefinition Width="0.0655339805825258*"/>
+				</Grid.ColumnDefinitions>
+				<!-- Patient Chart -->
+
+				<Viewbox Grid.Row="0" Grid.Column="1" Stretch="Fill" Grid.ColumnSpan="3">
+					<DockPanel>
+						<Border Background="white" DockPanel.Dock="Bottom" HorizontalAlignment="Right">
+              <Rectangle Width="200" Height="100" Fill="{Binding XPath=chart, Converter={StaticResource ChartVisualConverterReference}, ConverterParameter={StaticResource ChartVisuals}}" />
+						</Border>
+					</DockPanel>
+				</Viewbox>
+        
+        
+				<!-- Charting Labels -->
+				<Rectangle Grid.Row="0" Grid.Column="0">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+							<GradientBrush.GradientStops>
+								<GradientStopCollection>
+									<GradientStop Color="#EBEBEB" Offset="0" />
+									<GradientStop Color="#F9F9F9" Offset="1" />
+								</GradientStopCollection>
+							</GradientBrush.GradientStops>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+        
+				<StackPanel Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="8,0,0,0" HorizontalAlignment="Left" Width="101.000000000001" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+					
+          <TextBlock Margin="0,3,0,3" Foreground="#929292" FontSize="12" HorizontalAlignment="Left">225</TextBlock>
+					<TextBlock Margin="0,3,0,3" Foreground="#929292" FontSize="12" HorizontalAlignment="Left">180</TextBlock>
+					<TextBlock Margin="0,3,0,3" Foreground="#929292" FontSize="12" HorizontalAlignment="Left">135</TextBlock>
+					<TextBlock Margin="0,3,0,3" Foreground="#929292" FontSize="12" HorizontalAlignment="Left">90</TextBlock>
+					<TextBlock Margin="0,3,0,3" Foreground="#929292" FontSize="12" HorizontalAlignment="Left">45</TextBlock>
+					<TextBlock Margin="0,3,0,3" Foreground="#929292" FontSize="12" HorizontalAlignment="Left">00</TextBlock>
+				</StackPanel>
+        
+        
+				<Rectangle VerticalAlignment="Top" Height="6" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+							<GradientBrush.GradientStops>
+								<GradientStopCollection>
+									<GradientStop Color="#40000000" Offset="0" />
+									<GradientStop Color="Transparent" Offset="1" />
+								</GradientStopCollection>
+							</GradientBrush.GradientStops>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Rectangle VerticalAlignment="Bottom" Height="6" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+							<GradientBrush.GradientStops>
+								<GradientStopCollection>
+									<GradientStop Color="Transparent" Offset="0" />
+									<GradientStop Color="#40000000" Offset="1" />
+								</GradientStopCollection>
+							</GradientBrush.GradientStops>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Rectangle HorizontalAlignment="Left" Width="6" Grid.Row="0" Grid.Column="1">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+							<GradientBrush.GradientStops>
+								<GradientStopCollection>
+									<GradientStop Color="#40000000" Offset="0" />
+									<GradientStop Color="Transparent" Offset="1" />
+								</GradientStopCollection>
+							</GradientBrush.GradientStops>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+				<Rectangle HorizontalAlignment="Right" Margin="3.00000000000051,0,0,0" Width="6" Grid.Row="0" Grid.Column="3" d:LayoutOverrides="HorizontalAlignment">
+					<Rectangle.Fill>
+						<LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+							<GradientBrush.GradientStops>
+								<GradientStopCollection>
+									<GradientStop Color="Transparent" Offset="0" />
+									<GradientStop Color="#40000000" Offset="1" />
+								</GradientStopCollection>
+							</GradientBrush.GradientStops>
+						</LinearGradientBrush>
+					</Rectangle.Fill>
+				</Rectangle>
+			</Grid>
+
+			<TextBlock Name="timeDateLabel"  Text="{Binding Path=CompoundDateTime}" HorizontalAlignment="Right"  DataContext="{DynamicResource DateTimeSource}" VerticalAlignment="Bottom" FontSize="12" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="sc#1.000000, 0.095858, 0.095858, 0.095850" Margin="0,0,28,5" />
+			<!-- DataContext="{StaticResource DateTimeSource}" -->
+		</Grid>
+	</DataTemplate>
+
+
+
+	<DataTemplate x:Key="PatientOverviewHeaderTemplate">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition  />
+				<ColumnDefinition  />
+			</Grid.ColumnDefinitions>
+
+			<Grid.RowDefinitions>
+				<RowDefinition  Height="40"/>
+				<RowDefinition  Height="30"/>
+			</Grid.RowDefinitions>
+      <StackPanel Orientation="Horizontal" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left">
+        <TextBlock Name="patientLastName" Text="{Binding XPath=lastName}"  FontSize="24" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="#3E3E3E"   />
+        <TextBlock Name="patientcomma" Text=","  FontSize="24" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="#3E3E3E"   />
+        <TextBlock Name="patientfisrtName" Text="{Binding XPath=firstName}"  FontSize="24" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="#3E3E3E"  Margin="10,0,0,0" />
+
+      </StackPanel>
+      <TextBlock Name="patientAgeSex" Text="{Binding XPath=agesex}" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" FontSize="18" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="#959595" />
+      <TextBlock Name="roomNumber" Text="{Binding XPath=roomNumber}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" FontSize="18" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="#3E3E3E" />
+			<TextBlock Name="dx" Text="{Binding XPath=primaryicd9}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="18" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="#959595" />
+
+		</Grid>
+	</DataTemplate>
+	<ControlTemplate x:Key="PatientOverviewPreviewTemplate">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition  />
+				<ColumnDefinition  />
+			</Grid.ColumnDefinitions>
+
+			<Grid Grid.Column="0" >
+				<Image  Source="\images\Media_PatientProtal.png" />
+			</Grid>
+			<Grid Grid.Column="1">
+				<Image Source="\images\media_ultrasoundportal.png"  />
+			</Grid>
+
+		</Grid>
+	</ControlTemplate>
+	<ControlTemplate x:Key="PatientOverviewStatusTemplate">
+		<Grid>
+			<Label Name="status" Content="Status" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="14" FontFamily="{StaticResource FontFamilyBrand1}" Foreground="sc#1.000000, 0.095858, 0.095858, 0.095850" />
+			<Grid Name="Status_Button_Row1" VerticalAlignment="Top" HorizontalAlignment="Right" Height="Auto" Width="400" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="3" Grid.RowSpan="1" Margin="25,14,25,0">
+				<StackPanel Height="22" Width="Auto" HorizontalAlignment="Right" Orientation="Horizontal">
+					<Button Height="22" Width="48" Margin="0" Style="{StaticResource PatientOverviewStatusButtonStyle}" Padding="0">
+						<DockPanel Margin="0" Width="44">
+							<Label Margin="2,0,0,0" DockPanel.Dock="Left" Foreground="#787878" FontSize="11" FontFamily="{StaticResource FontFamilyBrand1}" HorizontalAlignment="Right" VerticalAlignment="Center" Content="neuro" Padding="0" />
+							<Ellipse Margin="0,0,2,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Stroke="sc#1.000000, 0.131673, 0.131673, 0.131670" Fill="sc#1.000000, 0.450194, 1.000000, 0.000000" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Width="6" Height="6" />
+						</DockPanel>
+					</Button>
+					<Button Height="22" Width="48" Margin="0" Style="{StaticResource PatientOverviewStatusButtonStyle}" Padding="0">
+						<DockPanel Margin="0" Width="44">
+							<Label Margin="2,0,0,0" DockPanel.Dock="Left" Foreground="#787878" FontSize="11" FontFamily="{StaticResource FontFamilyBrand1}" VerticalAlignment="Center" Content="card" Padding="0" />
+							<Rectangle Margin="0,0,2,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Stroke="sc#1.000000, 0.131673, 0.131673, 0.131670" Fill="sc#1.000000, 1.000000, 0.000000, 0.021070" RadiusX="0" RadiusY="0" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" Width="6" Height="6" />
+						</DockPanel>
+					</Button>
+					<Button Height="22" Width="48" Margin="0" Style="{StaticResource PatientOverviewStatusButtonStyle}" Padding="0">
+						<DockPanel Margin="0" Width="44">
+							<Label Margin="2,0,0,0" DockPanel.Dock="Left" Foreground="#787878" FontSize="11" FontFamily="{StaticResource FontFamilyBrand1}" VerticalAlignment="Center" Content="pulm" Padding="0" />
+							<Rectangle Margin="0,0,2,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Stroke="sc#1.000000, 0.131673, 0.131673, 0.131670" Fill="sc#1.000000, 0.406254, 0.406254, 0.406250" RadiusX="0" RadiusY="0" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" Width="6" Height="6" />
+						</DockPanel>
+					</Button>
+					<Button Height="22" Width="48" Margin="0" Style="{StaticResource PatientOverviewStatusButtonStyle}" Padding="0">
+						<DockPanel Margin="0" Width="44">
+							<Label Margin="2,0,0,0" DockPanel.Dock="Left" Foreground="#787878" FontSize="11" FontFamily="{StaticResource FontFamilyBrand1}" VerticalAlignment="Center" Content="gastr" Padding="0" />
+							<Ellipse Margin="0,0,2,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Stroke="sc#1.000000, 0.131673, 0.131673, 0.131670" Fill="sc#1.000000, 0.450194, 1.000000, 0.000000" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Width="6" Height="6" />
+						</DockPanel>
+					</Button>
+					<Button Height="22" Width="48" Margin="0" Style="{StaticResource PatientOverviewStatusButtonStyle}" Padding="0">
+						<DockPanel Margin="0" Width="44">
+							<Label Margin="2,0,0,0" DockPanel.Dock="Left" Foreground="#787878" FontSize="11" FontFamily="{StaticResource FontFamilyBrand1}" VerticalAlignment="Center" Content="renal" Padding="0" />
+							<Ellipse Margin="0,0,2,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Stroke="sc#1.000000, 0.131673, 0.131673, 0.131670" Fill="sc#1.000000, 0.450194, 1.000000, 0.000000" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Width="6" Height="6" />
+						</DockPanel>
+					</Button>
+					<Button Height="22" Width="48" Margin="0" Style="{StaticResource PatientOverviewStatusButtonStyle}" Padding="0">
+						<DockPanel Margin="0" Width="44">
+							<Label Margin="2,0,0,0" DockPanel.Dock="Left" Foreground="#787878" FontSize="11" FontFamily="{StaticResource FontFamilyBrand1}" VerticalAlignment="Center" Content="hem" Padding="0" />
+							<Ellipse Margin="0,0,2,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Stroke="sc#1.000000, 0.131673, 0.131673, 0.131670" Fill="sc#1.000000, 0.450194, 1.000000, 0.000000" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Width="6" Height="6" />
+						</DockPanel>
+					</Button>
+					<Button Height="22" Width="48" Margin="0" Style="{StaticResource PatientOverviewStatusButtonStyle}" Padding="0">
+						<DockPanel Margin="0" Width="44">
+							<Label Margin="2,0,0,0" DockPanel.Dock="Left" Foreground="#787878" FontSize="11" FontFamily="{StaticResource FontFamilyBrand1}" VerticalAlignment="Center" Content="i.d." Padding="0" />
+							<Ellipse Margin="0,0,2,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Stroke="sc#1.000000, 0.131673, 0.131673, 0.131670" Fill="sc#1.000000, 0.450194, 1.000000, 0.000000" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" Grid.Column="0" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" Width="6" Height="6" />
+						</DockPanel>
+					</Button>
+					<Button Height="22" Width="48" Margin="0" Style="{StaticResource PatientOverviewStatusButtonStyle}" Padding="0">
+						<DockPanel Margin="0" Width="44">
+							<Label Margin="2,0,0,0" DockPanel.Dock="Left" Foreground="#787878" FontSize="11" FontFamily="{StaticResource FontFamilyBrand1}" VerticalAlignment="Center" Content="misc" Padding="0" />
+							<Rectangle Margin="0,0,2,0" DockPanel.Dock="Right" HorizontalAlignment="Right" Stroke="sc#1.000000, 0.131673, 0.131673, 0.131670" Fill="sc#1.000000, 1.000000, 0.371650, 0.000000" RadiusX="0" RadiusY="0" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter" Width="6" Height="6" VerticalAlignment="Center">
+								<UIElement.RenderTransform>
+									<TransformGroup>
+										<TransformGroup.Children>
+											<TransformCollection>
+												<TranslateTransform X="-4.5" Y="-3.9999999999999716" />
+												<ScaleTransform ScaleX="1" ScaleY="1" />
+												<SkewTransform AngleX="0" AngleY="0" />
+												<RotateTransform Angle="45" />
+												<TranslateTransform X="4.5" Y="3.9999999999999716" />
+												<TranslateTransform X="0" Y="0" />
+											</TransformCollection>
+										</TransformGroup.Children>
+									</TransformGroup>
+								</UIElement.RenderTransform>
+							</Rectangle>
+						</DockPanel>
+					</Button>
+				</StackPanel>
+			</Grid>
+			<Grid Name="Status_Charting_Area1" Height="165" VerticalAlignment="Bottom" Margin="0,0,0,-2.8421709430404E-13" >
+				<Rectangle Fill="White" Grid.Row="0" Grid.Column="0" />
+				<Viewbox Grid.Row="0" Grid.Column="1" Stretch="Fill">
+					<Grid>
+						<im1:Chart DockPanel.Dock="Bottom" HorizontalAlignment="Right" UpdateInterval="0" Style="{DynamicResource ChartStyleOrangeStatus}">
+							<im1:SeriesDataItem Value="10.0" />
+							<im1:SeriesDataItem Value="10.0" />
+							<im1:SeriesDataItem Value="10.0" />
+							<im1:SeriesDataItem Value="10.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="15.0" />
+							<im1:SeriesDataItem Value="15.0" />
+							<im1:SeriesDataItem Value="15.0" />
+							<im1:SeriesDataItem Value="15.0" />
+							<im1:SeriesDataItem Value="10.0" />
+							<im1:SeriesDataItem Value="10.0" />
+							<im1:SeriesDataItem Value="10.0" />
+						</im1:Chart>
+						<im1:Chart DockPanel.Dock="Bottom" HorizontalAlignment="Right" UpdateInterval="0" Style="{DynamicResource ChartStyleRedStatus}">
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="35.0" />
+							<im1:SeriesDataItem Value="35.0" />
+							<im1:SeriesDataItem Value="35.0" />
+							<im1:SeriesDataItem Value="35.0" />
+							<im1:SeriesDataItem Value="35.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="50.0" />
+							<im1:SeriesDataItem Value="60.0" />
+							<im1:SeriesDataItem Value="60.0" />
+							<im1:SeriesDataItem Value="60.0" />
+							<im1:SeriesDataItem Value="60.0" />
+							<im1:SeriesDataItem Value="60.0" />
+							<im1:SeriesDataItem Value="60.0" />
+							<im1:SeriesDataItem Value="60.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="80.0" />
+							<im1:SeriesDataItem Value="80.0" />
+							<im1:SeriesDataItem Value="80.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="70.0" />
+						</im1:Chart>
+						<im1:Chart DockPanel.Dock="Bottom" HorizontalAlignment="Right" UpdateInterval="0" Style="{DynamicResource ChartStyleGreenStatus}">
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="25.0" />
+							<im1:SeriesDataItem Value="26.0" />
+							<im1:SeriesDataItem Value="27.0" />
+							<im1:SeriesDataItem Value="28.0" />
+							<im1:SeriesDataItem Value="29.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="30.0" />
+							<im1:SeriesDataItem Value="31.0" />
+							<im1:SeriesDataItem Value="32.0" />
+							<im1:SeriesDataItem Value="33.0" />
+							<im1:SeriesDataItem Value="34.0" />
+							<im1:SeriesDataItem Value="35.0" />
+							<im1:SeriesDataItem Value="35.0" />
+							<im1:SeriesDataItem Value="35.0" />
+							<im1:SeriesDataItem Value="35.0" />
+							<im1:SeriesDataItem Value="36.0" />
+							<im1:SeriesDataItem Value="37.0" />
+							<im1:SeriesDataItem Value="38.0" />
+							<im1:SeriesDataItem Value="39.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="40.0" />
+							<im1:SeriesDataItem Value="20.0" />
+							<im1:SeriesDataItem Value="20.0" />
+						</im1:Chart>
+						<im1:Chart DockPanel.Dock="Bottom" HorizontalAlignment="Right" UpdateInterval="0" Style="{DynamicResource ChartStyleYellowStatus}">
+							<im1:SeriesDataItem Value="90.0" />
+							<im1:SeriesDataItem Value="90.0" />
+							<im1:SeriesDataItem Value="90.0" />
+							<im1:SeriesDataItem Value="85.0" />
+							<im1:SeriesDataItem Value="85.0" />
+							<im1:SeriesDataItem Value="85.0" />
+							<im1:SeriesDataItem Value="85.0" />
+							<im1:SeriesDataItem Value="85.0" />
+							<im1:SeriesDataItem Value="84.0" />
+							<im1:SeriesDataItem Value="83.0" />
+							<im1:SeriesDataItem Value="82.0" />
+							<im1:SeriesDataItem Value="81.0" />
+							<im1:SeriesDataItem Value="80.0" />
+							<im1:SeriesDataItem Value="79.0" />
+							<im1:SeriesDataItem Value="78.0" />
+							<im1:SeriesDataItem Value="77.0" />
+							<im1:SeriesDataItem Value="76.0" />
+							<im1:SeriesDataItem Value="75.0" />
+							<im1:SeriesDataItem Value="75.0" />
+							<im1:SeriesDataItem Value="75.0" />
+							<im1:SeriesDataItem Value="75.0" />
+							<im1:SeriesDataItem Value="75.0" />
+							<im1:SeriesDataItem Value="74.0" />
+							<im1:SeriesDataItem Value="73.0" />
+							<im1:SeriesDataItem Value="72.0" />
+							<im1:SeriesDataItem Value="71.0" />
+							<im1:SeriesDataItem Value="70.0" />
+							<im1:SeriesDataItem Value="69.0" />
+							<im1:SeriesDataItem Value="68.0" />
+							<im1:SeriesDataItem Value="67.0" />
+							<im1:SeriesDataItem Value="66.0" />
+							<im1:SeriesDataItem Value="65.0" />
+							<im1:SeriesDataItem Value="65.0" />
+							<im1:SeriesDataItem Value="85.0" />
+							<im1:SeriesDataItem Value="95.0" />
+							<im1:SeriesDataItem Value="95.0" />
+							<im1:SeriesDataItem Value="95.0" />
+							<im1:SeriesDataItem Value="95.0" />
+							<im1:SeriesDataItem Value="85.0" />
+							<im1:SeriesDataItem Value="85.0" />
+							<im1:SeriesDataItem Value="75.0" />
+              <im1:SeriesDataItem Value="75.0" />
+            </im1:Chart>
+          </Grid>
+        </Viewbox>
+        <Rectangle VerticalAlignment="Top" Height="6" Grid.Row="0" Grid.Column="1">
+          <Rectangle.Fill>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+              <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                  <GradientStop Color="#40000000" Offset="0" />
+                  <GradientStop Color="Transparent" Offset="1" />
+                </GradientStopCollection>
+              </GradientBrush.GradientStops>
+            </LinearGradientBrush>
+          </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle VerticalAlignment="Bottom" Height="6" Grid.Row="0" Grid.Column="1">
+          <Rectangle.Fill>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+              <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                  <GradientStop Color="Transparent" Offset="0" />
+                  <GradientStop Color="#40000000" Offset="1" />
+                </GradientStopCollection>
+              </GradientBrush.GradientStops>
+            </LinearGradientBrush>
+          </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Left" Width="6" Grid.Row="0" Grid.Column="1">
+          <Rectangle.Fill>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+              <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                  <GradientStop Color="#40000000" Offset="0" />
+                  <GradientStop Color="Transparent" Offset="1" />
+                </GradientStopCollection>
+              </GradientBrush.GradientStops>
+            </LinearGradientBrush>
+          </Rectangle.Fill>
+        </Rectangle>
+        <Rectangle HorizontalAlignment="Right" Margin="388,0,0,0" Width="6" Grid.Row="0" Grid.Column="1">
+          <Rectangle.Fill>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+              <GradientBrush.GradientStops>
+                <GradientStopCollection>
+                  <GradientStop Color="Transparent" Offset="0" />
+                  <GradientStop Color="#40000000" Offset="1" />
+                </GradientStopCollection>
+              </GradientBrush.GradientStops>
+            </LinearGradientBrush>
+          </Rectangle.Fill>
+        </Rectangle>
+      </Grid>
+    </Grid>
+  </ControlTemplate>
+  <ControlTemplate x:Key="PatientOverviewTaskListTemplate">
+    <Grid>
+      <Grid Name="Task_List_Button_text_List" >
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition />
+          <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition />
+          <RowDefinition />
+          <RowDefinition />
+          <RowDefinition />
+        </Grid.RowDefinitions>
+        <Label Padding="1" Foreground="#929292" FontSize="12" FontFamily="{StaticResource FontFamilyBrand1}" Grid.Row="0" Grid.Column="0" Content="Enter and Order" />
+        <Label Padding="1" Foreground="#929292" FontSize="12" FontFamily="{StaticResource FontFamilyBrand1}" Grid.Row="1" Grid.Column="0" Content="Document Findings" />
+        <Label Padding="1" Foreground="#929292" FontSize="12" FontFamily="{StaticResource FontFamilyBrand1}" Grid.Row="2" Grid.Column="0" Content="Alert Me to Changes" />
+        <Label Padding="1" Foreground="#929292" FontSize="12" FontFamily="{StaticResource FontFamilyBrand1}" Grid.Row="3" Grid.Column="0" Content="Move to Watch" />
+        <Label Padding="1" Foreground="#929292" FontSize="12" FontFamily="{StaticResource FontFamilyBrand1}" Grid.Row="0" Grid.Column="1" Content="Send Secure Message" />
+        <Label Padding="1" Foreground="#929292" FontSize="12" FontFamily="{StaticResource FontFamilyBrand1}" Grid.Row="1" Grid.Column="1" Content="Additional Tasks" />
+        <Label Padding="1" Foreground="#929292" FontSize="12" FontFamily="{StaticResource FontFamilyBrand1}" Grid.Row="2" Grid.Column="1" Content="Request a Consult" />
+      </Grid>
+    </Grid>
+  </ControlTemplate>
+  
+  <ControlTemplate x:Key="PatientRosterListHeaderTemplate">
+    <Grid Name="grid_roster_top" Column="1" ColumnSpan="1" Row="1" RowSpan="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+      <StackPanel Orientation="Horizontal">
+        <TextBlock Name="patientRoster"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,10,0"  Height="Auto" FontSize="14" FontFamily="{StaticResource FontFamilyBrand1}" FontStyle="Normal" FontWeight="700" Foreground="sc#1.000000, 0.167488, 0.167488, 0.167480" Text="PATIENT ROSTER" />
+        <TextBlock Name="patentRosterNumber" HorizontalAlignment="Left" VerticalAlignment="Center" Width="Auto" Height="Auto" FontSize="18" FontFamily="{StaticResource FontFamilyBrand1}" FontStyle="Normal" FontWeight="700" Foreground="sc#1.000000, 0.167000, 0.167000, 0.167000" Text="{Binding ElementName=PatientRosterList, Path=Items.Count}" />
+      </StackPanel>
+    </Grid>
+  </ControlTemplate>
+  
+  <ControlTemplate x:Key="PatientRosterStyleSelectorTemplate">
+	  <Grid>
+		 	<ComboBox x:Name="PatientRosterSelectorComboBox" Width="20" Height="20"  Style="{DynamicResource RosterSelectorComboBox}"  SelectedIndex="0">
+		<ComboBoxItem Style="{StaticResource PatientRosterComboBoxItem}"  Margin="0,5,0,0" >
+		<Grid>
+		<Ellipse Fill="#333333" Height="20" Width="20" >
+					<Ellipse.Stroke>
+						<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+							<GradientStop Color="#FF000000" Offset="0"/>
+							<GradientStop Color="#FFFFFFFF" Offset="1"/>
+						</LinearGradientBrush>
+					</Ellipse.Stroke>
+				</Ellipse>
+		<Rectangle Fill="white" Height="2" Width="10" />
+		</Grid>
+		</ComboBoxItem>
+		<ComboBoxItem Style="{StaticResource PatientRosterComboBoxItem}" Margin="0,5,0,0" >
+		<Grid>
+		<Ellipse Fill="#333333" Height="20" Width="20" >
+					<Ellipse.Stroke>
+						<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+							<GradientStop Color="#FF000000" Offset="0"/>
+							<GradientStop Color="#FFFFFFFF" Offset="1"/>
+						</LinearGradientBrush>
+					</Ellipse.Stroke>
+				</Ellipse>
+		<Rectangle Fill="white" Height="2" Width="Auto" d:LayoutOverrides="Height" VerticalAlignment="Top" Margin="5,7,5,0" />
+		<Rectangle Fill="white" Height="2" Width="Auto" d:LayoutOverrides="Height" VerticalAlignment="Bottom" Margin="5,0,5,7" />
+		</Grid>
+		</ComboBoxItem>
+		<ComboBoxItem Style="{StaticResource PatientRosterComboBoxItem}" Margin="0,5,0,0" >
+		<Grid>
+		<Ellipse Fill="#333333" Height="20" Width="20" >
+					<Ellipse.Stroke>
+						<LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+							<GradientStop Color="#FF000000" Offset="0"/>
+							<GradientStop Color="#FFFFFFFF" Offset="1"/>
+						</LinearGradientBrush>
+					</Ellipse.Stroke>
+				</Ellipse>
+		<Rectangle Fill="white" Height="2" Width="Auto" d:LayoutOverrides="Height" VerticalAlignment="Bottom" Margin="5,0,5,5" />
+		<Rectangle Fill="white" Height="2" Width="10" />
+		<Rectangle Fill="white" Height="2" Width="Auto"  d:LayoutOverrides="Height" VerticalAlignment="Top" Margin="5,5,5,0"  />
+		</Grid></ComboBoxItem>
+	</ComboBox>
+	  </Grid>
+  </ControlTemplate>
+  
+  <ControlTemplate x:Key="WatchListHeaderTemplate">
+      <Grid Name="grid_roster_top" Column="1" ColumnSpan="1" Row="1" RowSpan="1"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+        <StackPanel Orientation="Horizontal">
+          <TextBlock Name="patientRoster"  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,10,0"  Height="Auto" FontSize="14" FontFamily="{StaticResource FontFamilyBrand1}" FontStyle="Normal" FontWeight="700" Foreground="sc#1.000000, 0.167488, 0.167488, 0.167480" Text="WATCH LIST" />
+          <TextBlock Name="patentRosterNumber" HorizontalAlignment="Left" VerticalAlignment="Center" Width="Auto" Height="Auto" FontSize="18" FontFamily="{StaticResource FontFamilyBrand1}" FontStyle="Normal" FontWeight="700" Foreground="sc#1.000000, 0.167000, 0.167000, 0.167000" Text="{Binding ElementName=WatchList, Path=Items.Count}" />
+        </StackPanel>
+      </Grid>
+  </ControlTemplate>
+  <ControlTemplate x:Key="UserIDTemplate">
+    <Grid MinHeight="30">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="34.1334179013635" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition />
+      </Grid.RowDefinitions>
+      <Rectangle Stroke="sc#1.000000, 0.931539, 0.931539, 0.931530" Fill="sc#1.000000, 0.203303, 0.203303, 0.203300" RadiusX="6.26576473363318" RadiusY="6.26576473363318" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle5" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,0,3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto" />
+      <Rectangle  RadiusX="5.54150219562555" RadiusY="5.54150219562555" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle8" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="1" Margin="1,3.896957919858,1,1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="Auto" Height="Auto">
+        <Rectangle.Fill>
+          <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+            <Brush.RelativeTransform>
+              <TransformGroup>
+                <TransformGroup.Children>
+                  <TransformCollection>
+                    <TranslateTransform X="-0.5" Y="-0.5" />
+                    <ScaleTransform ScaleX="0.705647519601115" ScaleY="0.705647519601115" />
+                    <SkewTransform AngleX="0" AngleY="0" />
+                    <RotateTransform Angle="-89.960007655489832" />
+                    <TranslateTransform X="0.5" Y="0.5" />
+                    <TranslateTransform X="0.0721607810657184" Y="0.052814582956837108" />
+                  </TransformCollection>
+                </TransformGroup.Children>
+              </TransformGroup>
+            </Brush.RelativeTransform>
+                <GradientStop Color="sc#0.5, 0.45400703, 0.45400703, 0.454" Offset="0" />
+                <GradientStop Color="sc#0.000000, 1.000000, 1.000000, 1.000000" Offset="1" />
+          </LinearGradientBrush>
+        </Rectangle.Fill>
+      </Rectangle>
+      <Rectangle  RadiusX="4.15506682582975" RadiusY="4.15506682582975" StrokeThickness="1" StrokeMiterLimit="2" StrokeEndLineCap="Flat" StrokeStartLineCap="Flat" StrokeLineJoin="Miter"   Name="Rectangle6" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="1" Margin="3,1,3,3.552713678800515" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto" Height="4.76302731052969" >
+        <Shape.Fill>
+          <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+            <GradientBrush.GradientStops>
+              <GradientStopCollection>
+                <GradientStop Color="sc#1.000000, 0.036167, 0.036167, 0.036160" Offset="0" />
+                <GradientStop Color="sc#0.000000, 1.000000, 1.000000, 1.000000" Offset="1" />
+              </GradientStopCollection>
+            </GradientBrush.GradientStops>
+            <Brush.RelativeTransform>
+              <TransformGroup>
+                <TransformGroup.Children>
+                  <TransformCollection>
+                    <TranslateTransform X="-0.5" Y="-0.5" />
+                    <ScaleTransform ScaleX="1.1008960957064105" ScaleY="1.1008960957064105" />
+                    <SkewTransform AngleX="0" AngleY="0" />
+                    <RotateTransform Angle="89.993055402242589" />
+                    <TranslateTransform X="0.5" Y="0.5" />
+                    <TranslateTransform X="0.048124608443764046" Y="-0.3808257143662146" />
+                  </TransformCollection>
+                </TransformGroup.Children>
+              </TransformGroup>
+            </Brush.RelativeTransform>
+          </LinearGradientBrush>
+        </Shape.Fill>
+      </Rectangle>
+      <Label FontFamily="{StaticResource FontFamilyBrand1}" FontSize="12" Foreground="#F6F6F6" Name="user" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="1" Margin="5,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Width="38.186835802727" Height="Auto" Content="user :"  />
+      <Label FontFamily="{StaticResource FontFamilyBrand1}" Name="drName1" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,4,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="Auto" Height="Auto" FontSize="14" FontWeight="700" MinHeight="15" Foreground="#FFFFFF" Content="Dr. Johnson, David" HorizontalContentAlignment="Right" />
+    </Grid>
+  </ControlTemplate>
+
+  <ControlTemplate x:Key="PhysicianSelectorComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+    <Grid Background="Transparent">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition />
+        <ColumnDefinition Width="20" />
+      </Grid.ColumnDefinitions>
+
+      <Path 
+        x:Name="Arrow"
+        Grid.Column="1"     
+        Fill="{StaticResource NormalBrush}"
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Data="M 0 0 L 4 4 L 8 0 Z"/>
+    </Grid>
+    <ControlTemplate.Triggers>
+
+    </ControlTemplate.Triggers>
+  </ControlTemplate>
+
+  <Style x:Key="PhysicianSelectorComboBoxStyle" TargetType="{x:Type ComboBox}">
+    <Setter Property="SnapsToDevicePixels" Value="true"/>
+    <Setter Property="OverridesDefaultStyle" Value="true"/>
+    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+    <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+    <Setter Property="MinWidth" Value="120"/>
+    <Setter Property="MinHeight" Value="20"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type ComboBox}">
+          <Grid>
+            <ToggleButton 
+              Name="ToggleButton" 
+              Template="{StaticResource PhysicianSelectorComboBoxToggleButton}" 
+              Grid.Column="2" 
+              Focusable="false"
+              IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+              ClickMode="Press">
+            </ToggleButton>
+            <ContentPresenter
+              Name="ContentSiteShadow"
+              IsHitTestVisible="False" 
+              Content="{TemplateBinding SelectionBoxItem}"
+              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+              Margin="7.5,3.5,23,3"  TextBlock.FontWeight="normal" TextBlock.Foreground="#66000000" 
+              VerticalAlignment="Center"
+              HorizontalAlignment="Left" />
+            <ContentPresenter
+              Name="ContentSite"
+              IsHitTestVisible="False" 
+              Content="{TemplateBinding SelectionBoxItem}"
+              ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+              ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+              Margin="7,3,23,3"  TextBlock.FontWeight="normal" TextBlock.Foreground="white" 
+              VerticalAlignment="Center"
+              HorizontalAlignment="Left" />
+            <TextBox x:Name="PART_EditableTextBox"
+              Style="{x:Null}"  
+              Template="{StaticResource ComboBoxTextBox}" 
+              HorizontalAlignment="Left" 
+              VerticalAlignment="Center" 
+              Margin="3,3,23,3"
+              Focusable="True" 
+              Background="Transparent"
+              Visibility="Hidden"
+              IsReadOnly="{TemplateBinding IsReadOnly}"/>
+            <Popup 
+              Name="Popup"
+              Placement="Bottom"
+              IsOpen="{TemplateBinding IsDropDownOpen}"
+              AllowsTransparency="True" 
+              Focusable="False"
+              PopupAnimation="Slide">
+              <Grid 
+                Name="DropDown"
+                SnapsToDevicePixels="True"                
+                MinWidth="{TemplateBinding ActualWidth}"
+                MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                <Border 
+                  x:Name="DropDownBorder"
+                  Background="{StaticResource WindowBackgroundBrush}"
+                  BorderThickness="1" CornerRadius="5" 
+                  BorderBrush="{StaticResource SolidBorderBrush}"/>
+                <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                  <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                </ScrollViewer>
+              </Grid>
+            </Popup>
+          </Grid>
+          <ControlTemplate.Triggers>
+            <Trigger Property="HasItems" Value="false">
+              <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+            </Trigger>
+            <Trigger Property="imPatientHelper:OSChecker.Version" Value="WindowsXP">
+              <Setter TargetName="DropDownBorder" Property="Background" Value="White"/>
+            </Trigger>
+            <Trigger Property="imPatientHelper:OSChecker.Version" Value="WindowsVista">
+              <Setter TargetName="DropDownBorder" Property="Background" Value="White"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+              <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+            </Trigger>
+            <Trigger Property="IsGrouping" Value="true">
+              <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+            </Trigger>
+            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+
+              <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0"/>
+            </Trigger>
+            <Trigger Property="IsEditable"
+                 Value="true">
+              <Setter Property="IsTabStop" Value="false"/>
+              <Setter TargetName="PART_EditableTextBox" Property="Visibility"	Value="Visible"/>
+              <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+    <Style.Triggers>
+    </Style.Triggers>
+  </Style>
+
+
+  <!-- SimpleStyles: ComboBoxItem -->
+
+  <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
+    <Setter Property="SnapsToDevicePixels" Value="true"/>
+    <Setter Property="OverridesDefaultStyle" Value="true"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+          <Border 
+            Name="Border"
+            Padding="2"
+            SnapsToDevicePixels="true">
+            <ContentPresenter x:Name="ContentSite" TextBlock.FontWeight="normal" TextBlock.Foreground="black"  TextBlock.FontSize="18" TextBlock.FontFamily="Segoe UI"/>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsHighlighted" Value="true">
+              <Setter TargetName="Border" Property="Background" Value="#cccccc"/>
+              <Setter TargetName="ContentSite" Property="TextBlock.Foreground" Value="black"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="false">
+              <Setter Property="Foreground" Value="black"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style x:Key="SearchTextBox" TargetType="{x:Type imPatientHelper:VistaTypeTextBox}">
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="OverridesDefaultStyle" Value="True"/>
+    <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    <Setter Property="MinWidth" Value="120"/>
+    <Setter Property="MinHeight" Value="20"/>
+    <Setter Property="AllowDrop" Value="true"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="{x:Type imPatientHelper:VistaTypeTextBox}">
+          <Border 
+            Name="Border"
+            CornerRadius="2" 
+            Padding="1"
+            Background="{StaticResource WindowBackgroundBrush}"
+            BorderBrush="{StaticResource SolidBorderBrush}"
+            BorderThickness="1" >
+            <DockPanel LastChildFill="True">
+              <Button x:Name="SearchButton" DockPanel.Dock="right" Height="17" Style="{StaticResource LooklessButtonWithHover}">
+                <Image Source="{StaticResource MagnifyDrawingImage}" Margin="2" />
+              </Button>
+              <ScrollViewer Margin="0" x:Name="PART_ContentHost"/>
+            </DockPanel>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter TargetName="Border" Property="Background" Value="{StaticResource DisabledBackgroundBrush}"/>
+              <Setter TargetName="Border" Property="BorderBrush" Value="{StaticResource DisabledBackgroundBrush}"/>
+              <Setter Property="Foreground" Value="{StaticResource DisabledForegroundBrush}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,379 @@
+﻿using System;
+using System.Windows;
+using System.Windows.Forms;
+using Microsoft.Kinect;
+using Coding4Fun.Kinect.Wpf;
+using System.Diagnostics;
+using WindowsInput;
+using System.Configuration;
+namespace KinectCursorController
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow
+    {
+
+        // private const float ClickThreshold = 0.33f;
+
+        private const float ClickHoldingRectThreshold = 0.05f;
+        //private const int ClickHoldingTimeThreshold = 2000;
+        //private bool _clickHolding = false;
+        private Rect _clickHoldingLastRect;
+        //private float _clickHoldingLastTime;
+        //private float _clickHoldingThisTime;
+        private readonly Stopwatch _clickHoldingTimer;
+        //private int _clickHoldingTimerDuration;
+
+        private string _mouseorkeyboard;
+
+        private const float SkeletonMaxX = 0.60f;
+        private const float SkeletonMaxY = 0.40f;
+        private readonly NotifyIcon _notifyIcon = new NotifyIcon();
+
+        private Boolean _rightHandUp;
+        private Boolean _leftHandUp;
+        private Boolean _bothHandsUp;
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            // create tray icon
+            _notifyIcon.Icon = new System.Drawing.Icon("CursorControl.ico");
+            _notifyIcon.Visible = true;
+            _notifyIcon.DoubleClick += delegate
+            {
+                Show();
+                WindowState = WindowState.Minimized;
+                Focus();
+            };
+
+            if(!String.IsNullOrEmpty(ConfigurationManager.AppSettings.Get("MouseOrKeyboard")))
+            {
+                _mouseorkeyboard = ConfigurationManager.AppSettings.Get("MouseOrKeyboard"); 
+            }
+            else
+            {
+                _mouseorkeyboard = "Mouse";
+            }
+
+
+            _clickHoldingTimer = new Stopwatch();
+        }
+
+        private void WindowLoaded(object sender, RoutedEventArgs e)
+        {
+            kinectSensorChooser.KinectSensorChanged += KinectSensorChooserKinectSensorChanged;
+        }
+
+
+        private void WindowStateChanged(object sender, EventArgs e)
+        {
+            if (WindowState == WindowState.Minimized)
+            {
+                Hide();
+            }
+        }
+
+
+        private void WindowClosed(object sender, EventArgs e)
+        {
+            // shut down the Kinect device
+            _notifyIcon.Visible = false;
+
+            if (kinectSensorChooser.Kinect != null)
+            {
+                kinectSensorChooser.Kinect.Stop();
+            }
+
+        }
+
+        void KinectSensorChooserKinectSensorChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            var old = (KinectSensor)e.OldValue;
+
+            StopKinect(old);
+
+            var sensor = (KinectSensor)e.NewValue;
+
+            if (sensor == null)
+            {
+                return;
+            }
+
+            var parameters = new TransformSmoothParameters();
+            parameters.Smoothing = 0.7f;
+            parameters.Correction = 0.3f;
+            parameters.Prediction = 0.4f;
+            parameters.JitterRadius = 1.0f;
+            parameters.MaxDeviationRadius = 0.5f;
+
+            sensor.SkeletonStream.Enable(parameters);
+            sensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);
+            sensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
+
+            sensor.AllFramesReady += SensorAllFramesReady;
+            try
+            {
+                sensor.Start();
+            }
+            catch (System.IO.IOException)
+            {
+                //another app is using Kinect
+                kinectSensorChooser.AppConflictOccurred();
+            }
+        }
+
+
+        void SensorAllFramesReady(object sender, AllFramesReadyEventArgs e)
+        {
+            SensorDepthFrameReady(e);
+            SensorSkeletonFrameReady(e);
+        }
+
+
+        void SensorDepthFrameReady(AllFramesReadyEventArgs e)
+        {
+            // if the window is displayed, show the depth buffer image
+            if (WindowState == WindowState.Normal)
+            {
+                using (DepthImageFrame depthFrame = e.OpenDepthImageFrame())
+                {
+                    if (depthFrame == null)
+                    {
+                        return;
+                    }
+
+                    video.Source = depthFrame.ToBitmapSource();
+                }
+
+            }
+        }
+
+
+        void SensorSkeletonFrameReady(AllFramesReadyEventArgs e)
+        {
+
+            using (SkeletonFrame skeletonFrameData = e.OpenSkeletonFrame())
+            {
+                if (skeletonFrameData == null)
+                {
+                    return;
+                }
+
+                var allSkeletons = new Skeleton[skeletonFrameData.SkeletonArrayLength];
+
+                skeletonFrameData.CopySkeletonDataTo(allSkeletons);
+
+                foreach (Skeleton sd in allSkeletons)
+                {
+                    // the first found/tracked skeleton moves the mouse cursor
+                    if (sd.TrackingState == SkeletonTrackingState.Tracked)
+                    {
+                        // make sure both hands are tracked
+                        if (sd.Joints[JointType.HandRight].TrackingState == JointTrackingState.Tracked
+                            && sd.Joints[JointType.HandLeft].TrackingState == JointTrackingState.Tracked)
+                        {
+                            var wristRight = sd.Joints[JointType.WristRight];
+                            var shoulderRight = sd.Joints[JointType.ShoulderRight];
+                            var wristLeft = sd.Joints[JointType.WristLeft];
+                            var shoulderLeft = sd.Joints[JointType.ShoulderLeft];
+
+                            var scaledRightHand = wristRight.ScaleTo((int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight, SkeletonMaxX, SkeletonMaxY);
+                            var scaledLeftHand = wristLeft.ScaleTo((int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight, SkeletonMaxX, SkeletonMaxY);
+                            var scaledRightShoulder = shoulderRight.ScaleTo((int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight, SkeletonMaxX, SkeletonMaxY);
+                            var scaledLeftShoulder = shoulderLeft.ScaleTo((int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight, SkeletonMaxX, SkeletonMaxY);
+
+                            var cursorX = (int)scaledRightHand.Position.X + (int)MouseSpeed.Value;
+                            var cursorY = (int)scaledRightHand.Position.Y + (int)MouseSpeed.Value;
+
+                            // Mouse section
+                            //If you would rather have a mouse un-comment this section and comment out the next section
+
+                            if (_mouseorkeyboard == "Mouse")
+                            {
+                                bool leftClick = CheckForClickHold(scaledRightHand);
+                                NativeMethods.SendMouseInput(cursorX, cursorY, (int)SystemParameters.PrimaryScreenWidth, (int)SystemParameters.PrimaryScreenHeight, leftClick);
+                            }
+                            else
+                            {
+                                CheckForSpacebar(scaledLeftHand, scaledLeftShoulder, scaledRightHand,
+                                                 scaledRightShoulder);
+                                CheckForPageDown(scaledRightHand, scaledRightShoulder);
+                                CheckForPageUp(scaledLeftHand, scaledLeftShoulder);                      
+                            }
+                            
+
+                            return;
+                        }
+                    }
+                }
+            }
+
+
+        }
+
+
+        private Boolean CheckForPageDown(Joint hand, Joint shoulder)
+        {
+            var hy = hand.Position.Y;
+            var sy = shoulder.Position.Y;
+
+            if(hy < sy)
+            {
+                if (!_rightHandUp)
+                {
+                    _rightHandUp = true;
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.NEXT);
+                }
+            }
+            else
+            {
+                if (_rightHandUp)
+                {
+                    _rightHandUp = false;
+                }
+            }
+            return _rightHandUp;
+        }
+
+
+        private Boolean CheckForPageUp(Joint hand, Joint shoulder)
+        {
+            var hy = hand.Position.Y;
+            var sy = shoulder.Position.Y;
+
+            if (hy < sy)
+            {
+                if (!_leftHandUp)
+                {
+                    _leftHandUp = true;
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.PRIOR);
+                }
+            }
+            else
+            {
+                if (_leftHandUp)
+                {
+                    _leftHandUp = false;
+                }
+            }
+            return _leftHandUp;
+        }
+
+
+        private Boolean CheckForSpacebar(Joint lhand, Joint lshoulder, Joint rhand, Joint rshoulder)
+        {
+            var lhy = lhand.Position.Y;
+            var lsy = lshoulder.Position.Y;
+            var rhy = rhand.Position.Y;
+            var rsy = rshoulder.Position.Y;
+
+            if (lhy < lsy && rhy < rsy)
+            {
+                if (!_bothHandsUp)
+                {
+                    _leftHandUp = true;
+                    _rightHandUp = true;
+                    _bothHandsUp = true;
+                    InputSimulator.SimulateKeyPress(VirtualKeyCode.SPACE);
+                }
+            }
+            else
+            {
+                if (_bothHandsUp)
+                {
+                    _leftHandUp = false;
+                    _rightHandUp = false;
+                    _bothHandsUp = false;
+                }
+            }
+            return _bothHandsUp;
+        }
+
+
+        private bool CheckForClickHold(Joint hand)
+        {
+
+            // This does two handed click checking using the lefthand as the clicker.  It fails when you cross your hands over.
+            //if (_clickHolding != true)
+            //{
+            //    if (handLeft.Position.Y < (int)(SystemParameters.PrimaryScreenHeight / 2))
+            //    {
+            //        _clickHolding = true;
+            //        return true;
+            //    }
+            //    else
+            //    {
+            //        return false;
+            //    }
+            //}
+            //else
+            //{
+            //    if (handLeft.Position.Y > (int)(SystemParameters.PrimaryScreenHeight / 2))
+            //    {
+            //        _clickHolding = false;
+            //    }
+            //    return false;
+            //}
+
+            // This does one handed click when you hover for two seconds.  It fails when you hover accidentally.
+            var x = hand.Position.X;
+            var y = hand.Position.Y;
+
+            var screenwidth = (int)SystemParameters.PrimaryScreenWidth;
+            var screenheight = (int)SystemParameters.PrimaryScreenHeight;
+            var clickwidth = (int)(screenwidth * ClickHoldingRectThreshold);
+            var clickheight = (int)(screenheight * ClickHoldingRectThreshold);
+
+            var newClickHold = new Rect(x - clickwidth, y - clickheight, clickwidth * 2, clickheight * 2);
+
+            if (_clickHoldingLastRect != Rect.Empty)
+            {
+                if (newClickHold.IntersectsWith(_clickHoldingLastRect))
+                {
+                    if ((int)_clickHoldingTimer.ElapsedMilliseconds > (ClickDelay.Value * 1000))
+                    {
+                        _clickHoldingTimer.Stop();
+                        _clickHoldingLastRect = Rect.Empty;
+                        return true;
+                    }
+
+                    if (!_clickHoldingTimer.IsRunning)
+                    {
+                        _clickHoldingTimer.Reset();
+                        _clickHoldingTimer.Start();
+                    }
+                    return false;
+                }
+
+                _clickHoldingTimer.Stop();
+                _clickHoldingLastRect = newClickHold;
+                return false;
+            }
+
+            _clickHoldingLastRect = newClickHold;
+            if (!_clickHoldingTimer.IsRunning)
+            {
+                _clickHoldingTimer.Reset();
+                _clickHoldingTimer.Start();
+            }
+            return false;
+        }
+
+
+
+        private void StopKinect(KinectSensor sensor)
+        {
+            if (sensor != null)
+            {
+                if (sensor.IsRunning)
+                {
+                    sensor.Stop();
+                    sensor.AudioSource.Stop();
+                }
+            }
+        }
+    }
+}

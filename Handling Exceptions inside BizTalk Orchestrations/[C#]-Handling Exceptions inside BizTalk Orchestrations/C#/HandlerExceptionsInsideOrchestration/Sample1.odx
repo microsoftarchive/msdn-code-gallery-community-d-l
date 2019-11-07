@@ -1,0 +1,235 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="53ce0c71-a7b8-42c5-bc6b-04b7cd6e4891" LowerBound="1.1" HigherBound="61.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="HandlerExceptionsInsideOrchestration" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="PortType" OID="7ba5b895-02a2-42cf-a62c-1b0568ce5c1a" ParentLink="Module_PortType" LowerBound="4.1" HigherBound="11.1">
+            <om:Property Name="Synchronous" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="PortType_2" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="OperationDeclaration" OID="6f1d4b60-4a40-4a70-8c85-c1be9dbdd50d" ParentLink="PortType_OperationDeclaration" LowerBound="6.1" HigherBound="10.1">
+                <om:Property Name="OperationType" Value="OneWay" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Operation_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="MessageRef" OID="c1fdbf61-ab7c-449f-b3dc-369f778f2206" ParentLink="OperationDeclaration_RequestMessageRef" LowerBound="8.13" HigherBound="8.20">
+                    <om:Property Name="Ref" Value="HandlerExceptionsInsideOrchestration.Schema1" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Request" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="ServiceDeclaration" OID="814c8f67-2fae-4693-8c83-109465fa8671" ParentLink="Module_ServiceDeclaration" LowerBound="11.1" HigherBound="60.1">
+            <om:Property Name="InitializedTransactionType" Value="False" />
+            <om:Property Name="IsInvokable" Value="False" />
+            <om:Property Name="TypeModifier" Value="Internal" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="BizTalk_Orchestration2" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="MessageDeclaration" OID="76aaaf0c-7cde-4466-9eb8-e32d00d8da64" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="18.1" HigherBound="19.1">
+                <om:Property Name="Type" Value="HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather_.GetWeather_request" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgGetWeatherRequest" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="89fe4ca8-2028-4f47-ac1e-7b0f12a67a50" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="19.1" HigherBound="20.1">
+                <om:Property Name="Type" Value="HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather_.GetWeather_response" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgGetWeatherResponse" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="MessageDeclaration" OID="e7cba1f3-ec10-4902-be2d-059d666111ed" ParentLink="ServiceDeclaration_MessageDeclaration" LowerBound="20.1" HigherBound="21.1">
+                <om:Property Name="Type" Value="HandlerExceptionsInsideOrchestration.Schema1" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="msgInput" />
+                <om:Property Name="Signal" Value="True" />
+            </om:Element>
+            <om:Element Type="ServiceBody" OID="3fbee9f8-c5ce-47ba-900c-c0d386e031f9" ParentLink="ServiceDeclaration_ServiceBody">
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="Receive" OID="7adf9796-0b23-4ace-a211-9c1e4abf434f" ParentLink="ServiceBody_Statement" LowerBound="23.1" HigherBound="25.1">
+                    <om:Property Name="Activate" Value="True" />
+                    <om:Property Name="PortName" Value="Port_2" />
+                    <om:Property Name="MessageName" Value="msgInput" />
+                    <om:Property Name="OperationName" Value="Operation_1" />
+                    <om:Property Name="OperationMessageName" Value="Request" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Receive_1" />
+                    <om:Property Name="Signal" Value="True" />
+                </om:Element>
+                <om:Element Type="Scope" OID="0a2bba8b-f8ba-4d50-bb2f-b00ed1a47b09" ParentLink="ServiceBody_Statement" LowerBound="25.1" HigherBound="58.1">
+                    <om:Property Name="InitializedTransactionType" Value="True" />
+                    <om:Property Name="IsSynchronized" Value="False" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="Scope_1" />
+                    <om:Property Name="Signal" Value="True" />
+                    <om:Element Type="Construct" OID="6526163a-8b66-41fc-af3f-e56800fa7262" ParentLink="ComplexStatement_Statement" LowerBound="30.1" HigherBound="37.1">
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="ConstructMessage_1" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="MessageAssignment" OID="37be964a-9178-406c-b24a-8ca9c73702d5" ParentLink="ComplexStatement_Statement" LowerBound="33.1" HigherBound="36.1">
+                            <om:Property Name="Expression" Value="msgGetWeatherRequest.CityName = msgInput.CityName;&#xD;&#xA;msgGetWeatherRequest.CountryName = msgInput.CountryName;" />
+                            <om:Property Name="ReportToAnalyst" Value="False" />
+                            <om:Property Name="Name" Value="MessageAssignment_1" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                        <om:Element Type="MessageRef" OID="a58f686d-2ec5-4a43-aaf1-6c80503b965a" ParentLink="Construct_MessageRef" LowerBound="31.31" HigherBound="31.51">
+                            <om:Property Name="Ref" Value="msgGetWeatherRequest" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Signal" Value="False" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Send" OID="f267de25-032b-411c-af5a-d2c87882fb8a" ParentLink="ComplexStatement_Statement" LowerBound="37.1" HigherBound="39.1">
+                        <om:Property Name="PortName" Value="Port_1" />
+                        <om:Property Name="MessageName" Value="msgGetWeatherRequest" />
+                        <om:Property Name="OperationName" Value="GetWeather" />
+                        <om:Property Name="OperationMessageName" Value="Request" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Send_1" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="Receive" OID="79765877-fff2-49f2-a727-de44a7167422" ParentLink="ComplexStatement_Statement" LowerBound="39.1" HigherBound="41.1">
+                        <om:Property Name="Activate" Value="False" />
+                        <om:Property Name="PortName" Value="Port_1" />
+                        <om:Property Name="MessageName" Value="msgGetWeatherResponse" />
+                        <om:Property Name="OperationName" Value="GetWeather" />
+                        <om:Property Name="OperationMessageName" Value="Response" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Receive_2" />
+                        <om:Property Name="Signal" Value="True" />
+                    </om:Element>
+                    <om:Element Type="Catch" OID="e55ba996-7d5c-4fea-9cb4-2d4d303d7c14" ParentLink="Scope_Catch" LowerBound="44.1" HigherBound="50.1">
+                        <om:Property Name="ExceptionName" Value="soapEx" />
+                        <om:Property Name="ExceptionType" Value="System.Web.Services.Protocols.SoapException" />
+                        <om:Property Name="IsFaultMessage" Value="False" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Catch SOAPException" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="VariableAssignment" OID="77512a20-227d-416d-a9e4-14d5475f12fb" ParentLink="Catch_Statement" LowerBound="47.1" HigherBound="49.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;Orchestration&quot;, soapEx.Message, System.Diagnostics.EventLogEntryType.Error);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="LogSoapError Expr" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                    <om:Element Type="Catch" OID="3678dae3-8ffb-444f-913c-a0fbd8751240" ParentLink="Scope_Catch" LowerBound="50.1" HigherBound="56.1">
+                        <om:Property Name="ExceptionName" Value="ex" />
+                        <om:Property Name="ExceptionType" Value="System.Exception" />
+                        <om:Property Name="IsFaultMessage" Value="False" />
+                        <om:Property Name="ReportToAnalyst" Value="True" />
+                        <om:Property Name="Name" Value="Catch SystemException" />
+                        <om:Property Name="Signal" Value="True" />
+                        <om:Element Type="VariableAssignment" OID="0fb724c8-0c48-4841-8690-e96019857331" ParentLink="Catch_Statement" LowerBound="53.1" HigherBound="55.1">
+                            <om:Property Name="Expression" Value="System.Diagnostics.EventLog.WriteEntry(&quot;Orchestration&quot;, ex.Message, System.Diagnostics.EventLogEntryType.Error);" />
+                            <om:Property Name="ReportToAnalyst" Value="True" />
+                            <om:Property Name="Name" Value="LogError Expr" />
+                            <om:Property Name="Signal" Value="True" />
+                        </om:Element>
+                    </om:Element>
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="b8ca7b2c-8502-4b64-a44b-12908829cf94" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="14.1" HigherBound="16.1">
+                <om:Property Name="PortModifier" Value="Implements" />
+                <om:Property Name="Orientation" Value="Left" />
+                <om:Property Name="PortIndex" Value="-1" />
+                <om:Property Name="IsWebPort" Value="False" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="HandlerExceptionsInsideOrchestration.PortType_2" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Port_2" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="971afbcc-f7e8-4dcc-a0d0-aee0ad3cd8c1" ParentLink="PortDeclaration_CLRAttribute" LowerBound="14.1" HigherBound="15.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="PortDeclaration" OID="11469051-7cb5-4ca4-b657-9a85575a532d" ParentLink="ServiceDeclaration_PortDeclaration" LowerBound="16.1" HigherBound="18.1">
+                <om:Property Name="PortModifier" Value="Uses" />
+                <om:Property Name="Orientation" Value="Right" />
+                <om:Property Name="PortIndex" Value="14" />
+                <om:Property Name="IsWebPort" Value="True" />
+                <om:Property Name="OrderedDelivery" Value="False" />
+                <om:Property Name="DeliveryNotification" Value="None" />
+                <om:Property Name="Type" Value="HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather_.GlobalWeather" />
+                <om:Property Name="ParamDirection" Value="In" />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="Port_1" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="LogicalBindingAttribute" OID="d6e505bb-26ab-4464-990e-d5d1386a7be9" ParentLink="PortDeclaration_CLRAttribute" LowerBound="16.1" HigherBound="17.1">
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+module HandlerExceptionsInsideOrchestration
+{
+    internal porttype PortType_2
+    {
+        oneway Operation_1
+        {
+            Schema1
+        };
+    };
+    [Microsoft.XLANGs.BaseTypes.BPELExportable(false)]
+    internal service BizTalk_Orchestration2
+    {
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port implements PortType_2 Port_2;
+        [Microsoft.XLANGs.BaseTypes.LogicalBinding()]
+        port uses net.webservicex.www.GlobalWeather_.GlobalWeather Port_1;
+        message net.webservicex.www.GlobalWeather_.GetWeather_request msgGetWeatherRequest;
+        message net.webservicex.www.GlobalWeather_.GetWeather_response msgGetWeatherResponse;
+        message Schema1 msgInput;
+        body ()
+        {
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("7adf9796-0b23-4ace-a211-9c1e4abf434f")]
+            activate receive (Port_2.Operation_1, msgInput);
+            [Microsoft.XLANGs.BaseTypes.DesignerPosition("0a2bba8b-f8ba-4d50-bb2f-b00ed1a47b09")]
+            scope
+            {
+                body
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("6526163a-8b66-41fc-af3f-e56800fa7262")]
+                    construct msgGetWeatherRequest
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("37be964a-9178-406c-b24a-8ca9c73702d5")]
+                        msgGetWeatherRequest.CityName = msgInput.CityName;
+                        msgGetWeatherRequest.CountryName = msgInput.CountryName;
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("f267de25-032b-411c-af5a-d2c87882fb8a")]
+                    send (Port_1.GetWeather, msgGetWeatherRequest);
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("79765877-fff2-49f2-a727-de44a7167422")]
+                    receive (Port_1.GetWeather, msgGetWeatherResponse);
+                }
+                exceptions
+                {
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("e55ba996-7d5c-4fea-9cb4-2d4d303d7c14")]
+                    catch (System.Web.Services.Protocols.SoapException soapEx)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("77512a20-227d-416d-a9e4-14d5475f12fb")]
+                        System.Diagnostics.EventLog.WriteEntry("Orchestration", soapEx.Message, System.Diagnostics.EventLogEntryType.Error);
+                    }
+                    [Microsoft.XLANGs.BaseTypes.DesignerPosition("3678dae3-8ffb-444f-913c-a0fbd8751240")]
+                    catch (System.Exception ex)
+                    {
+                        [Microsoft.XLANGs.BaseTypes.DesignerPosition("0fb724c8-0c48-4841-8690-e96019857331")]
+                        System.Diagnostics.EventLog.WriteEntry("Orchestration", ex.Message, System.Diagnostics.EventLogEntryType.Error);
+                    }
+                }
+            }
+        }
+    }
+}
+

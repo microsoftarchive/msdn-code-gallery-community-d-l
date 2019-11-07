@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7bd86db-8a7a-43ce-8954-21f8f839f51bCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Gerando relat&#243;rios com Reportviewer na linguagem C# para aplica&#231;&#245;es Desktop</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Gerando relat&#243;rios com Reportviewer na linguagem C# para aplica&#231;&#245;es Desktop</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Tecnologias">Tecnologias</label>
+                        <div id="Tecnologias">
+                            C#, Report Viewer
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="T&#243;picos">T&#243;picos</label>
+                        <div id="T&#243;picos">
+                            Reporting
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">pt-BR</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">&#218;ltima Atualiza&#231;&#227;o</label>
+                    <div id="LastUpdated">14/04/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">Licen&#231;a</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Gerando-relatrios-com-815c3396">Exiba este exemplo online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copiar c&#243;digo';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<div class="separator" style="clear:both; text-align:center"></div>
+<div style="text-align:center"><strong style="color:#0b5394; font-family:Times,'Times New Roman',serif; font-size:x-large">Gerando relat&oacute;rios com Reportviewer na linguagem C#</strong><br>
+<span style="color:#0b5394; font-family:Times,'Times New Roman',serif; font-size:large"><strong><br>
+</strong></span><br>
+<div style="text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Para algumas vers&otilde;es do Visual Studio ser&aacute; necess&aacute;rio baixar o Package do ReportViewer</span></div>
+<div style="text-align:left"><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=3eb83c28-a79e-45ee-96d0-41bc42c70d5d&amp;displayLang=pt-br"  style="font-size:small"><span style="font-family:Verdana,sans-serif">Clique aqui para baixar</span></a></div>
+<div style="text-align:left"></div>
+<div style="text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Hoje irei mostrar como gerar relat&oacute;rios usando reportviewer em uma aplica&ccedil;&atilde;o
+<strong>DESKTOP</strong>, o exemplo que irei motrar pode ser facilmente adaptado para Visual Basic.net, o c&oacute;digo ir&aacute; apenas sofrer algumas mudan&ccedil;as.</span></div>
+</div>
+<p><span style="font-family:Verdana,sans-serif"><br>
+</span><br>
+<a href="http://paulohdsousa.blogspot.com/2012/01/c-para-vbnet-vbnet-para-c.html" ><span style="font-family:Verdana,sans-serif">Clique aqui para converter de C# para Visual Basic.net</span></a><br>
+<span style="font-family:Verdana,sans-serif"><br>
+</span></p>
+<div style="text-align:left"><span style="font-family:Verdana,sans-serif">Crie uma tabela no banco de dados chamada Produtos,
+<a href="http://code.msdn.microsoft.com/Gerando-relatrios-com-815c3396/https://skydrive.live.com/view.aspx/Script%5E_Produtos.docx?cid=02450637ba34b369&amp;app=Word" >
+clique aqui &nbsp;para ver o Script SQL </a></span><br>
+<div style="text-align:left"><span style="font-family:Verdana,sans-serif">Adicione alguns dados na tabela, eles ser&atilde;o mostrados no relat&oacute;rio posteriormente</span></div>
+<div style="text-align:left"><span style="color:#0b5394; font-family:Verdana,sans-serif; font-size:large"><br>
+</span><br>
+<span style="color:#0b5394; font-family:Verdana,sans-serif; font-size:large">Crie um novo projeto</span></div>
+<div style="text-align:left"><span style="color:#0b5394; font-family:Verdana,sans-serif; font-size:large"><br>
+</span></div>
+<div style="text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">No Visual Studio v&aacute; em:</span></div>
+<div style="text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><strong>File &gt; New Project
+</strong>ou aperte <strong>CTRL &#43; SHIFT &#43; N</strong></span></div>
+<div style="text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Selecione
+<strong>Visual&nbsp;C#&gt; Windows Form Application</strong>&nbsp;e crie um projeto com o nome de&nbsp;<strong>RelatorioReportViewer</strong></span></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-_ktnYM2FfjY/TxwVeulJvcI/AAAAAAAAAPw/KVdvKE8FjjU/s1600/RP0.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="description/RP0.jpg" border="0" alt="" width="320" height="194"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Adicione um&nbsp;&nbsp;formul&aacute;rio&nbsp;no projeto&nbsp;e coloque o nome dele de&nbsp;<strong>FrmVisualizador</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">V&aacute; na Aba
+<strong>Toolbox </strong>selecione e arraste o Componente <strong>Reportviewer </strong>
+no&nbsp;formul&aacute;rio</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><strong><br>
+</strong></span></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://2.bp.blogspot.com/-ERPRg85B5sU/TxwYxvsvJtI/AAAAAAAAAP4/fq-VBFroLlk/s1600/RP1.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="description/RP1.jpg" border="0" alt="" width="320" height="170"></span></a></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Clique com o bot&atilde;o direito em cima do projeto&nbsp;<strong>RelatorioReportViewer &nbsp;</strong>v&aacute; em
+<strong>ADD &gt; NEW ITEM</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">ou aperte
+<strong>CTRL &#43; SHIFT &#43; A </strong>&nbsp;e adicione um relat&oacute;rio no projeto com o nome de&nbsp;<strong>Relatorio_Produtos</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><strong><br>
+</strong></span></div>
+<span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span><br>
+<div class="separator" style="clear:both; text-align:center"><a href="http://2.bp.blogspot.com/-cs4F41H0TGA/TxwbRTZgCVI/AAAAAAAAAQA/4EKuPQ6V2zk/s1600/RP3.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="description/RP3.jpg" border="0" alt="" width="320" height="195"></span></a></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><strong><br>
+</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><strong><br>
+</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Dentro da aba Repot Data v&aacute; em NEW &gt; DATASET</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Caso n&atilde;o consiga visualizar a aba, clique dentro do relat&oacute;rio e aperte CTRL &#43; ALT &#43; D</span></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-gHTXSJng0AI/TxwxoKs8JWI/AAAAAAAAAQI/AHpG1_Z_Bu0/s1600/RP4.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="description/RP4.jpg" border="0" alt="" width="320" height="166"></span></a></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Automaticamente ser&aacute; aberto o
+<strong>Data Source Configuration Wizard</strong>, ent&atilde;o siga esses passos.</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"></div>
+<ol>
+<li>&nbsp;
+<ol>
+<li><span style="font-family:Verdana,sans-serif; font-size:x-small">Database [Com LINQ teriamos que escolher
+<strong>OBJECT,</strong>&nbsp;Afinal, a tabela vira um <strong>Objeto</strong>]</span>
+</li><li><span style="font-family:Verdana,sans-serif; font-size:x-small">Dataset</span>
+</li><li><span style="font-family:Verdana,sans-serif; font-size:x-small">Conecte ao seu banco de dados.</span>
+</li></ol>
+</li></ol>
+<span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span><br>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a href="http://2.bp.blogspot.com/--qo8IpcOWXQ/Txwyy8wdjRI/AAAAAAAAAQQ/Fc-SCGaJ7tM/s1600/RP5.jpg" style="margin-left:1em; margin-right:1em; text-align:center"><img src="description/RP5.jpg" border="0" alt="" width="320" height="247"></a></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4. Clique em<strong> Next &gt;
+</strong>duas vezes, uma <a href="http://msdn.microsoft.com/pt-br/library/system.data.common.dbconnectionstringbuilder.connectionstring(v=vs.90).aspx" >
+Connection String</a> ser&aacute; salva</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5. Escolha a tabela que criamos no come&ccedil;o da explica&ccedil;&atilde;o</span></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-tOtZOdQK1uc/Txw1Tz6VMDI/AAAAAAAAAQY/iNxwqcz_Bs8/s1600/RP5.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="description/fb645625-e12c-4544-b140-dfac6b6ccdf0RP5.jpg" border="0" alt="" width="320" height="245"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 6. Clique em
+<strong>Finish</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Se tudo der certo teremos nosso Dataset para o reportviewer criado, renomeie ele para&nbsp;<strong>DataSet_Produtos
+</strong>e clique em<strong> OK</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><strong><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></strong></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-6J_sAiMbFvA/Txw2indvx6I/AAAAAAAAAQg/LqKc18jo5Nk/s1600/RP6.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="description/RP6.jpg" border="0" alt="" width="320" height="170"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">O Dataset ir&aacute; aparecer no
+<strong>Report Data.</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Clique com o bot&atilde;o direito
+<strong>DENTRO </strong>do relat&oacute;rio v&aacute; em<strong> INSERT &gt; Table</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">V&aacute; nas propriedades da
+<strong>Table </strong>que acabou de ser inserida e &nbsp;na propriedade <strong>
+DataSetName</strong> defina como&nbsp;<strong>DataSet_Produtos</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Depois selecione as colunas que quer mostrar na Table.</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://1.bp.blogspot.com/-fDAvUD5Oa44/Txw4_c65DzI/AAAAAAAAAQo/lFRU9GSz_4g/s1600/RP7.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="description/RP7.jpg" border="0" alt="" width="320" height="171"></span></a></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Volte para o FrmVisualizador e defina o<strong>&nbsp;Relatorio_Produtos.rdlc
+</strong>para ser exibido.</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Tamb&eacute;m defina a propriedade
+<strong>Archor </strong>do ReportViewer para todos os lados :</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><strong>&nbsp;Top, Bottom, Left, Right</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Isso vai fazer com que quando o formul&aacute;rio for maximizado, o relat&oacute;rio tamb&eacute;m ser&aacute;</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-HdRkMRarykI/Txw6-wpA4sI/AAAAAAAAAQw/kV0N71GAIA4/s1600/RP8.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="description/RP8.jpg" border="0" alt="" width="320" height="171"></span></a></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">No Form1 adicione um bot&atilde;o para chamar o
+<strong>FrmVisualizador</strong></span></div>
+<div class="separator" style="clear:both; text-align:left"></div>
+<div class="separator" style="clear:both; font-weight:bold; text-align:center">
+<span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><span style="color:#6fa8dc">FrmVisualizador
+</span>oForm = <span style="color:blue">new </span><span style="color:#6fa8dc">FrmVisualizador</span>();</span></div>
+<div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small">&nbsp; oForm.Show();</span></div>
+<div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Executando o projeto e clicando no bot&atilde;o para abrir o Frm_Visualizador teremos</span></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-3kqGy_kyjXo/Txw82ZIs18I/AAAAAAAAAQ4/4maQjEFjiPw/s1600/RP9.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="description/RP9.jpg" border="0" alt="" width="320" height="171"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
+</span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Al&eacute;m de ser f&aacute;cil de montar, com reportviewer temos a op&ccedil;&atilde;o de expotar os dados para:</span></div>
+<div class="separator" style="clear:both; text-align:left"></div>
+<ul>
+<li><span style="font-family:Verdana,sans-serif; font-size:x-small">Excel</span> </li><li><span style="font-family:Verdana,sans-serif; font-size:x-small">PDF</span> </li><li><span style="font-family:Verdana,sans-serif; font-size:x-small">Word</span> </li></ul>
+<div><span style="font-family:Verdana,sans-serif; font-size:x-small"><a href="http://dl.dropbox.com/u/58447781/RelatorioReportViewer.rar" >Clique aqui
+</a>para baixar o projeto terminado</span></div>
+<div class="separator" style="clear:both; text-align:center"></div>
+<div class="separator" style="clear:both; text-align:center"></div>
+<div class="separator" style="clear:both; text-align:left"></div>
+<div class="separator" style="clear:both; text-align:left"><strong>Outros artigos em:&nbsp;</strong><span style="color:#888888"><a href="http://paulohdsousa.blogspot.com.br" >paulohdsousa.blogspot.com.br</a></span></div>
+<div style="text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><strong><br>
+</strong></span></div>
+<div>
+<div class="spoiler">USE [Acoes_Coletivas]<br>
+GO<br>
+<br>
+/****** Object: &nbsp;Table [dbo].[Produtos] &nbsp; &nbsp;Script Date: 01/22/2012 11:36:00 ******/<br>
+SET ANSI_NULLS ON<br>
+GO<br>
+<br>
+SET QUOTED_IDENTIFIER ON<br>
+GO<br>
+<br>
+CREATE TABLE [dbo].[Produtos](<br>
+<span style="white-space:pre">&nbsp;</span>[Id_Produto] [int] IDENTITY(1,1) NOT NULL,<br>
+<span style="white-space:pre">&nbsp;</span>[Nome] [nvarchar](350) NULL,<br>
+<span style="white-space:pre">&nbsp;</span>[Valor] [money] NULL,<br>
+&nbsp;CONSTRAINT [PK_Produtos] PRIMARY KEY CLUSTERED<br>
+(<br>
+<span style="white-space:pre">&nbsp;</span>[Id_Produto] ASC<br>
+)WITH (PAD_INDEX &nbsp;= OFF, STATISTICS_NORECOMPUTE &nbsp;= OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS &nbsp;= ON, ALLOW_PAGE_LOCKS &nbsp;= ON) ON [PRIMARY]<br>
+) ON [PRIMARY]<br>
+<br>
+GO<br>
+<br>
+<br>
+</div>
+</div>
+</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

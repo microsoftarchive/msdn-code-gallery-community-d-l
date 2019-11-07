@@ -1,0 +1,12 @@
+File: 1.txt
+Position: starting position
+Suggested move: d2-->d4
+
+File: 2.txt
+Position: position after 1.e4
+Suggested move: e7-->e6
+(so as to avoid 2.Qf3, 3.Bc4 and 4.Qxf7++)
+
+File: 3.txt
+Position: position after 1.d4
+Suggested move: d7-->d5

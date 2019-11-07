@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dataannotationvalidation", "Dataannotationvalidation\Dataannotationvalidation\Dataannotationvalidation.csproj", "{60520FC5-6FF9-4E2A-B4F1-F57A330667EA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60520FC5-6FF9-4E2A-B4F1-F57A330667EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60520FC5-6FF9-4E2A-B4F1-F57A330667EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60520FC5-6FF9-4E2A-B4F1-F57A330667EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60520FC5-6FF9-4E2A-B4F1-F57A330667EA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

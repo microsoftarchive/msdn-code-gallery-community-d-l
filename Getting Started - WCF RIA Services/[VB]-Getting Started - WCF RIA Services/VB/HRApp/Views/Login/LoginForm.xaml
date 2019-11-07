@@ -1,0 +1,32 @@
+﻿<StackPanel 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:appControls="clr-namespace:HRApp.Controls"
+    xmlns:activity="clr-namespace:System.Windows.Controls;assembly=ActivityControl"
+    x:Class="HRApp.LoginForm"
+    KeyDown="LoginPanel_KeyDown">    
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <activity:Activity x:Name="activity" Style="{StaticResource ActivityControlStyle}" ActiveContent="{Binding Path=ApplicationStrings.ActivityLoggingIn, Source={StaticResource ResourceWrapper}}">
+            <StackPanel Orientation="Vertical">
+                <appControls:CustomDataForm x:Name="loginForm" 
+                                                AutoEdit="True" CommandButtonsVisibility="None" HeaderVisibility="Collapsed" 
+                                                AutoGeneratingField="LoginForm_OnAutoGeneratingField" 
+                                                Grid.Row="0" Width="370" Style="{StaticResource LoginDataFormStyle}" />
+            </StackPanel>
+        </activity:Activity>
+
+        <StackPanel Style="{StaticResource RegisterLoginLinkPanelStyle}" Grid.Row="1">
+            <TextBlock Text="{Binding Path=ApplicationStrings.NotRegisteredYetLabel, Source={StaticResource ResourceWrapper}}" Style="{StaticResource CommentStyle}"/>
+            <HyperlinkButton x:Name="registerNow" Content="{Binding Path=ApplicationStrings.RegisterNowButton, Source={StaticResource ResourceWrapper}}" Click="RegisterNow_Click"/>
+        </StackPanel>
+
+        <Button x:Name="loginCancel" Content="{Binding Path=ApplicationStrings.CancelButton, Source={StaticResource ResourceWrapper}}" Click="CancelButton_Click" Margin="0,0,0,1" Grid.Row="1" Style="{StaticResource RegisterLoginButtonStyle}"/>
+        <Button x:Name="loginButton" Content="{Binding Path=ApplicationStrings.OKButton, Source={StaticResource ResourceWrapper}}" Click="LoginButton_Click" Grid.Row="1" Style="{StaticResource RegisterLoginButtonStyle}" IsEnabled="False" />
+    </Grid>
+</StackPanel>

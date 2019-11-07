@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DraggablePushpin", "DraggablePushpin.vbproj", "{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|ARM.ActiveCfg = Debug|ARM
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|ARM.Build.0 = Debug|ARM
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|ARM.Deploy.0 = Debug|ARM
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|x64.ActiveCfg = Debug|x64
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|x64.Build.0 = Debug|x64
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|x64.Deploy.0 = Debug|x64
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|x86.ActiveCfg = Debug|x86
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|x86.Build.0 = Debug|x86
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Debug|x86.Deploy.0 = Debug|x86
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|ARM.ActiveCfg = Release|ARM
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|ARM.Build.0 = Release|ARM
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|ARM.Deploy.0 = Release|ARM
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|x64.ActiveCfg = Release|x64
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|x64.Build.0 = Release|x64
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|x64.Deploy.0 = Release|x64
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|x86.ActiveCfg = Release|x86
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|x86.Build.0 = Release|x86
+		{884AA91F-268E-4F7F-AF4C-3986A3E29BFE}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

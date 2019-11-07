@@ -1,0 +1,732 @@
+<Customers>
+  <Customer>
+    <CustomerID>ALFKI</CustomerID>
+    <CompanyName>Alfreds Futterkiste</CompanyName>
+    <ContactName>Maria Anders</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Berlin</City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>ANATR</CustomerID>
+    <CompanyName>Ana Trujillo Emparedados y helados</CompanyName>
+    <ContactName>Ana Trujillo</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>MÃ©xico D.F.</City>
+    <Country>Mexico</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>ANTON</CustomerID>
+    <CompanyName>Antonio Moreno TaquerÃ­a</CompanyName>
+    <ContactName>Antonio Moreno</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>MÃ©xico D.F.</City>
+    <Country>Mexico</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>AROUT</CustomerID>
+    <CompanyName>Around the Horn</CompanyName>
+    <ContactName>Thomas Hardy</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>London</City>
+    <Country>UK</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>BERGS</CustomerID>
+    <CompanyName>Berglunds snabbkÃ¶p</CompanyName>
+    <ContactName>Christina Berglund</ContactName>
+    <ContactTitle>Order Administrator</ContactTitle>
+    <City>LuleÃ¥</City>
+    <Country>Sweden</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>BLAUS</CustomerID>
+    <CompanyName>Blauer See Delikatessen</CompanyName>
+    <ContactName>Hanna Moos</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Mannheim</City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>BLONP</CustomerID>
+    <CompanyName>Blondel pÃ¨re et fils</CompanyName>
+    <ContactName>FrÃ©dÃ©rique Citeaux</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>Strasbourg</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>BOLID</CustomerID>
+    <CompanyName>BÃ³lido Comidas preparadas</CompanyName>
+    <ContactName>MartÃ­n Sommer</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>Madrid</City>
+    <Country>Spain</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>BONAP</CustomerID>
+    <CompanyName>Bon app'</CompanyName>
+    <ContactName>Laurence Lebihan</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>Marseille</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>BOTTM</CustomerID>
+    <CompanyName>Bottom-Dollar Markets</CompanyName>
+    <ContactName>Elizabeth Lincoln</ContactName>
+    <ContactTitle>Accounting Manager</ContactTitle>
+    <City>Tsawassen</City>
+    <Country>Canada</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>BSBEV</CustomerID>
+    <CompanyName>B's Beverages</CompanyName>
+    <ContactName>Victoria Ashworth</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>London</City>
+    <Country>UK</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>CACTU</CustomerID>
+    <CompanyName>Cactus Comidas para llevar</CompanyName>
+    <ContactName>Patricio Simpson</ContactName>
+    <ContactTitle>Sales Agent</ContactTitle>
+    <City>Buenos Aires</City>
+    <Country>Argentina</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>CENTC</CustomerID>
+    <CompanyName>Centro comercial Moctezuma</CompanyName>
+    <ContactName>Francisco Chang</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>MÃ©xico D.F.</City>
+    <Country>Mexico</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>CHOPS</CustomerID>
+    <CompanyName>Chop-suey Chinese</CompanyName>
+    <ContactName>Yang Wang</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>Bern</City>
+    <Country>Switzerland</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>COMMI</CustomerID>
+    <CompanyName>ComÃ©rcio Mineiro</CompanyName>
+    <ContactName>Pedro Afonso</ContactName>
+    <ContactTitle>Sales Associate</ContactTitle>
+    <City>SÃ£o Paulo</City>
+    <Country>Brazil</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>CONSH</CustomerID>
+    <CompanyName>Consolidated Holdings</CompanyName>
+    <ContactName>Elizabeth Brown</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>London</City>
+    <Country>UK</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>WANDK</CustomerID>
+    <CompanyName>Die Wandernde Kuh</CompanyName>
+    <ContactName>Rita MÃ¼ller</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Stuttgart</City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>DRACD</CustomerID>
+    <CompanyName>Drachenblut Delikatessen</CompanyName>
+    <ContactName>Sven Ottlieb</ContactName>
+    <ContactTitle>Order Administrator</ContactTitle>
+    <City>Aachen</City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>DUMON</CustomerID>
+    <CompanyName>Du monde entier</CompanyName>
+    <ContactName>Janine Labrune</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>Nantes</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>EASTC</CustomerID>
+    <CompanyName>Eastern Connection</CompanyName>
+    <ContactName>Ann Devon</ContactName>
+    <ContactTitle>Sales Agent</ContactTitle>
+    <City>London</City>
+    <Country>UK</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>ERNSH</CustomerID>
+    <CompanyName>Ernst Handel</CompanyName>
+    <ContactName>Roland Mendel</ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>Graz</City>
+    <Country>Austria</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>FAMIA</CustomerID>
+    <CompanyName>Familia Arquibaldo</CompanyName>
+    <ContactName>Aria Cruz</ContactName>
+    <ContactTitle>Marketing Assistant</ContactTitle>
+    <City>SÃ£o Paulo</City>
+    <Country>Brazil</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>FISSA</CustomerID>
+    <CompanyName>FISSA Fabrica Inter. Salchichas S.A.</CompanyName>
+    <ContactName>Diego Roel</ContactName>
+    <ContactTitle>Accounting Manager</ContactTitle>
+    <City>Madrid</City>
+    <Country>Spain</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>FOLIG</CustomerID>
+    <CompanyName>Folies gourmandes</CompanyName>
+    <ContactName>Martine RancÃ©</ContactName>
+    <ContactTitle>Assistant Sales Agent</ContactTitle>
+    <City>Lille</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>FOLKO</CustomerID>
+    <CompanyName>Folk och fÃ¤ HB</CompanyName>
+    <ContactName>Maria Larsson</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>BrÃ¤cke</City>
+    <Country>Sweden</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>FRANR</CustomerID>
+    <CompanyName>France restauration</CompanyName>
+    <ContactName>Carine Schmitt</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>Nantes</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>FRANS</CustomerID>
+    <CompanyName>Franchi S.p.A.</CompanyName>
+    <ContactName>Paolo Accorti</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Torino</City>
+    <Country>Italy</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>FRANK</CustomerID>
+    <CompanyName>Frankenversand</CompanyName>
+    <ContactName>Peter Franken</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>MÃ¼nchen</City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>FURIB</CustomerID>
+    <CompanyName>Furia Bacalhau e Frutos do Mar</CompanyName>
+    <ContactName>Lino Rodriguez </ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>Lisboa</City>
+    <Country>Portugal</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>GALED</CustomerID>
+    <CompanyName>GalerÃ­a del gastrÃ³nomo</CompanyName>
+    <ContactName>Eduardo Saavedra</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>Barcelona</City>
+    <Country>Spain</Country>
+  </Customer>
+  <Customer>
+
+    <CustomerID>GODOS</CustomerID>
+    <CompanyName>Godos Cocina TÃ­pica</CompanyName>
+    <ContactName>JosÃ© Pedro Freyre</ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>Sevilla</City>
+    <Country>Spain</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>GOURL</CustomerID>
+    <CompanyName>Gourmet Lanchonetes</CompanyName>
+    <ContactName>AndrÃ© Fonseca</ContactName>
+    <ContactTitle>Sales Associate</ContactTitle>
+    <City>Campinas</City>
+    <Country>Brazil</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>GREAL</CustomerID>
+    <CompanyName>Great Lakes Food Market</CompanyName>
+    <ContactName>Howard Snyder</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>Eugene</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>GROSR</CustomerID>
+    <CompanyName>GROSELLA-Restaurante</CompanyName>
+    <ContactName>Manuel Pereira</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>Caracas</City>
+    <Country>Venezuela</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>HANAR</CustomerID>
+    <CompanyName>Hanari Carnes</CompanyName>
+    <ContactName>Mario Pontes</ContactName>
+    <ContactTitle>Accounting Manager</ContactTitle>
+    <City>Rio de Janeiro</City>
+    <Country>Brazil</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>HILAA</CustomerID>
+    <CompanyName>HILARIÃ“N-Abastos</CompanyName>
+    <ContactName>Carlos HernÃ¡ndez</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>San CristÃ³bal</City>
+    <Country>Venezuela</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>HUNGC</CustomerID>
+    <CompanyName>Hungry Coyote Import Store</CompanyName>
+    <ContactName>Yoshi Latimer</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Elgin</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>HUNGO</CustomerID>
+    <CompanyName>Hungry Owl All-Night Grocers</CompanyName>
+    <ContactName>Patricia McKenna</ContactName>
+    <ContactTitle>Sales Associate</ContactTitle>
+    <City>Cork</City>
+    <Country>Ireland</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>ISLAT</CustomerID>
+    <CompanyName>Island Trading</CompanyName>
+    <ContactName>Helen Bennett</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>Cowes</City>
+    <Country>UK</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>KOENE</CustomerID>
+    <CompanyName>KÃ¶niglich Essen</CompanyName>
+    <ContactName>Philip Cramer</ContactName>
+    <ContactTitle>Sales Associate</ContactTitle>
+    <City>Brandenburg</City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>LACOR</CustomerID>
+    <CompanyName>La corne d'abondance</CompanyName>
+    <ContactName>Daniel Tonini</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Versailles</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>LAMAI</CustomerID>
+    <CompanyName>La maison d'Asie</CompanyName>
+    <ContactName>Annette Roulet</ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>Toulouse</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>LAUGB</CustomerID>
+    <CompanyName>Laughing Bacchus Wine Cellars</CompanyName>
+    <ContactName>Yoshi Tannamuri</ContactName>
+    <ContactTitle>Marketing Assistant</ContactTitle>
+    <City>Vancouver</City>
+    <Country>Canada</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>LAZYK</CustomerID>
+    <CompanyName>Lazy K Kountry Store</CompanyName>
+    <ContactName>John Steel</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>Walla Walla</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>LEHMS</CustomerID>
+    <CompanyName>Lehmanns Marktstand</CompanyName>
+    <ContactName>Renate Messner</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Frankfurt a.M. </City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>LETSS</CustomerID>
+    <CompanyName>Let's Stop N Shop</CompanyName>
+    <ContactName>Jaime Yorres</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>San Francisco</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>LILAS</CustomerID>
+    <CompanyName>LILA-Supermercado</CompanyName>
+    <ContactName>Carlos GonzÃ¡lez</ContactName>
+    <ContactTitle>Accounting Manager</ContactTitle>
+    <City>Barquisimeto</City>
+    <Country>Venezuela</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>LINOD</CustomerID>
+    <CompanyName>LINO-Delicateses</CompanyName>
+    <ContactName>Felipe Izquierdo</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>I. de Margarita</City>
+    <Country>Venezuela</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>LONEP</CustomerID>
+    <CompanyName>Lonesome Pine Restaurant</CompanyName>
+    <ContactName>Fran Wilson</ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>Portland</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>MAGAA</CustomerID>
+    <CompanyName>Magazzini Alimentari Riuniti</CompanyName>
+    <ContactName>Giovanni Rovelli</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>Bergamo</City>
+    <Country>Italy</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>MAISD</CustomerID>
+    <CompanyName>Maison Dewey</CompanyName>
+    <ContactName>Catherine Dewey</ContactName>
+    <ContactTitle>Sales Agent</ContactTitle>
+    <City>Bruxelles</City>
+    <Country>Belgium</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>MEREP</CustomerID>
+    <CompanyName>MÃ¨re Paillarde</CompanyName>
+    <ContactName>Jean FresniÃ¨re</ContactName>
+    <ContactTitle>Marketing Assistant</ContactTitle>
+    <City>MontrÃ©al</City>
+    <Country>Canada</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>MORGK</CustomerID>
+    <CompanyName>Morgenstern Gesundkost</CompanyName>
+    <ContactName>Alexander Feuer</ContactName>
+    <ContactTitle>Marketing Assistant</ContactTitle>
+    <City>Leipzig</City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>NORTS</CustomerID>
+    <CompanyName>North/South</CompanyName>
+    <ContactName>Simon Crowther</ContactName>
+    <ContactTitle>Sales Associate</ContactTitle>
+    <City>London</City>
+    <Country>UK</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>OCEAN</CustomerID>
+    <CompanyName>OcÃ©ano AtlÃ¡ntico Ltda.</CompanyName>
+    <ContactName>Yvonne Moncada</ContactName>
+    <ContactTitle>Sales Agent</ContactTitle>
+    <City>Buenos Aires</City>
+    <Country>Argentina</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>OLDWO</CustomerID>
+    <CompanyName>Old World Delicatessen</CompanyName>
+    <ContactName>Rene Phillips</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Anchorage</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>OTTIK</CustomerID>
+    <CompanyName>Ottilies KÃ¤seladen</CompanyName>
+    <ContactName>Henriette Pfalzheim</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>KÃ¶ln</City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>PARIS</CustomerID>
+    <CompanyName>Paris spÃ©cialitÃ©s</CompanyName>
+    <ContactName>Marie Bertrand</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>Paris</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>PERIC</CustomerID>
+    <CompanyName>Pericles Comidas clÃ¡sicas</CompanyName>
+    <ContactName>Guillermo FernÃ¡ndez</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>MÃ©xico D.F.</City>
+    <Country>Mexico</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>PICCO</CustomerID>
+    <CompanyName>Piccolo und mehr</CompanyName>
+    <ContactName>Georg Pipps</ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>Salzburg</City>
+    <Country>Austria</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>PRINI</CustomerID>
+    <CompanyName>Princesa Isabel Vinhos</CompanyName>
+    <ContactName>Isabel de Castro</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Lisboa</City>
+    <Country>Portugal</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>QUEDE</CustomerID>
+    <CompanyName>Que DelÃ­cia</CompanyName>
+    <ContactName>Bernardo Batista</ContactName>
+    <ContactTitle>Accounting Manager</ContactTitle>
+    <City>Rio de Janeiro</City>
+    <Country>Brazil</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>QUEEN</CustomerID>
+    <CompanyName>Queen Cozinha</CompanyName>
+    <ContactName>LÃºcia Carvalho</ContactName>
+    <ContactTitle>Marketing Assistant</ContactTitle>
+    <City>SÃ£o Paulo</City>
+    <Country>Brazil</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>QUICK</CustomerID>
+    <CompanyName>QUICK-Stop</CompanyName>
+    <ContactName>Horst Kloss</ContactName>
+    <ContactTitle>Accounting Manager</ContactTitle>
+    <City>Cunewalde</City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>RANCH</CustomerID>
+    <CompanyName>Rancho grande</CompanyName>
+    <ContactName>Sergio GutiÃ©rrez</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Buenos Aires</City>
+    <Country>Argentina</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>RATTC</CustomerID>
+    <CompanyName>Rattlesnake Canyon Grocery</CompanyName>
+    <ContactName>Paula Wilson</ContactName>
+    <ContactTitle>Assistant Sales Representative</ContactTitle>
+    <City>Albuquerque</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>REGGC</CustomerID>
+    <CompanyName>Reggiani Caseifici</CompanyName>
+    <ContactName>Maurizio Moroni</ContactName>
+    <ContactTitle>Sales Associate</ContactTitle>
+    <City>Reggio Emilia</City>
+    <Country>Italy</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>RICAR</CustomerID>
+    <CompanyName>Ricardo Adocicados</CompanyName>
+    <ContactName>Janete Limeira</ContactName>
+    <ContactTitle>Assistant Sales Agent</ContactTitle>
+    <City>Rio de Janeiro</City>
+    <Country>Brazil</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>RICSU</CustomerID>
+    <CompanyName>Richter Supermarkt</CompanyName>
+    <ContactName>Michael Holz</ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>GenÃ¨ve</City>
+    <Country>Switzerland</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>ROMEY</CustomerID>
+    <CompanyName>Romero y tomillo</CompanyName>
+    <ContactName>Alejandra Camino</ContactName>
+    <ContactTitle>Accounting Manager</ContactTitle>
+    <City>Madrid</City>
+    <Country>Spain</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>SANTG</CustomerID>
+    <CompanyName>SantÃ© Gourmet</CompanyName>
+    <ContactName>Jonas Bergulfsen</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>Stavern</City>
+    <Country>Norway</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>SAVEA</CustomerID>
+    <CompanyName>Save-a-lot Markets</CompanyName>
+    <ContactName>Jose Pavarotti</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>Boise</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>SEVES</CustomerID>
+    <CompanyName>Seven Seas Imports</CompanyName>
+    <ContactName>Hari Kumar</ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>London</City>
+    <Country>UK</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>SIMOB</CustomerID>
+    <CompanyName>Simons bistro</CompanyName>
+    <ContactName>Jytte Petersen</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>KÃ¸benhavn</City>
+    <Country>Denmark</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>SPECD</CustomerID>
+    <CompanyName>SpÃ©cialitÃ©s du monde</CompanyName>
+    <ContactName>Dominique Perrier</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>Paris</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>SPLIR</CustomerID>
+    <CompanyName>Split Rail Beer &amp; Ale</CompanyName>
+    <ContactName>Art Braunschweiger</ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>Lander</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>SUPRD</CustomerID>
+    <CompanyName>SuprÃªmes dÃ©lices</CompanyName>
+    <ContactName>Pascale Cartrain</ContactName>
+    <ContactTitle>Accounting Manager</ContactTitle>
+    <City>Charleroi</City>
+    <Country>Belgium</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>THEBI</CustomerID>
+    <CompanyName>The Big Cheese</CompanyName>
+    <ContactName>Liz Nixon</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>Portland</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>THECR</CustomerID>
+    <CompanyName>The Cracker Box</CompanyName>
+    <ContactName>Liu Wong</ContactName>
+    <ContactTitle>Marketing Assistant</ContactTitle>
+    <City>Butte</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>TOMSP</CustomerID>
+    <CompanyName>Toms SpezialitÃ¤ten</CompanyName>
+    <ContactName>Karin Josephs</ContactName>
+    <ContactTitle>Marketing Manager</ContactTitle>
+    <City>MÃ¼nster</City>
+    <Country>Germany</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>TORTU</CustomerID>
+    <CompanyName>Tortuga Restaurante</CompanyName>
+    <ContactName>Miguel Angel Paolino</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>MÃ©xico D.F.</City>
+    <Country>Mexico</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>TRADH</CustomerID>
+    <CompanyName>TradiÃ§Ã£o Hipermercados</CompanyName>
+    <ContactName>Anabela Domingues</ContactName>
+    <ContactTitle>Sales Representative</ContactTitle>
+    <City>SÃ£o Paulo</City>
+    <Country>Brazil</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>TRAIH</CustomerID>
+    <CompanyName>Trail's Head Gourmet Provisioners</CompanyName>
+    <ContactName>Helvetius Nagy</ContactName>
+    <ContactTitle>Sales Associate</ContactTitle>
+    <City>Kirkland</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>VAFFE</CustomerID>
+    <CompanyName>Vaffeljernet</CompanyName>
+    <ContactName>Palle Ibsen</ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>Ã…rhus</City>
+    <Country>Denmark</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>VICTE</CustomerID>
+    <CompanyName>Victuailles en stock</CompanyName>
+    <ContactName>Mary Saveley</ContactName>
+    <ContactTitle>Sales Agent</ContactTitle>
+    <City>Lyon</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>VINET</CustomerID>
+    <CompanyName>Vins et alcools Chevalier</CompanyName>
+    <ContactName>Paul Henriot</ContactName>
+    <ContactTitle>Accounting Manager</ContactTitle>
+    <City>Reims</City>
+    <Country>France</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>WARTH</CustomerID>
+    <CompanyName>Wartian Herkku</CompanyName>
+    <ContactName>Pirkko Koskitalo</ContactName>
+    <ContactTitle>Accounting Manager</ContactTitle>
+    <City>Oulu</City>
+    <Country>Finland</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>WELLI</CustomerID>
+    <CompanyName>Wellington Importadora</CompanyName>
+    <ContactName>Paula Parente</ContactName>
+    <ContactTitle>Sales Manager</ContactTitle>
+    <City>Resende</City>
+    <Country>Brazil</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>WHITC</CustomerID>
+    <CompanyName>White Clover Markets</CompanyName>
+    <ContactName>Karl Jablonski</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>Seattle</City>
+    <Country>USA</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>WILMK</CustomerID>
+    <CompanyName>Wilman Kala</CompanyName>
+    <ContactName>Matti Karttunen</ContactName>
+    <ContactTitle>Owner/Marketing Assistant</ContactTitle>
+    <City>Helsinki</City>
+    <Country>Finland</Country>
+  </Customer>
+  <Customer>
+    <CustomerID>WOLZA</CustomerID>
+    <CompanyName>Wolski  Zajazd</CompanyName>
+    <ContactName>Zbyszek Piestrzeniewicz</ContactName>
+    <ContactTitle>Owner</ContactTitle>
+    <City>Warszawa</City>
+    <Country>Poland</Country>
+  </Customer>
+</Customers>
+

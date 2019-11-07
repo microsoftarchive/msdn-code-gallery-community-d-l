@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Namespace="LightSwitchApplication" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <Association Name="FK_Product_ProductRebate">
+    <End Role="Product" Type="LightSwitchApplication.Product" Multiplicity="1" />
+    <End Role="ProductRebate" Type="LightSwitchApplication.ProductRebate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductRebate">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" ConcurrencyMode="Fixed" />
+    <Property Name="MSRP" Type="Decimal" Nullable="false" Precision="19" Scale="4" ConcurrencyMode="Fixed" />
+    <Property Name="Description" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <Property Name="ProductImage" Type="Binary" MaxLength="Max" />
+    <Property Name="Category" Type="String" MaxLength="Max" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="ProductRebates" Relationship="LightSwitchApplication.FK_Product_ProductRebate" ToRole="ProductRebate" FromRole="Product" />
+  </EntityType>
+  <EntityType Name="ProductRebate">
+    <Key>
+      <PropertyRef Name="ProductRebateID" />
+    </Key>
+    <Property Name="ProductRebateID" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <Property Name="RebateStart" Type="DateTime" Precision="0" ConcurrencyMode="Fixed" />
+    <Property Name="RebateEnd" Type="DateTime" Precision="0" ConcurrencyMode="Fixed" />
+    <Property Name="Rebate" Type="Decimal" Precision="19" Scale="4" ConcurrencyMode="Fixed" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" ConcurrencyMode="Fixed" />
+    <NavigationProperty Name="Product" Relationship="LightSwitchApplication.FK_Product_ProductRebate" ToRole="Product" FromRole="ProductRebate" />
+  </EntityType>
+  <EntityContainer Name="PrescriptionContosoObjectContext" m:IsDefaultEntityContainer="true">
+    <EntitySet Name="Products" EntityType="LightSwitchApplication.Product" />
+    <EntitySet Name="ProductRebates" EntityType="LightSwitchApplication.ProductRebate" />
+    <AssociationSet Name="FK_Product_ProductRebate" Association="LightSwitchApplication.FK_Product_ProductRebate">
+      <End Role="Product" EntitySet="Products" />
+      <End Role="ProductRebate" EntitySet="ProductRebates" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

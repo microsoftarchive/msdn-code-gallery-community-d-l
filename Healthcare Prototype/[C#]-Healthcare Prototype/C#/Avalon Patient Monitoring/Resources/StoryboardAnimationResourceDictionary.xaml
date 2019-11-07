@@ -1,0 +1,47 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+	<Storyboard x:Key="SlideMenuOut">
+		<ThicknessAnimationUsingKeyFrames Storyboard.TargetName="GridTools" Storyboard.TargetProperty="Margin" FillBehavior="HoldEnd" BeginTime="00:00:00" Duration="00:00:00.5000000">
+			<ThicknessAnimationUsingKeyFrames.KeyFrames>
+				<ThicknessKeyFrameCollection>
+					<SplineThicknessKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="0,0,110,0" KeyTime="00:00:00" />
+					<SplineThicknessKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="0,0,0,0" KeyTime="00:00:00.5000000" />
+				</ThicknessKeyFrameCollection>
+			</ThicknessAnimationUsingKeyFrames.KeyFrames>
+		</ThicknessAnimationUsingKeyFrames>
+	</Storyboard>
+
+	<Storyboard x:Key="SlideMenuIn">
+		<ThicknessAnimationUsingKeyFrames Storyboard.TargetName="GridTools" Storyboard.TargetProperty="Margin" FillBehavior="HoldEnd" BeginTime="00:00:00" Duration="00:00:00.5000000">
+			<ThicknessAnimationUsingKeyFrames.KeyFrames>
+				<ThicknessKeyFrameCollection>
+					<SplineThicknessKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="0,0,0,0" KeyTime="00:00:00" />
+					<SplineThicknessKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="0,0,110,0" KeyTime="00:00:00.5000000" />
+				</ThicknessKeyFrameCollection>
+			</ThicknessAnimationUsingKeyFrames.KeyFrames>
+		</ThicknessAnimationUsingKeyFrames>
+	</Storyboard>
+
+	<Storyboard x:Key="MenuIn">
+		<DoubleAnimationUsingKeyFrames Storyboard.TargetName="Main_NavBar" Storyboard.TargetProperty="Width" FillBehavior="HoldEnd" BeginTime="00:00:00" DoubleAnimationUsingKeyFrames.IsAdditive="True" Duration="00:00:01">
+			<DoubleAnimationUsingKeyFrames.KeyFrames>
+				<DoubleKeyFrameCollection>
+					<SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="170" KeyTime="00:00:00" />
+					<SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:01" />
+				</DoubleKeyFrameCollection>
+			</DoubleAnimationUsingKeyFrames.KeyFrames>
+		</DoubleAnimationUsingKeyFrames>
+	</Storyboard>
+
+	<Storyboard x:Key="MenuOut">
+		<DoubleAnimationUsingKeyFrames Storyboard.TargetName="Main_NavBar" Storyboard.TargetProperty="Width"  FillBehavior="HoldEnd" BeginTime="00:00:00"  Duration="00:00:01">
+			<DoubleAnimationUsingKeyFrames.KeyFrames>
+				<DoubleKeyFrameCollection>
+					<SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="0" KeyTime="00:00:00" />
+					<SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="170" KeyTime="00:00:01" />
+				</DoubleKeyFrameCollection>
+			</DoubleAnimationUsingKeyFrames.KeyFrames>
+		</DoubleAnimationUsingKeyFrames>
+	</Storyboard>
+</ResourceDictionary>

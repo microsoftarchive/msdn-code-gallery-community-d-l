@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7bd86db-8a7a-43ce-8954-21f8f839f51bCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Easy MVVM Example</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Easy MVVM Example</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WPF, XAML
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Data Binding, events, MVVM, POCO, INotifyProperty<wbr />Changed, Attached Properties, WPF Binding, DataTemplates, Dependency Properties, DataContext, DependencyObjec<wbr />t, Business Objects
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">9/19/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Easy-MVVM-Examples-fb8c409f">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>This project will give&nbsp;you crash course on WPF MVVM that you can do in your lunch break! Everything you need to know about binding, INotifyPropertyChanged, Dependency Objects &amp; Properites, POCO objects, Business Objects, Attached Properties and
+ much more!</p>
+<p>&nbsp;</p>
+<p>For a full discussion and detailed breakdown of this project, please read below</p>
+<p><span style="font-size:small"><strong><a href="http://social.technet.microsoft.com/wiki/contents/articles/13536.easy-mvvm-examples.aspx">http://social.technet.microsoft.com/wiki/contents/articles/13536.easy-mvvm-examples.aspx</a></strong></span></p>
+<h1><span>&nbsp;</span></h1>
+<h1><span>Building the Sample</span></h1>
+<p>Just download, unzip, open and run!</p>
+<p>&nbsp;</p>
+<h1><span style="font-size:20px">Description</span></h1>
+<p>This project consists of five windows, with practicly no code behind.</p>
+<p>All application&nbsp;functionality and navigation is done by the ViewModels</p>
+<p>&nbsp;</p>
+<h2><strong>MainWindow - Classic INotifyPropertyChanged</strong></h2>
+<p><img id="66203" src="description/mvvm1.png" alt="" width="456" height="395"></p>
+<p>This is the classic MVVM configuration,&nbsp;implementing INotifyPropertyChanged in a base class (ViewModelBase)</p>
+<p>The ViewModel is attached by the View itself, in XAML. This&nbsp;is fine&nbsp;if the ViewModel constructor has no parameters.</p>
+<p>It has a ListBox, DataGrid and ComboBox all with ItemsSource to the same collection, and the same SeletedItem.</p>
+<p>As you change selected Person, you will see all three controls change together.</p>
+<p>A TextBox and TextBlock share the same&nbsp;property, and changes in the TextBox reflect in the TextBlock.</p>
+<p>Click the button to add a user, it shows in all three controls.</p>
+<p>Closing the Window is just a nasty code behind hack, the simplest and worst of the examples.</p>
+<p>&nbsp;</p>
+<h2><strong>Window1</strong></h2>
+<p><img id="66204" src="description/mvvm2.png" alt="" width="345" height="304"></p>
+<p>This window simply shows how you can attach the ViewModel to the DataContext in code, done by MainWindow.</p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">var win = new Window1 { DataContext = new ViewModelWindow1(tb1.Text) };</pre>
+<div class="preview">
+<pre class="js"><span class="js__statement">var</span>&nbsp;win&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;Window1&nbsp;<span class="js__brace">{</span>&nbsp;DataContext&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;ViewModelWindow1(tb1.Text)&nbsp;<span class="js__brace">}</span>;</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p>This ViewModel is derived from&nbsp;ViewModelMain, with an extra public property and command to pull from the base class and update the new property and UI.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">&lt;Button Content=&quot;Change Text&quot; Command=&quot;{Binding ChangeTextCommand}&quot; CommandParameter=&quot;{Binding SelectedItem, ElementName=dg1}&quot;/&gt;</pre>
+<div class="preview">
+<pre class="js">&lt;Button&nbsp;Content=<span class="js__string">&quot;Change&nbsp;Text&quot;</span>&nbsp;Command=<span class="js__string">&quot;{Binding&nbsp;ChangeTextCommand}&quot;</span>&nbsp;CommandParameter=<span class="js__string">&quot;{Binding&nbsp;SelectedItem,&nbsp;ElementName=dg1}&quot;</span>/&gt;</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">void ChangeText(object selectedItem)
+{
+    //Setting the PUBLIC property 'TestText', so PropertyChanged event is fired
+    if (selectedItem == null)
+        TestText = &quot;Please select a person&quot;; 
+    else
+    {
+        var person = selectedItem as Person;
+        TestText = person.FirstName &#43; &quot; &quot; &#43; person.LastName;
+    }
+}</pre>
+<div class="preview">
+<pre class="js"><span class="js__operator">void</span>&nbsp;ChangeText(object&nbsp;selectedItem)&nbsp;
+<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__sl_comment">//Setting&nbsp;the&nbsp;PUBLIC&nbsp;property&nbsp;'TestText',&nbsp;so&nbsp;PropertyChanged&nbsp;event&nbsp;is&nbsp;fired</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(selectedItem&nbsp;==&nbsp;null)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TestText&nbsp;=&nbsp;<span class="js__string">&quot;Please&nbsp;select&nbsp;a&nbsp;person&quot;</span>;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;person&nbsp;=&nbsp;selectedItem&nbsp;as&nbsp;Person;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TestText&nbsp;=&nbsp;person.FirstName&nbsp;&#43;&nbsp;<span class="js__string">&quot;&nbsp;&quot;</span>&nbsp;&#43;&nbsp;person.LastName;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+<span class="js__brace">}</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p>You can see I'm having to check for null here, &quot;boiler plating&quot; we could do without, as shown in CanExecute below.</p>
+<p>&nbsp;</p>
+<p>Closing this Window uses the nicest way to do it, using an Attached&nbsp;Behaviour (Property)&nbsp;with a binding to a flag in the ViewModelBase. In our ViewModel we simply call CloseWindow()</p>
+<p>&nbsp;</p>
+<h2><strong>Window 2</strong></h2>
+<p><img id="66205" src="description/mvvm3.png" alt="" width="316" height="295"></p>
+<p>This example shows the alternative to INotifyPropertyChanged - DependencyObject and Dependency Properties.</p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public Person SelectedPerson
+{
+    get { return (Person)GetValue(SelectedPersonProperty); }
+    set { SetValue(SelectedPersonProperty, value); }
+}
+
+// Using a DependencyProperty as the backing store for SelectedPerson.  This enables animation, styling, binding, etc...
+public static readonly DependencyProperty SelectedPersonProperty =
+    DependencyProperty.Register(&quot;SelectedPerson&quot;, typeof(Person), typeof(ViewModelWindow2), new UIPropertyMetadata(null));</pre>
+<div class="preview">
+<pre class="js">public&nbsp;Person&nbsp;SelectedPerson&nbsp;
+<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;get&nbsp;<span class="js__brace">{</span>&nbsp;<span class="js__statement">return</span>&nbsp;(Person)GetValue(SelectedPersonProperty);&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;set&nbsp;<span class="js__brace">{</span>&nbsp;SetValue(SelectedPersonProperty,&nbsp;value);&nbsp;<span class="js__brace">}</span>&nbsp;
+<span class="js__brace">}</span>&nbsp;
+&nbsp;
+<span class="js__sl_comment">//&nbsp;Using&nbsp;a&nbsp;DependencyProperty&nbsp;as&nbsp;the&nbsp;backing&nbsp;store&nbsp;for&nbsp;SelectedPerson.&nbsp;&nbsp;This&nbsp;enables&nbsp;animation,&nbsp;styling,&nbsp;binding,&nbsp;etc...</span>&nbsp;
+public&nbsp;static&nbsp;readonly&nbsp;DependencyProperty&nbsp;SelectedPersonProperty&nbsp;=&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;DependencyProperty.Register(<span class="js__string">&quot;SelectedPerson&quot;</span>,&nbsp;<span class="js__operator">typeof</span>(Person),&nbsp;<span class="js__operator">typeof</span>(ViewModelWindow2),&nbsp;<span class="js__operator">new</span>&nbsp;UIPropertyMetadata(null));</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">Dependency Properties also fire PropertyChanged events, and also have callback and coerce delegates.</div>
+<p>&nbsp;</p>
+<p>The only drawback to Dependency Properties for general MVVM use is they need to be handled on the UI layer.</p>
+<p>This example also shows how a command can also control if a button is enabled, through it's CanExecute delegate.</p>
+<p>As we are not using the parameter, but relyng on the ViewModel selected item, if there is none,&nbsp;the CanExecute method returns false, which disables the button. All done by behaviour, no messy code or boiler plating.</p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public ViewModelWindow2()
+{
+    People = FakeDatabaseLayer.GetPeopleFromDatabase();
+    NextExampleCommand = new RelayCommand(NextExample, NextExample_CanExecute);
+}
+
+bool NextExample_CanExecute(object parameter)
+{
+    return SelectedPerson != null;
+}</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">public</span>&nbsp;ViewModelWindow2()&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;People&nbsp;=&nbsp;FakeDatabaseLayer.GetPeopleFromDatabase();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;NextExampleCommand&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;RelayCommand(NextExample,&nbsp;NextExample_CanExecute);&nbsp;
+}&nbsp;
+&nbsp;
+<span class="cs__keyword">bool</span>&nbsp;NextExample_CanExecute(<span class="cs__keyword">object</span>&nbsp;parameter)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;SelectedPerson&nbsp;!=&nbsp;<span class="cs__keyword">null</span>;&nbsp;
+}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">In this example, we still use the Attached Property in the Window XAML, to close the Window, but the property is another Dependency Property in the ViewModel.</div>
+<div class="endscriptcode"></div>
+<h2 class="endscriptcode"><strong>Window 3</strong></h2>
+<div class="endscriptcode"><img id="66206" src="description/mvvm4.png" alt="" width="437" height="363"></div>
+<div class="endscriptcode">A POCO class in WPF/MVVM terms is one that does not provide any PropertyChanged events. This would usually be legacy code modules, or&nbsp;converting from WinForms.</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">If a POCO class is used in the classic INPC setup, things start to go wrong.</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">At first, everything seems fine. Selected item&nbsp;is&nbsp;updated in all, you can change&nbsp;properties of existing people, and add new people through the DataGrid.</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">However, the textbox should actually be showing a timestamp, as set by the code behind Dispatcher Timer.</div>
+<div class="endscriptcode">Also, clicking the button to add a new person does not seem to work, until you try to add a user in the DataGrid.</div>
+<div class="endscriptcode"></div>
+<h2 class="endscriptcode"><strong>Window 4</strong></h2>
+<div class="endscriptcode"><img id="66207" src="description/mvvm5.png" alt="" width="437" height="386"></div>
+<div class="endscriptcode">This example is simply an extension to the previous example, where I have added the ViewModelBase and PropertyChanged event on the timer property. Now you can see the time updating.</div>
+<div class="endscriptcode"></div>
+<h2 class="endscriptcode"><strong>Window 5</strong></h2>
+<div class="endscriptcode"><img id="66208" src="description/mvvm6.png" alt="" width="537" height="379"></div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">What if you have a business object that handles all the work, like a database layer or web service?</div>
+<div class="endscriptcode">This&nbsp;may therefore be&nbsp;a closed object that you cannot enrich with INPC on it's properties.</div>
+<div class="endscriptcode">In this case you have to fall back on wrappers and polling.</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">This example shows a complete and virtually codeless master/detail, edit &amp; add control.</div>
+<p>&nbsp;</p>
+<p>For a full discussion and detailed breakdown of this project, please read below:</p>
+<p><span style="font-size:small"><strong><a href="http://social.technet.microsoft.com/wiki/contents/articles/13536.easy-mvvm-examples.aspx">http://social.technet.microsoft.com/wiki/contents/articles/13536.easy-mvvm-examples.aspx</a></strong></span></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><img src="description/aniThanks1.gif" alt="" style="margin-right:auto; margin-left:auto; display:block"></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Contoso.Cloud.Integration.BizTalk.Components</name>
+    </assembly>
+    <members>
+        <member name="T:Contoso.Cloud.Integration.BizTalk.Components.CustomRuntimeTasks.ActivityTrackingEventHandler">
+            <summary>
+            Implements a custom runtime task responsible for handling BAM activity tracking updates received through a receive port.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.BizTalk.Components.CustomRuntimeTasks.ActivityTrackingEventHandler.Execute(Microsoft.BizTalk.Component.Interop.IPipelineContext,Microsoft.BizTalk.Message.Interop.IBaseMessage)">
+            <summary>
+            Executes the custom runtime task component to process the input message and returns the result message.
+            </summary>
+            <param name="pContext">A reference to <see cref="T:Microsoft.BizTalk.Component.Interop.IPipelineContext"/> object that contains the current pipeline context.</param>
+            <param name="pInMsg">A reference to <see cref="T:Microsoft.BizTalk.Message.Interop.IBaseMessage"/> object that contains the message to process.</param>
+            <returns>A reference to the returned <see cref="T:Microsoft.BizTalk.Message.Interop.IBaseMessage"/> object which will contain the output message.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.BizTalk.Components.CustomRuntimeTasks.DiagnosticTraceEventHandler">
+            <summary>
+            Implements a custom runtime task responsible for handling distributed diagnostic tracing events received through a receive port.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.BizTalk.Components.CustomRuntimeTasks.DiagnosticTraceEventHandler.Execute(Microsoft.BizTalk.Component.Interop.IPipelineContext,Microsoft.BizTalk.Message.Interop.IBaseMessage)">
+            <summary>
+            Executes the custom runtime task component to process the input message and returns the result message.
+            </summary>
+            <param name="pContext">A reference to <see cref="T:Microsoft.BizTalk.Component.Interop.IPipelineContext"/> object that contains the current pipeline context.</param>
+            <param name="pInMsg">A reference to <see cref="T:Microsoft.BizTalk.Message.Interop.IBaseMessage"/> object that contains the message to process.</param>
+            <returns>A reference to the returned <see cref="T:Microsoft.BizTalk.Message.Interop.IBaseMessage"/> object which will contain the output message.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.BizTalk.Components.CustomRuntimeTasks.GetConfigurationSectionRequestHandler">
+            <summary>
+            Implements a custom runtime task responsible for handling requests to retrieve a specific configuration section from the application configuration.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.BizTalk.Components.CustomRuntimeTasks.GetConfigurationSectionRequestHandler.Execute(Microsoft.BizTalk.Component.Interop.IPipelineContext,Microsoft.BizTalk.Message.Interop.IBaseMessage)">
+            <summary>
+            Executes the custom runtime task component to process the input message and returns the result message.
+            </summary>
+            <param name="pContext">A reference to <see cref="T:Microsoft.BizTalk.Component.Interop.IPipelineContext"/> object that contains the current pipeline context.</param>
+            <param name="pInMsg">A reference to <see cref="T:Microsoft.BizTalk.Message.Interop.IBaseMessage"/> object that contains the message to process.</param>
+            <returns>A reference to the returned <see cref="T:Microsoft.BizTalk.Message.Interop.IBaseMessage"/> object which will contain the output message.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.BizTalk.Components.CustomRuntimeTasks.GetXslTransformMetadataRequestHandler">
+            <summary>
+            Implements a custom runtime task responsible for handling requests to retrieve a specific BizTalk map.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.BizTalk.Components.CustomRuntimeTasks.GetXslTransformMetadataRequestHandler.Execute(Microsoft.BizTalk.Component.Interop.IPipelineContext,Microsoft.BizTalk.Message.Interop.IBaseMessage)">
+            <summary>
+            Executes the custom runtime task component to process the input message and returns the result message.
+            </summary>
+            <param name="pContext">A reference to <see cref="T:Microsoft.BizTalk.Component.Interop.IPipelineContext"/> object that contains the current pipeline context.</param>
+            <param name="pInMsg">A reference to <see cref="T:Microsoft.BizTalk.Message.Interop.IBaseMessage"/> object that contains the message to process.</param>
+            <returns>A reference to the returned <see cref="T:Microsoft.BizTalk.Message.Interop.IBaseMessage"/> object which will contain the output message.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.BizTalk.Components.MessagingRuntimeExtender">
+            <summary>
+            Implements a custom pipeline component that can be used for composing and executing multiple custom message processing tasks at runtime.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.BizTalk.Components.MessagingRuntimeExtender.#ctor">
+            <summary>
+            Initializes a new instance of a <see cref="T:Contoso.Cloud.Integration.BizTalk.Components.MessagingRuntimeExtender"/> object.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.BizTalk.Components.MessagingRuntimeExtender.Execute(Microsoft.BizTalk.Component.Interop.IPipelineContext,Microsoft.BizTalk.Message.Interop.IBaseMessage)">
+            <summary>
+            Executes a pipeline component to process the input message and returns the result message.
+            </summary>
+            <param name="pContext">A reference to <see cref="T:Microsoft.BizTalk.Component.Interop.IPipelineContext"/> object that contains the current pipeline context.</param>
+            <param name="pInMsg">A reference to <see cref="T:Microsoft.BizTalk.Message.Interop.IBaseMessage"/> object that contains the message to process.</param>
+            <returns>A reference to the returned <see cref="T:Microsoft.BizTalk.Message.Interop.IBaseMessage"/> object which will contain the output message.</returns>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.MessagingRuntimeExtender.PolicyName">
+            <summary>
+            The mandatory name of the Business Rules policy defining the composition of custom message processing tasks.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.MessagingRuntimeExtender.PolicyVersion">
+            <summary>
+            The optional version number of the Business Rules policy defining the composition of custom message processing tasks.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.BizTalk.Components.Properties.ExceptionMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.ExceptionMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.ExceptionMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.ExceptionMessages.ConfigurationSectionNotFound">
+            <summary>
+              Looks up a localized string similar to The specified configuration section {0} has not been found in the configuration source {1}..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.ExceptionMessages.PolicyNameNotDefined">
+            <summary>
+              Looks up a localized string similar to The BRE policy name has not been specified..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.ExceptionMessages.PolicyVersionNotDefined">
+            <summary>
+              Looks up a localized string similar to The BRE policy version has not been specified or is in wrong format (expected format is 1.0.0.0)..
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.BeginActivityMethodName">
+            <summary>
+              Looks up a localized string similar to BeginActivity.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.CompleteActivityMethodName">
+            <summary>
+              Looks up a localized string similar to CompleteActivity.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.DiagnosticTraceEventHandlerComponentDesc">
+            <summary>
+              Looks up a localized string similar to Handles the trace events received from instrumented distributed applications..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.DiagnosticTraceEventHandlerComponentName">
+            <summary>
+              Looks up a localized string similar to Diagnostic Trace Event Handler.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.EnableDebugLoggingPropDesc">
+            <summary>
+              Looks up a localized string similar to Enables writing events into standard Win32 debug channel and capture these using the DebugView tool..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.EnableDebugLoggingPropName">
+            <summary>
+              Looks up a localized string similar to Enable Debug Logging.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.EnableEtwLoggingPropDesc">
+            <summary>
+              Looks up a localized string similar to Enables writing events into Event Tracing for Windows (ETW)..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.EnableEtwLoggingPropName">
+            <summary>
+              Looks up a localized string similar to Enable ETW Logging.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.MessagingRuntimeExtenderComponentDesc">
+            <summary>
+              Looks up a localized string similar to Enables to orchestrate multiple components from within Messaging Engine as messages flow through Receive or Send pipelines..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.MessagingRuntimeExtenderComponentName">
+            <summary>
+              Looks up a localized string similar to Messaging Runtime Extender Component.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.MessagingRuntimeExtenderPolicyNamePropDesc">
+            <summary>
+              Looks up a localized string similar to The name of the Business Rules policy defining processing steps that extend message handling at runtime..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.MessagingRuntimeExtenderPolicyNamePropName">
+            <summary>
+              Looks up a localized string similar to BRE Policy Name.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.MessagingRuntimeExtenderPolicyVersionPropDesc">
+            <summary>
+              Looks up a localized string similar to The version of the Business Rules policy. If not specified, the latest deployed version of the policy will be used..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.MessagingRuntimeExtenderPolicyVersionPropName">
+            <summary>
+              Looks up a localized string similar to BRE Policy Version.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.SuppressPassthroughTrafficPropDesc">
+            <summary>
+              Looks up a localized string similar to Enables discarding all pass-through traffic so that no events will be published into the Message Box..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.SuppressPassthroughTrafficPropName">
+            <summary>
+              Looks up a localized string similar to Suppress Passthrough Traffic.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.TraceEventMessageFormatString">
+            <summary>
+              Looks up a localized string similar to {0} &lt;Event ID: {1}, Source: {2}, Machine: {3}, Process: {4}, PID: {5}, Thread: {6}, Timestamp: {7}&gt;.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.Resources.UpdateActivityMethodName">
+            <summary>
+              Looks up a localized string similar to UpdateActivity.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.BizTalk.Components.Properties.TraceLogMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.TraceLogMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.TraceLogMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.TraceLogMessages.CannotDeserializeActivityMessage">
+            <summary>
+              Looks up a localized string similar to The {0} component was unable to de-serialize the activity tracking event data from the incoming message. Please check the message format and make sure it&apos;s compliant with {1} schema..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.TraceLogMessages.CannotDetermineSoapAction">
+            <summary>
+              Looks up a localized string similar to The {0} component expected a valid non-empty {1} context property from namespace {2} which has not been found in the incoming message..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.TraceLogMessages.GetConfigSectionRequest">
+            <summary>
+              Looks up a localized string similar to INFO: Received a request to retrieve configuration section {0} for application {1} on machine {2}..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.TraceLogMessages.GetXslTransformRequest">
+            <summary>
+              Looks up a localized string similar to INFO: Received a request to retrieve BizTalk map source for {0}..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.BizTalk.Components.Properties.TraceLogMessages.NoTraceProviderFound">
+            <summary>
+              Looks up a localized string similar to Unable to resolve a trace provider for {0}. Trace event details: {1}.
+            </summary>
+        </member>
+    </members>
+</doc>

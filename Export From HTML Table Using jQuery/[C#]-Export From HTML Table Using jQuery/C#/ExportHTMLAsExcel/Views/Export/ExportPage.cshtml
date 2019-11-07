@@ -1,0 +1,262 @@
+﻿@{
+    ViewBag.Title = "Have a happy Exporting :)";
+}
+@*https://github.com/kayalshri/tableExport.jquery.plugin*@
+<h2>Have a happy Exporting :)</h2>
+<script src="~/Contents/jquery-1.9.1.js"></script>
+<script src="~/Contents/tableExport.js"></script> @*Main file which does export feature *@
+<script src="~/Contents/jquery.base64.js"></script> @*Main file which does convert the content to base64  *@
+<script src="~/Contents/html2canvas.js"></script> @*Main file which does export to image feature *@
+<script src="~/Contents/jspdf/libs/base64.js"></script> @*Main file which does  convert the content to base64 for pdf *@
+<script src="~/Contents/jspdf/libs/sprintf.js"></script> @*Main file which does export feature for pdf *@
+<script src="~/Contents/jspdf/jspdf.js"></script> @*Main file which does export feature for pdf *@
+<style>
+    #activity {
+        text-align:center;border:1px solid #ccc;
+    }
+    #activity td{
+        text-align:center;border:1px solid #ccc;
+    }
+     #footerExport td{
+       cursor:pointer;
+       text-align:center;border:1px solid #ccc;
+       border:none;
+    }
+    
+</style>
+<script>
+    $(document).ready(function () {
+        var varpdfFontSize = '7';
+        $('#exportexcel').bind('click', function (e) {           
+            $('#activity').tableExport({ type: 'excel', escape: 'false', pdfFontSize: varpdfFontSize });
+        });
+        $('#exportpdf').bind('click', function (e) {           
+            $('#activity').tableExport({ type: 'pdf', escape: 'false' });
+        });
+        $('#exportimage').bind('click', function (e) {
+            $('#activity').tableExport({ type: 'png', escape: 'false' });
+        });
+        $('#exportcsv').bind('click', function (e) {
+            $('#activity').tableExport({ type: 'csv', escape: 'false' });
+        });
+        $('#exportppt').bind('click', function (e) {
+            $('#activity').tableExport({ type: 'powerpoint', escape: 'false' });
+        });
+        $('#exportxml').bind('click', function (e) {
+            $('#activity').tableExport({ type: 'xml', escape: 'false' });
+        });
+        $('#exportword').bind('click', function (e) {
+            $('#activity').tableExport({ type: 'doc', escape: 'false' });
+        });
+        $('#exporttxt').bind('click', function (e) {
+            $('#activity').tableExport({ type: 'txt', escape: 'false' });
+        });
+
+    });
+</script>
+<table id="activity" class="display dataTable no-footer" role="grid" aria-describedby="YearlyGridReport_info" style="width: 1501px;">
+        <thead>
+            <tr role="row">
+                <td class="titleAllLockedCell" rowspan="1" colspan="1">Year Description</td>
+                <td class="titleAllLockedCell" rowspan="1" colspan="1"></td>
+                <th class="titleTopLockedCell" colspan="8" rowspan="1"><span>2014</span></th>
+            </tr>
+            <tr role="row">
+                <td class="titleAllLockedCell" rowspan="1" colspan="1">Quarter</td>
+                <td class="titleAllLockedCell" rowspan="1" colspan="1"></td>
+                <th class="titleTopLockedCell" colspan="2" rowspan="1"><span>Q1</span></th>
+                <th class="titleTopLockedCell" colspan="2" rowspan="1"><span>Q2</span></th>
+                <th class="titleTopLockedCell" colspan="2" rowspan="1"><span>Q3</span></th>
+                <th class="titleTopLockedCell" colspan="2" rowspan="1"><span>Q4</span></th>
+            </tr>
+            <tr role="row">
+                <td class="titleAllLockedCell sorting" tabindex="0" aria-controls="YearlyGridReport" rowspan="1" colspan="1" aria-label="Work Type: activate to sort column ascending" style="width: 100px;">Work Type</td>
+                <td class="titleAllLockedCell sorting" tabindex="0" aria-controls="YearlyGridReport" rowspan="1" colspan="1" aria-label="Work Status: activate to sort column ascending" style="width: 102px;">Work Status</td>
+                <th class="titleTopLockedCell sorting" tabindex="0" aria-controls="YearlyGridReport" rowspan="1" colspan="1" aria-label="Total Effort Reported: activate to sort column ascending" style="width: 130px;"><span>Total Effort Reported</span></th>
+                <th class="titleTopLockedCell sorting" tabindex="0" aria-controls="YearlyGridReport" rowspan="1" colspan="1" aria-label="Effort Scheduled: activate to sort column ascending" style="width: 101px;"><span>Effort Scheduled</span></th>
+                <th class="titleTopLockedCell sorting" tabindex="0" aria-controls="YearlyGridReport" rowspan="1" colspan="1" aria-label="Total Effort Reported: activate to sort column ascending" style="width: 130px;"><span>Total Effort Reported</span></th>
+                <th class="titleTopLockedCell sorting" tabindex="0" aria-controls="YearlyGridReport" rowspan="1" colspan="1" aria-label="Effort Scheduled: activate to sort column ascending" style="width: 101px;"><span>Effort Scheduled</span></th>
+                <th class="titleTopLockedCell sorting" tabindex="0" aria-controls="YearlyGridReport" rowspan="1" colspan="1" aria-label="Total Effort Reported: activate to sort column ascending" style="width: 130px;"><span>Total Effort Reported</span></th>
+                <th class="titleTopLockedCell sorting" tabindex="0" aria-controls="YearlyGridReport" rowspan="1" colspan="1" aria-label="Effort Scheduled: activate to sort column ascending" style="width: 102px;"><span>Effort Scheduled</span></th>
+                <th class="titleTopLockedCell sorting" tabindex="0" aria-controls="YearlyGridReport" rowspan="1" colspan="1" aria-label="Total Effort Reported: activate to sort column ascending" style="width: 131px;"><span>Total Effort Reported</span></th>
+                <th class="titleTopLockedCell sorting" tabindex="0" aria-controls="YearlyGridReport" rowspan="1" colspan="1" aria-label="Effort Scheduled: activate to sort column ascending" style="width: 103px;"><span>Effort Scheduled</span></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr role="row" class="odd">
+                <td class="titleLeftLockedCell"><span>Administration</span></td>
+                <td class="titleLeftLockedCell"><span>Open/Approved</span></td>
+                <td class="valueCell"><span>7,520.75</span></td>
+                <td class="valueCell"><span>1,153.53</span></td>
+                <td class="valueCell"><span>11,775.75</span></td>
+                <td class="valueCell"><span>1,172.16</span></td>
+                <td class="valueCell"><span>8,594.00</span></td>
+                <td class="valueCell"><span>500.31</span></td>
+                <td class="valueCell"><span>4,150.50</span></td>
+                <td class="valueCell"><span>4,125.51</span></td>
+            </tr>
+            <tr role="row" class="even">
+                <td class="titleLeftLockedCell"><span>Administration</span></td>
+                <td class="titleLeftLockedCell"><span>Requested</span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span>116.00</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>76.00</span></td>
+                <td class="valueCell"><span>86.92</span></td>
+            </tr>
+            <tr role="row" class="odd">
+                <td class="titleLeftLockedCell"><span>Administration</span></td>
+                <td class="titleLeftLockedCell"><span>Work Cancelled</span></td>
+                <td class="valueCell"><span>78.00</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>0.00</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+            </tr>
+            <tr role="row" class="even">
+                <td class="titleLeftLockedCell"><span>Administration</span></td>
+                <td class="titleLeftLockedCell"><span>Work Completed</span></td>
+                <td class="valueCell"><span>205.50</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>22.50</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>7.75</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+            </tr>
+            <tr role="row" class="odd">
+                <td class="titleLeftLockedCell"><span>Maintenance</span></td>
+                <td class="titleLeftLockedCell"><span>Assumed Completed</span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span>35.75</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+            </tr>
+            <tr role="row" class="even">
+                <td class="titleLeftLockedCell"><span>Maintenance</span></td>
+                <td class="titleLeftLockedCell"><span>On Hold</span></td>
+                <td class="valueCell"><span>45.25</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>0.00</span></td>
+                <td class="valueCell"><span>53.98</span></td>
+                <td class="valueCell"><span>0.00</span></td>
+                <td class="valueCell"><span>32.87</span></td>
+                <td class="valueCell"><span>0.00</span></td>
+                <td class="valueCell"><span>270.22</span></td>
+            </tr>
+            <tr role="row" class="odd">
+                <td class="titleLeftLockedCell"><span>Maintenance</span></td>
+                <td class="titleLeftLockedCell"><span>Open/Approved</span></td>
+                <td class="valueCell"><span>9,954.75</span></td>
+                <td class="valueCell"><span>15.84</span></td>
+                <td class="valueCell"><span>13,220.50</span></td>
+                <td class="valueCell"><span>387.13</span></td>
+                <td class="valueCell"><span>15,430.25</span></td>
+                <td class="valueCell"><span>2,261.97</span></td>
+                <td class="valueCell"><span>10,609.75</span></td>
+                <td class="valueCell"><span>11,781.11</span></td>
+            </tr>
+            <tr role="row" class="even">
+                <td class="titleLeftLockedCell"><span>Maintenance</span></td>
+                <td class="titleLeftLockedCell"><span>Requested</span></td>
+                <td class="valueCell"><span>49.75</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>1,029.75</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>1,314.00</span></td>
+                <td class="valueCell"><span>51.46</span></td>
+                <td class="valueCell"><span>914.25</span></td>
+                <td class="valueCell"><span>1,199.37</span></td>
+            </tr>
+            <tr role="row" class="odd">
+                <td class="titleLeftLockedCell"><span>Maintenance</span></td>
+                <td class="titleLeftLockedCell"><span>Work Cancelled</span></td>
+                <td class="valueCell"><span>16.00</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>10.50</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>0.25</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span></span></td>
+                <td class="valueCell"><span></span></td>
+            </tr>
+            <tr role="row" class="even">
+                <td class="titleLeftLockedCell"><span>Maintenance</span></td>
+                <td class="titleLeftLockedCell"><span>Work Completed</span></td>
+                <td class="valueCell"><span>2,436.50</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>2,608.00</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>2,407.00</span></td>
+                <td class="valueCell"><span>.00</span></td>
+                <td class="valueCell"><span>252.00</span></td>
+                <td class="valueCell"><span>.00</span></td>
+            </tr>
+        </tbody>
+    </table>
+@*<table id="activity" >
+	<thead>			
+		<tr>
+			<th>Name</th>
+			<th>Activity on Code Project (%)</th>
+			<th>Activity on C# Corner (%)</th>
+			<th>Activity on Asp Forum (%)</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>Sibeesh</td>
+			<td>100</td>
+			<td>98</td>
+			<td>80</td>
+		</tr>
+		<tr>
+			<td>Ajay</td>
+			<td>90</td>
+			<td>0</td>
+			<td>50</td>
+		</tr>
+		<tr>
+			<td>Ansary</td>
+			<td>100</td>
+			<td>20</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<td>Aghil</td>
+			<td>0</td>
+			<td>30</td>
+			<td>90</td>
+		</tr>
+		<tr>
+			<td>Arya</td>
+			<td>0</td>
+			<td>0</td>
+			<td>95</td>
+		</tr>       
+	</tbody>
+</table>*@ 
+<table>
+    <tr id="footerExport">
+        <td id="exportexcel"><img src="~/icons/xls.png" title="Export to Excel" /></td>
+        <td id="exportpdf"><img src="~/icons/pdf.png" title="Export to PDF" /></td>
+        <td id="exportimage"><img src="~/icons/png.png" title="Export to PNG" /></td>
+        <td id="exportcsv"><img src="~/icons/csv.png" title="Export to CSV" /></td>
+        <td id="exportword"><img src="~/icons/word.png" title="Export to Word" /></td>
+        <td id="exporttxt"><img src="~/icons/txt.png" title="Export to TXT" /></td>
+        <td id="exportxml"><img src="~/icons/xml.png" title="Export to XML" /></td>
+        <td id="exportppt"><img src="~/icons/ppt.png" title="Export to PPT" /></td>
+    </tr>
+</table>

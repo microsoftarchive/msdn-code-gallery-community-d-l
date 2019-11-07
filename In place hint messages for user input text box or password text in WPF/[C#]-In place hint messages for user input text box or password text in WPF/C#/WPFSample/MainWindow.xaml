@@ -1,0 +1,75 @@
+﻿<Window x:Class="WPFSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:WPFSample.Controls;assembly=WPFSample.Controls" 
+        Title="MainWindow" Height="350" Width="525">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="InputBackgroundColorBrush" Color="#FFDEDEDE"/>
+
+        <Style x:Key="InputTextStyle" 
+               TargetType="{x:Type TextBox}">
+            <Style.Triggers>
+                <Trigger Property="IsFocused" 
+                         Value="False">
+                    <Setter Property="Background"
+                            Value="{StaticResource InputBackgroundColorBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="PassowrdInputTextStyle" 
+               TargetType="{x:Type PasswordBox}">
+            <Style.Triggers>
+                <Trigger Property="IsFocused" 
+                         Value="False">
+                    <Setter Property="Background"
+                            Value="{StaticResource InputBackgroundColorBrush}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <Border>
+        <AdornerDecorator>
+            <Grid x:Name="TopLayoutGrid" 
+              VerticalAlignment="Center" 
+              HorizontalAlignment="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" MinWidth="200" MaxWidth="300" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="ServerNameTextBox" 
+                         Controls:OverlayTextService.Text="Server..."
+                         Grid.Row="1" 
+                         Grid.Column="1"
+                         Margin="4, 4, 2, 2"
+                         Style="{StaticResource InputTextStyle}"
+                         Text="{Binding Path=ServerName, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <TextBox x:Name="UserNameTextBox" 
+                         Controls:OverlayTextService.Text ="User..."
+                         Grid.Row="2" 
+                         Grid.Column="1"
+                         Margin="4, 4, 2, 2"
+                         Style="{StaticResource InputTextStyle}"
+                         Text="{Binding Path=UserName, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <PasswordBox x:Name="UserPassword" 
+                             Controls:OverlayTextService.Text="Password..." 
+                             Grid.Row="3" 
+                             Grid.Column="1" 
+                             Style="{StaticResource PassowrdInputTextStyle}"
+                             Margin="4,4,2,2" />
+            </Grid>
+        </AdornerDecorator>
+    </Border>
+</Window>

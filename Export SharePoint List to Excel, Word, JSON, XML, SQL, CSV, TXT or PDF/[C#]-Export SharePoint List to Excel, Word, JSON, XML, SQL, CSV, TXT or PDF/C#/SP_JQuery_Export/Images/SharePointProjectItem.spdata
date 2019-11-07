@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.Module" DefaultFile="Elements.xml" SupportedTrustLevels="All" SupportedDeploymentScopes="Web, Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+  <Files>
+    <ProjectItemFile Source="Elements.xml" Target="Images\" Type="ElementManifest" />
+    <ProjectItemFile Source="AppIcon.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="csv.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="json.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="pdf.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="ppt.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="png.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="sql.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="txt.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="word.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="xls.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="xml.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="sort_asc.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="sort_asc_disabled.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="sort_both.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="sort_desc.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="sort_desc_disabled.png" Target="Images\" Type="ElementFile" />
+  </Files>
+</ProjectItem>

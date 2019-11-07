@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:custom="clr-namespace:ListViewDemo.CustomControls;assembly=ListViewDemo"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    BackgroundColor="White"
+    x:Class="ListViewDemo.Views.ListViewPage">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness"
+            Android="0, 0, 0, 0"
+            WinPhone="0, 0, 0, 0"
+            iOS="0, 20, 0, 0"/>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <StackLayout Padding="30,40,30,0" Spacing="50" BackgroundColor="White" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Label Text="ListView SelectedItemColor"  HorizontalOptions="CenterAndExpand" FontSize="20" TextColor="Maroon" FontAttributes="Bold"/>
+            <ListView Grid.Row="1" ItemsSource="{Binding OrdersList}" Footer="" ios:ListView.SeparatorStyle="FullWidth" HeightRequest="140" SeparatorColor="Gray">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <custom:CustomViewCell SelectedItemBackgroundColor="#ADF3BE">
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal" >
+                                    <Label Text="{Binding OrderType}" VerticalOptions="CenterAndExpand" FontSize="Medium" Font="15" TextColor="Gray" HorizontalOptions="StartAndExpand"/>
+                                    <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal" Spacing="15">
+                                        <Frame OutlineColor="Green" HasShadow="false" Margin="0,8,0,8" BackgroundColor="Transparent" Padding="5">
+                                            <Label Text="{Binding TotalCount}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" FontSize="10" TextColor="Red"/>
+                                        </Frame>
+                                        <Image Source="back_icon.png" VerticalOptions="CenterAndExpand" HeightRequest="16" WidthRequest="16" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </custom:CustomViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

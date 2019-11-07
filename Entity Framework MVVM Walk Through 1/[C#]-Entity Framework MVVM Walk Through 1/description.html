@@ -1,0 +1,1106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps;/Areas/Centers/Themes/StandardDevCenter/Content:0&amp;amp;v=E5461DECB694D58FE12EE7565ABE5E23" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:NewFooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=53FD1B3E962B22590351439ADB5FE070" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Entity Framework MVVM Walk Through 1</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Entity Framework MVVM Walk Through 1</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SQL Server, WPF, Entity Framework, MVVM, Entity Framework 6, MVVMLight
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Asynchronous Programming, WPF, ViewModel pattern (MVVM), Data Access, Code Sample, MVVM, WPF Data Binding, How to
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">2/13/2016</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>There are a number of&nbsp;walk - throughs for Entity Framework on the EF pages and from the usual web resources. &nbsp;None of these are for WPF using MVVM<span>. &nbsp;This sample is intended to cover that area.</span></p>
+<p>This Walk Through - but particularly the sample - is intended to demonstrate how to architect a data orientated WPF &nbsp;business application.&nbsp; It is&nbsp;as simple as practical whilst using real world techniques. &nbsp;&nbsp;</p>
+<p>Enterprise level applications necessitate some complexity, so the subject is broken down into several articles.</p>
+<p>The level of complication to aim for is quite a difficult balance to strike - as &nbsp;this is the first in a series it will lean towards simplicity.</p>
+<p><span style="color:#ff00ff"><span>If you learn something or just like the sample, please click that 5th star above. &nbsp;Thanks.</span></span></p>
+<h2>Requirements</h2>
+<p>Visual Studio 2013 and .Net4.51 - VS Windows&nbsp;Express will do.<br>
+SQL Server - the script is generated from SQL server 2012 but the database is pretty simple and will probably work with earlier or later versions.
+<br>
+MVVM Light ( available free via NuGet). You can probably get away without installing this if you just want to f5 the solution since the dll are already in the bin folder.
+<br>
+<br>
+It is assumed the reader will download and browse the sample application. Just reading this article without reference to the code will probably be rather confusing.</p>
+<p>The reader should be at least familiar with the concepts of MVVM and&nbsp;Entity Framework.</p>
+<p>Database first will be used for creation of the EF model. The author prefers this because it focuses the developer attention on building an optimal database rather than making it an after thought. &nbsp;<span>It is also quicker to build the database first,
+ so long as you know what you need in it.&nbsp;</span><br>
+Code first can produce some quite strange database designs if you're not careful.&nbsp;<br>
+<br>
+This is something of a digression though and if you prefer, use code first.&nbsp;</p>
+<p>&nbsp;</p>
+<h2>Set Up</h2>
+<p>The first thing you need to do is set up the SalesSystem database.</p>
+<p>You will need SQL server - SQL server express will do. If you don't have it installed yet then preferably choose one of the options which includes the Management studio. LocalDB would also work if you prefer to avoid running sql server services</p>
+<p>For working with SQL Server databases the author recommends SQL Server Management Studio.&nbsp;<br>
+This tends to encourage the developer to focus on and learn more about working with databases.&nbsp;<br>
+Databases are where your data goes. &nbsp;They're important and their design matters.</p>
+<p>In the zip file you will find SalesSystemWithData.sql. &nbsp;Your first step is to edit this in notepad and change the file locations to an appropriate folder on your system. These are near the top of the file.</p>
+<p>Change</p>
+<p>D:\Biz\sqlServerData\MSSQL11.MSSQLSERVER\MSSQL\DATA\SalesSystem.mdf</p>
+<p>and</p>
+<p>D:\Biz\sqlServerData\MSSQL11.MSSQLSERVER\MSSQL\DATA\SalesSystem_log.ldf</p>
+<p>To wherever your instance of sql server has it's database files.</p>
+<p>In order to create the database, open SQL Server Management Studio, connect to the local server or another instance. Click New Query. Drag SalesSystemWithData.sql onto the new query window and click the ! Execute button.
+<br>
+You can alternatively run the script from Visual studio Pro &#43; by dragging the .sql script over on to the area you would usually see code in. A new tab will open with a green run triangle in it's toolbar.
+<br>
+Click that and it will prompt for a connection to a server. <br>
+<br>
+If you installed locally and your local instance is not named and uses mixed or Windows authentication then you should be good to go.
+<br>
+If you installed on a different server then you will need to change the ConnectionString in App.Config. Where it says &quot;data source=(local)&quot;, &nbsp;substitute your server for &quot;(local)&quot;.&nbsp;</p>
+<p>&nbsp;</p>
+<h2>Tables</h2>
+<p><br>
+There are 4 tables in the database:</p>
+<ul>
+<li>Customers </li><li>Orders </li><li>Order Lines </li><li>Products </li></ul>
+<p><br>
+An order has Customer.CustomerId as a foreign Key. <br>
+An Order Line has Order.OrderId and Product.ProductId as foreign Keys. <br>
+This first sample will offer Create, Read, Update and Delete (CRUD) on Customers and Products ( only ).</p>
+<h2>Creating an Entity Data Model</h2>
+<p><br>
+Now you have a database you can start using Entity Framework. <br>
+The first thing you're going to need is an Entity Data Model. <br>
+If this is a new subject to you then you are probably best taking a look at this <a href="http://msdn.microsoft.com/en-us/data/jj206878" >
+page <img title="This link is external to TechNet Wiki. It will open in a new window." src="description/10_external.png" border="0" alt="">
+</a><br>
+That video is pretty good but somewhat outdated and aimed at a console application, the approach for EF6 is still very similar though.&nbsp;<br>
+<br>
+</p>
+<h3>Model - Step by step</h3>
+<p><span style="font-size:10px">In Solution Explorer, right click your project, Add new Item, choose Data and ADO.Net Entity Data Model.&nbsp;</span></p>
+<p>The name you give this is not awfully important but should still be reasonably meaningful. Where in doubt suffix &quot;Model&quot;. Over type with SalesModel in the Name box and click Add.
+<br>
+EF Designer from database will be highlighted and it's what you want, so click Next.
+<br>
+<br>
+As the SalesSystem database is new you will need to choose New Connection and connect to wherever you set the database up.
+<br>
+What you type in the box at the bottom is pretty important as it'll be the name of the class you use for database context so bear that in mind. Overtype the box at the bottom with SalesContext.
+<br>
+Entity Framework 6 should have it's radio button spot next to it selected, if it's not there then you need to install it via nuget.</p>
+<p>Check that's correct and <span>Click Next.&nbsp;</span></p>
+<p>Select Tables and change the Model Namespace to SalesModel <br>
+Click Finish, after a bit of thinking it should present you with a database diagram.
+<br>
+<br>
+Take a look in the app.config and find your connection string. &nbsp;Double check this is called SalesContext. &nbsp;Depending on how you set this up, it may contain your machine name.
+<br>
+In the sample the machine name is changed to (Local) - which means whatever machine the code runs on.&nbsp;</p>
+<p>The connection name must match up with what's in quotes in the DBContext Constructor. &nbsp;There is a gotcha here to watch out for. &nbsp;Using the version of EF6 at the time of writing generated code will give an error. &nbsp;This may well be fixed at
+ some future date. &nbsp;<br>
+<br>
+Expand SalesModel.edmx and SalesModel.Context.tt. <br>
+Open SalesModel.Context.cs <br>
+Where it says:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    public partial class SalesContext : DbContext
+    {
+        public SalesContext()
+            : base(&quot;name=SalesContext&quot;)
+        {
+        }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;partial&nbsp;<span class="cs__keyword">class</span>&nbsp;SalesContext&nbsp;:&nbsp;DbContext&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;SalesContext()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<span class="cs__keyword">base</span>(<span class="cs__string">&quot;<strong>name=</strong>SalesContext&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">Make sure that the string in &nbsp;: base (&quot;SalesContext&quot;) matches the name in app.config.</div>
+<div class="endscriptcode">If it says &quot;name=&quot; then remove the &quot;Name=&quot;. &nbsp;It should then look like:</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public partial  class SalesContext : DbContext
+{
+    public SalesContext()
+        : base(&quot;SalesContext&quot;)
+    {
+
+    }</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">public</span>&nbsp;partial&nbsp;&nbsp;<span class="cs__keyword">class</span>&nbsp;SalesContext&nbsp;:&nbsp;DbContext&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;SalesContext()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;<span class="cs__keyword">base</span>(<span class="cs__string">&quot;SalesContext&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+<div class="endscriptcode"></div>
+<p>If you don't you will get a rather mysterious run time error when you try and use the context.</p>
+<p>All done.</p>
+<p>Entity Framework is now ready to be used via that SalesContext.<br>
+<br>
+Those unfamiliar with EF might want to hit f6 to compile and expand SalesModel.tt to take a look at the partial classes within it. There's one per table. &nbsp; These are generated by that .tt file ( a T4 template ).<br>
+Opening Customer you will notice a public property per field ( scalar properties ) and a collection of the related Orders (Navigation property).
+<br>
+<br>
+If you prefer your connection string to have a different name you could change that in app.config and match the new name with that inside those quotes above in the line :base(&quot;...&quot;).&nbsp;<br>
+<br>
+Should you later change a database you open the model diagram, right click and choose &quot;Update from Database&quot; and choose the relevant options in the wizard. Although this updates the model and you will see new columns in the diagram the generated classes will
+ not change until you compile - so press f6 and then check your changes are matched by the generated classes.</p>
+<h2>Outline UI Requirement</h2>
+<p>The sample follows a deliberately simple UI design. &nbsp; Whilst it's useful to see a working example your requirements are likely to diverge so a simple UI avoids adding any &quot;extra&quot; complication which could confuse the reader.</p>
+<p>If you're thinking &quot;What sort of more complicated requirement?&quot;. &nbsp;Let's just take a quick detour to imagine a common scenario - briefly.</p>
+<p>Business systems often have many records.&nbsp; Just throwing 200,000 records into a DataGrid is going to be very slow and the user would take a long time to find any specific record.</p>
+<p>A common requirement is to enable the user to avoid 3 hours of scrolling. &nbsp;One approach is to have a mechanism to filter the data presented in a DataGrid. &nbsp; &nbsp; A common style of View involves a&nbsp;MastHead and three columns. &nbsp; A Treeview
+ or set of combo boxes in the left column allowing the user to refine the subset he wants to look at, the Datagrid central. &nbsp;The right column for&nbsp;any extra information such as associated data for a selected record.&nbsp;</p>
+<p>As you will see, there's quite enough ground to cover in this article &quot;just&quot; to explain how to show and edit data in a Datagrid. &nbsp;&nbsp;<span>Let's not get too carried away with the design criteria for step 1.</span></p>
+<p>The user needs to be able to issue commands to navigate and edit.<br>
+A parent Window should contain a ToolBar of some sort for buttons and an area to view/edit each Table/Entity.
+<br>
+<br>
+The parent window traslates into MainWindow. &nbsp;Since this is MVVM the DataContext is set to an instance of MainWindowViewModel which will contain most of the code which does stuff.</p>
+<p>Why not all&nbsp;the code? <br>
+Completely avoiding code behind can over complicate some aspects of MVVM. &nbsp;So long as code behind is only concerned with View processing then that still conforms to MVVM. &nbsp;There is therefore some code behind in this project.</p>
+<p>Navigation and Command Buttons are in two horizontal ListViews. These go in a TabControl which fills row 0 of a Grid.
+<br>
+A Frame fills the rest of the window - in Row 1 of the grid. The content of this frame is swopped out in code behind by the navigation process. &nbsp;This is where the data will be shown and editing will take place.</p>
+<p>Each Table has a corresponding UserControl containing a DataGrid. &nbsp;A Usercontrol is used since we need some sort of thing to hold everything for each Entity and a UserControl means it's completely discrete and encapsulated.&nbsp;&nbsp;<br>
+<span>Later in the series these UserControls will be somewhat more sophisticated.&nbsp;</span></p>
+<p><span><br>
+</span></p>
+<h2>Explanation of Implementation</h2>
+<p><br>
+An explanation of each piece of code in the sample would quickly become a huge ungainly article ( I tried ).
+<br>
+Instead, this article explains the reasoning behind major aspects of the approach which will hopefully be of more use to someone designing their own application.<br>
+Certain aspects and in particular details of the UI are rather glossed over to keep the size of the article down.<br>
+Browse the sample application and examine the code.&nbsp;<br>
+<br>
+</p>
+<h2>What gets a ViewModel?</h2>
+<p>&nbsp;</p>
+<p>As a rule of thumb, each disparate or repeated complex piece of View gets a ViewModel.
+<br>
+In practice this means each entity shown as well as each Window and each UserControl.
+<br>
+An ItemsControl will probably have a &nbsp;viewmodel to&nbsp;encapsulate the functionality for each item.<br>
+<span>Much like defining how to break an application up into classes, what becomes a ViewModel is quite difficult to give hard and fast rules for. &nbsp;You quickly get a &quot;feel&quot; for it though so don't over think definitions.</span></p>
+<p>An instance of an entity is exposed from a row viewmodel. &nbsp;<br>
+You might think - &quot;Hang on a minute. there's an object there which I could use, why bother wrapping it with a viewmodel? &quot;<br>
+Wrapping an entity gives another layer in which y<span>ou can place functionality such as conversion and change tracking. &nbsp;You will need this sort of thing and you would otherwise have to pollute each entity class. &nbsp;Wrapping an entity in a ViewModel
+ keeps such code separate and allows you to inherit common functionality such as INotifyPropertyChanged from a base viewmodel. &nbsp;</span></p>
+<p>Why not copy every property?</p>
+<p>Copying all the fields from an entity to a completely discrete Viewmodel would be possible but that adds a lot of processing.</p>
+<p>Some would say that exposing an entity directly is not pure MVVM since the entity is the model and exposing the model to the View is a bit naughty.<br>
+Others say that getting the data into that entity is the model layer and the entity object is just a class., so it's no problem.<br>
+This is one of those areas in MVVM which is perhaps somewhat grey.<br>
+<br>
+Another approach which is fairly popular is to make the entity a member of a Viewmodel and &quot;wrap&quot; each property of the entity with a public property of the Viewmodel whose &quot;Getter&quot; returns an entity property and setter sets one. &nbsp;This allows you to add
+ another layer of control over what processing you apply to each property as it is set but at the price of a fair bit of code.<br>
+Although it uses a plain class rather than an entity you can see this in the sample
+<a href="https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://gallery.technet.microsoft.com/WPF-Highlight-Changed-a77976d4" >
+here <img title="This link is external to TechNet Wiki. It will open in a new window." src="description/10_external.png" border="0" alt="">
+</a>, along with a code snippet to speed up writing those particular property wrappers.</p>
+<p><span>The author's opinion is that if you need extra functionality then introduce the complexity of a wrapper. &nbsp;If you don't then it's added complexity for no gain.</span><br>
+Such wrapping adds a bit more complexity and this article is intended to be as simple as practical so the approach is good, but not used here.</p>
+<p>&nbsp;</p>
+<h2>Overall Code Structure</h2>
+<p>The DataContext of MainWindow is set to an instance of MainWindowViewModel. <br>
+MainWindowViewModel exposes a collection of CommandVM for commands and ViewVM for navigation.</p>
+<p>The tables to be maintained are presented in two Usercontrols: <br>
+ProductsView datacontext is set to an instance of ProductsViewModel which exposes a collection of ProductVM which in turn exposes an instance of the Product Entity
+<br>
+CustomersView datacontext is set to an instance of CustomersViewModel which exposes a collection of CustomerVM which in turn exposes an instance of the Customer Entity</p>
+<p>Usercontrol Viewmodels inherit from CrudVMBase and &quot;row&quot; Viewmodels holding an instance of an entity (corresponding to a row in a Datagrid) inherit from VMBase.</p>
+<p>All Viewmodels ultimately inherit from NotifyUIBase which implements INotifyProperyChanged. &nbsp;ViewModels are instantiated in the constructor code behind of views. &nbsp;In a real world application you would probably want to use MVVM Light ViewModel Locator
+ to resolve them and dependency injection to supply mock data for design and testing purposes.&nbsp;</p>
+<p>&nbsp;</p>
+<h2>Ribbon/Toolbar/What?</h2>
+<p>&nbsp;</p>
+<p>The design calls for some sort of Ribbon or Toolbar in the &quot;Masthead&quot; area of the window.
+<br>
+A Toolbar with two options, holding a drop down for each would be simple but boring and would drop down over the datagrid.</p>
+<p>A Ribbon would offer a huge amount of functionality. &nbsp;Great for Word or a hugely complicated enterprise application. This requirement is relatively simple for a full Ribbon. &nbsp;Implementing one would have also taken a disproportionate amount of development
+ time.&nbsp;</p>
+<p><span>A TabControl was chosen since it is simple to implement and the controls are obvious to the user.&nbsp;The approach has an added benefit in that it demonstrates how easy it is to build UI in WPF to a specific requirement.</span></p>
+<p>There are two groups of commands we need - navigation and editing.<br>
+The TabControl contain a TabItem for each, holding a horizontally arranged ListView.
+<br>
+The Navigate TabItem has buttons bound to a collection of ViewVM. <br>
+The Edit TabItem has buttons bound to a collection of CommandVM.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">&lt;TabControl HorizontalAlignment=&quot;Left&quot;&gt;
+    &lt;TabItem Header=&quot;Navigate&quot; FontSize=&quot;10&quot;&gt;
+        &lt;ListView ItemsSource=&quot;{Binding Views}&quot; BorderBrush=&quot;Transparent&quot; FontSize=&quot;12&quot; FontWeight=&quot;Bold&quot; 
+                    ScrollViewer.CanContentScroll=&quot;False&quot;
+                    &gt;
+            &lt;ListView.ItemsPanel&gt;
+                &lt;ItemsPanelTemplate&gt;
+                    &lt;StackPanel Orientation=&quot;Horizontal&quot;&gt;&lt;/StackPanel&gt;
+                &lt;/ItemsPanelTemplate&gt;
+            &lt;/ListView.ItemsPanel&gt;
+            &lt;ListView.ItemTemplate&gt;
+                &lt;DataTemplate&gt;
+
+                        &lt;Button Command=&quot;{Binding Navigate}&quot; 
+                                BorderThickness=&quot;0&quot; Height=&quot;32&quot; Width=&quot;100&quot; 
+                                Background=&quot;{StaticResource LightBrightGradientBrush}&quot;
+                                Foreground=&quot;{StaticResource DarkDullBrush}&quot;
+                                &gt;
+                            &lt;TextBlock Text=&quot;{Binding ViewDisplay}&quot; 
+                                    TextAlignment=&quot;Center&quot; 
+                                            
+                                    /&gt;
+                        &lt;/Button&gt;
+                &lt;/DataTemplate&gt;
+            &lt;/ListView.ItemTemplate&gt;
+        &lt;/ListView&gt;
+    &lt;/TabItem&gt;
+    &lt;TabItem Header=&quot;Edit&quot;  FontSize=&quot;10&quot;&gt;
+        &lt;ListView ItemsSource=&quot;{Binding Commands}&quot; BorderBrush=&quot;Transparent&quot; FontSize=&quot;12&quot; FontWeight=&quot;Bold&quot; 
+                    ScrollViewer.CanContentScroll=&quot;False&quot; 
+                    &gt;
+            &lt;ListView.ItemsPanel&gt;
+                &lt;ItemsPanelTemplate&gt;
+                    &lt;StackPanel Orientation=&quot;Horizontal&quot;/&gt;
+                &lt;/ItemsPanelTemplate&gt;
+            &lt;/ListView.ItemsPanel&gt;
+            &lt;ListView.ItemTemplate&gt;
+                &lt;DataTemplate&gt;
+
+                        &lt;Button Command=&quot;{Binding Send}&quot; 
+                                BorderThickness=&quot;0&quot; 
+                                Margin=&quot;0&quot; Padding=&quot;0&quot; 
+                                &gt;
+                            &lt;Path Data=&quot;{Binding IconGeometry}&quot; Stretch=&quot;Uniform&quot; Fill=&quot;{StaticResource MidDullBrush}&quot; Width=&quot;32&quot; Height=&quot;32&quot;/&gt;
+                            &lt;Button.ToolTip&gt;
+                                &lt;TextBlock Text=&quot;{Binding CommandDisplay}&quot;/&gt;
+                            &lt;/Button.ToolTip&gt;
+                        &lt;/Button&gt;
+
+                &lt;/DataTemplate&gt;
+            &lt;/ListView.ItemTemplate&gt;
+        &lt;/ListView&gt;
+    &lt;/TabItem&gt;
+&lt;/TabControl&gt;</pre>
+<div class="preview">
+<pre class="xaml"><span class="xaml__tag_start">&lt;TabControl</span>&nbsp;<span class="xaml__attr_name">HorizontalAlignment</span>=<span class="xaml__attr_value">&quot;Left&quot;</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;TabItem</span>&nbsp;<span class="xaml__attr_name">Header</span>=<span class="xaml__attr_value">&quot;Navigate&quot;</span>&nbsp;<span class="xaml__attr_name">FontSize</span>=<span class="xaml__attr_value">&quot;10&quot;</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ListView</span>&nbsp;<span class="xaml__attr_name">ItemsSource</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;Views}&quot;</span>&nbsp;<span class="xaml__attr_name">BorderBrush</span>=<span class="xaml__attr_value">&quot;Transparent&quot;</span>&nbsp;<span class="xaml__attr_name">FontSize</span>=<span class="xaml__attr_value">&quot;12&quot;</span>&nbsp;<span class="xaml__attr_name">FontWeight</span>=<span class="xaml__attr_value">&quot;Bold&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ScrollViewer.<span class="xaml__attr_name">CanContentScroll</span>=<span class="xaml__attr_value">&quot;False&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ListView</span>.ItemsPanel<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ItemsPanelTemplate</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;StackPanel</span>&nbsp;<span class="xaml__attr_name">Orientation</span>=<span class="xaml__attr_value">&quot;Horizontal&quot;</span><span class="xaml__tag_start">&gt;</span><span class="xaml__tag_end">&lt;/StackPanel&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/ItemsPanelTemplate&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ListView.ItemsPanel&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ListView</span>.ItemTemplate<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;DataTemplate</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;Button</span>&nbsp;<span class="xaml__attr_name">Command</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;Navigate}&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">BorderThickness</span>=<span class="xaml__attr_value">&quot;0&quot;</span>&nbsp;<span class="xaml__attr_name">Height</span>=<span class="xaml__attr_value">&quot;32&quot;</span>&nbsp;<span class="xaml__attr_name">Width</span>=<span class="xaml__attr_value">&quot;100&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">Background</span>=<span class="xaml__attr_value">&quot;{StaticResource&nbsp;LightBrightGradientBrush}&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">Foreground</span>=<span class="xaml__attr_value">&quot;{StaticResource&nbsp;DarkDullBrush}&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;TextBlock</span>&nbsp;<span class="xaml__attr_name">Text</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;ViewDisplay}&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">TextAlignment</span>=<span class="xaml__attr_value">&quot;Center&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/Button&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/DataTemplate&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ListView.ItemTemplate&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/ListView&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/TabItem&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;TabItem</span>&nbsp;<span class="xaml__attr_name">Header</span>=<span class="xaml__attr_value">&quot;Edit&quot;</span>&nbsp;&nbsp;<span class="xaml__attr_name">FontSize</span>=<span class="xaml__attr_value">&quot;10&quot;</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ListView</span>&nbsp;<span class="xaml__attr_name">ItemsSource</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;Commands}&quot;</span>&nbsp;<span class="xaml__attr_name">BorderBrush</span>=<span class="xaml__attr_value">&quot;Transparent&quot;</span>&nbsp;<span class="xaml__attr_name">FontSize</span>=<span class="xaml__attr_value">&quot;12&quot;</span>&nbsp;<span class="xaml__attr_name">FontWeight</span>=<span class="xaml__attr_value">&quot;Bold&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ScrollViewer.<span class="xaml__attr_name">CanContentScroll</span>=<span class="xaml__attr_value">&quot;False&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ListView</span>.ItemsPanel<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ItemsPanelTemplate</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;StackPanel</span>&nbsp;<span class="xaml__attr_name">Orientation</span>=<span class="xaml__attr_value">&quot;Horizontal&quot;</span><span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/ItemsPanelTemplate&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ListView.ItemsPanel&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;ListView</span>.ItemTemplate<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;DataTemplate</span><span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;Button</span>&nbsp;<span class="xaml__attr_name">Command</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;Send}&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">BorderThickness</span>=<span class="xaml__attr_value">&quot;0&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">Margin</span>=<span class="xaml__attr_value">&quot;0&quot;</span>&nbsp;<span class="xaml__attr_name">Padding</span>=<span class="xaml__attr_value">&quot;0&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;Path</span>&nbsp;<span class="xaml__attr_name">Data</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;IconGeometry}&quot;</span>&nbsp;<span class="xaml__attr_name">Stretch</span>=<span class="xaml__attr_value">&quot;Uniform&quot;</span>&nbsp;<span class="xaml__attr_name">Fill</span>=<span class="xaml__attr_value">&quot;{StaticResource&nbsp;MidDullBrush}&quot;</span>&nbsp;<span class="xaml__attr_name">Width</span>=<span class="xaml__attr_value">&quot;32&quot;</span>&nbsp;<span class="xaml__attr_name">Height</span>=<span class="xaml__attr_value">&quot;32&quot;</span><span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;Button</span>.ToolTip<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;TextBlock</span>&nbsp;<span class="xaml__attr_name">Text</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;CommandDisplay}&quot;</span><span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Button.ToolTip&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/Button&gt;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/DataTemplate&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/ListView.ItemTemplate&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/ListView&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_end">&lt;/TabItem&gt;</span>&nbsp;
+<span class="xaml__tag_end">&lt;/TabControl&gt;</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><span>&nbsp;</span><span>Note how the Icons are actually Paths bound to Geometries which are basically strings in a Resource Dictionary rather than jpg or ico or png. Paths scale with no problem, they're very light weight and they
+ leave the background visible so you still see the mouseover effect an Image would cover up.</span></div>
+<h2>Navigation</h2>
+<p>The presentation of the Navigate buttons is covered above. Each&nbsp;Button&nbsp;is&nbsp;bound&nbsp;to&nbsp;an&nbsp;instance&nbsp;of&nbsp;ViewVM&nbsp;with it's command bound&nbsp;to&nbsp;a&nbsp;Navigate&nbsp;&nbsp;RelayCommand, &nbsp;invoked&nbsp;as&nbsp;the&nbsp;user&nbsp;clicks.&nbsp;<br>
+Each ViewVM creates and holds an instance of a View which is created based on the ViewType property set by MainWindowViewModel as it initialises the list of ViewVM.&nbsp;<br>
+The approach instantiates a view the first time the user chooses it and therefore spreads out the demand to read data and instantiate controls. All&nbsp;these&nbsp;UserControls&nbsp;will&nbsp;contain&nbsp;UI&nbsp;elements&nbsp;which&nbsp;have&nbsp;UI&nbsp;thread&nbsp;affinity,&nbsp;they&nbsp;must&nbsp;be&nbsp;instantiated&nbsp;on&nbsp;the&nbsp;UI&nbsp;thread.&nbsp;<br>
+Options are therefore somewhat limited and this approach has the benefit of simplicity.&nbsp;<br>
+Another alternative would be to use delayed binding and get the data in viewmodel constructors - only really reliable for small amounts of data though.</p>
+<p>NavigateVM:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    public RelayCommand Navigate { get; set; }
+    public ViewVM()
+    {
+        Navigate = new RelayCommand(NavigateExecute);
+    }
+    public void NavigateExecute()
+    {
+        if(View == null &amp;&amp; ViewType != null)
+        {
+            View = (UserControl)Activator.CreateInstance(ViewType);
+        }
+        var msg = new NavigateMessage { View = View, ViewModelType = ViewModelType, ViewType = ViewType };
+        Messenger.Default.Send&lt;NavigateMessage&gt;(msg);
+    }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;RelayCommand&nbsp;Navigate&nbsp;{&nbsp;<span class="cs__keyword">get</span>;&nbsp;<span class="cs__keyword">set</span>;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;ViewVM()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Navigate&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;RelayCommand(NavigateExecute);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;NavigateExecute()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>(View&nbsp;==&nbsp;<span class="cs__keyword">null</span>&nbsp;&amp;&amp;&nbsp;ViewType&nbsp;!=&nbsp;<span class="cs__keyword">null</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;View&nbsp;=&nbsp;(UserControl)Activator.CreateInstance(ViewType);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;msg&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;NavigateMessage&nbsp;{&nbsp;View&nbsp;=&nbsp;View,&nbsp;ViewModelType&nbsp;=&nbsp;ViewModelType,&nbsp;ViewType&nbsp;=&nbsp;ViewType&nbsp;};&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Messenger.Default.Send&lt;NavigateMessage&gt;(msg);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">
+<div class="endscriptcode">As you can see from the snippet, the Navigate command holds an instance of a View which will be used again on navigation after the first call. &nbsp;State is therefore maintained. &nbsp;If, for whatever reason, you did not wish
+ to retain state then you could instead instantiate a new UserControl every time.&nbsp;</div>
+<p>NavigateMessage is subscribed to by the MainWindow code behind. &nbsp;The method called make the UserControl passed in the message the contents of the MainWindow Frame. This uses MVVM Light messaging and the technique is described in greater detail&nbsp;<a href="https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Communicating-Between-64ffead2" >here&nbsp;<img title="This link is external to TechNet Wiki. It will open in a new window." src="description/10_external.png" border="0" alt=""></a></p>
+<p>MainWindow code behind.</p>
+</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    private void ShowUserControl(NavigateMessage nm)
+    {
+        EditFrame.Content = nm.View;
+    }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;ShowUserControl(NavigateMessage&nbsp;nm)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EditFrame.Content&nbsp;=&nbsp;nm.View;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">
+<div class="endscriptcode">The ProductsView and CustomersView UserControls both have ViewModels which inherit from CrudVMBase.&nbsp;</div>
+<p>This base viewmodel handles the standard edit commands. &nbsp;Which Viewmodel is appropriate at a given time is controlled by IsCurrentView - set by NavigateMessage.</p>
+<p>CrudVMBase:</p>
+</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    private void CurrentUserControl(NavigateMessage nm)
+    {
+        if (this.GetType() == nm.ViewModelType)
+        {
+            isCurrentView = true;
+        }
+        else
+        {
+            isCurrentView = false;
+        }
+    }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;CurrentUserControl(NavigateMessage&nbsp;nm)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(<span class="cs__keyword">this</span>.GetType()&nbsp;==&nbsp;nm.ViewModelType)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isCurrentView&nbsp;=&nbsp;<span class="cs__keyword">true</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;isCurrentView&nbsp;=&nbsp;<span class="cs__keyword">false</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">All CRUD ViewModels which are instantiated and in memory will get any CommandMessage. &nbsp;IsCurrentView allow them to work out whether they're in the MainWindow or just in memory.&nbsp;</div>
+<p>&nbsp;</p>
+<h2>Edit Commands</h2>
+<p><span>A couple of people have asked&nbsp;</span><span>questions about this area of the sample. &nbsp;For further explanation please see the article:&nbsp;</span><a href="http://social.technet.microsoft.com/wiki/contents/articles/30103.c-practical-poly.aspx">Practical
+ Poly</a><span>.</span></p>
+<p><span>&nbsp;</span><br>
+The Edit commands are bound from a collection of CommandVM these send a CommandMesage.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    public CommandVM()
+    {
+        Send = new RelayCommand(SendExecute);
+    }
+    private void SendExecute()
+    {
+        Messenger.Default.Send&lt;CommandMessage&gt;(Message);
+    }</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">public</span>&nbsp;CommandVM()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Send&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;RelayCommand(SendExecute);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span><span class="cs__keyword">void</span>&nbsp;SendExecute()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Messenger.Default.Send&lt;CommandMessage&gt;(Message);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<pre>If&nbsp;you&nbsp;take&nbsp;a&nbsp;look&nbsp;at&nbsp;CommandMessage&nbsp;you&nbsp;can&nbsp;see&nbsp;there's&nbsp;a&nbsp;nested&nbsp;enum&nbsp;which&nbsp;is&nbsp;used&nbsp;to&nbsp;define&nbsp;which&nbsp;command&nbsp;a&nbsp;message&nbsp;represents.
+</pre>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    public class CommandMessage
+    {
+        public CommandType Command { get; set; }
+    }
+    public enum CommandType
+    {
+        Insert,
+        Edit,
+        Delete,
+        Commit,
+        Refresh
+    }</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">public</span><span class="cs__keyword">class</span>&nbsp;CommandMessage&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;CommandType&nbsp;Command&nbsp;{&nbsp;<span class="cs__keyword">get</span>;&nbsp;<span class="cs__keyword">set</span>;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span><span class="cs__keyword">enum</span>&nbsp;CommandType&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Insert,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Edit,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Commit,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Refresh&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<pre>CrudVMBase&nbsp;handles&nbsp;the&nbsp;command&nbsp;messages&nbsp;and&nbsp;calls&nbsp;methods&nbsp;which&nbsp;are over-ridden&nbsp;in&nbsp;the&nbsp;inheriting&nbsp;viewmodels.</pre>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">        protected void HandleCommand(CommandMessage action)
+        {
+            if (isCurrentView)
+            {
+                switch (action.Command)
+                {
+                    case CommandType.Insert:
+                        break;
+                    case CommandType.Edit:
+                        break;
+                    case CommandType.Delete:
+                        DeleteCurrent();
+                        break;
+                    case CommandType.Commit:
+                        CommitUpdates();
+                        break;
+                    case CommandType.Refresh:
+                        RefreshData();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">protected</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;HandleCommand(CommandMessage&nbsp;action)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(isCurrentView)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">switch</span>&nbsp;(action.Command)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">case</span>&nbsp;CommandType.Insert:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">case</span>&nbsp;CommandType.Edit:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">case</span>&nbsp;CommandType.Delete:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;DeleteCurrent();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">case</span>&nbsp;CommandType.Commit:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CommitUpdates();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">case</span>&nbsp;CommandType.Refresh:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RefreshData();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">default</span>:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><span>Those methods are virtual in CrudVMBase. &nbsp;Iimplementation is provided in their inheriting viewmodels which override the method called in their base class. &nbsp;The base class therefore calls the method in the inheriting
+ class.</span></div>
+<p>&nbsp;</p>
+<h3>GetData - Intial read and refresh command</h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    protected async override void GetData()
+    {
+        ThrobberVisible = Visibility.Visible;
+        ObservableCollection&lt;CustomerVM&gt; _customers = new ObservableCollection&lt;CustomerVM&gt;();
+        var customers = await (from c in db.Customers
+                                orderby c.CustomerName
+                                select c).ToListAsync();
+        //  await Task.Delay(9000);
+        foreach (Customer cust in customers)
+        {
+            _customers.Add(new CustomerVM { IsNew = false, TheCustomer = cust });
+        }
+        Customers = _customers;
+        RaisePropertyChanged(&quot;Customers&quot;);
+        ThrobberVisible = Visibility.Collapsed;
+    }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">protected</span>&nbsp;async&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;GetData()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ThrobberVisible&nbsp;=&nbsp;Visibility.Visible;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ObservableCollection&lt;CustomerVM&gt;&nbsp;_customers&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;ObservableCollection&lt;CustomerVM&gt;();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;customers&nbsp;=&nbsp;await&nbsp;(from&nbsp;c&nbsp;<span class="cs__keyword">in</span>&nbsp;db.Customers&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;orderby&nbsp;c.CustomerName&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;c).ToListAsync();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;&nbsp;await&nbsp;Task.Delay(9000);</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">foreach</span>&nbsp;(Customer&nbsp;cust&nbsp;<span class="cs__keyword">in</span>&nbsp;customers)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_customers.Add(<span class="cs__keyword">new</span>&nbsp;CustomerVM&nbsp;{&nbsp;IsNew&nbsp;=&nbsp;<span class="cs__keyword">false</span>,&nbsp;TheCustomer&nbsp;=&nbsp;cust&nbsp;});&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customers&nbsp;=&nbsp;_customers;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RaisePropertyChanged(<span class="cs__string">&quot;Customers&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ThrobberVisible&nbsp;=&nbsp;Visibility.Collapsed;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">
+<div class="endscriptcode"><span>The combination of marking that method async and using await... ToListAsync means the actual call to get the data is asynchronous.&nbsp;<br>
+<br>
+Why is this important?<br>
+In a real world application the database will be on a server and hence there will be a delay introduced by the network. &nbsp;<br>
+</span></div>
+<span>A client may well be one of many and the quantity of data to read is probably going to be much larger than the 6 records in the sample table. &nbsp;</span><br>
+<br>
+<span>All&nbsp;in&nbsp;all, such&nbsp;a&nbsp;call&nbsp;will&nbsp;often&nbsp;take&nbsp;significant&nbsp;time&nbsp;-&nbsp;making&nbsp;it&nbsp;asynchronous&nbsp;means&nbsp;the&nbsp;call&nbsp;runs&nbsp;on&nbsp;a&nbsp;separate&nbsp;thread&nbsp;to&nbsp;the&nbsp;UI&nbsp;and&nbsp;the&nbsp;UI&nbsp;therefore&nbsp;remains&nbsp;responsive
+ for the user.</span><br>
+<span>&nbsp; &nbsp;When&nbsp;the&nbsp;asynchronous&nbsp;call&nbsp;returns&nbsp;data&nbsp;from&nbsp;SQL&nbsp;server&nbsp;this&nbsp;comes&nbsp;back&nbsp;to&nbsp;the&nbsp;UI&nbsp;thread&nbsp;and&nbsp;the&nbsp;method&nbsp;continues&nbsp;straight&nbsp;after&nbsp;that&nbsp;await.&nbsp;&nbsp;An&nbsp;ObservableCollection&nbsp;is&nbsp;filled&nbsp;and&nbsp;substituted&nbsp;for&nbsp;the&nbsp;ObservableCollection&nbsp;the&nbsp;ItemsSource&nbsp;of&nbsp;the&nbsp;Datagrid&nbsp;is&nbsp;bound&nbsp;to.
+ Since&nbsp;the&nbsp;entire&nbsp;collection&nbsp;is&nbsp;substituted&nbsp;we&nbsp;need&nbsp;to&nbsp;raise&nbsp;Notify&nbsp;Propertychanged&nbsp;in&nbsp;order&nbsp;to&nbsp;tell&nbsp;the&nbsp;view&nbsp;to&nbsp;read&nbsp;the&nbsp;data&nbsp;again.&nbsp;&nbsp;</span><br>
+<br>
+<span>You&nbsp;could&nbsp;instead&nbsp;delete&nbsp;any&nbsp;data&nbsp;already&nbsp;in&nbsp;the&nbsp;observable&nbsp;collection&nbsp;and&nbsp;add&nbsp;each&nbsp;record&nbsp;in&nbsp;a&nbsp;loop.&nbsp;&nbsp;Each&nbsp;added&nbsp;record&nbsp;would&nbsp;trigger&nbsp;a&nbsp;collection&nbsp;changed&nbsp;notification&nbsp;and&nbsp;the&nbsp;view&nbsp;would&nbsp;respond.&nbsp;&nbsp;That&nbsp;would&nbsp;be&nbsp;a&nbsp;bit&nbsp;more&nbsp;code&nbsp;and&nbsp;a&nbsp;lot&nbsp;less&nbsp;efficient.</span><br>
+<span>&nbsp; Notice&nbsp;that&nbsp;IsNew&nbsp;is&nbsp;set&nbsp;to&nbsp;false&nbsp;for&nbsp;these&nbsp;entities&nbsp;which&nbsp;have&nbsp;just&nbsp;been&nbsp;read&nbsp;out&nbsp;the&nbsp;database.&nbsp;&nbsp;By&nbsp;defaulting&nbsp;to&nbsp;true&nbsp;this&nbsp;property&nbsp;allows&nbsp;us&nbsp;to&nbsp;identity&nbsp;any&nbsp;entity&nbsp;created&nbsp;by&nbsp;the&nbsp;Datagrid&nbsp;automatically&nbsp;as&nbsp;the&nbsp;user&nbsp;edits&nbsp;a&nbsp;new&nbsp;row&nbsp;-&nbsp;that&nbsp;will&nbsp;be
+ IsNew true via&nbsp;the default constructor.</span><br>
+<br>
+<span>CustomerVM&nbsp;wraps&nbsp;an&nbsp;instance&nbsp;of&nbsp;the&nbsp;Customer&nbsp;entity&nbsp;and&nbsp;edited&nbsp;entries&nbsp;will&nbsp;be&nbsp;detected&nbsp;using&nbsp;the&nbsp;dbcontext&nbsp;ChangeTracker.&nbsp;&nbsp;</span><span>Note that the dbcontext
+ db is a private member instance of the entity framework context per CRUD viewmodel. &nbsp; This needs to retain scope for change tracking purposes. This technique is only reasonable for small to medium sized sets of data and later articles will cover alternative
+ approaches.</span>
+<p>In this particular GetData you will notice the line await Task.Delay(9000); is commented out.&nbsp;<br>
+Under ordinary circumstances data will probably be read off your development machine pretty quickly and you won't get a chance to see the throbber do it's thing.&nbsp;<br>
+As an experiment, temporarily remove the comment to include that line, and spin it up to see the throbber working for 9 seconds. &nbsp;<br>
+Since this is asynchronous, like the database access, the UI will remain responsive and the applictaion will remain responsive as you click on other buttons.&nbsp;</p>
+</div>
+<p>&nbsp;</p>
+<h3>Deletion</h3>
+<p>&nbsp;</p>
+<p>Which entry to delete is specified by the user first selecting a row. To work out which item that is from the ViewModel, the SelectedItem is bound to a Selectedxxxxx property where xxxxx is the name of the entity.</p>
+<p>There are several ways of dealing with related records dependent on something you are about to delete.&nbsp;<br>
+One is to make deletes cascade - you can do this by changing the properties in the model.&nbsp;<br>
+If you wanted to do that with Customer, right click the relationship line between Customer and Order. In the properties window change End2 OnDelelete from None to Cascade.&nbsp;<br>
+That would, however, lose you all the orders you had for a Customer in a database which is unlikely to be a good idea on a proper system. &nbsp;The accounts people might not be terribly happy with that design when they find they have no orders left and no way
+ to work out how much a customer owes.</p>
+<p>We don't want users to be able to delete orders but we still want them to be able to delete some unused customer record they added by mistake.<br>
+The logic followed in the sample is to avoid deleting any record which has a related record.&nbsp;<br>
+This is done by querying the count of the related records. &nbsp;<br>
+There's a trick here for performance.<br>
+The slightly odd syntax of the LINQ below counts the related entries without pulling the entire records across off the database.&nbsp;<span>Be careful when writing such code and note the syntax used.&nbsp;</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    protected override void DeleteCurrent()
+    {
+        UserMessage msg = new UserMessage();
+        if (SelectedCustomer !=null)
+        {
+            int NumOrders = NumberOfOrders();
+            if (NumOrders &gt; 0)
+            {
+                msg.Message = string.Format(&quot;Cannot delete - there are {0} Orders for this Customer&quot;, NumOrders);
+            }
+            else
+            {
+                db.Customers.Remove(SelectedCustomer.TheCustomer);
+                Customers.Remove(SelectedCustomer);
+                RaisePropertyChanged(&quot;Customers&quot;);
+                msg.Message = &quot;Deleted&quot;;
+            }
+        }
+        else
+        {
+            msg.Message = &quot;No Customer selected to delete&quot;;
+        }
+        Messenger.Default.Send&lt;UserMessage&gt;(msg);
+    }
+
+    private int NumberOfOrders()
+    {
+        var cust = db.Customers.Find(SelectedCustomer.TheCustomer.Id);
+        // Count how many Order Lines the Product has
+        int ordersCount = db.Entry(cust)
+                            .Collection(c =&gt; c.Orders)
+                            .Query()
+                            .Count();
+        return ordersCount;
+    }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">protected</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;DeleteCurrent()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserMessage&nbsp;msg&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;UserMessage();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(SelectedCustomer&nbsp;!=<span class="cs__keyword">null</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">int</span>&nbsp;NumOrders&nbsp;=&nbsp;NumberOfOrders();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(NumOrders&nbsp;&gt;&nbsp;<span class="cs__number">0</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg.Message&nbsp;=&nbsp;<span class="cs__keyword">string</span>.Format(<span class="cs__string">&quot;Cannot&nbsp;delete&nbsp;-&nbsp;there&nbsp;are&nbsp;{0}&nbsp;Orders&nbsp;for&nbsp;this&nbsp;Customer&quot;</span>,&nbsp;NumOrders);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.Customers.Remove(SelectedCustomer.TheCustomer);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Customers.Remove(SelectedCustomer);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RaisePropertyChanged(<span class="cs__string">&quot;Customers&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg.Message&nbsp;=&nbsp;<span class="cs__string">&quot;Deleted&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg.Message&nbsp;=&nbsp;<span class="cs__string">&quot;No&nbsp;Customer&nbsp;selected&nbsp;to&nbsp;delete&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Messenger.Default.Send&lt;UserMessage&gt;(msg);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">int</span>&nbsp;NumberOfOrders()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;cust&nbsp;=&nbsp;db.Customers.Find(SelectedCustomer.TheCustomer.Id);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Count&nbsp;how&nbsp;many&nbsp;Order&nbsp;Lines&nbsp;the&nbsp;Product&nbsp;has</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">int</span>&nbsp;ordersCount&nbsp;=&nbsp;db.Entry(cust)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Collection(c&nbsp;=&gt;&nbsp;c.Orders)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Query()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Count();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;ordersCount;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"></div>
+<p>&nbsp;</p>
+<h3>Commiting Updates</h3>
+<p><span style="font-size:10px">Editing in the Datagrid, inserting a new row and deleting an entity only take place in the memory of the user's machine.&nbsp;</span></p>
+<p>In order to persist changes to the database these still need to be committed via Entity Framework and you do that by calling the SaveChanges method on your dbcontext.</p>
+<p>CrudVMBase handles a command message which is a Commit CommandType by calling CommitUpdates. &nbsp;This is over-ridden in the two Usercontrol Viewmodels rather than complicate things by trying to make a generic method.&nbsp;<br>
+IsNew is used to see which entries have been appended, these are added to the relevent entity collection of the context.&nbsp;<br>
+If all is well the SaveChanges is called on the context and it is this which actually ends up generating SQL.</p>
+<p>SaveChanges is synchronous - you don't actually want the user to be able to go do something else whilst the database is being updated. &nbsp;Raising orders, creating customers and the like are not trivial tasks. &nbsp;This isn't just an excel spreadsheet.
+ It's reasonable to assume there will be relatively few changes to write.&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    protected override void CommitUpdates()
+    {
+        UserMessage msg = new UserMessage();
+        var inserted = (from c in Customers
+                            where c.IsNew
+                            select c).ToList();
+        if(db.ChangeTracker.HasChanges() || inserted.Count &gt; 0)
+        { 
+            foreach (CustomerVM c in inserted)
+            {
+                db.Customers.Add(c.TheCustomer);
+            }
+            try
+            {
+                db.SaveChanges();
+                msg.Message = &quot;Database Updated&quot;;
+            }
+            catch (Exception e)
+            {
+                if (<a class="libraryLink" href="https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://msdn.microsoft.com/en-US/library/System.Diagnostics.Debugger.IsAttached.aspx"  title="Auto generated link to System.Diagnostics.Debugger.IsAttached">System.Diagnostics.Debugger.IsAttached</a>)
+                {
+                    ErrorMessage = e.InnerException.GetBaseException().ToString();
+                }
+                msg.Message = &quot;There was a problem updating the database&quot;;
+            }
+        }
+        else
+        {
+            msg.Message = &quot;No changes to save&quot;;
+        }
+        Messenger.Default.Send&lt;UserMessage&gt;(msg);
+    }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">protected</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;CommitUpdates()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UserMessage&nbsp;msg&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;UserMessage();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;inserted&nbsp;=&nbsp;(from&nbsp;c&nbsp;<span class="cs__keyword">in</span>&nbsp;Customers&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;where&nbsp;c.IsNew&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;select&nbsp;c).ToList();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>(db.ChangeTracker.HasChanges()&nbsp;||&nbsp;inserted.Count&nbsp;&gt;&nbsp;<span class="cs__number">0</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">foreach</span>&nbsp;(CustomerVM&nbsp;c&nbsp;<span class="cs__keyword">in</span>&nbsp;inserted)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.Customers.Add(c.TheCustomer);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">try</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;db.SaveChanges();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg.Message&nbsp;=&nbsp;<span class="cs__string">&quot;Database&nbsp;Updated&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">catch</span>&nbsp;(Exception&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(<a class="libraryLink" href="https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://msdn.microsoft.com/en-US/library/System.Diagnostics.Debugger.IsAttached.aspx"  title="Auto generated link to System.Diagnostics.Debugger.IsAttached">System.Diagnostics.Debugger.IsAttached</a>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ErrorMessage&nbsp;=&nbsp;e.InnerException.GetBaseException().ToString();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg.Message&nbsp;=&nbsp;<span class="cs__string">&quot;There&nbsp;was&nbsp;a&nbsp;problem&nbsp;updating&nbsp;the&nbsp;database&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg.Message&nbsp;=&nbsp;<span class="cs__string">&quot;No&nbsp;changes&nbsp;to&nbsp;save&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Messenger.Default.Send&lt;UserMessage&gt;(msg);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"></div>
+<h3>User Messages</h3>
+<p><span style="font-size:10px">Through the above command snippets you can see Messenger is used to send a UserMessage.&nbsp;</span></p>
+<p>This is subscribed to and handled in code behind for the MainWindow. &nbsp;&nbsp;<br>
+<br>
+The string could instead be bound via a ViewModel property. &nbsp;A trigger could be used to run the storyboard which sets the opacity to 1 then fades it as the bound value is changed but that would be a bit more complicated. &nbsp;</p>
+<p>All we need to do is show a message. &nbsp;Displaying things is a View responsibilty. Rather than overcomplicating things, this is handled in code behind.</p>
+<p>MainWIndow:</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    private void ReceiveUserMessage(UserMessage msg)
+    {
+        UIMessage.Opacity = 1;
+        UIMessage.Text = msg.Message;
+        Storyboard sb = (Storyboard)this.FindResource(&quot;FadeUIMessage&quot;);
+        sb.Begin();
+    }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;ReceiveUserMessage(UserMessage&nbsp;msg)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UIMessage.Opacity&nbsp;=&nbsp;<span class="cs__number">1</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UIMessage.Text&nbsp;=&nbsp;msg.Message;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Storyboard&nbsp;sb&nbsp;=&nbsp;(Storyboard)<span class="cs__keyword">this</span>.FindResource(<span class="cs__string">&quot;FadeUIMessage&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sb.Begin();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><span style="font-size:10px">The code sets the opacity to 1 which is opaque and hence visible. &nbsp; It then starts FadeUIMessage which sets the opacity to 0 again after 6 seconds.&nbsp;</span></div>
+<p>This way the message appears and tends to catch the users attention and then disappears after a while so they aren't confused by stale messages.
+<br>
+<br>
+</p>
+<h3>Error Messages</h3>
+<p><br>
+<span>In it's current incarnation, an error message should only really appear in some exceptional circumstance.&nbsp;</span><br>
+<span>The most common reason for this will be as you are developing and introduce a bug.&nbsp;</span><br>
+<span>In CommitUpdates you can see if the code is running in the debugger, the ErrorMessage property is set to the innermost exception.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">    if (<a class="libraryLink" href="https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://msdn.microsoft.com/en-US/library/System.Diagnostics.Debugger.IsAttached.aspx"  title="Auto generated link to System.Diagnostics.Debugger.IsAttached">System.Diagnostics.Debugger.IsAttached</a>)
+    {
+        ErrorMessage = e.InnerException.GetBaseException().ToString();
+    }</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">if</span>&nbsp;(<a class="libraryLink" href="https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://msdn.microsoft.com/en-US/library/System.Diagnostics.Debugger.IsAttached.aspx"  title="Auto generated link to System.Diagnostics.Debugger.IsAttached">System.Diagnostics.Debugger.IsAttached</a>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ErrorMessage&nbsp;=&nbsp;e.InnerException.GetBaseException().ToString();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<pre>&nbsp;This&nbsp;is&nbsp;then&nbsp;bound&nbsp;from&nbsp;a&nbsp;TextBlock&nbsp;in&nbsp;the&nbsp;Usercontrol&nbsp;which&nbsp;will&nbsp;appear&nbsp;on&nbsp;the&nbsp;right&nbsp;of&nbsp;the&nbsp;datagrid&nbsp;header.
+</pre>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">    &lt;TextBlock Text=&quot;{Binding ErrorMessage}&quot;  HorizontalAlignment=&quot;Right&quot; VerticalAlignment=&quot;Top&quot;/&gt;</pre>
+<div class="preview">
+<pre class="xaml"><span class="xaml__tag_start">&lt;TextBlock</span><span class="xaml__attr_name">Text</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;ErrorMessage}&quot;</span><span class="xaml__attr_name">HorizontalAlignment</span>=<span class="xaml__attr_value">&quot;Right&quot;</span><span class="xaml__attr_name">VerticalAlignment</span>=<span class="xaml__attr_value">&quot;Top&quot;</span><span class="xaml__tag_start">/&gt;</span></pre>
+</div>
+</div>
+</div>
+<pre><pre>This&nbsp;approach&nbsp;is&nbsp;often&nbsp;quite&nbsp;handy&nbsp;whilst&nbsp;developing&nbsp;and&nbsp;occasionally&nbsp;whilst&nbsp;investigating&nbsp;some issue&nbsp;in&nbsp;a&nbsp;live&nbsp;system. The check on whether the debugger is attached means the end users will never see a message of this sort.</pre>
+<pre><h3><span>Omissions</span></h3>There are several particular points to notice here which are glossed over.</pre>
+<ol>
+<li>Validation is missed out completely. &nbsp;You'll see why in step 2. 
+</li><li>Editing is directly in the Datagrid - this is a bad idea in a production application. 
+</li><li>The two sets of data are just simple datagrids on a screen. 
+</li></ol>
+<p>The reason for this is simple. You can only put so much in a sample. &nbsp;The more that goes into each step the harder it is for anyone to understand how it works and what is going on.&nbsp;</p>
+There's already quite a lot to get to grips with in step 1 for the newbie.  Arguably too much.</pre>
+<h2>Summary</h2>
+<p><br>
+As the first step in a series, the sample illustrates a simple approach to:</p>
+<ul>
+<li>Using an Entity Data Model </li><li>Basic UI </li><li>Read records </li><li>Create record </li><li>Edit record </li><li>Delete record </li></ul>
+<p>Later steps will explain more sophisticated aspects of editing and validating data.</p>
+<p>&nbsp;</p>
+<h2>Further Reading</h2>
+<p>You can find Step 2 <a href="https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://code.msdn.microsoft.com/WPF-Entity-Framework-MVVM-035df590">
+here</a>.</p>
+<p><a href="http://msdn.microsoft.com/en-gb/data/ee712907.aspx">Entity Framework documentation</a>
+<br>
+<a href="http://msdn.microsoft.com/en-us/magazine/dd419663.aspx">Josh Smith Article on MVVM
+</a><br>
+<a href="http://channel9.msdn.com/Events/TechEd/NorthAmerica/2012/DEV216">Channel 9 Video on MVVM</a>
+<br>
+<br>
+</p>
+<h2>FeedBack</h2>
+<p>You can help improve these articles. The aim of these things is to help the community.</p>
+<p>It quite simply isn't practical to ensure these articles are perfect straight off. &nbsp;No team of proof readers is standing by to spot any mistakes and double check for usability.</p>
+<p>That's where you can help.</p>
+<p>If you feel any aspect could be improved, have questions or don&rsquo;t follow something please use &ldquo;Ask a Question&rdquo; in the Q and A tab. &nbsp;If you have longer questions then you can post in the
+<a href="https://code.msdn.microsoft.com/Entity-Framework-MVVM-Walk-959bb749/https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=wpf">msdn WPF forum</a>.</p>
+<p>I can then review and improve that aspect of the article.</p>
+<p>If you feel it&rsquo;s a good article/sample or it just helped, please click that 5<sup>th</sup> star up the top of the article where it says Ratings.</p>
+<p>Click the stars, and it gives me a few recognition points. &nbsp;They're free to give and not worth much of themselves but any encouragement is appreciated.</p>
+<p>Thanks.</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,1 @@
+fsc -a -O -o FinancialNotStandalone.dll publicenums.fs common.fs tvm.fs loan.fs irr.fs daycountbasis.fs depreciation.fs bonds.fs oddbonds.fs tbill.fs misc.fs wrapperdotnettype.fs

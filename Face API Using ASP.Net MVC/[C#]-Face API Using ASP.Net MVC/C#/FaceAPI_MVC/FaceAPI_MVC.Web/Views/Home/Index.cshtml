@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "Face API";
+}
+<div ng-controller="dashboardCtrl">
+    <h3>Cognitive Services</h3>
+    <p>Microsoft Cognitive Services let you build apps with powerful algorithms using just a few lines of code. They work across devices and platforms such as iOS, Android, and Windows, keep improving, and are easy to set up.</p>
+    <h3>{{Title}}</h3>
+    <p>Detect human faces and compare similar ones, organize people into groups according to visual similarity, and identify previously tagged people in images.</p>
+    <ul>
+        <li>@Html.ActionLink("Face Detection", "", "FaceDetection")</li>
+    </ul>
+</div>
+@section NgScript{
+    <script src="~/ScriptsNg/DashboardCtrl.js"></script>
+}

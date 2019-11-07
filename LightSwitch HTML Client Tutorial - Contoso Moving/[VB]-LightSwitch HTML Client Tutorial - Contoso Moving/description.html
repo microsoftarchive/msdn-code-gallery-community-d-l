@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:ImageSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=B13725333DE73FED14392EE0AFB02E40" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/3638a6e5-ce3c-4e22-8b5f-ba7ee3d63defCombined.css,0:ImageSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=0BC47A6384E0BB007E15A2B454098745" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>LightSwitch HTML Client Tutorial - Contoso Moving</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>LightSwitch HTML Client Tutorial - Contoso Moving</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Visual Studio LightSwitch
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Visual Studio LightSwitch, Rapid Application Development, mobile application development
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Web, Cloud, Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">12/6/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/LightSwitch-HTML-Client-d243f5cb">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h2>Introduction</h2>
+<p>The <a href="http://msdn.microsoft.com/en-US/vstudio/htmlclient">new HTML5 and JavaScript-based client
+</a>is an important companion to our Silverlight-based desktop client that addresses the increasing need to build touch-oriented business applications that run well on modern mobile devices.&nbsp;</p>
+<p>In this tutorial, we&rsquo;ll build a touch-first, modern experience for mobile devices.&nbsp; To help ground the tutorial, we&rsquo;ve created a fictional company scenario that has a need for such an application.</p>
+<h2>Building the Sample</h2>
+<p>Download the source files to a machine that has Visual Studio 2012 Update 2 installed. Follow the steps described in the Contoso Moving Tutorial to build a LightSwitch HTML client using these files.</p>
+<h2><strong>Helpful Resources</strong></h2>
+<p>As you walk through this tutorial, please bear in mind that there are useful resources available to help you should you get stuck or have a question:</p>
+<ul>
+<li><a href="http://social.msdn.microsoft.com/Forums/en-US/lightswitch/threads">LightSwitch forum
+</a>to post feedback and ask questions, and check back for any corrections to the walkthrough document.
+</li><li><a href="http://msdn.microsoft.com/en-us/lightswitch/htmlclient">HTML Client Resources Page on the Developer Center</a> for more learning resources &amp; to download the HTML Client.
+</li></ul>
+<h2>The Contoso Moving Application</h2>
+<p><em>Contoso Moving </em>is an application that&rsquo;s used by <em>Contoso Movers, Inc</em>. to take the inventory of customers&rsquo; residences prior to moving.&nbsp; The data collected via the application helps
+<em>Contoso Movers </em>determine the resources required to move a particular client&rsquo;s belongings&mdash;how many trucks, people, boxes, etc. need to be allocated. The application is comprised of two clients that serve distinct business functions:</p>
+<ol>
+<li><strong>Schedulers use a desktop application </strong>to service new customer requests and create appointments. This application is a rich desktop application primarily geared towards heavy data entry with the keyboard and mouse, since Schedulers are on
+ the phone with customers a lot and need to enter quite a bit of information into the system during the course of a day.
+</li><li><strong>Planning Specialists use a tablet device </strong>to quickly take inventory&mdash;on location&mdash;of each residence on the specialist&rsquo;s schedule for the day. Taking inventory involves detailing each room in the residence, its size and entry
+ requirements (if any), and listing its contents. Pictures are often taken of each room so the movers have a point of reference when they arrive. Secondarily, Planning Specialists may make notes about parking restrictions for the move team (i.e., where they
+ can park the truck during the move). </li></ol>
+<p>This tutorial walks through building out the mobile client used by <em>Contoso Movers&rsquo;
+</em>planning specialists.&nbsp;</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="a6fd31df-f808-4587-983d-f9a9f6160f4b" Publisher="CN=Sara Silva" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>Windows8.ExportToCSV</DisplayName>
+    <PublisherDisplayName>Sara Silva</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Export to CSV">
+      <VisualElements DisplayName="Export to CSV" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="This sample was developed by @saramgsilva. This is the result of some answers in MSDN Foruns:  http://social.msdn.microsoft.com/Forums/en-US/category/windowsapps" ForegroundText="light" BackgroundColor="#FF350C">
+        <DefaultTile ShowName="allLogos" ShortName="Export to CSV" />
+        <SplashScreen Image="Assets\SplashScreen.png" />
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.fileTypeAssociation">
+          <FileTypeAssociation Name="csv">
+            <SupportedFileTypes>
+              <FileType>.csv</FileType>
+            </SupportedFileTypes>
+          </FileTypeAssociation>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="documentsLibrary" />
+  </Capabilities>
+</Package>

@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA6293C6-154C-4678-AFE2-1EAD0F2BE3DF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SHANUEasyFormDesign</RootNamespace>
+    <AssemblyName>SHANUEasyFormDesign</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Shanu.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DragAndDropListView">
+      <HintPath>..\..\..\..\Sample Download\DragDropListViewReorder_src\DragAndDropListView\DragAndDropListView.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\ControlList.cs" />
+    <Compile Include="frmmain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmmain.Designer.cs">
+      <DependentUpon>frmmain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMaindesign.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMaindesign.Designer.cs">
+      <DependentUpon>frmMaindesign.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOpen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOpen.Designer.cs">
+      <DependentUpon>frmOpen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmParameterSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmParameterSetting.Designer.cs">
+      <DependentUpon>FrmParameterSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSave.Designer.cs">
+      <DependentUpon>frmSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaintedTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="xDocument.cs" />
+    <EmbeddedResource Include="frmmain.resx">
+      <DependentUpon>frmmain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMaindesign.resx">
+      <DependentUpon>frmMaindesign.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOpen.resx">
+      <DependentUpon>frmOpen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmParameterSetting.resx">
+      <DependentUpon>FrmParameterSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSave.resx">
+      <DependentUpon>frmSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Images\background.png" />
+    <Content Include="Images\Bg1.jpg" />
+    <Content Include="Images\Bg2.jpg" />
+    <Content Include="Images\Bg3.jpg" />
+    <Content Include="Images\button.png" />
+    <Content Include="Images\Check.png" />
+    <Content Include="Images\CodePart.JPG" />
+    <Content Include="Images\CodePartNew.JPG" />
+    <Content Include="Images\Color.png" />
+    <Content Include="Images\ComboControl.png" />
+    <Content Include="Images\Copy.png" />
+    <Content Include="Images\Cut.png" />
+    <Content Include="Images\DataBind.JPG" />
+    <Content Include="Images\data_grid.png" />
+    <Content Include="Images\data_grid1.png" />
+    <Content Include="Images\Datetime.png" />
+    <Content Include="Images\DeleteAll.png" />
+    <Content Include="Images\DeleteS.png" />
+    <Content Include="Images\dropdown.png" />
+    <Content Include="Images\FromDatabase.JPG" />
+    <Content Include="Images\FromDatabase1.JPG" />
+    <Content Include="Images\Image.png" />
+    <Content Include="Images\label.png" />
+    <Content Include="Images\list.png" />
+    <Content Include="Images\ListBox.png" />
+    <Content Include="Images\Message1.JPG" />
+    <Content Include="Images\Message2.JPG" />
+    <Content Include="Images\new.png" />
+    <Content Include="Images\Numeric.png" />
+    <Content Include="Images\Open.png" />
+    <Content Include="Images\paste.png" />
+    <Content Include="Images\Picture.png" />
+    <Content Include="Images\PropertyWindow.JPG" />
+    <Content Include="Images\radio.png" />
+    <Content Include="Images\Save.png" />
+    <Content Include="Images\ShanuFormDesign.JPG" />
+    <Content Include="Images\text.png" />
+    <Content Include="Images\ToolBar.JPG" />
+    <Content Include="Images\ToolBar_New.JPG" />
+    <Content Include="Images\TreeView.png" />
+    <None Include="Resources\1.jpg" />
+    <None Include="Resources\Camera-1-48.png" />
+    <Content Include="Shanu.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

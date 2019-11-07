@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "DataConversionSample", "DataConversionSample.dtproj", "{46D1992C-2EC0-4EF5-81E4-8C93565DDCBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46D1992C-2EC0-4EF5-81E4-8C93565DDCBF}.Development|Default.ActiveCfg = Development
+		{46D1992C-2EC0-4EF5-81E4-8C93565DDCBF}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

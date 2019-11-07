@@ -1,0 +1,76 @@
+@*
+//
+// Copyright (C) Microsoft Corporation.  All rights reserved.
+// 
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//   http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+*@
+
+@model MyFixIt.Persistence.FixItTask
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset class="form-horizontal">
+        <legend>Create a FixIt Task</legend>
+        
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.Title)
+				@Html.ValidationMessageFor(model => model.Title, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Notes, new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+                @Html.TextAreaFor(model => model.Notes)
+				@Html.ValidationMessageFor(model => model.Notes, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Owner, new { @class = "control-label col-md-2" })
+			<div class="col-md-10">
+				@Html.EditorFor(model => model.Owner)
+				@Html.ValidationMessageFor(model => model.Owner, null, new { @class = "help-inline" })
+			</div>
+		</div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Photo">Optional Photo</label>
+			<div class="col-md-10">
+                <input type="file" name="photo" />
+			</div>
+		</div>
+
+        <div class="form-group">
+            &nbsp;
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create the FixIt" class="btn" />
+            </div>
+
+        </div>
+    </fieldset>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

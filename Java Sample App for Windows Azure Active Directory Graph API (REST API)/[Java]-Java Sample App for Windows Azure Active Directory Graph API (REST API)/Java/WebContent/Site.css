@@ -1,0 +1,599 @@
+/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+body {
+    background-color: #FFFFF; /*#009999*/
+    font-size: .85em;
+    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+}
+
+h1.heading
+{
+	margin:15px;
+	text-align:left;
+	color:#666666;
+	font-family:"Times New Roman", Times, serif;
+	font-size:31px;
+}
+
+div.main
+{
+	height:auto;
+	padding-right:20px;
+	padding-left:20px;
+	padding-top:20px;
+	padding-bottom:60px;
+	border-style:groove;
+	border-width:10px;
+	border-color:#009999;/*#4F81BD;*/
+	margin-left:30px;
+	margin-right:150px;
+	margin-top:0px;
+	background-color:#BBBBBB;			
+}
+
+div.queryUser
+{
+	width:50%;
+	height:auto;
+	padding:5px;
+	border-style:solid;
+	border-width:2px;
+	border-color:#AAAAAA;
+	margin-left:0px;
+	margin-right:20px;
+	margin-top:10px;
+	background-color:#BBBBBB;			
+}
+
+
+div.userMain
+{
+	height:auto;
+	padding-right:20px;
+	padding-left:20px;
+	padding-top:20px;
+	padding-bottom:60px;
+	border-style:groove;
+	border-width:10px;
+	border-color:#009999;/*#4F81BD;*/
+	margin-left:30px;
+	margin-right:150px;
+	margin-top:0px;
+	background-color:#BBBBBB;	
+}
+
+
+
+div.footermiddle{
+	text-align:center;
+	font-family:"Times New Roman", Times, serif;
+	font-size:19px;
+	text-color:#009999;
+	margin-left:30px;
+	margin-top:-19px;
+	margin-right:150px;
+}
+
+div.footerLeft{
+	text-align:left;
+	font-family:"Times New Roman", Times, serif;
+	margin-left:53px;
+	margin-top:1px;
+	color:#000000;
+}
+
+div.footerRight{
+	text-align:right;
+	font-family:"Times New Roman", Times, serif;
+	margin-right:173px;
+	margin-top:0px;
+	color:#000000;
+}
+
+div.pageNumber
+{
+	text-align:center;
+	margin-bottom:10px;
+	margin-top:auto;
+}
+
+ul.horiNavBar
+{
+	list-style-type:none;
+	margin-top:40px;
+	margin-right:auto;
+	margin-bottom:30px;
+	margin-left:30px;
+	padding:0;
+	padding-top:6px;
+	padding-bottom:6px;
+}
+
+ul.footermiddle{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+li.footermiddle
+{
+	display:inline;
+}
+
+a:link.footermiddle, a:visited.footermiddle{
+	padding:3px;
+	text-decoration:none;
+	opacity:0.7;
+}
+
+a:hover.footermiddle, a:active.footermiddle
+{
+	text-decoration:underline;
+	opacity:1.0;	
+}
+
+a:mainlinks{
+	display:block;
+	width:60px;
+	background-color:#dddddd;
+}
+
+li.horiNavBar
+{
+	float:left;
+}
+
+a:link.horiNavBar,a:visited.horiNavBar
+{
+	display:block;
+	width:90px;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#009999;
+	text-align:center;
+	padding:6px;
+	text-decoration:none;
+	text-transform:uppercase;
+}
+
+a:hover.horiNavBar,a:active.horiNavBar
+{
+	background-color:#007777;
+}
+
+div.horiNavBar
+{
+	width:100%;
+}
+
+
+a:link.footer,a:visited.footer
+{
+	width:50px;
+	text-decoration:none;
+	color:#666666;
+}
+
+a:hover.footer,a:active.footer
+{
+	width:50px;
+	text-decoration:underline;
+	color:#000000;
+}
+
+
+a:link {
+    color: #4F81BD;/*#034af3;*/
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration:none;
+    color:#4F81BD;
+}
+
+a:hover {
+    color: #1d60ff;
+    text-decoration: underline;
+}
+
+a:active {
+    color: #12eb87;
+}
+
+p, ul {
+    margin-bottom: 20px;
+    line-height: 1.6em;
+}
+
+
+
+input.button{
+text-align:center;
+width:80px;
+/*right:120px;*/
+/*bottom:120px;*/
+background:#09C;
+color:#fff;
+font-family: "Times New Roman", Tahoma, Geneva, sans-serif;
+font-size:18px;
+margin-top:2px;
+margin-bottom:2px;
+height:34px;
+
+}
+
+input.button:hover{
+	background:#777777;
+	color:#000000;
+}
+
+#users
+{
+	font-family:"Times New Roman", Arial, Helvetica, sans-serif;
+	width:60%;
+	border:0px;
+	/*border-collapse:collapse;*/
+}
+
+#users th 
+{
+	font-size:1.3em;
+	border:0 solid #98bf21;
+	padding:3px 7px 2px 7px;
+}
+
+#users th 
+{
+	text-decoration: underline;
+	font-size:1.2em;
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:10px;
+	background-color:#BBBBBB;
+	color:#000000;
+}
+
+#users td
+{
+	text-decoration: none;
+	font-size:1.1em;
+	font-weight:bold;
+	text-align:left;
+	color:#2F4F4F;
+	text-style:bold;
+	padding-top:5px;
+	padding-bottom:4px;
+	border:0;
+}
+
+#users tr.alt td 
+{
+	color:#000000;
+	background-color:#EAF2D3;
+}
+
+
+a:link.users, a:visited.users 
+{
+    text-decoration:none;
+    color: #000099/*#2F4F4F*/;
+}
+
+a:hover.users, a:active.users 
+{
+    color: #1d60ff;
+    text-decoration: underline;
+}
+
+
+table.userDetails
+{
+	
+	border-collapse:collapse;
+	padding:10px;
+}
+
+table.userDetails, td.userDetails, th.userDetails
+{
+	border:1px solid #CCCCCC;
+	width:500px;
+	color:#333333;
+}
+
+
+
+header,
+footer,
+nav,
+section {
+    display: block;
+}
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.5em;
+    color: #000;
+}
+
+h1 {
+    font-size: 2em;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+h2 {
+    font-family:"Times New Roman";
+    padding: 0 0 0 0;
+}
+
+h3 {
+    font-size: 1.2em;
+}
+
+h4 {
+    font-size: 1.1em;
+}
+
+h5, h6 {
+    font-size: 1em;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header, #header {
+    position: relative;
+    margin-bottom: 0px;
+    color: #000;
+    padding: 0;
+}
+
+header h1, #header h1 {
+    font-weight: bold;
+    padding: 5px 0;
+    margin: 0;
+    color: #fff;
+    border: none;
+    line-height: 2em;
+    font-size: 32px !important;
+    text-shadow: 1px 1px 2px #111;
+}
+
+#main {
+    padding: 30px 30px 15px 30px;
+    background-color: #fff;
+    border-radius: 4px 0 0 0;
+    -webkit-border-radius: 4px 0 0 0;
+    -moz-border-radius: 4px 0 0 0;
+}
+
+footer, 
+#footer {
+    background-color: #fff;
+    color: #999;
+    padding: 10px 0;
+    text-align: center;
+    line-height: normal;
+    margin: 0 0 30px 0;
+    font-size: .9em;
+    border-radius: 0 0 4px 4px;
+    -webkit-border-radius: 0 0 4px 4px;
+    -moz-border-radius: 0 0 4px 4px;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+ul#menu {
+    border-bottom: 1px #5C87B2 solid;
+    padding: 0 0 2px;
+    position: relative;
+    margin: 0;
+    text-align: right;
+}
+
+ul#menu li {
+    display: inline;
+    list-style: none;
+}
+
+ul#menu li#greeting {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    color: #fff;
+}
+
+ul#menu li a {
+    padding: 10px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    line-height: 2.8em;
+    background-color: #e8eef4;
+    color: #034af3;
+    border-radius: 4px 4px 0 0;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+}
+
+ul#menu li a:hover {
+    background-color: #fff;
+    text-decoration: none;
+}
+
+ul#menu li a:active {
+    background-color: #a6e2a6;
+    text-decoration: none;
+}
+
+ul#menu li.selected a {
+    background-color: #fff;
+    color: #000;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+input[type="text"], 
+input[type="password"] {
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+    width: 200px;
+}
+
+select {
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+}
+
+input[type="submit"] {
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+/* TABLE
+----------------------------------------------------------*/
+
+table {
+    border: solid 1px #e8eef4;
+    border-collapse: collapse;
+}
+
+table td {
+    padding: 5px;
+    border: solid 1px #e8eef4;
+}
+
+table th {
+    padding: 6px 5px;
+    text-align: left;
+    background-color: #e8eef4;
+    border: solid 1px #e8eef4;
+}
+
+/* MISC  
+----------------------------------------------------------*/
+.clear {
+    clear: both;
+}
+
+.error {
+    color: Red;
+}
+
+nav, 
+#menucontainer {
+    margin-top: 40px;
+}
+
+div#title {
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+#logindisplay {
+    font-size: 1.1em;
+    display: block;
+    text-align: right;
+    margin: 10px;
+    color: White;
+}
+
+#logindisplay a:link {
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:visited {
+    color: white;
+    text-decoration: underline;
+}
+
+#logindisplay a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+.field-validation-error {
+    color: #ff0000;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, 
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.display-field, 
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+.text-box {
+    width: 30em;
+}
+
+.text-box.multi-line {
+    height: 6.5em;
+}
+
+.tri-state {
+    width: 6em;
+}

@@ -1,0 +1,26 @@
+﻿<Window x:Class="KinectCursorController.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kinect Cursor Control" Height="563" Width="640" Loaded="WindowLoaded" Closed="WindowClosed" 
+        WindowStartupLocation="CenterScreen" StateChanged="WindowStateChanged" ResizeMode="CanMinimize" Icon="CursorControl.ico" 
+        xmlns:my="clr-namespace:Microsoft.Samples.Kinect.WpfViewers;assembly=Microsoft.Samples.Kinect.WpfViewers"
+        xmlns:KinectCursorController="clr-namespace:KinectCursorController">
+    <Window.Resources>
+        <KinectCursorController:EnumMatchToBooleanConverter x:Key="enumConverter" />
+    </Window.Resources>
+    <StackPanel>
+        <my:KinectSensorChooser Name="kinectSensorChooser" Width="300" />
+        <Image Width="320" Height="240" Name="video"/>
+        <StackPanel Orientation="Horizontal"></StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Mouse Speed" Width="100" HorizontalAlignment="Left" />
+            <Slider Name="MouseSpeed" Width="300" HorizontalAlignment="Left" SmallChange="1" IsSnapToTickEnabled="True" TickPlacement="TopLeft" />
+            <Label Content="{Binding Path=Value, ElementName=MouseSpeed}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Label Content="Click Delay" Width="100" HorizontalAlignment="Left" />
+            <Slider Name="ClickDelay" Width="300" HorizontalAlignment="Left" Minimum="1" SmallChange="0.5" TickPlacement="TopLeft" IsSnapToTickEnabled="True" TickFrequency="0.5" />
+            <Label Content="{Binding Path=Value, ElementName=ClickDelay}" />
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<brl xmlns="http://schemas.microsoft.com/businessruleslanguage/2002">
+  <vocabulary id="23ce9e5f-b0f1-4548-bf6e-aa9df9e47700" name="Loan Application Vocabulary" uri="" description="">
+    <version major="1" minor="1" description="" modifiedby="YOURDOMAIN\youraccount" date="2011-02-17T11:30:13.8670225-08:00" />
+    <vocabularydefinition id="43fcf737-30f5-4409-ab11-d586e2c66709" name="Loan Decision" description="">
+      <bindingdefinition>
+        <classmemberbindingdefinition member="set_Value" type="void">
+          <classinfo class="SimpleValueFact" instance="0">
+            <assembly>Contoso.Cloud.Integration.Azure.Services.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+            <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.Common\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.Common.dll-->
+            <namespace>Contoso.Cloud.Integration.Azure.Services.Common.RulesEngine</namespace>
+          </classinfo>
+          <argument position="0">
+            <valuedefinitionliteral type="object" />
+          </argument>
+        </classmemberbindingdefinition>
+      </bindingdefinition>
+      <formatstring language="en-US" string="Make Decision As {0}" delimiter="{[0-9]+}">
+        <argument position="0">
+          <valuedefinitionliteral type="object" />
+        </argument>
+      </formatstring>
+    </vocabularydefinition>
+  </vocabulary>
+</brl>

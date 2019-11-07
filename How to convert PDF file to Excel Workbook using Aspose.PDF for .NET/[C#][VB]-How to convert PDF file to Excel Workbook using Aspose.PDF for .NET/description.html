@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://uhf.microsoft.com/mscc/statics/mscc-0.4.0.min.css" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps;/Areas/Centers/Themes/StandardDevCenter/Content:0&amp;amp;v=1BCB3295ABD2B8AC18F601BDA9F9844A" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:NewFooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=080EE48D28ECF31B3FCB0EC7C80EFC89" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to convert PDF file to Excel Workbook using Aspose.PDF for .NET</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to convert PDF file to Excel Workbook using Aspose.PDF for .NET</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, VB.Net, PDF, VB2013, Aspose.Pdf for .NET, VB 2013, VB.NET Examples, VB NET, VB2017
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Excel, VB.Net, Generate Excel Workbook
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">9/5/2018</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MIT</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/How-to-convert-PDF-file-to-b3275f0f">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>Aspose.Pdf for .NET is a PDF manipulation component. This example shows the feature of conversion PDF file to Excel 2003 Spreadsheet&nbsp;XML or Excel 2007 Workbook (XLSX files). During this conversion, the individual pages of the PDF file are converted
+ to Excel worksheets.</p>
+<h1>Building the Sample</h1>
+<p><em>To build the sample you can use any edition of Visual Studio 2015 or later. All the necessary files are referenced from NuGet and will be automatically downloaded from there.
+</em></p>
+<p><em><strong>Unfortunately, this example can't create correct XLSX file in trial mode, so before running this example please go to
+<a href="https://code.msdn.microsoft.com/How-to-convert-PDF-file-to-b3275f0f/https://purchase.aspose.com/temporary-license">Aspose website</a> to obtain a temporary license</strong>.</em></p>
+<h1>The conversion process</h1>
+<p>In order to convert PDF files to XLS format, Aspose.PDF has a class called <strong>
+ExcelSaveOptions</strong>. An object of the <strong>ExcelSaveOptions </strong>class is passed as a second argument to the
+<strong>Document.Save(..)</strong> constructor. The following code snippet shows the process for converting a PDF file into XLS format.</p>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder">
+<div class="title"><span>C#</span><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">// Load PDF document
+Document pdfDocument = new Document(&quot;input.pdf&quot;);
+
+// Instantiate ExcelSave Option object
+Aspose.Pdf.ExcelSaveOptions excelsave = new ExcelSaveOptions();
+
+// Save the output in XLS format
+pdfDocument.Save(&quot;PDFToXLS_out.xls&quot;, excelsave);</pre>
+<pre class="hidden">// Load PDF document
+Dim pdfDocument = New Document(filename:=&quot;input.pdf&quot;)
+
+// Instantiate ExcelSave Option object
+Dim excelSaveOption = New Aspose.Pdf.ExcelSaveOptions()
+
+// Save the output in XLS format
+pdfDocument.Save(&quot;PDFToXLS_out.xls&quot;, excelSaveOption);
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__com">//&nbsp;Load&nbsp;PDF&nbsp;document</span>&nbsp;
+Document&nbsp;pdfDocument&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;Document(<span class="cs__string">&quot;input.pdf&quot;</span>);&nbsp;
+&nbsp;
+<span class="cs__com">//&nbsp;Instantiate&nbsp;ExcelSave&nbsp;Option&nbsp;object</span>&nbsp;
+Aspose.Pdf.ExcelSaveOptions&nbsp;excelsave&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;ExcelSaveOptions();&nbsp;
+&nbsp;
+<span class="cs__com">//&nbsp;Save&nbsp;the&nbsp;output&nbsp;in&nbsp;XLS&nbsp;format</span>&nbsp;
+pdfDocument.Save(<span class="cs__string">&quot;PDFToXLS_out.xls&quot;</span>,&nbsp;excelsave);</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">
+<h2>Additional settings</h2>
+<p>When converting a PDF to XLS format, a blank column is added to the output file as the first column. The in
+<strong>ExcelSaveOptions</strong> class <strong>InsertBlankColumnAtFirst </strong>
+option is used to control this column. By default, it set to true.</p>
+<div class="scriptcode">
+<div class="pluginEditHolder">
+<div class="title"><span>C#</span><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">// Instantiate ExcelSave Option object
+Aspose.Pdf.ExcelSaveOptions excelsave = new ExcelSaveOptions();
+excelsave.InsertBlankColumnAtFirst = false;
+</pre>
+<pre class="hidden">' Instantiate ExcelSave Option object
+Dim excelSaveOption = New ExcelSaveOptions()
+excelSaveOption.InsertBlankColumnAtFirst = false</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__com">//&nbsp;Instantiate&nbsp;ExcelSave&nbsp;Option&nbsp;object</span>&nbsp;
+Aspose.Pdf.ExcelSaveOptions&nbsp;excelsave&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;ExcelSaveOptions();&nbsp;
+excelsave.InsertBlankColumnAtFirst&nbsp;=&nbsp;<span class="cs__keyword">false</span>;&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"></div>
+<p>When exporting a PDF file with a lot of pages to XLS, each page is exported to a different sheet in the Excel file. This is because the
+<strong>MinimizeTheNumberOfWorksheets </strong>property is set to false by default. To ensure that all pages are exported to one single sheet in the output Excel file, set the
+<strong>MinimizeTheNumberOfWorksheets </strong>property to true.</p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder">
+<div class="title"><span>C#</span><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span><span class="hidden">vb</span>
+<pre class="hidden">// Instantiate ExcelSave Option object
+Aspose.Pdf.ExcelSaveOptions excelsave = new ExcelSaveOptions();
+excelsave.MinimizeTheNumberOfWorksheets = true;</pre>
+<pre class="hidden">'Instantiate ExcelSave Option object
+Dim excelSaveOption = New ExcelSaveOptions()
+excelSaveOption.MinimizeTheNumberOfWorksheets = true</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__com">//&nbsp;Instantiate&nbsp;ExcelSave&nbsp;Option&nbsp;object</span>&nbsp;
+Aspose.Pdf.ExcelSaveOptions&nbsp;excelsave&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;ExcelSaveOptions();&nbsp;
+excelsave.MinimizeTheNumberOfWorksheets&nbsp;=&nbsp;<span class="cs__keyword">true</span>;</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><span style="font-size:2em">More Information</span></div>
+<p>&nbsp;</p>
+</div>
+</div>
+<ul>
+<li>Website:&nbsp;<a rel="nofollow" href="http://www.aspose.com/">www.aspose.com</a>
+</li><li>Product Home:&nbsp;<a rel="nofollow" href="https://code.msdn.microsoft.com/How-to-convert-PDF-file-to-b3275f0f/https://products.aspose.com/pdf/net">Aspose.Pdf for .NET</a>
+</li><li>Download:&nbsp;<a rel="nofollow" href="https://code.msdn.microsoft.com/How-to-convert-PDF-file-to-b3275f0f/https://www.nuget.org/packages/Aspose.Pdf/">Download Aspose.Pdf for .NET</a>
+</li><li>Documentation:&nbsp;<a rel="nofollow" href="https://code.msdn.microsoft.com/How-to-convert-PDF-file-to-b3275f0f/https://docs.aspose.com/display/pdfnet/Home">Aspose.Pdf for .NET Documentation</a>
+</li><li>Blog:&nbsp;<a rel="nofollow" href="https://code.msdn.microsoft.com/How-to-convert-PDF-file-to-b3275f0f/https://blog.aspose.com/category/aspose-products/aspose-pdf-product-family/">Aspose.Pdf for .NET Blog</a>
+</li><li>Telegram channel:&nbsp;<a href="https://code.msdn.microsoft.com/How-to-convert-PDF-file-to-b3275f0f/https://t.me/asposepdf">Aspose-PDF</a> </li></ul>
+
+</div>
+
+
+    </div>
+</body>
+</html>

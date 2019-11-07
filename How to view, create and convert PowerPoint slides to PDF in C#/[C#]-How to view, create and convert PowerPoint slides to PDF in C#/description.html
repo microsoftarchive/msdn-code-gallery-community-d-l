@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:header.2,0:ImageSprite2,1:LinkList;/Areas/Epx/Themes/Office/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=3C9805A86C8D20EB0EAAA7C77010028B" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:footer.2,0:ImageSprite2,1:LinkList;/Areas/Epx/Themes/Office/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=B9944783F4017FD6724494032D380D95" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to view, create and convert PowerPoint slides to PDF in C#</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" /><link href="description/6b70f30d-c637-49e8-9c82-0c9f838bf94cBrand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/office/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/office/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to view, create and convert PowerPoint slides to PDF in C#</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, ASP.NET, Class Library, WPF, PowerPoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Create PowerPoint Slide, C# PowerPoint
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">3/10/2017</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MIT</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/office/How-to-view-create-and-475c47bf">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>This sample demonstrates how to:</p>
+<ul>
+<li>read PowerPoint files in C#, </li><li>view PowerPoint files in WPF, </li><li><a href="https://code.msdn.microsoft.com/office/How-to-view-create-and-475c47bf/https://www.gemboxsoftware.com/presentation/examples/c-sharp-convert-powerpoint-to-pdf/204">convert PowerPoint to PDF</a> and other file formats and
+</li><li>add a new <a href="https://code.msdn.microsoft.com/office/How-to-view-create-and-475c47bf/https://www.gemboxsoftware.com/presentation/examples/c-sharp-vb-net-powerpoint-slides/401">
+slide in C#</a> </li></ul>
+<p>with a free version of <a href="https://code.msdn.microsoft.com/office/How-to-view-create-and-475c47bf/https://www.gemboxsoftware.com/presentation/examples/c-sharp-vb-net-powerpoint-library/101">
+C# / VB.NET PowerPoint library</a> called GemBox.Presentation.</p>
+<h1><span>Building the Sample</span></h1>
+<p>Referenced GemBox.Presentation.dll is already included in the attached solution. To use the latest version of GemBox.Presentation.dll,
+<a href="https://code.msdn.microsoft.com/office/How-to-view-create-and-475c47bf/https://www.gemboxsoftware.com/presentation/free-version">download it</a> and replace it with the existing one.</p>
+<p><span style="font-size:20px; font-weight:bold">Description</span></p>
+<p><em>This sample solves the most common operations required when automating PowerPoint presentations by using the built-in functionalities of GemBox.Presentation library.</em></p>
+<p><em><strong>Reading PowerPoint files</strong> is shown in the following code snippet:</em></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><em><span>C#</span></em></div>
+<div class="pluginLinkHolder"><em><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></em></div>
+<em><span class="hidden">csharp</span>
+<pre class="hidden">var openFileDialog = new OpenFileDialog()
+{
+    DefaultExt = &quot;.pptx&quot;,
+    Filter = &quot;PowerPoint Presentation|*.pptx&quot;
+};
+
+if (openFileDialog.ShowDialog(this) == true)
+{
+    this.presentation = PresentationDocument.Load(openFileDialog.FileName);
+}</pre>
+<div class="preview">
+<pre class="csharp">var&nbsp;openFileDialog&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;OpenFileDialog()&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;DefaultExt&nbsp;=&nbsp;<span class="cs__string">&quot;.pptx&quot;</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Filter&nbsp;=&nbsp;<span class="cs__string">&quot;PowerPoint&nbsp;Presentation|*.pptx&quot;</span>&nbsp;
+};&nbsp;
+&nbsp;
+<span class="cs__keyword">if</span>&nbsp;(openFileDialog.ShowDialog(<span class="cs__keyword">this</span>)&nbsp;==&nbsp;<span class="cs__keyword">true</span>)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.presentation&nbsp;=&nbsp;PresentationDocument.Load(openFileDialog.FileName);&nbsp;
+}</pre>
+</div>
+</em></div>
+</div>
+<div class="endscriptcode"><em>&nbsp;<strong>Viewing PowerPoint files in WPF</strong> is shown in the following code snippet:</em></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><em><span>C#</span></em></div>
+<div class="pluginLinkHolder"><em><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></em></div>
+<em><span class="hidden">csharp</span>
+<pre class="hidden">var openFileDialog = new OpenFileDialog()
+{
+    DefaultExt = &quot;.pptx&quot;,
+    Filter = &quot;PowerPoint Presentation|*.pptx&quot;
+};
+
+if (openFileDialog.ShowDialog(this) == true)
+{
+    this.presentation = PresentationDocument.Load(openFileDialog.FileName);
+
+    // XpsDocument needs to stay referenced so that DocumentViewer 
+    // can access additional required resources.
+    // Otherwise, GC will collect/dispose XpsDocument and DocumentViewer 
+    // will not work.
+    this.xpsPresentation = presentation.ConvertToXpsDocument(SaveOptions.Xps);
+
+    this.PresentationViewer.Document = this.xpsPresentation.GetFixedDocumentSequence();
+}</pre>
+<div class="preview">
+<pre class="csharp">var&nbsp;openFileDialog&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;OpenFileDialog()&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;DefaultExt&nbsp;=&nbsp;<span class="cs__string">&quot;.pptx&quot;</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Filter&nbsp;=&nbsp;<span class="cs__string">&quot;PowerPoint&nbsp;Presentation|*.pptx&quot;</span>&nbsp;
+};&nbsp;
+&nbsp;
+<span class="cs__keyword">if</span>&nbsp;(openFileDialog.ShowDialog(<span class="cs__keyword">this</span>)&nbsp;==&nbsp;<span class="cs__keyword">true</span>)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.presentation&nbsp;=&nbsp;PresentationDocument.Load(openFileDialog.FileName);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;XpsDocument&nbsp;needs&nbsp;to&nbsp;stay&nbsp;referenced&nbsp;so&nbsp;that&nbsp;DocumentViewer&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;can&nbsp;access&nbsp;additional&nbsp;required&nbsp;resources.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Otherwise,&nbsp;GC&nbsp;will&nbsp;collect/dispose&nbsp;XpsDocument&nbsp;and&nbsp;DocumentViewer&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;will&nbsp;not&nbsp;work.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.xpsPresentation&nbsp;=&nbsp;presentation.ConvertToXpsDocument(SaveOptions.Xps);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.PresentationViewer.Document&nbsp;=&nbsp;<span class="cs__keyword">this</span>.xpsPresentation.GetFixedDocumentSequence();&nbsp;
+}</pre>
+</div>
+</em></div>
+</div>
+<div class="endscriptcode"><em>&nbsp;<strong>Converting PowerPoint files to PDF</strong> and other file formats is shown in the following code snippet:</em></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><em><span>C#</span></em></div>
+<div class="pluginLinkHolder"><em><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></em></div>
+<em><span class="hidden">csharp</span>
+<pre class="hidden">var saveFileDialog = new SaveFileDialog()
+{
+    Filter = &quot;PowerPoint Presentation|*.pptx|Adobe Portable Document Format|*.pdf|XML Paper Specification|*.xps|Image|*.png&quot;
+};
+
+if (saveFileDialog.ShowDialog(this) == true)
+    this.presentation.Save(saveFileDialog.FileName);</pre>
+<div class="preview">
+<pre class="csharp">var&nbsp;saveFileDialog&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;SaveFileDialog()&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Filter&nbsp;=&nbsp;<span class="cs__string">&quot;PowerPoint&nbsp;Presentation|*.pptx|Adobe&nbsp;Portable&nbsp;Document&nbsp;Format|*.pdf|XML&nbsp;Paper&nbsp;Specification|*.xps|Image|*.png&quot;</span>&nbsp;
+};&nbsp;
+&nbsp;
+<span class="cs__keyword">if</span>&nbsp;(saveFileDialog.ShowDialog(<span class="cs__keyword">this</span>)&nbsp;==&nbsp;<span class="cs__keyword">true</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.presentation.Save(saveFileDialog.FileName);</pre>
+</div>
+</em></div>
+</div>
+<div class="endscriptcode"><em><strong>Adding a new slide </strong>is shown in the following code snippet:</em></div>
+<div class="endscriptcode"><em>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// Add a new empty slide.
+var slide = this.presentation.Slides.AddNew(SlideLayoutType.Custom);
+
+// Add a text box of size 5 x 5 cm in the top-left corner of the slide.
+var textBox = slide.Content.AddTextBox(0, 0, 5, 5, LengthUnit.Centimeter);
+
+// Add a paragraph with text content to the text box.
+textBox.AddParagraph().AddRun(this.slideTextBox.Text);</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__com">//&nbsp;Add&nbsp;a&nbsp;new&nbsp;empty&nbsp;slide.</span>&nbsp;
+var&nbsp;slide&nbsp;=&nbsp;<span class="cs__keyword">this</span>.presentation.Slides.AddNew(SlideLayoutType.Custom);&nbsp;
+&nbsp;
+<span class="cs__com">//&nbsp;Add&nbsp;a&nbsp;text&nbsp;box&nbsp;of&nbsp;size&nbsp;5&nbsp;x&nbsp;5&nbsp;cm&nbsp;in&nbsp;the&nbsp;top-left&nbsp;corner&nbsp;of&nbsp;the&nbsp;slide.</span>&nbsp;
+var&nbsp;textBox&nbsp;=&nbsp;slide.Content.AddTextBox(<span class="cs__number">0</span>,&nbsp;<span class="cs__number">0</span>,&nbsp;<span class="cs__number">5</span>,&nbsp;<span class="cs__number">5</span>,&nbsp;LengthUnit.Centimeter);&nbsp;
+&nbsp;
+<span class="cs__com">//&nbsp;Add&nbsp;a&nbsp;paragraph&nbsp;with&nbsp;text&nbsp;content&nbsp;to&nbsp;the&nbsp;text&nbsp;box.</span>&nbsp;
+textBox.AddParagraph().AddRun(<span class="cs__keyword">this</span>.slideTextBox.Text);</pre>
+</div>
+</div>
+</div>
+</em></div>
+<div class="endscriptcode"><em>For a full reference, please download the attached Visual Studio solution.<br>
+</em></div>
+<em></em></div>
+<em></em></div>
+<h1><span>Source Code Files</span></h1>
+<ul>
+<li><em>MainWindow.xaml.cs - contains all the code used in this sample.</em> </li></ul>
+<h1>More Information</h1>
+<p><em>GemBox.Presentation is a <strong>C#/VB.NET library</strong> that provides a simple and efficient way to process PowerPoint files. It enables developers to
+<strong>read, write, convert and print presentation files (PPTX, PDF, XPS and image formats) from .NET applications</strong> without a need for Microsoft PowerPoint on either the developer or client machines.</em></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

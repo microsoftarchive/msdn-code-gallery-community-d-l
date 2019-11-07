@@ -1,0 +1,54 @@
+﻿<html>
+<head>
+    <title>Conversion Triggering Mode</title>
+</head>
+<body>
+    <span style="font-family: Times New Roman; font-size: 10pt">When the triggering mode
+        is 'Manual' the conversion is triggered by the call to <b>hiqPdfConverter.startConversion()</b>
+        from JavaScript.<br />
+        In this example document the startConversion() method is called when the ticks count
+        reached 100 which happens in about 3 seconds.</span>
+    <br />
+    <br />
+    <b>Ticks Count:</b> <span style="color: Red" id="ticks">0</span>
+    <br />
+    <br />
+    <!-- display HiQPdf HTML converter version if the document is loaded in converter-->
+    <span style="font-family: Times New Roman; font-size: 10pt">HiQPdf Info:
+        <script type="text/javascript">
+            // check if the document is loaded in HiQPdf HTML to PDF Converter
+            if (typeof hiqPdfInfo == "undefined") {
+                // hiqPdfInfo object is not defined and the document is loaded in a browser
+                document.write("Not in HiQPdf");
+            }
+            else {
+                // hiqPdfInfo object is defined and the document is loaded in converter
+                document.write(hiqPdfInfo.getVersion());
+            }
+        </script>
+    </span>
+    <br />
+    <script type="text/javascript">
+        var ticks = 0;
+        function tick() {
+            // increment ticks count
+            ticks++;
+
+            var ticksElement = document.getElementById("ticks");
+            // set ticks count
+            ticksElement.innerHTML = ticks;
+            if (ticks == 100) {
+                // trigger conversion
+                ticksElement.style.color = "green";
+                hiqPdfConverter.startConversion();
+            }
+            else {
+                // wait one more tick
+                setTimeout("tick()", 30);
+            }
+        }
+
+        tick();
+    </script>
+</body>
+</html>

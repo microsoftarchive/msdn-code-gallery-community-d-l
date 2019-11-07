@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=B6A3E523D12C9136AC9F4C02B9F5CAFF" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=59CEC968CCF63579590CF573D2095884" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>DirectX Video Memory</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>DirectX Video Memory</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Win32, DirectX, DirectX SDK
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Graphics and 3D
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">10/12/2015</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MIT</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/DirectX-Video-Memory-ee7d8319">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p>The latest version of this sample is hosted on <a href="https://code.msdn.microsoft.com/DirectX-Video-Memory-ee7d8319/https://github.com/walbourn/directx-sdk-samples">
+GitHub</a>.</p>
+<p><em>This is the DirectX SDK's VideoMemory sample updated to use Visual Studio 2012 and the Windows SDK 8.0 without any dependencies on legacy DirectX SDK content.</em></p>
+<h1>Description</h1>
+<p>Applications often need to know how much video memory is available on the system. This is used to scale content to ensure that it fits in the allotted video memory without having to page from disk. This sample demonstrates the various methods to obtain video
+ memory sizes which works on a wide range of Windows OS releases.</p>
+<p><img id="92530" src="description/VideoMemory.jpg" alt="" width="90" height="79"></p>
+<p><em>This sample is a Win32 desktop sample to cover a wide range of Windows&nbsp;OS release. Windows Store apps can utilize the DXGI API to obtain&nbsp;reliable video memory information.</em>&nbsp;</p>
+<h1>Video Memory Classifications</h1>
+<p>Video memory can fall into one of two categories. The first is dedicated video memory. Dedicated video memory is available for exclusive use by the video hardware. Dedicated video memory typically has very fast communication with the video hardware. It can
+ also be referred to as on-board or local video memory, because such memory is often found on a video card. However, video hardware that is integrated into a motherboard often does not have dedicated video memory.</p>
+<p>The second category of video memory is shared system memory. Shared system memory is part of the main system memory. The video hardware can use this memory in the same way as it would dedicated video memory, but that memory is also used by the operating
+ system and other applications. For discrete video cards that use system memory, this can also be called non-local video memory. Integrated video cards often only have shared system memory. Shared system memory usually has slower communication with video hardware
+ than dedicated video memory does.</p>
+<h1>Ways to Get Video Memory</h1>
+<p>There are several ways to get the size of video memory on a system. This sample demonstrates 5 methods. The first 4 are available on Windows XP, Windows Vista, Windows 7, and Windows 8.x. DirectX Graphics Infrastructure (DXGI) is only available on Windows
+ Vista, Windows 7, and Windows 8.x. Those methods are:</p>
+<h2>GetVideoMemoryViaDirectDraw</h2>
+<p>This method queries the DirectDraw 7 interfaces for the amount of available video memory. On a discrete video card, this is often close to the amount of dedicated video memory and usually does not take into account the amount of shared system memory.</p>
+<h2>GetVideoMemoryViaWMI</h2>
+<p>This method queries the Windows Management Instrumentation (WMI) interfaces to determine the amount of video memory. On a discrete video card, this is often close to the amount of dedicated video memory and usually does not take into account the amount of
+ shared system memory.</p>
+<h2>GetVideoMemoryViaDxDiag</h2>
+<p>DxDiag internally uses both DirectDraw 7, and WMI and returns the rounded WMI value, if WMI is available. Otherwise, it returns a rounded from DirectDraw 7.</p>
+<p><em>Note that DxDiag is supported on Windows XP, but the required headers are not present in the Windows SDK 7.1 used for &quot;v110_xp&quot; Platform Toolset builds. Therefore, this sample doesn't implement the DxgDiag version for the Windows XP compataible configurations.
+ It is possible to build this for Windows XP by combing with the legacy DirectX SDK.</em></p>
+<h2>GetVideoMemoryViaD3D9</h2>
+<p>This method queries DirectX 3D 9 for the amount of available texture memory. On Windows Vista or later, this number is typically the dedicated video memory, plus the shared system memory, minus the amount of memory in use by textures and render targets.</p>
+<h2>GetVideoMemoryViaDXGI</h2>
+<p>DXGI is not available on Windows XP, but is available on Windows Vista or later. This method returns the amount of dedicated video memory, the amount of dedicated system memory, and the amount of shared system memory. DXGI provides numbers that more accurately
+ reflect the true system configuration than the previous 4 methods in this list.</p>
+<h1>Building with Visual Studio 2013</h1>
+<p>This sample can be modified to build with Visual Studio 2013 using the Windows 8.1 SDK.</p>
+<p>You can allow VS 2013 to upgrade the projects in place to use Platform Toolset &quot;v120&quot;/&quot;v120_xp&quot;.</p>
+<h1>Version History</h1>
+<ul>
+<li>July 18, 2013 - Initial release cleaned up from legacy DirectX SDK </li></ul>
+<h1>More Information</h1>
+<p><a href="http://blogs.msdn.com/b/chuckw/archive/2012/03/22/where-is-the-directx-sdk.aspx">Where is the DirectX SDK?</a></p>
+<p><a href="http://blogs.msdn.com/b/chuckw/archive/2013/07/01/where-is-the-directx-sdk-2013-edition.aspx">Where is the DirectX SDK (2013 Edition)?</a></p>
+<p><a href="http://blogs.msdn.com/b/chuckw/">Games for Windows and DirectX SDK blog</a></p>
+<p><a href="http://blogs.msdn.com/b/chuckw/archive/2012/11/26/visual-studio-2012-update-1.aspx">Visual Studio 2012 Update 1</a></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

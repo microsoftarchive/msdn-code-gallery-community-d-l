@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="~/default.aspx" title="Root"  description="Root">
+    <siteMapNode url="~/web-form-samples/listing-page.aspx?" title="Web From Samples" description="Web From Samples">
+      <siteMapNode url="~/web-form-samples/about-this-sample.aspx" title="About This Sample"  description="About This Sample" />
+      <siteMapNode url="~/web-form-samples/listing-page.aspx" title="Listing Page"  description="Listing Page" />
+      <siteMapNode url="~/employee/view/1.aspx" title="Details Page"  description="Details Page" />
+    </siteMapNode>
+    <siteMapNode url="~/secured/default.aspx" title="Security Samples" description="Security Samples">
+      <siteMapNode url="~/secured/public/public.aspx" title="Public Access" description="Public Access"/>
+      <siteMapNode url="~/secured/member/member-default.aspx" title="Member Security" description="Member Security"/>
+      <siteMapNode url="~/secured/admin/admin-default.aspx" title="Admin Security" description="Admin Security"/>
+    </siteMapNode>
+    <siteMapNode url="~/about-eisk.aspx?" title="About EISK" description="About EISK">
+      <siteMapNode url="~/about-eisk.aspx" title="About This Project" description="About This Project"/>
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

@@ -1,0 +1,411 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps;/Areas/Centers/Themes/StandardDevCenter/Content:0&amp;amp;v=9CF0A3BEED96761E8F017077B1B8A4BC" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:NewFooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=7FF267E37B336B08FC69C99242F33145" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Entity Framework : Deleting an Item from a Collection</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Entity Framework : Deleting an Item from a Collection</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, Visual C#
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Entity Framework
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">1/5/2017</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MIT</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/Entity-Framework-Deleting-3807a4af">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<div align="justify">In this example let's see how we can remove/delete an item from a collection in terms of Entity Framework.<br>
+<br>
+It's always better to go with an example, consider the following scenario.</div>
+<div align="justify"></div>
+<div align="justify"></div>
+<div align="justify">I have an entity, <strong>Department</strong> which has <strong>
+Contacts</strong>.</div>
+<div id="codeSnippetWrapper" style="background-color:#f4f4f4; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:20px 0px 10px; max-height:2000px; overflow:auto; text-align:left; width:97.5%; border:silver 1px solid; padding:4px">
+<div id="codeSnippet" style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px"><span style="color:blue">public</span> <span style="color:blue">class</span> Department</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">{</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> <span style="color:blue">int</span> Id { get; set; }</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> <span style="color:blue">string</span> Name { get; set; }</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> <span style="color:blue">virtual</span> ICollection&lt;Contact&gt; Contacts { get; set; }</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">}</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">&nbsp;</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px"><span style="color:blue">public</span> <span style="color:blue">class</span> Contact</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">{</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> <span style="color:blue">int</span> Id { get; set; }</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> <span style="color:blue">string</span> Name { get; set; }</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> <span style="color:blue">virtual</span> Department Department { get; set; }</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">}</pre>
+&lt;!--CRLF--&gt;</div>
+</div>
+<div align="justify">I have my DbContext as follows.</div>
+<div id="codeSnippetWrapper" style="background-color:#f4f4f4; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:20px 0px 10px; max-height:200px; overflow:auto; text-align:left; width:97.5%; border:silver 1px solid; padding:4px">
+<div id="codeSnippet" style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px"><span style="color:blue">public</span> <span style="color:blue">class</span> MyDbContext : DbContext</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">{</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> DbSet&lt;Department&gt; Departments { get; set; }</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">}</pre>
+&lt;!--CRLF--&gt;</div>
+</div>
+<div align="justify">Here you can see that I have exposed only <strong>Departments</strong> as a
+<strong>DbSet</strong>, because I will only be accessing <strong>Contacts</strong> through their
+<strong>Department</strong>.<br>
+<br>
+</div>
+<div align="justify">Now I have my DbContext initializer which seeds some data. Please note that I am inheriting from
+<strong>DropCreateDatabaseAlways</strong>.</div>
+<div id="codeSnippetWrapper" style="background-color:#f4f4f4; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:20px 0px 10px; max-height:2000px; overflow:auto; text-align:left; width:97.5%; border:silver 1px solid; padding:4px">
+<div id="codeSnippet" style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px"><span style="color:blue">public</span> <span style="color:blue">class</span> MyDbContextInitializer : DropCreateDatabaseAlways&lt;MyDbContext&gt;</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">{</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">protected</span> <span style="color:blue">override</span> <span style="color:blue">void</span> Seed(MyDbContext context)</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    {</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        context.Departments.AddOrUpdate(d =&gt; d.Name, <span style="color:blue">new</span> Department()</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        {</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">            Name = <span style="color:#006080">&quot;Microsoft Visual Studio&quot;</span>,</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">            Contacts = <span style="color:blue">new</span> List&lt;Contact&gt;()</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">                {</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">                    <span style="color:blue">new</span> Contact() { Name = <span style="color:#006080">&quot;Jaliya Udagedara&quot;</span> },</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">                    <span style="color:blue">new</span> Contact() { Name = <span style="color:#006080">&quot;John Smith&quot;</span> }</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">                }</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        });</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">&nbsp;</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        context.SaveChanges();</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">&nbsp;</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        Department department = context.Departments.FirstOrDefault();</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        Contact contact = department.Contacts.FirstOrDefault();</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        department.Contacts.Remove(contact);</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">&nbsp;</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        context.SaveChanges();</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    }</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">}</pre>
+&lt;!--CRLF--&gt;</div>
+</div>
+<div align="justify">Here you can see that after adding a <strong>Department</strong> with some set of
+<strong>Contacts</strong>, I am removing a <strong>Contact</strong>.<br>
+<br>
+</div>
+<div align="justify">Now from the Main method, let's try to see who are the <strong>
+Contacts</strong> for my <strong>Department</strong> (here please note that I am not following best practices (null handling etc.), as this is only for demonstration purposes).</div>
+<div id="codeSnippetWrapper" style="background-color:#f4f4f4; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:20px 0px 10px; max-height:2000px; overflow:auto; text-align:left; width:97.5%; border:silver 1px solid; padding:4px">
+<div id="codeSnippet" style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px"><span style="color:blue">static</span> <span style="color:blue">void</span> Main(<span style="color:blue">string</span>[] args)</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">{</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    Database.SetInitializer(<span style="color:blue">new</span> MyDbContextInitializer());</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">&nbsp;</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">using</span> (MyDbContext context = <span style="color:blue">new</span> MyDbContext())</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    {</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        <span style="color:blue">foreach</span> (Contact contact <span style="color:blue">in</span> context.Departments.FirstOrDefault().Contacts)</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        {</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">            Console.WriteLine(contact.Name);</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">        }</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    }</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">}</pre>
+&lt;!--CRLF--&gt;</div>
+</div>
+<div align="justify">Output would be as follows.</div>
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="margin-left:auto; margin-right:auto; text-align:center">
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://code.msdn.microsoft.com/Entity-Framework-Deleting-3807a4af/https://lh3.googleusercontent.com/-H3mrB9R2yd4/V76qZRpHkbI/AAAAAAAAEME/sSrD2R7hw4s/s1600-h/image%25255B10%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="https://lh3.googleusercontent.com/-FKRbXoIp1iA/V76qaDKQOnI/AAAAAAAAEMI/j7Vf_lEGEqA/image_thumb%25255B6%25255D.png?imgmax=800" border="0" alt="image" width="450" height="86" style="border-width:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align:center">Contacts of Department</td>
+</tr>
+</tbody>
+</table>
+<div align="justify">It&rsquo;s just like we expected, initially I have added two
+<strong>Contacts</strong> and later I have removed one. So now there is only one <strong>
+Contact</strong> in the <strong>Department</strong>.<br>
+<br>
+</div>
+<div align="justify">Out of curiosity, let&rsquo;s check the <strong>Contacts</strong> table in the Database to see whether the
+<strong>Contact</strong> is deleted from the back end as well.</div>
+<div align="justify">
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="margin-left:auto; margin-right:auto; text-align:center">
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://code.msdn.microsoft.com/Entity-Framework-Deleting-3807a4af/https://lh3.googleusercontent.com/-lSFaZTaCAjc/V76qaq1-CgI/AAAAAAAAEMM/6IecmuqPxNI/s1600-h/image%25255B9%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="https://lh3.googleusercontent.com/-PMPuK7HpJT8/V76qbaLrPaI/AAAAAAAAEMQ/_IG3YSYsESY/image_thumb%25255B5%25255D.png?imgmax=800" border="0" alt="image" width="450" height="107" style="border-width:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align:center">Contacts in the table</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div align="justify">Here you can see that the <strong>Contact</strong> is still there, only the relationship has been deleted. So this approach will cause orphan records.<br>
+<br>
+</div>
+<div align="justify">And this was even possible because the <strong>Department_Id</strong> foreign key allowed null. Now let&rsquo;s modify the code so that the
+<strong>Contact</strong> should always belong to a <strong>Department</strong> (actually that&rsquo;s why I initially exposed only
+<strong>Departments</strong> as a <strong>DbSet</strong> in <strong>MyDbContext</strong>).<br>
+<br>
+</div>
+<div align="justify">I can easily do that change by modifying the <strong>Contact</strong> class as follows.</div>
+<div id="codeSnippetWrapper" style="background-color:#f4f4f4; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:20px 0px 10px; max-height:2000px; overflow:auto; text-align:left; width:97.5%; border:silver 1px solid; padding:4px">
+<div id="codeSnippet" style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px"><span style="color:blue">public</span> <span style="color:blue">class</span> Contact</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">{</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> <span style="color:blue">int</span> Id { get; set; }</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> <span style="color:blue">string</span> Name { get; set; }</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> <span style="color:blue">int</span> Department_Id { get; set; }</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    [ForeignKey(<span style="color:#006080">&quot;Department_Id&quot;</span>)]</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">    <span style="color:blue">public</span> <span style="color:blue">virtual</span> Department Department { get; set; }</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">}</pre>
+&lt;!--CRLF--&gt;</div>
+</div>
+<p>Now let&rsquo;s run the application.<br>
+<br>
+This time I am thrown with an error.</p>
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="margin-left:auto; margin-right:auto; text-align:center">
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://code.msdn.microsoft.com/Entity-Framework-Deleting-3807a4af/https://lh3.googleusercontent.com/-StopYgAjLqE/V76qcU_uFEI/AAAAAAAAEMU/6IhlxvB5AWs/s1600-h/image%25255B15%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="https://lh3.googleusercontent.com/-iQEMt3AzY_A/V76qddXbsFI/AAAAAAAAEMY/EUNO93yfkc8/image_thumb%25255B9%25255D.png?imgmax=800" border="0" alt="image" width="590" height="322" style="border-width:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align:center">Error</td>
+</tr>
+</tbody>
+</table>
+<div align="justify">The error is, <span style="background-color:white; color:red">
+<a class="libraryLink" href="https://code.msdn.microsoft.com/Entity-Framework-Deleting-3807a4af/https://msdn.microsoft.com/en-US/library/System.InvalidOperationException.aspx"  title="Auto generated link to System.InvalidOperationException">System.InvalidOperationException</a>: The operation failed: The relationship could not be changed because one or more of the foreign-key properties is non-nullable. When a change is made to a relationship, the related foreign-key property is set to a null value.
+ If the foreign-key does not support null values, a new relationship must be defined, the foreign-key property must be assigned another non-null value, or the unrelated object must be deleted</span><span style="background-color:white">.</span><br>
+<span style="background-color:white"><br>
+</span></div>
+<div align="justify">This is a very obvious error. That is because when we are removing a&nbsp;<strong>Contact</strong> from the
+<strong>Department</strong>, as you just saw, only the relationship is getting deleted which causes
+<strong>Department_Id</strong> of <strong>Contact</strong> to be null. And we are no longer allowing nulls there.<br>
+<br>
+</div>
+<div align="justify">Now let&rsquo;s see how we can get this fixed. That is deleting both the relationship and the
+<strong>Contact</strong>.<br>
+<br>
+</div>
+<div align="justify">We have two options.</div>
+<div align="justify">1. Update the state of the entity we want to remove to <strong>
+Deleted</strong></div>
+<div id="codeSnippetWrapper" style="background-color:#f4f4f4; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:20px 0px 10px; max-height:2000px; overflow:auto; text-align:left; width:97.5%; border:silver 1px solid; padding:4px">
+<div id="codeSnippet" style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">Department department = context.Departments.FirstOrDefault();</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">Contact contact = department.Contacts.FirstOrDefault();</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">&nbsp;</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px"><span style="color:green">// Marking entity state as deleted</span></pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">context.Entry(contact).State = EntityState.Deleted;</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">&nbsp;</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">context.SaveChanges();</pre>
+&lt;!--CRLF--&gt;</div>
+</div>
+<div align="justify">Here we don't want to remove the <strong>Contact</strong> from the
+<strong>Department</strong>, we can directly update the state of the entity to <strong>
+Deleted</strong>. So upon <strong>context.SaveChanges()</strong>, <strong>Contact</strong> will get deleted.<br>
+<br>
+</div>
+<div align="justify"><strong>2. ObjectContext.DeleteObject</strong></div>
+<div id="codeSnippetWrapper" style="background-color:#f4f4f4; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:20px 0px 10px; max-height:2000px; overflow:auto; text-align:left; width:97.5%; border:silver 1px solid; padding:4px">
+<div id="codeSnippet" style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">Department department = context.Departments.FirstOrDefault();</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">Contact contact = department.Contacts.FirstOrDefault();</pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">&nbsp;</pre>
+<pre style="background-color:#f4f4f4; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px"><span style="color:green">// ObjectContext.DeleteObject</span></pre>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">((IObjectContextAdapter)context).ObjectContext.DeleteObject(contact);<span style="background-color:#f4f4f4; font-size:8pt; line-height:12pt">&nbsp;</span></pre>
+&lt;!--CRLF--&gt;<br>
+<pre style="background-color:white; color:black; direction:ltr; font-family:&quot;courier new&quot; ,&quot;courier&quot; ,monospace; font-size:8pt; line-height:12pt; margin:0em; overflow:visible; text-align:left; width:100%; border-style:none; padding:0px">context.SaveChanges();</pre>
+&lt;!--CRLF--&gt;</div>
+</div>
+<div align="justify">Here also we can skip <strong>department.Contacts.Remove(contact)</strong>, we can directly call
+<strong>DeleteObject()</strong>. Again upon <strong>context.SaveChanges()</strong>,
+<strong>Contact</strong> will get deleted.<br>
+<br>
+</div>
+<div align="justify">Using any of these approaches, we can remove/delete a&nbsp;<strong>Contact</strong> from the
+<strong>Department</strong>. And most importantly that's without exposing <strong>
+Contacts</strong> as <strong>DbSet</strong>&nbsp;in <strong>MyDbContext</strong>.</div>
+<div align="justify">
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="margin-left:auto; margin-right:auto; text-align:center">
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://code.msdn.microsoft.com/Entity-Framework-Deleting-3807a4af/https://lh3.googleusercontent.com/-NrPa0TVC9wA/V76qeDTHlGI/AAAAAAAAEMc/Rx8hn-IHKVw/s1600-h/image%25255B20%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="https://lh3.googleusercontent.com/-xPQSFt3l25A/V76qeqY91GI/AAAAAAAAEMg/yGx7g0xmsBY/image_thumb%25255B12%25255D.png?imgmax=800" border="0" alt="image" width="400" height="77" style="border:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align:center">Contacts of Department</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div align="justify">
+<table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="margin-left:auto; margin-right:auto; text-align:center">
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://code.msdn.microsoft.com/Entity-Framework-Deleting-3807a4af/https://lh3.googleusercontent.com/-lpx1bTi7Th4/V76qfJ2FFAI/AAAAAAAAEMk/mFam9JtdeBU/s1600-h/image%25255B25%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="https://lh3.googleusercontent.com/-4RDEXn2UwQI/V76qf5Bl9MI/AAAAAAAAEMo/sUfXaS9vJOU/image_thumb%25255B15%25255D.png?imgmax=800" border="0" alt="image" width="400" height="73" style="border:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
+</tr>
+<tr>
+<td class="tr-caption" style="text-align:center">Contacts in the table</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div align="justify">I am uploading the full sample code to OneDrive.</div>
+<p><br>
+Hope this helps.<br>
+<br>
+Happy Coding.<br>
+<br>
+Regards,<br>
+Jaliya</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

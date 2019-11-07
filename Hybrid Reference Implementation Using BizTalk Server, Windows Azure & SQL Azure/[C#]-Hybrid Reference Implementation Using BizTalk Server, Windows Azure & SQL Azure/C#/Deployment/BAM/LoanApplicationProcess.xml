@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BAMDefinition xmlns="http://schemas.microsoft.com/BizTalkServer/2004/10/BAM">
+  <Activity Name="LoanApplicationProcess" ID="IDA8D2800FDAA64C9696701A38E19CE18D">
+    <Checkpoint Name="ApplicantID" ID="ID0AC4B9A98F454D4FBE098B97C7542E76" DataType="NVARCHAR" DataLength="16"/>
+    <Checkpoint Name="LoanApplicationSubmitted" ID="ID4D91CB2D68AB4BA59AF7A0C604D19A91" DataType="DATETIME"/>
+    <Checkpoint Name="LoanPreapprovalReceived" ID="ID7F07CD18DD2C4C87B826719F7544FD8A" DataType="DATETIME"/>
+    <Checkpoint Name="LoanPreapprovalDecision" ID="IDC6AC941833E940B9B5FF845C6192FF97" DataType="NVARCHAR" DataLength="32"/>
+    <Checkpoint Name="LoanApplicationStarted" ID="IDCFD804E290EF485F831F8D0FA9A0EEEA" DataType="DATETIME"/>
+    <Checkpoint Name="LoanFinalDecision" ID="IDBE77A05572E64D21BAB10E7FDD74B68A" DataType="NVARCHAR" DataLength="32"/>
+    <Checkpoint Name="LoanFinalDecisionMade" ID="ID1EA049BDAE734389B9AC5D680D157169" DataType="DATETIME"/>
+    <Checkpoint Name="LoanFinalDecisionReceived" ID="ID0BDEE45BD83941B5AA042491972172C5" DataType="DATETIME"/>
+  </Activity>
+
+  <View Name="LoanApplicationProcessView" ID="IDF18524EC7CEB4526A6AD2EA91DFB33F5">
+    <ActivityView Name="EndToEndFlow" ID="IDBE3BC7B09ECE418382B665A617DC85CD" ActivityRef="IDA8D2800FDAA64C9696701A38E19CE18D">
+      <Alias Name="ApplicantID" ID="ID359AE73A2A50472CA8808198BF7D0355">
+        <CheckpointRef>ID0AC4B9A98F454D4FBE098B97C7542E76</CheckpointRef>
+      </Alias>
+      <Alias Name="LoanApplicationSubmitted" ID="ID91708899ACBF47328E1B75F246DBCFD1">
+        <CheckpointRef>ID4D91CB2D68AB4BA59AF7A0C604D19A91</CheckpointRef>
+      </Alias>
+      <Alias Name="LoanPreapprovalReceived" ID="IDD026D76A85E14EB680D969BBBD6381F6">
+        <CheckpointRef>ID7F07CD18DD2C4C87B826719F7544FD8A</CheckpointRef>
+      </Alias>
+      <Alias Name="LoanPreapprovalDecision" ID="ID608C42F090034262BB877EFC43562895">
+        <CheckpointRef>IDC6AC941833E940B9B5FF845C6192FF97</CheckpointRef>
+      </Alias>
+      <Alias Name="LoanApplicationStarted" ID="ID0E01DF00F6BD4528B58F45ABFD881540">
+        <CheckpointRef>IDCFD804E290EF485F831F8D0FA9A0EEEA</CheckpointRef>
+      </Alias>
+      <Alias Name="LoanFinalDecision" ID="IDC7761B957D2E49219D00186C29AA1C80">
+        <CheckpointRef>IDBE77A05572E64D21BAB10E7FDD74B68A</CheckpointRef>
+      </Alias>
+      <Alias Name="LoanFinalDecisionMade" ID="ID04D3EA5B43044C768227452546B65C16">
+        <CheckpointRef>ID1EA049BDAE734389B9AC5D680D157169</CheckpointRef>
+      </Alias>
+      <Alias Name="LoanFinalDecisionReceived" ID="IDF764D61D478F4B8FBAFB9494669DD402">
+        <CheckpointRef>ID0BDEE45BD83941B5AA042491972172C5</CheckpointRef>
+      </Alias>
+      <Duration Name="LoanPreapprovalLatency" ID="IDF40470BF391249628160D7B99FE2E6DB" TimeResolution="Second">
+        <FromAliasRef>ID91708899ACBF47328E1B75F246DBCFD1</FromAliasRef>
+        <ToAliasRef>IDD026D76A85E14EB680D969BBBD6381F6</ToAliasRef>
+      </Duration>
+      <Duration Name="LoanApplicationDecisionLatency" ID="IDCD2044A65A7D451983157A94CD3350AF" TimeResolution="Second">
+        <FromAliasRef>ID0E01DF00F6BD4528B58F45ABFD881540</FromAliasRef>
+        <ToAliasRef>ID04D3EA5B43044C768227452546B65C16</ToAliasRef>
+      </Duration>
+      <Duration Name="LoanApplicationTurnaround" ID="ID8D440D86C00B4D568639142B3C8D85A9" TimeResolution="Second">
+        <FromAliasRef>ID91708899ACBF47328E1B75F246DBCFD1</FromAliasRef>
+        <ToAliasRef>IDF764D61D478F4B8FBAFB9494669DD402</ToAliasRef>
+      </Duration>
+    </ActivityView>
+  </View>
+  <Extension>
+    <OWC xmlns:x="urn:schemas-microsoft-com:office:excel" />
+  </Extension>
+</BAMDefinition>

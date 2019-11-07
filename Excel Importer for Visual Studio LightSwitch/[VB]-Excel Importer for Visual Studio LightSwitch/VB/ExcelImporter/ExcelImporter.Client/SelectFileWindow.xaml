@@ -1,0 +1,20 @@
+﻿<local:ConfirmDialog x:Class="ExcelImporter.SelectFileWindow"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:local="clr-namespace:ExcelImporter"
+           MinWidth="300" Height="Auto"
+           x:ClassModifier="Internal"
+           Title="Select File Dialog">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <TextBox Height="23" HorizontalAlignment="Stretch" Name="FileTextBox" VerticalAlignment="Top" IsEnabled="True" Grid.Column="0" Margin="0,0,3,0"/>
+        <Button Content="Browse" Height="23" HorizontalAlignment="Left" Name="BrowseButton" VerticalAlignment="Top" Width="75" Click="BrowseButton_Click" Grid.Column="1"/>
+    </Grid>
+</local:ConfirmDialog>

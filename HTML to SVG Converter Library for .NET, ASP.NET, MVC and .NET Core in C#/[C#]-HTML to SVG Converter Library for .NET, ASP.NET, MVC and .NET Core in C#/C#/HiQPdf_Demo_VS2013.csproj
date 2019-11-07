@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CEB9810C-6F8D-4449-961C-BBEA7BE9BEEE}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HiQPdf_Demo</RootNamespace>
+    <AssemblyName>HiQPdf_Demo</AssemblyName>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HiQPdf, Version=10.17.0.0, Culture=neutral, PublicKeyToken=acd8b62594985b24, processorArchitecture=MSIL">
+      <HintPath>packages\hiqpdf.10.17.0\lib\net40\HiQPdf.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AnotherPageInThisApplication.aspx" />
+    <Content Include="AutoCreatePdfForms.aspx" />
+    <Content Include="AutoCreateTableOfContents.aspx" />
+    <Content Include="ConvertHtmlRegionToPdf.aspx" />
+    <Content Include="ConvertHtmlPreservingState.aspx" />
+    <Content Include="DemoFiles\Attach\TextAttach1.txt" />
+    <Content Include="DemoFiles\Attach\TextAttach2.txt" />
+    <Content Include="DemoFiles\Html\AutoOutlines.htm" />
+    <Content Include="DemoFiles\Html\AutoRepeatThead.html" />
+    <Content Include="DemoFiles\Html\ConvertHtmlPart.html" />
+    <Content Include="DemoFiles\Html\Images\HiQPdfLogo.jpg" />
+    <Content Include="DemoFiles\Html\Images\HiQPdfLogo.png" />
+    <Content Include="DemoFiles\Html\Logo.html" />
+    <Content Include="DemoFiles\Html\MultipleHtmlLayers.htm" />
+    <Content Include="DemoFiles\Html\PageBreaksControl.htm" />
+    <Content Include="DemoFiles\Html\ReplaceImage.htm" />
+    <Content Include="DemoFiles\Html\TriggeringMode.htm" />
+    <Content Include="DemoFiles\Images\HiQPdfBanner.png" />
+    <Content Include="DemoFiles\Images\HiQPdfLogo.jpg" />
+    <Content Include="DemoFiles\Images\HiQPdfLogo.png" />
+    <Content Include="DemoFiles\Images\HiQPdfLogo_big.jpg" />
+    <Content Include="DemoFiles\Images\HiQPdfLogo_Modified.png" />
+    <Content Include="DemoFiles\Images\HiQPdfLogo_small.jpg" />
+    <Content Include="DemoFiles\Images\HiQPdfLogo_small.png" />
+    <Content Include="DemoFiles\Images\HiQPdf_16x16.ico" />
+    <Content Include="DemoFiles\Images\HiQPdf_32x32.ico" />
+    <Content Include="DemoFiles\Images\HiQPdf_64x64.ico" />
+    <Content Include="DemoFiles\Pdf\PdfWithForm.pdf" />
+    <Content Include="DemoFiles\Pdf\WikiHtml.pdf" />
+    <Content Include="DemoFiles\Pdf\WikiPdf.pdf" />
+    <Content Include="DemoFiles\Svg\SvgImage.svg" />
+    <Content Include="DemoFiles\Text\DummyBigText.txt" />
+    <Content Include="DigitalSignatures.aspx" />
+    <Content Include="ExtractImagesFromPdf.aspx" />
+    <Content Include="ExtractTextFromPdf.aspx" />
+    <Content Include="MediaTypeSelection.aspx" />
+    <Content Include="PdfHeadersAndFooters.aspx" />
+    <Content Include="RasterizePdfPagesToImages.aspx" />
+    <Content Include="SearchTextInPdf.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnotherPageInThisApplication.aspx.cs">
+      <DependentUpon>AnotherPageInThisApplication.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnotherPageInThisApplication.aspx.designer.cs">
+      <DependentUpon>AnotherPageInThisApplication.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AttachmentsAndFileLinks.aspx.cs">
+      <DependentUpon>AttachmentsAndFileLinks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AttachmentsAndFileLinks.aspx.designer.cs">
+      <DependentUpon>AttachmentsAndFileLinks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoCreatePdfForms.aspx.cs">
+      <DependentUpon>AutoCreatePdfForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoCreatePdfForms.aspx.designer.cs">
+      <DependentUpon>AutoCreatePdfForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoCreateTableOfContents.aspx.cs">
+      <DependentUpon>AutoCreateTableOfContents.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoCreateTableOfContents.aspx.designer.cs">
+      <DependentUpon>AutoCreateTableOfContents.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoOutlinesAndLinks.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>AutoOutlinesAndLinks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoOutlinesAndLinks.aspx.designer.cs">
+      <DependentUpon>AutoOutlinesAndLinks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoRepeatHtmlHeaderAndFooter.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>AutoRepeatHtmlHeaderAndFooter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoRepeatHtmlHeaderAndFooter.aspx.designer.cs">
+      <DependentUpon>AutoRepeatHtmlHeaderAndFooter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConversionTriggeringMode.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ConversionTriggeringMode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConversionTriggeringMode.aspx.designer.cs">
+      <DependentUpon>ConversionTriggeringMode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertHtmlRegionToPdf.aspx.cs">
+      <DependentUpon>ConvertHtmlRegionToPdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConvertHtmlRegionToPdf.aspx.designer.cs">
+      <DependentUpon>ConvertHtmlRegionToPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertHtmlPreservingState.aspx.cs">
+      <DependentUpon>ConvertHtmlPreservingState.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConvertHtmlPreservingState.aspx.designer.cs">
+      <DependentUpon>ConvertHtmlPreservingState.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertHtmlToImage.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ConvertHtmlToImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertHtmlToImage.aspx.designer.cs">
+      <DependentUpon>ConvertHtmlToImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertHtmlToPdf.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ConvertHtmlToPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertHtmlToPdf.aspx.designer.cs">
+      <DependentUpon>ConvertHtmlToPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertHtmlToSvg.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ConvertHtmlToSvg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertHtmlToSvg.aspx.designer.cs">
+      <DependentUpon>ConvertHtmlToSvg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAndSubmitForms.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>CreateAndSubmitForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreateAndSubmitForms.aspx.designer.cs">
+      <DependentUpon>CreateAndSubmitForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DemoMaster.Master.cs">
+      <DependentUpon>DemoMaster.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DemoMaster.Master.designer.cs">
+      <DependentUpon>DemoMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="DigitalSignatures.aspx.cs">
+      <DependentUpon>DigitalSignatures.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DigitalSignatures.aspx.designer.cs">
+      <DependentUpon>DigitalSignatures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditPdf.aspx.cs">
+      <DependentUpon>EditPdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditPdf.aspx.designer.cs">
+      <DependentUpon>EditPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExtractImagesFromPdf.aspx.cs">
+      <DependentUpon>ExtractImagesFromPdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExtractImagesFromPdf.aspx.designer.cs">
+      <DependentUpon>ExtractImagesFromPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExtractTextFromPdf.aspx.cs">
+      <DependentUpon>ExtractTextFromPdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExtractTextFromPdf.aspx.designer.cs">
+      <DependentUpon>ExtractTextFromPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Feedback.aspx.designer.cs">
+      <DependentUpon>Feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FillAndSaveForms.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>FillAndSaveForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FillAndSaveForms.aspx.designer.cs">
+      <DependentUpon>FillAndSaveForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MediaTypeSelection.aspx.cs">
+      <DependentUpon>MediaTypeSelection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MediaTypeSelection.aspx.designer.cs">
+      <DependentUpon>MediaTypeSelection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MergePdf.aspx.cs">
+      <DependentUpon>MergePdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MergePdf.aspx.designer.cs">
+      <DependentUpon>MergePdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertManyHtmlToPdf.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>ConvertManyHtmlToPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConvertManyHtmlToPdf.aspx.designer.cs">
+      <DependentUpon>ConvertManyHtmlToPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PdfGraphics.aspx.cs">
+      <DependentUpon>PdfGraphics.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PdfGraphics.aspx.designer.cs">
+      <DependentUpon>PdfGraphics.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PdfHeadersAndFooters.aspx.cs">
+      <DependentUpon>PdfHeadersAndFooters.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PdfHeadersAndFooters.aspx.designer.cs">
+      <DependentUpon>PdfHeadersAndFooters.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PdfImages.aspx.cs">
+      <DependentUpon>PdfImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PdfImages.aspx.designer.cs">
+      <DependentUpon>PdfImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PdfOpenAction.aspx.cs">
+      <DependentUpon>PdfOpenAction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PdfOpenAction.aspx.designer.cs">
+      <DependentUpon>PdfOpenAction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PdfOutlinesAndLinks.aspx.cs">
+      <DependentUpon>PdfOutlinesAndLinks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PdfOutlinesAndLinks.aspx.designer.cs">
+      <DependentUpon>PdfOutlinesAndLinks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PdfPageBreaksControl.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>PdfPageBreaksControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PdfPageBreaksControl.aspx.designer.cs">
+      <DependentUpon>PdfPageBreaksControl.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PdfTextDemo.aspx.cs">
+      <DependentUpon>PdfTextDemo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PdfTextDemo.aspx.designer.cs">
+      <DependentUpon>PdfTextDemo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HtmlElementsPositionInPdf.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>HtmlElementsPositionInPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlElementsPositionInPdf.aspx.designer.cs">
+      <DependentUpon>HtmlElementsPositionInPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RasterizePdfPagesToImages.aspx.cs">
+      <DependentUpon>RasterizePdfPagesToImages.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RasterizePdfPagesToImages.aspx.designer.cs">
+      <DependentUpon>RasterizePdfPagesToImages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchTextInPdf.aspx.cs">
+      <DependentUpon>SearchTextInPdf.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchTextInPdf.aspx.designer.cs">
+      <DependentUpon>SearchTextInPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetPdfBackgroundLayer.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>SetPdfBackgroundLayer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SetPdfBackgroundLayer.aspx.designer.cs">
+      <DependentUpon>SetPdfBackgroundLayer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebFonts.aspx.cs">
+      <DependentUpon>WebFonts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebFonts.aspx.designer.cs">
+      <DependentUpon>WebFonts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeHtmlToPdf.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>WelcomeHtmlToPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomeHtmlToPdf.aspx.designer.cs">
+      <DependentUpon>WelcomeHtmlToPdf.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomePdfForms.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>WelcomePdfForms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WelcomePdfForms.aspx.designer.cs">
+      <DependentUpon>WelcomePdfForms.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AttachmentsAndFileLinks.aspx" />
+    <Content Include="AutoOutlinesAndLinks.aspx" />
+    <Content Include="AutoRepeatHtmlHeaderAndFooter.aspx" />
+    <Content Include="ConversionTriggeringMode.aspx" />
+    <Content Include="ConvertHtmlToImage.aspx" />
+    <Content Include="ConvertHtmlToPdf.aspx" />
+    <Content Include="ConvertHtmlToSvg.aspx" />
+    <Content Include="CreateAndSubmitForms.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="DemoMaster.Master" />
+    <Content Include="EditPdf.aspx" />
+    <Content Include="Feedback.aspx" />
+    <Content Include="FillAndSaveForms.aspx" />
+    <Content Include="MergePdf.aspx" />
+    <Content Include="ConvertManyHtmlToPdf.aspx" />
+    <Content Include="PdfGraphics.aspx" />
+    <Content Include="PdfImages.aspx" />
+    <Content Include="PdfOpenAction.aspx" />
+    <Content Include="PdfOutlinesAndLinks.aspx" />
+    <Content Include="PdfPageBreaksControl.aspx" />
+    <Content Include="PdfTextDemo.aspx" />
+    <Content Include="HtmlElementsPositionInPdf.aspx" />
+    <Content Include="SetPdfBackgroundLayer.aspx" />
+    <Content Include="styles.css" />
+    <Content Include="WebFonts.aspx" />
+    <Content Include="WelcomeHtmlToPdf.aspx" />
+    <Content Include="WelcomePdfForms.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DemoFiles\Pdf\InputPdf.pdf" />
+    <Content Include="DemoFiles\Pfx\hiqpdf.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>65070</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,2785 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Practices.EnterpriseLibrary.Security</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.AndOperator">
+            <summary>
+            Represents an operator that performs a logical-AND of its
+            contained left and right expressions, but only evaluates
+            its second expression if the first expression evaluates to true.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression">
+            <summary>
+            Represents an operator, operand or expression
+            that results in one of two values - true or false.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression.Evaluate(System.Security.Principal.IPrincipal)">
+            <summary>
+            Evaluates the current expression against the specified 
+            <see cref="T:System.Security.Principal.IPrincipal"/>.
+            </summary>
+            <param name="principal">The <see cref="T:System.Security.Principal.IPrincipal"/>
+            that the current expression will be evaluated against.</param>
+            <returns>True or false.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AndOperator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AndOperator"/>
+            class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AndOperator.#ctor(Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression,Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AndOperator"/>
+            class with the specified
+            </summary>
+            <param name="left">The expression that will be evaluated first.</param>
+            <param name="right">The expression that will be evaluated last.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AndOperator.Evaluate(System.Security.Principal.IPrincipal)">
+            <summary>
+            Performs the logical-AND of the left
+            and right expressions.
+            </summary>
+            <param name="principal">The <see cref="T:System.Security.Principal.IPrincipal"/>
+            that the current expression will be evaluated against.</param>
+            <returns>True if both the left and right expressions evaluate to true,
+            otherwise false.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.AndOperator.Left">
+            <summary>
+            Gets or sets the first expression that will be evaluated -
+            the expression to the left of the operator.
+            </summary>
+            <value>A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression"/>.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.AndOperator.Right">
+            <summary>
+            Gets or sets the second expression that will be evaluated -
+            the expression to the right of the operator.
+            </summary>
+            <value>A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression"/>.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.AnonymousExpression">
+            <summary>
+            Represents the value of an <see cref="T:System.Security.Principal.IIdentity"/> object
+            whose <see cref="P:System.Security.Principal.IIdentity.IsAuthenticated"/> property is false.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.WordExpression">
+            <summary>
+            Represents a word value such as a role
+            name or identity name.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.WordExpression.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.WordExpression"/> class.
+            </summary>
+            <param name="word">A string value that is 
+            the name of an identity or role.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.WordExpression.Evaluate(System.Security.Principal.IPrincipal)">
+            <summary>
+            Evaluates the current expression against the specified 
+            <see cref="T:System.Security.Principal.IPrincipal"/>
+            by checking if it is in the role that matches 
+            the Value property of the current object.
+            </summary>
+            <param name="principal">The <see cref="T:System.Security.Principal.IPrincipal"/>
+            that the current expression will be evaluated against.</param>
+            <returns>True if the specified principal is in the role, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.WordExpression.Evaluate(System.Security.Principal.IIdentity)">
+            <summary>
+            Evaluates the current expression against the specified 
+            <see cref="T:System.Security.Principal.IIdentity"/>
+            by checking if its name matches 
+            the Value property of the current object.
+            </summary>
+            <param name="identity">The <see cref="T:System.Security.Principal.IIdentity"/>
+            that the current expression will be evaluated against.</param>
+            <returns>True if the specified identity's name matches the value of the current expression, otherwise false.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.WordExpression.Value">
+            <summary>
+            The string value of the word.
+            </summary>
+            <value>The string from the expression.</value>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AnonymousExpression.#ctor">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AnonymousExpression"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AnonymousExpression.Evaluate(System.Security.Principal.IPrincipal)">
+            <summary>
+            Evaluates the specified 
+            <see cref="T:System.Security.Principal.IPrincipal"/>.
+            </summary>
+            <param name="principal">The <see cref="T:System.Security.Principal.IPrincipal"/>
+            that the current expression will be evaluated against.</param>
+            <returns><strong>True</strong> if the principal contains
+            an anonymous identity, otherwise <strong>false</strong>.</returns>
+            <exception cref="T:System.NotSupportedException">This expression
+            can only be evaluated against an identity. It has no 
+            meaning for a principal's roles because there
+            is no common definition of an anonymous role.</exception>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AnonymousExpression.Evaluate(System.Security.Principal.IIdentity)">
+            <summary>
+            Evaluates the specified 
+            <see cref="T:System.Security.Principal.IIdentity"/>.
+            </summary>
+            <param name="identity">The <see cref="T:System.Security.Principal.IIdentity"/>
+            that the current expression will be evaluated against.</param>
+            <returns><strong>True</strong> if the identity is
+            an anonymous identity, otherwise <strong>false</strong>.</returns>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.AnyExpression">
+            <summary>
+            Represents an expression that evaluates to true
+            for any specified principal.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AnyExpression.#ctor">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AnyExpression"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AnyExpression.Evaluate(System.Security.Principal.IPrincipal)">
+            <summary>
+            Evaluates the specified principal and returns
+            true if the principal is not null.
+            </summary>
+            <param name="principal">The <see cref="T:System.Security.Principal.IPrincipal"/>
+            that the current expression will be evaluated against.</param>
+            <returns><strong>True</strong> if the principal
+            is not null, otherwise <strong>false</strong>.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AnyExpression.Evaluate(System.Security.Principal.IIdentity)">
+            <summary>
+            Evaluates the specified 
+            <see cref="T:System.Security.Principal.IIdentity"/>.
+            </summary>
+            <param name="identity">The <see cref="T:System.Security.Principal.IIdentity"/>
+            that the current expression will be evaluated against.</param>
+            <returns><strong>True</strong> if the identity not null, 
+            otherwise <strong>false</strong>.</returns>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider">
+            <summary>
+            Represents an authorization provider that evaluates
+            Boolean expressions to determine whether 
+            <see cref="T:System.Security.Principal.IPrincipal"/> objects
+            are authorized.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider">
+            <summary>
+            Abstract implementation of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/> interface.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider">
+            <summary>
+            Defines the basic functionality of an authorization provider.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider.Authorize(System.Security.Principal.IPrincipal,System.String)">
+            <summary>
+            Evaluates the specified authority against the specified context.
+            </summary>
+            <param name="principal">Must be an <see cref="T:System.Security.Principal.IPrincipal"/> object.</param>
+            <param name="context">Name of the rule to evaluate.</param>
+            <returns><strong>True</strong> if the expression evaluates to true,
+            otherwise <strong>false</strong>.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider.#ctor">
+            <summary>
+            Initializes a new instance of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider.#ctor(Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.IAuthorizationProviderInstrumentationProvider)">
+            <summary>
+            Initializes a new instance of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider"/>.
+            </summary>
+            <param name="instrumentationProvider">The instrumentation prover to use.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider.Authorize(System.Security.Principal.IPrincipal,System.String)">
+            <summary>
+            When implemented in a derived class, Evaluates the specified authority against the specified context.
+            </summary>
+            <param name="principal">Must be an <see cref="T:System.Security.Principal.IPrincipal"/> object.</param>
+            <param name="context">Must be a string that is the name of the rule to evaluate.</param>
+            <returns><c>true</c> if the authority is authorized, otherwise <c>false</c>.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider.InstrumentationProvider">
+            <summary>
+            Gets the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.IAuthorizationProviderInstrumentationProvider"/> instance that defines the logical events used to instrument this Authorization Provider instance.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider.#ctor(System.Collections.Generic.IDictionary{System.String,Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationRule})">
+            <summary>
+            Initialize an instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/> class.
+            </summary>
+            <param name="authorizationRules">The collection of rules.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider.#ctor(System.Collections.Generic.IDictionary{System.String,Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationRule},Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.IAuthorizationProviderInstrumentationProvider)">
+            <summary>
+            Initialize an instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/> class.
+            </summary>
+            <param name="authorizationRules">The collection of rules.</param>
+            <param name="instrumentationProvider">The instrumentation prover to use.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider.Authorize(System.Security.Principal.IPrincipal,System.String)">
+            <summary>
+            Evaluates the specified authority against the specified context.
+            </summary>
+            <param name="principal">Must be an <see cref="T:System.Security.Principal.IPrincipal"/> object.</param>
+            <param name="ruleName">The name of the rule to evaluate.</param>
+            <returns><c>true</c> if the expression evaluates to true,
+            otherwise <c>false</c>.</returns>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationCallHandlerData">
+            <summary>
+            Call handler data describing the information for the authorization call handler
+            in configuration.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationCallHandlerData.#ctor">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationCallHandlerData"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationCallHandlerData.#ctor(System.String)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationCallHandlerData"/>.
+            </summary>
+            <param name="handlerName">Name of the call handler.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationCallHandlerData.#ctor(System.String,System.Int32)">
+            <summary>
+            Create a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationCallHandlerData"/>.
+            </summary>
+            <param name="handlerName">Name of the call handler.</param>
+            <param name="handlerOrder">Order of the call handler.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationCallHandlerData.GetRegistrations(System.String)">
+            <summary>
+            Get the set of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ContainerModel.TypeRegistration"/> objects needed to
+            register the call handler represented by this config element and its associated objects.
+            </summary>
+            <param name="nameSuffix">A suffix for the names in the generated type registration objects.</param>
+            <returns>The set of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ContainerModel.TypeRegistration"/> objects.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationCallHandlerData.AuthorizationProvider">
+            <summary>
+            Authorization provider to use for this call handler.
+            </summary>
+            <value>The "authorizationProvider" attribute.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationCallHandlerData.OperationName">
+            <summary>
+            Operation name to use for this call handler.
+            </summary>
+            <value>The "operationName" attribute.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData">
+            <summary>
+            Configuration object for Custom Providers.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData">
+            <summary>
+            Represents the common configuration data for all authorization providers.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData.#ctor(System.String,System.Type)">
+            <summary>
+            Initialize an instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData"/> class.
+            </summary>
+            <param name="name">The name of the element.</param>
+            <param name="type">The <see cref="T:System.Type"/> that this element is the configuration for.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData.GetRegistrations(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData.GetInstrumentationProviderRegistration(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            
+            </summary>
+            <param name="configurationSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData.GetCreationExpression">
+            <summary>
+            Gets the creation expression used to produce a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ContainerModel.TypeRegistration"/> during
+            <see cref="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData.GetRegistrations(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)"/>.
+            </summary>
+            <remarks>
+            This must be overridden by a subclass, but is not marked as abstract due to configuration serialization needs.
+            </remarks>
+            <returns>An Expression that creates a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/></returns>
+            <exception cref="T:System.NotImplementedException"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.#ctor">
+            <summary>
+            Initializes with default values.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.#ctor(System.String,System.Type)">
+            <summary>
+            Initializes with name and provider type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.#ctor(System.String,System.String)">
+            <summary>
+            Initializes with name and provider type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.SetAttributeValue(System.String,System.String)">
+            <summary>
+            Sets the attribute value for a key.
+            </summary>
+            <param name="key">The attribute name.</param>
+            <param name="value">The attribute value.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.Unmerge(System.Configuration.ConfigurationElement,System.Configuration.ConfigurationElement,System.Configuration.ConfigurationSaveMode)">
+            <summary>
+            Modifies the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/> object to remove all values that should not be saved. 
+            </summary>
+            <param name="sourceElement">A <see cref="T:System.Configuration.ConfigurationElement"/> object at the current level containing a merged view of the properties.</param>
+            <param name="parentElement">A parent <see cref="T:System.Configuration.ConfigurationElement"/> object or <see langword="null"/> if this is the top level.</param>		
+            <param name="saveMode">One of the <see cref="T:System.Configuration.ConfigurationSaveMode"/> values.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.Reset(System.Configuration.ConfigurationElement)">
+            <summary>
+            Resets the internal state of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/> object, 
+            including the locks and the properties collection.
+            </summary>
+            <param name="parentElement">The parent element.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.IsModified">
+            <summary>
+            Indicates whether this configuration element has been modified since it was last 
+            saved or loaded when implemented in a derived class.
+            </summary>
+            <returns><see langword="true"/> if the element has been modified; otherwise, <see langword="false"/>. </returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.OnDeserializeUnrecognizedAttribute(System.String,System.String)">
+            <summary>
+            Called when an unknown attribute is encountered while deserializing the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/> object.
+            </summary>
+            <param name="name">The name of the unrecognized attribute.</param>
+            <param name="value">The value of the unrecognized attribute.</param>
+            <returns><see langword="true"/> if the processing of the element should continue; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomAuthorizationProviderData}#BaseGetPropertyValue(System.Configuration.ConfigurationProperty)">
+            <summary>Invokes the inherited behavior.</summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomAuthorizationProviderData}#BaseSetPropertyValue(System.Configuration.ConfigurationProperty,System.Object)">
+            <summary>Invokes the inherited behavior.</summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomAuthorizationProviderData}#BaseUnmerge(System.Configuration.ConfigurationElement,System.Configuration.ConfigurationElement,System.Configuration.ConfigurationSaveMode)">
+            <summary>Invokes the inherited behavior.</summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomAuthorizationProviderData}#BaseReset(System.Configuration.ConfigurationElement)">
+            <summary>Invokes the inherited behavior.</summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomAuthorizationProviderData}#BaseIsModified">
+            <summary>Invokes the inherited behavior.</summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.GetRegistrations(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.TypeName">
+            <summary>
+            Overridden in order to apply <see cref="T:System.ComponentModel.BrowsableAttribute"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.Attributes">
+            <summary>
+            Gets or sets custom configuration attributes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.Properties">
+            <summary>
+            Gets a <see cref="T:System.Configuration.ConfigurationPropertyCollection"/> of the properties that are defined for 
+            this configuration element when implemented in a derived class. 
+            </summary>
+            <value>
+            A <see cref="T:System.Configuration.ConfigurationPropertyCollection"/> of the properties that are defined for this
+            configuration element when implemented in a derived class. 
+            </value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomAuthorizationProviderData}#Helper">
+            <summary>
+            Gets the helper.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData">
+            <summary>
+            Configuration object for Custom Providers.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData">
+            <summary>
+            Configuration data for the Security Cache.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData.#ctor">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData.#ctor(System.String,System.Type)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData"/> class.
+            </summary>
+            <param name="name">The name of the element.</param>
+            <param name="type">The <see cref="T:System.Type"/> that this element is the configuration for.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData.GetInstrumentationProviderRegistration(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            
+            </summary>
+            <param name="configurationSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData.GetRegistrations(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData.GetCreationExpression">
+            <summary>
+            Gets the creation expression used to produce a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ContainerModel.TypeRegistration"/> during
+            <see cref="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData.GetRegistrations(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)"/>.
+            </summary>
+            <remarks>
+            This must be overridden by a subclass, but is not marked as abstract due to configuration serialization needs.
+            </remarks>
+            <returns>An Expression that creates a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/></returns>
+            <exception cref="T:System.NotImplementedException"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.#ctor">
+            <summary>
+            Initializes with default values.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.#ctor(System.String,System.Type)">
+            <summary>
+            Initializes with name and provider type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.#ctor(System.String,System.String)">
+            <summary>
+            Initializes with name and provider type.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.SetAttributeValue(System.String,System.String)">
+            <summary>
+            Sets the attribute value for a key.
+            </summary>
+            <param name="key">The attribute name.</param>
+            <param name="value">The attribute value.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.Unmerge(System.Configuration.ConfigurationElement,System.Configuration.ConfigurationElement,System.Configuration.ConfigurationSaveMode)">
+            <summary>
+            Modifies the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/> object to remove all values that should not be saved. 
+            </summary>
+            <param name="sourceElement">A <see cref="T:System.Configuration.ConfigurationElement"/> object at the current level containing a merged view of the properties.</param>
+            <param name="parentElement">A parent <see cref="T:System.Configuration.ConfigurationElement"/> object or <see langword="null"/> if this is the top level.</param>		
+            <param name="saveMode">One of the <see cref="T:System.Configuration.ConfigurationSaveMode"/> values.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.Reset(System.Configuration.ConfigurationElement)">
+            <summary>
+            Resets the internal state of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/> object, 
+            including the locks and the properties collection.
+            </summary>
+            <param name="parentElement">The parent element.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.IsModified">
+            <summary>
+            Indicates whether this configuration element has been modified since it was last 
+            saved or loaded when implemented in a derived class.
+            </summary>
+            <returns><see langword="true"/> if the element has been modified; otherwise, <see langword="false"/>. </returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.OnDeserializeUnrecognizedAttribute(System.String,System.String)">
+            <summary>
+            Called when an unknown attribute is encountered while deserializing the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/> object.
+            </summary>
+            <param name="name">The name of the unrecognized attribute.</param>
+            <param name="value">The value of the unrecognized attribute.</param>
+            <returns><see langword="true"/> if the processing of the element should continue; otherwise, <see langword="false"/>.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomSecurityCacheProviderData}#BaseGetPropertyValue(System.Configuration.ConfigurationProperty)">
+            <summary>Invokes the inherited behavior.</summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomSecurityCacheProviderData}#BaseSetPropertyValue(System.Configuration.ConfigurationProperty,System.Object)">
+            <summary>Invokes the inherited behavior.</summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomSecurityCacheProviderData}#BaseUnmerge(System.Configuration.ConfigurationElement,System.Configuration.ConfigurationElement,System.Configuration.ConfigurationSaveMode)">
+            <summary>Invokes the inherited behavior.</summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomSecurityCacheProviderData}#BaseReset(System.Configuration.ConfigurationElement)">
+            <summary>Invokes the inherited behavior.</summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomSecurityCacheProviderData}#BaseIsModified">
+            <summary>Invokes the inherited behavior.</summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.GetRegistrations(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.TypeName">
+            <summary>
+            Overridden in order to apply <see cref="T:System.ComponentModel.BrowsableAttribute"/>.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.Attributes">
+            <summary>
+            Gets or sets custom configuration attributes.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.Properties">
+            <summary>
+            Gets a <see cref="T:System.Configuration.ConfigurationPropertyCollection"/> of the properties that are defined for 
+            this configuration element when implemented in a derived class. 
+            </summary>
+            <value>
+            A <see cref="T:System.Configuration.ConfigurationPropertyCollection"/> of the properties that are defined for this
+            configuration element when implemented in a derived class. 
+            </value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData.Microsoft#Practices#EnterpriseLibrary#Common#Configuration#IHelperAssistedCustomConfigurationData{Microsoft#Practices#EnterpriseLibrary#Security#Configuration#CustomSecurityCacheProviderData}#Helper">
+            <summary>
+            Gets the helper.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AddSecuritySettings">
+            <summary>
+              Looks up a localized string similar to Add Security Settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataAuthorizationProviderDescription">
+             <summary>
+               Looks up a localized string similar to The name of the authorization provider instance to use. 
+            This must map to a configured Authorization Provider instance in the Security Application Block..
+             </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataAuthorizationProviderDisplayName">
+            <summary>
+              Looks up a localized string similar to Authorization Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataDescription">
+             <summary>
+               Looks up a localized string similar to A Call Handler that checks if the current user (the security principal for the current thread) has the 
+            requisite permission to access the selected object method or property. 
+            This handler uses the Security Application Block to check permissions..
+             </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataDisplayName">
+            <summary>
+              Looks up a localized string similar to Authorization Call Handler.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Authorization Call Handler..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataOperationNameDescription">
+             <summary>
+               Looks up a localized string similar to The name of the authorization operation, which may include the tokens {method}, {type}, 
+            {namespace}, {assembly}, and {appdomain}..
+             </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataOperationNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Operation Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataOrderDescription">
+             <summary>
+               Looks up a localized string similar to The position of the handler within the policy handler chain, starting from 1. 
+            The default value is zero, which means that there is no explicit order specified for the handler 
+            in relation to other handlers in the same handler chain..
+             </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataOrderDisplayName">
+            <summary>
+              Looks up a localized string similar to Order.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataTypeNameDescription">
+            <summary>
+              Looks up a localized string similar to The fully qualified type name of the Authorization Call Handler..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationCallHandlerDataTypeNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationProviderDataDescription">
+            <summary>
+              Looks up a localized string similar to A base class for all authorization providers..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationProviderDataDisplayName">
+            <summary>
+              Looks up a localized string similar to Authorization Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationProviderDataNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Authorization Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationProviderDataNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationProviderDataTypeNameDescription">
+            <summary>
+              Looks up a localized string similar to The fully qualified type name of the Authorization Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationProviderDataTypeNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleDataDescription">
+            <summary>
+              Looks up a localized string similar to A rule that can be evaluated to determine authorization for an operation..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleDataDisplayName">
+            <summary>
+              Looks up a localized string similar to Authorization Rule.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleDataExpressionDescription">
+            <summary>
+              Looks up a localized string similar to The authorization rule. This is a string that is a Boolean predicate expression (evaluating it can return True or False)..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleDataExpressionDisplayName">
+            <summary>
+              Looks up a localized string similar to Rule Expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleDataNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Authorization Rule..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleDataNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleProviderDataDescription">
+            <summary>
+              Looks up a localized string similar to A class that can evaluate rules to determine authorization for a process to execute an operation..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleProviderDataDisplayName">
+            <summary>
+              Looks up a localized string similar to Authorization Rule Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleProviderDataNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Authorization Rule Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleProviderDataNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleProviderDataRulesDescription">
+            <summary>
+              Looks up a localized string similar to The list of authorization rules associated with this provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleProviderDataRulesDisplayName">
+            <summary>
+              Looks up a localized string similar to Rules.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleProviderDataTypeNameDescription">
+            <summary>
+              Looks up a localized string similar to The fully qualified type name of the Authorization Rule Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.AuthorizationRuleProviderDataTypeNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomAuthorizationProviderDataAddCommand">
+            <summary>
+              Looks up a localized string similar to Custom Authorization Provider (using type picker).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomAuthorizationProviderDataDescription">
+            <summary>
+              Looks up a localized string similar to A custom implementation of an Authorization Provider, added to Enterprise Library..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomAuthorizationProviderDataDisplayName">
+            <summary>
+              Looks up a localized string similar to Custom Authorization Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomAuthorizationProviderDataNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Custom Authorization Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomAuthorizationProviderDataNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomAuthorizationProviderDataTypeNameDescription">
+            <summary>
+              Looks up a localized string similar to The fully qualified type name of the Custom Authorization Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomAuthorizationProviderDataTypeNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomSecurityCacheProviderDataAddCommand">
+            <summary>
+              Looks up a localized string similar to Custom Security Cache Provider (using type picker).
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomSecurityCacheProviderDataDescription">
+            <summary>
+              Looks up a localized string similar to A custom implementation of a Security Cache Provider, added to Enterprise Library..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomSecurityCacheProviderDataDisplayName">
+            <summary>
+              Looks up a localized string similar to Custom Security Cache Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomSecurityCacheProviderDataNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Custom Security Cache Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomSecurityCacheProviderDataNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomSecurityCacheProviderDataTypeNameDescription">
+            <summary>
+              Looks up a localized string similar to The fully qualified type name of the Custom Security Cache Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.CustomSecurityCacheProviderDataTypeNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecurityCacheProviderDataDescription">
+            <summary>
+              Looks up a localized string similar to Base class for all Security Cache Providers..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecurityCacheProviderDataDisplayName">
+            <summary>
+              Looks up a localized string similar to Security Cache Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecurityCacheProviderDataNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Security Cache Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecurityCacheProviderDataNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecurityCacheProviderDataTypeNameDescription">
+            <summary>
+              Looks up a localized string similar to The fully qualified type name of the Security Cache Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecurityCacheProviderDataTypeNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Type.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecuritySettingsAuthorizationProvidersDescription">
+            <summary>
+              Looks up a localized string similar to The list of Authorization Providers configured for the block..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecuritySettingsAuthorizationProvidersDisplayName">
+            <summary>
+              Looks up a localized string similar to Authorization Providers.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecuritySettingsDefaultAuthorizationProviderNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Authorization Provider to use if code does not specify a name..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecuritySettingsDefaultAuthorizationProviderNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Default Authorization Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecuritySettingsDefaultSecurityCacheProviderNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Security Cache to use if code does not specify a name..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecuritySettingsDefaultSecurityCacheProviderNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Default Security Cache Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecuritySettingsDescription">
+            <summary>
+              Looks up a localized string similar to Configuration settings for the Security Application Block.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecuritySettingsDisplayName">
+            <summary>
+              Looks up a localized string similar to Security Settings.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecuritySettingsSecurityCacheProvidersDescription">
+            <summary>
+              Looks up a localized string similar to The list of Security Cache Providers configured for the block..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.DesignResources.SecuritySettingsSecurityCacheProvidersDisplayName">
+            <summary>
+              Looks up a localized string similar to Security Caches.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.AuthorizeUsingRuleProviderExtension">
+            <summary>
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings"/> extensions to support configuring <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/> instances.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.AuthorizeUsingRuleProviderExtension.AuthorizeUsingRuleProviderNamed(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings,System.String)">
+            <summary>
+            Adds a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/> to the security configuration.
+            </summary>
+            <param name="context">Fluent interface extension point.</param>
+            <param name="ruleBasedProviderName">The name of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/> instance.</param>
+            <returns>Fluent interface that can be used to further configure the created <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData"/>. </returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData"/>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.ConfigureSecuritySettingsExtension">
+            <summary>
+            Base class for fluent interface builders that extend the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings"/> interface.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettingsExtension">
+            <summary>
+            Allows access to the underlying configuration classes that are used for the <see cref="P:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettingsExtension.SecuritySettings"/> instance being configured.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettingsExtension.SecuritySettings">
+            <summary>
+            Returns the <see cref="P:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettingsExtension.SecuritySettings"/> instance that is currently being build up.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.ConfigureSecuritySettingsExtension.#ctor(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings)">
+            <summary>
+            Creates an instance of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.ConfigureSecuritySettingsExtension"/> passing the security configuration's fluent interface builder.
+            </summary>
+            <param name="context">The current security configuration's fluent interface builder.<br/>
+            This interface must implement <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettingsExtension"/>.</param>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.ConfigureSecuritySettingsExtension.SecuritySettings">
+            <summary>
+            Returns the current security configuration's <see cref="P:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.ConfigureSecuritySettingsExtension.SecuritySettings"/> instance.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IAuthorizeUsingRuleProvider">
+            <summary>
+            Fluent interface used to configure a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/> instance.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData"/>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings">
+            <summary>
+            Root fluent interface for building up security configuration.<br/>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IAuthorizeUsingRuleProvider.SetAsDefault">
+            <summary>
+            Specifies this <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/> instance as the default <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/>.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IAuthorizeUsingRuleProvider.SpecifyRule(System.String,System.String)">
+            <summary>
+            Adds a named rule to the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/>'s configuration.
+            </summary>
+            <param name="ruleName">The name of the rule.</param>
+            <param name="ruleExpression">The expression that makes up the authorization rule.</param>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData"/>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.AuthorizeUsingCustomProviderExtension">
+            <summary>
+            Fluent interface used to configure a custom <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/> instance.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.AuthorizeUsingCustomProviderExtension.AuthorizeUsingCustomProviderNamed``1(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings,System.String)">
+            <summary>
+            Adds a custom <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/> instance of type <typeparamref name="TCustomAuthorizationProvider"/> to the security configuration.
+            </summary>
+            <typeparam name="TCustomAuthorizationProvider">The concrete type of the custom authorization provider.</typeparam>
+            <param name="context">Fluent interface extension point.</param>
+            <param name="customAuthorizationProviderName">The name of the authorization provider that should be added to configuration.</param>
+            <returns>Fluent interface that can be used to further configure the created <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>. </returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.AuthorizeUsingCustomProviderExtension.AuthorizeUsingCustomProviderNamed(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings,System.String,System.Type)">
+            <summary>
+            Adds a custom <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/> instance of type <paramref name="customAuthorizationProviderType"/> to the security configuration.
+            </summary>
+            <param name="context">Fluent interface extension point.</param>
+            <param name="customAuthorizationProviderName">The name of the authorization provider that should be added to configuration.</param>
+            <param name="customAuthorizationProviderType">The concrete type of the custom authorization provider.</param>
+            <returns>Fluent interface that can be used to further configure the created <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>. </returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.AuthorizeUsingCustomProviderExtension.AuthorizeUsingCustomProviderNamed``1(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings,System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Adds a custom <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/> instance of type <typeparamref name="TCustomAuthorizationProvider"/> to the security configuration.
+            </summary>
+            <typeparam name="TCustomAuthorizationProvider">The concrete type of the custom authorization provider.</typeparam>
+            <param name="context">Fluent interface extension point.</param>
+            <param name="customAuthorizationProviderName">The name of the authorization provider that should be added to configuration.</param>
+            <param name="attributes">Attributes that should be passed to <typeparamref name="TCustomAuthorizationProvider"/> when creating an instance.</param>
+            <returns>Fluent interface that can be used to further configure the created <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>. </returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.AuthorizeUsingCustomProviderExtension.AuthorizeUsingCustomProviderNamed(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings,System.String,System.Type,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Adds a custom <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/> instance of type <paramref name="customAuthorizationProviderType"/> to the security configuration.
+            </summary>
+            <param name="context">Fluent interface extension point.</param>
+            <param name="customAuthorizationProviderName">The name of the authorization provider that should be added to configuration.</param>
+            <param name="customAuthorizationProviderType">The concrete type of the custom authorization provider.</param>
+            <param name="attributes">Attributes that should be passed to <paramref name="customAuthorizationProviderType"/> when creating an instance.</param>
+            <returns>Fluent interface that can be used to further configure the created <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>. </returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IAuthorizeUsingCustomProvider">
+            <summary>
+            Fluent interface used to configure a custom authorization provider.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IAuthorizeUsingCustomProvider.SetAsDefault">
+            <summary>
+            Specifies the current custom authorization provider as the default authorization provider instance.
+            </summary>
+            <returns>Fluent interface that can be used to further configure security settings.</returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.CacheSecurityInCustomStoreExtension">
+            <summary>
+            Fluent interface used to configure a custom <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/> instance.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.CacheSecurityInCustomStoreExtension.CacheSecurityInCustomStoreNamed``1(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings,System.String)">
+            <summary>
+            Adds a custom <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/> instance of type <typeparamref name="TCustomSecurityCacheProvider"/> to the security configuration.
+            </summary>
+            <typeparam name="TCustomSecurityCacheProvider">The concrete type of the custom security cache provider.</typeparam>
+            <param name="context">Fluent interface extension point.</param>
+            <param name="customCacheProviderName">The name of the security cache provider that should be added to configuration.</param>
+            <returns>Fluent interface that can be used to further configure the created <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>. </returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.CacheSecurityInCustomStoreExtension.CacheSecurityInCustomStoreNamed(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings,System.String,System.Type)">
+            <summary>
+            Adds a custom <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/> instance of type <paramref name="customCacheProviderType"/> to the security configuration.
+            </summary>
+            <param name="context">Fluent interface extension point.</param>
+            <param name="customCacheProviderName">The name of the security cache provider that should be added to configuration.</param>
+            <param name="customCacheProviderType">The concrete type of the custom security cache provider.</param>
+            <returns>Fluent interface that can be used to further configure the created <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>. </returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.CacheSecurityInCustomStoreExtension.CacheSecurityInCustomStoreNamed``1(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings,System.String,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Adds a custom <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/> instance of type <typeparamref name="TCustomSecurityCacheProvider"/> to the security configuration.
+            </summary>
+            <typeparam name="TCustomSecurityCacheProvider">The concrete type of the custom security cache provider.</typeparam>
+            <param name="context">Fluent interface extension point.</param>
+            <param name="customCacheProviderName">The name of the security cache provider that should be added to configuration.</param>
+            <param name="attributes">Attributes that should be passed to <typeparamref name="TCustomSecurityCacheProvider"/> when creating an instance.</param>
+            <returns>Fluent interface that can be used to further configure the created <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>. </returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.CacheSecurityInCustomStoreExtension.CacheSecurityInCustomStoreNamed(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IConfigureSecuritySettings,System.String,System.Type,System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Adds a custom <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/> instance of type <paramref name="customCacheProviderType"/> to the security configuration.
+            </summary>
+            <param name="context">Fluent interface extension point.</param>
+            <param name="customCacheProviderName">The name of the security cache provider that should be added to configuration.</param>
+            <param name="customCacheProviderType">The concrete type of the custom security cache provider.</param>
+            <param name="attributes">Attributes that should be passed to <paramref name="customCacheProviderType"/> when creating an instance.</param>
+            <returns>Fluent interface that can be used to further configure the created <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>. </returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.ICacheSecurityInCustomStore">
+            <summary>
+            Fluent interface used to configure a custom security cache provider.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.ICacheSecurityInCustomStore.SetAsDefault">
+            <summary>
+            Specifies the current custom security cache provider as the default security cache provider instance.
+            </summary>
+            <returns>Fluent interface that can be used to further configure security settings.</returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomSecurityCacheProviderData"/>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.SecuritySettingsExtension">
+            <summary>
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSourceBuilder"/> extensions to support creation of security configuration settings.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.SecuritySettingsExtension.ConfigureSecurity(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSourceBuilder)">
+            <summary>
+            Main entry point to create a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings"/> section.
+            </summary>
+            <param name="configurationSourceBuilder">The builder interface to extend.</param>
+            <returns>A fluent interface to further configure the security configuration section.</returns>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.AuthorizationRuleProviderDataManageabilityProvider">
+            <summary>
+            Represents a manageability provider for authorization rules.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.AuthorizationRuleProviderDataManageabilityProvider.RulesPropertyName">
+            <summary>
+            The name of the rules property.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.AuthorizationRuleProviderDataManageabilityProvider.#ctor">
+            <summary>
+            Initialize a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.AuthorizationRuleProviderDataManageabilityProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.AuthorizationRuleProviderDataManageabilityProvider.AddElementAdministrativeTemplateParts(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)">
+            <summary>
+            Adds the ADM parts that represent the properties of
+            a specific instance of the configuration element type managed by the receiver.
+            </summary>
+            <param name="contentBuilder">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder"/> to which the Adm instructions are to be appended.</param>
+            <param name="configurationObject">The configuration object instance.</param>
+            <param name="configurationSource">The configuration source from where to get additional configuration
+            information, if necessary.</param>
+            <param name="elementPolicyKeyName">The key for the element's policies.</param>
+            <remarks>
+            Subclasses managing objects that must not create a policy will likely need to include the elements' keys when creating the parts.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.AuthorizationRuleProviderDataManageabilityProvider.OverrideWithGroupPolicies(Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey)">
+            <summary>
+            Overrides the <paramref name="configurationObject"/>'s properties with the Group Policy values from the 
+            registry.
+            </summary>
+            <param name="configurationObject">The configuration object for instances that must be managed.</param>
+            <param name="policyKey">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey"/> which holds the Group Policy overrides for the 
+            configuration element.</param>
+            <remarks>Subclasses implementing this method must retrieve all the override values from the registry
+            before making modifications to the <paramref name="configurationObject"/> so any error retrieving
+            the override values will cancel policy processing.</remarks>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.AuthorizationRuleProviderDataManageabilityProvider.ElementPolicyNameTemplate">
+            <summary>
+            Gets the template for the name of the policy associated to the object.
+            </summary>
+            <remarks>
+            Elements that override 
+            <see cref="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProviderBase`1.AddAdministrativeTemplateDirectives(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,`0,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)"/>
+            to avoid creating a policy must still override this property.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.CustomAuthorizationProviderDataManageabilityProvider">
+            <summary>
+            Provides an implementation for <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.CustomAuthorizationProviderData"/> that
+            processes policy overrides, performing appropriate logging of 
+            policy processing errors.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.CustomAuthorizationProviderDataManageabilityProvider.#ctor">
+            <summary>
+            Initialize a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.CustomAuthorizationProviderDataManageabilityProvider"/> class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.CustomSecurityCacheProviderDataManageabilityProvider">
+            <summary>
+            Represents a manageability provider for custom security cache provider.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.CustomSecurityCacheProviderDataManageabilityProvider.#ctor">
+            <summary>
+            Initialize a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.CustomSecurityCacheProviderDataManageabilityProvider"/> class.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.AuthorizationProviderPolicyNameTemplate">
+            <summary>
+              Looks up a localized string similar to Specify settings for authorization provider &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.AuthorizationProvidersCategoryName">
+            <summary>
+              Looks up a localized string similar to Authorization providers.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.AuthorizationRuleProviderRulesPartName">
+            <summary>
+              Looks up a localized string similar to Rules.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.SecurityCacheProviderPolicyNameTemplate">
+            <summary>
+              Looks up a localized string similar to Specify settings for security cache provider &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.SecurityCacheProvidersCategoryName">
+            <summary>
+              Looks up a localized string similar to Security cache providers.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.SecuritySectionCategoryName">
+            <summary>
+              Looks up a localized string similar to Security.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.SecuritySettingsDefaultAuthorizationProviderPartName">
+            <summary>
+              Looks up a localized string similar to Default authorization provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.SecuritySettingsDefaultSecurityCacheProviderPartName">
+            <summary>
+              Looks up a localized string similar to Default security cache provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.Properties.Resources.SecuritySettingsPolicyName">
+            <summary>
+              Looks up a localized string similar to Specify Security Application Block Settings.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider">
+            <summary>
+            <para>This type supports the Enterprise Library Manageability Extensions infrastructure and is not intended to 
+            be used directly from your code.</para>
+            Represents the behavior required to provide Group Policy updates for the Security Application Block, and it also manages
+            the creation of the ADM template categories and policies required to edit Group Policy Objects for the block.
+            </summary>
+            <remarks>
+            This class performs the actual Group Policy update for the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings"/>
+            configuration section. Processing for <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData"/> and <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData"/> 
+            instances is delegated to <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProvider"/> objects registered to the 
+            configuration object data types.
+            </remarks>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationSectionManageabilityProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProvider"/>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider.DefaultAuthorizationProviderPropertyName">
+            <summary>
+            The name of the default authorization provider property.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider.DefaultSecurityCacheProviderPropertyName">
+            <summary>
+            The name of the default security cache provider property.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider.AuthorizationProvidersKeyName">
+            <summary>
+            The name of the authorization provider key property.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider.SecurityCacheProvidersKeyName">
+            <summary>
+            The name of the security cache provider key provider.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider.#ctor(System.Collections.Generic.IDictionary{System.Type,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProvider})">
+            <summary>
+            <para>This method supports the Enterprise Library Manageability Extensions infrastructure and is not intended to 
+            be used directly from your code.
+            </para>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider"/> class with a 
+            given set of manageability providers to use when dealing with the configuration authorization and security cache providers.
+            </summary>
+            <param name="subProviders">The mapping from configuration element type to
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProvider"/>.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider.AddAdministrativeTemplateDirectives(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)">
+            <summary>
+            <para>This method supports the Enterprise Library Manageability Extensions infrastructure and is not intended to 
+            be used directly from your code.</para>
+            Adds the ADM instructions that describe the policies that can be used to override the configuration
+            information for the Security Application Block.
+            </summary>
+            <seealso cref="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationSectionManageabilityProvider.AddAdministrativeTemplateDirectives(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,System.Configuration.ConfigurationSection,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider.OverrideWithGroupPoliciesForConfigurationSection(Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey)">
+            <summary>
+            Overrides the <paramref name="configurationSection"/>'s properties with the Group Policy values from 
+            the registry.
+            </summary>
+            <param name="configurationSection">The configuration section that must be managed.</param>
+            <param name="policyKey">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey"/> which holds the Group Policy overrides.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider.OverrideWithGroupPoliciesForConfigurationElements(Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings,System.Boolean,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey)">
+            <summary>
+            Overrides the <paramref name="configurationSection"/>'s configuration elements' properties 
+            with the Group Policy values from the registry, if any.
+            </summary>
+            <param name="configurationSection">The configuration section that must be managed.</param>
+            <param name="readGroupPolicies"><see langword="true"/> if Group Policy overrides must be applied; otherwise, 
+            <see langword="false"/>.</param>
+            <param name="machineKey">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey"/> which holds the Group Policy overrides for the 
+            configuration section at the machine level, or <see langword="null"/> 
+            if there is no such registry key.</param>
+            <param name="userKey">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey"/> which holds the Group Policy overrides for the 
+            configuration section at the user level, or <see langword="null"/> 
+            if there is no such registry key.</param>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider.SectionCategoryName">
+            <summary>
+            Gets the name of the category that represents the whole configuration section.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Manageability.SecuritySettingsManageabilityProvider.SectionName">
+            <summary>
+            Gets the name of the managed configuration section.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.Unity.SecurityBlockExtension">
+            <summary>
+            Container extension to the policies required to create the Security Application Block's
+            objects described in the configuration file.
+            </summary>
+            <remarks>This function is now done by the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Unity.EnterpriseLibraryCoreExtension"/>.
+            This extension is no longer needed and does nothing.</remarks>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.IAuthorizationProviderInstrumentationProvider">
+            <summary>
+            Defines the logical events that can be instrumented for <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider"/> instances.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.IAuthorizationProviderInstrumentationProvider.FireAuthorizationCheckFailed(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identity">The name of the identify which authorization has been checked for.</param>
+            <param name="ruleName">The name of the authorization rule that has been evaluated.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.IAuthorizationProviderInstrumentationProvider.FireAuthorizationCheckPerformed(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="identity">The name of the identify which authorization has been checked for.</param>
+            <param name="ruleName">The name of the authorization rule that has been evaluated.</param>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.ISecurityCacheProviderInstrumentationProvider">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.ISecurityCacheProviderInstrumentationProvider.FireSecurityCacheReadPerformed(Microsoft.Practices.EnterpriseLibrary.Security.SecurityEntityType,Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            
+            </summary>
+            <param name="itemType"></param>
+            <param name="token"></param>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.NullAuthorizationProviderInstrumentationProvider">
+            <summary />
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.NullAuthorizationProviderInstrumentationProvider.FireAuthorizationCheckFailed(System.String,System.String)">
+            <summary />
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.NullAuthorizationProviderInstrumentationProvider.FireAuthorizationCheckPerformed(System.String,System.String)">
+            <summary />
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.NullSecurityCacheProviderInstrumentationProvider">
+            <summary />
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.NullSecurityCacheProviderInstrumentationProvider.FireSecurityCacheReadPerformed(Microsoft.Practices.EnterpriseLibrary.Security.SecurityEntityType,Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary />
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.DefaultSecurityEventLogger">
+            <summary>
+            The instrumentation gateway for the Security Application Block when no instances of the objects are involved.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.DefaultSecurityEventLogger.EventLogSourceName">
+            <summary>
+            Made public for testing purposes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.DefaultSecurityEventLogger.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.DefaultSecurityEventLogger"/> class, specifying whether 
+            logging to the event log is allowed.
+            </summary>
+            <param name="eventLoggingEnabled"><code>true</code> if writing to the event log is allowed, <code>false</code> otherwise.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.DefaultSecurityEventLogger.LogConfigurationError(System.String,System.String,System.Exception)">
+            <summary>
+            Logs the occurrence of a configuration error for the Enterprise Library Security Application Block through the 
+            available instrumentation mechanisms.
+            </summary>
+            <param name="instanceName">The name of the instance this errors applies to.</param>
+            <param name="messageTemplate">The format of the message that describes the error, with as parameter ({0}) the <paramref name="instanceName"/>.</param>
+            <param name="exception">The exception raised for the configuration error.</param>
+            <exception cref="T:System.FormatException"><paramref name="messageTemplate"/> could not be formatted by <see cref="M:System.String.Format(System.IFormatProvider,System.String,System.Object[])"/> given the parameter <paramref name="instanceName"/>.</exception>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider">
+            <summary>
+            Defines the logical events that can be instrumented for <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider"/> instances.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider.SecurityCacheReadPerformedCounterName">
+            <summary>
+            Made public for testing purposes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider.TotalSecurityCacheReadPerformedCounterName">
+            <summary>
+            Made public for testing purposes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider.PerfomanceCountersCategoryName">
+            <summary>
+            Made public for testing purposes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider.#ctor(System.String,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider"/> class.
+            </summary>
+            <param name="instanceName">The name of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider"/> instance the events apply on.</param>
+            <param name="performanceCountersEnabled"><code>true</code> if performance counters should be updated.</param>
+            <param name="eventLoggingEnabled"><code>true</code> if event log entries should be written.</param>
+            <param name="applicationInstanceName">The application instance name.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider.#ctor(System.String,System.Boolean,System.Boolean,Microsoft.Practices.EnterpriseLibrary.Common.Instrumentation.IPerformanceCounterNameFormatter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider"/> class.
+            </summary>
+            <param name="instanceName">The name of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider"/> instance the events apply on.</param>
+            <param name="performanceCountersEnabled"><code>true</code> if performance counters should be updated.</param>
+            <param name="eventLoggingEnabled"><code>true</code> if event log entries should be written.</param>
+            <param name="nameFormatter">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Instrumentation.IPerformanceCounterNameFormatter"/> that is used to creates unique name for each <see cref="T:System.Diagnostics.PerformanceCounter"/> instance.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider.FireSecurityCacheReadPerformed(Microsoft.Practices.EnterpriseLibrary.Security.SecurityEntityType,Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            </summary>
+            <param name="itemType">The type of item that is read from the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider"/>.</param>
+            <param name="token">The token that was is used to read an item from the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider"/>.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider.CreatePerformanceCounters(System.String[])">
+            <summary>
+            Creates the performance counters to instrument a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider"/>'s events.
+            </summary>
+            <param name="instanceNames">The instance names for the performance counters.</param>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationRule">
+            <summary>
+            Represents an authorization rule.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationRule.Name">
+            <summary>
+            Gets the name of the rule.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationRule.Expression">
+            <summary>
+            Gets the expression of the rule.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.IdentityExpression">
+            <summary>
+            Represents an expression that contains the 
+            name of an <see cref="T:System.Security.Principal.IIdentity"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.IdentityExpression.#ctor(Microsoft.Practices.EnterpriseLibrary.Security.WordExpression)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IdentityExpression"/> class with
+            the specified name.
+            </summary>
+            <param name="wordExpression">The name of an identity.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.IdentityExpression.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IdentityExpression"/> class with
+            the specified identity name.
+            </summary>
+            <param name="identityName">The identity
+            name that will be used to match the 
+            specified identity during evaluation.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.IdentityExpression.Evaluate(System.Security.Principal.IPrincipal)">
+            <summary>
+            Evaluates the specified principal against the
+            current expression. 
+            </summary>
+            <param name="principal">The 
+            <see cref="T:System.Security.Principal.IPrincipal"/>
+            against which the current expression will be evaluated.</param>
+            <returns><strong>True</strong> if the specified
+            principal's identity matches this expressions identity,
+            otherwise <strong>false</strong>.</returns>
+            <remarks>The expression evaluates
+            to true if the specified principal's identity has
+            the same name as the current <see cref="P:Microsoft.Practices.EnterpriseLibrary.Security.IdentityExpression.Word"/>
+            property. A case-insensitive string comparison
+            is performed.</remarks>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.IdentityExpression.Word">
+            <summary>
+            Gets or sets the name of the identity that the
+            specified principal will be evaluated against.
+            </summary>
+            <value>An identity name.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.LexicalAnalyzer">
+            <summary>
+            Represents a lexical analyzer for Boolean expressions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.LexicalAnalyzer.#ctor(System.String)">
+            <summary>
+            The expression to analyze.
+            </summary>
+            <param name="expression">A Boolean expression.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.LexicalAnalyzer.MoveNext">
+            <summary>
+            Gets the type of the next token.
+            </summary>
+            <returns>A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.TokenType"/> value.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.LexicalAnalyzer.Current">
+            <summary>
+            Gets the string value of the current token.
+            </summary>
+            <returns>The value of the current</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.LexicalAnalyzer.PreviousMatch">
+            <summary>
+            Gets the previous match of the regular expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.LexicalAnalyzer.CurrentMatch">
+            <summary>
+            Gets the current match of the regular expression.
+            </summary>
+            <value>A <see cref="T:System.Text.RegularExpressions.Match"/></value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.NotOperator">
+            <summary>
+            Represents the logical negation operator 
+            is a unary operator that negates its operand. 
+            It returns true if and only if its operand is false.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.NotOperator.#ctor(Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression)">
+            <summary>
+            Intializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.NotOperator"/> class.
+            </summary>
+            <param name="expression">The operand that this
+            operator will negate.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.NotOperator.Evaluate(System.Security.Principal.IPrincipal)">
+            <summary>
+            Evaluates the current expression against the specified 
+            <see cref="T:System.Security.Principal.IPrincipal"/>.
+            </summary>
+            <param name="principal">The <see cref="T:System.Security.Principal.IPrincipal"/>
+            that the current expression will be evaluated against.</param>
+            <returns>True or false.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.NotOperator.Expression">
+            <summary>
+            Gets or sets the expression that will be negated by the
+            current operator.
+            </summary>
+            <value>A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression"/> object.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.OrOperator">
+            <summary>
+            Represents an operator that performs a logical-OR of its
+            contained left and right expressions, but only evaluates
+            its second expression if the first expression evaluates to true.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.OrOperator.#ctor(Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression,Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.OrOperator"/> class with the
+            specified expressions.
+            </summary>
+            <param name="left">The first expression to evaluate.</param>
+            <param name="right">The second expression to evaluate.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.OrOperator.Evaluate(System.Security.Principal.IPrincipal)">
+            <summary>
+            Evaluates the current expression against the specified 
+            <see cref="T:System.Security.Principal.IPrincipal"/>.
+            </summary>
+            <param name="principal">The <see cref="T:System.Security.Principal.IPrincipal"/>
+            that the current expression will be evaluated against.</param>
+            <returns>True or false.</returns>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Parser">
+            <summary>
+            Represents a parser for identity role rule expressions.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Parser.Parse(System.String)">
+            <summary>
+            Parses the the specified expression into a
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression"/>.
+            </summary>
+            <param name="expression">An expression.</param>
+            <returns>A <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.BooleanExpression"/>
+            object that is the root of the parse tree.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Parser.MoveNext">
+            <devdoc>Get the next token from the lexer.</devdoc>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Parser.AssertTokenType(Microsoft.Practices.EnterpriseLibrary.Security.TokenType)">
+            <devdoc>Asserts that the current token is 
+            of the specified type.</devdoc>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.PolicyInjection.AuthorizationCallHandler">
+            <summary>
+            An <see cref="T:Microsoft.Practices.Unity.InterceptionExtension.ICallHandler"/> that checks the Security Application Block for authorization
+            before permitting the call to proceed to the target.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.PolicyInjection.AuthorizationCallHandler.#ctor(Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider,System.String,System.Int32)">
+            <summary>
+            Constructs a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.PolicyInjection.AuthorizationCallHandler"/> that checks using the given
+            information.
+            </summary>
+            <param name="provider">Authorization provider.</param>
+            <param name="operationName">Operation name to use to check authorization rules.</param>
+            <param name="order">Order in which the handler will be executed.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.PolicyInjection.AuthorizationCallHandler.Invoke(Microsoft.Practices.Unity.InterceptionExtension.IMethodInvocation,Microsoft.Practices.Unity.InterceptionExtension.GetNextHandlerDelegate)">
+            <summary>
+            Performs the operation of the handler.
+            </summary>
+            <param name="input">Input to the method call.</param>
+            <param name="getNext">Delegate used to get the next delegate in the call handler pipeline.</param>
+            <returns>Returns value from the target method, or an <see cref="T:System.UnauthorizedAccessException"/>
+            if the call fails the authorization check.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.PolicyInjection.AuthorizationCallHandler.AuthorizationProvider">
+            <summary>
+            Gets the authorization provider to use when performing authorizations.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.PolicyInjection.AuthorizationCallHandler.OperationName">
+            <summary>
+            Gets or sets the security operation name to check with.
+            </summary>
+            <remarks>The operation name can include tokens. See the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.MethodInvocationFormatter"/> for the list.
+            </remarks>
+            <value>operation name.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.PolicyInjection.AuthorizationCallHandler.Order">
+            <summary>
+            Gets or sets the order in which the handler will be executed
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.AuthorizationCallHandlerAttribute">
+            <summary>
+            Attribute that hooks up the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.PolicyInjection.AuthorizationCallHandler"/> to the
+            target.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.AuthorizationCallHandlerAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.AuthorizationCallHandlerAttribute"/> that uses the given
+            operation name.
+            </summary>
+            <remarks>The operation name may include replacement tokens. See <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.MethodInvocationFormatter"/>
+            for the list of tokens.</remarks>
+            <param name="operationName">Operation name to use for checking.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.AuthorizationCallHandlerAttribute.CreateHandler(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            Derived classes implement this method. When called, it
+            creates a new call handler as specified in the attribute
+            configuration.
+            </summary>
+            <returns>A new call handler object.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.AuthorizationCallHandlerAttribute.OperationName">
+            <summary>
+            Operation name.
+            </summary>
+            <value>operation name.</value>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.PolicyInjection.CallHandlers.AuthorizationCallHandlerAttribute.ProviderName">
+            <summary>
+            Security provider name.
+            </summary>
+            <value>Security Provider name. Defaults to the default security provider.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.ProjectInstaller">
+            <summary>
+            Let the system know that the InstallUtil.exe tool will be run against this assembly
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ProjectInstaller.#ctor">
+            <summary>
+            Represents the installer for the instrumentation events. Not intended for direct use.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.ProjectInstaller.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ProjectInstaller.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ProjectInstaller.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.RoleExpression">
+            <summary>
+            Represents an expression that contains the 
+            name of a role.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.RoleExpression.#ctor(Microsoft.Practices.EnterpriseLibrary.Security.WordExpression)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.RoleExpression"/>
+            class with the specified role name.
+            </summary>
+            <param name="wordExpression">The name of a role.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.RoleExpression.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.RoleExpression"/> class.
+            </summary>
+            <param name="roleName">The name of the role
+            to include in the expression.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.RoleExpression.Evaluate(System.Security.Principal.IPrincipal)">
+            <summary>
+            Evaluates the current expression against the specified 
+            <see cref="T:System.Security.Principal.IPrincipal"/>.
+            </summary>
+            <param name="principal">The <see cref="T:System.Security.Principal.IPrincipal"/>
+            that the current expression will be evaluated against.</param>
+            <returns>True if the princal is in this expression's 
+            role, otherwise false.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.RoleExpression.Word">
+            <summary>
+            Gets or sets the name of the role that the
+            specified principal will be evaluated against.
+            </summary>
+            <value>A role name.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider">
+            <summary>
+            Defines the logical events that can be instrumented for <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider"/> instances.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider.AuthorizationCheckPerformedCounterName">
+            <summary>
+            Made public for testing purposes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider.TotalAuthorizationCheckPerformedCounterName">
+            <summary>
+            Made public for testing purposes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider.AuthorizationCheckFailedCounterName">
+            <summary>
+            Made public for testing purposes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider.TotalAuthorizationCheckFailedCounterName">
+            <summary>
+            Made public for testing purposes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider.PerformanceCountersCategoryName">
+            <summary>
+            Made public for testing purposes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider.#ctor(System.String,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider"/> class.
+            </summary>
+            <param name="instanceName">The name of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider"/> instance the events apply on.</param>
+            <param name="performanceCountersEnabled"><code>true</code> if performance counters should be updated.</param>
+            <param name="eventLoggingEnabled"><code>true</code> if event log entries should be written.</param>
+            <param name="applicationInstanceName">The application instance name</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider.#ctor(System.String,System.Boolean,System.Boolean,Microsoft.Practices.EnterpriseLibrary.Common.Instrumentation.IPerformanceCounterNameFormatter)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider"/> class.
+            </summary>
+            <param name="instanceName">The name of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider"/> instance the events apply on.</param>
+            <param name="performanceCountersEnabled"><code>true</code> if performance counters should be updated.</param>
+            <param name="eventLoggingEnabled"><code>true</code> if event log entries should be written.</param>
+            <param name="nameFormatter">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Instrumentation.IPerformanceCounterNameFormatter"/> that is used to creates unique name for each <see cref="T:System.Diagnostics.PerformanceCounter"/> instance.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider.FireAuthorizationCheckPerformed(System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="identity">The name of the identify which authorization has been checked for.</param>
+            <param name="ruleName">The name of the authorization rule that has been evaluated.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider.FireAuthorizationCheckFailed(System.String,System.String)">
+            <summary>
+            </summary>
+            <param name="identity">The name of the identify which authorization has been checked for.</param>
+            <param name="ruleName">The name of the authorization rule that has been evaluated.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.AuthorizationProviderInstrumentationProvider.CreatePerformanceCounters(System.String[])">
+            <summary>
+            Creates the performance counters to instrument an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProvider"/>'s events.
+            </summary>
+            <param name="instanceNames">The instance names for the performance counters.</param>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityEntityType">
+            <summary>
+            The types of entities supported by Security.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.SecurityEntityType.Identity">
+            <summary>
+            See <see cref="T:System.Security.Principal.IIdentity"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.SecurityEntityType.Profile">
+            <summary>
+            Any object representing the profile of a user.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.SecurityEntityType.Principal">
+            <summary>
+            See <see cref="T:System.Security.Principal.IPrincipal"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException">
+            <summary>
+            The exception that is thrown when a syntax error
+            is found in an identity role rule expression.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException.#ctor">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException"/> class
+            with a specified error message.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException"/> class 
+            with a specified error message and 
+            a reference to the inner exception 
+            that is the cause of this exception.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">
+            The exception that is the cause of the current exception. If the innerException parameter is not a null reference (Nothing in Visual Basic), the current exception is raised in a catch block that handles the inner exception.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException.#ctor(System.String,System.Int32)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException"/> class with the
+            specified message and index.
+            </summary>
+            <param name="message">The syntax error message.</param>
+            <param name="index">The position in the expression where the syntax
+            error was found.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException"/> class 
+            with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds 
+            the serialized object data about the 
+            exception being thrown. 
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/>
+            that contains contextual information 
+            about the source or destination. 
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Sets the <see cref="T:System.Runtime.Serialization.SerializationInfo"/>
+            with information about the exception.
+            </summary>
+            <param name="info">The SerializationInfo 
+            that holds the serialized object data 
+            about the exception being thrown. 
+            </param>
+            <param name="context">
+            The StreamingContext that contains contextual 
+            information about the source or destination. 
+            </param>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.SyntaxException.Index">
+            <summary>
+            The position in the expression where the syntax
+            error was found.
+            </summary>
+            <value>The zero-based starting position in the original 
+            string where syntax error was found.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.TokenType">
+            <summary>
+            Specifies the type of a token in an expression.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.InvalidCharacter">
+            <summary>
+            Invalid character
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.NoToken">
+            <summary>
+            No token found
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.Or">
+            <summary>
+            Or token
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.And">
+            <summary>
+            And token
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.Identity">
+            <summary>
+            Identity token 
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.Role">
+            <summary>
+            Role token
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.Not">
+            <summary>
+            Not token
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.Word">
+            <summary>
+            Word token
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.Any">
+            <summary>
+            Any token
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.Anonymous">
+            <summary>
+            Anonymous token
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.LeftParenthesis">
+            <summary>
+            Left Paren token
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.RightParenthesis">
+            <summary>
+            Right paren token
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.QuotedString">
+            <summary>
+            Quoted string token
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.TokenType.EndOfFile">
+            <summary>
+            EOF token
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.UserNotFoundException">
+            <summary>
+            Exception thrown when Active Directory is unable to find the given user
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.UserNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a newly created instance of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.UserNotFoundException"></see>
+            </summary>
+            <param name="errorMessage">Error message from caller</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.UserNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a newly created instance of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.UserNotFoundException"></see>
+            </summary>
+            <param name="errorMessage">Error message from caller</param>
+            <param name="innerException">Any nested exception</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.UserNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Serialization constructor
+            </summary>
+            <param name="info">The object that holds the serialized object data</param>
+            <param name="context">The contextual information about the source or destination</param>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationFactory">
+            <summary>
+            Static factory class used to get instances of a specified IAuthorizationProvider
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationFactory.GetAuthorizationProvider">
+            <summary>
+            Returns the default IAuthorizationProvider instance. 
+            Guaranteed to return an intialized IAuthorizationProvider if no exception thrown
+            </summary>
+            <returns>Default Authorization provider instance.</returns>
+            <exception cref="T:System.Configuration.ConfigurationException">Unable to create default IAuthorizationProvider</exception>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationFactory.GetAuthorizationProvider(System.String)">
+            <summary>
+            Returns the named IAuthorizationProvider instance. Guaranteed to return an initialized IAuthorizationProvider if no exception thrown.
+            </summary>
+            <param name="authorizationProviderName">Name defined in configuration for the Authorization provider to instantiate</param>
+            <returns>Named Authorization provider instance</returns>
+            <exception cref="T:System.ArgumentNullException">providerName is null</exception>
+            <exception cref="T:System.ArgumentException">providerName is empty</exception>
+            <exception cref="T:System.Configuration.ConfigurationException">Could not find instance specified in providerName</exception>
+            <exception cref="T:System.InvalidOperationException">Error processing configuration information defined in application configuration file.</exception>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProviderFactory">
+            <summary>
+            Provides methods for the creation of
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/> instances.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProviderFactory.#ctor">
+            <summary>
+            <para>Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProviderFactory"/> class 
+            with the default configuration source.</para>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProviderFactory.#ctor(Microsoft.Practices.ServiceLocation.IServiceLocator)">
+            <summary>
+            
+            </summary>
+            <param name="serviceLocator"></param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProviderFactory.#ctor(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            <para>Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationProviderFactory"/> class 
+            with the given configuration source.</para>
+            </summary>
+            <param name="configurationSource">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource"/> that should be used to create <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/> instances.</param>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleData">
+            <summary>
+            Represents the configuration data for a
+            rule that is governed by an 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleData.#ctor">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleData"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleData.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleData"/> class with the specified name and expression.
+            </summary>
+            <param name="name">The name of the rule</param>
+            <param name="expression">The expression to evaluate.</param>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleData.Expression">
+            <summary>
+            Gets or sets the expression associated with
+            this rule.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData">
+            <summary>
+            Represents the configuration data for an
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.AuthorizationRuleProvider"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData.#ctor">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData"/> class.
+            </summary>
+            <param name="name">The name of the element.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData.GetRegistrations(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            
+            </summary>
+            <param name="configurationSource"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleProviderData.Rules">
+            <summary>
+            Gets or sets the list of rules associated with
+            the provider.
+            </summary>
+            <value>A collection of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationRuleData"/>.</value>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings">
+            <summary>
+            Represents the configuration data for the 
+            security providers.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings.SectionName">
+            <summary>
+            The name of the configuration section for the security providers.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings.#ctor">
+            <summary>
+            Initializes a new instance of the 
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings.GetRegistrations(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings.GetUpdatedRegistrations(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            Return the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ContainerModel.TypeRegistration"/> objects needed to reconfigure
+            the container after a configuration source has changed.
+            </summary>
+            <remarks>If there are no reregistrations, return an empty sequence.</remarks>
+            <param name="configurationSource">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource"/> containing
+            the configuration information.</param>
+            <returns>The sequence of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.ContainerModel.TypeRegistration"/> objects.</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings.DefaultAuthorizationProviderName">
+            <summary>
+            The instance name of the default <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.IAuthorizationProvider"/> instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings.DefaultSecurityCacheProviderName">
+            <summary>
+            The instance name of the default <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/> instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings.AuthorizationProviders">
+            <summary>
+            <para>Gets the collection of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.AuthorizationProviderData"/>.</para>
+            </summary>
+            <value>
+            <para>The authorization providers available in configuration. The default is an empty collection.</para>
+            </value>
+            <remarks>
+            <para>This property maps to the <c>authorizationProviders</c> element in configuration.</para>
+            </remarks>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecuritySettings.SecurityCacheProviders">
+            <summary>
+            <para>Gets the collection of <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Configuration.SecurityCacheProviderData"/>.</para>
+            </summary>
+            <value>
+            <para>The security cache providers available in configuration. The default is an empty collection.</para>
+            </value>
+            <remarks>
+            <para>This property maps to the <c>securityCacheProviders</c> element in configuration.</para>
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.GuidToken">
+            <summary>
+            Implementation of <c>IToken</c> for a <c>Guid</c>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.IToken">
+            <summary>
+            Allows end users to implement their own tokens.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.IToken.Value">
+            <summary>
+            Token contents as a string.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.GuidToken.#ctor">
+            <summary>
+            Creates a GuidToken with a new <c>Guid</c>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.GuidToken.#ctor(System.Guid)">
+            <summary>
+            Creates a GuidToken with a defined <c>Guid</c>.
+            </summary>
+            <param name="guid">User-provided <c>Guid</c></param>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.GuidToken.Value">
+            <summary>
+            Returns the ToString representation of the <c>Guid</c>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider">
+            <summary>
+            Allows end users to implement their own Security Caches.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.SaveIdentity(System.Security.Principal.IIdentity)">
+            <summary>
+            Caches an authenticated IIdentity object.
+            </summary>
+            <param name="identity">
+            IIdentity object representing an authenticated user.
+            </param>
+            <returns>Token to identify the cached Identity</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.SaveIdentity(System.Security.Principal.IIdentity,Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Caches an authenticated IIdentity object using an existing token
+            enabling the grouping of related items. 
+            </summary>
+            <param name="identity">
+            IIdentity object representing an authenticated user.
+            </param>
+            <param name="token">
+            Token identifying an existing cached entities.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.SavePrincipal(System.Security.Principal.IPrincipal)">
+            <summary>
+            Caches an authenticated IPrincipal object. 
+            </summary>
+            <param name="principal">
+            IPrincipal object representing an authenticated user and roles.
+            </param>
+            <returns>Token to identify the cached IPrincipal object</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.SavePrincipal(System.Security.Principal.IPrincipal,Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Caches an authenticated IPrincipal object using an existing token
+            enabling the grouping of related items. 
+            </summary>
+            <param name="principal">
+            IPrincipal object representing an authenticated user.
+            </param>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.SaveProfile(System.Object)">
+            <summary>
+            Caches a profile for an authenticated user. 
+            </summary>
+            <param name="profile">
+            Object representing the profile of authenticated user.
+            </param>
+            <returns>Token to identify the cached Profile object</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.SaveProfile(System.Object,Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Caches a profile for an authenticated user using an existing token
+            (enabling the grouping of related items). 
+            </summary>
+            <param name="profile">
+            Object representing the profile of authenticated user.
+            </param>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.ExpireIdentity(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Purges an existing IIdentity object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.ExpirePrincipal(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Purges an existing IPrincipal object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.ExpireProfile(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Purges an existing Profile object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.GetIdentity(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Gets an existing IIdentity object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+            <returns>A cached IIdentity object</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.GetPrincipal(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Gets an existing IPrincipal object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+            <returns>A cached IPrincipal object</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider.GetProfile(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Gets an existing Profile object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+            <returns>A cached Profile object</returns>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheFactory">
+            <summary>
+            Static factory class used to get instances of a specified ISecurityCacheProvider
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheFactory.GetSecurityCacheProvider">
+            <summary>
+            Returns the default ISecurityCacheProvider instance. 
+            Guaranteed to return an intialized ISecurityCacheProvider if no exception thrown
+            </summary>
+            <returns>Default SecurityCache provider instance.</returns>
+            <exception cref="T:System.Configuration.ConfigurationException">Unable to create default <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/></exception>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheFactory.GetSecurityCacheProvider(System.String)">
+            <summary>
+            Returns the named ISecurityCacheProvider instance. Guaranteed to return an initialized ISecurityCacheProvider if no exception thrown.
+            </summary>
+            <param name="securityCacheProviderName">Name defined in configuration for the SecurityCache provider to instantiate</param>
+            <returns>Named SecurityCache provider instance</returns>
+            <exception cref="T:System.ArgumentNullException">providerName is null</exception>
+            <exception cref="T:System.ArgumentException">providerName is empty</exception>
+            <exception cref="T:System.Configuration.ConfigurationException">Could not find instance specified in providerName</exception>
+            <exception cref="T:System.InvalidOperationException">Error processing configuration information defined in application configuration file.</exception>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider">
+            <summary>
+            Abstract implementation of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/> interface.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider"/> class. 
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.#ctor(Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.ISecurityCacheProviderInstrumentationProvider)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider"/> class. 
+            </summary>
+            <param name="instrumentationProvider">The instrumentation provider to use.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.SaveIdentity(System.Security.Principal.IIdentity)">
+            <summary>
+            Caches an authenticated IIdentity object. There is no implicit
+            expiration defined for this item.
+            </summary>
+            <param name="identity">
+            IIdentity object representing an authenticated user.
+            </param>
+            <returns>Token to identify the cached Identity</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.SaveIdentity(System.Security.Principal.IIdentity,Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Caches an authenticated IIdentity object using an existing token
+            enabling the grouping of related items. There is no implicit
+            expiration defined for this item.
+            </summary>
+            <param name="identity">
+            IIdentity object representing an authenticated user.
+            </param>
+            <param name="token">
+            Token identifying an existing cached entities.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.SavePrincipal(System.Security.Principal.IPrincipal)">
+            <summary>
+            Caches an authenticated IPrincipal object. There is no implicit
+            expiration defined for this item.
+            </summary>
+            <param name="principal">
+            IPrincipal object representing an authenticated user and roles.
+            </param>
+            <returns>Token to identify the cached IPrincipal object</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.SavePrincipal(System.Security.Principal.IPrincipal,Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Caches an authenticated IPrincipal object using an existing token
+            enabling the grouping of related items. There is no implicit
+            expiration defined for this item.
+            </summary>
+            <param name="principal">
+            IPrincipal object representing an authenticated user.
+            </param>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.SaveProfile(System.Object)">
+            <summary>
+            Caches a profile for an authenticated user. There is no implicit
+            expiration defined for this item.
+            </summary>
+            <param name="profile">
+            Object representing the profile of authenticated user.
+            </param>
+            <returns>Token to identify the cached Profile object</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.SaveProfile(System.Object,Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Caches a profile for an authenticated user using an existing token
+            (enabling the grouping of related items). There is no implicit
+            expiration defined for this item.
+            </summary>
+            <param name="profile">
+            Object representing the profile of authenticated user.
+            </param>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.ExpireIdentity(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Purges an existing IIdentity object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.ExpirePrincipal(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Purges an existing IPrincipal object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.ExpireProfile(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Purges an existing Profile object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.GetIdentity(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Gets an existing IIdentity object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+            <returns>A cached IIdentity object</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.GetPrincipal(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Gets an existing IPrincipal object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+            <returns>A cached IPrincipal object</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.GetProfile(Microsoft.Practices.EnterpriseLibrary.Security.IToken)">
+            <summary>
+            Gets an existing Profile object from the cache.
+            </summary>
+            <param name="token">
+            Token identifying an existing cached entity.
+            </param>
+            <returns>A cached Profile object</returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProvider.InstrumentationProvider">
+            <summary>
+            Gets the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Instrumentation.SecurityCacheProviderInstrumentationProvider"/> instance that defines the logical events used to instrument this Security Cache instance.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProviderFactory">
+            <summary>
+            Provides methods for the creation of
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/> instances.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProviderFactory.#ctor">
+            <summary>
+            <para>Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProviderFactory"/> class 
+            with the default configuration source.</para>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProviderFactory.#ctor(Microsoft.Practices.ServiceLocation.IServiceLocator)">
+            <summary>
+            
+            </summary>
+            <param name="serviceLocator"></param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProviderFactory.#ctor(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource)">
+            <summary>
+            <para>Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.SecurityCacheProviderFactory"/> class 
+            with the given configuration source.</para>
+            </summary>
+            <param name="configurationSource">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource"/> that should be used to create <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.ISecurityCacheProvider"/> instances.</param>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AddAuthorizationRuleData">
+            <summary>
+              Looks up a localized string similar to Authorization Rule Expression.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AddAuthorizationRuleDataDescription">
+            <summary>
+              Looks up a localized string similar to Add an authorization rule expression that defines when the rule takes effect..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AddAuthorizationRuleProviderData">
+            <summary>
+              Looks up a localized string similar to Authorization Rule.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AddAuthorizationRuleProviderDataDescription">
+            <summary>
+              Looks up a localized string similar to Adds a new Authorization Rule provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AddCustomAuthorizationProviderData">
+            <summary>
+              Looks up a localized string similar to Custom.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AddCustomAuthorizationProviderDataDescription">
+            <summary>
+              Looks up a localized string similar to Add a custom authorization provider by selecting its type..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AuthorizationCheckFailedHelpResource">
+            <summary>
+              Looks up a localized string similar to Authorization Requests Denied/sec is the rate at which authorization requests where denied..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AuthorizationCheckPerformedHelpResource">
+            <summary>
+              Looks up a localized string similar to Authorization Requests/sec is the rate at which authorization requests were received..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AuthorizationFailed">
+            <summary>
+              Looks up a localized string similar to Authorization failed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AuthorizationProvidersDisplayName">
+            <summary>
+              Looks up a localized string similar to Authorization.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.AuthorizationRuleNotFoundMsg">
+            <summary>
+              Looks up a localized string similar to Authorization rule {0} not found in configuration..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.BlockName">
+            <summary>
+              Looks up a localized string similar to curity Application Block.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ErrorAuthorizationConfigurationFailedMessage">
+            <summary>
+              Looks up a localized string similar to The error occurred retrieving the configuration for authorization provider instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ErrorSecurityCacheConfigurationFailedMessage">
+            <summary>
+              Looks up a localized string similar to The error occurred retrieving the configuration for security cache provider instance &quot;{0}&quot;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ExceptionAuthenticationProviderNotFound">
+            <summary>
+              Looks up a localized string similar to The authentication provider named &apos;{0}&apos; could not be found in configuration..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ExceptionAuthorizationProviderNotFound">
+            <summary>
+              Looks up a localized string similar to The authorization provider named &apos;{0}&apos; could not be found in configuration..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ExceptionMustBeImplementedBySubclass">
+            <summary>
+              Looks up a localized string similar to Must be implemented by subclasses..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ExceptionParameterMustImplementType">
+            <summary>
+              Looks up a localized string similar to Parameter must implement type &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ExceptionProfileProviderNotFound">
+            <summary>
+              Looks up a localized string similar to The profile provider named &apos;{0}&apos; could not be found in configuration..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ExceptionRolesProviderNotFound">
+            <summary>
+              Looks up a localized string similar to The roles provider named &apos;{0}&apos; could not be found in configuration..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ExceptionSecurityCacheProviderNotFound">
+            <summary>
+              Looks up a localized string similar to The security cache provider named &apos;{0}&apos; could not be found in configuration..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ExceptionTypeForCustomAuthProviderMustDeriveFrom">
+            <summary>
+              Looks up a localized string similar to The Custom Authentication Provider &apos;{0}&apos; with Type &apos;{1}&apos; must derive from IAuthorizationProvider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.ExceptionTypeForCustomCacheProviderMustDeriveFrom">
+            <summary>
+              Looks up a localized string similar to The Custom Security Cache Provider &apos;{0}&apos; with Type &apos;{1}&apos; must derive from ISecurityCacheProvider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.IdentityInvalid">
+            <summary>
+              Looks up a localized string similar to The provided IIdentity object is incomplete or invalid..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.IdentityIsNull">
+            <summary>
+              Looks up a localized string similar to The provided IIdentity object is null..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.MissingSection">
+            <summary>
+              Looks up a localized string similar to The &quot;securityConfiguration&quot; section is not available in the supplied configuration source..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.NoDefaultAuthorizationProvider">
+            <summary>
+              Looks up a localized string similar to There is no default authorization provider defined in the &quot;securityConfiguration&quot; section available in the supplied configuration source..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.NoDefaultSecurityCacheProvider">
+            <summary>
+              Looks up a localized string similar to There is no default security cache provider defined in the &quot;securityConfiguration&quot; section available in the supplied configuration source..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.Or">
+            <summary>
+              Looks up a localized string similar to or.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.SecurityCacheProvidersDisplayName">
+            <summary>
+              Looks up a localized string similar to Security Cache.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.SecurityCacheReadPerformedHelpResource">
+            <summary>
+              Looks up a localized string similar to Security Cache Reads/sec is the rate at which security cache reads were requested..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.SecuritySettingsDisplayName">
+            <summary>
+              Looks up a localized string similar to Security Application Block.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.TotalAuthorizationCheckFailedHelpResource">
+            <summary>
+              Looks up a localized string similar to Total Authorization Requests Denied is the total number of authorization requests denied..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.TotalAuthorizationCheckPerformedHelpResource">
+            <summary>
+              Looks up a localized string similar to Total Authorization Requests is the total number of authorization requests received..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.TotalSecurityCacheReadPerformedHelpResource">
+            <summary>
+              Looks up a localized string similar to Total Security Cache Reads is the total number of security cache reads requested..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Security.Properties.Resources.UnexpectedTokenMessage">
+            <summary>
+              Looks up a localized string similar to Found token &quot;{1}&quot; when expecting {0} at position {2}..
+            </summary>
+        </member>
+    </members>
+</doc>

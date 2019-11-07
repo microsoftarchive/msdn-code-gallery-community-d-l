@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to convert PDF to Image in C#</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to convert PDF to Image in C#</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, ASP.NET, Windows Forms, Windows SDK, VB.Net, Library, .NET Development
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Controls, How to, Convert PDF to Image, PDF to Jpeg, PDF to Tiff, PDF to Png, PDF to Gif, PDF to Bmp
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Web, Phone
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">11/17/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/How-to-convert-PDF-to-a421ff3e">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p class="projectSummary"><span style="font-size:small">Free pqScan.PDFToImage for .NET enables developers to quickly and easily load and convert PDF documents to images on any .NET applications (ASP.NET, WinForms and Web Service) and it supports in C#, VB.NET.</span></p>
+<p class="projectSummary"><span style="font-size:small">This is a C # example to manage PDF documents via a Free C# PDF library. And the code gives you clear information of how to convert PDF document to image in C#.</span></p>
+<h1><img id="125988" src="description/pdf to image.jpg" alt="" width="600" height="400"></h1>
+<p><span style="font-size:small"><a title="convert pdf to image in .net" href="http://www.pqscan.com/pdf-to-image/"><strong><em>Free</em></strong><strong> pqScan.PDFToImage for .NET</strong></a> is a professional and reliable PDF SDK for commercial and personal
+ use. It enables developers to quickly and easily load and convert PDF documents on any .NET applications (ASP.NET, WinForms and Web Service) and it supports in C#, VB.NET. The featured function, conversion allows converting PDF documents to commonly used image
+ formats, such as PNG, JPEG, BMP, GIF and TIFF etc.</span></p>
+<h2><strong>Converting Type</strong></h2>
+<ul>
+<li><a title="convert pdf to png in .net" href="http://www.pqscan.com/convert-pdf/to-png.html">PDF to PNG</a>
+</li><li><a title="convert pdf to jpeg in .net" href="http://www.pqscan.com/convert-pdf/to-jpg.html">PDF to JPEG/JPG</a>
+</li><li><a title="convert pdf to bmp in .net" href="http://www.pqscan.com/convert-pdf/to-bmp.html">PDF to BMP</a>
+</li><li><a title="convert pdf to gif in .net" href="http://www.pqscan.com/convert-pdf/to-gif.html">PDF to GIF
+</a></li><li><a title="convert pdf to tiff in .net" href="http://www.pqscan.com/convert-pdf/to-tiff.html">PDF to TIFF/TIF
+</a></li><li><a title="convert pdf to multi-page tiff in .net" href="http://www.pqscan.com/convert-pdf/to-multi-tiff.html">PDF to Multi-page TIFF</a>
+</li></ul>
+<h2><strong>Changing Image Size</strong></h2>
+<p><span style="font-size:small">Users can simply customize the conversion of PDF to image in .NET project, especially controlling converted image size. In details, you can easily know the width and height of rendered image in advance depending on defined DPI,
+ or customize a suitable size for image output directly.</span></p>
+<p>&nbsp;</p>
+<p><span style="font-size:small"><em>&nbsp;Following is a sample to get the target size of image.</em></span><em>&nbsp;
+<br>
+</em></p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">PDFDocument doc = new PDFDocument();
+
+doc.LoadPDF(&quot;d:/sample.pdf&quot;);
+
+doc.DPI = 96;
+
+Bitmap bmp = doc.ToImage(0, 500, 500);
+
+bmp.Save(&quot;d:/sample-size.png&quot;, ImageFormat.Png);</pre>
+<div class="preview">
+<pre class="csharp">PDFDocument&nbsp;doc&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;PDFDocument();&nbsp;
+&nbsp;
+doc.LoadPDF(<span class="cs__string">&quot;d:/sample.pdf&quot;</span>);&nbsp;
+&nbsp;
+doc.DPI&nbsp;=&nbsp;<span class="cs__number">96</span>;&nbsp;
+&nbsp;
+Bitmap&nbsp;bmp&nbsp;=&nbsp;doc.ToImage(<span class="cs__number">0</span>,&nbsp;<span class="cs__number">500</span>,&nbsp;<span class="cs__number">500</span>);&nbsp;
+&nbsp;
+bmp.Save(<span class="cs__string">&quot;d:/sample-size.png&quot;</span>,&nbsp;ImageFormat.Png);</pre>
+</div>
+</div>
+</div>
+<p style="color:#000000; font-family:'Segoe UI',Verdana,Arial; font-size:13px; font-style:normal; font-variant:normal; font-weight:normal; letter-spacing:normal; line-height:normal; orphans:auto; text-align:start; text-indent:0px; text-transform:none; white-space:normal; widows:auto; word-spacing:0px">
+<strong>Related Links</strong></p>
+<p style="color:#000000; font-family:'Segoe UI',Verdana,Arial; font-size:13px; font-style:normal; font-variant:normal; font-weight:normal; letter-spacing:normal; line-height:normal; orphans:auto; text-align:start; text-indent:0px; text-transform:none; white-space:normal; widows:auto; word-spacing:0px">
+<strong>Website:</strong><span class="Apple-converted-space">&nbsp;</span><a title="provide .net barcode generate and read SDK, provide .net pdf to image and image to pdf SDK" href="http://www.pqscan.com"><span style="color:#960bb4; text-decoration:none">http://www.pqscan.com</span></a></p>
+<p style="color:#000000; font-family:'Segoe UI',Verdana,Arial; font-size:13px; font-style:normal; font-variant:normal; font-weight:normal; letter-spacing:normal; line-height:normal; orphans:auto; text-align:start; text-indent:0px; text-transform:none; white-space:normal; widows:auto; word-spacing:0px">
+<strong>Product Introduction</strong>:<span class="Apple-converted-space"> </span>
+<a title="convert and transform pdf page to image .net sdk" href="https://code.msdn.microsoft.com/How-to-convert-PDF-to-a421ff3e/ http://www.pqscan.com/pdf-to-image/">http://www.pqscan.com/pdf-to-image/</a></p>
+<p style="color:#000000; font-family:'Segoe UI',Verdana,Arial; font-size:13px; font-style:normal; font-variant:normal; font-weight:normal; letter-spacing:normal; line-height:normal; orphans:auto; text-align:start; text-indent:0px; text-transform:none; white-space:normal; widows:auto; word-spacing:0px">
+<strong>Online Demo</strong>:<span class="Apple-converted-space"> </span><a title="convert pdf to image in .net online demo" href="http://www.pqscan.com/online-demo/pdf-to-image/">http://www.pqscan.com/online-demo/pdf-to-image/</a></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

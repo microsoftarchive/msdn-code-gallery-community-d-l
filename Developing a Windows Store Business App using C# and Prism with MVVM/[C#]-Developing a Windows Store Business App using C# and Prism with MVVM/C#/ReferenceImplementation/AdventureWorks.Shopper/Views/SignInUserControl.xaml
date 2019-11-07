@@ -1,0 +1,169 @@
+﻿<UserControl x:Class="AdventureWorks.Shopper.Views.SignInUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d">
+
+    <Grid>
+        <Grid.Transitions>
+            <TransitionCollection>
+                <EntranceThemeTransition />
+            </TransitionCollection>
+        </Grid.Transitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Rectangle Fill="{StaticResource ModalBackgroundThemeBrush}"
+                   Opacity="0.8"
+                   Grid.RowSpan="3" />
+        <Border BorderBrush="{StaticResource AwShopperItemBorderBrush}" BorderThickness="3" Grid.Row="1">
+            <Grid x:Name="ContentGrid"
+              Background="{StaticResource ModalBackgroundThemeBrush}"
+              Opacity="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Uid="SignInTextBlock" 
+                       Style="{StaticResource PageSubheaderTextStyle}"
+                       Foreground="{StaticResource AWShopperItemForegroundBrush}"
+                       Text="Sign in to the app"
+                       Margin="0,10,0,10"
+                       Grid.Row="0"
+                       Grid.Column="1" />
+                <TextBlock x:Uid="PleaseSignInTextBlock"
+                       x:Name="PleaseSignInTextBlock"
+                       Style="{StaticResource ItemTextStyle}"
+                       Foreground="{StaticResource AWShopperItemForegroundBrush}"
+                       TextWrapping="Wrap"
+                       Text="Please sign in."
+                       Grid.Row="1"
+                       Grid.Column="1" />
+                <TextBox Header="Username"
+                     Margin="0,10,0,0"
+                     HorizontalAlignment="Left"
+                     x:Name="Username"
+                     x:Uid="Username"
+                     AutomationProperties.AutomationId="UserNameTextBox"
+                     AutomationProperties.IsRequiredForForm="True"
+                     Width="280"
+                     Text="{Binding UserName, Mode=TwoWay}"
+                     IsEnabled="{Binding IsNewSignIn}"
+                     Grid.Row="2"
+                     Grid.Column="1" />
+                <PasswordBox  Header="Password"
+                          Width="280"
+                          x:Name="PasswordBox"
+                          x:Uid="PasswordBox"
+                          AutomationProperties.AutomationId="PasswordBox"
+                          AutomationProperties.IsRequiredForForm="True"
+                          HorizontalAlignment="Left"
+                          Password="{Binding Password,Mode=TwoWay}"
+                          Grid.Row="3"
+                          Grid.Column="1" />
+                <CheckBox x:Name="SaveCredentialsLabel"
+                      x:Uid="SaveCredentialsLabel"
+                      HorizontalAlignment="Left"
+                      Margin="0,10,0,0"
+                      IsChecked="{Binding SaveCredentials,Mode=TwoWay}"
+                      AutomationProperties.AutomationId="SaveCredentialsCheckBox"
+                      Foreground="{StaticResource ApplicationForegroundThemeBrush}"
+                      Content="Save Credentials?"
+                      Grid.Row="4"
+                      Grid.Column="1" />
+                <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                       Margin="0,10,0,0"
+                       TextWrapping="Wrap"
+                       Foreground="Red"
+                       Text="{Binding IsSignInInvalid, Converter={StaticResource IsSignInInvalidConverter}}"
+                       Grid.Row="5"
+                       Grid.Column="1" />
+                <StackPanel x:Name="ButtonsPanel"
+                        Orientation="Horizontal"
+                        Margin="125,0,0,0"
+                        Grid.Row="6"
+                        Grid.Column="1">
+                    <Button x:Uid="SubmitButton"
+                        x:Name="SubmitButton"
+                        Background="{StaticResource AWShopperAccentBrush}"
+                        Content="Submit"
+                        Foreground="{StaticResource AWShopperButtonForegroundBrush}"
+                        Margin="0,10,0,0"
+                        Command="{Binding SignInCommand}"
+                        AutomationProperties.AutomationId="SignInSubmitButton" />
+                    <Button x:Uid="SignInCancelButton"
+                        Background="{StaticResource AWShopperAccentBrush}"
+                        Content="Cancel"
+                        Foreground="{StaticResource AWShopperButtonForegroundBrush}"
+                        Margin="0,10,0,0"
+                        Command="{Binding GoBackCommand}"
+                        AutomationProperties.AutomationId="SignInCancelButton"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <VisualStateManager.VisualStateGroups>
+            <!-- Visual states reflect the application's view state -->
+            <VisualStateGroup x:Name="ApplicationViewStates">
+                <VisualState x:Name="DefaultLayout" />
+                <VisualState x:Name="Filled" />
+                <VisualState x:Name="PortraitLayout">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Grid.ColumnDefinitions[1].Width"
+                                                       Storyboard.TargetName="ContentGrid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>Auto</DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="MaxWidth"
+                                                       Storyboard.TargetName="PleaseSignInTextBlock">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>285</DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="MinimalLayout">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Grid.ColumnDefinitions[0].Width"
+                                                       Storyboard.TargetName="ContentGrid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>10</DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Grid.ColumnDefinitions[1].Width"
+                                                       Storyboard.TargetName="ContentGrid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>Auto</DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Grid.ColumnDefinitions[2].Width"
+                                                       Storyboard.TargetName="ContentGrid">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>Auto</DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="MaxWidth"
+                                                       Storyboard.TargetName="PleaseSignInTextBlock">
+                            <DiscreteObjectKeyFrame KeyTime="0">
+                                <DiscreteObjectKeyFrame.Value>285</DiscreteObjectKeyFrame.Value>
+                            </DiscreteObjectKeyFrame>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</UserControl>

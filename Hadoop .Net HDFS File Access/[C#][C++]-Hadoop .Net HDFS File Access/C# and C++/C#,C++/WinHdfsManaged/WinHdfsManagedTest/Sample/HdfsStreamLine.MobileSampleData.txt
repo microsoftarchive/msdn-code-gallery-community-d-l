@@ -1,0 +1,49 @@
+﻿8	18:54:20	en-US	Android	Samsung	SCH-i500	California	United States	13.9204007	0	0
+23	19:19:44	en-US	Android	HTC	Incredible	Pennsylvania	United States		0	0
+23	19:19:46	en-US	Android	HTC	Incredible	Pennsylvania	United States	1.4757422	0	1
+23	19:19:47	en-US	Android	HTC	Incredible	Pennsylvania	United States	0.245968	0	2
+28	01:37:50	en-US	Android	Motorola	Droid X	Colorado	United States	20.3095339	1	1
+28	00:53:31	en-US	Android	Motorola	Droid X	Colorado	United States	16.2981668	0	0
+28	00:53:50	en-US	Android	Motorola	Droid X	Colorado	United States	1.7715228	0	1
+28	16:44:21	en-US	Android	Motorola	Droid X	Utah	United States	11.6755987	2	1
+28	16:43:41	en-US	Android	Motorola	Droid X	Utah	United States	36.9446892	2	0
+28	01:37:19	en-US	Android	Motorola	Droid X	Colorado	United States	28.9811416	1	0
+30	17:19:36	en-US	RIM OS	RIM	9650	Massachusetts	United States	3468.538966	0	2
+30	17:17:18	en-US	RIM OS	RIM	9650	Massachusetts	United States	66.8533378	0	1
+30	17:16:40	en-US	RIM OS	RIM	9650	Massachusetts	United States		0	0
+43	00:44:46	en-US	RIM OS	RIM	9330	Massachusetts	United States	2.3198876	0	1
+43	00:44:41	en-US	RIM OS	RIM	9330	Massachusetts	United States		0	0
+45	21:24:03	en-US	Android	Samsung	SCH-i500	California	United States	1.7547729	1	1
+45	21:09:43	en-US	Android	Samsung	SCH-i500	Illinois	United States	857.1453275	1	0
+45	20:01:50	en-US	Android	Samsung	SCH-i500	New Jersey	United States	12.4195326	0	0
+11075	19:07:56	en-US	iPhone OS	Apple	iPhone 4.2.1	Georgia	United States		0	0
+11081	01:46:19	en-US	Android	Samsung	SCH-i500	Colorado	United States	4.2620937	0	0
+11086	04:07:25	en-US	Android	Unknown	Android 2.3	California	United States		0	0
+11090	03:34:59	en-US	iPhone OS	Apple	iPod Touch 4.3.x	Hawaii	United States		0	0
+11095	19:34:47	en-US	Android	Samsung	SCH-i500	Illinois	United States	0.4621525	1	0
+11095	02:31:19	en-US	Android	Samsung	SCH-i500	Nebraska	United States	1.2662282	0	0
+11095	02:31:21	en-US	Android	Samsung	SCH-i500	Nebraska	United States	0.2905647	0	1
+11095	19:34:49	en-US	Android	Samsung	SCH-i500	Illinois	United States	1.3336967	1	1
+11097	10:22:41	en-US	iPhone OS	Apple	iPhone 4.0	Illinois	United States		0	0
+11102	12:54:27	en-US	Android	Samsung	SCH-i400	Florida	United States		0	0
+11106	12:54:25	en-GB	Windows Phone	HTC	7 Trophy	Greater London	United Kingdom	9.94	2	0
+11106	08:50:46	en-GB	Windows Phone	HTC	7 Trophy	Greater London	United Kingdom	3.12	0	0
+11106	11:07:31	en-GB	Windows Phone	HTC	7 Trophy	Greater London	United Kingdom	15.538	1	0
+11106	11:13:27	en-GB	Windows Phone	HTC	7 Trophy	Greater London	United Kingdom	1.5066558	1	1
+11106	11:13:28	en-GB	Windows Phone	HTC	7 Trophy	Greater London	United Kingdom		1	2
+11112	00:42:52	en-US	iPhone OS	Apple	iPhone 4.2.x	Illinois	United States	18.1075543	0	0
+11112	00:43:14	en-US	iPhone OS	Apple	iPhone 4.2.x	Illinois	United States	2.6342826	0	1
+11130	10:48:20	en-GB	iPhone OS	Apple	iPhone 4.2.1	Greater London	United Kingdom		0	0
+11131	12:19:52	en-US	Android	Unknown	Android 2.3	Massachusetts	United States		0	0
+11136	12:41:30	en-US	Android	LG	VS660	Massachusetts	United States	54.8579012	0	0
+11136	13:09:43	en-US	Android	LG	VS660	Massachusetts	United States	3.6447685	0	8
+11136	13:09:43	en-US	Android	LG	VS660	Massachusetts	United States	0.0956528	0	7
+11136	13:09:43	en-US	Android	LG	VS660	Massachusetts	United States	0.0003175	0	6
+11136	13:09:43	en-US	Android	LG	VS660	Massachusetts	United States	0.3014738	0	5
+11136	13:09:42	en-US	Android	LG	VS660	Massachusetts	United States	0.8974057	0	4
+11136	13:09:18	en-US	Android	LG	VS660	Massachusetts	United States	18.7849624	0	3
+11136	12:46:02	en-US	Android	LG	VS660	Massachusetts	United States	1396.822843	0	2
+11136	12:41:32	en-US	Android	LG	VS660	Massachusetts	United States	1.1691661	0	1
+11159	20:51:34	en-US	Android	SonyEricsson	R800x	Nevada	United States	0.6528812	0	2
+11159	20:51:32	en-US	Android	SonyEricsson	R800x	Nevada	United States		0	1
+11159	20:51:31	en-US	Android	SonyEricsson	R800x	Nevada	United States	0.5353605	0	0

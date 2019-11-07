@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Face Detection";
+}
+
+<div ng-controller="faceDetectionCtrl">
+
+    <h3>{{Title}}</h3>
+    <div class="loadmore">
+        <div ng-show="loaderMoreupl" ng-class="result">
+            <img src="~/Content/ng-loader.gif" /> {{uplMessage}}
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <table style="width:100%">
+        <tr>
+            <th><h4>Select Query Face</h4></th>
+            <th><h4>Detection Result</h4></th>
+        </tr>
+        <tr>
+            <td style="width:60%" valign="top">
+                <form novalidate name="f1">
+                    <input type="file" name="file" accept="image/*" onchange="angular.element(this).scope().selectCandidateFileforUpload(this.files)" required />
+                </form>
+                <div class="clearfix"></div>
+                <div class="loadmore">
+                    <div ng-show="loaderMore" ng-class="result">
+                        <img src="~/Content/ng-loader.gif" /> {{faceMessage}}
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="facePreview_thumb_big" id="faceCanvas"></div>
+            </td>
+            <td style="width:40%" valign="top">
+                <p>{{DetectedResultsMessage}}</p>
+                <hr />
+                <div class="clearfix"></div>
+                <div class="facePreview_thumb_small">
+                    <div ng-repeat="item in DetectedFaces" class="col-sm-12">
+                        <div class="col-sm-3">
+                            <img ng-src="{{item.FilePath}}" width="100" />
+                        </div>
+                        <div class="col-sm-8">
+                            <ul>
+                                @*<li>FaceId: {{item.FaceId}}</li>*@
+                                <li>Age: {{item.Age}}</li>
+                                <li>Gender: {{item.Gender}}</li>
+                                <li>{{item.IsSmiling}}</li>
+                                <li>{{item.Glasses}}</li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div ng-hide="DetectedFaces.length">No face detected!!</div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+@section NgScript{
+    <script src="~/ScriptsNg/FaceDetectionCtrl.js"></script>
+}

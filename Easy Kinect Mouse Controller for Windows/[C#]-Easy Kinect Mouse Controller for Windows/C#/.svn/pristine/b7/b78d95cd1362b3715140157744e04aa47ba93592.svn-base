@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Microsoft.Samples.Kinect.WpfViewers.KinectSensorChooser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:Microsoft.Samples.Kinect.WpfViewers"
+             mc:Ignorable="d"
+             Width="328">
+    <Grid>
+        <Border Background="#510E78" CornerRadius="50" VerticalAlignment="Center">
+            <Grid Margin="10" TextBlock.FontStyle="Normal">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Canvas Height="80" HorizontalAlignment="Center" Width="280" Grid.Row="0">
+                    <Border Height="40" Width="240" Background="White" BorderThickness="0" CornerRadius="10" Canvas.Top="20" Canvas.Left="20" />
+                    <Ellipse Height="20" Width="20" Fill="#510E78" Canvas.Top="30" Canvas.Left="70" />
+                    <Ellipse Height="20" Width="20" Fill="#510E78" Canvas.Top="30" Canvas.Left="115" />
+                    <Ellipse Height="20" Width="20" Fill="#510E78" Canvas.Top="30" Canvas.Left="140" />
+                    <Polyline Fill="White" StrokeThickness="0" Points="132,58 132,63 110,69 171,69 148,63 148,58" />
+                    <Ellipse Height="6" Width="61" Fill="White" Stroke="White" Canvas.Top="66.8" Canvas.Left="110" />
+                </Canvas>
+                <TextBlock Grid.Row="1" Foreground="White" HorizontalAlignment="Center"
+                           FontSize="26" TextWrapping="Wrap" Margin="0,0,0,4">KINECT™ for WINDOWS</TextBlock>
+                <TextBlock Grid.Row="2" Foreground="White" 
+                           VerticalAlignment="Center" HorizontalAlignment="Center" 
+                           FontSize="20" FontWeight="Bold" 
+                           Name="MessageTextBlock" TextWrapping="WrapWithOverflow"
+                           >Required</TextBlock>
+                <TextBlock Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,0" Name="TellMeMore">
+                    <Hyperlink Foreground="White" Cursor="Hand" Name="TellMeMoreLink" RequestNavigate="TellMeMoreLinkRequestNavigate">
+                        Tell me more
+                    </Hyperlink>
+                </TextBlock>
+                <Button Name="RetryButton" Grid.Row="3" HorizontalAlignment="Center" Click="RetryButtonClick">_Retry</Button>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

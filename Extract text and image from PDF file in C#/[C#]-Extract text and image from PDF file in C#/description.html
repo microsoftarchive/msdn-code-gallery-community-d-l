@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=62DBC035A4A8AD76676CA11B61CB6C59" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/cadc7690-6653-42f5-abd5-a62a894ac6feCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=46CB1877D3C0B7D6D06D21CECE7C9CAB" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Extract text and image from PDF file in C#</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Extract text and image from PDF file in C#</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, Silverlight, ASP.NET, WPF, VB.Net, PDF
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Read PDF in C#, Extract text from PDF, Extract image from PDF, PDF API, .NET PDF
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Web, Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">9/2/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Extracting-text-and-image-d47ac957">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p><span style="font-size:small">Sometimes, you may find it a very frustrating task to extract contents from PDF file. This sample shows you how to extract text from PDF file into TXT file and how to save all images embedded in the PFD file to local folder
+ using a free .NET PDF component.</span></p>
+<p><span style="font-size:small">To extract text and image from a PDF document, your PDF file should meet some basic conditions. First of all, your PDF file is formatted to contain text or images. Next, the PDF file does not contain security restrictions because
+ the security restrictions will disable text choosing.</span></p>
+<h1><span><span style="font-size:20px; font-weight:bold">Description</span></span></h1>
+<p><span style="font-size:small"><strong>Environment requirements</strong></span></p>
+<ul>
+<li><span style="font-size:small">.NET Framework 2.0, 3.0, 3.5 &amp; 4.0</span> </li><li><span style="font-size:small">Microsoft Visual Studio 2005 and above</span> </li><li><span style="font-size:small">Windows 2000, Windows XP, Windows 7, Windows Server 2003, etc</span>
+</li></ul>
+<p>&nbsp;</p>
+<p><span style="font-size:small"><strong>Method</strong></span></p>
+<ol>
+<li><span style="font-size:small"><a href="http://www.e-iceblue.com/Download/download-pdf-for-net-now.html">Download free Spire.PDF for .NET</a> and add Spire.PDF.dll as a reference in your .NET application project.</span>
+</li><li><span style="font-size:small">Within free Spire.PDF&nbsp; for .NET, you can implement
+<strong>PdfDocument.LoadFromFile(string filename)</strong> method to load your PDF file from system.Then, please call the methods
+<strong>ExtractText</strong> and <strong>ExtractImages</strong> to extract PDF text and images.&nbsp;Using
+<strong><a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.IO.File.WriteAllText.aspx"  title="Auto generated link to System.IO.File.WriteAllText">System.IO.File.WriteAllText</a>(string path, string contents)</strong> and <strong>
+Image.Save(string filename, ImageFormat format) </strong>, you can save the extracted text and images respectively.</span>
+</li></ol>
+<p><span style="font-size:small">(Code snippet is available in the package attached.)</span></p>
+<p><span style="font-size:small"><strong>&nbsp;</strong><br>
+</span></p>
+<p><span style="font-size:small"><strong>Screenshots of extract text and image from PDF</strong></span></p>
+<p><span style="font-size:small"><strong><img id="120682" src="description/tni4.png" alt="" width="683" height="431"><br>
+</strong></span></p>
+<p><span style="font-size:20px; font-weight:bold"><span style="font-size:small">&nbsp;</span><br>
+</span></p>
+<h1>More Information</h1>
+<p><strong>&nbsp;</strong><span style="font-size:small">As a professional PDF component, &nbsp;free Spire.PDF is applied to creating, writing, editing, handling and reading PDF files without any external dependencies within .NET application. Using this .NET
+ PDF library, you can implement rich capabilities to create PDF files from scratch or process existing PDF documents entirely through C#/VB.NET without installing Adobe Acrobat.</span></p>
+<p><span style="font-size:small"><strong>More sample demo</strong></span></p>
+<ol>
+<li><span style="font-size:small">Download Spire.PDF for .NET first, and then install it on your computer.
+</span></li><li><span style="font-size:small">You will find C# and VB.net demo projects in the folder {install-folder}\sample\.
+</span></li><li><span style="font-size:small">You can open these demo projects with VS2005 or above, build and run it.
+</span></li></ol>
+<p><span style="font-size:small"><strong>Related Links</strong></span></p>
+<p><span style="font-size:small">Website:&nbsp;<a href="http://www.e-iceblue.com">http://www.e-iceblue.com</a>&nbsp;</span></p>
+<p><span style="font-size:small">Forum: <a href="http://www.e-iceblue.com/forum/spire-pdf-f7.html">
+PDF Library Forum</a> (where you can request free customized demo regarding processing PDF with Spire.PDF)</span></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

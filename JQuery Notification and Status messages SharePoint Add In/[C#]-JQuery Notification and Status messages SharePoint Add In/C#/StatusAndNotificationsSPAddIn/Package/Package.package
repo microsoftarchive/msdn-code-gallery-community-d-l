@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="816db608-9db2-4f67-a7a0-9f3005527bc6" 
+        solutionId="816db608-9db2-4f67-a7a0-9f3005527bc6" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="StatusAndNotificationsSPAddIn"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="c9a50b7a-5e8a-48b9-ab00-e0af94fb3ff9" />
+  </features>
+</package>

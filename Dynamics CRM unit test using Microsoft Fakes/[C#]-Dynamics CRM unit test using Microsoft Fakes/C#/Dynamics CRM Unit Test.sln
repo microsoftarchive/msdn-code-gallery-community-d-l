@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebService", "DynamicsCRMUnitTest.WebService\WebService.csproj", "{556F686E-02DC-45FD-B1E9-D0D98B1A78F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin", "DynamicsCRMUnitTest.Plugin\Plugin.csproj", "{8953313A-34F1-4377-A2BF-3CC0873DFA50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Workflow", "DynamicsCRMUnitTest.Workflow\Workflow.csproj", "{71FC099C-E357-4C91-86CE-84F915DA8FE9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{C11FB1E9-710A-4323-BE07-361B7CF2117E}"
+	ProjectSection(SolutionItems) = preProject
+		Dependencies\System.Core.4.0.0.0.Fakes.dll = Dependencies\System.Core.4.0.0.0.Fakes.dll
+		Dependencies\microsoft.crm.sdk.proxy.dll = Dependencies\microsoft.crm.sdk.proxy.dll
+		Dependencies\microsoft.xrm.client.dll = Dependencies\microsoft.xrm.client.dll
+		Dependencies\microsoft.xrm.sdk.dll = Dependencies\microsoft.xrm.sdk.dll
+		Dependencies\microsoft.xrm.sdk.workflow.dll = Dependencies\microsoft.xrm.sdk.workflow.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebServiceTest.MicrosoftFakes", "WebServiceTest.MicrosoftFakes\WebServiceTest.MicrosoftFakes.csproj", "{CD7A271C-3BE4-4007-B947-1754B51E6B55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmOrganizationServiceContextExtensions", "CrmOrganizationServiceContextExtensions\CrmOrganizationServiceContextExtensions.csproj", "{0DD7A043-8B85-43AF-A331-6EB599FBF60F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PluginTest.MicrosoftFakes", "PluginTest.MicrosoftFakes\PluginTest.MicrosoftFakes.csproj", "{EF9C5850-7C9C-4FB8-BDEE-6B3300E00F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkflowTest.MicrosoftFakes", "WorkflowTest.MicrosoftFakes\WorkflowTest.MicrosoftFakes.csproj", "{62EE417A-3F29-4AEB-A2F9-B07076551586}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DD7A043-8B85-43AF-A331-6EB599FBF60F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DD7A043-8B85-43AF-A331-6EB599FBF60F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DD7A043-8B85-43AF-A331-6EB599FBF60F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DD7A043-8B85-43AF-A331-6EB599FBF60F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{556F686E-02DC-45FD-B1E9-D0D98B1A78F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{556F686E-02DC-45FD-B1E9-D0D98B1A78F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{556F686E-02DC-45FD-B1E9-D0D98B1A78F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{556F686E-02DC-45FD-B1E9-D0D98B1A78F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62EE417A-3F29-4AEB-A2F9-B07076551586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62EE417A-3F29-4AEB-A2F9-B07076551586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62EE417A-3F29-4AEB-A2F9-B07076551586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62EE417A-3F29-4AEB-A2F9-B07076551586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71FC099C-E357-4C91-86CE-84F915DA8FE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71FC099C-E357-4C91-86CE-84F915DA8FE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71FC099C-E357-4C91-86CE-84F915DA8FE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71FC099C-E357-4C91-86CE-84F915DA8FE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8953313A-34F1-4377-A2BF-3CC0873DFA50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8953313A-34F1-4377-A2BF-3CC0873DFA50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8953313A-34F1-4377-A2BF-3CC0873DFA50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8953313A-34F1-4377-A2BF-3CC0873DFA50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD7A271C-3BE4-4007-B947-1754B51E6B55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD7A271C-3BE4-4007-B947-1754B51E6B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD7A271C-3BE4-4007-B947-1754B51E6B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD7A271C-3BE4-4007-B947-1754B51E6B55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF9C5850-7C9C-4FB8-BDEE-6B3300E00F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF9C5850-7C9C-4FB8-BDEE-6B3300E00F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF9C5850-7C9C-4FB8-BDEE-6B3300E00F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF9C5850-7C9C-4FB8-BDEE-6B3300E00F72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>DataTemplate内でWindowのDataContextにバインドする方法</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>DataTemplate内でWindowのDataContextにバインドする方法</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="テクノロジ">テクノロジ</label>
+                        <div id="テクノロジ">
+                            WPF
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="トピック">トピック</label>
+                        <div id="トピック">
+                            Data Binding
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">ja-JP</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">最終更新日</label>
+                    <div id="LastUpdated">2013/05/08</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">ライセンス</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/DataTemplateWindowDataConte-0952815c">このサンプルをオンラインで表示する</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'コードをコピー';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>Windows Presentation Foundationを使ったアプリケーション(Windows Presentation Foundationを例にしていますがSilverlight, Windows Phone, Windows store appでも同様なことが可能です。一部機能についてはWindows Presentation Foundationの固有機能を使っています）のDataTemplate内で、自分のDataContext以外のものをソースに指定してBindingを行う方法のサンプルプログラムについて紹介します。</p>
+<h1>サンプルの実行方法と動作</h1>
+<p>サンプルをダウンロードしてVisual Studio 2012で開いてください。プロジェクトを開いて実行するとボタンが横に2列に並んで20行表示されます。ボタンを押すと、画面上部のテキストの表示が変わります。</p>
+<p><img id="81858" src="description/WS000000.JPG" alt="" width="300" height="200"></p>
+<h1>サンプルプログラムのポイント</h1>
+<p>サンプルプログラムでは、MainWindow内でItemsControlにListItemというクラスのコレクションをバインドしています。ItemsControlの1行1行はMainWindow内のResourcesに作成したDataTemplateで見た目を定義しています。DataTemplateは、StackPanelを使ってButtonを横に2つ並べています。このDataTemplateのボタンでMainWindowのDataContextに設定しているMainWindowViewModelのインスタンスのCommandをバインドしています。</p>
+<p>ポイントとなるXAMLのコードを以下に示します。</p>
+<p>まず、MainWindow内でのViewModelのインスタンスの定義とDataContextへの設定を行っているコードを以下に示します。</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">&lt;Window.Resources&gt;
+    &lt;local:MainWindowViewModel x:Key=&quot;viewModel&quot; /&gt;
+    ...省略...
+&lt;/Window.Resources&gt;
+
+&lt;Window.DataContext&gt;
+    &lt;StaticResourceExtension ResourceKey=&quot;viewModel&quot; /&gt;
+&lt;/Window.DataContext&gt;
+</pre>
+<div class="preview">
+<pre class="xaml"><span class="xaml__tag_start">&lt;Window</span>.Resources<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;local</span>:MainWindowViewModel&nbsp;x:<span class="xaml__attr_name">Key</span>=<span class="xaml__attr_value">&quot;viewModel&quot;</span>&nbsp;<span class="xaml__tag_start">/&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;...省略...&nbsp;
+&lt;/Window.Resources&gt;&nbsp;
+&nbsp;
+<span class="xaml__tag_start">&lt;Window</span>.DataContext<span class="xaml__tag_start">&gt;&nbsp;
+</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__tag_start">&lt;StaticResourceExtension</span>&nbsp;<span class="xaml__attr_name">ResourceKey</span>=<span class="xaml__attr_value">&quot;viewModel&quot;</span>&nbsp;<span class="xaml__tag_start">/&gt;</span>&nbsp;
+&lt;/Window.DataContext&gt;&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;DataContextに直接MainWindowViewModelのインスタンスを設定するのではなく、ResourcesにMainWindowViewModelのインスタンスを置いて、StaticResourceExtensionを使ってWindowのDataContextに設定しています。このようにMainWindowViewModelのインスタンスをResourcesに登録しているため、同じWindow内で定義しているDataTemplate内からもStaticResourceを使ってMainWindowViewModelが参照可能です。そのためDataTemplate内のボタンで以下のようなBindingを定義することで、MainWindowViewModelのコマンドを参照できます。</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">&lt;!-- StaticResourceで参照する方法 --&gt;
+&lt;Button Content=&quot;{Binding Text}&quot; 
+        Command=&quot;{Binding ViewModelCommand, Source={StaticResource viewModel}}&quot;
+        CommandParameter=&quot;{Binding}&quot;/&gt;</pre>
+<div class="preview">
+<pre class="xaml"><span class="xaml__comment">&lt;!--&nbsp;StaticResourceで参照する方法&nbsp;--&gt;</span>&nbsp;
+<span class="xaml__tag_start">&lt;Button</span>&nbsp;<span class="xaml__attr_name">Content</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;Text}&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">Command</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;ViewModelCommand,&nbsp;Source={StaticResource&nbsp;viewModel}}&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">CommandParameter</span>=<span class="xaml__attr_value">&quot;{Binding}&quot;</span><span class="xaml__tag_start">/&gt;</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;もう1つのボタンでは、WindowのResourcesにMainWindowViewModelのインスタンスを設定しなくても可能な方法でCommandをBindingしています。XAMLを以下に示します。</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>XAML</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">xaml</span>
+<pre class="hidden">&lt;!-- RelativeSourceで参照する方法 --&gt;
+&lt;Button Content=&quot;{Binding Text}&quot; 
+        Command=&quot;{Binding DataContext.ViewModelCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}&quot;
+        CommandParameter=&quot;{Binding}&quot;/&gt;</pre>
+<div class="preview">
+<pre class="xaml"><span class="xaml__comment">&lt;!--&nbsp;RelativeSourceで参照する方法&nbsp;--&gt;</span>&nbsp;
+<span class="xaml__tag_start">&lt;Button</span>&nbsp;<span class="xaml__attr_name">Content</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;Text}&quot;</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">Command</span>=<span class="xaml__attr_value">&quot;{Binding&nbsp;DataContext.ViewModelCommand,&nbsp;RelativeSource={RelativeSource&nbsp;AncestorType=ItemsControl}}&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="xaml__attr_name">CommandParameter</span>=<span class="xaml__attr_value">&quot;{Binding}&quot;</span><span class="xaml__tag_start">/&gt;</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+BindingのRelativeSourceを使うと相対的な位置をベースにしてBindingのPathを書くことができます。この場合ではAncestorTypeを使い指定した型にいきつくまで要素を親へ親へたどっていくようにしています。ItemsControlのDataContextは、MainWindowViewModelなのでPathにDataContext.ViewModelCommandという値を指定することでコマンドを参照しています。</div>
+<div class="endscriptcode"></div>
+<h1 class="endscriptcode">参考情報</h1>
+<div class="endscriptcode">RelativeSourceについては、以下のMSDNのページを参照してください。</div>
+<div class="endscriptcode"><a href="http://msdn.microsoft.com/ja-jp/library/vstudio/ms743599.aspx">RelativeSource のマークアップ拡張機能</a></div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

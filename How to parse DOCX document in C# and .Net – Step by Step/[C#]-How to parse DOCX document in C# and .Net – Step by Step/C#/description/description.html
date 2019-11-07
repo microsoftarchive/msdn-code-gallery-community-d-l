@@ -1,0 +1,70 @@
+<h1>Introduction</h1>
+<p>This C# example shows how to parse DOCX document using a free "DOCX Document .Net" library. Using this library your application can do following with DOCX: parse, create, edit and save.</p>
+<p><strong style="font-size: 2em;">Main Functions</strong></p>
+<ul>
+<li>Create DOCX document on fly and fill it by necessary data. </li>
+<li>Load DOCX document and get all it's structure as tree of objects. </li>
+<li>Modify text, tables and other data in existing DOCX document. </li>
+<li>Parse current content and structure and Save/Render it as new DOCX. </li>
+<li>Replace data in DOCX document. </li>
+</ul>
+<p><strong><img id="147727" src="parse-docx.png" alt="" /><br /> </strong></p>
+<h1><span>How to do it:</span></h1>
+<p><em>So, here we'll show you in details how to parse an existing DOCX document in C#.</em></p>
+<p><em><span style="color: #000000;"><strong><span class="blue12b">Very simple example.</span></strong>&nbsp;For example, we've the DOCX file: example.docx (please see in att. file). Let's extrace all text from it and render to Console.</span></em></p>
+<p><em><span class="blue12b"><strong>Step 1</strong>:</span>&nbsp;Launch Visual Studio. Click File-&gt;New Project-&gt;Visual C# Console Application.</em></p>
+<p><em>Type the application name and location, for example "Parse Docx document" and "c:\samples".</em></p>
+<p><em><span class="blue12b"><strong>Step 2</strong>:</span>&nbsp;In the Solution Explorer right-click on "References" and select "Add Reference". Next add a reference to the "SautinSoft.Document.dll"</em><em>.</em></p>
+<p><em><span class="blue12b"><strong>Step 3</strong>:</span>&nbsp;So, we've created an empty C# console application. Now type the C# code to parse "example.docx".</em></p>
+<p><em><strong>Step 4</strong>: Please insert c# code in your console application.&nbsp;Now build the application and launch it.</em></p>
+<p><span><em><strong><span class="blue12b">Well done!</span>&nbsp;</strong>Our congratulations, with help of the "DOCX Document .Net" library we've parsed our DOCX and extracted all text from it.</em></span><span class="pluginEditHolderLink">&nbsp;</span></p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">using System;
+using System.IO;
+using System.Text;
+using SautinSoft.Document;
+
+namespace Sample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Path to Docx file.
+            FileInfo pathToDocx = new FileInfo(@"c:\example.docx");
+
+            // Let's parse docx docuemnt and get all text from it.
+            DocumentCore docx = DocumentCore.Load(pathToDocx.FullName);
+
+            StringBuilder text = new StringBuilder();
+
+            foreach (Paragraph par in docx.GetChildElements(true, ElementType.Paragraph))
+            {
+                foreach (Run run in par.GetChildElements(true, ElementType.Run))
+                {
+                    text.Append(run.Text);
+                }
+                text.AppendLine();
+            }
+
+            // Show extracted text.
+            Console.WriteLine(text);
+            Console.ReadLine();
+
+        }
+    }
+}</pre>
+
+</div>
+</div>
+<div class="endscriptcode"></div>
+<h1><span>Source Code Files</span></h1>
+<div><em>Related Links:</em></div>
+<div><em><br /> Website: <a href="http://www.sautinsoft.com">www.sautinsoft.com</a><br /> Product Home: <a href="http://sautinsoft.com/products/docx-document/index.php">DOCX Document .Net</a><br /> Download: <a href="http://sautinsoft.com/products/docx-document/download.php">DOCX Document .Net</a><br /> </em></div>
+<h2 class="H2Text">Requrements and Technical Information</h2>
+<p class="CommonText"><em>Requires only .Net 4.0 or above. Our product is compatible with all .Net languages and supports all Operating Systems where .Net Framework can be used. Note that DOCX Document .Net is entirely written in managed C#, which makes it  absolutely standalone and an independent library.</em></p>

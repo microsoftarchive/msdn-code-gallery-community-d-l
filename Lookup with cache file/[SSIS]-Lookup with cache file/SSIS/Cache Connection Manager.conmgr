@@ -1,0 +1,28 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Cache Connection Manager"
+  DTS:DTSID="{B3788DB9-599E-4C1C-9866-9D53C8E356C5}"
+  DTS:CreationName="CACHE">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::cacheFileDirectory] + "\\Lookup cache.caw"</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:UseFile="True"
+      DTS:ConnectionString="">
+      <DTS:CacheColumns>
+        <DTS:CacheColumn
+          DTS:DataType="3"
+          DTS:IndexPosition="1"
+          DTS:ObjectName="BusinessEntityID"
+          DTS:DTSID="{D0EC8843-948B-4E29-8E86-10C3C6680F1B}"
+          DTS:CreationName="" />
+        <DTS:CacheColumn
+          DTS:DataType="130"
+          DTS:Length="50"
+          DTS:ObjectName="EmailAddress"
+          DTS:DTSID="{51C80453-884A-43B3-9235-1D656077F999}"
+          DTS:CreationName="" />
+      </DTS:CacheColumns>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

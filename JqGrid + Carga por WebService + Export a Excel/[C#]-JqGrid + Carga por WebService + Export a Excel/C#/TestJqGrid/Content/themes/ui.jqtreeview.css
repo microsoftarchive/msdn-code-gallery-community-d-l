@@ -1,0 +1,70 @@
+﻿.ui-jqtreeview-wrapper
+{
+	overflow: auto;
+}
+
+.ui-jqtreeview
+{	
+	border: none !important;
+	background: none !important;
+	margin: 0;
+	padding: 0;	
+}
+
+.ui-jqtreeview ul
+{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.ui-jqtreeview li
+{
+	list-style: none;
+	padding: 0 0 0 16px; 
+}
+
+.ui-jqtreeview-aref td
+{
+	height : 20px;
+}
+
+.ui-jqtreeview li a
+{
+	padding: 0px 7px 0px 16px;
+	display: block;
+	text-decoration: none;
+	border: 1px dashed;
+	position: relative;
+	border: 1px dashed transparent;
+}
+
+.ui-jqtreeview-item-expand-image
+{
+	margin-left: -16px;
+}
+
+.ui-jqtreeview-item-image
+{	
+	border: 0;
+	margin-top: 2px;
+}
+
+.ui-jqtreeview-item-text
+{	
+	margin-left: 2px;
+	overflow: hidden;
+	white-space: pre;		
+}
+
+.ui-jqtreeview-item-text-disabled
+{	
+	margin-left: 2px;
+	overflow: hidden;
+	white-space: pre;		
+	color: #BBBBBB !important;
+}
+
+.ui-jqtreeview-item-checkbox
+{	
+}

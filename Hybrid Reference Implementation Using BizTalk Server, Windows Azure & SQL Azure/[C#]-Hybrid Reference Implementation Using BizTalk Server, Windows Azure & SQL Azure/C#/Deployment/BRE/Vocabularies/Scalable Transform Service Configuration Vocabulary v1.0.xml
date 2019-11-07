@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<brl xmlns="http://schemas.microsoft.com/businessruleslanguage/2002">
+  <vocabulary id="b5b30dd3-cb59-441a-9fb2-374e687c0be3" name="Scalable Transform Service Configuration Vocabulary" uri="" description="">
+    <version major="1" minor="0" description="" modifiedby="YOURDOMAIN\youraccount" date="2010-09-13T14:51:36.5206222-07:00" />
+    <vocabularydefinition id="bb70418f-91ab-4070-a3c2-c36ad3bd4251" name="Add Storage Account" description="">
+      <bindingdefinition>
+        <classmemberbindingdefinition member="AddStorageAccount" type="void">
+          <classinfo class="ScalableTransformConfigurationSettings" instance="0">
+            <assembly>Contoso.Cloud.Integration.Azure.Services.ScalableTransform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+            <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.ScalableTransform\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.ScalableTransform.dll-->
+            <namespace>Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration</namespace>
+          </classinfo>
+          <argument position="0">
+            <valuedefinitionliteral type="string">
+              <string />
+            </valuedefinitionliteral>
+          </argument>
+        </classmemberbindingdefinition>
+      </bindingdefinition>
+      <formatstring language="en-US" string="Use Storage Account {0} For Load Balancing" delimiter="{[0-9]+}">
+        <argument position="0">
+          <valuedefinitionliteral type="string">
+            <string />
+          </valuedefinitionliteral>
+        </argument>
+      </formatstring>
+    </vocabularydefinition>
+    <vocabularydefinition id="f2a4ccda-5551-4bf9-8fb8-0c2c42fa32d2" name="Set Memory Cache Time-To-Live Property" description="">
+      <bindingdefinition>
+        <classmemberbindingdefinition member="SetMemoryCacheTimeToLiveInSeconds" type="void">
+          <classinfo class="ScalableTransformConfigurationSettings" instance="0">
+            <assembly>Contoso.Cloud.Integration.Azure.Services.ScalableTransform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+            <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.ScalableTransform\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.ScalableTransform.dll-->
+            <namespace>Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration</namespace>
+          </classinfo>
+          <argument position="0">
+            <valuedefinitionliteral type="int">
+              <int>0</int>
+            </valuedefinitionliteral>
+          </argument>
+        </classmemberbindingdefinition>
+      </bindingdefinition>
+      <formatstring language="en-US" string="Keep Transforms In Memory Cache For {0} Seconds" delimiter="{[0-9]+}">
+        <argument position="0">
+          <valuedefinitionliteral type="int">
+            <int>0</int>
+          </valuedefinitionliteral>
+        </argument>
+      </formatstring>
+    </vocabularydefinition>
+    <vocabularydefinition id="ba01299b-0291-4ff2-87a7-65538226b677" name="Set Blob Cache Time-To-Live Property" description="">
+      <bindingdefinition>
+        <classmemberbindingdefinition member="SetBlobCacheTimeToLiveInSeconds" type="void">
+          <classinfo class="ScalableTransformConfigurationSettings" instance="0">
+            <assembly>Contoso.Cloud.Integration.Azure.Services.ScalableTransform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+            <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.ScalableTransform\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.ScalableTransform.dll-->
+            <namespace>Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration</namespace>
+          </classinfo>
+          <argument position="0">
+            <valuedefinitionliteral type="int">
+              <int>0</int>
+            </valuedefinitionliteral>
+          </argument>
+        </classmemberbindingdefinition>
+      </bindingdefinition>
+      <formatstring language="en-US" string="Keep Transforms In Blob Storage Cache For {0} Seconds" delimiter="{[0-9]+}">
+        <argument position="0">
+          <valuedefinitionliteral type="int">
+            <int>0</int>
+          </valuedefinitionliteral>
+        </argument>
+      </formatstring>
+    </vocabularydefinition>
+    <vocabularydefinition id="d0ab7714-d5a6-48b9-b155-b6c89ec58d06" name="Set Cache Storage Account" description="">
+      <bindingdefinition>
+        <classmemberbindingdefinition member="set_CacheStorageAccount" type="void">
+          <classinfo class="ScalableTransformConfigurationSettings" instance="0">
+            <assembly>Contoso.Cloud.Integration.Azure.Services.ScalableTransform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+            <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.ScalableTransform\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.ScalableTransform.dll-->
+            <namespace>Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration</namespace>
+          </classinfo>
+          <argument position="0">
+            <valuedefinitionliteral type="string">
+              <string />
+            </valuedefinitionliteral>
+          </argument>
+        </classmemberbindingdefinition>
+      </bindingdefinition>
+      <formatstring language="en-US" string="Use Storage Account {0} As Transform Cache" delimiter="{[0-9]+}">
+        <argument position="0">
+          <valuedefinitionliteral type="string">
+            <string />
+          </valuedefinitionliteral>
+        </argument>
+      </formatstring>
+    </vocabularydefinition>
+  </vocabulary>
+</brl>

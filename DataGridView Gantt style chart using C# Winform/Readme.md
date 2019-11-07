@@ -1,0 +1,1608 @@
+# DataGridView Gantt style chart using C# Winform
+## Requires
+- Visual Studio 2015
+## License
+- MIT
+## Technologies
+- C#
+- DataGridView
+- WinForms
+- Project Management
+- Gantt
+## Topics
+- C#
+- Windows Forms
+- DataGridView
+- WinForms
+- Gantt
+## Updated
+- 10/11/2015
+## Description
+
+<h1>Introduction</h1>
+<p><img id="142363" src="142363-1.png" alt="" width="700" height="350"></p>
+<p>In this article we can see how to create a simple Gantt Style chart inside DataGridView to display the Project Schedule results. In my previous article I have explained the same for &nbsp;MVC using AngularJS.(<a title="Dynamic Project scheduling using MVC Angular JS" href="https://code.msdn.microsoft.com/Dynamic-scheduling-using-35328360" target="_blank">https://code.msdn.microsoft.com/Dynamic-scheduling-using-3532836</a>&nbsp;&nbsp;).Few
+ members requested me to do the same for Winform using DataGridView.I have make a simple program with same functionality as my Webform example. Kindly refer my both articles to find more detail about project Scheduling.</p>
+<h1><span>Building the Sample</span></h1>
+<p>As I have explained in the above article all the business logic to display the project management result has been done in my Stored Procedure. I have been used Pivot query in my Stored Procedure to display the final result. We can see detail about how I
+ have written my procedure to display the result in Code part.</p>
+<p><span style="font-size:20px; font-weight:bold">Description</span></p>
+<p class="MsoNormal"><span lang="EN-US">We will create a </span><span lang="EN-US" style="font-family:&quot;Courier New&quot;; color:teal">SCHED_Master
+</span><span lang="EN-US">table under the Database </span><span lang="EN-US" style="font-family:&quot;Courier New&quot;; color:red">'</span><span lang="EN-US" style="font-family:&quot;Courier New&quot;; color:teal">projectDB</span><span lang="EN-US" style="font-family:&quot;Courier New&quot;; color:red">'</span><span lang="EN-US">.
+ The following is the script to create a database, table and sample insert query. Run this script in your SQL Server. I have used SQL Server 2012.</span></p>
+<p class="MsoNormal"><span lang="EN-US">&nbsp;<img id="142364" src="142364-3.png" alt="" width="600" height="253"></span></p>
+<h3 class="MsoNormal"><span lang="EN-US"><strong>1) Create Database and Table</strong></span></h3>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>SQL</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">mysql</span>
+<pre class="hidden">-- =============================================                               
+-- Author      : Shanu                                
+-- Create date : 2015-09-08                                 
+-- Description : To Create Database,Table and Sample Insert Query                            
+-- Latest                               
+-- Modifier    : Shanu                                
+-- Modify date : 2015-09-08                         
+-- =============================================
+--Script to create DB,Table and sample Insert data
+USE MASTER
+GO
+
+-- 1) Check for the Database Exists .If the database is exist then drop and create new DB
+IF EXISTS (SELECT [name] FROM sys.databases WHERE [name] = 'projectDB' )
+DROP DATABASE projectDB
+GO
+
+CREATE DATABASE projectDB
+GO
+
+USE projectDB
+GO
+
+
+CREATE TABLE [dbo].[SCHED_Master](
+	[ID] [int] NOT NULL,
+	[ProjectName] [varchar](100) NULL,
+	[ProjectType] int NULL,
+	[ProjectTypeName] [varchar](100) NULL,
+	[SCHED_ST_DT] [datetime] NULL,
+	[SCHED_ED_DT] [datetime] NULL,	
+	[ACT_ST_DT] [datetime] NULL,
+	[ACT_ED_DT] [datetime] NULL,
+	[status] int null
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+-- Insert Query
+
+--delete from SCHED_Master
+
+INSERT INTO [dbo].SCHED_Master
+           ([ID],[ProjectName],[ProjectType],[ProjectTypeName],[SCHED_ST_DT],[SCHED_ED_DT],[ACT_ST_DT],[ACT_ED_DT],[status])
+     VALUES
+           (1001,'Project-1',1,'Urgent','2015-06-01 00:00:00.000','2015-09-02 00:00:00.000'
+            ,'2015-06-22 00:00:00.000','2015-08-26 00:00:00.000',1)
+
+
+INSERT INTO [dbo].SCHED_Master
+           ([ID],[ProjectName],[ProjectType],[ProjectTypeName],[SCHED_ST_DT],[SCHED_ED_DT],[ACT_ST_DT],[ACT_ED_DT],[status])
+     VALUES
+           (1002,'Project-1',2,'Important','2015-06-12 00:00:00.000','2015-8-02 00:00:00.000'
+            ,'2015-06-19 00:00:00.000','2015-8-29 00:00:00.000',1)
+
+INSERT INTO [dbo].SCHED_Master
+           ([ID],[ProjectName],[ProjectType],[ProjectTypeName],[SCHED_ST_DT],[SCHED_ED_DT],[ACT_ST_DT],[ACT_ED_DT],[status])
+     VALUES
+           (1003,'Project-1',3,'Normal','2015-06-28 00:00:00.000','2015-09-03 00:00:00.000'
+            ,'2015-07-02 00:00:00.000','2015-08-24 00:00:00.000',1)
+
+
+INSERT INTO [dbo].SCHED_Master
+           ([ID],[ProjectName],[ProjectType],[ProjectTypeName],[SCHED_ST_DT],[SCHED_ED_DT],[ACT_ST_DT],[ACT_ED_DT],[status])
+     VALUES
+           (1004,'Project-2',1,'Urgent','2015-06-28 00:00:00.000','2015-08-02 00:00:00.000'
+            ,'2015-07-02 00:00:00.000','2015-08-26 00:00:00.000',1)
+
+
+INSERT INTO [dbo].SCHED_Master
+           ([ID],[ProjectName],[ProjectType],[ProjectTypeName],[SCHED_ST_DT],[SCHED_ED_DT],[ACT_ST_DT],[ACT_ED_DT],[status])
+     VALUES
+           (1005,'Project-2',2,'Important','2015-07-09 00:00:00.000','2015-12-22 00:00:00.000'
+            ,'2015-06-28 00:00:00.000','2015-12-14 00:00:00.000',1)
+
+INSERT INTO [dbo].SCHED_Master
+           ([ID],[ProjectName],[ProjectType],[ProjectTypeName],[SCHED_ST_DT],[SCHED_ED_DT],[ACT_ST_DT],[ACT_ED_DT],[status])
+     VALUES
+           (1006,'Project-2',3,'Normal','2015-06-01 00:00:00.000','2015-08-04 00:00:00.000'
+            ,'2015-06-22 00:00:00.000','2015-08-24 00:00:00.000',1)
+
+
+-- Select Query
+
+select ID,ProjectName,ProjectType,ProjectTypeName,SCHED_ST_DT,SCHED_ED_DT,ACT_ST_DT,ACT_ED_DT,status from SCHED_Master
+</pre>
+<div class="preview">
+<pre class="mysql"><span class="sql__com">--&nbsp;=============================================&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Shanu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Create&nbsp;date&nbsp;:&nbsp;2015-09-08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Description&nbsp;:&nbsp;To&nbsp;Create&nbsp;Database,Table&nbsp;and&nbsp;Sample&nbsp;Insert&nbsp;Query&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Latest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Modifier&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Shanu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Modify&nbsp;date&nbsp;:&nbsp;2015-09-08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;=============================================</span>&nbsp;
+--<span class="sql__id">Script</span>&nbsp;<span class="sql__keyword">to</span>&nbsp;<span class="sql__keyword">create</span>&nbsp;<span class="sql__id">DB</span>,<span class="sql__keyword">Table</span>&nbsp;<span class="sql__keyword">and</span>&nbsp;<span class="sql__id">sample</span>&nbsp;<span class="sql__keyword">Insert</span>&nbsp;<span class="sql__keyword">data</span>&nbsp;
+<span class="sql__keyword">USE</span>&nbsp;<span class="sql__keyword">MASTER</span>&nbsp;
+<span class="sql__id">GO</span>&nbsp;
+&nbsp;
+<span class="sql__com">--&nbsp;1)&nbsp;Check&nbsp;for&nbsp;the&nbsp;Database&nbsp;Exists&nbsp;.If&nbsp;the&nbsp;database&nbsp;is&nbsp;exist&nbsp;then&nbsp;drop&nbsp;and&nbsp;create&nbsp;new&nbsp;DB</span>&nbsp;
+<span class="sql__keyword">IF</span>&nbsp;<span class="sql__keyword">EXISTS</span>&nbsp;(<span class="sql__keyword">SELECT</span>&nbsp;[<span class="sql__keyword">name</span>]&nbsp;<span class="sql__keyword">FROM</span>&nbsp;<span class="sql__id">sys</span>.<span class="sql__keyword">databases</span>&nbsp;<span class="sql__keyword">WHERE</span>&nbsp;[<span class="sql__keyword">name</span>]&nbsp;=&nbsp;<span class="sql__string">'projectDB'</span>&nbsp;)&nbsp;
+<span class="sql__keyword">DROP</span>&nbsp;<span class="sql__keyword">DATABASE</span>&nbsp;<span class="sql__id">projectDB</span>&nbsp;
+<span class="sql__id">GO</span>&nbsp;
+&nbsp;
+<span class="sql__keyword">CREATE</span>&nbsp;<span class="sql__keyword">DATABASE</span>&nbsp;<span class="sql__id">projectDB</span>&nbsp;
+<span class="sql__id">GO</span>&nbsp;
+&nbsp;
+<span class="sql__keyword">USE</span>&nbsp;<span class="sql__id">projectDB</span>&nbsp;
+<span class="sql__id">GO</span>&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__keyword">CREATE</span>&nbsp;<span class="sql__keyword">TABLE</span>&nbsp;[<span class="sql__id">dbo</span>].[<span class="sql__id">SCHED_Master</span>](&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ID</span>]&nbsp;[<span class="sql__keyword">int</span>]&nbsp;<span class="sql__keyword">NOT</span>&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ProjectName</span>]&nbsp;[<span class="sql__keyword">varchar</span>](<span class="sql__number">100</span>)&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ProjectType</span>]&nbsp;<span class="sql__keyword">int</span>&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ProjectTypeName</span>]&nbsp;[<span class="sql__keyword">varchar</span>](<span class="sql__number">100</span>)&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">SCHED_ST_DT</span>]&nbsp;[<span class="sql__keyword">datetime</span>]&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">SCHED_ED_DT</span>]&nbsp;[<span class="sql__keyword">datetime</span>]&nbsp;<span class="sql__value">NULL</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ACT_ST_DT</span>]&nbsp;[<span class="sql__keyword">datetime</span>]&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ACT_ED_DT</span>]&nbsp;[<span class="sql__keyword">datetime</span>]&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__keyword">status</span>]&nbsp;<span class="sql__keyword">int</span>&nbsp;<span class="sql__value">null</span>&nbsp;
+<span class="sql__keyword">PRIMARY</span>&nbsp;<span class="sql__keyword">KEY</span>&nbsp;<span class="sql__id">CLUSTERED</span>&nbsp;&nbsp;
+(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ID</span>]&nbsp;<span class="sql__keyword">ASC</span>&nbsp;
+)<span class="sql__keyword">WITH</span>&nbsp;(<span class="sql__id">PAD_INDEX</span>&nbsp;&nbsp;=&nbsp;<span class="sql__id">OFF</span>,&nbsp;<span class="sql__id">STATISTICS_NORECOMPUTE</span>&nbsp;&nbsp;=&nbsp;<span class="sql__id">OFF</span>,&nbsp;<span class="sql__id">IGNORE_DUP_KEY</span>&nbsp;=&nbsp;<span class="sql__id">OFF</span>,&nbsp;<span class="sql__id">ALLOW_ROW_LOCKS</span>&nbsp;&nbsp;=&nbsp;<span class="sql__keyword">ON</span>,&nbsp;<span class="sql__id">ALLOW_PAGE_LOCKS</span>&nbsp;&nbsp;=&nbsp;<span class="sql__keyword">ON</span>)&nbsp;<span class="sql__keyword">ON</span>&nbsp;[<span class="sql__keyword">PRIMARY</span>]&nbsp;
+)&nbsp;<span class="sql__keyword">ON</span>&nbsp;[<span class="sql__keyword">PRIMARY</span>]&nbsp;
+&nbsp;
+<span class="sql__com">--&nbsp;Insert&nbsp;Query</span>&nbsp;
+&nbsp;
+--<span class="sql__keyword">delete</span>&nbsp;<span class="sql__keyword">from</span>&nbsp;<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1001</span>,<span class="sql__string">'Project-1'</span>,<span class="sql__number">1</span>,<span class="sql__string">'Urgent'</span>,<span class="sql__string">'2015-06-01&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-09-02&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2015-06-22&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-08-26&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1002</span>,<span class="sql__string">'Project-1'</span>,<span class="sql__number">2</span>,<span class="sql__string">'Important'</span>,<span class="sql__string">'2015-06-12&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-8-02&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2015-06-19&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-8-29&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1003</span>,<span class="sql__string">'Project-1'</span>,<span class="sql__number">3</span>,<span class="sql__string">'Normal'</span>,<span class="sql__string">'2015-06-28&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-09-03&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2015-07-02&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-08-24&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1004</span>,<span class="sql__string">'Project-2'</span>,<span class="sql__number">1</span>,<span class="sql__string">'Urgent'</span>,<span class="sql__string">'2015-06-28&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-08-02&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2015-07-02&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-08-26&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1005</span>,<span class="sql__string">'Project-2'</span>,<span class="sql__number">2</span>,<span class="sql__string">'Important'</span>,<span class="sql__string">'2015-07-09&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-12-22&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2015-06-28&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-12-14&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1006</span>,<span class="sql__string">'Project-2'</span>,<span class="sql__number">3</span>,<span class="sql__string">'Normal'</span>,<span class="sql__string">'2015-06-01&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-08-04&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2015-06-22&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-08-24&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__com">--&nbsp;Select&nbsp;Query</span>&nbsp;
+&nbsp;
+<span class="sql__keyword">select</span>&nbsp;<span class="sql__id">ID</span>,<span class="sql__id">ProjectName</span>,<span class="sql__id">ProjectType</span>,<span class="sql__id">ProjectTypeName</span>,<span class="sql__id">SCHED_ST_DT</span>,<span class="sql__id">SCHED_ED_DT</span>,<span class="sql__id">ACT_ST_DT</span>,<span class="sql__id">ACT_ED_DT</span>,<span class="sql__keyword">status</span>&nbsp;<span class="sql__keyword">from</span>&nbsp;<span class="sql__id">SCHED_Master</span>&nbsp;<span style="line-height:normal; white-space:normal">
+</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">
+<div class="endscriptcode">&nbsp;After creating our Table we will &nbsp;create a Stored procedure to display the project Schedule result using Pivot query.&nbsp;</div>
+<div class="endscriptcode">I will explain each steps of my procedure so that you can understand it clearly to make your own with your table formats.&nbsp;</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode"><strong>Step 1 :</strong>Create the Procedure with parameter and declare the variable inside procedure to be used in the SP.</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">Note here I have set the FromDate and ToDate as static.You can change this as a parameter from SP to get the dynamic results as per your date range.</div>
+</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>SQL</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">mysql</span>
+<pre class="hidden">Alter PROCEDURE [dbo].[usp_ProjectSchedule_Select]                                                    
+@projectId           VARCHAR(10)  = ''                                                                 
+                                                         
+AS                                                                      
+BEGIN                                                       
+     
+ -- 1. Declared for setting the Schedule Start and End date
+ --1.Start /////////////
+  Declare   @FromDate          VARCHAR(20)  = '2015-06-08'--DATEADD(mm,-12,getdate())                                                           
+  Declare   @ToDate            VARCHAR(20)  = '2016-05-06'--DATEADD(mm, 1, getdate())  
+  -- used for the pivot table result
+  DECLARE @MyColumns AS NVARCHAR(MAX),
+    @SQLquery  AS NVARCHAR(MAX)
+</pre>
+<div class="preview">
+<pre class="mysql"><span class="sql__keyword">Alter</span>&nbsp;<span class="sql__keyword">PROCEDURE</span>&nbsp;[<span class="sql__id">dbo</span>].[<span class="sql__id">usp_ProjectSchedule_Select</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">@</span><span class="sql__variable">projectId</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VARCHAR</span>(<span class="sql__number">10</span>)&nbsp;&nbsp;=&nbsp;<span class="sql__string">''</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">AS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">BEGIN</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__com">--&nbsp;1.&nbsp;Declared&nbsp;for&nbsp;setting&nbsp;the&nbsp;Schedule&nbsp;Start&nbsp;and&nbsp;End&nbsp;date</span>&nbsp;
+&nbsp;--<span class="sql__number">1</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;
+&nbsp;&nbsp;<span class="sql__keyword">Declare</span>&nbsp;&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VARCHAR</span>(<span class="sql__number">20</span>)&nbsp;&nbsp;=&nbsp;<span class="sql__string">'2015-06-08'</span>--<span class="sql__id">DATEADD</span>(<span class="sql__id">mm</span>,-<span class="sql__number">12</span>,<span class="sql__id">getdate</span>())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="sql__keyword">Declare</span>&nbsp;&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VARCHAR</span>(<span class="sql__number">20</span>)&nbsp;&nbsp;=&nbsp;<span class="sql__string">'2016-05-06'</span>--<span class="sql__id">DATEADD</span>(<span class="sql__id">mm</span>,&nbsp;<span class="sql__number">1</span>,&nbsp;<span class="sql__id">getdate</span>())&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="sql__com">--&nbsp;used&nbsp;for&nbsp;the&nbsp;pivot&nbsp;table&nbsp;result</span>&nbsp;
+&nbsp;&nbsp;<span class="sql__keyword">DECLARE</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">MyColumns</span>&nbsp;<span class="sql__keyword">AS</span>&nbsp;<span class="sql__keyword">NVARCHAR</span>(<span class="sql__id">MAX</span>),&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">SQLquery</span>&nbsp;&nbsp;<span class="sql__keyword">AS</span>&nbsp;<span class="sql__keyword">NVARCHAR</span>(<span class="sql__id">MAX</span>)&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;<strong>Step 2 :&nbsp;</strong>We have define our Project Start From Date and End Date.Now we need to search the Project schedule result from the given date.The main aim of the Project Schedule chart is do display the data
+ range as Weeks,Month,Year or Day of any one format with continous result with in range.To get the continues result I will get the Days if Sundays from the Start and End date.I will display the result as Week display so here I have used every week Sunday date
+ and store all the dates to temptable to display the result.</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>SQL</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">mysql</span>
+<pre class="hidden">-- 2.This Temp table is to created for  get all the days between the start date and end date to display as the Column Header                                                      
+ --2.Start /////////////                                                                
+ IF OBJECT_ID('tempdb..#TEMP_EveryWk_Sndays') IS NOT NULL                                                                          
+    DROP TABLE #TEMP_EveryWk_Sndays                                                                       
+                                                                          
+ DECLARE @TOTALCount INT                                          
+    Select  @TOTALCount= DATEDIFF(dd,@FromDate,@ToDate);           
+   WITH d AS                                                                       
+            (                                                                      
+              SELECT top (@TOTALCount) AllDays = DATEADD(DAY, ROW_NUMBER()                                                                       
+                OVER (ORDER BY object_id), REPLACE(@FromDate,'-',''))                                                                      
+              FROM sys.all_objects                                             
+            )                                                                      
+                                                                            
+         SELECT  distinct DATEADD(DAY, 1 - DATEPART(WEEKDAY, AllDays), CAST(AllDays AS DATE))WkStartSundays  ,1 as status                                                              
+                                                                           
+ into #TEMP_EveryWk_Sndays                                                                    
+    FROM d                             
+   where                          
+        AllDays  &lt;= @ToDate                                      
+   AND AllDays  &gt;= @FromDate        
+   
+   -- test the sample temptable with select query
+  -- select * from #TEMP_EveryWk_Sndays
+   --///////////// End of 2.
+</pre>
+<div class="preview">
+<pre class="mysql"><span class="sql__com">--&nbsp;2.This&nbsp;Temp&nbsp;table&nbsp;is&nbsp;to&nbsp;created&nbsp;for&nbsp;&nbsp;get&nbsp;all&nbsp;the&nbsp;days&nbsp;between&nbsp;the&nbsp;start&nbsp;date&nbsp;and&nbsp;end&nbsp;date&nbsp;to&nbsp;display&nbsp;as&nbsp;the&nbsp;Column&nbsp;Header&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;--<span class="sql__number">2</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__keyword">IF</span>&nbsp;<span class="sql__id">OBJECT_ID</span>(<span class="sql__string">'tempdb..#TEMP_EveryWk_Sndays'</span>)&nbsp;<span class="sql__keyword">IS</span>&nbsp;<span class="sql__keyword">NOT</span>&nbsp;<span class="sql__value">NULL</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">DROP</span>&nbsp;<span class="sql__keyword">TABLE</span><span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__keyword">DECLARE</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">TOTALCount</span>&nbsp;<span class="sql__keyword">INT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">Select</span>&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">TOTALCount</span>=&nbsp;<span class="sql__function">DATEDIFF</span>(<span class="sql__id">dd</span>,<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>,<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__keyword">WITH</span>&nbsp;<span class="sql__id">d</span>&nbsp;<span class="sql__keyword">AS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;<span class="sql__id">top</span>&nbsp;(<span class="sql__keyword">@</span><span class="sql__variable">TOTALCount</span>)&nbsp;<span class="sql__id">AllDays</span>&nbsp;=&nbsp;<span class="sql__id">DATEADD</span>(<span class="sql__keyword">DAY</span>,&nbsp;<span class="sql__id">ROW_NUMBER</span>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">OVER</span>&nbsp;(<span class="sql__keyword">ORDER</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;<span class="sql__id">object_id</span>),&nbsp;<span class="sql__keyword">REPLACE</span>(<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>,<span class="sql__string">'-'</span>,<span class="sql__string">''</span>))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;<span class="sql__id">sys</span>.<span class="sql__id">all_objects</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;<span class="sql__keyword">distinct</span>&nbsp;<span class="sql__id">DATEADD</span>(<span class="sql__keyword">DAY</span>,&nbsp;<span class="sql__number">1</span>&nbsp;-&nbsp;<span class="sql__id">DATEPART</span>(<span class="sql__id">WEEKDAY</span>,&nbsp;<span class="sql__id">AllDays</span>),&nbsp;<span class="sql__function">CAST</span>(<span class="sql__id">AllDays</span>&nbsp;<span class="sql__keyword">AS</span>&nbsp;<span class="sql__keyword">DATE</span>))<span class="sql__id">WkStartSundays</span>&nbsp;&nbsp;,<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">status</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__keyword">into</span><span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;<span class="sql__id">d</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__keyword">where</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">AllDays</span>&nbsp;&nbsp;&lt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">AllDays</span>&nbsp;&nbsp;&gt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;test&nbsp;the&nbsp;sample&nbsp;temptable&nbsp;with&nbsp;select&nbsp;query</span>&nbsp;
+&nbsp;&nbsp;<span class="sql__com">--&nbsp;select&nbsp;*&nbsp;from&nbsp;#TEMP_EveryWk_Sndays</span>&nbsp;
+&nbsp;&nbsp;&nbsp;--/////////////&nbsp;<span class="sql__keyword">End</span>&nbsp;<span class="sql__id">of</span>&nbsp;<span class="sql__number">2</span>.&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><strong>&nbsp;Step 3 : </strong>I will join above temp table to actual Schedule table to compare the dates and produce the result.First I will check for the Schedule result and using the union I will combine the result to the Actual
+ result and insert the final result to another temp table to generate our pivot result.&nbsp;</div>
+<div class="endscriptcode"></div>
+<p><img id="142363" src="142363-1.png" alt="" width="700" height="350"></p>
+<p><strong>Note : </strong>for actual data in pivot list I will display the result as&nbsp;</p>
+<p><strong><span style="color:#800000">&ldquo;-1&rdquo; </span></strong>&ndash; For End Date of both Schedule and Actual result .In my program I will check for the resultent value if its &ldquo;-1&rdquo; then I will display the text as &ldquo;END&rdquo; with
+ red back color which is to notify the user for End date of each project.</p>
+<p><strong><span style="color:#800000">&ldquo;0&rdquo; &ndash;</span></strong> If the result value is &ldquo;0&rdquo; then it means the days are not in any Schedule or Actual days so it should be leaved as blank.</p>
+<p><strong><span style="color:#800000">&nbsp;&ldquo;1&rdquo; &ndash; </span></strong>If &nbsp;the result is &ldquo;1&rdquo; is to intimate as the Schedule Start and End days .I will be using Blue color to display the Schedule Days.</p>
+<p><strong><span style="color:#800000">&ldquo;2&rdquo; - </span></strong>If &nbsp;the result is &ldquo;1&rdquo; is to intimate as the Actual Start and End days .I will be using Green color to display the Schedule Days.</p>
+<p>This is only a sample procedure which explains sample program for Project schedule you can change this table ,procedure and Program as per your requirement.You can set your own rule and status to display the result.</p>
+<div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>SQL</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">mysql</span>
+<pre class="hidden">-- 3. This temp table is created toScedule details with result here i have used the Union ,
+   --the 1st query return the Schedule Project result and the 2nd query returns the Actual Project result both this query will be inserted to a Temp Table
+ --3.Start /////////////
+ IF OBJECT_ID('tempdb..#TEMP_results') IS NOT NULL                                                                          
+    DROP TABLE #TEMP_results   
+ 
+	   SELECT ProjectName,viewtype,ProjectType,resultnew,YMWK
+	   INTO #TEMP_results
+	   FROM(
+				SELECT                                                                
+						 A.ProjectName ProjectName   -- Our Project Name                                       
+						,'1-Scd' viewtype            -- Our View type first we display Schedule Data and then Actual                                                 
+						, A. ProjectType ProjectType -- Our Project type here you can use your own status as Urgent,normal and etc 
+						,  Case when   cast(DATEPART( wk, max(A.SCHED_ED_DT)) as varchar(2)) =  cast(DATEPART( wk, WkStartSundays) as varchar(2))  then -1 else
+							case when min(A.SCHED_ST_DT)&lt;= F.WkStartSundays AND max(A.SCHED_ED_DT) &gt;= F.WkStartSundays                                                        
+						  then 1 else 0  end end resultnew  -- perfectResult as i expect   
+					    ,  RIGHT(YEAR(WkStartSundays), 2)&#43;'-'&#43;'W'&#43;convert(varchar(2),Case when len(DATEPART( wk, WkStartSundays))='1' then '0'&#43;                                
+						  cast(DATEPART( wk, WkStartSundays) as varchar(2)) else cast(DATEPART( wk, WkStartSundays) as varchar(2)) END                             
+						  ) as 'YMWK'  -- Here we display Year/month and Week of our Schedule which will be displayed as the Column                 
+
+			  FROM   -- here you can youe your own table                                                          
+						 SCHED_Master A (NOLOCK)       
+								 LEFT OUTER JOIN 
+						 #TEMP_EveryWk_Sndays F (NOLOCK)  ON A.status= F.status                                                            
+			                                          
+				WHERE  -- Here you can check your own where conditions     
+						A.ProjectName like '%' &#43; @projectId                                                      
+					AND	A.status=1                                                                          
+					AND A.ProjectType in (1,2,3) 
+					AND A.SCHED_ST_DT  &lt;= @ToDate                                          
+				    AND A.SCHED_ED_DT  &gt;= @FromDate  
+				GROUP BY                                                             
+					   A.ProjectName                                                         
+					 , A. ProjectType  
+					 ,A.SCHED_ED_DT                   
+					,F.WkStartSundays
+
+	UNION  -- This query is to result the Actual result
+			SELECT                                                                
+						 A.ProjectName ProjectName   -- Our Project Name                                       
+						,'2-Act' viewtype            -- Our View type first we display Schedule Data and then Actual                                                 
+						, A. ProjectType ProjectType -- Our Project type here you can use your own status as Urgent,normal and etc 
+						,  Case when   cast(DATEPART( wk, max(A.ACT_ED_DT)) as varchar(2)) =  cast(DATEPART( wk, WkStartSundays) as varchar(2))  then -1 else
+							case when min(A.ACT_ST_DT)&lt;= F.WkStartSundays AND max(A.ACT_ED_DT) &gt;= F.WkStartSundays                                                        
+						   then 2 else 0  end end resultnew  -- perfectResult as i expect 
+						
+					    , RIGHT(YEAR(WkStartSundays), 2)&#43;'-'&#43;'W'&#43;convert(varchar(2),Case when len(DATEPART( wk, WkStartSundays))='1' then '0'&#43;                                
+							  cast(DATEPART( wk, WkStartSundays) as varchar(2)) else cast(DATEPART( wk, WkStartSundays) as varchar(2)) END                             
+							  ) as 'YMWK'  -- Here we display Year/month and Week of our Schedule which will be displayed as the Column                 
+
+			  FROM   -- here you can youe your own table                                                          
+						 SCHED_Master A (NOLOCK)       
+								 LEFT OUTER JOIN 
+						 #TEMP_EveryWk_Sndays F (NOLOCK)  ON A.status= F.status                                                            
+			                                          
+				WHERE  -- Here you can check your own where conditions      
+						A.ProjectName like '%' &#43; @projectId                                                     
+					AND	A.status=1                                                                          
+					AND A.ProjectType in (1,2,3) 
+					AND A.ACT_ST_DT  &lt;= @ToDate                                          
+				    AND A.ACT_ED_DT  &gt;= @FromDate  
+				GROUP BY                                                             
+					   A.ProjectName                                                         
+					 , A. ProjectType  
+					 ,A.SCHED_ED_DT                   
+					,F.WkStartSundays
+
+	 )  q                 
+
+ --3.End /////////////
+</pre>
+<div class="preview">
+<pre class="mysql"><span class="sql__com">--&nbsp;3.&nbsp;This&nbsp;temp&nbsp;table&nbsp;is&nbsp;created&nbsp;toScedule&nbsp;details&nbsp;with&nbsp;result&nbsp;here&nbsp;i&nbsp;have&nbsp;used&nbsp;the&nbsp;Union&nbsp;,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;--<span class="sql__id">the</span>&nbsp;<span class="sql__id">1st</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;<span class="sql__keyword">return</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">Schedule</span>&nbsp;<span class="sql__id">Project</span>&nbsp;<span class="sql__id">result</span>&nbsp;<span class="sql__keyword">and</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">2nd</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;<span class="sql__keyword">returns</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">Actual</span>&nbsp;<span class="sql__id">Project</span>&nbsp;<span class="sql__id">result</span>&nbsp;<span class="sql__keyword">both</span>&nbsp;<span class="sql__id">this</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;<span class="sql__id">will</span>&nbsp;<span class="sql__id">be</span>&nbsp;<span class="sql__id">inserted</span>&nbsp;<span class="sql__keyword">to</span>&nbsp;<span class="sql__id">a</span>&nbsp;<span class="sql__id">Temp</span>&nbsp;<span class="sql__keyword">Table</span>&nbsp;
+&nbsp;--<span class="sql__number">3</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;
+&nbsp;<span class="sql__keyword">IF</span>&nbsp;<span class="sql__id">OBJECT_ID</span>(<span class="sql__string">'tempdb..#TEMP_results'</span>)&nbsp;<span class="sql__keyword">IS</span>&nbsp;<span class="sql__keyword">NOT</span>&nbsp;<span class="sql__value">NULL</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">DROP</span>&nbsp;<span class="sql__keyword">TABLE</span><span class="sql__com">&nbsp;#TEMP_results&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;<span class="sql__id">ProjectName</span>,<span class="sql__id">viewtype</span>,<span class="sql__id">ProjectType</span>,<span class="sql__id">resultnew</span>,<span class="sql__id">YMWK</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">INTO</span><span class="sql__com">&nbsp;#TEMP_results</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'1-Scd'</span>&nbsp;<span class="sql__id">viewtype</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;View&nbsp;type&nbsp;first&nbsp;we&nbsp;display&nbsp;Schedule&nbsp;Data&nbsp;and&nbsp;then&nbsp;Actual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;type&nbsp;here&nbsp;you&nbsp;can&nbsp;use&nbsp;your&nbsp;own&nbsp;status&nbsp;as&nbsp;Urgent,normal&nbsp;and&nbsp;etc&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>))&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;=&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;-<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__function">min</span>(<span class="sql__id">A</span>.<span class="sql__id">SCHED_ST_DT</span>)&lt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>)&nbsp;&gt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__number">0</span>&nbsp;&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__id">resultnew</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;perfectResult&nbsp;as&nbsp;i&nbsp;expect&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;<span class="sql__keyword">RIGHT</span>(<span class="sql__keyword">YEAR</span>(<span class="sql__id">WkStartSundays</span>),&nbsp;<span class="sql__number">2</span>)&#43;<span class="sql__string">'-'</span>&#43;<span class="sql__string">'W'</span>&#43;<span class="sql__keyword">convert</span>(<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>),<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__id">len</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>))=<span class="sql__string">'1'</span>&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__string">'0'</span>&#43;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">END</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__string">'YMWK'</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;we&nbsp;display&nbsp;Year/month&nbsp;and&nbsp;Week&nbsp;of&nbsp;our&nbsp;Schedule&nbsp;which&nbsp;will&nbsp;be&nbsp;displayed&nbsp;as&nbsp;the&nbsp;Column&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;here&nbsp;you&nbsp;can&nbsp;youe&nbsp;your&nbsp;own&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">SCHED_Master</span>&nbsp;<span class="sql__id">A</span>&nbsp;(<span class="sql__id">NOLOCK</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">LEFT</span>&nbsp;<span class="sql__keyword">OUTER</span>&nbsp;<span class="sql__keyword">JOIN</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;F&nbsp;(NOLOCK)&nbsp;&nbsp;ON&nbsp;A.status=&nbsp;F.status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">WHERE</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;you&nbsp;can&nbsp;check&nbsp;your&nbsp;own&nbsp;where&nbsp;conditions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__keyword">like</span>&nbsp;<span class="sql__string">'%'</span>&nbsp;&#43;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">projectId</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__keyword">status</span>=<span class="sql__number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;(<span class="sql__number">1</span>,<span class="sql__number">2</span>,<span class="sql__number">3</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">SCHED_ST_DT</span>&nbsp;&nbsp;&lt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>&nbsp;&nbsp;&gt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">GROUP</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">UNION</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;This&nbsp;query&nbsp;is&nbsp;to&nbsp;result&nbsp;the&nbsp;Actual&nbsp;result</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2-Act'</span>&nbsp;<span class="sql__id">viewtype</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;View&nbsp;type&nbsp;first&nbsp;we&nbsp;display&nbsp;Schedule&nbsp;Data&nbsp;and&nbsp;then&nbsp;Actual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;type&nbsp;here&nbsp;you&nbsp;can&nbsp;use&nbsp;your&nbsp;own&nbsp;status&nbsp;as&nbsp;Urgent,normal&nbsp;and&nbsp;etc&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">ACT_ED_DT</span>))&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;=&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;-<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__function">min</span>(<span class="sql__id">A</span>.<span class="sql__id">ACT_ST_DT</span>)&lt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">ACT_ED_DT</span>)&nbsp;&gt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__number">2</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__number">0</span>&nbsp;&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__id">resultnew</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;perfectResult&nbsp;as&nbsp;i&nbsp;expect&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__keyword">RIGHT</span>(<span class="sql__keyword">YEAR</span>(<span class="sql__id">WkStartSundays</span>),&nbsp;<span class="sql__number">2</span>)&#43;<span class="sql__string">'-'</span>&#43;<span class="sql__string">'W'</span>&#43;<span class="sql__keyword">convert</span>(<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>),<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__id">len</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>))=<span class="sql__string">'1'</span>&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__string">'0'</span>&#43;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">END</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__string">'YMWK'</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;we&nbsp;display&nbsp;Year/month&nbsp;and&nbsp;Week&nbsp;of&nbsp;our&nbsp;Schedule&nbsp;which&nbsp;will&nbsp;be&nbsp;displayed&nbsp;as&nbsp;the&nbsp;Column&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;here&nbsp;you&nbsp;can&nbsp;youe&nbsp;your&nbsp;own&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">SCHED_Master</span>&nbsp;<span class="sql__id">A</span>&nbsp;(<span class="sql__id">NOLOCK</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">LEFT</span>&nbsp;<span class="sql__keyword">OUTER</span>&nbsp;<span class="sql__keyword">JOIN</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;F&nbsp;(NOLOCK)&nbsp;&nbsp;ON&nbsp;A.status=&nbsp;F.status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">WHERE</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;you&nbsp;can&nbsp;check&nbsp;your&nbsp;own&nbsp;where&nbsp;conditions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__keyword">like</span>&nbsp;<span class="sql__string">'%'</span>&nbsp;&#43;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">projectId</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__keyword">status</span>=<span class="sql__number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;(<span class="sql__number">1</span>,<span class="sql__number">2</span>,<span class="sql__number">3</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ACT_ST_DT</span>&nbsp;&nbsp;&lt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ACT_ED_DT</span>&nbsp;&nbsp;&gt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">GROUP</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;<span class="sql__id">q</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;
+&nbsp;--<span class="sql__number">3</span>.<span class="sql__keyword">End</span>&nbsp;/////////////&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;Step 4 : Here I will display the final result using the pivot query from the final result of temp table result.&nbsp;</div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>SQL</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">mysql</span>
+<pre class="hidden">--4.Start /////////////
+ 
+ --here first we get all the YMWK which should be display in Columns we use this in our next pivot query
+select @MyColumns = STUFF((SELECT ',' &#43; QUOTENAME(YMWK) 
+                    FROM #TEMP_results
+                    GROUP BY YMWK
+                    ORDER BY YMWK
+            FOR XML PATH(''), TYPE
+            ).value('.', 'NVARCHAR(MAX)') 
+        ,1,1,'')
+ --here we use the above all YMWK  to disoplay its result as column and row display
+set @SQLquery = N'SELECT ProjectName,viewtype,ProjectType,' &#43; @MyColumns &#43; N' from 
+             (
+                 SELECT 
+       ProjectName, 
+       viewtype,
+       ProjectType,
+       YMWK,
+        resultnew as resultnew 
+    FROM #TEMP_results
+            ) x
+            pivot 
+            (
+                 sum(resultnew)
+                for YMWK in (' &#43; @MyColumns &#43; N')
+            ) p  order by ProjectName, ProjectType,viewtype'
+
+exec sp_executesql @SQLquery;
+</pre>
+<div class="preview">
+<pre class="mysql">--<span class="sql__number">4</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;
+&nbsp;&nbsp;
+&nbsp;--<span class="sql__id">here</span>&nbsp;<span class="sql__keyword">first</span>&nbsp;<span class="sql__id">we</span>&nbsp;<span class="sql__id">get</span>&nbsp;<span class="sql__keyword">all</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;<span class="sql__id">which</span>&nbsp;<span class="sql__id">should</span>&nbsp;<span class="sql__id">be</span>&nbsp;<span class="sql__id">display</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;<span class="sql__keyword">Columns</span>&nbsp;<span class="sql__id">we</span>&nbsp;<span class="sql__keyword">use</span>&nbsp;<span class="sql__id">this</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;<span class="sql__id">our</span>&nbsp;<span class="sql__keyword">next</span>&nbsp;<span class="sql__id">pivot</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;
+<span class="sql__keyword">select</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">MyColumns</span>&nbsp;=&nbsp;<span class="sql__id">STUFF</span>((<span class="sql__keyword">SELECT</span>&nbsp;<span class="sql__string">','</span>&nbsp;&#43;&nbsp;<span class="sql__id">QUOTENAME</span>(<span class="sql__id">YMWK</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span><span class="sql__com">&nbsp;#TEMP_results</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">GROUP</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">ORDER</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FOR</span>&nbsp;<span class="sql__id">XML</span>&nbsp;<span class="sql__id">PATH</span>(<span class="sql__string">''</span>),&nbsp;<span class="sql__keyword">TYPE</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;).<span class="sql__keyword">value</span>(<span class="sql__string">'.'</span>,&nbsp;<span class="sql__string">'NVARCHAR(MAX)'</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__number">1</span>,<span class="sql__number">1</span>,<span class="sql__string">''</span>)&nbsp;
+&nbsp;--<span class="sql__id">here</span>&nbsp;<span class="sql__id">we</span>&nbsp;<span class="sql__keyword">use</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">above</span>&nbsp;<span class="sql__keyword">all</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;&nbsp;<span class="sql__keyword">to</span>&nbsp;<span class="sql__id">disoplay</span>&nbsp;<span class="sql__id">its</span>&nbsp;<span class="sql__id">result</span>&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">column</span>&nbsp;<span class="sql__keyword">and</span>&nbsp;<span class="sql__keyword">row</span>&nbsp;<span class="sql__id">display</span>&nbsp;
+<span class="sql__keyword">set</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">SQLquery</span>&nbsp;=&nbsp;<span class="sql__id">N</span><span class="sql__string">'SELECT&nbsp;ProjectName,viewtype,ProjectType,'</span>&nbsp;&#43;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">MyColumns</span>&nbsp;&#43;&nbsp;<span class="sql__id">N</span>'&nbsp;<span class="sql__keyword">from</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">ProjectName</span>,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">viewtype</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">ProjectType</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">YMWK</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">resultnew</span>&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__id">resultnew</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span><span class="sql__com">&nbsp;#TEMP_results</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__id">x</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">pivot</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__function">sum</span>(<span class="sql__id">resultnew</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">for</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;(<span class="sql__string">'&nbsp;&#43;&nbsp;@MyColumns&nbsp;&#43;&nbsp;N'</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__id">p</span>&nbsp;&nbsp;<span class="sql__keyword">order</span>&nbsp;<span class="sql__keyword">by</span>&nbsp;<span class="sql__id">ProjectName</span>,&nbsp;<span class="sql__id">ProjectType</span>,<span class="sql__id">viewtype</span>'&nbsp;
+&nbsp;
+<span class="sql__id">exec</span>&nbsp;<span class="sql__id">sp_executesql</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">SQLquery</span>;&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;<span style="font-family:'Courier New'; line-height:15.75pt">Here is the complete code for the Stored Procedure.</span><span style="font-family:Arial,sans-serif; font-size:10.5pt; line-height:15.75pt">&nbsp;</span></div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>SQL</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">mysql</span>
+<pre class="hidden">-- =============================================                                                                      
+-- Author      : Shanu                                                                      
+-- Create date : 2015-09-07                                                                     
+-- Description : To get all prject Schedule details                                                                     
+-- Latest                                                                      
+-- Modifier    : Shanu                                                                      
+-- Modify date : 2015-09-07                                                                      
+-- =============================================                                                                      
+--  usp_ProjectSchedule_Select 'Project1'               
+--  usp_ProjectSchedule_Select ''                                                                
+-- =============================================                                                                 
+Alter PROCEDURE [dbo].[usp_ProjectSchedule_Select]                                                    
+@projectId           VARCHAR(10)  = ''                                                                 
+                                                         
+AS                                                                      
+BEGIN                                                       
+     
+ -- 1. Declared for setting the Schedule Start and End date
+ --1.Start /////////////
+  Declare   @FromDate          VARCHAR(20)  = '2015-06-08'--DATEADD(mm,-12,getdate())                                                           
+  Declare   @ToDate            VARCHAR(20)  = '2016-05-06'--DATEADD(mm, 1, getdate())  
+  -- used for the pivot table result
+  DECLARE @MyColumns AS NVARCHAR(MAX),
+    @SQLquery  AS NVARCHAR(MAX)     
+  --// End of 1.
+  
+  -- 2.This Temp table is to created for  get all the days between the start date and end date to display as the Column Header                                                      
+ --2.Start /////////////                                                                
+ IF OBJECT_ID('tempdb..#TEMP_EveryWk_Sndays') IS NOT NULL                                                                          
+    DROP TABLE #TEMP_EveryWk_Sndays                                                                       
+                                                                          
+ DECLARE @TOTALCount INT                                          
+    Select  @TOTALCount= DATEDIFF(dd,@FromDate,@ToDate);           
+   WITH d AS                                                                       
+            (                                                                      
+              SELECT top (@TOTALCount) AllDays = DATEADD(DAY, ROW_NUMBER()                                                                       
+                OVER (ORDER BY object_id), REPLACE(@FromDate,'-',''))                                                                      
+              FROM sys.all_objects                                             
+            )                                                                      
+                                                                            
+         SELECT  distinct DATEADD(DAY, 1 - DATEPART(WEEKDAY, AllDays), CAST(AllDays AS DATE))WkStartSundays  ,1 as status                                                              
+                                                                           
+ into #TEMP_EveryWk_Sndays                                                                    
+    FROM d                             
+   where                          
+        AllDays  &lt;= @ToDate                                      
+   AND AllDays  &gt;= @FromDate        
+   
+   -- test the sample temptable with select query
+  -- select * from #TEMP_EveryWk_Sndays
+   --///////////// End of 2.
+   
+   -- 3. This temp table is created toScedule details with result here i have used the Union ,
+   --the 1st query return the Schedule Project result and the 2nd query returns the Actual Project result both this query will be inserted to a Temp Table
+ --3.Start /////////////
+ IF OBJECT_ID('tempdb..#TEMP_results') IS NOT NULL                                                                          
+    DROP TABLE #TEMP_results   
+ 
+	   SELECT ProjectName,viewtype,ProjectType,resultnew,YMWK
+	   INTO #TEMP_results
+	   FROM(
+				SELECT                                                                
+						 A.ProjectName ProjectName   -- Our Project Name                                       
+						,'1-Scd' viewtype            -- Our View type first we display Schedule Data and then Actual                                                 
+						, A. ProjectType ProjectType -- Our Project type here you can use your own status as Urgent,normal and etc 
+						,  Case when   cast(DATEPART( wk, max(A.SCHED_ED_DT)) as varchar(2)) =  cast(DATEPART( wk, WkStartSundays) as varchar(2))  then -1 else
+							case when min(A.SCHED_ST_DT)&lt;= F.WkStartSundays AND max(A.SCHED_ED_DT) &gt;= F.WkStartSundays                                                        
+						  then 1 else 0  end end resultnew  -- perfectResult as i expect   
+					    ,  RIGHT(YEAR(WkStartSundays), 2)&#43;'-'&#43;'W'&#43;convert(varchar(2),Case when len(DATEPART( wk, WkStartSundays))='1' then '0'&#43;                                
+						  cast(DATEPART( wk, WkStartSundays) as varchar(2)) else cast(DATEPART( wk, WkStartSundays) as varchar(2)) END                             
+						  ) as 'YMWK'  -- Here we display Year/month and Week of our Schedule which will be displayed as the Column                 
+
+			  FROM   -- here you can youe your own table                                                          
+						 SCHED_Master A (NOLOCK)       
+								 LEFT OUTER JOIN 
+						 #TEMP_EveryWk_Sndays F (NOLOCK)  ON A.status= F.status                                                            
+			                                          
+				WHERE  -- Here you can check your own where conditions     
+						A.ProjectName like '%' &#43; @projectId                                                      
+					AND	A.status=1                                                                          
+					AND A.ProjectType in (1,2,3) 
+					AND A.SCHED_ST_DT  &lt;= @ToDate                                          
+				    AND A.SCHED_ED_DT  &gt;= @FromDate  
+				GROUP BY                                                             
+					   A.ProjectName                                                         
+					 , A. ProjectType  
+					 ,A.SCHED_ED_DT                   
+					,F.WkStartSundays
+
+	UNION  -- This query is to result the Actual result
+			SELECT                                                                
+						 A.ProjectName ProjectName   -- Our Project Name                                       
+						,'2-Act' viewtype            -- Our View type first we display Schedule Data and then Actual                                                 
+						, A. ProjectType ProjectType -- Our Project type here you can use your own status as Urgent,normal and etc 
+						,  Case when   cast(DATEPART( wk, max(A.ACT_ED_DT)) as varchar(2)) =  cast(DATEPART( wk, WkStartSundays) as varchar(2))  then -1 else
+							case when min(A.ACT_ST_DT)&lt;= F.WkStartSundays AND max(A.ACT_ED_DT) &gt;= F.WkStartSundays                                                        
+						   then 2 else 0  end end resultnew  -- perfectResult as i expect 
+						
+					    , RIGHT(YEAR(WkStartSundays), 2)&#43;'-'&#43;'W'&#43;convert(varchar(2),Case when len(DATEPART( wk, WkStartSundays))='1' then '0'&#43;                                
+							  cast(DATEPART( wk, WkStartSundays) as varchar(2)) else cast(DATEPART( wk, WkStartSundays) as varchar(2)) END                             
+							  ) as 'YMWK'  -- Here we display Year/month and Week of our Schedule which will be displayed as the Column                 
+
+			  FROM   -- here you can youe your own table                                                          
+						 SCHED_Master A (NOLOCK)       
+								 LEFT OUTER JOIN 
+						 #TEMP_EveryWk_Sndays F (NOLOCK)  ON A.status= F.status                                                            
+			                                          
+				WHERE  -- Here you can check your own where conditions      
+						A.ProjectName like '%' &#43; @projectId                                                     
+					AND	A.status=1                                                                          
+					AND A.ProjectType in (1,2,3) 
+					AND A.ACT_ST_DT  &lt;= @ToDate                                          
+				    AND A.ACT_ED_DT  &gt;= @FromDate  
+				GROUP BY                                                             
+					   A.ProjectName                                                         
+					 , A. ProjectType  
+					 ,A.SCHED_ED_DT                   
+					,F.WkStartSundays
+
+	 )  q                 
+
+ --3.End /////////////
+
+ --4.Start /////////////
+ 
+ --here first we get all the YMWK which should be display in Columns we use this in our next pivot query
+select @MyColumns = STUFF((SELECT ',' &#43; QUOTENAME(YMWK) 
+                    FROM #TEMP_results
+                    GROUP BY YMWK
+                    ORDER BY YMWK
+            FOR XML PATH(''), TYPE
+            ).value('.', 'NVARCHAR(MAX)') 
+        ,1,1,'')
+ --here we use the above all YMWK  to disoplay its result as column and row display
+set @SQLquery = N'SELECT ProjectName,viewtype,ProjectType,' &#43; @MyColumns &#43; N' from 
+             (
+                 SELECT 
+       ProjectName, 
+       viewtype,
+       ProjectType,
+       YMWK,
+        resultnew as resultnew 
+    FROM #TEMP_results
+            ) x
+            pivot 
+            (
+                 sum(resultnew)
+                for YMWK in (' &#43; @MyColumns &#43; N')
+            ) p  order by ProjectName, ProjectType,viewtype'
+
+exec sp_executesql @SQLquery;
+                                   
+END
+</pre>
+<div class="preview">
+<pre class="mysql"><span class="sql__com">--&nbsp;=============================================&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Shanu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Create&nbsp;date&nbsp;:&nbsp;2015-09-07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Description&nbsp;:&nbsp;To&nbsp;get&nbsp;all&nbsp;prject&nbsp;Schedule&nbsp;details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Latest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Modifier&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Shanu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Modify&nbsp;date&nbsp;:&nbsp;2015-09-07&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;=============================================&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;&nbsp;usp_ProjectSchedule_Select&nbsp;'Project1'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;&nbsp;usp_ProjectSchedule_Select&nbsp;''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;=============================================&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__keyword">Alter</span>&nbsp;<span class="sql__keyword">PROCEDURE</span>&nbsp;[<span class="sql__id">dbo</span>].[<span class="sql__id">usp_ProjectSchedule_Select</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">@</span><span class="sql__variable">projectId</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VARCHAR</span>(<span class="sql__number">10</span>)&nbsp;&nbsp;=&nbsp;<span class="sql__string">''</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">AS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">BEGIN</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__com">--&nbsp;1.&nbsp;Declared&nbsp;for&nbsp;setting&nbsp;the&nbsp;Schedule&nbsp;Start&nbsp;and&nbsp;End&nbsp;date</span>&nbsp;
+&nbsp;--<span class="sql__number">1</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;
+&nbsp;&nbsp;<span class="sql__keyword">Declare</span>&nbsp;&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VARCHAR</span>(<span class="sql__number">20</span>)&nbsp;&nbsp;=&nbsp;<span class="sql__string">'2015-06-08'</span>--<span class="sql__id">DATEADD</span>(<span class="sql__id">mm</span>,-<span class="sql__number">12</span>,<span class="sql__id">getdate</span>())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="sql__keyword">Declare</span>&nbsp;&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VARCHAR</span>(<span class="sql__number">20</span>)&nbsp;&nbsp;=&nbsp;<span class="sql__string">'2016-05-06'</span>--<span class="sql__id">DATEADD</span>(<span class="sql__id">mm</span>,&nbsp;<span class="sql__number">1</span>,&nbsp;<span class="sql__id">getdate</span>())&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="sql__com">--&nbsp;used&nbsp;for&nbsp;the&nbsp;pivot&nbsp;table&nbsp;result</span>&nbsp;
+&nbsp;&nbsp;<span class="sql__keyword">DECLARE</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">MyColumns</span>&nbsp;<span class="sql__keyword">AS</span>&nbsp;<span class="sql__keyword">NVARCHAR</span>(<span class="sql__id">MAX</span>),&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">SQLquery</span>&nbsp;&nbsp;<span class="sql__keyword">AS</span>&nbsp;<span class="sql__keyword">NVARCHAR</span>(<span class="sql__id">MAX</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;--//&nbsp;<span class="sql__keyword">End</span>&nbsp;<span class="sql__id">of</span>&nbsp;<span class="sql__number">1</span>.&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="sql__com">--&nbsp;2.This&nbsp;Temp&nbsp;table&nbsp;is&nbsp;to&nbsp;created&nbsp;for&nbsp;&nbsp;get&nbsp;all&nbsp;the&nbsp;days&nbsp;between&nbsp;the&nbsp;start&nbsp;date&nbsp;and&nbsp;end&nbsp;date&nbsp;to&nbsp;display&nbsp;as&nbsp;the&nbsp;Column&nbsp;Header&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;--<span class="sql__number">2</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__keyword">IF</span>&nbsp;<span class="sql__id">OBJECT_ID</span>(<span class="sql__string">'tempdb..#TEMP_EveryWk_Sndays'</span>)&nbsp;<span class="sql__keyword">IS</span>&nbsp;<span class="sql__keyword">NOT</span>&nbsp;<span class="sql__value">NULL</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">DROP</span>&nbsp;<span class="sql__keyword">TABLE</span><span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__keyword">DECLARE</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">TOTALCount</span>&nbsp;<span class="sql__keyword">INT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">Select</span>&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">TOTALCount</span>=&nbsp;<span class="sql__function">DATEDIFF</span>(<span class="sql__id">dd</span>,<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>,<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__keyword">WITH</span>&nbsp;<span class="sql__id">d</span>&nbsp;<span class="sql__keyword">AS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;<span class="sql__id">top</span>&nbsp;(<span class="sql__keyword">@</span><span class="sql__variable">TOTALCount</span>)&nbsp;<span class="sql__id">AllDays</span>&nbsp;=&nbsp;<span class="sql__id">DATEADD</span>(<span class="sql__keyword">DAY</span>,&nbsp;<span class="sql__id">ROW_NUMBER</span>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">OVER</span>&nbsp;(<span class="sql__keyword">ORDER</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;<span class="sql__id">object_id</span>),&nbsp;<span class="sql__keyword">REPLACE</span>(<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>,<span class="sql__string">'-'</span>,<span class="sql__string">''</span>))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;<span class="sql__id">sys</span>.<span class="sql__id">all_objects</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;<span class="sql__keyword">distinct</span>&nbsp;<span class="sql__id">DATEADD</span>(<span class="sql__keyword">DAY</span>,&nbsp;<span class="sql__number">1</span>&nbsp;-&nbsp;<span class="sql__id">DATEPART</span>(<span class="sql__id">WEEKDAY</span>,&nbsp;<span class="sql__id">AllDays</span>),&nbsp;<span class="sql__function">CAST</span>(<span class="sql__id">AllDays</span>&nbsp;<span class="sql__keyword">AS</span>&nbsp;<span class="sql__keyword">DATE</span>))<span class="sql__id">WkStartSundays</span>&nbsp;&nbsp;,<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">status</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__keyword">into</span><span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;<span class="sql__id">d</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__keyword">where</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">AllDays</span>&nbsp;&nbsp;&lt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">AllDays</span>&nbsp;&nbsp;&gt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;test&nbsp;the&nbsp;sample&nbsp;temptable&nbsp;with&nbsp;select&nbsp;query</span>&nbsp;
+&nbsp;&nbsp;<span class="sql__com">--&nbsp;select&nbsp;*&nbsp;from&nbsp;#TEMP_EveryWk_Sndays</span>&nbsp;
+&nbsp;&nbsp;&nbsp;--/////////////&nbsp;<span class="sql__keyword">End</span>&nbsp;<span class="sql__id">of</span>&nbsp;<span class="sql__number">2</span>.&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;3.&nbsp;This&nbsp;temp&nbsp;table&nbsp;is&nbsp;created&nbsp;toScedule&nbsp;details&nbsp;with&nbsp;result&nbsp;here&nbsp;i&nbsp;have&nbsp;used&nbsp;the&nbsp;Union&nbsp;,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;--<span class="sql__id">the</span>&nbsp;<span class="sql__id">1st</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;<span class="sql__keyword">return</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">Schedule</span>&nbsp;<span class="sql__id">Project</span>&nbsp;<span class="sql__id">result</span>&nbsp;<span class="sql__keyword">and</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">2nd</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;<span class="sql__keyword">returns</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">Actual</span>&nbsp;<span class="sql__id">Project</span>&nbsp;<span class="sql__id">result</span>&nbsp;<span class="sql__keyword">both</span>&nbsp;<span class="sql__id">this</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;<span class="sql__id">will</span>&nbsp;<span class="sql__id">be</span>&nbsp;<span class="sql__id">inserted</span>&nbsp;<span class="sql__keyword">to</span>&nbsp;<span class="sql__id">a</span>&nbsp;<span class="sql__id">Temp</span>&nbsp;<span class="sql__keyword">Table</span>&nbsp;
+&nbsp;--<span class="sql__number">3</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;
+&nbsp;<span class="sql__keyword">IF</span>&nbsp;<span class="sql__id">OBJECT_ID</span>(<span class="sql__string">'tempdb..#TEMP_results'</span>)&nbsp;<span class="sql__keyword">IS</span>&nbsp;<span class="sql__keyword">NOT</span>&nbsp;<span class="sql__value">NULL</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">DROP</span>&nbsp;<span class="sql__keyword">TABLE</span><span class="sql__com">&nbsp;#TEMP_results&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;<span class="sql__id">ProjectName</span>,<span class="sql__id">viewtype</span>,<span class="sql__id">ProjectType</span>,<span class="sql__id">resultnew</span>,<span class="sql__id">YMWK</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">INTO</span><span class="sql__com">&nbsp;#TEMP_results</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'1-Scd'</span>&nbsp;<span class="sql__id">viewtype</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;View&nbsp;type&nbsp;first&nbsp;we&nbsp;display&nbsp;Schedule&nbsp;Data&nbsp;and&nbsp;then&nbsp;Actual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;type&nbsp;here&nbsp;you&nbsp;can&nbsp;use&nbsp;your&nbsp;own&nbsp;status&nbsp;as&nbsp;Urgent,normal&nbsp;and&nbsp;etc&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>))&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;=&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;-<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__function">min</span>(<span class="sql__id">A</span>.<span class="sql__id">SCHED_ST_DT</span>)&lt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>)&nbsp;&gt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__number">0</span>&nbsp;&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__id">resultnew</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;perfectResult&nbsp;as&nbsp;i&nbsp;expect&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;<span class="sql__keyword">RIGHT</span>(<span class="sql__keyword">YEAR</span>(<span class="sql__id">WkStartSundays</span>),&nbsp;<span class="sql__number">2</span>)&#43;<span class="sql__string">'-'</span>&#43;<span class="sql__string">'W'</span>&#43;<span class="sql__keyword">convert</span>(<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>),<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__id">len</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>))=<span class="sql__string">'1'</span>&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__string">'0'</span>&#43;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">END</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__string">'YMWK'</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;we&nbsp;display&nbsp;Year/month&nbsp;and&nbsp;Week&nbsp;of&nbsp;our&nbsp;Schedule&nbsp;which&nbsp;will&nbsp;be&nbsp;displayed&nbsp;as&nbsp;the&nbsp;Column&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;here&nbsp;you&nbsp;can&nbsp;youe&nbsp;your&nbsp;own&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">SCHED_Master</span>&nbsp;<span class="sql__id">A</span>&nbsp;(<span class="sql__id">NOLOCK</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">LEFT</span>&nbsp;<span class="sql__keyword">OUTER</span>&nbsp;<span class="sql__keyword">JOIN</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;F&nbsp;(NOLOCK)&nbsp;&nbsp;ON&nbsp;A.status=&nbsp;F.status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">WHERE</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;you&nbsp;can&nbsp;check&nbsp;your&nbsp;own&nbsp;where&nbsp;conditions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__keyword">like</span>&nbsp;<span class="sql__string">'%'</span>&nbsp;&#43;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">projectId</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__keyword">status</span>=<span class="sql__number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;(<span class="sql__number">1</span>,<span class="sql__number">2</span>,<span class="sql__number">3</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">SCHED_ST_DT</span>&nbsp;&nbsp;&lt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>&nbsp;&nbsp;&gt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">GROUP</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">UNION</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;This&nbsp;query&nbsp;is&nbsp;to&nbsp;result&nbsp;the&nbsp;Actual&nbsp;result</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2-Act'</span>&nbsp;<span class="sql__id">viewtype</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;View&nbsp;type&nbsp;first&nbsp;we&nbsp;display&nbsp;Schedule&nbsp;Data&nbsp;and&nbsp;then&nbsp;Actual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;type&nbsp;here&nbsp;you&nbsp;can&nbsp;use&nbsp;your&nbsp;own&nbsp;status&nbsp;as&nbsp;Urgent,normal&nbsp;and&nbsp;etc&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">ACT_ED_DT</span>))&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;=&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;-<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__function">min</span>(<span class="sql__id">A</span>.<span class="sql__id">ACT_ST_DT</span>)&lt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">ACT_ED_DT</span>)&nbsp;&gt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__number">2</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__number">0</span>&nbsp;&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__id">resultnew</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;perfectResult&nbsp;as&nbsp;i&nbsp;expect&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__keyword">RIGHT</span>(<span class="sql__keyword">YEAR</span>(<span class="sql__id">WkStartSundays</span>),&nbsp;<span class="sql__number">2</span>)&#43;<span class="sql__string">'-'</span>&#43;<span class="sql__string">'W'</span>&#43;<span class="sql__keyword">convert</span>(<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>),<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__id">len</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>))=<span class="sql__string">'1'</span>&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__string">'0'</span>&#43;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">END</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__string">'YMWK'</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;we&nbsp;display&nbsp;Year/month&nbsp;and&nbsp;Week&nbsp;of&nbsp;our&nbsp;Schedule&nbsp;which&nbsp;will&nbsp;be&nbsp;displayed&nbsp;as&nbsp;the&nbsp;Column&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;here&nbsp;you&nbsp;can&nbsp;youe&nbsp;your&nbsp;own&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">SCHED_Master</span>&nbsp;<span class="sql__id">A</span>&nbsp;(<span class="sql__id">NOLOCK</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">LEFT</span>&nbsp;<span class="sql__keyword">OUTER</span>&nbsp;<span class="sql__keyword">JOIN</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;F&nbsp;(NOLOCK)&nbsp;&nbsp;ON&nbsp;A.status=&nbsp;F.status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">WHERE</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;you&nbsp;can&nbsp;check&nbsp;your&nbsp;own&nbsp;where&nbsp;conditions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__keyword">like</span>&nbsp;<span class="sql__string">'%'</span>&nbsp;&#43;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">projectId</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__keyword">status</span>=<span class="sql__number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;(<span class="sql__number">1</span>,<span class="sql__number">2</span>,<span class="sql__number">3</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ACT_ST_DT</span>&nbsp;&nbsp;&lt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ACT_ED_DT</span>&nbsp;&nbsp;&gt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">GROUP</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;<span class="sql__id">q</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;
+&nbsp;--<span class="sql__number">3</span>.<span class="sql__keyword">End</span>&nbsp;/////////////&nbsp;
+&nbsp;
+&nbsp;--<span class="sql__number">4</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;
+&nbsp;&nbsp;
+&nbsp;--<span class="sql__id">here</span>&nbsp;<span class="sql__keyword">first</span>&nbsp;<span class="sql__id">we</span>&nbsp;<span class="sql__id">get</span>&nbsp;<span class="sql__keyword">all</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;<span class="sql__id">which</span>&nbsp;<span class="sql__id">should</span>&nbsp;<span class="sql__id">be</span>&nbsp;<span class="sql__id">display</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;<span class="sql__keyword">Columns</span>&nbsp;<span class="sql__id">we</span>&nbsp;<span class="sql__keyword">use</span>&nbsp;<span class="sql__id">this</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;<span class="sql__id">our</span>&nbsp;<span class="sql__keyword">next</span>&nbsp;<span class="sql__id">pivot</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;
+<span class="sql__keyword">select</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">MyColumns</span>&nbsp;=&nbsp;<span class="sql__id">STUFF</span>((<span class="sql__keyword">SELECT</span>&nbsp;<span class="sql__string">','</span>&nbsp;&#43;&nbsp;<span class="sql__id">QUOTENAME</span>(<span class="sql__id">YMWK</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span><span class="sql__com">&nbsp;#TEMP_results</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">GROUP</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">ORDER</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FOR</span>&nbsp;<span class="sql__id">XML</span>&nbsp;<span class="sql__id">PATH</span>(<span class="sql__string">''</span>),&nbsp;<span class="sql__keyword">TYPE</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;).<span class="sql__keyword">value</span>(<span class="sql__string">'.'</span>,&nbsp;<span class="sql__string">'NVARCHAR(MAX)'</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__number">1</span>,<span class="sql__number">1</span>,<span class="sql__string">''</span>)&nbsp;
+&nbsp;--<span class="sql__id">here</span>&nbsp;<span class="sql__id">we</span>&nbsp;<span class="sql__keyword">use</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">above</span>&nbsp;<span class="sql__keyword">all</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;&nbsp;<span class="sql__keyword">to</span>&nbsp;<span class="sql__id">disoplay</span>&nbsp;<span class="sql__id">its</span>&nbsp;<span class="sql__id">result</span>&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">column</span>&nbsp;<span class="sql__keyword">and</span>&nbsp;<span class="sql__keyword">row</span>&nbsp;<span class="sql__id">display</span>&nbsp;
+<span class="sql__keyword">set</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">SQLquery</span>&nbsp;=&nbsp;<span class="sql__id">N</span><span class="sql__string">'SELECT&nbsp;ProjectName,viewtype,ProjectType,'</span>&nbsp;&#43;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">MyColumns</span>&nbsp;&#43;&nbsp;<span class="sql__id">N</span>'&nbsp;<span class="sql__keyword">from</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">ProjectName</span>,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">viewtype</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">ProjectType</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">YMWK</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">resultnew</span>&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__id">resultnew</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span><span class="sql__com">&nbsp;#TEMP_results</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__id">x</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">pivot</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__function">sum</span>(<span class="sql__id">resultnew</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">for</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;(<span class="sql__string">'&nbsp;&#43;&nbsp;@MyColumns&nbsp;&#43;&nbsp;N'</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__id">p</span>&nbsp;&nbsp;<span class="sql__keyword">order</span>&nbsp;<span class="sql__keyword">by</span>&nbsp;<span class="sql__id">ProjectName</span>,&nbsp;<span class="sql__id">ProjectType</span>,<span class="sql__id">viewtype</span>'&nbsp;
+&nbsp;
+<span class="sql__id">exec</span>&nbsp;<span class="sql__id">sp_executesql</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">SQLquery</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">END</span>&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;If we run the procedure the final output will be like this.Here we cans see I will display the result of every week using the pivot query.</div>
+</div>
+<p><img id="142365" src="142365-4.png" alt="" width="600" height="250"></p>
+<p class="MsoNormal"><strong><span lang="EN-US" style="font-size:12.0pt">2) </span>
+<span lang="EN-US">Create our Windows Form Application in Visual Studio 2015:</span></strong></p>
+<p style="line-height:15.75pt"><strong><span lang="EN-US" style="font-size:14.0pt; font-family:Roboto; color:#333333">Prerequisites</span></strong></p>
+<p style="line-height:15.75pt"><strong><span lang="EN-US" style="font-size:10.5pt; font-family:Roboto; color:#333333">Visual Studio 2015.</span></strong><span lang="EN-US" style="font-size:10.5pt; font-family:Roboto; color:#333333"> You can download it from
+</span><span lang="EN-US"><a href="https://www.visualstudio.com/en-us/downloads/visual-studio-2015-downloads-vs.aspx" target="_blank"><span style="font-size:10.5pt; font-family:Roboto">here.</span></a></span><span lang="EN-US" style="font-size:10.5pt; font-family:Roboto; color:#333333">&nbsp;</span></p>
+<p class="MsoNormal"><span lang="EN-US">After installing our Visual Studio 2015.Click Start -&gt; Programs-&gt; select Visual Studio 2015- Click Visual Studio 2015.</span></p>
+<p class="MsoNormal"><span lang="EN-US">Click New -&gt; Project - &gt; Select Visual C#-&gt;Windows &gt;Windows Forms Application-&gt; Select your project location and enter your application Name.</span></p>
+<p><img id="142367" src="142367-5.png" alt="" width="600" height="260"></p>
+<p class="MsoNormal"><span lang="EN-US">Design your form. In my form I have added a Textbox for searching the details by Project Name and a button to bind the result. Note I have used my DataGridView helper class to create the DataGridView at runtime instead
+ of design time.Kindly refer my article related to create a DatagridView helper class.(<a href="https://code.msdn.microsoft.com/DataGridView-Helper-Class-e713de9d" target="_blank">DataGridView Helper Class</a>)</span></p>
+<p class="MsoNormal"><strong><span lang="EN-US">Form Load: </span></strong><span lang="EN-US">In Form Load Initialize the DataGridView and add the DataGridView to Panel Control using the Helper Class .After DateGridview Initialized bind the data to Grid.</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">private void shanuDatagridViewPaint_Load(object sender, EventArgs e)
+		{
+			MasterGrid_Initialize();
+			bindData();
+		}
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;shanuDatagridViewPaint_Load(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MasterGrid_Initialize();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bindData();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;<strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">Initialize Grid:</span></strong></div>
+<div class="endscriptcode"><strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">&nbsp;</span></strong><span style="font-family:Consolas; font-size:9.5pt; text-indent:40pt">Using my helper class I will create the DataGridView at runtime.
+ Pass all the parameters like Grid Back Color, Height, Width and all properties to create at runtime like below.</span><strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">&nbsp;</span></strong><span style="font-family:Consolas; font-size:9.5pt">&nbsp;</span></div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden"> public void MasterGrid_Initialize()
+      {
+             //First generate the grid Layout Design
+                      Helper.ShanuDGVHelper.Layouts(Master_shanuDGV, Color.White, Color.WhiteSmoke, Color.WhiteSmoke, false, Color.WhiteSmoke, true, Color.FromArgb(112, 128, 144), false, false, false, Color.White, 40, 20, &quot;small&quot;);
+
+           //Set Height,width and add panel to your selected control
+                      Helper.ShanuDGVHelper.Generategrid(Master_shanuDGV, pnlGrid, 1000, 600, 10, 10);
+ 
+           Master_shanuDGV.CellFormatting &#43;= new DataGridViewCellFormattingEventHandler(MasterDGVs_CellFormatting);
+             
+               }</pre>
+<div class="preview">
+<pre class="csharp">&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;MasterGrid_Initialize()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//First&nbsp;generate&nbsp;the&nbsp;grid&nbsp;Layout&nbsp;Design</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Helper.ShanuDGVHelper.Layouts(Master_shanuDGV,&nbsp;Color.White,&nbsp;Color.WhiteSmoke,&nbsp;Color.WhiteSmoke,&nbsp;<span class="cs__keyword">false</span>,&nbsp;Color.WhiteSmoke,&nbsp;<span class="cs__keyword">true</span>,&nbsp;Color.FromArgb(<span class="cs__number">112</span>,&nbsp;<span class="cs__number">128</span>,&nbsp;<span class="cs__number">144</span>),&nbsp;<span class="cs__keyword">false</span>,&nbsp;<span class="cs__keyword">false</span>,&nbsp;<span class="cs__keyword">false</span>,&nbsp;Color.White,&nbsp;<span class="cs__number">40</span>,&nbsp;<span class="cs__number">20</span>,&nbsp;<span class="cs__string">&quot;small&quot;</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//Set&nbsp;Height,width&nbsp;and&nbsp;add&nbsp;panel&nbsp;to&nbsp;your&nbsp;selected&nbsp;control</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Helper.ShanuDGVHelper.Generategrid(Master_shanuDGV,&nbsp;pnlGrid,&nbsp;<span class="cs__number">1000</span>,&nbsp;<span class="cs__number">600</span>,&nbsp;<span class="cs__number">10</span>,&nbsp;<span class="cs__number">10</span>);&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Master_shanuDGV.CellFormatting&nbsp;&#43;=&nbsp;<span class="cs__keyword">new</span>&nbsp;DataGridViewCellFormattingEventHandler(MasterDGVs_CellFormatting);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;<span style="font-size:9.5pt">As we can see after Initializing the DataGridView I have used the CellFormatting DatagridView Event.</span><span style="font-size:9.5pt">&nbsp;</span></div>
+<p>&nbsp;</p>
+<p class="MsoNormal" style="word-break:keep-all"><strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">CellFormatting DataGridView Event:
+</span></strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">In Cellformatting DataGridView I will check for each cell result and set the back color of each cell to display our Gantt style chart inside DataGridView.I will check for the project
+ Type and give each Project Actual and Schedule result with Unique color to see the result in more graphical output.</span><span style="font-family:Consolas; font-size:9.5pt">&nbsp;</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">void MasterDGVs_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+       {
+            try
+               {                            
+       ProjectType = ds.Tables[0].Rows[e.RowIndex][&quot;PrpjectType&quot;].ToString();
+            if (e.ColumnIndex &gt; 2)
+               {
+      Color color1= Color.FromArgb(116, 176, 30);//Green
+
+  Color color2 = Color.FromArgb(0, 76, 153); //Blue
+
+        if (e.Value.ToString() == &quot;0&quot;)
+       {
+               e.Value = &quot;&quot;;
+       }
+
+       if(ProjectType==&quot;1&quot;)
+       {
+       color1 = Color.FromArgb(116, 176, 30);//Green
+       color2 = Color.FromArgb(0, 76, 153); //Blue
+       }
+       else if (ProjectType == &quot;2&quot;)
+       {
+   color1 = Color.FromArgb(218, 165, 32);//golden rod
+   color2 = Color.FromArgb(255, 215, 0); //GOLD
+       }
+       else if (ProjectType == &quot;3&quot;)
+       {
+  color1 = Color.FromArgb(147, 112, 219);//medium purple
+    color2 = Color.FromArgb(255, 105, 180); //hot pink
+       } 
+
+switch (e.Value.ToString())
+       {
+         case &quot;-1&quot;:
+       e.CellStyle.BackColor = Color.FromArgb(255, 69, 0);  // Orange
+
+        e.CellStyle.SelectionBackColor = Color.FromArgb(255, 69, 0); // Orange
+
+       e.CellStyle.ForeColor = Color.White;
+
+       e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+               e.Value = &quot;END&quot;;
+               break;
+         case &quot;2&quot;:
+e.CellStyle.BackColor = color1;
+         e.CellStyle.SelectionBackColor = color1;
+
+               e.Value = &quot;&quot;;
+               break;
+         case &quot;1&quot;:
+       e.CellStyle.BackColor = color2;
+        e.CellStyle.SelectionBackColor = color2;
+         e.Value = &quot;&quot;;
+       break;
+       }
+        }
+       }
+catch (Exception ex)
+
+{ }
+
+}</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">void</span>&nbsp;MasterDGVs_CellFormatting(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;DataGridViewCellFormattingEventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">try</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ProjectType&nbsp;=&nbsp;ds.Tables[<span class="cs__number">0</span>].Rows[e.RowIndex][<span class="cs__string">&quot;PrpjectType&quot;</span>].ToString();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(e.ColumnIndex&nbsp;&gt;&nbsp;<span class="cs__number">2</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Color&nbsp;color1=&nbsp;Color.FromArgb(<span class="cs__number">116</span>,&nbsp;<span class="cs__number">176</span>,&nbsp;<span class="cs__number">30</span>);<span class="cs__com">//Green</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;Color&nbsp;color2&nbsp;=&nbsp;Color.FromArgb(<span class="cs__number">0</span>,&nbsp;<span class="cs__number">76</span>,&nbsp;<span class="cs__number">153</span>);&nbsp;<span class="cs__com">//Blue</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(e.Value.ToString()&nbsp;==&nbsp;<span class="cs__string">&quot;0&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.Value&nbsp;=&nbsp;<span class="cs__string">&quot;&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>(ProjectType==<span class="cs__string">&quot;1&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color1&nbsp;=&nbsp;Color.FromArgb(<span class="cs__number">116</span>,&nbsp;<span class="cs__number">176</span>,&nbsp;<span class="cs__number">30</span>);<span class="cs__com">//Green</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color2&nbsp;=&nbsp;Color.FromArgb(<span class="cs__number">0</span>,&nbsp;<span class="cs__number">76</span>,&nbsp;<span class="cs__number">153</span>);&nbsp;<span class="cs__com">//Blue</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">else</span>&nbsp;<span class="cs__keyword">if</span>&nbsp;(ProjectType&nbsp;==&nbsp;<span class="cs__string">&quot;2&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;color1&nbsp;=&nbsp;Color.FromArgb(<span class="cs__number">218</span>,&nbsp;<span class="cs__number">165</span>,&nbsp;<span class="cs__number">32</span>);<span class="cs__com">//golden&nbsp;rod</span>&nbsp;
+&nbsp;&nbsp;&nbsp;color2&nbsp;=&nbsp;Color.FromArgb(<span class="cs__number">255</span>,&nbsp;<span class="cs__number">215</span>,&nbsp;<span class="cs__number">0</span>);&nbsp;<span class="cs__com">//GOLD</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">else</span>&nbsp;<span class="cs__keyword">if</span>&nbsp;(ProjectType&nbsp;==&nbsp;<span class="cs__string">&quot;3&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;color1&nbsp;=&nbsp;Color.FromArgb(<span class="cs__number">147</span>,&nbsp;<span class="cs__number">112</span>,&nbsp;<span class="cs__number">219</span>);<span class="cs__com">//medium&nbsp;purple</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;color2&nbsp;=&nbsp;Color.FromArgb(<span class="cs__number">255</span>,&nbsp;<span class="cs__number">105</span>,&nbsp;<span class="cs__number">180</span>);&nbsp;<span class="cs__com">//hot&nbsp;pink</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;
+&nbsp;
+<span class="cs__keyword">switch</span>&nbsp;(e.Value.ToString())&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">case</span>&nbsp;<span class="cs__string">&quot;-1&quot;</span>:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.CellStyle.BackColor&nbsp;=&nbsp;Color.FromArgb(<span class="cs__number">255</span>,&nbsp;<span class="cs__number">69</span>,&nbsp;<span class="cs__number">0</span>);&nbsp;&nbsp;<span class="cs__com">//&nbsp;Orange</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.CellStyle.SelectionBackColor&nbsp;=&nbsp;Color.FromArgb(<span class="cs__number">255</span>,&nbsp;<span class="cs__number">69</span>,&nbsp;<span class="cs__number">0</span>);&nbsp;<span class="cs__com">//&nbsp;Orange</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.CellStyle.ForeColor&nbsp;=&nbsp;Color.White;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.CellStyle.Alignment&nbsp;=&nbsp;DataGridViewContentAlignment.MiddleCenter;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.Value&nbsp;=&nbsp;<span class="cs__string">&quot;END&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">case</span>&nbsp;<span class="cs__string">&quot;2&quot;</span>:&nbsp;
+e.CellStyle.BackColor&nbsp;=&nbsp;color1;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.CellStyle.SelectionBackColor&nbsp;=&nbsp;color1;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.Value&nbsp;=&nbsp;<span class="cs__string">&quot;&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">case</span>&nbsp;<span class="cs__string">&quot;1&quot;</span>:&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.CellStyle.BackColor&nbsp;=&nbsp;color2;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.CellStyle.SelectionBackColor&nbsp;=&nbsp;color2;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;e.Value&nbsp;=&nbsp;<span class="cs__string">&quot;&quot;</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+<span class="cs__keyword">catch</span>&nbsp;(Exception&nbsp;ex)&nbsp;
+&nbsp;
+{&nbsp;}&nbsp;
+&nbsp;
+}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;<strong style="font-family:Verdana,Arial,Helvetica,sans-serif; font-size:10px"><span lang="EN-US">Search Button Click :
+</span></strong><span lang="EN-US" style="font-family:Verdana,Arial,Helvetica,sans-serif; font-size:10px">In Button click and in Form Load I will call the
+</span><span lang="EN-US" style="font-size:9.5pt">bindData()</span><span lang="EN-US" style="font-size:9.5pt"> to bind the data to the DatagridView.</span><span style="font-size:9.5pt">&nbsp;</span></div>
+<p class="MsoNormal"><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">&nbsp;</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">private void btnSearch_Click(object sender, EventArgs e)
+               {
+                      bindData();
+               }</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;btnSearch_Click(<span class="cs__keyword">object</span>&nbsp;sender,&nbsp;EventArgs&nbsp;e)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bindData();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;<img id="142368" src="142368-2.png" alt="" width="650" height="300"></div>
+<p>&nbsp;</p>
+<p class="MsoNormal"><strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">bindData</span></strong><strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">() Method:
+</span></strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">In this method I will pass the Storded procedure Name and parameters to the Business Logic class. From Business logic Class I will pass the parameter and SP name to DAL Class where
+ is will connect to database and get the result and return as DataSet.The final DataSet result from BL will get in Form and bind the result in DatagridView.</span><span style="font-family:Consolas; font-size:9.5pt">&nbsp;</span><span style="font-family:Consolas; font-size:9.5pt">&nbsp;</span></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">private void bindData()
+               {
+                      try
+                      {
+                              // Bind data to DGV.
+                              SortedDictionary&lt;string, string&gt; sd = new SortedDictionary&lt;string, string&gt;() { };
+              sd.Add(&quot;@projectId&quot;, txtProjectID.Text.Trim());                          
+    ds = new ShanuProjectScheduleBizClass().SelectList(sd);
+                 Master_shanuDGV.DataSource = null;
+                        if (ds.Tables[0].Rows.Count &gt; 0)
+                              {                                     Master_shanuDGV.DataSource = ds.Tables[0];
+                              }
+                      }
+                      catch (Exception ex)
+                      {
+                      }
+               }</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;bindData()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">try</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Bind&nbsp;data&nbsp;to&nbsp;DGV.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SortedDictionary&lt;<span class="cs__keyword">string</span>,&nbsp;<span class="cs__keyword">string</span>&gt;&nbsp;sd&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;SortedDictionary&lt;<span class="cs__keyword">string</span>,&nbsp;<span class="cs__keyword">string</span>&gt;()&nbsp;{&nbsp;};&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sd.Add(<span class="cs__string">&quot;@projectId&quot;</span>,&nbsp;txtProjectID.Text.Trim());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;ds&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;ShanuProjectScheduleBizClass().SelectList(sd);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Master_shanuDGV.DataSource&nbsp;=&nbsp;<span class="cs__keyword">null</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(ds.Tables[<span class="cs__number">0</span>].Rows.Count&nbsp;&gt;&nbsp;<span class="cs__number">0</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Master_shanuDGV.DataSource&nbsp;=&nbsp;ds.Tables[<span class="cs__number">0</span>];&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">catch</span>&nbsp;(Exception&nbsp;ex)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;<span style="font-size:2em; font-family:Verdana,Arial,Helvetica,sans-serif">Source Code Files</span></div>
+<ul>
+<li><span style="color:#333333; font-family:'Segoe UI','Lucida Grande',Verdana,Arial,Helvetica,sans-serif; font-size:12.0012px; line-height:15.0015px">shanuDatagridViewGanttStyle.zip</span>
+</li></ul>
+<h1>More Information</h1>
+<p><strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">&nbsp;</span></strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">You can also extend this program to display the output as more graphic way by using the DatagridviewCell
+ painting event.You can draw your own custom format chart types inside the DatagridviewCell Painting event.</span></p>
+<p>&nbsp;</p>
+<p><strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">Note :Connection String</span></strong></p>
+<p><span style="font-family:Consolas; font-size:12.6667px">You can find &quot;DBConnection.txt&quot; inside bin folder,Change the connection string to your SQL Server DB Setting.</span></p>
+<p><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">Change Connection String in Code:</span></p>
+<p><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas"><img id="142372" src="142372-6.png" alt="" width="600" height="350"><br>
+</span></p>
+<p><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">You can find a &quot;BizBase.cs&quot; &nbsp;inside Helper/Biz Folder.Change the connection string to your local SQL Server Connection string.</span></p>
+<div id="_mcePaste" class="mcePaste" style="left:-10000px; top:282px; width:1px; height:1px; overflow:hidden">
+<div><em><strong style="outline:0px; color:#333333; line-height:21px; font-family:Roboto,sans-serif; font-size:14px; font-style:normal">Create Database and Table<br style="outline:0px">
+</strong><br style="font-style:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; outline:0px; color:#333333">
+<span style="font-style:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">We will create a&nbsp;</span><strong style="outline:0px; color:#333333; line-height:21px; font-family:Roboto,sans-serif; font-size:14px; font-style:normal"><span style="outline:0px; color:#000000">SCHED_Master</span></strong><span style="font-style:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">&nbsp;table
+ under the Database&nbsp;</span><strong style="outline:0px; color:#333333; line-height:21px; font-family:Roboto,sans-serif; font-size:14px; font-style:normal">'<span style="outline:0px; color:#000000">projectDB</span></strong><span style="font-style:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">'.
+ The following is the script to create a database, table and sample insert query. Run this script in your SQL Server. I have used SQL Server 2012.</span><br style="font-style:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; outline:0px; color:#333333">
+<img id="140423" src="140423-19.jpg" alt="" width="571" height="204"></em></div>
+<div><span style="font-size:20px; font-weight:bold">Description</span></div>
+<div><em>Create SQl Table and Insert Sample Records.</em>&nbsp;</div>
+<div class="scriptcode"><a href="https://code.msdn.microsoft.com/Dynamic-scheduling-using-35328360/description#" class="copyCode">Copy code</a>
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title">SQL</div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<pre class="mysql"><span class="sql__com">--&nbsp;=============================================&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Shanu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Create&nbsp;date&nbsp;:&nbsp;2015-07-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Description&nbsp;:&nbsp;To&nbsp;Create&nbsp;Database,Table&nbsp;and&nbsp;Sample&nbsp;Insert&nbsp;Query&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Latest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Modifier&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Shanu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Modify&nbsp;date&nbsp;:&nbsp;2015-07-13&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;=============================================</span>&nbsp;
+--<span class="sql__id">Script</span>&nbsp;<span class="sql__keyword">to</span>&nbsp;<span class="sql__keyword">create</span>&nbsp;<span class="sql__id">DB</span>,<span class="sql__keyword">Table</span>&nbsp;<span class="sql__keyword">and</span>&nbsp;<span class="sql__id">sample</span>&nbsp;<span class="sql__keyword">Insert</span>&nbsp;<span class="sql__keyword">data</span>&nbsp;
+<span class="sql__keyword">USE</span>&nbsp;<span class="sql__keyword">MASTER</span>&nbsp;
+<span class="sql__id">GO</span>&nbsp;
+&nbsp;
+<span class="sql__com">--&nbsp;1)&nbsp;Check&nbsp;for&nbsp;the&nbsp;Database&nbsp;Exists&nbsp;.If&nbsp;the&nbsp;database&nbsp;is&nbsp;exist&nbsp;then&nbsp;drop&nbsp;and&nbsp;create&nbsp;new&nbsp;DB</span>&nbsp;
+<span class="sql__keyword">IF</span>&nbsp;<span class="sql__keyword">EXISTS</span>&nbsp;(<span class="sql__keyword">SELECT</span>&nbsp;[<span class="sql__keyword">name</span>]&nbsp;<span class="sql__keyword">FROM</span>&nbsp;<span class="sql__id">sys</span>.<span class="sql__keyword">databases</span>&nbsp;<span class="sql__keyword">WHERE</span>&nbsp;[<span class="sql__keyword">name</span>]&nbsp;=&nbsp;<span class="sql__string">'projectDB'</span>&nbsp;)&nbsp;
+<span class="sql__keyword">DROP</span>&nbsp;<span class="sql__keyword">DATABASE</span>&nbsp;<span class="sql__id">projectDB</span>&nbsp;
+<span class="sql__id">GO</span>&nbsp;
+&nbsp;
+<span class="sql__keyword">CREATE</span>&nbsp;<span class="sql__keyword">DATABASE</span>&nbsp;<span class="sql__id">projectDB</span>&nbsp;
+<span class="sql__id">GO</span>&nbsp;
+&nbsp;
+<span class="sql__keyword">USE</span>&nbsp;<span class="sql__id">projectDB</span>&nbsp;
+<span class="sql__id">GO</span>&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__keyword">CREATE</span>&nbsp;<span class="sql__keyword">TABLE</span>&nbsp;[<span class="sql__id">dbo</span>].[<span class="sql__id">SCHED_Master</span>](&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ID</span>]&nbsp;[<span class="sql__keyword">int</span>]&nbsp;<span class="sql__keyword">NOT</span>&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ProjectName</span>]&nbsp;[<span class="sql__keyword">varchar</span>](<span class="sql__number">100</span>)&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ProjectType</span>]&nbsp;<span class="sql__keyword">int</span>&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ProjectTypeName</span>]&nbsp;[<span class="sql__keyword">varchar</span>](<span class="sql__number">100</span>)&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">SCHED_ST_DT</span>]&nbsp;[<span class="sql__keyword">datetime</span>]&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">SCHED_ED_DT</span>]&nbsp;[<span class="sql__keyword">datetime</span>]&nbsp;<span class="sql__value">NULL</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ACT_ST_DT</span>]&nbsp;[<span class="sql__keyword">datetime</span>]&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ACT_ED_DT</span>]&nbsp;[<span class="sql__keyword">datetime</span>]&nbsp;<span class="sql__value">NULL</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__keyword">status</span>]&nbsp;<span class="sql__keyword">int</span>&nbsp;<span class="sql__value">null</span>&nbsp;
+<span class="sql__keyword">PRIMARY</span>&nbsp;<span class="sql__keyword">KEY</span>&nbsp;<span class="sql__id">CLUSTERED</span>&nbsp;&nbsp;
+(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;[<span class="sql__id">ID</span>]&nbsp;<span class="sql__keyword">ASC</span>&nbsp;
+)<span class="sql__keyword">WITH</span>&nbsp;(<span class="sql__id">PAD_INDEX</span>&nbsp;&nbsp;=&nbsp;<span class="sql__id">OFF</span>,&nbsp;<span class="sql__id">STATISTICS_NORECOMPUTE</span>&nbsp;&nbsp;=&nbsp;<span class="sql__id">OFF</span>,&nbsp;<span class="sql__id">IGNORE_DUP_KEY</span>&nbsp;=&nbsp;<span class="sql__id">OFF</span>,&nbsp;<span class="sql__id">ALLOW_ROW_LOCKS</span>&nbsp;&nbsp;=&nbsp;<span class="sql__keyword">ON</span>,&nbsp;<span class="sql__id">ALLOW_PAGE_LOCKS</span>&nbsp;&nbsp;=&nbsp;<span class="sql__keyword">ON</span>)&nbsp;<span class="sql__keyword">ON</span>&nbsp;[<span class="sql__keyword">PRIMARY</span>]&nbsp;
+)&nbsp;<span class="sql__keyword">ON</span>&nbsp;[<span class="sql__keyword">PRIMARY</span>]&nbsp;
+&nbsp;
+<span class="sql__com">--&nbsp;Insert&nbsp;Query</span>&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1001</span>,<span class="sql__string">'Project1'</span>,<span class="sql__number">1</span>,<span class="sql__string">'Urgent'</span>,<span class="sql__string">'2015-06-01&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-09-02&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2015-06-22&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-08-26&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1002</span>,<span class="sql__string">'Project1'</span>,<span class="sql__number">2</span>,<span class="sql__string">'Important'</span>,<span class="sql__string">'2015-09-22&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-12-22&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2015-09-19&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-12-29&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1003</span>,<span class="sql__string">'Project1'</span>,<span class="sql__number">3</span>,<span class="sql__string">'Normal'</span>,<span class="sql__string">'2016-01-01&nbsp;00:00:00.000'</span>,<span class="sql__string">'2016-03-24&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2016-01-01&nbsp;00:00:00.000'</span>,<span class="sql__string">'2016-03-14&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1004</span>,<span class="sql__string">'Project2'</span>,<span class="sql__number">1</span>,<span class="sql__string">'Urgent'</span>,<span class="sql__string">'2015-07-01&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-09-02&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2015-07-22&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-08-26&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1005</span>,<span class="sql__string">'Project2'</span>,<span class="sql__number">2</span>,<span class="sql__string">'Important'</span>,<span class="sql__string">'2015-09-29&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-12-22&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2015-09-08&nbsp;00:00:00.000'</span>,<span class="sql__string">'2015-12-14&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+<span class="sql__keyword">INSERT</span>&nbsp;<span class="sql__keyword">INTO</span>&nbsp;[<span class="sql__id">dbo</span>].<span class="sql__id">SCHED_Master</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;([<span class="sql__id">ID</span>],[<span class="sql__id">ProjectName</span>],[<span class="sql__id">ProjectType</span>],[<span class="sql__id">ProjectTypeName</span>],[<span class="sql__id">SCHED_ST_DT</span>],[<span class="sql__id">SCHED_ED_DT</span>],[<span class="sql__id">ACT_ST_DT</span>],[<span class="sql__id">ACT_ED_DT</span>],[<span class="sql__keyword">status</span>])&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VALUES</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="sql__number">1006</span>,<span class="sql__string">'Project2'</span>,<span class="sql__number">3</span>,<span class="sql__string">'Normal'</span>,<span class="sql__string">'2016-01-01&nbsp;00:00:00.000'</span>,<span class="sql__string">'2016-03-04&nbsp;00:00:00.000'</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2016-01-01&nbsp;00:00:00.000'</span>,<span class="sql__string">'2016-02-24&nbsp;00:00:00.000'</span>,<span class="sql__number">1</span>)&nbsp;
+&nbsp;
+&nbsp;
+<span class="sql__com">--&nbsp;Select&nbsp;Query</span>&nbsp;
+&nbsp;
+<span class="sql__keyword">select</span>&nbsp;<span class="sql__id">ID</span>,<span class="sql__id">ProjectName</span>,<span class="sql__id">ProjectType</span>,<span class="sql__id">ProjectTypeName</span>,<span class="sql__id">SCHED_ST_DT</span>,<span class="sql__id">SCHED_ED_DT</span>,<span class="sql__id">ACT_ST_DT</span>,<span class="sql__id">ACT_ED_DT</span>,<span class="sql__keyword">status</span>&nbsp;<span class="sql__keyword">from</span>&nbsp;<span class="sql__id">SCHED_Master</span>&nbsp;
+</pre>
+</div>
+</div>
+<div><span style="font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">After creating our table we will create a Stored Procedure to display the project schedule result using a Pivot query.</span></div>
+<div>
+<h1 class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title">SQL</div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">mysql</span>
+<pre class="hidden">-- =============================================                                                                      
+-- Author      : Shanu                                                                      
+-- Create date : 2015-07-24                                                                      
+-- Description : To get all prject Schedule details                                                                     
+-- Latest                                                                      
+-- Modifier    : Shanu                                                                      
+-- Modify date : 2015-07-24                                                                      
+-- =============================================                                                                      
+--  usp_ProjectSchedule_Select 'Project1'               
+--  usp_ProjectSchedule_Select ''                                                                
+-- =============================================                                                                 
+Alter PROCEDURE [dbo].[usp_ProjectSchedule_Select]                                                    
+@projectId           VARCHAR(10)  = ''                                                                 
+                                                         
+AS                                                                      
+BEGIN                                                       
+     
+ -- 1. Declared for setting the Schedule Start and End date
+ --1.Start /////////////
+  Declare   @FromDate          VARCHAR(20)  = '2015-06-08'--DATEADD(mm,-12,getdate())                                                           
+  Declare   @ToDate            VARCHAR(20)  = '2016-05-06'--DATEADD(mm, 1, getdate())  
+  -- used for the pivot table result
+  DECLARE @MyColumns AS NVARCHAR(MAX),
+    @SQLquery  AS NVARCHAR(MAX)     
+  --// End of 1.
+  
+  -- 2.This Temp table is to created for  get all the days between the start date and end date to display as the Column Header                                                      
+ --2.Start /////////////                                                                
+ IF OBJECT_ID('tempdb..#TEMP_EveryWk_Sndays') IS NOT NULL                                                                          
+    DROP TABLE #TEMP_EveryWk_Sndays                                                                       
+                                                                          
+ DECLARE @TOTALCount INT                                          
+    Select  @TOTALCount= DATEDIFF(dd,@FromDate,@ToDate);           
+   WITH d AS                                                                       
+            (                                                                      
+              SELECT top (@TOTALCount) AllDays = DATEADD(DAY, ROW_NUMBER()                                                                       
+                OVER (ORDER BY object_id), REPLACE(@FromDate,'-',''))                                                                      
+              FROM sys.all_objects                                             
+            )                                                                      
+                                                                            
+         SELECT  distinct DATEADD(DAY, 1 - DATEPART(WEEKDAY, AllDays), CAST(AllDays AS DATE))WkStartSundays  ,1 as status                                                              
+                                                                           
+ into #TEMP_EveryWk_Sndays                                                                    
+    FROM d                             
+   where                          
+        AllDays  &lt;= @ToDate                                      
+   AND AllDays  &gt;= @FromDate        
+   
+   -- test the sample temptable with select query
+  -- select * from #TEMP_EveryWk_Sndays
+   --///////////// End of 2.
+   
+   -- 3. This temp table is created toScedule details with result here i have used the Union ,
+   --the 1st query return the Schedule Project result and the 2nd query returns the Actual Project result both this query will be inserted to a Temp Table
+ --3.Start /////////////
+ IF OBJECT_ID('tempdb..#TEMP_results') IS NOT NULL                                                                          
+    DROP TABLE #TEMP_results   
+ 
+	   SELECT ProjectName,viewtype,ProjectType,resultnew,YMWK
+	   INTO #TEMP_results
+	   FROM(
+				SELECT                                                                
+						 A.ProjectName ProjectName   -- Our Project Name                                       
+						,'1-Scd' viewtype            -- Our View type first we display Schedule Data and then Actual                                                 
+						, A. ProjectType ProjectType -- Our Project type here you can use your own status as Urgent,normal and etc 
+						,  Case when   cast(DATEPART( wk, max(A.SCHED_ED_DT)) as varchar(2)) =  cast(DATEPART( wk, WkStartSundays) as varchar(2))  then -1 else
+							case when min(A.SCHED_ST_DT)&lt;= F.WkStartSundays AND max(A.SCHED_ED_DT) &gt;= F.WkStartSundays                                                        
+						  then 1 else 0  end end resultnew  -- perfectResult as i expect   
+					    ,  RIGHT(YEAR(WkStartSundays), 2)&#43;'-'&#43;'W'&#43;convert(varchar(2),Case when len(DATEPART( wk, WkStartSundays))='1' then '0'&#43;                                
+						  cast(DATEPART( wk, WkStartSundays) as varchar(2)) else cast(DATEPART( wk, WkStartSundays) as varchar(2)) END                             
+						  ) as 'YMWK'  -- Here we display Year/month and Week of our Schedule which will be displayed as the Column                 
+
+			  FROM   -- here you can youe your own table                                                          
+						 SCHED_Master A (NOLOCK)       
+								 LEFT OUTER JOIN 
+						 #TEMP_EveryWk_Sndays F (NOLOCK)  ON A.status= F.status                                                            
+			                                          
+				WHERE  -- Here you can check your own where conditions     
+						A.ProjectName like '%' &#43; @projectId                                                      
+					AND	A.status=1                                                                          
+					AND A.ProjectType in (1,2,3) 
+					AND A.SCHED_ST_DT  &lt;= @ToDate                                          
+				    AND A.SCHED_ED_DT  &gt;= @FromDate  
+				GROUP BY                                                             
+					   A.ProjectName                                                         
+					 , A. ProjectType  
+					 ,A.SCHED_ED_DT                   
+					,F.WkStartSundays
+
+	UNION  -- This query is to result the Actual result
+			SELECT                                                                
+						 A.ProjectName ProjectName   -- Our Project Name                                       
+						,'2-Act' viewtype            -- Our View type first we display Schedule Data and then Actual                                                 
+						, A. ProjectType ProjectType -- Our Project type here you can use your own status as Urgent,normal and etc 
+						,  Case when   cast(DATEPART( wk, max(A.ACT_ED_DT)) as varchar(2)) =  cast(DATEPART( wk, WkStartSundays) as varchar(2))  then -1 else
+							case when min(A.ACT_ST_DT)&lt;= F.WkStartSundays AND max(A.ACT_ED_DT) &gt;= F.WkStartSundays                                                        
+						   then 2 else 0  end end resultnew  -- perfectResult as i expect 
+						
+					    , RIGHT(YEAR(WkStartSundays), 2)&#43;'-'&#43;'W'&#43;convert(varchar(2),Case when len(DATEPART( wk, WkStartSundays))='1' then '0'&#43;                                
+							  cast(DATEPART( wk, WkStartSundays) as varchar(2)) else cast(DATEPART( wk, WkStartSundays) as varchar(2)) END                             
+							  ) as 'YMWK'  -- Here we display Year/month and Week of our Schedule which will be displayed as the Column                 
+
+			  FROM   -- here you can youe your own table                                                          
+						 SCHED_Master A (NOLOCK)       
+								 LEFT OUTER JOIN 
+						 #TEMP_EveryWk_Sndays F (NOLOCK)  ON A.status= F.status                                                            
+			                                          
+				WHERE  -- Here you can check your own where conditions      
+						A.ProjectName like '%' &#43; @projectId                                                     
+					AND	A.status=1                                                                          
+					AND A.ProjectType in (1,2,3) 
+					AND A.ACT_ST_DT  &lt;= @ToDate                                          
+				    AND A.ACT_ED_DT  &gt;= @FromDate  
+				GROUP BY                                                             
+					   A.ProjectName                                                         
+					 , A. ProjectType  
+					 ,A.SCHED_ED_DT                   
+					,F.WkStartSundays
+
+	 )  q                 
+
+ --3.End /////////////
+
+ --4.Start /////////////
+ 
+ --here first we get all the YMWK which should be display in Columns we use this in our next pivot query
+select @MyColumns = STUFF((SELECT ',' &#43; QUOTENAME(YMWK) 
+                    FROM #TEMP_results
+                    GROUP BY YMWK
+                    ORDER BY YMWK
+            FOR XML PATH(''), TYPE
+            ).value('.', 'NVARCHAR(MAX)') 
+        ,1,1,'')
+ --here we use the above all YMWK  to disoplay its result as column and row display
+set @SQLquery = N'SELECT ProjectName,viewtype,ProjectType,' &#43; @MyColumns &#43; N' from 
+             (
+                 SELECT 
+       ProjectName, 
+       viewtype,
+       ProjectType,
+       YMWK,
+        resultnew as resultnew 
+    FROM #TEMP_results
+            ) x
+            pivot 
+            (
+                 sum(resultnew)
+                for YMWK in (' &#43; @MyColumns &#43; N')
+            ) p  order by ProjectName, ProjectType,viewtype'
+
+exec sp_executesql @SQLquery;
+                                   
+END
+</pre>
+<div class="preview">
+<pre class="mysql"><span class="sql__com">--&nbsp;=============================================&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Author&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Shanu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Create&nbsp;date&nbsp;:&nbsp;2015-07-24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Description&nbsp;:&nbsp;To&nbsp;get&nbsp;all&nbsp;prject&nbsp;Schedule&nbsp;details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Latest&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Modifier&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;Shanu&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;Modify&nbsp;date&nbsp;:&nbsp;2015-07-24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;=============================================&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;&nbsp;usp_ProjectSchedule_Select&nbsp;'Project1'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;&nbsp;usp_ProjectSchedule_Select&nbsp;''&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__com">--&nbsp;=============================================&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+<span class="sql__keyword">Alter</span>&nbsp;<span class="sql__keyword">PROCEDURE</span>&nbsp;[<span class="sql__id">dbo</span>].[<span class="sql__id">usp_ProjectSchedule_Select</span>]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">@</span><span class="sql__variable">projectId</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VARCHAR</span>(<span class="sql__number">10</span>)&nbsp;&nbsp;=&nbsp;<span class="sql__string">''</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">AS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">BEGIN</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__com">--&nbsp;1.&nbsp;Declared&nbsp;for&nbsp;setting&nbsp;the&nbsp;Schedule&nbsp;Start&nbsp;and&nbsp;End&nbsp;date</span>&nbsp;
+&nbsp;--<span class="sql__number">1</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;
+&nbsp;&nbsp;<span class="sql__keyword">Declare</span>&nbsp;&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VARCHAR</span>(<span class="sql__number">20</span>)&nbsp;&nbsp;=&nbsp;<span class="sql__string">'2015-06-08'</span>--<span class="sql__id">DATEADD</span>(<span class="sql__id">mm</span>,-<span class="sql__number">12</span>,<span class="sql__id">getdate</span>())&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="sql__keyword">Declare</span>&nbsp;&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">VARCHAR</span>(<span class="sql__number">20</span>)&nbsp;&nbsp;=&nbsp;<span class="sql__string">'2016-05-06'</span>--<span class="sql__id">DATEADD</span>(<span class="sql__id">mm</span>,&nbsp;<span class="sql__number">1</span>,&nbsp;<span class="sql__id">getdate</span>())&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="sql__com">--&nbsp;used&nbsp;for&nbsp;the&nbsp;pivot&nbsp;table&nbsp;result</span>&nbsp;
+&nbsp;&nbsp;<span class="sql__keyword">DECLARE</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">MyColumns</span>&nbsp;<span class="sql__keyword">AS</span>&nbsp;<span class="sql__keyword">NVARCHAR</span>(<span class="sql__id">MAX</span>),&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">SQLquery</span>&nbsp;&nbsp;<span class="sql__keyword">AS</span>&nbsp;<span class="sql__keyword">NVARCHAR</span>(<span class="sql__id">MAX</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;--//&nbsp;<span class="sql__keyword">End</span>&nbsp;<span class="sql__id">of</span>&nbsp;<span class="sql__number">1</span>.&nbsp;
+&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;<span class="sql__com">--&nbsp;2.This&nbsp;Temp&nbsp;table&nbsp;is&nbsp;to&nbsp;created&nbsp;for&nbsp;&nbsp;get&nbsp;all&nbsp;the&nbsp;days&nbsp;between&nbsp;the&nbsp;start&nbsp;date&nbsp;and&nbsp;end&nbsp;date&nbsp;to&nbsp;display&nbsp;as&nbsp;the&nbsp;Column&nbsp;Header&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;--<span class="sql__number">2</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__keyword">IF</span>&nbsp;<span class="sql__id">OBJECT_ID</span>(<span class="sql__string">'tempdb..#TEMP_EveryWk_Sndays'</span>)&nbsp;<span class="sql__keyword">IS</span>&nbsp;<span class="sql__keyword">NOT</span>&nbsp;<span class="sql__value">NULL</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">DROP</span>&nbsp;<span class="sql__keyword">TABLE</span><span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__keyword">DECLARE</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">TOTALCount</span>&nbsp;<span class="sql__keyword">INT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">Select</span>&nbsp;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">TOTALCount</span>=&nbsp;<span class="sql__function">DATEDIFF</span>(<span class="sql__id">dd</span>,<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>,<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__keyword">WITH</span>&nbsp;<span class="sql__id">d</span>&nbsp;<span class="sql__keyword">AS</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;<span class="sql__id">top</span>&nbsp;(<span class="sql__keyword">@</span><span class="sql__variable">TOTALCount</span>)&nbsp;<span class="sql__id">AllDays</span>&nbsp;=&nbsp;<span class="sql__id">DATEADD</span>(<span class="sql__keyword">DAY</span>,&nbsp;<span class="sql__id">ROW_NUMBER</span>()&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">OVER</span>&nbsp;(<span class="sql__keyword">ORDER</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;<span class="sql__id">object_id</span>),&nbsp;<span class="sql__keyword">REPLACE</span>(<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>,<span class="sql__string">'-'</span>,<span class="sql__string">''</span>))&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;<span class="sql__id">sys</span>.<span class="sql__id">all_objects</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;<span class="sql__keyword">distinct</span>&nbsp;<span class="sql__id">DATEADD</span>(<span class="sql__keyword">DAY</span>,&nbsp;<span class="sql__number">1</span>&nbsp;-&nbsp;<span class="sql__id">DATEPART</span>(<span class="sql__id">WEEKDAY</span>,&nbsp;<span class="sql__id">AllDays</span>),&nbsp;<span class="sql__function">CAST</span>(<span class="sql__id">AllDays</span>&nbsp;<span class="sql__keyword">AS</span>&nbsp;<span class="sql__keyword">DATE</span>))<span class="sql__id">WkStartSundays</span>&nbsp;&nbsp;,<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">status</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;<span class="sql__keyword">into</span><span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;<span class="sql__id">d</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__keyword">where</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">AllDays</span>&nbsp;&nbsp;&lt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">AllDays</span>&nbsp;&nbsp;&gt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;test&nbsp;the&nbsp;sample&nbsp;temptable&nbsp;with&nbsp;select&nbsp;query</span>&nbsp;
+&nbsp;&nbsp;<span class="sql__com">--&nbsp;select&nbsp;*&nbsp;from&nbsp;#TEMP_EveryWk_Sndays</span>&nbsp;
+&nbsp;&nbsp;&nbsp;--/////////////&nbsp;<span class="sql__keyword">End</span>&nbsp;<span class="sql__id">of</span>&nbsp;<span class="sql__number">2</span>.&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;3.&nbsp;This&nbsp;temp&nbsp;table&nbsp;is&nbsp;created&nbsp;toScedule&nbsp;details&nbsp;with&nbsp;result&nbsp;here&nbsp;i&nbsp;have&nbsp;used&nbsp;the&nbsp;Union&nbsp;,</span>&nbsp;
+&nbsp;&nbsp;&nbsp;--<span class="sql__id">the</span>&nbsp;<span class="sql__id">1st</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;<span class="sql__keyword">return</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">Schedule</span>&nbsp;<span class="sql__id">Project</span>&nbsp;<span class="sql__id">result</span>&nbsp;<span class="sql__keyword">and</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">2nd</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;<span class="sql__keyword">returns</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">Actual</span>&nbsp;<span class="sql__id">Project</span>&nbsp;<span class="sql__id">result</span>&nbsp;<span class="sql__keyword">both</span>&nbsp;<span class="sql__id">this</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;<span class="sql__id">will</span>&nbsp;<span class="sql__id">be</span>&nbsp;<span class="sql__id">inserted</span>&nbsp;<span class="sql__keyword">to</span>&nbsp;<span class="sql__id">a</span>&nbsp;<span class="sql__id">Temp</span>&nbsp;<span class="sql__keyword">Table</span>&nbsp;
+&nbsp;--<span class="sql__number">3</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;
+&nbsp;<span class="sql__keyword">IF</span>&nbsp;<span class="sql__id">OBJECT_ID</span>(<span class="sql__string">'tempdb..#TEMP_results'</span>)&nbsp;<span class="sql__keyword">IS</span>&nbsp;<span class="sql__keyword">NOT</span>&nbsp;<span class="sql__value">NULL</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">DROP</span>&nbsp;<span class="sql__keyword">TABLE</span><span class="sql__com">&nbsp;#TEMP_results&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;<span class="sql__id">ProjectName</span>,<span class="sql__id">viewtype</span>,<span class="sql__id">ProjectType</span>,<span class="sql__id">resultnew</span>,<span class="sql__id">YMWK</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">INTO</span><span class="sql__com">&nbsp;#TEMP_results</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'1-Scd'</span>&nbsp;<span class="sql__id">viewtype</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;View&nbsp;type&nbsp;first&nbsp;we&nbsp;display&nbsp;Schedule&nbsp;Data&nbsp;and&nbsp;then&nbsp;Actual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;type&nbsp;here&nbsp;you&nbsp;can&nbsp;use&nbsp;your&nbsp;own&nbsp;status&nbsp;as&nbsp;Urgent,normal&nbsp;and&nbsp;etc&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>))&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;=&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;-<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__function">min</span>(<span class="sql__id">A</span>.<span class="sql__id">SCHED_ST_DT</span>)&lt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>)&nbsp;&gt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__number">0</span>&nbsp;&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__id">resultnew</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;perfectResult&nbsp;as&nbsp;i&nbsp;expect&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;<span class="sql__keyword">RIGHT</span>(<span class="sql__keyword">YEAR</span>(<span class="sql__id">WkStartSundays</span>),&nbsp;<span class="sql__number">2</span>)&#43;<span class="sql__string">'-'</span>&#43;<span class="sql__string">'W'</span>&#43;<span class="sql__keyword">convert</span>(<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>),<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__id">len</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>))=<span class="sql__string">'1'</span>&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__string">'0'</span>&#43;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">END</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__string">'YMWK'</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;we&nbsp;display&nbsp;Year/month&nbsp;and&nbsp;Week&nbsp;of&nbsp;our&nbsp;Schedule&nbsp;which&nbsp;will&nbsp;be&nbsp;displayed&nbsp;as&nbsp;the&nbsp;Column&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;here&nbsp;you&nbsp;can&nbsp;youe&nbsp;your&nbsp;own&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">SCHED_Master</span>&nbsp;<span class="sql__id">A</span>&nbsp;(<span class="sql__id">NOLOCK</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">LEFT</span>&nbsp;<span class="sql__keyword">OUTER</span>&nbsp;<span class="sql__keyword">JOIN</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;F&nbsp;(NOLOCK)&nbsp;&nbsp;ON&nbsp;A.status=&nbsp;F.status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">WHERE</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;you&nbsp;can&nbsp;check&nbsp;your&nbsp;own&nbsp;where&nbsp;conditions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__keyword">like</span>&nbsp;<span class="sql__string">'%'</span>&nbsp;&#43;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">projectId</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__keyword">status</span>=<span class="sql__number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;(<span class="sql__number">1</span>,<span class="sql__number">2</span>,<span class="sql__number">3</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">SCHED_ST_DT</span>&nbsp;&nbsp;&lt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>&nbsp;&nbsp;&gt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">GROUP</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">UNION</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;This&nbsp;query&nbsp;is&nbsp;to&nbsp;result&nbsp;the&nbsp;Actual&nbsp;result</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__string">'2-Act'</span>&nbsp;<span class="sql__id">viewtype</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;View&nbsp;type&nbsp;first&nbsp;we&nbsp;display&nbsp;Schedule&nbsp;Data&nbsp;and&nbsp;then&nbsp;Actual&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__com">--&nbsp;Our&nbsp;Project&nbsp;type&nbsp;here&nbsp;you&nbsp;can&nbsp;use&nbsp;your&nbsp;own&nbsp;status&nbsp;as&nbsp;Urgent,normal&nbsp;and&nbsp;etc&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;&nbsp;<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">ACT_ED_DT</span>))&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;=&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;-<span class="sql__number">1</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__function">min</span>(<span class="sql__id">A</span>.<span class="sql__id">ACT_ST_DT</span>)&lt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__function">max</span>(<span class="sql__id">A</span>.<span class="sql__id">ACT_ED_DT</span>)&nbsp;&gt;=&nbsp;<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__number">2</span>&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__number">0</span>&nbsp;&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__keyword">end</span>&nbsp;<span class="sql__id">resultnew</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;perfectResult&nbsp;as&nbsp;i&nbsp;expect&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__keyword">RIGHT</span>(<span class="sql__keyword">YEAR</span>(<span class="sql__id">WkStartSundays</span>),&nbsp;<span class="sql__number">2</span>)&#43;<span class="sql__string">'-'</span>&#43;<span class="sql__string">'W'</span>&#43;<span class="sql__keyword">convert</span>(<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>),<span class="sql__keyword">Case</span>&nbsp;<span class="sql__keyword">when</span>&nbsp;<span class="sql__id">len</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>))=<span class="sql__string">'1'</span>&nbsp;<span class="sql__keyword">then</span>&nbsp;<span class="sql__string">'0'</span>&#43;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">else</span>&nbsp;<span class="sql__function">cast</span>(<span class="sql__id">DATEPART</span>(&nbsp;<span class="sql__id">wk</span>,&nbsp;<span class="sql__id">WkStartSundays</span>)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">varchar</span>(<span class="sql__number">2</span>))&nbsp;<span class="sql__keyword">END</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__string">'YMWK'</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;we&nbsp;display&nbsp;Year/month&nbsp;and&nbsp;Week&nbsp;of&nbsp;our&nbsp;Schedule&nbsp;which&nbsp;will&nbsp;be&nbsp;displayed&nbsp;as&nbsp;the&nbsp;Column&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span>&nbsp;&nbsp;&nbsp;<span class="sql__com">--&nbsp;here&nbsp;you&nbsp;can&nbsp;youe&nbsp;your&nbsp;own&nbsp;table&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">SCHED_Master</span>&nbsp;<span class="sql__id">A</span>&nbsp;(<span class="sql__id">NOLOCK</span>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">LEFT</span>&nbsp;<span class="sql__keyword">OUTER</span>&nbsp;<span class="sql__keyword">JOIN</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__com">&nbsp;#TEMP_EveryWk_Sndays&nbsp;F&nbsp;(NOLOCK)&nbsp;&nbsp;ON&nbsp;A.status=&nbsp;F.status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">WHERE</span>&nbsp;&nbsp;<span class="sql__com">--&nbsp;Here&nbsp;you&nbsp;can&nbsp;check&nbsp;your&nbsp;own&nbsp;where&nbsp;conditions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;<span class="sql__keyword">like</span>&nbsp;<span class="sql__string">'%'</span>&nbsp;&#43;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">projectId</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__keyword">status</span>=<span class="sql__number">1</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectType</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;(<span class="sql__number">1</span>,<span class="sql__number">2</span>,<span class="sql__number">3</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ACT_ST_DT</span>&nbsp;&nbsp;&lt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">ToDate</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">AND</span>&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ACT_ED_DT</span>&nbsp;&nbsp;&gt;=&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">FromDate</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">GROUP</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">A</span>.<span class="sql__id">ProjectName</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,&nbsp;<span class="sql__id">A</span>.&nbsp;<span class="sql__id">ProjectType</span>&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">A</span>.<span class="sql__id">SCHED_ED_DT</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__id">F</span>.<span class="sql__id">WkStartSundays</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;<span class="sql__id">q</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;
+&nbsp;--<span class="sql__number">3</span>.<span class="sql__keyword">End</span>&nbsp;/////////////&nbsp;
+&nbsp;
+&nbsp;--<span class="sql__number">4</span>.<span class="sql__keyword">Start</span>&nbsp;/////////////&nbsp;
+&nbsp;&nbsp;
+&nbsp;--<span class="sql__id">here</span>&nbsp;<span class="sql__keyword">first</span>&nbsp;<span class="sql__id">we</span>&nbsp;<span class="sql__id">get</span>&nbsp;<span class="sql__keyword">all</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;<span class="sql__id">which</span>&nbsp;<span class="sql__id">should</span>&nbsp;<span class="sql__id">be</span>&nbsp;<span class="sql__id">display</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;<span class="sql__keyword">Columns</span>&nbsp;<span class="sql__id">we</span>&nbsp;<span class="sql__keyword">use</span>&nbsp;<span class="sql__id">this</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;<span class="sql__id">our</span>&nbsp;<span class="sql__keyword">next</span>&nbsp;<span class="sql__id">pivot</span>&nbsp;<span class="sql__keyword">query</span>&nbsp;
+<span class="sql__keyword">select</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">MyColumns</span>&nbsp;=&nbsp;<span class="sql__id">STUFF</span>((<span class="sql__keyword">SELECT</span>&nbsp;<span class="sql__string">','</span>&nbsp;&#43;&nbsp;<span class="sql__id">QUOTENAME</span>(<span class="sql__id">YMWK</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span><span class="sql__com">&nbsp;#TEMP_results</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">GROUP</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">ORDER</span>&nbsp;<span class="sql__keyword">BY</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FOR</span>&nbsp;<span class="sql__id">XML</span>&nbsp;<span class="sql__id">PATH</span>(<span class="sql__string">''</span>),&nbsp;<span class="sql__keyword">TYPE</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;).<span class="sql__keyword">value</span>(<span class="sql__string">'.'</span>,&nbsp;<span class="sql__string">'NVARCHAR(MAX)'</span>)&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;,<span class="sql__number">1</span>,<span class="sql__number">1</span>,<span class="sql__string">''</span>)&nbsp;
+&nbsp;--<span class="sql__id">here</span>&nbsp;<span class="sql__id">we</span>&nbsp;<span class="sql__keyword">use</span>&nbsp;<span class="sql__id">the</span>&nbsp;<span class="sql__id">above</span>&nbsp;<span class="sql__keyword">all</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;&nbsp;<span class="sql__keyword">to</span>&nbsp;<span class="sql__id">disoplay</span>&nbsp;<span class="sql__id">its</span>&nbsp;<span class="sql__id">result</span>&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__keyword">column</span>&nbsp;<span class="sql__keyword">and</span>&nbsp;<span class="sql__keyword">row</span>&nbsp;<span class="sql__id">display</span>&nbsp;
+<span class="sql__keyword">set</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">SQLquery</span>&nbsp;=&nbsp;<span class="sql__id">N</span><span class="sql__string">'SELECT&nbsp;ProjectName,viewtype,ProjectType,'</span>&nbsp;&#43;&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">MyColumns</span>&nbsp;&#43;&nbsp;<span class="sql__id">N</span>'&nbsp;<span class="sql__keyword">from</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">SELECT</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">ProjectName</span>,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">viewtype</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">ProjectType</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">YMWK</span>,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">resultnew</span>&nbsp;<span class="sql__keyword">as</span>&nbsp;<span class="sql__id">resultnew</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">FROM</span><span class="sql__com">&nbsp;#TEMP_results</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__id">x</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__id">pivot</span>&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__function">sum</span>(<span class="sql__id">resultnew</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sql__keyword">for</span>&nbsp;<span class="sql__id">YMWK</span>&nbsp;<span class="sql__keyword">in</span>&nbsp;(<span class="sql__string">'&nbsp;&#43;&nbsp;@MyColumns&nbsp;&#43;&nbsp;N'</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;<span class="sql__id">p</span>&nbsp;&nbsp;<span class="sql__keyword">order</span>&nbsp;<span class="sql__keyword">by</span>&nbsp;<span class="sql__id">ProjectName</span>,&nbsp;<span class="sql__id">ProjectType</span>,<span class="sql__id">viewtype</span>'&nbsp;
+&nbsp;
+<span class="sql__id">exec</span>&nbsp;<span class="sql__id">sp_executesql</span>&nbsp;<span class="sql__keyword">@</span><span class="sql__variable">SQLquery</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<span class="sql__keyword">END</span>&nbsp;
+</pre>
+</div>
+</div>
+</h1>
+<h1 class="endscriptcode">&nbsp;<span style="font-weight:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">If we run the procedure the final output will be like this. Here we can see I will display the result of every
+ week using the Pivot query.</span></h1>
+<div class="endscriptcode">&nbsp;</div>
+<img id="140425" src="140425-17.jpg" alt="" width="604" height="157"></div>
+<div><span style="font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">For the actual data in the Pivot list I will display the result as:&nbsp;</span></div>
+<ul style="font-size:14px; line-height:21px; font-family:Roboto,sans-serif; outline:0px; color:#333333">
+<li style="outline:0px"><strong style="outline:0px"><span style="outline:0px; color:#000000">&ldquo;-1&rdquo;</span>&nbsp;:&nbsp;</strong>For End Date of both the scheduled and actual result. In my program I will check for the produced value, if its &ldquo;-1&rdquo;
+ then I will display the text as &ldquo;END&rdquo; with Red background color to notify the user for the end date of each project.
+</li><li style="outline:0px"><strong style="outline:0px"><span style="outline:0px; color:#000000">&ldquo;0&rdquo;</span>&nbsp;:&nbsp;</strong>If the result value is &ldquo;0&rdquo; then it means the days are not in any schedule or actual days so it should be left
+ blank. </li><li style="outline:0px"><strong style="outline:0px"><span style="outline:0px; color:#000000">&ldquo;1&rdquo;</span>&nbsp;:&nbsp;</strong>If the result is &ldquo;1&rdquo; is to indicate as the scheduled start and end days. I will be using Blue to display the
+ schedule days. </li><li style="outline:0px"><strong style="outline:0px"><span style="outline:0px; color:#ff0000"><span style="outline:0px; color:#000000">&ldquo;2&rdquo;</span></span>&nbsp;:&nbsp;</strong>If the result is &ldquo;1&rdquo; is to indicate the actual start and end
+ days. I will be using Green to display the schedule days. </li></ul>
+<div style="font-size:14px; line-height:21px; font-family:Roboto,sans-serif; outline:0px; color:#333333">
+This is only a sample procedure that provides a sample program for the project schedule. You can custamize this table, procedure and program depending on your requirements. You can set your own rule and status to display the result.</div>
+<h1>&nbsp;<img id="140426" src="140426-14.jpg" alt="" width="628" height="202"></h1>
+</div>

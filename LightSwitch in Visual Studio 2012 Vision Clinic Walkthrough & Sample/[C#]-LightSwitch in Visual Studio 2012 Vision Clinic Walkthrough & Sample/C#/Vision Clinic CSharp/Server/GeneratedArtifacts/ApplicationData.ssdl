@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ApplicationDataStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ApplicationDataStore">
+    <EntitySet Name="Patients" EntityType="ApplicationDataStore.Patient" store:Type="Tables" Schema="dbo" Table="Patients" />
+    <EntitySet Name="Invoices" EntityType="ApplicationDataStore.Invoice" store:Type="Tables" Schema="dbo" Table="Invoices" />
+    <EntitySet Name="InvoiceDetails" EntityType="ApplicationDataStore.InvoiceDetail" store:Type="Tables" Schema="dbo" Table="InvoiceDetails" />
+    <EntitySet Name="Appointments" EntityType="ApplicationDataStore.Appointment" store:Type="Tables" Schema="dbo" Table="Appointments" />
+    <AssociationSet Name="Invoice_Patient" Association="ApplicationDataStore.Invoice_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="Invoice_InvoiceDetail" Association="ApplicationDataStore.Invoice_InvoiceDetail">
+      <End Role="Invoice" EntitySet="Invoices" />
+      <End Role="InvoiceDetail" EntitySet="InvoiceDetails" />
+    </AssociationSet>
+    <AssociationSet Name="Appointment_Patient" Association="ApplicationDataStore.Appointment_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Appointment" EntitySet="Appointments" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Street" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Street2" Type="nvarchar" MaxLength="255" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="Zip" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="PrimaryPhone" Type="nvarchar" MaxLength="255" />
+    <Property Name="SecondaryPhone" Type="nvarchar" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
+    <Property Name="PolicyNumber" Type="nvarchar" Nullable="false" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InvoiceDate" Type="datetime" Nullable="false" />
+    <Property Name="InvoiceDue" Type="datetime" Nullable="false" />
+    <Property Name="InvoiceStatus" Type="int" Nullable="false" />
+    <Property Name="ShipDate" Type="datetime" Nullable="false" />
+    <Property Name="Invoice_Patient" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InvoiceDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+    <Property Name="UnitPrice" Type="decimal" Nullable="false" Precision="18" Scale="2" />
+    <Property Name="Product_ProductID" Type="int" Nullable="false" />
+    <Property Name="Invoice_InvoiceDetail" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Appointment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="AppointmentTime" Type="datetime" Nullable="false" />
+    <Property Name="AppointmentType" Type="smallint" Nullable="false" />
+    <Property Name="DoctorNotes" Type="nvarchar" MaxLength="255" />
+    <Property Name="Appointment_Patient" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="Invoice_Patient">
+    <End Role="Patient" Type="ApplicationDataStore.Patient" Multiplicity="1" />
+    <End Role="Invoice" Type="ApplicationDataStore.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="Invoice_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Invoice_InvoiceDetail">
+    <End Role="Invoice" Type="ApplicationDataStore.Invoice" Multiplicity="1" />
+    <End Role="InvoiceDetail" Type="ApplicationDataStore.InvoiceDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Invoice">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="InvoiceDetail">
+        <PropertyRef Name="Invoice_InvoiceDetail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Appointment_Patient">
+    <End Role="Patient" Type="ApplicationDataStore.Patient" Multiplicity="1" />
+    <End Role="Appointment" Type="ApplicationDataStore.Appointment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Appointment">
+        <PropertyRef Name="Appointment_Patient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

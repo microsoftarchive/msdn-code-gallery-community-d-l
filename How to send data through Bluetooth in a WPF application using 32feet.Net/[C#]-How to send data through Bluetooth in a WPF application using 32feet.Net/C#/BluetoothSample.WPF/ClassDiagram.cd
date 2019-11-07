@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BluetoothSample.Shared.Model.Device">
+    <Position X="0.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAIgARAAEAAAAAAAAAAAAAAAAAAAqAABAAAA=</HashCode>
+      <FileName>C:\DevApps\GitHub\BluetoothSample.Shared\Model\Device.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BluetoothSample.Services.ReceiverBluetoothService">
+    <Position X="3" Y="0.75" Width="2.25" />
+    <Members>
+      <Field Name="_cancelSource" Hidden="true" />
+      <Field Name="_listener" Hidden="true" />
+      <Field Name="_responseAction" Hidden="true" />
+      <Field Name="_serviceClassId" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Method Name="Listener" Hidden="true" />
+      <Method Name="ReceiverBluetoothService" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAACACAAAAgAAAAAAAAAAACACAIAAAAAAAAAA=</HashCode>
+      <FileName>C:\DevApps\GitHub\BluetoothSample.Shared\Services\ReceiverBluetoothService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BluetoothSample.Services.SenderBluetoothService">
+    <Position X="5.75" Y="0.75" Width="2" />
+    <Members>
+      <Field Name="_serviceClassId" Hidden="true" />
+      <Method Name="SenderBluetoothService" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAABACAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\DevApps\GitHub\BluetoothSample.Shared\Services\SenderBluetoothService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="BluetoothSample.ViewModel.ReceiverViewModel">
+    <Position X="0.5" Y="5" Width="2" />
+    <Members>
+      <Field Name="_data" Hidden="true" />
+      <Field Name="_isStarEnabled" Hidden="true" />
+      <Field Name="_ReceiverBluetoothService" Hidden="true" />
+      <Method Name="ReceiverViewModel" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAEAABBAAAAAAABAAAABAAAAQAABAAABAAAAABAAA=</HashCode>
+      <FileName>C:\DevApps\GitHub\BluetoothSample.Shared\ViewModel\ReceiverViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BluetoothSample.ViewModel.SenderViewModel">
+    <Position X="3" Y="5" Width="1.75" />
+    <Members>
+      <Field Name="_SenderBluetoothService" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>C:\DevApps\GitHub\BluetoothSample.Shared\ViewModel\SenderViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BluetoothSample.ViewModel.MainViewModel">
+    <Position X="5.5" Y="5" Width="2" />
+    <Members>
+      <Field Name="_isReceiver" Hidden="true" />
+      <Method Name="MainViewModel" Hidden="true" />
+      <Method Name="MainViewModelPropertyChanged" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAgAAAQAAAAAAAAAIAAAAAAEAAg=</HashCode>
+      <FileName>C:\DevApps\GitHub\BluetoothSample.Shared\ViewModel\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

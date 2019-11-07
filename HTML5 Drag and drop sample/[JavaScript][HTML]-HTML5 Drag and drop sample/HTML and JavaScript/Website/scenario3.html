@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!-- Copyright © Microsoft Corporation. All rights reserved. -->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Internet Explorer Developer Sample</title>
+    <link rel="stylesheet" type="text/css" href="css/base-sdk.css" />
+    <link rel="stylesheet" type="text/css" href="css/allscenarios.css" />
+    <script type="text/javascript" src="script/base-sdk.js"></script>
+    <script type="text/javascript" src="script/scenario2_and_3.js"></script>
+</head>
+<body role="application">
+    <div id="header" role="contentinfo"></div>
+
+    <!--Sample title-->
+    <h1 id="sampleTitle">HTML5 Drag and Drop</h1>
+        <h2>Scenario 3: Acting on the area being dragged over</h2>
+        <p>
+            <a href="default.html">Back to scenarios menu</a>
+        </p>
+
+        <!--Description and code snippet-->
+        <div class="descRegion" role="region" aria-labelledby="descLabel" aria-live="assertive">
+            <h3 id="descLabel">Description</h3>
+            <div class="descContent">
+            <p>
+                Elements which are being dragged over can act on dragenter, dragleave, dragover, or drop events.
+            </p>
+            <p>
+                Note that most elements are not automatically drop targets. Text input elements and
+                contenteditable elements can receive the drop event by default but other elements will not.
+                In order to make an element a drop target you must cancel the dragenter and dragover events,
+                then handle the drop event.
+            </p>
+            <h3 class="codeLabel">Code</h3>
+<pre>
+&lt;!-- Change color randomly when an event occurs --&gt;
+&lt;div ondragenter="backgroundChange(this);"&gt;
+    This element changes background color on the dragenter event.
+&lt;/div&gt;
+&lt;div ondragover="backgroundChange(this);"&gt;
+    This element changes background color on the dragover event.
+&lt;/div&gt;
+&lt;div ondragleave="backgroundChange(this);"&gt;
+    This element changes background color on the dragleave event.
+&lt;/div&gt;
+&lt;div ondragover="return false;" ondrop="backgroundChange(this);"&gt;
+    This element changes background color on the drop event. 
+&lt;/div&gt;
+
+&lt;script&gt;
+    var colors = ["red", "green", "blue", "orange", "purple", "yellow", "lime"];
+    function chooseColor() {
+        var num = Math.floor(Math.random()*colors.length);
+        return colors[num];
+    }
+
+    function backgroundChange(elt) {       
+        elt.style.backgroundColor = chooseColor();
+    }
+&lt;/script&gt;
+                </pre>
+            </div>
+        </div>
+
+        <!--Rendered result-->
+        <div class="resultRegion" role="region" aria-labelledby="resultLabel" aria-live="assertive">
+        <h3 id="resultLabel">Result</h3>
+
+        <div class="resultContent">
+            <p>Drag this image over the other elements to see how drag events work. </p>
+            <p>
+                <img src="images/smiley.png" draggable= "true" alt="smiley flower" />
+            </p>
+            <div ondragenter = "backgroundChange(this);" class="draggable" id="test">
+                This element changes background color on the dragenter event.
+            </div>
+            <div ondragover="backgroundChange(this);" class="draggable">
+                This element changes background color on the dragover event.
+            </div>
+            <div ondragleave="backgroundChange(this);" class="draggable">
+                This element changes background color on the dragleave event.
+            </div>
+            <div ondragover="return false;" ondrop="backgroundChange(this);" class="draggable">
+                This element changes background color on the drop event.
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer" role="contentinfo"></div>
+  </body>
+</html>

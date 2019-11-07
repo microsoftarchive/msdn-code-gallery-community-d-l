@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/fd0873a3-9a67-441e-9769-e22026a86740Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>How to render or convert HTML to an image using the WebBrowser control</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>How to render or convert HTML to an image using the WebBrowser control</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Forms, WebBrowser, HTML, Converter
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Convert (X)HTML to an image, Website snapshot
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Web, Phone
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/2/2011</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/How-to-render-or-convert-7064e4e2">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<div><em>Want to render a custom HTML or a web page to an image. This sample shows how to implement a HTML to image &quot;converter&quot;.<br>
+</em><span style="font-size:20px; font-weight:bold"><br>
+Description<br>
+<span style="font-size:x-small">&nbsp;</span></span></div>
+<div>
+<div><em>Want to render a custom HTML or a web page to an image. This sample shows how to implement a HTML to image &quot;converter&quot; using the WebBrowser control and native methods to get the image from it. Now is implemented in a synchronous way but it possible
+ to use queues or events to make it asynchronous.<br>
+Is possible to convert a custom HTML or a web page passing an url. To export the image from the WebBrowser control I used a native method that allow to get an image from a control using Windows API(s) using GetHdc and Draw functions.<br>
+This code sample is similar to Snapshots.com functions.<br>
+<br>
+To use it you have to instantiate the HtmlToBitmapConverter class, than you can choose between two overloads of the&nbsp;Render
+</em></div>
+<div><em>method:<br>
+1. Render(string html, Size size)<br>
+1. Render(Uri uri, Size size)<br>
+<br>
+The size is used to set the size of the WebBrowser control so you will have a snapshot of the website given at that resolution.<br>
+The parser is provided by your version of Internet Explorer installed on your machine. So if you have IE9 the snapshot will be from IE9 and so on.<br>
+<br>
+That's all.<br>
+<br>
+</em>
+<div>
+<div>
+<div>
+<div>
+<div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div><em><em>
+<div><em><em>
+<div><em><em>
+<div><em><em>
+<div><em><br>
+Here a code snippet:<br>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginEditHolderLink">Modifica script</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">pictureBox.Image =
+	new HtmlToBitmapConverter()
+		.Render(new Uri(urlTextBox.Text), pictureBox.Size);</pre>
+<div class="preview">
+<pre class="csharp">pictureBox.Image&nbsp;=&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">new</span>&nbsp;HtmlToBitmapConverter()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Render(<span class="cs__keyword">new</span>&nbsp;Uri(urlTextBox.Text),&nbsp;pictureBox.Size);&nbsp;
+&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+Here the full code of the class:<br>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginEditHolderLink">Modifica script</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public class HtmlToBitmapConverter
+{
+	private const int SleepTimeMiliseconds = 5000;
+
+	public Bitmap Render(string html, Size size)
+	{
+		var browser = CreateBrowser(size);
+
+		browser.Navigate(&quot;about:blank&quot;);
+		browser.Document.Write(html);
+
+		return GetBitmapFromControl(browser, size);
+	}
+
+	public Bitmap Render(Uri uri, Size size)
+	{
+		var browser = CreateBrowser(size);
+
+		NavigateAndWaitForLoad(browser, uri, 0);
+
+		return GetBitmapFromControl(browser, size);
+	}
+
+	public void NavigateAndWaitForLoad(WebBrowser browser, Uri uri, int waitTime)
+	{
+		browser.Navigate(uri);
+		var count = 0;
+
+		while (browser.ReadyState != WebBrowserReadyState.Complete)
+		{
+			Thread.Sleep(SleepTimeMiliseconds);
+				
+			Application.DoEvents();
+			count&#43;&#43;;
+				
+			if (count &gt; waitTime / SleepTimeMiliseconds)
+			{
+				break;
+			}
+		}
+	}
+
+	private WebBrowser CreateBrowser(Size size)
+	{
+		return
+			new WebBrowser
+			{
+				ScrollBarsEnabled = false,
+				ScriptErrorsSuppressed = true,
+				Size = size
+			};
+	}
+
+	private Bitmap GetBitmapFromControl(WebBrowser browser, Size size)
+	{
+		var bitmap = new Bitmap(size.Width, size.Height);
+
+		NativeMethods.GetImage(browser.Document.DomDocument, bitmap, Color.White);
+		return bitmap;
+	}
+}</pre>
+<div class="preview">
+<pre class="js">public&nbsp;class&nbsp;HtmlToBitmapConverter&nbsp;
+<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;<span class="js__statement">const</span>&nbsp;int&nbsp;SleepTimeMiliseconds&nbsp;=&nbsp;<span class="js__num">5000</span>;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Bitmap&nbsp;Render(string&nbsp;html,&nbsp;Size&nbsp;size)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;browser&nbsp;=&nbsp;CreateBrowser(size);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;browser.Navigate(<span class="js__string">&quot;about:blank&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;browser.Document.Write(html);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;GetBitmapFromControl(browser,&nbsp;size);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Bitmap&nbsp;Render(Uri&nbsp;uri,&nbsp;Size&nbsp;size)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;browser&nbsp;=&nbsp;CreateBrowser(size);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NavigateAndWaitForLoad(browser,&nbsp;uri,&nbsp;<span class="js__num">0</span>);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;GetBitmapFromControl(browser,&nbsp;size);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;<span class="js__operator">void</span>&nbsp;NavigateAndWaitForLoad(WebBrowser&nbsp;browser,&nbsp;Uri&nbsp;uri,&nbsp;int&nbsp;waitTime)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;browser.Navigate(uri);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;count&nbsp;=&nbsp;<span class="js__num">0</span>;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">while</span>&nbsp;(browser.ReadyState&nbsp;!=&nbsp;WebBrowserReadyState.Complete)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thread.Sleep(SleepTimeMiliseconds);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Application.DoEvents();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&#43;&#43;;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">if</span>&nbsp;(count&nbsp;&gt;&nbsp;waitTime&nbsp;/&nbsp;SleepTimeMiliseconds)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">break</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;WebBrowser&nbsp;CreateBrowser(Size&nbsp;size)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__operator">new</span>&nbsp;WebBrowser&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ScrollBarsEnabled&nbsp;=&nbsp;false,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ScriptErrorsSuppressed&nbsp;=&nbsp;true,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Size&nbsp;=&nbsp;size&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;Bitmap&nbsp;GetBitmapFromControl(WebBrowser&nbsp;browser,&nbsp;Size&nbsp;size)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;bitmap&nbsp;=&nbsp;<span class="js__operator">new</span>&nbsp;Bitmap(size.Width,&nbsp;size.Height);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NativeMethods.GetImage(browser.Document.DomDocument,&nbsp;bitmap,&nbsp;Color.White);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;bitmap;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+<span class="js__brace">}</span>&nbsp;
+&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"></div>
+</em>
+<div class="endscriptcode"></div>
+</div>
+</em>
+<div>
+<div class="endscriptcode"></div>
+</div>
+</em>
+<div>
+<div class="endscriptcode"></div>
+</div>
+</div>
+</em>
+<div>
+<div>
+<div class="endscriptcode"></div>
+</div>
+</div>
+</em>
+<div>
+<div>
+<div class="endscriptcode"></div>
+</div>
+</div>
+</div>
+</em>
+<div>
+<div>
+<div>
+<div class="endscriptcode"></div>
+</div>
+</div>
+</div>
+</em>
+<div>
+<div>
+<div>
+<div class="endscriptcode"></div>
+</div>
+</div>
+</div>
+</div>
+</em>
+<div>
+<div>
+<div>
+<div>
+<div class="endscriptcode"></div>
+</div>
+</div>
+</div>
+</div>
+</em>
+<div>
+<div>
+<div>
+<div>
+<div class="endscriptcode"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,489 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:control="clr-namespace:FlashCards.UI.Controls"
+    xmlns:local="clr-namespace:FlashCards.UI"
+    xmlns:localFlip="clr-namespace:FlashCards.UI.Controls" 
+    xmlns:behav="clr-namespace:IdentityMine.Windows.SimpleMultitouch;assembly=IdentityMine.Windows.SimpleMultitouch"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+	mc:Ignorable="d"
+	x:Class="FlashCards.UI.LearningGame"
+	x:Name="UserControl"
+	d:DesignWidth="829" d:DesignHeight="594.716" FontSize="20" Foreground="#FF393939" >
+	<UserControl.Resources>
+
+		<Storyboard x:Key="AdvanceRight">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="flipper" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="50"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="50"/>
+				<SplineDoubleKeyFrame KeySpline="0,0,0,1" KeyTime="00:00:00.8" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="flipper" Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="0"/>
+				<SplineDoubleKeyFrame KeySpline="0,0,0,1" KeyTime="00:00:00.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="AdvanceLeft">
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="flipper" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="-50"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="-50"/>
+				<SplineDoubleKeyFrame KeySpline="0,0,0,1" KeyTime="00:00:00.8" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="flipper" Storyboard.TargetProperty="(UIElement.Opacity)">
+				<SplineDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <SplineDoubleKeyFrame KeyTime="00:00:00.2" Value="0"/>
+				<SplineDoubleKeyFrame KeySpline="0,0,0,1" KeyTime="00:00:00.8" Value="1"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+
+
+        <Style x:Key="LearningFlipper" TargetType="{x:Type localFlip:Flipper3DControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type localFlip:Flipper3DControl}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="RotateStart1" AccelerationRatio="0.5" DecelerationRatio="0.5" SpeedRatio="3">
+                                <Rotation3DAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="perspectiveCamera" Storyboard.TargetProperty="(Camera.Transform).(Transform3DGroup.Children)[2].(RotateTransform3D.Rotation)">
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:00">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="0" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:01">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="90" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:02">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="180" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                </Rotation3DAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PART_MainGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Visible}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="viewport" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Collapsed}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="FrontContentBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Collapsed}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackContentBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackContentBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:01" Value="-1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:02" Value="-1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:02" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PaddingGrid" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                    <SplineThicknessKeyFrame KeyTime="00:00:02" Value="0"/>
+                                </ThicknessAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="perspectiveCamera" Storyboard.TargetProperty="(PerspectiveCamera.FieldOfView)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:02" Value="30"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="RotateStart2"  AccelerationRatio="0.5" DecelerationRatio="0.5" SpeedRatio="3">
+                                <Rotation3DAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="perspectiveCamera" Storyboard.TargetProperty="(Camera.Transform).(Transform3DGroup.Children)[2].(RotateTransform3D.Rotation)">
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:00">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="0" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:01">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="-90" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:02">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="-180" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                </Rotation3DAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PART_MainGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Visible}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="viewport" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Collapsed}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="FrontContentBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Collapsed}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackContentBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackContentBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:01" Value="-1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:02" Value="-1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:02" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PaddingGrid" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                    <SplineThicknessKeyFrame KeyTime="00:00:02" Value="0"/>
+                                </ThicknessAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="perspectiveCamera" Storyboard.TargetProperty="(PerspectiveCamera.FieldOfView)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:02" Value="30"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="RotateEnd1"  AccelerationRatio="0.5" DecelerationRatio="0.5" SpeedRatio="3">
+
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="FrontContentBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Visible}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackContentBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Collapsed}"/>
+                                </ObjectAnimationUsingKeyFrames>
+
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackContentBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="-1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:01" Value="-1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:02" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+
+                                <Rotation3DAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="perspectiveCamera" Storyboard.TargetProperty="(Camera.Transform).(Transform3DGroup.Children)[2].(RotateTransform3D.Rotation)">
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:00">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="180" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:01">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="90" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:02">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="0" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                </Rotation3DAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PART_MainGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Visible}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="viewport" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Collapsed}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PaddingGrid" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                    <SplineThicknessKeyFrame KeyTime="00:00:02" Value="0"/>
+                                </ThicknessAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="perspectiveCamera" Storyboard.TargetProperty="(PerspectiveCamera.FieldOfView)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:02" Value="30"/>
+                                </DoubleAnimationUsingKeyFrames>
+
+                            </Storyboard>
+                            <Storyboard x:Key="RotateEnd2"  AccelerationRatio="0.5" DecelerationRatio="0.5" SpeedRatio="3">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackContentBorder" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00" Value="-1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:01" Value="-1"/>
+                                    <SplineDoubleKeyFrame KeyTime="00:00:02" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="FrontContentBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:01" Value="{x:Static Visibility.Visible}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Visible}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackContentBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Collapsed}"/>
+                                </ObjectAnimationUsingKeyFrames>
+
+                                <Rotation3DAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="perspectiveCamera" Storyboard.TargetProperty="(Camera.Transform).(Transform3DGroup.Children)[2].(RotateTransform3D.Rotation)">
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:00">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="-180" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:01">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="-90" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                    <SplineRotation3DKeyFrame KeyTime="00:00:02">
+                                        <SplineRotation3DKeyFrame.Value>
+                                            <AxisAngleRotation3D Angle="0" Axis="0,1,0"/>
+                                        </SplineRotation3DKeyFrame.Value>
+                                    </SplineRotation3DKeyFrame>
+                                </Rotation3DAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PART_MainGrid" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Collapsed}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Visible}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="viewport" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00" Value="{x:Static Visibility.Visible}"/>
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:02" Value="{x:Static Visibility.Collapsed}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="PaddingGrid" Storyboard.TargetProperty="(FrameworkElement.Margin)">
+                                    <SplineThicknessKeyFrame KeyTime="00:00:02" Value="0"/>
+                                </ThicknessAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="perspectiveCamera" Storyboard.TargetProperty="(PerspectiveCamera.FieldOfView)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:02" Value="30"/>
+                                </DoubleAnimationUsingKeyFrames>
+
+                            </Storyboard>
+
+
+
+
+                            <Storyboard x:Key="OnLoaded1"  AccelerationRatio="0.5" DecelerationRatio="0.5" SpeedRatio="3">
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="BackContentBorder" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00.000000" Value="{x:Static Visibility.Collapsed}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <Grid x:Name="RootGrid" >
+                            <Grid x:Name="PaddingGrid" d:LayoutOverrides="Width, Height" Margin="0">
+                                <Grid x:Name="PART_MainGrid" Background="{TemplateBinding Background}">
+                                    <Border x:Name="FrontContentBorder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="#00FF0000">
+                                        <ContentPresenter Content="{TemplateBinding FrontContent}"/>
+                                    </Border>
+                                    <Border x:Name="BackContentBorder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                					RenderTransformOrigin="0.5,0.5" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="#000098FF">
+                                        <Border.RenderTransform>
+                                            <TransformGroup>
+                                                <ScaleTransform/>
+                                                <SkewTransform/>
+                                                <RotateTransform/>
+                                                <TranslateTransform/>
+                                            </TransformGroup>
+                                        </Border.RenderTransform>
+                                        <ContentPresenter Content="{TemplateBinding BackContent}"/>
+                                    </Border>
+                                </Grid>
+                                <Viewport3D x:Name="viewport" Visibility="Collapsed" ClipToBounds="False">
+                                    <Viewport3D.Camera>
+                                        <PerspectiveCamera x:Name="perspectiveCamera" FieldOfView="30" FarPlaneDistance="111.55331633034302" LookDirection="0,0,-37.184438776781" NearPlaneDistance="0.1" Position="0,0,37.184438776781" UpDirection="0,1,0">
+                                            <PerspectiveCamera.Transform>
+                                                <Transform3DGroup>
+                                                    <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0"/>
+                                                    <ScaleTransform3D ScaleX="1" ScaleY="1" ScaleZ="1"/>
+                                                    <RotateTransform3D>
+                                                        <RotateTransform3D.Rotation>
+                                                            <AxisAngleRotation3D Angle="0" Axis="0,1,0"/>
+                                                        </RotateTransform3D.Rotation>
+                                                    </RotateTransform3D>
+                                                    <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0"/>
+                                                    <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0"/>
+                                                </Transform3DGroup>
+                                            </PerspectiveCamera.Transform>
+                                        </PerspectiveCamera>
+                                    </Viewport3D.Camera>
+                                    <ModelVisual3D x:Name="ModelContainer">
+                                        <ModelVisual3D.Content>
+                                            <GeometryModel3D x:Name="Model">
+                                                <GeometryModel3D.BackMaterial>
+                                                    <DiffuseMaterial>
+                                                        <DiffuseMaterial.Brush>
+                                                            <VisualBrush  Visual="{Binding ElementName=BackContentBorder}" Stretch="Uniform"/>
+                                                        </DiffuseMaterial.Brush>
+                                                    </DiffuseMaterial>
+                                                </GeometryModel3D.BackMaterial>
+                                                <GeometryModel3D.Geometry>
+                                                    <MeshGeometry3D Normals="0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1
+0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1
+0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1
+0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1
+0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1
+0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1
+0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1
+0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1 0,0,1" Positions="-15.402299,-10,0 -11.979566,-10,0 -8.5568327,-10,0 -5.1340996,-10,0 -1.7113665,-10,0 1.7113665,-10,0 5.1340996,-10,0 8.5568327,-10,0 11.979566,-10,0 15.402299,-10,0 -15.402299,-7.7777778,0 -11.979566,-7.7777778,0 -8.5568327,-7.7777778,0
+-5.1340996,-7.7777778,0 -1.7113665,-7.7777778,0 1.7113665,-7.7777778,0 5.1340996,-7.7777778,0 8.5568327,-7.7777778,0 11.979566,-7.7777778,0 15.402299,-7.7777778,0 -15.402299,-5.5555556,0 -11.979566,-5.5555556,0 -8.5568327,-5.5555556,0 -5.1340996,-5.5555556,0 -1.7113665,-5.5555556,0 1.7113665,-5.5555556,0
+5.1340996,-5.5555556,0 8.5568327,-5.5555556,0 11.979566,-5.5555556,0 15.402299,-5.5555556,0 -15.402299,-3.3333333,0 -11.979566,-3.3333333,0 -8.5568327,-3.3333333,0 -5.1340996,-3.3333333,0 -1.7113665,-3.3333333,0 1.7113665,-3.3333333,0 5.1340996,-3.3333333,0 8.5568327,-3.3333333,0 11.979566,-3.3333333,0
+15.402299,-3.3333333,0 -15.402299,-1.1111111,0 -11.979566,-1.1111111,0 -8.5568327,-1.1111111,0 -5.1340996,-1.1111111,0 -1.7113665,-1.1111111,0 1.7113665,-1.1111111,0 5.1340996,-1.1111111,0 8.5568327,-1.1111111,0 11.979566,-1.1111111,0 15.402299,-1.1111111,0 -15.402299,1.1111111,0 -11.979566,1.1111111,0
+-8.5568327,1.1111111,0 -5.1340996,1.1111111,0 -1.7113665,1.1111111,0 1.7113665,1.1111111,0 5.1340996,1.1111111,0 8.5568327,1.1111111,0 11.979566,1.1111111,0 15.402299,1.1111111,0 -15.402299,3.3333333,0 -11.979566,3.3333333,0 -8.5568327,3.3333333,0 -5.1340996,3.3333333,0 -1.7113665,3.3333333,0
+1.7113665,3.3333333,0 5.1340996,3.3333333,0 8.5568327,3.3333333,0 11.979566,3.3333333,0 15.402299,3.3333333,0 -15.402299,5.5555556,0 -11.979566,5.5555556,0 -8.5568327,5.5555556,0 -5.1340996,5.5555556,0 -1.7113665,5.5555556,0 1.7113665,5.5555556,0 5.1340996,5.5555556,0 8.5568327,5.5555556,0
+11.979566,5.5555556,0 15.402299,5.5555556,0 -15.402299,7.7777778,0 -11.979566,7.7777778,0 -8.5568327,7.7777778,0 -5.1340996,7.7777778,0 -1.7113665,7.7777778,0 1.7113665,7.7777778,0 5.1340996,7.7777778,0 8.5568327,7.7777778,0 11.979566,7.7777778,0 15.402299,7.7777778,0 -15.402299,10,0
+-11.979566,10,0 -8.5568327,10,0 -5.1340996,10,0 -1.7113665,10,0 1.7113665,10,0 5.1340996,10,0 8.5568327,10,0 11.979566,10,0 15.402299,10,0" TextureCoordinates="0,174 29.777778,174 59.555556,174 89.333333,174 119.11111,174 148.88889,174 178.66667,174 208.44444,174 238.22222,174 268,174 0,154.66667 29.777778,154.66667 59.555556,154.66667 89.333333,154.66667 119.11111,154.66667 148.88889,154.66667 178.66667,154.66667 208.44444,154.66667 238.22222,154.66667 268,154.66667 0,135.33333 29.777778,135.33333 59.555556,135.33333
+89.333333,135.33333 119.11111,135.33333 148.88889,135.33333 178.66667,135.33333 208.44444,135.33333 238.22222,135.33333 268,135.33333 0,116 29.777778,116 59.555556,116 89.333333,116 119.11111,116 148.88889,116 178.66667,116 208.44444,116 238.22222,116 268,116 0,96.666667 29.777778,96.666667 59.555556,96.666667 89.333333,96.666667 119.11111,96.666667 148.88889,96.666667
+178.66667,96.666667 208.44444,96.666667 238.22222,96.666667 268,96.666667 0,77.333333 29.777778,77.333333 59.555556,77.333333 89.333333,77.333333 119.11111,77.333333 148.88889,77.333333 178.66667,77.333333 208.44444,77.333333 238.22222,77.333333 268,77.333333 0,58 29.777778,58 59.555556,58 89.333333,58 119.11111,58 148.88889,58 178.66667,58 208.44444,58 238.22222,58
+268,58 0,38.666667 29.777778,38.666667 59.555556,38.666667 89.333333,38.666667 119.11111,38.666667 148.88889,38.666667 178.66667,38.666667 208.44444,38.666667 238.22222,38.666667 268,38.666667 0,19.333333 29.777778,19.333333 59.555556,19.333333 89.333333,19.333333 119.11111,19.333333 148.88889,19.333333 178.66667,19.333333 208.44444,19.333333 238.22222,19.333333 268,19.333333 0,0 29.777778,0
+59.555556,0 89.333333,0 119.11111,0 148.88889,0 178.66667,0 208.44444,0 238.22222,0 268,0" TriangleIndices="0 1 10 1 11 10 1 2 11 2 12 11 2 3 12 3 13 12 3 4 13 4 14 13 4 5 14 5 15 14 5 6 15 6 16 15 6 7 16 7 17 16 7 8 17 8 18 17 8 9 18 9 19 18 10 11 20 11 21 20 11 12 21 12 22 21 12 13 22 13 23 22 13 14 23 14 24 23 14 15 24 15 25 24 15 16 25 16 26 25 16 17 26 17 27 26 17 18 27 18 28 27 18 19 28 19 29 28 20 21 30 21 31 30 21 22 31 22 32 31 22 23 32 23 33 32 23 24 33 24 34 33 24 25 34 25 35 34 25 26 35 26 36 35 26 27 36 27 37 36 27 28 37 28 38 37 28 29 38 29 39 38 30 31 40 31 41 40 31 32 41 32 42 41 32 33 42 33 43 42 33 34 43 34 44 43 34 35 44 35 45 44 35 36 45 36 46 45 36 37 46 37 47 46 37 38 47 38 48 47 38 39 48 39 49 48 40 41 50 41 51 50 41 42 51 42 52 51 42 43 52 43 53 52 43 44 53 44 54 53 44 45 54 45 55 54 45 46 55 46 56 55 46 47 56 47 57 56 47 48 57 48 58 57 48 49 58 49 59 58 50 51 60 51 61 60 51 52 61 52 62 61 52 53 62 53 63 62 53 54 63 54 64 63 54 55 64 55 65 64 55 56 65 56 66 65 56 57 66 57 67 66 57 58 67 58 68 67 58 59 68 59 69 68 60 61 70 61 71 70 61 62 71 62 72 71 62 63 72 63 73 72 63 64 73 64 74 73 64 65 74 65 75 74 65 66 75 66 76 75 66 67 76 67 77 76 67 68 77 68 78 77 68 69 78 69 79 78 70 71 80 71 81 80 71 72 81 72 82 81 72 73 82 73 83 82 73 74 83 74 84 83 74 75 84 75 85 84 75 76 85 76 86 85 76 77 86 77 87 86 77 78 87 78 88 87 78 79 88 79 89 88 80 81 90 81 91 90 81 82 91 82 92 91 82 83 92 83 93 92 83 84 93 84 94 93 84 85 94 85 95 94 85 86 95 86 96 95 86 87 96 87 97 96 87 88 97 88 98 97 88 89 98 89 99 98"/>
+                                                </GeometryModel3D.Geometry>
+                                                <GeometryModel3D.Material>
+                                                    <DiffuseMaterial>
+                                                        <DiffuseMaterial.Brush>
+                                                            <VisualBrush Visual="{Binding ElementName=FrontContentBorder}" Stretch="Uniform"/>
+                                                        </DiffuseMaterial.Brush>
+                                                    </DiffuseMaterial>
+                                                </GeometryModel3D.Material>
+                                            </GeometryModel3D>
+                                        </ModelVisual3D.Content>
+                                    </ModelVisual3D>
+                                    <ModelVisual3D x:Name="AmbientContainer">
+                                        <ModelVisual3D.Content>
+                                            <AmbientLight x:Name="Ambient" Color="White"/>
+                                        </ModelVisual3D.Content>
+                                    </ModelVisual3D>
+                                    <ModelVisual3D x:Name="DirectionalContainer">
+                                        <ModelVisual3D.Content>
+                                            <DirectionalLight x:Name="Directional" Color="#FF7F7F7F" Direction="0,0,-1">
+                                                <DirectionalLight.Transform>
+                                                    <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="3"/>
+                                                </DirectionalLight.Transform>
+                                            </DirectionalLight>
+                                        </ModelVisual3D.Content>
+                                    </ModelVisual3D>
+                                </Viewport3D>
+                            </Grid>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                                <BeginStoryboard x:Name="OnLoaded1_BeginStoryboard" Storyboard="{StaticResource OnLoaded1}"/>
+                            </EventTrigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+    </UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="NextButton">
+			<BeginStoryboard Storyboard="{StaticResource AdvanceRight}"/>
+		</EventTrigger>
+		<EventTrigger RoutedEvent="ButtonBase.Click" SourceName="PreviousButton">
+			<BeginStoryboard x:Name="AdvanceLeft_BeginStoryboard" Storyboard="{StaticResource AdvanceLeft}"/>
+		</EventTrigger>
+	</UserControl.Triggers>
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<Grid Grid.ColumnSpan="2" >
+			<Grid.RowDefinitions>
+				<RowDefinition Height="85"/>
+				<RowDefinition/>
+				<RowDefinition Height="50"/>
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+			</Grid.ColumnDefinitions>
+			<Rectangle x:Name="BackgroundRectangle" Grid.RowSpan="3">
+				<Rectangle.Fill>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FF0BB9F2" Offset="0.02"/>
+						<GradientStop Color="#FF04409F" Offset="0.992"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+
+
+            <control:ParticleEmitter Grid.RowSpan="3" x:Name="Emitter">
+            	<localFlip:ParticleEmitter.Background>
+            		<SolidColorBrush/>
+            	</localFlip:ParticleEmitter.Background>
+            </control:ParticleEmitter>
+
+            <Rectangle Fill="#19FFFFFF" Grid.Row="2"/>
+			<Rectangle Fill="#19FFFFFF" Grid.Row="2" VerticalAlignment="Top" Height="1"/>
+			<Button Content="{StaticResource Resource_Back}" Command="{Binding Cancel}"  HorizontalAlignment="Left" 
+                    Grid.Row="2" Template="{DynamicResource BackButtonStyle}" Margin="20,0,0,0" Width="85" ToolTip="{StaticResource Resource_ToolTip_GoBack}"/>
+            <Button Content="{StaticResource Resource_About}" Click="Button_Click" Margin="115,0,0,0"  HorizontalAlignment="Left"
+                Grid.Row="2"  Height="50" Width="90" Template="{DynamicResource HelpButtonStyle}" ToolTip="{StaticResource Resource_ToolTip_About}"/>
+            <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal">
+				<Button  Content="{StaticResource Resource_ResetCards}"  Command="{Binding ResetCards}" Template="{DynamicResource ResetCardsButtonStyle}" d:LayoutOverrides="Height" Width="160" ToolTip="{StaticResource Resource_ToolTip_ResetCards}"/>
+				<Button Content="{StaticResource Resource_Quit}"  Command="{Binding Quit}" Width="90" Template="{DynamicResource QuitButtonStyle}" ToolTip="{StaticResource Resource_ToolTip_Quit}"/>
+			</StackPanel>
+			<Grid Grid.Row="1" HorizontalAlignment="Center" >
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition />
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+	 
+		
+				<Button x:Name="PreviousButton" IsEnabled="{Binding IsPrevEnabled}" Content="{StaticResource Resource_BackwardArrow}" Command="{Binding PreviousCommand}" HorizontalAlignment="Left" Style="{DynamicResource LeftScrollButton}" Foreground="White" FontSize="34.667" d:LayoutOverrides="HorizontalAlignment" Margin="20,20,40,20" ToolTip="{StaticResource Resource_ToolTip_PreviousCard}"/>
+				<Button x:Name="NextButton" IsEnabled="{Binding IsNextEnabled}"  Content="{StaticResource Resource_ForwardArrow}" Command="{Binding NextCommand}" HorizontalAlignment="Right" Style="{DynamicResource RightScrollButton}" Foreground="White" FontSize="34.667" d:LayoutOverrides="HorizontalAlignment" Grid.Column="2" Margin="40,20,20,20" ToolTip="{StaticResource Resource_ToolTip_NextCard}"/>
+				<control:Flipper3DControl Style="{StaticResource LearningFlipper}" Width="400" Height="400" x:Name="flipper" DataContext="{Binding SelectedCardPair}"
+					DataContextChanged="flipper_DataContextChanged"
+					Background="Transparent" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
+                    <i:Interaction.Behaviors>
+                        <behav:TapBehavior Tap="TapBehavior_Tap" />
+                        <behav:Flickable HorizontalFlick="Flickable_HorizontalFlick" />
+                    </i:Interaction.Behaviors>
+                    <control:Flipper3DControl.RenderTransform>
+						<TransformGroup>
+							<ScaleTransform/>
+							<SkewTransform/>
+							<RotateTransform/>
+							<TranslateTransform/>
+						</TransformGroup>
+					</control:Flipper3DControl.RenderTransform>
+					<control:Flipper3DControl.FrontContent>
+						<local:CardViewGame x:Name="leftCardEditView" DataContext="{Binding Card1}" VerticalAlignment="Center"   Grid.Column="1" RenderTransformOrigin="0.5,0.5"  />
+					</control:Flipper3DControl.FrontContent>
+					<control:Flipper3DControl.BackContent>
+						<local:CardViewGame x:Name="rightCardEditView" DataContext="{Binding Card2}" VerticalAlignment="Center"  Grid.Column="1" RenderTransformOrigin="0.5,0.5" Background="Transparent"  />
+					</control:Flipper3DControl.BackContent>
+				</control:Flipper3DControl>
+			</Grid>
+   
+			<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,20,-20" d:LayoutOverrides="GridBox">
+				<Viewbox HorizontalAlignment="Center" VerticalAlignment="Stretch" Stretch="Uniform" Margin="0,0,10,0" >
+					<Grid >
+						<ContentControl Content="{Binding SelectedDeck}" ContentTemplate="{DynamicResource CurrentCardDeckViewTemplate}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Margin="0,0,0,-0.001" d:LayoutOverrides="Width, Height"  />
+						<Image HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="189" Height="182" Source="..\..\Resource\Images\DeckStack.png" Stretch="Fill" Visibility="Collapsed"/>
+					</Grid>
+				</Viewbox>
+				<StackPanel Orientation="Vertical" VerticalAlignment="Center"  d:LayoutOverrides="Height" Margin="0,0,20,0">
+					<StackPanel  Orientation="Horizontal">
+						<TextBlock HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" Margin="0,0,10,0" FontFamily="Segoe UI Light" FontSize="18.667" Foreground="White" Text="{StaticResource Resource_Deck}" Visibility="Collapsed"/>
+				
+						<TextBlock HorizontalAlignment="Left" Text="{Binding SelectedDeck.Title}" TextWrapping="NoWrap" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" FontSize="21.333" Foreground="White" FontFamily="Segoe UI Semibold"/>
+					</StackPanel>
+					<StackPanel  Orientation="Horizontal">
+						<TextBlock HorizontalAlignment="Left" TextWrapping="NoWrap" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" Margin="0,0,10,0" FontFamily="Segoe UI Light" FontSize="18.667" Foreground="White" Text="{StaticResource Resource_Mode}" Visibility="Collapsed"/>
+				
+						<TextBlock HorizontalAlignment="Left" Text="{Binding GameName}" TextWrapping="NoWrap" VerticalAlignment="Center" d:LayoutOverrides="HorizontalAlignment" FontFamily="Segoe UI Light" FontSize="18.667" Foreground="White"/>
+					</StackPanel>
+				</StackPanel>
+				<Grid Margin="20,0,0,0" Visibility="Collapsed">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="0.526*"/>
+						<ColumnDefinition Width="0.474*"/>
+					</Grid.ColumnDefinitions>
+					<Grid Grid.Column="1">
+						<Rectangle Fill="#FF164EA7" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" Width="85" Height="85">
+							<Rectangle.Effect>
+								<BlurEffect Radius="10"/>
+							</Rectangle.Effect>
+						</Rectangle>
+						<Rectangle Fill="White" RadiusX="10" RadiusY="10" HorizontalAlignment="Left" Width="85" Height="85"/>
+						<TextBlock Text="{Binding Matches}" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" FontSize="64">
+							<TextBlock.Foreground>
+								<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+									<GradientStop Color="#FFFCCA5F" Offset="0"/>
+									<GradientStop Color="#FFF78314" Offset="1"/>
+								</LinearGradientBrush>
+							</TextBlock.Foreground>
+						</TextBlock>
+					</Grid>
+					<TextBlock VerticalAlignment="Center" Foreground="White" Text="{StaticResource Resource_Matches}" TextWrapping="Wrap" d:LayoutOverrides="Width, Height" Margin="0,0,20,0" FontFamily="Segoe UI Light" FontSize="21.333" Visibility="Collapsed"/>
+				</Grid>
+			</StackPanel>
+		</Grid>
+		<Image HorizontalAlignment="Left" VerticalAlignment="Top" IsHitTestVisible="False" Source="..\..\Resource\Images\FlashCardLogo.png" MaxWidth="680"/>
+
+	
+	</Grid>
+	
+</UserControl>

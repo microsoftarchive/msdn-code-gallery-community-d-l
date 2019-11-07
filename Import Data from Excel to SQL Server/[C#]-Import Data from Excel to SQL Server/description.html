@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps;/Areas/Centers/Themes/StandardDevCenter/Content:0&amp;amp;v=9CF0A3BEED96761E8F017077B1B8A4BC" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:NewFooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=7FF267E37B336B08FC69C99242F33145" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Import Data from Excel to SQL Server</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Import Data from Excel to SQL Server</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SQL Server, ASP.NET, Microsoft Office Excel 2007, Microsoft Office Excel 2010, SQL Server 2008, Office 2010
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Excel, Data Import, Data Export, Upload control
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">1/6/2017</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/Imoprt-Data-from-Excel-to-705ecfcd">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>In many time you will find yourself with some Excel file need to be saved or Export to SQL Server,I know it possible by using SQL Server Import and Export Wizard.But this depend on business Scenario itself ,so one&nbsp; of the scenario is creating web application
+ or windows application that read Excel file and Move it to SQL SERVER Database,so this sample assume that you have one of those scenarios.</p>
+<h1>Sample Demo</h1>
+<p><a href="http://dotnetfinder.files.wordpress.com/2012/03/image.png"><img title="image" src="description/image_thumb.png" border="0" alt="image" width="244" height="52" style="padding-left:0pt; padding-right:0pt; display:inline; padding-top:0pt; border-width:0pt; margin:0pt"></a></p>
+<p>As you can see from the above image the sample contain the page which byself contain three controls</p>
+<ol>
+<li>FileUpload Control to allow you browse and upload excel file </li><li>Button to Import data from excel and export it to SQL Server </li><li>Label to show the message about uploading status </li></ol>
+<h1><span>Building the Sample</span></h1>
+<p>Before run and test the sample you need to follow the next steps.</p>
+<p><span style="color:#ff0000">Note: before start reading the steps I want let you to know that I haven&rsquo;t test this sample either on ASP.NET 3.5 or 32-bit MS Office,so may be you do not need the step 1 and step 2.</span></p>
+<ol>
+<li>Create an IIS web site </li><li>Change .Net Framework to 4.0 for Application Pool of this site </li><li>Create Excel file and make sure that file contain the column name as following image
+</li></ol>
+<p><a href="http://dotnetfinder.files.wordpress.com/2012/03/image1.png"><img title="image" src="description/image_thumb1.png" border="0" alt="image" width="169" height="159" style="padding-left:0pt; padding-right:0pt; display:block; padding-top:0pt; border:0pt none; margin:0pt auto"></a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.Create Table in SQL Server and make sure has the same Columns name with appropriate columns data type.</p>
+<p><a href="http://dotnetfinder.files.wordpress.com/2012/03/image2.png"><img title="image" src="description/image_thumb2.png" border="0" alt="image" width="240" height="76" style="padding-left:0pt; padding-right:0pt; display:block; padding-top:0pt; border:0pt none; margin-left:auto; margin-right:auto"></a></p>
+<p><span style="font-size:20px; font-weight:bold">Description</span></p>
+<p><em>This sample work as I mentioned above by ask user to upload Excel file (*.xsl,*.xslx) and then check the content type of that file then open excel file and save it's data to SQL Server Database.&nbsp;
+<br>
+</em></p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>Visual Basic</span><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span><span class="hidden">csharp</span>
+<pre class="hidden">'if you have Excel 2007 uncomment this line of code  
+        '  string excelConnectionString =string.Format(&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=Excel 8.0&quot;,path);
+        'Define the content type
+        Dim ExcelContentType As String = &quot;application/vnd.ms-excel&quot;
+        Dim Excel2010ContentType As String = &quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;
+        If FileUpload1.HasFile Then
+            If FileUpload1.PostedFile.ContentType = ExcelContentType Or FileUpload1.PostedFile.ContentType = Excel2010ContentType Then
+                Try
+                    'Save file path
+                    Dim path As String = String.Concat(Server.MapPath(&quot;~/TempFiles/&quot;), FileUpload1.FileName)
+                    'Save File as Temp then you can delete it if you want
+                    FileUpload1.SaveAs(path)
+                    'For Office Excel 2010  please take a look to the followng link  http://social.msdn.microsoft.com/Forums/en-US/exceldev/thread/0f03c2de-3ee2-475f-b6a2-f4efb97de302/#ae1e6748-297d-4c6e-8f1e-8108f438e62e
+                    Dim excelConnectionString As String = String.Format(&quot;Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=Excel 8.0&quot;, path)
+
+                    ' Create Connection to Excel Workbook
+                    Using connection As New OleDbConnection(excelConnectionString)
+
+                        Dim Command As OleDbCommand = New OleDbCommand(&quot;Select * FROM [Sheet1$]&quot;, connection)
+
+                        connection.Open()
+
+                        'Create DbDataReader to Data Worksheet
+                        Using reader As DbDataReader = Command.ExecuteReader()
+
+
+                            ' SQL Server Connection String
+                            Dim sqlConnectionString As String = &quot;Data Source=.\sqlexpress;Initial Catalog=ExcelDB;Integrated Security=True&quot;
+
+                            ' Bulk Copy to SQL Server
+                            Using bulkCopy As New SqlBulkCopy(sqlConnectionString)
+
+                                bulkCopy.DestinationTableName = &quot;Employee&quot;
+                                bulkCopy.WriteToServer(reader)
+                                Label1.Text = &quot;The data has been exported succefuly from Excel to SQL&quot;
+                            End Using
+                        End Using
+                    End Using
+                Catch ex As Exception
+                    Label1.Text = ex.Message
+                End Try
+            End If
+        End If</pre>
+<pre class="hidden">// if you have Excel 2007 uncomment this line of code
+        //  string excelConnectionString =string.Format(&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties=Excel 8.0&quot;,path);
+      
+        string ExcelContentType = &quot;application/vnd.ms-excel&quot;;
+        string Excel2010ContentType = &quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;;
+        if (FileUpload1.HasFile)
+        {
+            //Check the Content Type of the file
+            if(FileUpload1.PostedFile.ContentType==ExcelContentType || FileUpload1.PostedFile.ContentType==Excel2010ContentType)
+            {
+                try
+                {
+                    //Save file path
+                    string path = string.Concat(Server.MapPath(&quot;~/TempFiles/&quot;), FileUpload1.FileName);
+                    //Save File as Temp then you can delete it if you want
+                    FileUpload1.SaveAs(path);
+                    //string path = @&quot;C:\Users\Johnney\Desktop\ExcelData.xls&quot;;
+                    //For Office Excel 2010  please take a look to the followng link  http://social.msdn.microsoft.com/Forums/en-US/exceldev/thread/0f03c2de-3ee2-475f-b6a2-f4efb97de302/#ae1e6748-297d-4c6e-8f1e-8108f438e62e
+                    string excelConnectionString = string.Format(&quot;Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties=Excel 8.0&quot;, path);
+
+                    // Create Connection to Excel Workbook
+                    using (OleDbConnection connection =
+                                 new OleDbConnection(excelConnectionString))
+                    {
+                        OleDbCommand command = new OleDbCommand
+                                (&quot;Select * FROM [Sheet1$]&quot;, connection);
+
+                        connection.Open();
+
+                        // Create DbDataReader to Data Worksheet
+                        using (DbDataReader dr = command.ExecuteReader())
+                        {
+
+                            // SQL Server Connection String
+                            string sqlConnectionString = @&quot;Data Source=.\sqlexpress;Initial Catalog=ExcelDB;Integrated Security=True&quot;;
+
+                            // Bulk Copy to SQL Server
+                            using (SqlBulkCopy bulkCopy =
+                                       new SqlBulkCopy(sqlConnectionString))
+                            {
+                                bulkCopy.DestinationTableName = &quot;Employee&quot;;
+                                bulkCopy.WriteToServer(dr);
+                                Label1.Text = &quot;The data has been exported succefuly from Excel to SQL&quot;;
+                            }
+                        }
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    Label1.Text = ex.Message;
+                }
+            }
+        }</pre>
+<div class="preview">
+<pre class="vb"><span class="visualBasic__com">'if&nbsp;you&nbsp;have&nbsp;Excel&nbsp;2007&nbsp;uncomment&nbsp;this&nbsp;line&nbsp;of&nbsp;code&nbsp;&nbsp;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;&nbsp;string&nbsp;excelConnectionString&nbsp;=string.Format(&quot;Provider=Microsoft.Jet.OLEDB.4.0;Data&nbsp;Source={0};Extended&nbsp;Properties=Excel&nbsp;8.0&quot;,path);</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'Define&nbsp;the&nbsp;content&nbsp;type</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;ExcelContentType&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">String</span>&nbsp;=&nbsp;<span class="visualBasic__string">&quot;application/vnd.ms-excel&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;Excel2010ContentType&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">String</span>&nbsp;=&nbsp;<span class="visualBasic__string">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;FileUpload1.HasFile&nbsp;<span class="visualBasic__keyword">Then</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;FileUpload1.PostedFile.ContentType&nbsp;=&nbsp;ExcelContentType&nbsp;<span class="visualBasic__keyword">Or</span>&nbsp;FileUpload1.PostedFile.ContentType&nbsp;=&nbsp;Excel2010ContentType&nbsp;<span class="visualBasic__keyword">Then</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Try</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'Save&nbsp;file&nbsp;path</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;path&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">String</span>&nbsp;=&nbsp;<span class="visualBasic__keyword">String</span>.Concat(Server.MapPath(<span class="visualBasic__string">&quot;~/TempFiles/&quot;</span>),&nbsp;FileUpload1.FileName)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'Save&nbsp;File&nbsp;as&nbsp;Temp&nbsp;then&nbsp;you&nbsp;can&nbsp;delete&nbsp;it&nbsp;if&nbsp;you&nbsp;want</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileUpload1.SaveAs(path)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'For&nbsp;Office&nbsp;Excel&nbsp;2010&nbsp;&nbsp;please&nbsp;take&nbsp;a&nbsp;look&nbsp;to&nbsp;the&nbsp;followng&nbsp;link&nbsp;&nbsp;http://social.msdn.microsoft.com/Forums/en-US/exceldev/thread/0f03c2de-3ee2-475f-b6a2-f4efb97de302/#ae1e6748-297d-4c6e-8f1e-8108f438e62e</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;excelConnectionString&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">String</span>&nbsp;=&nbsp;<span class="visualBasic__keyword">String</span>.Format(<span class="visualBasic__string">&quot;Provider=Microsoft.ACE.OLEDB.12.0;Data&nbsp;Source={0};Extended&nbsp;Properties=Excel&nbsp;8.0&quot;</span>,&nbsp;path)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;Create&nbsp;Connection&nbsp;to&nbsp;Excel&nbsp;Workbook</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Using</span>&nbsp;connection&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;OleDbConnection(excelConnectionString)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;Command&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;OleDbCommand&nbsp;=&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;OleDbCommand(<span class="visualBasic__string">&quot;Select&nbsp;*&nbsp;FROM&nbsp;[Sheet1$]&quot;</span>,&nbsp;connection)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;connection.Open()&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'Create&nbsp;DbDataReader&nbsp;to&nbsp;Data&nbsp;Worksheet</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Using</span>&nbsp;reader&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;DbDataReader&nbsp;=&nbsp;Command.ExecuteReader()&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;SQL&nbsp;Server&nbsp;Connection&nbsp;String</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;sqlConnectionString&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">String</span>&nbsp;=&nbsp;<span class="visualBasic__string">&quot;Data&nbsp;Source=.\sqlexpress;Initial&nbsp;Catalog=ExcelDB;Integrated&nbsp;Security=True&quot;</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__com">'&nbsp;Bulk&nbsp;Copy&nbsp;to&nbsp;SQL&nbsp;Server</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Using</span>&nbsp;bulkCopy&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;SqlBulkCopy(sqlConnectionString)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bulkCopy.DestinationTableName&nbsp;=&nbsp;<span class="visualBasic__string">&quot;Employee&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bulkCopy.WriteToServer(reader)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Label1.Text&nbsp;=&nbsp;<span class="visualBasic__string">&quot;The&nbsp;data&nbsp;has&nbsp;been&nbsp;exported&nbsp;succefuly&nbsp;from&nbsp;Excel&nbsp;to&nbsp;SQL&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Using</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Using</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Using</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Catch</span>&nbsp;ex&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;Exception&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Label1.Text&nbsp;=&nbsp;ex.Message&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Try</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">If</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">If</span></pre>
+</div>
+</div>
+</div>
+<h1><span>Source Code Files</span></h1>
+<ul>
+<li><em>Default.aspx sample page written by C#</em> </li><li>defaultVB.aspx sample page written in VB.NET </li><li>DBScript contain SQL script to create database with one table </li><li>TempFiles allow you to save the uploaded excel on it as temp file then read from this file and export it's data to sql server
+</li><li><em><em>Excel file contain two excel file first one excel 2007 and other is excel 2010</em></em>
+</li></ul>
+<h1>More Information</h1>
+<p><em>For more information about this topic you can ask me here<br>
+</em></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

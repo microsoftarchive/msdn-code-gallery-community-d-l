@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=EC831D2F780A53CF4C404B53E768954F" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1e2f9f51-31e4-4bdc-ae6b-5991b49f639cCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=DF234F4FF3DA5D35A03D2829D4F99E0D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>LeapMotionで指の先を画面に表示する</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>LeapMotionで指の先を画面に表示する</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="テクノロジ">テクノロジ</label>
+                        <div id="テクノロジ">
+                            Leap Motion
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="トピック">トピック</label>
+                        <div id="トピック">
+                            Leap Motion
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">ja-JP</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">最終更新日</label>
+                    <div id="LastUpdated">2014/06/29</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">ライセンス</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/LeapMotion-c52eb8a8">このサンプルをオンラインで表示する</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'コードをコピー';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>サンプルプログラムの概要</h1>
+<p>このサンプルプログラムは、LeapMotionのv2(beta)を使って、画面上に認識した手の指先の場所を表示するサンプルプログラムです。</p>
+<p><img id="119386" src="description/fingerpos.JPG" alt="" width="500" height="500"></p>
+<p>指の位置は、丸で表示されます。Leap Motionで検出したX座標Y座標を、ウィンドウ内の位置に変換して表示しています。丸の大きさはZ軸の座標をベースに50px～150pxの大きさで変化します。</p>
+<h1>サンプルプログラムの実行方法</h1>
+<p>サンプルプログラムには、Leap MotionのSDKのDLLは同梱していません。ダウンロードしたサンプルプログラムを解凍したあとにLeap MotionのサイトからSDKをダウンロードしてプロジェクトファイル直下にDLLを置いてください。</p>
+<ul>
+<li>Leap Motionのサイト<br>
+https://developer.leapmotion.com/ </li><li>プロジェクト直下に置く必要のあるDLL
+<ul>
+<li>&nbsp;Leap.dll </li><li>LeapCSharp.dll(x86) </li><li>LeapCSharp.NET4.0.dll(x86) </li></ul>
+</li></ul>
+<p>DLLを置いてビルドをするとNuGetのパッケージの復元が行われてサンプルプログラムが実行されます。</p>
+<h1>サンプルプログラムのポイント</h1>
+<p>このサンプルプログラムのポイントを説明します。</p>
+<h2>Leap Motionからの値の処理</h2>
+<p>このサンプルプログラムでは、Leap Motionから受け取った値の処理をReactivePropertyとReactive Extensionを使って処理をしています。Leap MotionのListenerから、Frameを取り出し、Modelクラスに用意したFrameを受け取るReactivePropertyにセットしています。</p>
+<p></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">class LeapListener : Listener
+{
+    private Model model;
+
+    public LeapListener(Model model)
+    {
+        this.model = model;
+    }
+
+    public override void OnFrame(Controller c)
+    {
+        this.model.Frame.Value = c.Frame();
+    }
+}
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">class</span>&nbsp;LeapListener&nbsp;:&nbsp;Listener&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">private</span>&nbsp;Model&nbsp;model;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;LeapListener(Model&nbsp;model)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.model&nbsp;=&nbsp;model;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;OnFrame(Controller&nbsp;c)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">this</span>.model.Frame.Value&nbsp;=&nbsp;c.Frame();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p></p>
+<p>Model内では、Frameから左手と右手を抽出しています。Modelクラスのコンストラクタに該当するコードがあります。</p>
+<p></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">this.Frame = new ReactiveProperty&lt;Leap.Frame&gt;();
+var frames = this.Frame
+    .Where(f =&gt; f != null)
+    .Sample(TimeSpan.FromSeconds(1 / 60.0));
+
+var leftHand = frames
+    .Select(f =&gt; f.Hands)
+    .Select(hs =&gt; hs.FirstOrDefault(h =&gt; h.IsLeft));
+
+var rightHand = frames
+    .Select(f =&gt; f.Hands)
+    .Select(hs =&gt; hs.FirstOrDefault(h =&gt; h.IsRight));
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">this</span>.Frame&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;ReactiveProperty&lt;Leap.Frame&gt;();&nbsp;
+var&nbsp;frames&nbsp;=&nbsp;<span class="cs__keyword">this</span>.Frame&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;.Where(f&nbsp;=&gt;&nbsp;f&nbsp;!=&nbsp;<span class="cs__keyword">null</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;.Sample(TimeSpan.FromSeconds(<span class="cs__number">1</span>&nbsp;/&nbsp;<span class="cs__number">60.0</span>));&nbsp;
+&nbsp;
+var&nbsp;leftHand&nbsp;=&nbsp;frames&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;.Select(f&nbsp;=&gt;&nbsp;f.Hands)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;.Select(hs&nbsp;=&gt;&nbsp;hs.FirstOrDefault(h&nbsp;=&gt;&nbsp;h.IsLeft));&nbsp;
+&nbsp;
+var&nbsp;rightHand&nbsp;=&nbsp;frames&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;.Select(f&nbsp;=&gt;&nbsp;f.Hands)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;.Select(hs&nbsp;=&gt;&nbsp;hs.FirstOrDefault(h&nbsp;=&gt;&nbsp;h.IsRight));&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p></p>
+<p>上記コードでは、Frameを60分の1秒間隔で取得して、その中から左手、右手を取得しています。続きのコードで、手が取得できた場合は指の情報を取得して指の場所をLeap MotionのInteractionBoxを使って-1～1の間に正規化しています。</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">this.LeftHandFingers = leftHand
+    .Where(h =&gt; h != null)
+    .Select(h =&gt; h.Fingers)
+    .Select(fs =&gt;
+    {
+        var frame = fs.Leftmost.Frame;
+        return fs
+            .Select(f =&gt; frame.InteractionBox.NormalizePoint(f.TipPosition))
+            .Select(v =&gt; new FingerPoint { X = v.x, Y = v.y, Z = v.z })
+            .ToList();
+    })
+    .ToReactiveProperty();
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">this</span>.LeftHandFingers&nbsp;=&nbsp;leftHand&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;.Where(h&nbsp;=&gt;&nbsp;h&nbsp;!=&nbsp;<span class="cs__keyword">null</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;.Select(h&nbsp;=&gt;&nbsp;h.Fingers)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;.Select(fs&nbsp;=&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;frame&nbsp;=&nbsp;fs.Leftmost.Frame;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;fs&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Select(f&nbsp;=&gt;&nbsp;frame.InteractionBox.NormalizePoint(f.TipPosition))&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.Select(v&nbsp;=&gt;&nbsp;<span class="cs__keyword">new</span>&nbsp;FingerPoint&nbsp;{&nbsp;X&nbsp;=&nbsp;v.x,&nbsp;Y&nbsp;=&nbsp;v.y,&nbsp;Z&nbsp;=&nbsp;v.z&nbsp;})&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.ToList();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;})&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;.ToReactiveProperty();&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<p class="endscriptcode">そして、最後に、ReactivePropertyに変換をしてプロパティに設定しています。</p>
+<h2 class="endscriptcode">画面に表示する座標への変換</h2>
+<p>-1～1の値に正規化された値を画面の座標に変換するのは、Converterで実装しています。ApplicationクラスからMainWindowを取得して幅と高さを算出しています。</p>
+<p></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public class MarginConverter : IValueConverter
+{
+    public object Convert(object value, Type targetType, object parameter, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Globalization.CultureInfo.aspx"  title="Auto generated link to System.Globalization.CultureInfo">System.Globalization.CultureInfo</a> culture)
+    {
+        var width = Application.Current.MainWindow.ActualWidth;
+        var height = Application.Current.MainWindow.ActualHeight;
+        var pos = (FingerPoint)value;
+        var result = new Thickness();
+
+        result.Top = height - height * pos.Y;
+        result.Left = width * pos.X;
+
+        return result;
+    }
+
+    public object ConvertBack(object value, Type targetType, object parameter, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Globalization.CultureInfo.aspx"  title="Auto generated link to System.Globalization.CultureInfo">System.Globalization.CultureInfo</a> culture)
+    {
+        throw new NotImplementedException();
+    }
+}</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">class</span>&nbsp;MarginConverter&nbsp;:&nbsp;IValueConverter&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">object</span>&nbsp;Convert(<span class="cs__keyword">object</span>&nbsp;<span class="cs__keyword">value</span>,&nbsp;Type&nbsp;targetType,&nbsp;<span class="cs__keyword">object</span>&nbsp;parameter,&nbsp;System.Globalization.CultureInfo&nbsp;culture)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;width&nbsp;=&nbsp;Application.Current.MainWindow.ActualWidth;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;height&nbsp;=&nbsp;Application.Current.MainWindow.ActualHeight;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;pos&nbsp;=&nbsp;(FingerPoint)<span class="cs__keyword">value</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;result&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;Thickness();&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.Top&nbsp;=&nbsp;height&nbsp;-&nbsp;height&nbsp;*&nbsp;pos.Y;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result.Left&nbsp;=&nbsp;width&nbsp;*&nbsp;pos.X;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;result;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">object</span>&nbsp;ConvertBack(<span class="cs__keyword">object</span>&nbsp;<span class="cs__keyword">value</span>,&nbsp;Type&nbsp;targetType,&nbsp;<span class="cs__keyword">object</span>&nbsp;parameter,&nbsp;System.Globalization.CultureInfo&nbsp;culture)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">throw</span>&nbsp;<span class="cs__keyword">new</span>&nbsp;NotImplementedException();&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+}</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p></p>
+<h2 class="endscriptcode">丸の大きさへの変換</h2>
+<p>Z座標から丸の大きさへの変換もConverterを使って行っています。SizeConverterでZ座標から算出を行っています。</p>
+<p></p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">スクリプトの編集</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">public double BaseSize { get; set; }
+
+public object Convert(object value, Type targetType, object parameter, <a class="libraryLink" href="http://msdn.microsoft.com/ja-JP/library/System.Globalization.CultureInfo.aspx"  title="Auto generated link to System.Globalization.CultureInfo">System.Globalization.CultureInfo</a> culture)
+{
+    var pos = (FingerPoint)value;
+    var z = -1 * (pos.Z - 1);
+    return this.BaseSize &#43; this.BaseSize * z;
+}</pre>
+<div class="preview">
+<pre class="js">public&nbsp;double&nbsp;BaseSize&nbsp;<span class="js__brace">{</span>&nbsp;get;&nbsp;set;&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;
+public&nbsp;object&nbsp;Convert(object&nbsp;value,&nbsp;Type&nbsp;targetType,&nbsp;object&nbsp;parameter,&nbsp;System.Globalization.CultureInfo&nbsp;culture)&nbsp;
+<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;pos&nbsp;=&nbsp;(FingerPoint)value;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">var</span>&nbsp;z&nbsp;=&nbsp;-<span class="js__num">1</span>&nbsp;*&nbsp;(pos.Z&nbsp;-&nbsp;<span class="js__num">1</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__statement">return</span>&nbsp;<span class="js__operator">this</span>.BaseSize&nbsp;&#43;&nbsp;<span class="js__operator">this</span>.BaseSize&nbsp;*&nbsp;z;&nbsp;
+<span class="js__brace">}</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

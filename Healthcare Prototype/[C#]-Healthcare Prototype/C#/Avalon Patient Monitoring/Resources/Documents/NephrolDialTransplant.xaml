@@ -1,0 +1,542 @@
+﻿
+		
+        <FlowDocument xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:sys="clr-namespace:System;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  ColumnWidth="240pt" PagePadding="20" ColumnGap="20" IsOptimalParagraphEnabled="True" IsHyphenationEnabled="True" >
+            <FlowDocument.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="FontSize" Value="10pt" />
+                    <Setter Property="LineHeight" Value="14pt" />
+                    <Setter Property="FontFamily" Value="Calibri" />
+
+                </Style>
+
+
+            </FlowDocument.Resources>
+            <Paragraph Margin="0,20,0,0" FontSize="13pt"  FontWeight="bold">Nephrol Dial Transplant (1997) 12: 776–780</Paragraph>
+
+
+            <Paragraph Margin="10,20" LineHeight="16pt">
+                <Italic FontSize="14pt" >Case Report</Italic>
+            </Paragraph>
+
+            <Paragraph  FontSize="11pt" Margin="10,20" LineHeight="16pt">
+                <Bold>Alport syndrome and diffuse leiomyomatosis with major morbid events presenting at adult age</Bold>
+            </Paragraph>
+
+
+
+            <Paragraph Margin="10">
+                <Bold>Key words:</Bold> Alport syndrome; cataract; COL4A5 gene; COL4A6 gene; oesophageal leiomyoma; leiomyomatosis<LineBreak/>
+            </Paragraph>
+
+            <Paragraph Margin="10,20" LineHeight="18pt" FontSize="14pt" >
+                <Bold>Introduction</Bold>
+            </Paragraph>
+
+            <Paragraph Margin="10">
+                Alport syndrome (AS) is a familial nephropathy characterized by: (1) a history of haematuria with or without chronic renal failure; (2) ultrastructural evidence of irregular thickening
+                or thinning of the glomerular basement membrane (GBM), and/or splitting of the lamina densa; (3) progressive bilateral sensorineural
+                deafness for high tones and (4) ocular changes, including anterior lenticonus and retinal flecks [1–3].
+                According to Flinter et al., at least three of these four characteristics should be present to establish the diagnosis
+                of AS in a family [4]. Conditions, such as hyperprolinaemia, hyperaminoaciduria, ichthyosis,
+                development of serum antithyroid antibodies, hypoparathyroidism, serum IgA deficiency, granulocyte inclusions,
+                or macrothrombocytopenia have been reported in association with AS [1,2].<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                AS with diffuse leiomyomatosis (ASDL) is defined by the association of AS with oesophageal, gastric, vulvovaginal,
+                and bronchial leiomyomas, and clitoral hypertrophy [5].<LineBreak/>
+            </Paragraph>
+
+            <Paragraph Margin="10" TextIndent="25">
+                ASDL was first recognized as a specific clinical entity by Garcia-Torres and Guarner in 1983 [6]. Since then,
+                a number of clinical reports have been published, mainly in the paediatric literature [6–20], which usually
+                focus on a particular aspect of the disease, such ophthalmological [14] or radiological changes [17,18]
+                or surgical aspects [7,8,13 ]. Little attention in medical literature concerning adult patients has been
+                paid to the clinical history of ASDL [7,14,16 ]. As consequence, ASDL may remain unnoticed when
+                patients present with this syndrome at a more advanced age. However, a timely diagnosis is important, in view
+                of the morbidity and the inheritance characteristics of the disease.<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                In this paper we report a family with at least four members affected by ASDL and with clinical manifestations
+                presenting mainly during adulthood. The variable clinical expression—even within the same family—is illustrated.
+                The clinical findings are correlated with the present knowledge on genetic and pathophysiological aspects of ASDL.<LineBreak/>
+            </Paragraph>
+
+            <Paragraph Margin="10,20" LineHeight="18pt" FontSize="14pt" >
+                <Bold>Case reports</Bold>
+            </Paragraph>
+
+            <Paragraph Margin="10">
+                Patient 1. (III,5) (the index patient) is a young woman, born in 1974, who at age 16 presented in the department
+                of nephrology because of haematuria (>200 RBC/HPF). She developed dysphagia for solid food and nausea without
+                vomiting in 1987. Her family history was positive for dysphagia and nephropathy (Figure 1).<LineBreak/>
+            </Paragraph>
+
+            <Paragraph Margin="10" TextIndent="25">
+                Clinical examination and biochemical analysis of the blood, including renal function tests, were normal.
+                Proteinuria was 0.7 g/24 h. The urinary sediment contained 20 RBC/HPF without leukocyturia. Endogenous
+                creatinine clearance was 113 ml/min. A chest X-ray suggested a right paracardiac mass. A barium
+                swallow study showed narrowing of the distal oesophagus with distension of the upper segment
+                ( Figure 2). These radiological findings, together with the results of endoscopy and manometry, were found
+                compatible with achalasia. Computerized axial tomography of the chest confirmed the oesophageal dilatation;
+                in addition, displacement of the distal lumen from the midline to the right with filiform luminal
+                narrowing due to the presence of a tumoural mass with focal zones of wall thickening, was observed
+                ( Figure 3). The tumour had a density of solid tissue and was located in the lower third of the oesophagus
+                extending into the upper portion of the stomach. Echography of the kidneys and audiometry were
+                normal. Ophthalmological investigation revealed congenital cataract and pronounced thickening of both
+                lenses. A renal biopsy showed non-specific findings on light-microscope examination. Electron-microscopy
+                disclosed irregular thickening of the glomerular basement membrane with splitting of the lamina densa
+                (Figure 4A). Immunofluorescence was negative. Based on these data, the diagnosis of Alport syndrome was
+                established.<LineBreak/>
+            </Paragraph>
+
+
+            <Paragraph Margin="10" TextIndent="25">
+                In July 1991 a thoracotomy was performed for enucleation of a tumour (20×15 cm) in the lower oesophagus, which
+                extended over a length of 10 cm in the upper stomach; an antireflux procedure (according to Belsey) was performed.
+                Histological studies revealed an irregular pattern of smooth muscular bundles with benign appearance, compatible
+                with the diagnosis of leiomyoma ( Figure 4B). After a few months, the patient developed severe complaints of
+                pyrosis and dysphagia. Reflux oesophagitis was discovered endoscopically, refractory to ranitidine (150 mg bidaily)
+                and to omeprazole (20 mg daily); the patient became only asymptomatic with high doses of omeprazole and
+                cisapride. In January 1992, a new antireflux intervention (fundiplication according to Toupet) with supraselective
+                vagotomy was performed. Relapse of reflux oesophagitis necessitated again maximal combined pharmacological treatment.
+                In May 1993, total oesophagectomy was performed with gastric pull-up (three-field technique). Since then the patient
+                has been free of dysphagic complaints.<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                In April 1992 three vulvar leiomyomas were resected. Molecular studies in this patient demonstrated a
+                deletion of the 5¾ part of the COL4A5 gene, extending into the COL4A6 gene, with deletion of exons 1 and
+                2, the deletion breakpoint being localized in intron 2 of the COL4A6 gene [21].<LineBreak/>
+            </Paragraph>
+
+            <Paragraph Margin="10" TextIndent="25">
+                Until now, renal function remains normal, although
+                haematuria and proteinuria persist.
+                Patient 2. (II,3 ), born in 1948, is the mother of the
+                index patient. She had complaints of dysphagia with COL4A5 and COL4A6 genes as the lesion found in
+                her daughter ( patient 1) [21].
+                Besides her daughter, patient 2 has one son, born in
+                1972, who is in good health with a normal urinary
+                sediment. He has no gastrointestinal, auditory, or
+                visual complaints.
+                Patient 3. ( II,2), born in 1946, is the uncle of the
+                propositus. He developed recurrent bronchitis, dysphagia
+                with retrosternal pain and frequent vomiting
+                during childhood. He needed a dental prosthesis at the
+                age of 4. Proteinuria and haematuria were detected at
+                the age of 5. He developed progressive renal failure
+                from 1958 and had end-stage renal disease at the age
+                of 23 (serum creatinine 18 mg/100 ml). Bilateral cataract
+                and bilateral high-tone sensorineural hearing loss
+                were observed. The diagnosis of AS was retained based
+                on the clinical and biochemical findings. Barium studies
+                of the oesophagus revealed marked distension of the
+                distal part with delayed transit to the stomach. A renal
+                transplantation was performed in March 1970; the
+                patient died from fungal peritonitis 3 months later,
+                despite adequate graft function.<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                Patient 4. (I,2 ) born in 1923, is the grandmother of
+                the propositus. She complained of dysphagia since her
+                youth, but never had specific investigations until
+                recently, at age 71, when her clinical condition deteriorated.
+                A weight loss of more than 15 kg in 12 months,
+                due to extreme dysphagia for solid food was observed.
+                A barium oesophagogram disclosed a megaoesophagus
+                with narrowing of the distal part. The
+                patient refused further examinations as well as surgical
+                treatment. Serum creatinine has been normal up to
+                now; urinary analysis could not be obtained. Her
+                parents, four brothers and one sister all lived into their
+                seventies without clinical problems that could be
+                related to ASDL.<LineBreak/>
+            </Paragraph>
+
+            <Paragraph Margin="10,20" FontSize="14pt" >
+                <Bold>Discussion</Bold>
+            </Paragraph>
+
+            <Paragraph Margin="10" TextIndent="25">
+                In this paper we present a family with clinical manifestations
+                of ASDL in at least four members in three
+                generations (Figure 1).<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                The present family conforms with the diagnostic
+                criteria of AS, as proposed by Flinter et al.[4]. More
+                severe expression of renal disease was observed in male
+                versus female family members, as is currently observed
+                in X-linked disorders. In contrast, the symptoms of
+                oesophageal leiomyomatosis were as severe in the three
+                female patients as in the male patient. This suggests
+                that oesophageal involvement is fully expressed in
+                females, with complete penetrance, in contrast to mani-
+                festations of renal disease, which are in general more
+                pronounced in men [22].<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                The mother of the propositus (patient 2) showed no
+                proteinuria and only sporadic haematuria. It should
+                be remembered that in women with AS, renal involvement
+                can be mild or even absent. At least one female
+                has been reported who presented with DL but without
+                signs of nephropathy, in whom the molecular gene
+                defect associated with ASDL was found, thus establishing that this patient was a carrier of AS [22].
+                Most of the ASDL patients reported so far needed
+                surgical interventions during childhood [6,9,11–13,-
+                (15–16,18–20]. In contrast, in the index patient and
+                her mother, surgery was performed only at the age of
+                17 and 30 years respectively, whereas the grandmother
+                lived for more than 70 years without surgery. Also the
+                only affected male (patient 3) had no surgical interven-
+                tion for his oesophageal problems.<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                The diagnosis of oesophageal leiomyomatosis may
+                be delayed or may be mistaken as achalasia, based on
+                the clinical presentation and the results of radiographic
+                studies, endoscopy, and manometry [5,13,15,18].
+                Computerized tomography is more appropriate to
+                establish the diagnosis and to evaluate the extension
+                of the leiomyomas, especially when they present as
+                nodular masses. Diffuse invasion of the oesophageal
+                wall by leiomyomatosis may be more difficult to recog-
+                nize and the real extent may be underestimated.<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                In view of the important clinical and genetic implica-
+                tions, renal function and urinary status should be
+                controlled in any patient with oesophageal leiomyom-
+                atosis. Conversely, the possibility of ASDL should be
+                considered in AS patients with dysphagia.<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                Potentially fatal pulmonary complications have been
+                observed in several patients and were attributed to
+                tracheobronchial localization of leiomyomas [6].
+                Recurrent bronchitis disappeared after oesophageal
+                surgery in the mother of our index patient, suggesting
+                that the pulmonary problems were due to aspiration
+                pneumonia, secondary to the mega-oesophagus.<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                Better insights have recently been obtained in the
+                genetics of AS and ASDL. X-linked inheritance is
+                present in 85% of patients with classical AS [23]. AS
+                is characterized by structural changes in the glomerular
+                basement membrane, of which collagen type IV is the
+                major component. Type IV collagen are molecules with
+                a triple helical structure containing three polypeptides
+                or a-chains. Six different a-chains, which differ considerably
+                with respect to tissue distribution, have already
+                been identified [24]. The a5(IV ) and a6(IV ) chains
+                are encoded by the COL4A5 and COL4A6 genes,
+                located in the Xq.22 region in a head to head configuration
+                [21]. A range of deletions, point mutations
+                and gene rearrangements in the COL4A5 gene have
+                been identified in AS patients [25–27]. Mutations
+                involving only the COL4A6 gene have not yet been
+                reported.<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                Antignac<Italic>et al.</Italic>  [19] and Zhou <Italic>et al.</Italic> [21] demonstrated
+                that ASDL deletions including the 5’ region of
+                the COL4A5 gene extended into the COL4A6 gene.
+                Heidet et al. [28] reported the consistent presence of a
+                deletion breakpoint in the second intron of the
+                COL4A6 gene in seven patients with ASDL. The
+                molecular studies performed in the present family
+                disclosed similar findings. Hence, it has been hypothes-
+                ized that mutations of the COL4A6 gene play an
+                essential role in the development of leiomyomatosis.
+                Recently, however, combined deletions in the COL4A5
+                and COL4A6 genes have been demonstrated in some
+                patients with classical AS without leiomyomatosis. In
+                some, the deletion included an even larger part of the
+                COL4A6 gene than was seen in ASDL patients. It has
+                therefore been suggested that localization of the
+                breakpoint in intron 2 of the COL4A6 gene, as is the
+                case in this family, is specifically related to the develop-
+                ment of DL. It is thought that localization of the
+                deletion breakpoint in intron 2 may trigger the activa-
+                tion of a cryptic promotor, resulting in the transcription
+                of otherwise non-expressed sequences [28]. This
+                mechanism may explain the high penetrance and similar
+                phenotypic expression of DL in women and men.
+                <LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                Expression studies in fetal tissues of a 24-week-old
+                human fetus showed the presence of an a5(IV) mRNA
+                in the BM of most tissues, whereas a6(IV ) mRNA
+                was found only in meninges, oesophagus, choroid
+                plexus, and stomach [21]. This tissue distribution may
+                explain the clinical picture of ASDL, with leiomyom-
+                atosis of the oesophagus as an almost obligatory
+                feature.<LineBreak/>
+            </Paragraph>
+
+            <Paragraph Margin="10" TextIndent="25">
+                Bilateral congenital or juvenile cataract has been
+                observed in a substantial number of patients with
+                ASDL [5], although it is rare in classical AS [3,14].
+                In contrast to the nephropathy, the cataract may be
+                as severe in women as in men. The presence of cataract
+                in ASDL is possibly also related to the specific localiz-
+                ation of the deletion breakpoint in the COL4A6 gene,
+                triggering the activation of a cryptic cataract-causing
+                gene.<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                Several members in this pedigree developed severe
+                early dental loss. In patient 3, a dental prosthesis was
+                already required at the age of 4. As collagen type IV
+                is present in the biochemical composition of the periodontal
+                ligament [29], which is part of the tooth attach-
+                ment apparatus, a structural defect of this collagen
+                type may explain the early dental loss.<LineBreak/>
+            </Paragraph>
+            <Paragraph Margin="10" TextIndent="25">
+                In conclusion, diffuse leiomyomatosis associated
+                with AS is an X-linked genetic disorder with important
+                clinical complications, in children as well as in adults.
+                So far, this syndrome comes to attention mainly in the
+                paediatric literature. The present report underscores
+                the point that the first major morbid events of the
+                disease may be delayed until adulthood. Patients with
+                AS should be examined for signs of leiomyomatosis
+                and vice versa. Genetic studies in this family have shed
+                new light on the molecular basis underlying AS and
+                DL as well as on tumorigenesis in general.<LineBreak/>
+            </Paragraph>
+            <Paragraph></Paragraph>
+            <Paragraph Margin="10" FontSize="14pt" >
+                <Bold>References</Bold>
+            </Paragraph>
+            <Paragraph></Paragraph>
+            <List Margin="10">
+                <ListItem>
+                    <Paragraph>
+                        1. Grunfeld JP. Alport’s syndrome. In: Cameron S, Davison AM,
+                        Grunfeld JP, Kerr D, Ritz E, eds. <Italic>
+                            Oxford Textbook of Clinical
+                            Nephropathy.
+                        </Italic> Oxford University Press, Oxford, 1992; 2197–2206
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        2. Gubler M, Levy M, Broyer M et al. Alport syndrome: <Italic>
+                            A report
+                            of 58 cases and review of the literature. Am J Med
+                        </Italic> 1981;
+                        70: 493–505
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        3. Perrin D, Jungers P, Gru¨ nfeld JP, Delons S, Noe¨l L-H, Zenatti
+                        C. Perimacular changes in Alport’s syndrome. Clin Nephrol
+                        1980; 13: 163–167
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        4. Flinter FA, Cameron JS, Chantler C, Houston I, Bobrow M.
+                        Genetics of classic Alport’s syndrome. <Italic>Lancet</Italic> 1988; 2: 1005–1007
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        5. Garcia-Torres R, Orozco L. Alport–leiomyomatosis syndrome:
+                        an update. Am J Kidney Dis 1993; 22: 641–648
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        6. Garcia Torres R, Guarner V. Leiomiomatosis del esophago,
+                        traqueo bronquial y genital asociada con nefropatia hereditaria
+                        tipo Alport: Un nuevo sindrome. <Italic>Rev Gastroenterol Mex</Italic> 1983;
+                        48: 163–170
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        7. Johnston JB, Clagett OT, McDonald JR. Smooth-muscle
+                        tumours of the oesophagus. <Italic>Thorax</Italic> 1953; 8: 251–265
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        8. Kenney LJ. Giant intramural leiomyoma of esophagus. A case
+                        report. J <Italic>Thoracic Surg</Italic> 1953; 26: 93–100
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        9. Roussel B, Birembaut P, Gaillard D et al. Le´iomyomatose
+                        oesophagienne familiale associe´e a` un syndrome d’Alport chez
+                        un garc¸on de 9 ans. <Italic>Helv Paediatr Acta</Italic> 1986; 41: 359–368
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        10. Cochat P, Guibaud P, Garcia Torres R, Roussel B, Guarner V,
+                        Larbre F. Diffuse leiomyomatosis in Alport syndrome. <Italic>J Pediatr</Italic>
+                        1988; 113: 339–343
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        11. Jessurun J, Chavez-Espinosa JI, Becerril-Carmona G, Padua-
+                        Gabriel A, Bernal-Sahagun F. Leiomyomatosis esofagica. <Italic>
+                            Gac
+                            Med Mex
+                        </Italic> 1988; 124: 41–51
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        12. Hasegawa S, Saitoh A, Imai A, Kikuta Y, Matsumoto Y, Ohi
+                        R. A case of non-Alport’s hereditary nephritis with esophageal
+                        leiomyomatosis. (abstract) <Italic>Paediatr Nephrol</Italic> 1989: 3: C188
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        13. Leborgne J, Le Neel JC, Heloury Y et al. La le´iomyomatose
+                        oesophagienne diffuse. A propos de 5 observations dont 2 cas
+                        familiaux. <Italic>Chirurgie</Italic> 1989; 115: 277–286
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        14. McCartney PJ, McGuiness R. Alport’s syndrome and the eye.
+                        <Italic>Aust NZ J Ophthal</Italic> 1989; 17: 165–168
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        15. Legius E, Proesmans W, Vandamme B, Geboes K, Lerut T,
+                        Eggermont E. Muscular hypertrophy of the oesophagus and
+                        ‘Alport-like’ glomerular lesions in a boy. <Italic>Eur J Pediatr</Italic> 1990;
+                        149: 623–627
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        16. Wittig BM, Treichel U, Ko¨ hler H, Rumpelt H-J, Meyer zum
+                        Bu¨schenfelde K-H. Leiomyomatose des Gastrointesinal- und
+                        Urogenitaltrakts in Kombination mit heredita¨rer Nephritis. <Italic>
+                            Med
+                            Klin
+                        </Italic> 1990; 85: 122–124
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        17. Lerone M, Dodero P, Romeo G et al. Leiomyomatosis of
+                        esophagus, congenital cataracts and hematuria. Report of a case
+                        with rectal involvement. <Italic>Pediatr Radiol</Italic> 1991; 21: 578–579
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        18. Rabushka LS, Fishman EK, Kuhlman JE, Hruban RH. Diffuse
+                        esophageal leiomyomatosis in a patient with Alport syndrome:
+                        CT demonstration. <Italic>Radiology</Italic> 1991; 179: 176–178
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        19. Antignac C, Zhou J, Sanak M et al. Alport syndrome and
+                        diffuse leiomyomatosis: deletion in the 5’ end of the COL4A5
+                        collagen gene. <Italic>Kidney Int</Italic> 1992; 42: 1178–1183
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        20. Londsdale RN, Roberts PF, Vaughan R, Thiru S. Familial
+                        oesophageal leiomyomatosis and nephropathy. <Italic>Histopathology</Italic>
+                        1992; 20: 127–133
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        21. Zhou J, Mochizuki T, Smeets H et al. Deletion of the paired a5(IV ) and a6(IV ) collagen genes in inherited smooth muscle
+                        tumors. <Italic>Science</Italic> 1993; 261: 1167–1169
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        22. Dahan K, Heidet L, Zhou J et al. Smooth muscle tumors
+                        associated with X-linked Alport syndrome: carrier detection in
+                        females. <Italic>Kidney Int</Italic> 1995; 48: 1900–1906
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        23. Knebelmann B, Antignac C, Gubler MC, Gru¨ nfeld J-P. A
+                        molecular approach to inherited kidney disorders. <Italic>Kidney Int</Italic>
+                        1993; 44: 1205–1216
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        24. Hudson BG, Reeders ST, Tryggvason K. Type IV collagen:
+                        Structure, gene organization, and role in human diseases. <Italic>
+                            J Biol
+                            Chem
+                        </Italic> 1993; 268: 26033–26036
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        25. Tryggvason K, Zhou J, Hostikka SL, Shows TB. Molecular
+                        genetics of Alport syndrome. <Italic>Kidney Int</Italic> 1993; 43: 38–44
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        26. Kashtan CE. Alport syndrome: new understandings based upon
+                        molecular analysis. In: Andreucci VE, Fine LG, eds.
+                        <Italic>International Yearbook of Nephrology Dialysis Transplantation.</Italic>
+                        Oxford Univerisity Press, Oxford, 1995; 47–57
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        27. Antignac C, Knebelmann B, Drouot L et al. Deletions in the
+                        COL4A5 gene in X-linked Alport sydnrome. Characterization
+                        of the pathological transcripts in nonrenal cells and correlation
+                        with disease expression. <Italic>J Clin Invest</Italic> 1994; 93: 1195–1207
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        28. Heidet L, Dahan K, Zhou J et al. Deletions of both a5 (IV ) and
+                        a6(IV ) collagen genes in Alport syndrome and in Alport syn-
+                        drome associated with smooth muscle tumours.<Italic> Hum Mol Genet</Italic>
+                        1995; 4: 99–108
+                    </Paragraph>
+                </ListItem>
+                <ListItem>
+                    <Paragraph>
+                        29. Romanos G, Schroter-Kermani C, Hinz N et al. Immuno-
+                        (histochemical localization of collagenous components in healthy
+                        periodontal tissues of the rat and marmoset (Callithrix jacchus).
+                        II. Distribution of collagen types IV, V and VI. <Italic>J Periodont Res</Italic>
+                        1991; 26: 323–332
+                    </Paragraph>
+                </ListItem>
+            </List>
+            <Paragraph></Paragraph>
+            <Paragraph></Paragraph>
+            <Paragraph TextIndent="30">
+                <Italic>Received for publication: 19.11.96</Italic>
+            </Paragraph>
+            <Paragraph TextIndent="30">
+                <Italic>Accepted for publication: 27.11.96</Italic>
+            </Paragraph>
+        </FlowDocument>

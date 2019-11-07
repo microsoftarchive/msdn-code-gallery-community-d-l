@@ -1,0 +1,125 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DemoMaster.master.cs"
+    Inherits="HiQPdf_Demo.DemoMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>HiQPdf Demo Application</title>
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+    <link href="~/DemoFiles/Images/HiQPdf_64x64.ico" rel="shortcut icon" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table style="width: 900px">
+                <tr>
+                    <td>
+                        <!-- Header -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- Body -->
+                        <table style="width: 100%">
+                            <tr>
+                                <td style="border: solid 1px Black; vertical-align: top; text-align: left; padding-left: 5px; padding-right: 10px; padding-bottom: 10px; padding-top: 5px; width: 100px">
+                                    <asp:TreeView ID="treeView" runat="server" ForeColor="Navy">
+                                        <Nodes>
+                                            <asp:TreeNode Text="Welcome to HiQPdf Demo" ToolTip="Welcome to HiQPdf Demo Application"
+                                                Value="welcome" NavigateUrl="~/Default.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="HTML to PDF" ToolTip="HTML To PDF Converter Demo" Value="htmlToPdfNode"
+                                                NavigateUrl="~/WelcomeHtmlToPdf.aspx">
+                                                <asp:TreeNode Text="HTML to PDF Converter Demo" ToolTip="Convert HTML to PDF Demo"
+                                                    Value="htmlToPdf" NavigateUrl="~/ConvertHtmlToPdf.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Convert Many HTMLs to PDF" ToolTip="Convert Many HTML Pages to PDF Demo"
+                                                    Value="multipleHtmlLayers" NavigateUrl="~/ConvertManyHtmlToPdf.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Convert a Selected HTML Region" ToolTip="Convert a Selected HTML Region Demo"
+                                                    Value="convertHtmlPartToPdf" NavigateUrl="~/ConvertHtmlRegionToPdf.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Headers and Footers in PDF" ToolTip="Headers and Footers in PDF Demo"
+                                                    Value="pdfHeadersAndFooters" NavigateUrl="~/PdfHeadersAndFooters.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Convert Web Pages Preserving State" ToolTip="Preserve HTML Form and Session Variables Values During HTML to PDF Conversion"
+                                                    Value="convertHtmlPreservingState" NavigateUrl="~/ConvertHtmlPreservingState.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Set PDF Pages Background" ToolTip="Set PDF Pages Background Layer Demo"
+                                                    Value="setPdfBackgroundLayer" NavigateUrl="~/SetPdfBackgroundLayer.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="HTML Elements Position in PDF" ToolTip="HTML Elements Bounds in PDF Demo"
+                                                    Value="replaceHtmlElements" NavigateUrl="~/HtmlElementsPositionInPdf.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Set Conversion Triggering Mode" ToolTip="Conversion Triggering Mode Demo"
+                                                    Value="conversionTriggeringMode" NavigateUrl="~/ConversionTriggeringMode.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Auto Create Outlines and Links" ToolTip="Auto Generated Outlines and Links Demo"
+                                                    Value="autoOutlinesAndLinks" NavigateUrl="~/AutoOutlinesAndLinks.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Auto Create Table of Contents" ToolTip="Auto Create Table of Contents Demo"
+                                                    Value="autoTableOfContents" NavigateUrl="~/AutoCreateTableOfContents.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Auto Create PDF Forms" ToolTip="Auto Create PDF Forms Demo"
+                                                    Value="autoPdfForms" NavigateUrl="~/AutoCreatePdfForms.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Repeat Table Header and Footer" ToolTip="Repeat Table Header and Footer Demo"
+                                                    Value="autoRepeatThead" NavigateUrl="~/AutoRepeatHtmlHeaderAndFooter.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Control PDF Page Breaks with CSS" ToolTip="PDF Page Breaks Control with CSS Demo"
+                                                    NavigateUrl="~/PdfPageBreaksControl.aspx" Value="pdfPageBreaksControl"></asp:TreeNode>
+                                                <asp:TreeNode Text="Select Media Type for Rendering" ToolTip="Select Media Type for Rendering Demo"
+                                                    NavigateUrl="~/MediaTypeSelection.aspx" Value="mediaTypes"></asp:TreeNode>
+                                                <asp:TreeNode Text="Web Fonts Advanced Support" ToolTip="Convert HTML Documents with Web Fonts Demo"
+                                                    NavigateUrl="~/WebFonts.aspx" Value="convertWebFonts"></asp:TreeNode>
+                                            </asp:TreeNode>
+                                            <asp:TreeNode Text="HTML to Image" ToolTip="Convert HTML to Image Demo" Value="htmlToImage"
+                                                NavigateUrl="~/ConvertHtmlToImage.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="HTML to SVG" ToolTip="Convert HTML to SVG Demo" Value="htmlToSvg"
+                                                NavigateUrl="~/ConvertHtmlToSvg.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="PDF Forms" ToolTip="PDF Forms Demo" Value="pdfForms" NavigateUrl="~/WelcomePdfForms.aspx">
+                                                <asp:TreeNode Text="Create and Submit PDF Forms" ToolTip="Create and Submit PDF Forms Demo"
+                                                    Value="createAndSubmitForms" NavigateUrl="~/CreateAndSubmitForms.aspx"></asp:TreeNode>
+                                                <asp:TreeNode Text="Fill and Save PDF Forms" ToolTip="Fill and Save PDF Forms Demo"
+                                                    Value="fillAndSaveForms" NavigateUrl="~/FillAndSaveForms.aspx"></asp:TreeNode>
+                                            </asp:TreeNode>
+                                            <asp:TreeNode Text="Set an Open Action in PDF" ToolTip="PDF Open Action Demo" Value="pdfOpenAction"
+                                                NavigateUrl="~/PdfOpenAction.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Create Outlines and Links in PDF" ToolTip="PDF Outlines and Links Demo"
+                                                Value="pdfOutlines" NavigateUrl="~/PdfOutlinesAndLinks.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Create File Attachments in PDF" ToolTip="Attachments and File Links Demo"
+                                                Value="pdfAttachments" NavigateUrl="~/AttachmentsAndFileLinks.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Add Text Objects in PDF" ToolTip="PDF Text Demo" Value="pdfText"
+                                                NavigateUrl="~/PdfTextDemo.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Add Image Objects in PDF" ToolTip="PDF Images Demo" Value="pdfImages"
+                                                NavigateUrl="~/PdfImages.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Add Graphic Objects in PDF" ToolTip="PDF Graphics Demo" Value="pdfGraphics"
+                                                NavigateUrl="~/PdfGraphics.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Add Digital Signatures in PDF" ToolTip="Add Digital Signatures in PDF Demo" Value="digitalSignatures"
+                                                NavigateUrl="~/DigitalSignatures.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Edit PDF Documents" ToolTip="Edit PDF Demo" Value="editPdf" NavigateUrl="~/EditPdf.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Merge PDF Documents" ToolTip="Merge PDF Demo" Value="mergePdf"
+                                                NavigateUrl="~/MergePdf.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Extract Text from PDF" ToolTip="Extract Text from PDF Demo" Value="extractText"
+                                                NavigateUrl="~/ExtractTextFromPdf.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Search Text in PDF" ToolTip="Search Text in PDF Demo" Value="searchText"
+                                                NavigateUrl="~/SearchTextInPdf.aspx"></asp:TreeNode>
+                                            <asp:TreeNode Text="Extract Images from PDF" ToolTip="Extract Images from PDF Demo" Value="extractImages"
+                                                NavigateUrl="~/ExtractImagesFromPdf.aspx"></asp:TreeNode>                                            
+                                            <asp:TreeNode Text="Rasterize PDF Pages to Images" ToolTip="Rasterize PDF Pages to Images Demo" Value="rasterizePdf"
+                                                NavigateUrl="~/RasterizePdfPagesToImages.aspx"></asp:TreeNode>
+                                            <asp:TreeNode NavigateUrl="~/Feedback.aspx" Text="Feedback" ToolTip="Feedback" Value="feedback"></asp:TreeNode>
+                                        </Nodes>
+                                        <SelectedNodeStyle BackColor="#E8E8E8" />
+                                    </asp:TreeView>
+                                    <!-- Left -->
+                                </td>
+                                <td style="width: 5px">
+                                    <!-- Middle -->
+                                </td>
+                                <td style="border: solid 1px Black; vertical-align: top; text-align: left; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; padding-top: 5px;">
+                                    <!-- Right -->
+                                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- Footer -->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

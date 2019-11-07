@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PrescriptionContosoStore" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="PrescriptionContosoStore">
+    <EntitySet Name="Product" EntityType="PrescriptionContosoStore.Product" store:Type="Tables" Schema="dbo" Table="Product" />
+    <EntitySet Name="ProductRebate" EntityType="PrescriptionContosoStore.ProductRebate" store:Type="Tables" Schema="dbo" Table="ProductRebate" />
+    <AssociationSet Name="FK_Product_ProductRebate" Association="PrescriptionContosoStore.FK_Product_ProductRebate">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductRebate" EntitySet="ProductRebate" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MSRP" Type="money" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="ProductImage" Type="varbinary(max)" />
+    <Property Name="Category" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="ProductRebate">
+    <Key>
+      <PropertyRef Name="ProductRebateID" />
+    </Key>
+    <Property Name="ProductRebateID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RebateStart" Type="smalldatetime" />
+    <Property Name="RebateEnd" Type="smalldatetime" />
+    <Property Name="Rebate" Type="money" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Product_ProductRebate">
+    <End Role="Product" Type="PrescriptionContosoStore.Product" Multiplicity="1" />
+    <End Role="ProductRebate" Type="PrescriptionContosoStore.ProductRebate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductRebate">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

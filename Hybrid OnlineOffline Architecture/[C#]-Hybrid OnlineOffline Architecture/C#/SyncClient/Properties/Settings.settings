@@ -1,0 +1,41 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SyncClient.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="MinID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MaxID" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Local" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=(local)\SQLEXPRESS;Initial Catalog=Client;Integrated Security=True&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=(local)\SQLEXPRESS;Initial Catalog=Client;Integrated Security=True</Value>
+    </Setting>
+    <Setting Name="SchemaVersion" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="Tables" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Customers,Orders</Value>
+    </Setting>
+    <Setting Name="LocalServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">(local)\SQLEXPRESS</Value>
+    </Setting>
+    <Setting Name="LocalDb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Client</Value>
+    </Setting>
+    <Setting Name="RemoteServer" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">(local)\SQLFULL</Value>
+    </Setting>
+    <Setting Name="RemoteDb" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Server</Value>
+    </Setting>
+    <Setting Name="LastSync" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)">2000-01-01</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

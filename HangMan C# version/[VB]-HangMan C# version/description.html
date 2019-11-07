@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://assets.onestore.ms/cdnfiles/onestorerolling-1602-03000/shell/v3/scss/shellnoresponsive.min.css" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:sprite;/Areas/Epx/Themes/Windows/Content:0&amp;amp;v=0ADA3FB27D6CB423198E5E3A85ECFC15" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Areas/Epx/Themes/Windows/Content/UhfHeader.css?v=635897133117338175" data-do-not-move="true" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:sprite,1:SelectLocaleFromPopUp;/Areas/Epx/Themes/Windows/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=D856159DCFAEE7AFF1968B9CF8ACEC18" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Areas/Epx/Themes/Windows/Content/UhfFooter.css?v=635897133117338175" data-do-not-move="true" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>HangMan C# version</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" /><link href="description/bb9883b4-e7a8-4749-950d-7d54479145e9Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/windowsdesktop/content/windowsdesktop/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/windowsdesktop/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>HangMan C# version</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, VB.Net
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Controls, Drawing, Game
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">2/5/2016</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/windowsdesktop/HangMan-C-version-e0d17f1b">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p><span style="font-size:small"><img id="78992" src="description/26-03-2013 02.14.45.jpg" alt="" width="577" height="435"></span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">Hangman is a guessing game for two players, in this case you versus your computer.</span><br>
+<span style="font-size:small">In this version, the word to guess is represented by a row of dashes, which are replaced by underlined uppercase letters if you guess a letter correctly.</span><br>
+<span style="font-size:small">If you choose ten incorrect letters before guessing the hidden word, you lose. This is represented by the hanged man. If you guess all of the letters in the word before guessing ten incorrect letters, you win.</span><br>
+<span style="font-size:small">As you guess a letter, by clicking one of twenty six buttons (representing the alphabet), that button and therefore that letter are disabled and that letter can't be used again.</span></p>
+<p><span style="font-size:small">Quote from wikipedia: </span><br>
+<span style="font-size:small">The origins of Hangman are obscure, but it seems to have arisen in Victorian times,&quot; says Tony Augarde, author of &quot;The Oxford Guide to Word Games&quot; (Oxford University Press)</span></p>
+<p><span style="font-size:small">In this demonstration application (Visual Basic 2012 version, and Visual C# 2010 version), I've used a hardcoded words array containing just five words for testing purposes. To greatly improve this game, just add your own words
+ to the words array, either hardcoded, or read them in from a text file. The application is already set up to work with any number of words.</span></p>
+<p><span style="font-size:small">As always with my Samples Gallery submissions, if you find this useful, please take the time to rate it. thanks:D
+</span></p>
+<p><span style="font-size:small">For VB.Net (2012)&nbsp;version, see: <a href="http://code.msdn.microsoft.com/HangMan-de8308f1">
+http://code.msdn.microsoft.com/HangMan-de8308f1</a></span></p>
+<p><span style="font-size:small">TechNet version (VB2013): <a href="http://social.technet.microsoft.com/wiki/contents/articles/21036.hangman.aspx">
+http://social.technet.microsoft.com/wiki/contents/articles/21036.hangman.aspx</a></span></p>
+<p><span style="font-size:small">Online version: <a href="http://www.scproject.biz/hangman.php">
+http://www.scproject.biz/hangman.php</a></span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+<p><span style="font-size:small">&nbsp;</span></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

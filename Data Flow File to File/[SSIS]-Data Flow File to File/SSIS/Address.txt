@@ -1,0 +1,30 @@
+1|1970 Napa Ct.||Bothell|79|98011
+2|9833 Mt. Dias Blv.||Bothell|79|98011
+3|7484 Roundtree Drive||Bothell|79|98011
+4|9539 Glenside Dr||Bothell|79|98011
+5|1226 Shoe St.||Bothell|79|98011
+6|1399 Firestone Drive||Bothell|79|98011
+7|5672 Hale Dr.||Bothell|79|98011
+8|6387 Scenic Avenue||Bothell|79|98011
+9|8713 Yosemite Ct.||Bothell|79|98011
+10|250 Race Court||Bothell|79|98011
+11|1318 Lasalle Street||Bothell|79|98011
+12|5415 San Gabriel Dr.||Bothell|79|98011
+13|9265 La Paz||Bothell|79|98011
+14|8157 W. Book||Bothell|79|98011
+15|4912 La Vuelta||Bothell|79|98011
+16|40 Ellis St.||Bothell|79|98011
+17|6696 Anchor Drive||Bothell|79|98011
+18|1873 Lion Circle||Bothell|79|98011
+19|3148 Rose Street||Bothell|79|98011
+20|6872 Thornwood Dr.||Bothell|79|98011
+21|5747 Shirley Drive||Bothell|79|98011
+22|636 Vine Hill Way||Portland|58|97205
+23|6657 Sand Pointe Lane||Seattle|79|98104
+24|80 Sunview Terrace||Duluth|36|55802
+25|9178 Jumping St.||Dallas|73|75201
+26|5725 Glaze Drive||San Francisco|9|94109
+27|2487 Riverside Drive||Nevada|74|84407
+28|9228 Via Del Sol||Phoenix|6|85004
+29|8291 Crossbow Way||Memphis|72|38103
+30|9707 Coldwater Drive||Orlando|15|32804

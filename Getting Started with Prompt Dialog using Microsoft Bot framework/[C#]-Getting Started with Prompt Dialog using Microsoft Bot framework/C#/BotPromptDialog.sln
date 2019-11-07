@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotPromptDialog", "BotPromptDialog\BotPromptDialog.csproj", "{E1771438-E95A-42C8-B98D-19345A196EA0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1771438-E95A-42C8-B98D-19345A196EA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1771438-E95A-42C8-B98D-19345A196EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1771438-E95A-42C8-B98D-19345A196EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1771438-E95A-42C8-B98D-19345A196EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E97E240-BCE0-4967-8C28-C83F3CAEE8A5}
+	EndGlobalSection
+EndGlobal

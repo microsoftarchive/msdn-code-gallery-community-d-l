@@ -1,0 +1,20 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandlerExceptionsInsideOrchestration", "HandlerExceptionsInsideOrchestration\HandlerExceptionsInsideOrchestration.btproj", "{61A8BA4D-7046-419F-A417-CFB62B555FC8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Deployment|Any CPU = Deployment|Any CPU
+		Development|Any CPU = Development|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{61A8BA4D-7046-419F-A417-CFB62B555FC8}.Deployment|Any CPU.ActiveCfg = Deployment|Any CPU
+		{61A8BA4D-7046-419F-A417-CFB62B555FC8}.Deployment|Any CPU.Build.0 = Deployment|Any CPU
+		{61A8BA4D-7046-419F-A417-CFB62B555FC8}.Deployment|Any CPU.Deploy.0 = Deployment|Any CPU
+		{61A8BA4D-7046-419F-A417-CFB62B555FC8}.Development|Any CPU.ActiveCfg = Development|Any CPU
+		{61A8BA4D-7046-419F-A417-CFB62B555FC8}.Development|Any CPU.Build.0 = Development|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

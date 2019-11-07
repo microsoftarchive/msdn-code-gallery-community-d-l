@@ -1,0 +1,23 @@
+﻿@inherits BlazorLayoutComponent
+
+<div class="sidebar">
+    <NavMenu />
+</div>
+
+<div class="main">
+    <table style="background-color:#FFFFFF; border: dashed 3px #6D7B8D;padding-left:10px; padding: 5px;width: 100%;table-layout:fixed;" cellpadding="2"
+           cellspacing="6">
+        <tr>
+            <td width="35%" align="right"> <img src="Images/shopping_cart64.png" height="38" width="38" /></td>
+            <td width="65%">
+
+                <h2>Welcome to <strong style="color:#0260a0">Shanu </strong> Blazor Shopping Cart</h2>
+            </td>
+
+        </tr>
+    </table>
+
+    <div class="content px-4">
+        @Body
+    </div>
+</div>

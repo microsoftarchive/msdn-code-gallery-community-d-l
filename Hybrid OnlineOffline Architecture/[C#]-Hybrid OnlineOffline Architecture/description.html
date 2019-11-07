@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/0aac1760-b513-488a-ba57-e31d9413a075Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Hybrid Online/Offline Architecture</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Hybrid Online/Offline Architecture</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            WCF, SQL Server, LINQ to SQL, WPF, ViewModel pattern (MVVM), Entity Framework, Microsoft Sync Framework 2.1, SQL Server Data Tools, Ninject, ApexSQL Diff
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Architecture and Design, Occasionally Connected Data, Dependancy Injection
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Cloud, Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        Notify Property Weaver, NuGet Package Manager
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">12/1/2012</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Hybrid-OnlineOffline-fa5fa119">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h2>Introduction</h2>
+<p>Your application is deployed to mobile devices, which sometimes have network access, but always needs to function. The standard solution is to keep a local cache of the remote database, periodically synchronised when the device is connected.</p>
+<p>However, in your application, it is essential to use the freshest data available. Furthermore, many deployments are to desktops on the same LAN as your data centre. Cached data is good for giving a sales demonstration in your client's underground conference
+ room, but your desk-bound workers need live data.</p>
+<p>You could write a desktop application for cached data and a web application for live data, but why maintain two applications just to handle changes in connectivity? A more intelligent data source is needed; one that can choose at run-time whether to use
+ a local data cache, or your application server.</p>
+<h2>Architecture</h2>
+<p><img id="71541" src="description/Architecture.png" alt="architecture diagram" width="697" height="426"></p>
+<p>The database, data access layer, and business logic are deployed to both the server and client. The server exposes its business logic through a service layer, which the client's online proxy connects to. The client also has an offline proxy for accessing
+ its local copy of the business logic.</p>
+<p>Both proxies implement <code>IProxy</code>, which itself implements the business logic's interface. The client application accesses business logic through a reference to
+<code>IProxy</code>, which runtime dependency injection satisfies with the correct proxy.</p>
+<p>(For simplicity's sake, the sample code does not contain any independent business logic. Data is retrieved directly from the data access layer.)</p>
+<h2>Technology</h2>
+<p>The sample code contains a SQL Server project for creating the sample database. Data access is via the entity framework, and WCF is used for the service layer. Ninject is used to inject the correct proxy into WPF view models. Please see the included
+<code>Read Me.htm</code> for a list of dependencies and where to find them.</p>
+<h2>Synchronisation</h2>
+<p>Synchronisation begins by asking the server for the current schema version. If this is greater than the client's schema, a schema update is applied, and the new version is recorded.</p>
+<p>Synchronisation initially used Microsoft's Sync Framework. This has the advantage of a mature API, and it can work through a 3-tier architecture. However, it cannot cope with schema changes to existing tables. To get around this, DDL triggers were used to
+ update the framework's metadata whenever the schema changed. The last version to use the Sync Framework is thus tagged.</p>
+<p>The client objected to relying on DDL triggers, and so later versions switched to ApexSQL's
+<a href="http://www.apexsql.com/sql_tools_diffapi.aspx">Diff API</a>. This requires a direct connection to the server, so synchronisation is only performed from within the office LAN.</p>
+<h2>ID Ranges</h2>
+<p>To avoid primary key conflicts, each client is assigned a range of ID values to use when it first synchronises. After every synchronisation, each table in the client database is reseeded to the correct ID range.</p>
+<p>The server does not need reseeding, as it uses positive ID values, while the client ranges are all negative.</p>
+<h2>Source Control</h2>
+<p>Hybrid's source control is available at the project's <a href="http://code.accursoft.com/hybrid/">
+home page</a>.</p>
+<h2>Credits</h2>
+<p>This code is made available by kind permission of my client, <a href="http://www.logican.co.uk/">
+Logican</a>. It is provided for informational purposes only, and may not be used without their explicit consent. The hybrid approach was suggested by
+<a href="http://blog.solutionist-ltd.com/">Joseph Babad</a>.</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

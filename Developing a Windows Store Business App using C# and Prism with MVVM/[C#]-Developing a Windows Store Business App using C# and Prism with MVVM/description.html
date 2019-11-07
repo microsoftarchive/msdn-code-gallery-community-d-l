@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:ImageSprite,1:LinkList;/Areas/Epx/Themes/WindowsApps/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=80AD0B50A984A156696A0DD8FDD835FC" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/e1c0fc63-fad7-4b2b-83fc-325b2b1d2c9eCombined.css,1:ImageSprite,2:LinkList,2:SelectLocaleFromPopUp,1:OverridesWindowsFooter;/Areas/Epx/Themes/Windows/Content:0,/Areas/Epx/Themes/WindowsApps/Content:1,/Areas/Epx/Themes/Base/Content:2&amp;amp;hashKey=900ABE5D98D6939713CBCCE40EB8B658" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Developing a Windows Store Business App using C# and Prism with MVVM</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" /><link href="description/629205da-670e-425f-b0a8-df110798d8c2Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Developing a Windows Store Business App using C# and Prism with MVVM</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, XAML, Windows, MVVM, Prism, Windows Runtime, Windows 8, Windows RT, AppBar, Windows 8 Store App, Windows 8 Store Apps, Windows Store app, Windows Store app Development, Windows 8.1 XAML/C#
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            C#, Data Binding, Asynchronous Programming, Security, ViewModel pattern (MVVM), XAML, UI Layout, GridView, MVVM, ListView, Globalization, Async, Notifications, Services, Windows 8, Live Tiles, App model, settings, Windows RT, Live Tile Notification, Flyout, portable class library, Windows Store app, Data Template, Search charm, Settings charm
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/22/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/windowsapps/Prism-for-the-Windows-86b8fb72">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p><span style="font-size:medium"><a href="http://prismwindowsruntime.codeplex.com/releases/view/124955" >Download
+</a>Prism for Windows Phone 8.1 and Universal Apps</span></p>
+<h1><span>Introduction</span></h1>
+<p>This AdventureWorks sample and Prism library helps developers who want to create Windows Store business apps using C#, XAML, the Windows Runtime and development practices such as Model-View-ViewModel (MVVM) and event aggregation. The sample comes with the
+ Prism library&nbsp;source code&nbsp;&nbsp;and associated documentation.&nbsp;The sample and documentation provide guidance on&nbsp;MVVM with navigation and app life cycle management, validation, management of app data,&nbsp;controls, acessibility,&nbsp;localization
+ of&nbsp;pages, touch, search, tiles, and tile notifications. It also provide guidance on testing your app and tuning its performance.&nbsp;</p>
+<p>Here's what you'll learn:</p>
+<ul>
+<li>How to implement pages, controls, touch, navigation, settings, suspend/resume, search, tiles, and tile notifications.
+</li><li>How to implement the Model-View-ViewModel (MVVM) pattern with lifecycle management and navigation.
+</li><li>How to validate user input for correctness. </li><li>How to manage application data. </li><li>How to test your app and tune its performance. </li></ul>
+<p>Read <a href="http://msdn.microsoft.com/en-us/library/windows/apps/xx130643.aspx">
+Developing a Windows Store business app using C#, XAML, and Prism for the Windows Runtime</a> to learn more about the&nbsp;code base and the design and implementation patterns we used. Also read the
+<a href="http://code.msdn.microsoft.com/windowsapps/Prism-for-the-Windows-86b8fb72/https://prismwindowsruntime.codeplex.com/wikipage?title=PrismforWindows81ReleaseNotes">
+Release Notes</a>.</p>
+<p>To obtain an evaluation copy of Windows&nbsp;8.1, go to <a href="http://go.microsoft.com/fwlink/p/?linkid=301696">
+Windows&nbsp;8.1</a>.</p>
+<p>To obtain an evaluation copy of Microsoft Visual Studio&nbsp;2013, go to <a href="http://go.microsoft.com/fwlink/p/?linkid=301697">
+Visual Studio&nbsp;2013</a>.</p>
+<h1>Operating system requirements</h1>
+<p>Client: Windows 8.1</p>
+<p>&nbsp;</p>
+<h1><span>Building the Sample</span></h1>
+<p>Build the AdventureWorks Shopper Microsoft Visual Studio solution as you would build a standard solution.</p>
+<ol>
+<li>On the Visual Studio&nbsp;menu bar, choose <strong>Build</strong> &gt; <strong>
+Build Solution</strong>. </li><li>After you build the solution, you must deploy it. On the menu bar, choose <strong>
+Build</strong> &gt; <strong>Deploy Solution</strong>. Visual Studio also deploys the project when you run the app from the debugger.
+</li><li>After you deploy the project, you should run it. On the menu bar, choose <strong>
+Debug</strong> &gt;&nbsp; <strong>Start Debugging</strong>. Make sure that AdventureWorks.Shopper is the startup project. When you run the app, the hub page appears.
+</li></ol>
+<p>For more information on building the sample and a description of the projects see
+<a href="http://msdn.microsoft.com/en-us/library/windows/apps/xx130645.aspx">Getting Started</a>.</p>
+<h1>More Information</h1>
+<p>If you&rsquo;d like to provide feedback, please post it via the <a href="http://prismwindowsruntime.codeplex.com/discussions">
+Codeplex forum.</a> This is where you can also get support. We have a dedicated sustained engineering team monitoring the forum regularly. To report a bug, use online
+<a href="http://prismwindowsruntime.codeplex.com/workitem/list/basic">Issue Tracker</a>.</p>
+<p>If you have a story of how your team leverages Prism and would like to share it with the broader community, please
+<a href="http://code.msdn.microsoft.com/windowsapps/Prism-for-the-Windows-86b8fb72/mailto:ourstory@microsoft.com">contact us</a>. We&rsquo;ll be happy to work with you on a case study.</p>
+<p><em>&nbsp;</em></p>
+<div class="mcePaste" id="_mcePaste" style="left:-10000px; top:0px; width:1px; height:1px; overflow:hidden">
+</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿@model BloodDonors.Models.Donor
+@using System.Globalization;
+
+
+<div id="theMap" style="width:520px">
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        var interval = setInterval(function () {
+            if ((eval("typeof VEMap") != "undefined") && (document.getElementById("theMap").attachEvent != undefined)) {
+                clearInterval(interval);
+                onMapLoaded();
+            }
+        }, 10);
+    });
+
+        function onMapLoaded() {
+         $("#Address").blur(function (evt) {
+                //If it's time to look for an address, 
+                // clear out the Lat and Lon
+                $("#Latitude").val("0");
+                $("#Longitude").val("0");
+                var address = jQuery.trim($("#Address").val());
+                if (address.length < 1)
+                    return;
+                BloodDonors.FindAddressOnMap(address);
+            });
+
+        var latitude = @Convert.ToString(Model.Latitude, CultureInfo.InvariantCulture);
+        var longitude = @Convert.ToString(Model.Longitude, CultureInfo.InvariantCulture);
+                
+        if ((latitude == 0) || (longitude == 0))
+            BloodDonors.LoadMap();
+        else
+            BloodDonors.LoadMap(latitude, longitude, mapLoaded);
+    }
+
+     
+    function mapLoaded() {
+        var title = "Name :" +"@Model.Name";
+        var bgroup = "Blood Group :" + "@Model.bGroup";
+    
+        BloodDonors.LoadPin(BloodDonors._map.GetCenter(), title, bgroup, false);
+        BloodDonors._map.SetZoomLevel(10);
+
+    } 
+//]]>
+</script>
+</div>

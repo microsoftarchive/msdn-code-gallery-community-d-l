@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="FileExplorer.UCSearchBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:helper="clr-namespace:FileExplorer.Helper"
+             xmlns:control="clr-namespace:FileExplorer"
+             Name="ucSearch">
+  <UserControl.Resources>
+    <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+
+
+  </UserControl.Resources>
+  <Grid>
+
+    <StackPanel Height="30"  Background="#efefef" HorizontalAlignment="Stretch" Orientation="Horizontal"  >
+      <Rectangle Fill="#cccccc" HorizontalAlignment="Stretch"  Height="1"/>
+      <Grid Margin="10,0,10,0">
+        <TextBox x:Name="txtSearch" Style="{StaticResource SearchTextBoxStyle}"
+                 VerticalAlignment="Center" Width="187" Height="22"
+                 Text="{Binding SearchKeyword,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay,ElementName=ucSearch}"/>
+        <Border VerticalAlignment="Center" HorizontalAlignment="Right" Height="21" Width="20" Background="White"
+                BorderThickness="1,1,1,0" BorderBrush="#B9B9B9" CornerRadius="0,1,1,0" Margin="0,-1,0,0">
+          <Button Style="{StaticResource BrushButtonStyle}" VerticalAlignment="Center" HorizontalAlignment="Right"
+                  IsTabStop="False"  x:Name="btnClear" Padding="0" Background="#ececec" Height="19" Width="16"
+                  Margin="1,1,1,0" BorderThickness="0">
+            <Image Source="\Assets\SearchClear.png" Height="12" Width="12" VerticalAlignment="Center"/>
+          </Button>
+        </Border>
+      </Grid>
+
+      <control:ImageAnim  HorizontalAlignment="Center" VerticalAlignment="Center"
+                               Source="{StaticResource IMG_GifIndicator}" Width="15" Height="15" Margin="2,0"
+                               Visibility="{Binding IsSearching,ElementName=ucSearch,Converter={StaticResource booleanToVisibilityConverter}}" />
+      <TextBlock x:Name="tbPrompt" Margin="0,4,0,0" VerticalAlignment="Center"
+                 Text="{Binding NotFoundHint,Mode=TwoWay,ElementName=ucSearch}"
+                 Visibility="{Binding IsSearchCompleted,ElementName=ucSearch,Converter={StaticResource booleanToVisibilityConverter}}" />
+    </StackPanel>
+
+  </Grid>
+</UserControl>

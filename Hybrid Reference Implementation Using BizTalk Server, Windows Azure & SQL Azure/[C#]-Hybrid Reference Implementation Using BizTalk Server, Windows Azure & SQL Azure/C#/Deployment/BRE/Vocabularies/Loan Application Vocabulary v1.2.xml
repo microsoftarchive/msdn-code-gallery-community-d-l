@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<brl xmlns="http://schemas.microsoft.com/businessruleslanguage/2002">
+  <vocabulary id="7b67867e-673f-42f7-8b1e-acaf273b14c6" name="Loan Application Vocabulary" uri="" description="">
+    <version major="1" minor="2" description="" modifiedby="YOURDOMAIN\youraccount" date="2011-02-17T11:37:20.4196616-08:00" />
+    <vocabularydefinition id="08c1c07c-a46a-4e70-8263-9c979456748c" name="Property Value Threshold" description="">
+      <literaldefinition type="int">
+        <int>1000000</int>
+      </literaldefinition>
+      <formatstring language="en-US" string="Property Value Threshold" />
+    </vocabularydefinition>
+  </vocabulary>
+</brl>

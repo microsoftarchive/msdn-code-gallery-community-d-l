@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="	By : Durgesh Chaudhary From : techphernalia.com">
+    <Position X="1.833" Y="5.729" Height="0.312" Width="4.179" />
+  </Comment>
+  <Comment CommentText="			Observer Pattern">
+    <Position X="1.844" Y="5.375" Height="0.312" Width="4.179" />
+  </Comment>
+  <Comment CommentText="1. Encapsulated object whose property is changing">
+    <Position X="2.396" Y="0.625" Height="0.5" Width="1.763" />
+  </Comment>
+  <Comment CommentText="2. Observer Interface">
+    <Position X="9.833" Y="2.115" Height="0.333" Width="1.387" />
+  </Comment>
+  <Comment CommentText="3. Observable Interface">
+    <Position X="3.573" Y="1.792" Height="0.323" Width="1.7" />
+  </Comment>
+  <Comment CommentText="5. Concrete Observers">
+    <Position X="6.854" Y="0.5" Height="0.312" Width="1.7" />
+  </Comment>
+  <Comment CommentText="4. Concrete Observable">
+    <Position X="1" Y="4.75" Height="0.291" Width="1.7" />
+  </Comment>
+  <Class Name="com.tp.pattern.observer.MobileUser" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="1" Width="2.25" />
+    <AssociationLine Name="chan" Type="com.tp.pattern.observer.IPaidNewsChannels" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="1.744" />
+        <Point X="6.125" Y="1.744" />
+        <Point X="6.125" Y="2.5" />
+        <Point X="5.25" Y="2.5" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAEAAAAAAAAAAAAAAAAAAAAAIAAQAAAAA=</HashCode>
+      <FileName>MobileUser.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="chan" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Right" Position="1.288" />
+  </Class>
+  <Class Name="com.tp.pattern.observer.News">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAIAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>News.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="com.tp.pattern.observer.PaidNewsChannel1" BaseTypeListCollapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAQAAAAAAEAAAAAABAAg=</HashCode>
+      <FileName>PaidNewsChannel1.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="news" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Right" Position="0.1" />
+  </Class>
+  <Class Name="com.tp.pattern.observer.TVUserBreakingNews" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="2.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAEAAAAAAIAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>TVUserBreakingNews.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="chan" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Right" Position="0.788" />
+  </Class>
+  <Class Name="com.tp.pattern.observer.WebSiteDisplay" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="4.5" Width="2.25" />
+    <AssociationLine Name="chan" Type="com.tp.pattern.observer.IPaidNewsChannels" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.5" Y="5.244" />
+        <Point X="6.125" Y="5.244" />
+        <Point X="6.125" Y="3.563" />
+        <Point X="5.25" Y="3.563" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAEAEAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>WebSiteDisplay.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="chan" />
+    </ShowAsAssociation>
+    <Lollipop Orientation="Right" Position="0.1" />
+  </Class>
+  <Interface Name="com.tp.pattern.observer.IChannelUsers">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IChannelUsers.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="com.tp.pattern.observer.IPaidNewsChannels">
+    <Position X="3.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAQAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>IPaidNewsChannels.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

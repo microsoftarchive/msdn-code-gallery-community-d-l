@@ -1,0 +1,31 @@
+﻿<SettingsFlyout x:Class="AdventureWorks.Shopper.Views.SignOutFlyout"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:prism="using:Microsoft.Practices.Prism.StoreApps"
+                    Title="Logout"
+                    Background="{StaticResource SettingsFlyoutBackgroundThemeBrush}"
+                    BorderBrush="{StaticResource AWShopperFlyoutBorderBrush}"
+                    x:Uid="Page"
+                    mc:Ignorable="d"
+                    prism:ViewModelLocator.AutoWireViewModel="true">
+    <StackPanel x:Name="FlyoutContent">
+        <TextBlock x:Uid="YoureCurrentlySignedInAsLabel"
+                                Style="{StaticResource BodyTextBlockStyle}"
+                                TextWrapping="Wrap"
+                                Text="You are currently signed in as:" />
+        <TextBlock Style="{StaticResource BodyTextBlockStyle}"
+                                TextWrapping="Wrap"
+                                Text="{Binding UserName}" />
+        <Button x:Uid="LogoutButton"
+                            Background="{StaticResource AWShopperAccentBrush}"
+                            Content="Logout"
+                            Width="265"
+                            Margin="0,25,0,0"
+                            Foreground="{StaticResource AWShopperButtonForegroundBrush}"
+                            Command="{Binding SignOutCommand}"
+                            AutomationProperties.AutomationId="LogoutButton" />
+    </StackPanel>
+
+</SettingsFlyout>

@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7bd86db-8a7a-43ce-8954-21f8f839f51bCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>DVD-RWへの書き込み</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>DVD-RWへの書き込み</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="テクノロジ">テクノロジ</label>
+                        <div id="テクノロジ">
+                            COM, Visual Studio 2010, Windows 7, Windows SDK
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="トピック">トピック</label>
+                        <div id="トピック">
+                            COM, Windows &#12503;&#12525;&#12464;&#12521;&#12511;&#12531;&#12464;
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">ja-JP</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">最終更新日</label>
+                    <div id="LastUpdated">2011/04/21</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">ライセンス</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/DVD-RW-870205bd">このサンプルをオンラインで表示する</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'コードをコピー';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p><em>Windows Vista 以降にて、DVD-RWへの書き込みを行うサンプルです。</em></p>
+<p><span style="font-size:20px; font-weight:bold">Description</span></p>
+<p>Image Mastering API(IMAPI V2) にて書き込みを行います。<br>
+IMAPI V2のインターフェースは COM なので、いろいろなアクセス方法がありますが、サンプルでは、コード量が小さくなる スマートポインターを利用しています。</p>
+<p>Windows SDK にも サンプル があります。</p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C&#43;&#43;</span></div>
+<div class="pluginEditHolderLink">スクリプトの編集</div>
+<span class="hidden">cplusplus</span>
+<pre class="hidden">// デスクへの書き込み
+void WriteToDisc(LPCWSTR folder)
+{
+    HRESULT hr;
+    IDiscMaster2Ptr DiscMaster2 = NULL;
+    IDiscRecorder2Ptr DiscRecorder2 = NULL;
+    IDiscFormat2DataPtr DiscFormat2Data = NULL;
+	BSTR path =  ::SysAllocString(folder);
+
+	// DiscMaster2インスタンスの作成
+    hr = DiscMaster2.CreateInstance( CLSID_MsftDiscMaster2 );
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	// DiscRecorder2インスタンスの作成
+    hr = DiscRecorder2.CreateInstance( CLSID_MsftDiscRecorder2 );
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	// IDiscFormat2Dataインスタンスの作成
+    hr = DiscFormat2Data.CreateInstance( CLSID_MsftDiscFormat2Data );
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	//
+    // レコーダーの選択
+	//
+	BSTR uniqueId;
+
+	hr = DiscMaster2-&gt;get_Item(0, &amp;uniqueId);
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	hr = DiscRecorder2-&gt;InitializeDiscRecorder( uniqueId );
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	hr = DiscFormat2Data-&gt;put_Recorder(DiscRecorder2);
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+
+	//
+	// HDD上のフォルダから 構造化ストレージを作成
+	//
+    IFileSystemImagePtr FileSystemImage = NULL;
+	IFsiDirectoryItemPtr root = NULL;
+	IFileSystemImageResultPtr result = NULL;
+	IStreamPtr stream = NULL;
+	
+	hr = FileSystemImage.CreateInstance( CLSID_MsftFileSystemImage );
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	hr = FileSystemImage-&gt;put_FileSystemsToCreate( FsiFileSystemUDF ); // UDF を作成
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+		hr = FileSystemImage-&gt;ChooseImageDefaultsForMediaType( IMAPI_MEDIA_TYPE_DVDDASHRW ); // DVD-RW
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	hr = FileSystemImage-&gt;get_Root(&amp;root);
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	hr = root-&gt;AddTree(path, VARIANT_FALSE);
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	hr = FileSystemImage-&gt;CreateResultImage(&amp;result);
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	hr = result-&gt;get_ImageStream(&amp;stream);
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	//
+	// 属性の設定
+	//
+	hr = DiscFormat2Data-&gt;put_ForceMediaToBeClosed(VARIANT_TRUE);
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	hr = DiscFormat2Data-&gt;put_ClientName(g_appName);
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+
+	//
+    // 書き込み開始
+	//
+    wprintf_s(L&quot;メディアに書き込み\n&quot;);
+	hr = DiscFormat2Data-&gt;Write(stream);
+    if ( !SUCCEEDED(hr) )
+	{
+		wprintf_s(L&quot;Error (0x%x) (%d)\n&quot;, hr, __LINE__);
+		return;
+	}
+
+	wprintf_s(L&quot;書き込み終了\n&quot;);
+
+
+	return;
+}</pre>
+<div class="preview">
+<pre class="cplusplus"><span class="cpp__com">//&nbsp;デスクへの書き込み</span>&nbsp;
+<span class="cpp__keyword">void</span>&nbsp;WriteToDisc(<span class="cpp__datatype">LPCWSTR</span>&nbsp;folder)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__datatype">HRESULT</span>&nbsp;hr;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;IDiscMaster2Ptr&nbsp;DiscMaster2&nbsp;=&nbsp;NULL;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;IDiscRecorder2Ptr&nbsp;DiscRecorder2&nbsp;=&nbsp;NULL;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;IDiscFormat2DataPtr&nbsp;DiscFormat2Data&nbsp;=&nbsp;NULL;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;BSTR&nbsp;path&nbsp;=&nbsp;&nbsp;::SysAllocString(folder);&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//&nbsp;DiscMaster2インスタンスの作成</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;DiscMaster2.CreateInstance(&nbsp;CLSID_MsftDiscMaster2&nbsp;);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//&nbsp;DiscRecorder2インスタンスの作成</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;DiscRecorder2.CreateInstance(&nbsp;CLSID_MsftDiscRecorder2&nbsp;);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//&nbsp;IDiscFormat2Dataインスタンスの作成</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;DiscFormat2Data.CreateInstance(&nbsp;CLSID_MsftDiscFormat2Data&nbsp;);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//&nbsp;レコーダーの選択</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;BSTR&nbsp;uniqueId;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;DiscMaster2-&gt;get_Item(<span class="cpp__number">0</span>,&nbsp;&amp;uniqueId);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;DiscRecorder2-&gt;InitializeDiscRecorder(&nbsp;uniqueId&nbsp;);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;DiscFormat2Data-&gt;put_Recorder(DiscRecorder2);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//&nbsp;HDD上のフォルダから&nbsp;構造化ストレージを作成</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;IFileSystemImagePtr&nbsp;FileSystemImage&nbsp;=&nbsp;NULL;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;IFsiDirectoryItemPtr&nbsp;root&nbsp;=&nbsp;NULL;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;IFileSystemImageResultPtr&nbsp;result&nbsp;=&nbsp;NULL;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;IStreamPtr&nbsp;stream&nbsp;=&nbsp;NULL;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;FileSystemImage.CreateInstance(&nbsp;CLSID_MsftFileSystemImage&nbsp;);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;FileSystemImage-&gt;put_FileSystemsToCreate(&nbsp;FsiFileSystemUDF&nbsp;);&nbsp;<span class="cpp__com">//&nbsp;UDF&nbsp;を作成</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;FileSystemImage-&gt;ChooseImageDefaultsForMediaType(&nbsp;IMAPI_MEDIA_TYPE_DVDDASHRW&nbsp;);&nbsp;<span class="cpp__com">//&nbsp;DVD-RW</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;FileSystemImage-&gt;get_Root(&amp;root);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;root-&gt;AddTree(path,&nbsp;VARIANT_FALSE);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;FileSystemImage-&gt;CreateResultImage(&amp;result);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;result-&gt;get_ImageStream(&amp;stream);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//&nbsp;属性の設定</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;DiscFormat2Data-&gt;put_ForceMediaToBeClosed(VARIANT_TRUE);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;DiscFormat2Data-&gt;put_ClientName(g_appName);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//&nbsp;書き込み開始</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__com">//</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;メディアに書き込み\n&quot;</span>);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hr&nbsp;=&nbsp;DiscFormat2Data-&gt;Write(stream);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">if</span>&nbsp;(&nbsp;!SUCCEEDED(hr)&nbsp;)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;Error&nbsp;(0x%x)&nbsp;(%d)\n&quot;</span>,&nbsp;hr,&nbsp;__LINE__);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;wprintf_s(L<span class="cpp__string">&quot;書き込み終了\n&quot;</span>);&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cpp__keyword">return</span>;&nbsp;
+}&nbsp;
+&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+<h1><span>Source Code Files</span></h1>
+<ul>
+<li><em><em>TestV2.zip<br>
+</em></em></li></ul>
+<h1>More Information</h1>
+<p>Image Mastering API<br>
+<a href="http://msdn.microsoft.com/en-us/library/aa366450.aspx">http://msdn.microsoft.com/en-us/library/aa366450.aspx</a></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

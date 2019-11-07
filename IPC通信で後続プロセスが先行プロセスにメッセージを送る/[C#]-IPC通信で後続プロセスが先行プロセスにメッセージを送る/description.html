@@ -1,0 +1,317 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/0aac1760-b513-488a-ba57-e31d9413a075Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>IPC通信で後続プロセスが先行プロセスにメッセージを送る</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>IPC通信で後続プロセスが先行プロセスにメッセージを送る</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="テクノロジ">テクノロジ</label>
+                        <div id="テクノロジ">
+                            C#
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="トピック">トピック</label>
+                        <div id="トピック">
+                            C# &#12503;&#12525;&#12464;&#12521;&#12511;&#12531;&#12464;
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">ja-JP</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">最終更新日</label>
+                    <div id="LastUpdated">2011/03/25</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">ライセンス</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/IPC-917071bc">このサンプルをオンラインで表示する</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'コードをコピー';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p>IPC通信によって、指定した型を後続プロセスから先行プロセスに送信します。<br>
+イベントを用いて、先行プロセスは後続プロセスからメッセージを受信することが出来ます。</p>
+<p>多重起動禁止や、後続プロセスのコマンドライン引数などを先行プロセスに渡して、後続プロセスを終了し先行プロセスで処理、みたいなこともできます。<br>
+他の方法でも出来そうですが、こんな方法もあるよ、ということで。</p>
+<p>先行プロセスはIpcServerChannelを生成してサーバとなり、後続プロセスはIpcClientChannelを生成しクライアントとなります。<br>
+サーバとクライアントのコーディング方法は下記のような感じです。こう書くと、サーバでリモートオブジェクトを1つ持ち、それにクライアントがアクセスする感じになります。</p>
+<p>●サーバ部分（先行プロセス）</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginEditHolderLink">スクリプトの編集</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">_channel = new IpcServerChannel(portName, portName, new BinaryServerFormatterSinkProvider
+{
+	TypeFilterLevel = TypeFilterLevel.Full,
+});
+ChannelServices.RegisterChannel(_channel, true);
+
+RemotingConfiguration.RegisterWellKnownServiceType(
+	typeof(MessageHolder), uri, WellKnownObjectMode.Singleton);
+_messageHolder = new MessageHolder();
+RemotingServices.Marshal(_messageHolder, uri, typeof(MessageHolder));</pre>
+<div class="preview">
+<pre class="csharp">_channel&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;IpcServerChannel(portName,&nbsp;portName,&nbsp;<span class="cs__keyword">new</span>&nbsp;BinaryServerFormatterSinkProvider&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;TypeFilterLevel&nbsp;=&nbsp;TypeFilterLevel.Full,&nbsp;
+});&nbsp;
+ChannelServices.RegisterChannel(_channel,&nbsp;<span class="cs__keyword">true</span>);&nbsp;
+&nbsp;
+RemotingConfiguration.RegisterWellKnownServiceType(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">typeof</span>(MessageHolder),&nbsp;uri,&nbsp;WellKnownObjectMode.Singleton);&nbsp;
+_messageHolder&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;MessageHolder();&nbsp;
+RemotingServices.Marshal(_messageHolder,&nbsp;uri,&nbsp;<span class="cs__keyword">typeof</span>(MessageHolder));&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p>●クライアント部分（後続プロセス）</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginEditHolderLink">スクリプトの編集</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">_channel = new IpcClientChannel();
+ChannelServices.RegisterChannel(_channel, true);
+
+RemotingConfiguration.RegisterWellKnownClientType(
+	typeof(MessageHolder), string.Format(&quot;ipc://{0}/{1}&quot;, portName, uri));
+_messageHolder = new MessageHolder();</pre>
+<div class="preview">
+<pre class="csharp">_channel&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;IpcClientChannel();&nbsp;
+ChannelServices.RegisterChannel(_channel,&nbsp;<span class="cs__keyword">true</span>);&nbsp;
+&nbsp;
+RemotingConfiguration.RegisterWellKnownClientType(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">typeof</span>(MessageHolder),&nbsp;<span class="cs__keyword">string</span>.Format(<span class="cs__string">&quot;ipc://{0}/{1}&quot;</span>,&nbsp;portName,&nbsp;uri));&nbsp;
+_messageHolder&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;MessageHolder();&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+<p>イベントは、後続プロセスから先行プロセスへの一方通行となります。<br>
+これは、リモートオブジェクトの実態を持っているのが、サーバ（先行プロセス）だからです。<br>
+オブジェクトをクライアントとサーバの双方で持っていれば、双方向の通信が出来そうなので、そのうち改良します。</p>
+<p>リモートで通信を行うオブジェクトは以下のようになります。<br>
+MarshalByRefObjectの継承は必須です。<br>
+InitializeLifetimeServiceをオーバーライドし、リース期限を無制限にします。こうすることで、生成されたリモートオブジェクトが勝手に破棄されなくなります。<br>
+MessageReceivedイベントにサーバがハンドラを登録するわけですが、そのオブジェクトが破棄されると、次のクライアントからのアクセスにより新しオブジェクトが生成されてしまうことになります。その新しいオブジェクトのイベントにはサーバはなにも登録していませんので、サーバはメッセージ受信を感知出来なくなってしまいます。</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginEditHolderLink">スクリプトの編集</div>
+<span class="hidden">csharp</span>
+<pre class="hidden">private sealed class MessageHolder : MarshalByRefObject
+{
+	/// &lt;summary&gt;
+	/// 有効期間サービス オブジェクトを取得します。
+	/// &lt;/summary&gt;
+	public override object InitializeLifetimeService()
+	{
+		// このオブジェクトのリース期限を無制限にします。
+		// そうしなければ、オブジェクトにアクセスせず一定期限が過ぎると
+		// 自動的に破棄されてしまいます。
+		var lease = base.InitializeLifetimeService() as ILease;
+		if (lease.CurrentState == LeaseState.Initial)
+		{
+			lease.InitialLeaseTime = TimeSpan.Zero;
+		}
+		return lease;
+	}
+
+	/// &lt;summary&gt;
+	/// メッセージを受信したときに発生します。
+	/// &lt;/summary&gt;
+	public event Action&lt;T&gt; MessageReceived;
+
+	/// &lt;summary&gt;
+	/// MessageEventHandler イベントを発生させます。
+	/// &lt;/summary&gt;
+	public void OnMessageReceived(T message)
+	{
+		if (MessageReceived != null)
+			MessageReceived(message);
+	}
+}</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">private</span>&nbsp;<span class="cs__keyword">sealed</span>&nbsp;<span class="cs__keyword">class</span>&nbsp;MessageHolder&nbsp;:&nbsp;MarshalByRefObject&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;有効期間サービス&nbsp;オブジェクトを取得します。</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;/summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">override</span>&nbsp;<span class="cs__keyword">object</span>&nbsp;InitializeLifetimeService()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;このオブジェクトのリース期限を無制限にします。</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;そうしなければ、オブジェクトにアクセスせず一定期限が過ぎると</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;自動的に破棄されてしまいます。</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;var&nbsp;lease&nbsp;=&nbsp;<span class="cs__keyword">base</span>.InitializeLifetimeService()&nbsp;<span class="cs__keyword">as</span>&nbsp;ILease;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(lease.CurrentState&nbsp;==&nbsp;LeaseState.Initial)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lease.InitialLeaseTime&nbsp;=&nbsp;TimeSpan.Zero;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">return</span>&nbsp;lease;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;メッセージを受信したときに発生します。</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;/summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">event</span>&nbsp;Action&lt;T&gt;&nbsp;MessageReceived;&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;MessageEventHandler&nbsp;イベントを発生させます。</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">///&nbsp;&lt;/summary&gt;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;OnMessageReceived(T&nbsp;message)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">if</span>&nbsp;(MessageReceived&nbsp;!=&nbsp;<span class="cs__keyword">null</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MessageReceived(message);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

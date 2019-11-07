@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="ApplicationNavigation.View.UserControl7"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Background="#FFFFC9C9">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="22" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="UserControl 7"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" >
+            <TextBlock FontWeight="Bold" Text="11. MVVM - Please select:" Margin="0,0,10,0" VerticalAlignment="Center"/>
+            <ComboBox ItemsSource="{StaticResource People}" DisplayMemberPath="FirstName" SelectedItem="{Binding SelectedPerson, Mode=TwoWay}" />      
+        </StackPanel>
+        <GroupBox Margin="11" Header="User Management" Content="{Binding ManagementControl}" Grid.Row="2"/>
+    </Grid>
+</UserControl>

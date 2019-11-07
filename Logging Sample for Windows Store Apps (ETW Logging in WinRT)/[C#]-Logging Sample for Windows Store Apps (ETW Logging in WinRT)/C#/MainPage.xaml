@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="CompuSight.Metro.Samples.Logging.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CompuSight.Metro.Samples.Logging"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <StackPanel Orientation="Vertical">
+            <Button x:Name="VerboseMessage" Width="200" Height="40" Content="Verbose" Click="VerboseMessage_Click_1"></Button>
+            <Button x:Name="InfoMessage" Width="200" Height="40" Content="Info" Click="InfoMessage_Click_1"></Button>
+            <Button x:Name="ErrorMessage" Width="200" Height="40" Content="Error" Click="ErrorMessage_Click_1"></Button>
+            <Button x:Name="CriticalMessage" Width="200" Height="40" Content="Critical" Click="CriticalMessage_Click_1"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

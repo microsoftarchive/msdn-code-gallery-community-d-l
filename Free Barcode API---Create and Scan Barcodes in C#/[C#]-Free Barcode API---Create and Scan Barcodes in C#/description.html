@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7bd86db-8a7a-43ce-8954-21f8f839f51bCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Free Barcode API---Create and Scan Barcodes in C#</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Free Barcode API---Create and Scan Barcodes in C#</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, Silverlight, ASP.NET, Win32, WPF, .NET Framework, VB.Net, .NET Development
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Controls, C#, ASP.NET, Web Services, .NET 4, How to, C# Language Features
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Data, Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">5/16/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Free-Barcode-API-Create-466fe47a">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>This is a C # example to generate and recognise barcode via a Free C# barcode library. And the code gives you clear information of how to create and scan barcode in C#.</p>
+<p><a href="http://www.e-iceblue.com/Introduce/barcode-for-net-introduce.html">Spire.BarCode for .NET</a> is a
+<strong>100% free</strong>, professional and reliable barcode generation and recognition component. It enables developers to quickly and easily add barcode generation and recognition functionality to their Microsoft .NET applications and it supports in C#,
+ VB.NET.</p>
+<p><img id="114639" src="description/BarCode.png" alt=""></p>
+<p><strong>Main Features:</strong></p>
+<p><strong>Supports rich Barcode types, more than 38 different barcodes.</strong></p>
+<ul>
+<li>Aztec Barcode </li><li>Code bar Barcode </li><li>Code 1 of 1 Barcode </li><li>Standard 2 of 5 Barcode </li><li>Code 3 of 9 Barcode </li><li>Extended Code 3 of 9 Barcode </li><li>Code 9 of 3 Barcode </li><li>Extended Code 9 of 3 Barcode </li><li>Code 128 Barcode </li><li>EAN-8 Barcode </li><li>EAN-13 Barcode </li><li>EAN-128 Barcode </li><li>EAN-14 Barcode </li><li>SCC14 Barcode </li><li>SSCC18 Barcode </li><li>ITF14 Barcode </li><li>ITF-6 Barcode </li><li>UPCA Barcode </li><li>UPCE Barcode </li><li>Postnet Barcode </li><li>Planet Barcode </li><li>MSI Barcode </li><li>2D Barcode DataMatrix </li><li>QR Code Barcode </li><li>Pdf417 Barcode </li><li>Pdf417 Macro Barcode </li><li>RSS14 Barcode&nbsp; </li><li>RSS-14 Truncated Barcode </li><li>RSS Limited Barcode </li><li>RSS Expanded Barcode </li><li>USPS OneCode Barcode </li><li>Swiss Post Parcel Barcode </li><li>PZN Barcode&nbsp; </li><li>OPC(Optical Product Code) Barcode </li><li>Deutschen Post Barcode </li><li>Deutsche Post Leitcode Barcode </li><li>Royal Mail 4-state Customer Code Barcode </li><li>Singapore Post Barcode&nbsp; </li></ul>
+<p><strong>Robust Barcode Recognize and Generation 1D &amp; 2D Barcode.</strong></p>
+<p>Developers can read most often used Linear, 2D and Postal barcodes, detecting them anywhere, with any orientation.</p>
+<p><strong>High performance for generating and reading barcode image</strong></p>
+<p>Developers can create barcode images in any desired output image format like Bitmap, JPG, PNG, EMF, TIFF, GIF and WMF.</p>
+<p><strong>Superior performance support for reading and writing barcode</strong></p>
+<p>Developers can easily set barcode image borders, border colors, style, margins and width. You can also rotate barcode images to any angle and produce high quality barcode images.</p>
+<p><strong>Easy Integration</strong></p>
+<p>Spire.Barcode for .NET can be easily integrated into any .net applications. There are two main ways to integrate Spire.Barcode in .NET applications, API Mode and Component Mode.</p>
+<ul>
+<li>API Mode is just one line of code to create, recognizes barcode. </li><li>Component Mode use Visual way to create barcode, then drag Spire.Barcode component to your .NET, Windows or ASP.NET Form. No more code needs.
+</li></ul>
+<p><strong>Download Spire.BarCode</strong>:</p>
+<p>Spire.BarCode for .NET is a free barcode library used in .NET applications (in ASP.NET, WinForms and Web Service). And you can
+<a href="http://www.e-iceblue.com/Download/download-barcode-for-net-now.html">download Spire.BarCode for .NET
+</a>and install it on your system. With Spire.BarCode, you can add Enterprise-level barcode formats to your NET applications easily and quickly.</p>
+<p><strong>Related Links</strong></p>
+<p><strong>Website</strong>: <a href="http://www.e-iceblue.com">www.e-iceblue.com</a></p>
+<p><strong>Product Introduction</strong>: <a href="http://www.e-iceblue.com/Introduce/barcode-for-net-introduce.html">
+http://www.e-iceblue.com/Introduce/barcode-for-net-introduce.html</a></p>
+<p><strong>Download</strong>: <a href="http://www.e-iceblue.com/Download/download-barcode-for-net-now.html">
+http://www.e-iceblue.com/Download/download-barcode-for-net-now.html</a></p>
+<p><strong>Forum</strong>: <a href="http://www.e-iceblue.com/forum/spire-barcode-f13.html">
+Free Barcode Forums</a></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Comments Test Home Page</title>
+    <link href="/Content/Demo.css" rel="stylesheet" type="text/css" />
+    <script src="/Scripts/jquery-1.7.1.js" type="text/javascript"></script>
+    <script src="/Scripts/knockout-2.1.0.js" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="/Scripts/demo3/get-querystring.js"></script>
+    <script type="text/javascript" src="/Scripts/demo3/get-queryable.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="demo-navigation">
+            <a href="demo2-crud.htm">&lt;&lt;&lt; Back</a> 
+            | Demo 3 Paging |
+            <a href="demo4-validation.htm">On to Demo 4 - Validation &gt;&gt;&gt;</a>
+        </div>
+    </nav>
+    <div id="content">
+        
+        <div id="demo-actions">
+            <div>
+                <legend>Paging Demos</legend>
+                <label for="pageSize">Size:</label> <input type="input" id="pageSize" class="paging" value="4" />
+                <label for="pageIndex">Index:</label> <input type="input" id="pageIndex" class="paging" value="0" />
+                
+                <button id="getCommentsPaging">Query String</button> 
+                <button id="getCommentsQueryable">Queryable</button> 
+            </div>
+        </div>
+
+        <div id="article">
+            <p>
+                This is a demo of paging through data.
+            </p>
+            <p>
+                The "Query String" button calls code that demonstrates how a typical developer 
+                might implement paging today.
+            </p>
+            <p>
+                The "Queryable" button turns it up a notch and shows paging using a service method 
+                that returns an <code>IQueryable</code>. Note that the client code hasn't changed 
+                much at all, but the server code is much simpler.
+            </p>
+
+        </div>
+
+        <ul data-bind="template: {name: 'commentTemplate', foreach: comments}">
+        </ul>
+
+        <script id="commentTemplate" type="text/html">
+            <li class="comment">
+                <header>
+                    <div class="info">
+                        <img data-bind="attr: {src: GravatarUrl}" />
+                        <strong><span data-bind="text: Author"></span></strong>
+                    </div>
+                </header>
+                <div class="body">
+                    <p data-bind="text: Text"></p>
+            
+                </div>
+            </li>
+        </script>
+
+        <script type="text/javascript">
+            viewModel = {
+                comments: ko.observableArray([])
+            };
+
+            ko.applyBindings(viewModel);
+        </script>
+    </div>
+</body>
+</html>

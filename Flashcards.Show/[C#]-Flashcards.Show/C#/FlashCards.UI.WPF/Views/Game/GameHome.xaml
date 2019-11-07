@@ -1,0 +1,35 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:localFlip="clr-namespace:FlashCards.UI.Controls"
+	mc:Ignorable="d"
+	xmlns:local="clr-namespace:FlashCards.UI"
+	x:Class="FlashCards.UI.GameHome"
+	x:Name="UserControl"
+	d:DesignWidth="660.5" d:DesignHeight="450.5">
+
+	<Grid x:Name="LayoutRoot" Cursor="..\..\Resource\Images\LargeArrow.cur">
+		<Rectangle x:Name="BackgroundRectangle">
+			<Rectangle.Fill>
+				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+					<GradientStop Color="#FF0BB9F2" Offset="0.02"/>
+					<GradientStop Color="#FF04409F" Offset="0.992"/>
+				</LinearGradientBrush>
+			</Rectangle.Fill>
+		</Rectangle>
+
+        <localFlip:ParticleEmitter x:Name="Emitter">
+            <localFlip:ParticleEmitter.Background>
+                <SolidColorBrush/>
+            </localFlip:ParticleEmitter.Background>
+        </localFlip:ParticleEmitter>
+
+        <local:DecksView Margin="0,180,0,0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5"  />
+	
+        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="..\..\Resource\Images\FlashCardLogo.png" 
+                  IsHitTestVisible="False"  MaxWidth="680"/>
+	
+	</Grid>
+</UserControl>

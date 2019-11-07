@@ -1,0 +1,114 @@
+# Direct3D Tutorial Win32 Sample
+## Requires
+- Visual Studio 2012
+## License
+- MIT
+## Technologies
+- Win32
+- DirectX
+- DirectX SDK
+## Topics
+- Graphics and 3D
+## Updated
+- 10/12/2015
+## Description
+
+<p>The latest version of this sample is hosted on <a href="https://github.com/walbourn/directx-sdk-samples">
+GitHub</a>.</p>
+<p>This is the DirectX SDK's Direct3D 11 tutorial series updated to use Visual Studio 2012 and the Windows SDK 8.0 without any dependencies on legacy DirectX SDK content. These are tutorials for writing Win32 desktop DirectX 11.0 applications for Windows 8,
+ Windows 7, and Windows Vista Service Pack 2 with the DirectX 11.0 runtime.</p>
+<p><strong>This is based on the the legacy DirectX SDK (June 2010) tutorial for Win32 desktop applications running on Windows Vista, Windows 7, and Windows 8. This is not intended for use with Windows Store apps or Windows RT.</strong></p>
+<p>See the Official Windows SDK sample &quot;<a href="http://code.msdn.microsoft.com/windowsapps/Direct3D-Tutorial-Sample-08667fb0">Direct3D tutorial sample</a>&quot; for the equivalent tutorials for&nbsp;Windows Store apps.</p>
+<h2>Description</h2>
+<p>Note that the original documentation pages still refer to legacy D3DX content such as
+<code>D3DX11CompileFromFile</code>, <code>D3DX11CreateShaderResourceViewFromFile</code>, and D3DX math which are not used in this version of the tutorials.</p>
+<p style="text-align:left">Ideally you would avoid using runtime HLSL compliation entirely and use build-time compilation instead, loading only the 'shader binary blob' at runtime and using it directly with the Direct3D 11 API. For simplicity, these tutorials
+ maintain the 'runtime' compilation mode using the Win32 desktop supported <code>
+D3DCompileFromFile</code> and the VC projects also compile the HLSL at build-time compilation.</p>
+<p>These tutorials make use of <a href="http://blogs.msdn.com/b/chuckw/archive/2012/03/27/introducing-directxmath.aspx">
+DirectXMath</a> rather than XNAMath or D3DX math.</p>
+<p>For texture loading, the tutorials make use of the <a href="http://blogs.msdn.com/b/chuckw/archive/2012/05/04/direct3d-11-textures-and-block-compression.aspx">
+DDSTextureLoader </a>module. See <a href="http://go.microsoft.com/fwlink/?LinkId=248929">
+DirectXTK </a>and <a href="http://go.microsoft.com/fwlink/?LinkId=248926">DirectXTex</a>.</p>
+<h2>Tutorial 1: Direct3D 11 Basics</h2>
+<p><img src="57527-tutorial01.jpg" alt="" width="200" height="150"></p>
+<p>In this first tutorial, we will go through the elements necessary to create a minimal Direct3D 11 application. Every Direct3D 11 application must have these elements to function properly. The elements include setting up a window and a device object, and
+ then displaying a color on the window.</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/windows/apps/ff729718.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/ff729718.aspx</a></p>
+<p><em>Note that rather than use D3D11CreateDeviceAndSwapChain as was the case in the original tutorial, this version now uses D3D11CreateDevice and then either DXGI 1.2's CreateSwapChainForHwnd or DXGI 1.1's CreateSwapChain.</em></p>
+<h2><em>Tutorial 2: Rendering a Triangle</em></h2>
+<p><img src="57528-tutorial02.jpg" alt="" width="200" height="150"></p>
+<p>In the previous tutorial, we built a minimal Direct3D 11 application that outputs a single color to the window. In this tutorial, we will extend the application to render a single triangle on the screen. We will go through the process to set up the data
+ structures associated with a triangle.</p>
+<p>The outcome of this tutorial is a window with a triangle rendered to the center of the window.</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/windows/apps/ff729719.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/ff729719.aspx</a></p>
+<p><em>Note that rather than use the deprecated D3DX11 functions to compile the HLSL shader as was done in the original tutorial, this version uses the D3DCompile API directly.</em></p>
+<h2>Tutorial 3: Shaders and Effect System</h2>
+<p><img src="57530-tutorial03.jpg" alt="" width="200" height="150"></p>
+<p>In the previous tutorial, we set up a vertex buffer and passed one triangle to the GPU. Now, we will actually step through the graphics pipeline and look at how each stage works. The concept of shaders and the effect system will be explained.</p>
+<p>Note that this tutorial shares the same source code as the previous one, but will emphasize a different section.</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/windows/apps/ff729720.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/ff729720.aspx</a></p>
+<p>&nbsp;</p>
+<h2>Tutorial 4: 3D Spaces</h2>
+<p><img src="57531-tutorial04.jpg" alt="" width="200" height="150"></p>
+<p>In the previous tutorial, we successfully rendered a triangle in the center of our application window. We haven't paid much attention to the vertex positions that we have picked in our vertex buffer. In this tutorial, we will delve into the<br>
+details of 3D positions and transformation.</p>
+<p>The outcome of this tutorial will be a 3D object rendered to screen. Whereas previous tutorials focused on rendering a 2D object onto a 3D world, here we show a 3D object.</p>
+<p><br>
+<a href="http://msdn.microsoft.com/en-us/library/windows/apps/ff729721.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/ff729721.aspx</a></p>
+<p>&nbsp;</p>
+<h2>Tutorial 5: 3D Transformation</h2>
+<p><img src="57532-tutorial05.jpg" alt="" width="200" height="150"></p>
+<p>In the previous tutorial, we rendered a cube from model space to the screen. In this tutorial, we will extend the concept of transformations and demonstrate simple animation that can be achieved with these transformations.</p>
+<p>The outcome of this tutorial will be an object that orbits around another. It would be useful to demonstrate the ransformations and how they can be combined to achieve the desired effect. Future tutorials will be building on this foundation as we introduce
+ new concepts.</p>
+<p><a href="http://msdn.microsoft.com/en-us/library/windows/apps/ff729722.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/ff729722.aspx</a></p>
+<h2><br>
+Tutorial 6: Lighting</h2>
+<p><img src="57533-tutorial06.jpg" alt="" width="200" height="150"></p>
+<p>In the previous tutorials, the world looks boring because all the objects are lit in the same way. This tutorial will introduce the concept of simple lighting and how it can be applied. The technique used will be lambertian lighting.</p>
+<p>The outcome of this tutorial will modify the previous example to include a light source. This light source will be attached to the cube in orbit. The effects of the light can be seen on the center cube.</p>
+<p><br>
+<a href="http://msdn.microsoft.com/en-us/library/windows/apps/ff729723.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/ff729723.aspx</a></p>
+<h2><br>
+Tutorial 7: Texture Mapping and Constant Buffers</h2>
+<p><img src="57534-tutorial07.jpg" alt="" width="200" height="150"></p>
+<p><br>
+In the previous tutorial, we introduced lighting to our project. Now we will build on that by adding textures to our cube. Also, we will introduce the concept of constant buffers, and explain how you can use buffers to speed up processing by minimizing bandwidth
+ usage.</p>
+<p>The purpose of this tutorial is to modify the center cube to have a texture mapped onto it.</p>
+<p><br>
+<a href="http://msdn.microsoft.com/en-us/library/windows/apps/ff729724.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/ff729724.aspx</a></p>
+<p><em>Note rather than use the deprecated D3DX11 library to load the texture as was used in the original tutorial, this version uses the included DDSTextureLoader module.</em></p>
+<h1>Version History</h1>
+<p>December 5, 2014 - Since the tutorial doesn't handle window resizing or full-screen swapchains correctly, updated the sample to remove the ATL&#43;ENTER shortcut, the maximize button, and the resizing window border.</p>
+<p>July 22, 2014 - Eliminated use of D3D11CreateDeviceAndSwapChain per recommendations from MSDN, update DDSTextureLoader to latest version.</p>
+<p>November 18, 2013 - Added optional QI of DirectX 11.1 APIs</p>
+<p>September 16, 2013 - C&#43;&#43;11 updates, DirectX 11.1 support, /analyze cleanup, removed problematic custom build step, renamed project files.</p>
+<p>December 13, 2012 - More project file cleanups</p>
+<p>November 26, 2012 - Updated custom build steps for VS 2012 RTM</p>
+<p>May 18, 2012 - Updated Tutorial07's cube so the texture coordinates will display a texture with text as you'd expect</p>
+<p>May 16, 2012 - Original version cleaned up from DirectX SDK (June 2010) release</p>
+<h1>Dependancies</h1>
+<p>DirectX Win32 desktop&nbsp;samples typically make use of runtime HLSL compilation. Build-time compilation is recommended for all production Direct3D applications, but for experimentation and samples development runtime HLSL compiliation is preferred. Therefore,
+ the D3DCompile*.DLL must be available in the search path when these programs are executed.</p>
+<ul>
+<li>When using the Windows 8.x SDK and targeting Windows Vista or later, you can include the D3DCompile_46 or D3DCompile_47 DLL side-by-side with your application copying the file from the REDIST folder.
+</li></ul>
+<pre style="padding-left:60px">%ProgramFiles(x86)%\Windows kits\8.0\Redist\D3D\arm, x86 or x64</pre>
+<pre style="padding-left:60px">%ProgramFiles(x86)%\Windows kits\8.1\Redist\D3D\arm, x86 or x64&nbsp;</pre>
+<h1>Building with Visual Studio 2010</h1>
+<p>The code in these samples can be built using Visual Studio 2010 rather than Visual Studio 2012. The changes required are:</p>
+<ul>
+<li>Change the Platform Toolset to &quot;v100&quot; </li><li>Obtain the <a href="http://msdn.microsoft.com/en-us/windows/hardware/hh852363">
+Windows SDK 8.0</a> </li><li>Use the <a href="http://blogs.msdn.com/b/vcblog/archive/2012/11/23/using-the-windows-8-sdk-with-visual-studio-2010-configuring-multiple-projects.aspx">
+instructions </a>for adding the Windows 8.0 SDK headers for VS 2010 projects </li></ul>
+<h1>Building with Visual Studio 2013</h1>
+<p>Open the project with Visual Studio 2013 and upgrade the VC&#43;&#43; complier and libraries.</p>
+<h1>More Information</h1>
+<p><a href="http://blogs.msdn.com/b/chuckw/archive/2012/03/22/where-is-the-directx-sdk.aspx">Where is the DirectX SDK?</a></p>
+<p><a href="http://blogs.msdn.com/b/chuckw/archive/2013/07/01/where-is-the-directx-sdk-2013-edition.aspx">Where is the DirectX SDK (2013 Edition)?</a></p>
+<p><a href="http://blogs.msdn.com/b/chuckw/">Games for Windows and DirectX SDK blog</a></p>
+<p><a href="http://code.msdn.microsoft.com/DirectXTK-Simple-Win32-23db418a">DirectXTK Simple Win32 sample</a></p>
+<div class="mcePaste" id="_mcePaste" style="left:-10000px; top:2506px; width:1px; height:1px; overflow:hidden">
+</div>

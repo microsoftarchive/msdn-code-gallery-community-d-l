@@ -1,0 +1,429 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/a7d1e078-8570-47da-a87b-ff462dfc958dCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Dining Philosophers in C#</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Dining Philosophers in C#</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, threading, Parallel Programming
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            threading, Parallel Programming
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/10/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Dining-Philosophers-in-C-9ec1dcef">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<div style="font-size:small">
+<div>There are numerous solutions to the dining philosophers problem on the internet and I will not be reciting the story. You can find it at one of the following two links:</div>
+<div>&nbsp;</div>
+<div><a title="Solving The Dining Philosophers Problem With Asynchronous Agents" href="http://msdn.microsoft.com/en-us/magazine/dd882512.aspx" >MSDN Magazine</a></div>
+<div><a title="Dining philosophers" href="http://rosettacode.org/wiki/Dining_philosophers" >Rosetta Code</a></div>
+<br>
+<div>A few notes. Each philosopher is marked with a circle and can pick a chopstick on the left and on the&nbsp;right before he can eat. So, if philosopher 1 picks chopstick #5, philosopher #5 must wait for philosopher 1 to finish eating before he can pick
+ the chopstick.</div>
+<div>&nbsp;</div>
+<div><img id="79655" src="description/philosophers.png" alt="" width="251" height="243"></div>
+<div>&nbsp;</div>
+<div>Application of this pattern could be transferring of money from one account A to another account B. Similarity would be where you have to acquire locks on A and B before money could exchange hands. That is necessary to ensure that only one transaction
+ could go through both accounts at the same time.</div>
+<div>&nbsp;</div>
+<div>Once the problem is understood the code becomes very clear. We pass in left and right chopsticks and acquire locks on them, then a philosopher can eat. It is critical in such design that objects used for locking are always passed in the same order. Here
+ chopsticks are numbered from 1 to 5 and must always be passed in ascending order. The consequence of&nbsp;mixing order, for example passing chopsticks 4 to left and 3 to right for philosopher 3 randomly could cause the code to deadlock at runtime.</div>
+<div>&nbsp;</div>
+<div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">static public void Eat(
+    object leftChopstick, 
+    object rightChopstick, 
+    int philosopherNumber
+    )
+{
+    lock (leftChopstick)                // Grab utencil on the left
+    {
+        lock (rightChopstick)           // Grab utencil on the right
+        {
+            // Eat here
+            Console.WriteLine(&quot;Philosopher {0} eats.&quot;, philosopherNumber);
+        }
+    }
+}
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">static</span>&nbsp;<span class="cs__keyword">public</span>&nbsp;<span class="cs__keyword">void</span>&nbsp;Eat(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">object</span>&nbsp;leftChopstick,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">object</span>&nbsp;rightChopstick,&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">int</span>&nbsp;philosopherNumber&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">lock</span>&nbsp;(leftChopstick)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Grab&nbsp;utencil&nbsp;on&nbsp;the&nbsp;left</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">lock</span>&nbsp;(rightChopstick)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Grab&nbsp;utencil&nbsp;on&nbsp;the&nbsp;right</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Eat&nbsp;here</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Console.WriteLine(<span class="cs__string">&quot;Philosopher&nbsp;{0}&nbsp;eats.&quot;</span>,&nbsp;philosopherNumber);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">What's left is to create objects that we will use for synchronization, these are the chopsticks:</div>
+<div class="endscriptcode">&nbsp;</div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">const int numPhilosophers = 5;
+
+// 5 utencils on the left and right of each philosopher. Use them to acquire locks.
+var chopsticks = new Dictionary&lt;int, object&gt;(numPhilosophers);
+
+for (int i = 0; i &lt; numPhilosophers; &#43;&#43;i)
+{
+    chopsticks.Add(i, new object());
+}
+</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__keyword">const</span>&nbsp;<span class="cs__keyword">int</span>&nbsp;numPhilosophers&nbsp;=&nbsp;<span class="cs__number">5</span>;&nbsp;
+&nbsp;
+<span class="cs__com">//&nbsp;5&nbsp;utencils&nbsp;on&nbsp;the&nbsp;left&nbsp;and&nbsp;right&nbsp;of&nbsp;each&nbsp;philosopher.&nbsp;Use&nbsp;them&nbsp;to&nbsp;acquire&nbsp;locks.</span>&nbsp;
+var&nbsp;chopsticks&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;Dictionary&lt;<span class="cs__keyword">int</span>,&nbsp;<span class="cs__keyword">object</span>&gt;(numPhilosophers);&nbsp;
+&nbsp;
+<span class="cs__keyword">for</span>&nbsp;(<span class="cs__keyword">int</span>&nbsp;i&nbsp;=&nbsp;<span class="cs__number">0</span>;&nbsp;i&nbsp;&lt;&nbsp;numPhilosophers;&nbsp;&#43;&#43;i)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;chopsticks.Add(i,&nbsp;<span class="cs__keyword">new</span>&nbsp;<span class="cs__keyword">object</span>());&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">Allocate tasks, one for each philosopher. Here's an interesting part, I am using loop local variable ix instead of loop global i variable. That is due to how variables are captured by lambdas in c#. Try using i instead of ix.</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">Task[] tasks = new Task[numPhilosophers];
+
+tasks[0] = new Task(() =&gt; Philoshoper.Eat(chopsticks[0], chopsticks[numPhilosophers - 1], 0 &#43; 1, 1, numPhilosophers));
+
+for (int i = 1; i &lt; chopsticks.Count; &#43;&#43;i)
+{
+    int ix = i;
+    tasks[ix] = new Task(() =&gt; Philoshoper.Eat(chopsticks[ix - 1], chopsticks[ix], ix &#43; 1, ix, ix &#43; 1));
+}
+</pre>
+<div class="preview">
+<pre class="csharp">Task[]&nbsp;tasks&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;Task[numPhilosophers];&nbsp;
+&nbsp;
+tasks[<span class="cs__number">0</span>]&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;Task(()&nbsp;=&gt;&nbsp;Philoshoper.Eat(chopsticks[<span class="cs__number">0</span>],&nbsp;chopsticks[numPhilosophers&nbsp;-&nbsp;<span class="cs__number">1</span>],&nbsp;<span class="cs__number">0</span>&nbsp;&#43;&nbsp;<span class="cs__number">1</span>,&nbsp;<span class="cs__number">1</span>,&nbsp;numPhilosophers));&nbsp;
+&nbsp;
+<span class="cs__keyword">for</span>&nbsp;(<span class="cs__keyword">int</span>&nbsp;i&nbsp;=&nbsp;<span class="cs__number">1</span>;&nbsp;i&nbsp;&lt;&nbsp;chopsticks.Count;&nbsp;&#43;&#43;i)&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__keyword">int</span>&nbsp;ix&nbsp;=&nbsp;i;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;tasks[ix]&nbsp;=&nbsp;<span class="cs__keyword">new</span>&nbsp;Task(()&nbsp;=&gt;&nbsp;Philoshoper.Eat(chopsticks[ix&nbsp;-&nbsp;<span class="cs__number">1</span>],&nbsp;chopsticks[ix],&nbsp;ix&nbsp;&#43;&nbsp;<span class="cs__number">1</span>,&nbsp;ix,&nbsp;ix&nbsp;&#43;&nbsp;<span class="cs__number">1</span>));&nbsp;
+}&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">And that's all there is to it. Now we can execute the tasks and wait for all of them to complete:</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// May eat!
+Parallel.ForEach(tasks, t =&gt;
+{
+    t.Start();
+});
+
+// Wait for all philosophers to finish their dining
+Task.WaitAll(tasks);
+</pre>
+<div class="preview">
+<pre class="js"><span class="js__sl_comment">//&nbsp;May&nbsp;eat!</span>&nbsp;
+Parallel.ForEach(tasks,&nbsp;t&nbsp;=&gt;&nbsp;
+<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;t.Start();&nbsp;
+<span class="js__brace">}</span>);&nbsp;
+&nbsp;
+<span class="js__sl_comment">//&nbsp;Wait&nbsp;for&nbsp;all&nbsp;philosophers&nbsp;to&nbsp;finish&nbsp;their&nbsp;dining</span>&nbsp;
+Task.WaitAll(tasks);&nbsp;
+</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">I have used Parallel.ForEach loop instead of a simple for loop in order to demonstrate the task parallel library and also to randomize execution of each task without adding delay which could be done inside Eat function's inner lock
+ like this:</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">Task.Delay(5000);</pre>
+<div class="preview">
+<pre class="js">Task.Delay(<span class="js__num">5000</span>);</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">And here is a possible output:</div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">/*
+   Philosopher 2 picked 1 chopstick.
+   Philosopher 4 picked 3 chopstick.
+   Philosopher 3 picked 2 chopstick.
+   Philosopher 4 picked 4 chopstick.
+Philosopher 4 eats.
+   Philosopher 4 released 4 chopstick.
+   Philosopher 4 released 3 chopstick.
+   Philosopher 3 picked 3 chopstick.
+Philosopher 3 eats.
+   Philosopher 3 released 3 chopstick.
+   Philosopher 3 released 2 chopstick.
+   Philosopher 5 picked 4 chopstick.
+   Philosopher 5 picked 5 chopstick.
+Philosopher 5 eats.
+   Philosopher 5 released 5 chopstick.
+   Philosopher 5 released 4 chopstick.
+   Philosopher 2 picked 2 chopstick.
+Philosopher 2 eats.
+   Philosopher 2 released 2 chopstick.
+   Philosopher 2 released 1 chopstick.
+   Philosopher 1 picked 1 chopstick.
+   Philosopher 1 picked 5 chopstick.
+Philosopher 1 eats.
+   Philosopher 1 released 5 chopstick.
+   Philosopher 1 released 1 chopstick.
+*/</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__mlcom">/*&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;2&nbsp;picked&nbsp;1&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;4&nbsp;picked&nbsp;3&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;3&nbsp;picked&nbsp;2&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;4&nbsp;picked&nbsp;4&nbsp;chopstick.&nbsp;
+Philosopher&nbsp;4&nbsp;eats.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;4&nbsp;released&nbsp;4&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;4&nbsp;released&nbsp;3&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;3&nbsp;picked&nbsp;3&nbsp;chopstick.&nbsp;
+Philosopher&nbsp;3&nbsp;eats.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;3&nbsp;released&nbsp;3&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;3&nbsp;released&nbsp;2&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;5&nbsp;picked&nbsp;4&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;5&nbsp;picked&nbsp;5&nbsp;chopstick.&nbsp;
+Philosopher&nbsp;5&nbsp;eats.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;5&nbsp;released&nbsp;5&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;5&nbsp;released&nbsp;4&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;2&nbsp;picked&nbsp;2&nbsp;chopstick.&nbsp;
+Philosopher&nbsp;2&nbsp;eats.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;2&nbsp;released&nbsp;2&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;2&nbsp;released&nbsp;1&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;1&nbsp;picked&nbsp;1&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;1&nbsp;picked&nbsp;5&nbsp;chopstick.&nbsp;
+Philosopher&nbsp;1&nbsp;eats.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;1&nbsp;released&nbsp;5&nbsp;chopstick.&nbsp;
+&nbsp;&nbsp;&nbsp;Philosopher&nbsp;1&nbsp;released&nbsp;1&nbsp;chopstick.&nbsp;
+*/</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+<div class="endscriptcode"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="font-size:small">
+<div class="endscriptcode" style="font-size:small">
+<h2><span style="font-size:small">Summary</span></h2>
+<dl><dt>I hope the code will help some of you to learn concepts of thread synchronization and parallel programming.</dt></dl>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+<h2>Source Code Files</h2>
+<dl><dt>program.cs - the only file in the project &nbsp;</dt></dl>
+<div>&nbsp;</div>
+<dl></dl>
+
+</div>
+
+
+    </div>
+</body>
+</html>

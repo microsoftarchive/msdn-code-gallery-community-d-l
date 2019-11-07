@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps;/Areas/Centers/Themes/StandardDevCenter/Content:0&amp;amp;v=00BF8329394D76B137F66627A3BAE835" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:NewFooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=97FC4B2C7456659D6CA20863F989B6C1" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Get changes for a DataTable (add, remove and edit) VB.NET</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Get changes for a DataTable (add, remove and edit) VB.NET</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SQL Server, DataGridView, DataTable
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Data Access, DataTable, Databases
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Desktop, Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">9/27/2017</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MIT</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/Get-changes-for-a-bb8f5064">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Description</h1>
+<p><span style="font-size:small">This code sample shows how to get changes from a DataTable that may be hooked up to a DataGridView, DataGridView and also bound to controls such as TextBox, ComboBox etc.</span></p>
+<p><span style="font-size:small">What prompted this code sample was over the years answering questions on the Microsoft Social forums and other major forums new comers to working with data would ask &quot;how do I get changes to my DataTable which is bound to one
+ or more controls&quot; or &quot;why I'm I getting concurrency exceptions?&quot;. This code sample does not show how to handle concurrency issues but instead the point on this topic is not understanding the &quot;why&quot; things happen. So instead the focus here is to provide a class
+ project that encapsulates a DataTable language extension method (along with a few helper extensions) to when there are issues with changes in a DataTable you can add this library to your solution to see what is happening under the covers and once done remove
+ the class project/library from the solution.</span></p>
+<p><span style="font-size:small">I also did this in C# <a href="https://code.msdn.microsoft.com/Get-changes-for-a-bb8f5064/https://code.msdn.microsoft.com/Get-changes-for-a-11413e32?redir=0">
+found here</a>. Note that usually my C# examples are more robust yet this code sample in vb.net goes beyond the C# example.</span></p>
+<p><span style="font-size:small">In short using the image below taken from the code sample, in TableChanges class each action has a check and container. For example, if want to know if there are new row(s) check HasNew, if true then Added (a DataTable) will
+ have the new rows, Deleted rows are a little more complex but I've made it easy.</span></p>
+<p><img id="180005" src="description/11111.jpg" alt="" width="466" height="485"></p>
+<p><span style="font-size:small">In the code sample data is loaded into two DataTable objects and shown in a DataGridView via a BindingSource component.</span></p>
+<p><img id="180006" src="description/2222222.jpg" alt="" width="570" height="419"></p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">Public Class Form1
+    Private bsPeople As New BindingSource()
+    Private bsGender As New BindingSource()
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        dataGridView1.AutoGenerateColumns = False
+        Dim ops = New DataOperations()
+        ops.Read()
+
+        bsGender.DataSource = ops.GenderTable
+
+        GenderColumn.DisplayMember = &quot;Gender&quot;
+        GenderColumn.ValueMember = &quot;GenderIdentifier&quot;
+        GenderColumn.DataSource = bsGender
+        GenderColumn.DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing
+
+        bsPeople.DataSource = ops.PersonsTable
+        dataGridView1.DataSource = bsPeople
+
+    End Sub</pre>
+<div class="preview">
+<pre class="vb"><span class="visualBasic__keyword">Public</span>&nbsp;<span class="visualBasic__keyword">Class</span>&nbsp;Form1&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Private</span>&nbsp;bsPeople&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;BindingSource()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Private</span>&nbsp;bsGender&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;BindingSource()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Private</span>&nbsp;<span class="visualBasic__keyword">Sub</span>&nbsp;Form1_Load(sender&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;<span class="visualBasic__keyword">Object</span>,&nbsp;e&nbsp;<span class="visualBasic__keyword">As</span>&nbsp;EventArgs)&nbsp;<span class="visualBasic__keyword">Handles</span>&nbsp;<span class="visualBasic__keyword">MyBase</span>.Load&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataGridView1.AutoGenerateColumns&nbsp;=&nbsp;<span class="visualBasic__keyword">False</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">Dim</span>&nbsp;ops&nbsp;=&nbsp;<span class="visualBasic__keyword">New</span>&nbsp;DataOperations()&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ops.Read()&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bsGender.DataSource&nbsp;=&nbsp;ops.GenderTable&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GenderColumn.DisplayMember&nbsp;=&nbsp;<span class="visualBasic__string">&quot;Gender&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GenderColumn.ValueMember&nbsp;=&nbsp;<span class="visualBasic__string">&quot;GenderIdentifier&quot;</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GenderColumn.DataSource&nbsp;=&nbsp;bsGender&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GenderColumn.DisplayStyle&nbsp;=&nbsp;DataGridViewComboBoxDisplayStyle.<span class="visualBasic__keyword">Nothing</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bsPeople.DataSource&nbsp;=&nbsp;ops.PersonsTable&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dataGridView1.DataSource&nbsp;=&nbsp;bsPeople&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="visualBasic__keyword">End</span>&nbsp;<span class="visualBasic__keyword">Sub</span></pre>
+</div>
+</div>
+</div>
+<p><span style="font-size:small">So when we need access to the DataTable we cast the DataSource of the BindingSource to a DataTable (which is what TableChanges languag extensions work with).</span></p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">Dim originalTable As DataTable = CType(bsPeople.DataSource, DataTable)
+Dim results As TableChanges = originalTable.AllChanges(&quot;id&quot;)</pre>
+<div class="preview">
+<pre class="js">Dim&nbsp;originalTable&nbsp;As&nbsp;DataTable&nbsp;=&nbsp;CType(bsPeople.DataSource,&nbsp;DataTable)&nbsp;
+Dim&nbsp;results&nbsp;As&nbsp;TableChanges&nbsp;=&nbsp;originalTable.AllChanges(<span class="js__string">&quot;id&quot;</span>)</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><span style="font-size:small">AllChanges is in Extensions.vb (a code module for language extensions), it requires the primary key name for the table.</span></div>
+<p><span style="font-size:small">The following ask if we have any added rows</span></p>
+<p>&nbsp;</p>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">If results.HasModified Then</pre>
+<div class="preview">
+<pre class="js">If&nbsp;results.HasModified&nbsp;Then</pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><span style="font-size:small">What you do with this is up to you. In the attached solution we will update the back end database as this is really the intent of this code but you could simply view changes and we can do that too in
+ the demo project.</span></div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode"><span style="font-size:small">Without these extensions you can replicate what I've done but what I have seen out there is not reusable or done wrong.</span></div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode"><span style="font-size:small">The most challenging was adding new rows to the DataGridView and update the original new records (not as easy as one would think unless you come from a multi-user environment).&nbsp; After a little
+ thought believed an <a href="https://code.msdn.microsoft.com/Get-changes-for-a-bb8f5064/https://docs.microsoft.com/en-us/dotnet/visual-basic/programming-guide/concepts/iterators">
+Iterator</a> would fit the job.</span></div>
+<div class="endscriptcode"></div>
+<div class="endscriptcode">
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span style="font-size:small">Visual Basic</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">vb</span>
+<pre class="hidden">Public Iterator Function Add(ByVal pTable As DataTable) As IEnumerable(Of NewRecord)
+    Dim NewIdentifier As Integer = 0
+
+    Using cn As SqlConnection = New SqlConnection With {.ConnectionString = ConnectionString}
+        Using cmd As SqlCommand = New SqlCommand With {.Connection = cn}
+
+            cmd.CommandText =
+                &lt;SQL&gt;
+                    INSERT INTO dbo.Persons1 
+                    (
+                        FirstName,
+                        LastName,
+                        GenderIdentifier,
+                        IsDeleted
+                    )  
+                    VALUES 
+                    (
+                        @FirstName,
+                        @LastName,
+                        @GenderIdentifier,0
+                    );
+                    SELECT CAST(scope_identity() AS int);
+                &lt;/SQL&gt;.Value
+
+
+            cmd.Parameters.Add(New SqlParameter With {.ParameterName = &quot;@FirstName&quot;, .DbType = DbType.String})
+            cmd.Parameters.Add(New SqlParameter With {.ParameterName = &quot;@LastName&quot;, .DbType = DbType.String})
+            cmd.Parameters.Add(New SqlParameter With {.ParameterName = &quot;@GenderIdentifier&quot;, .DbType = DbType.Int32})
+
+            cn.Open()
+
+            For Each row As DataRow In pTable.Rows
+
+                cmd.Parameters(&quot;@FirstName&quot;).Value = row.Field(Of String)(&quot;FirstName&quot;)
+                cmd.Parameters(&quot;@LastName&quot;).Value = row.Field(Of String)(&quot;LastName&quot;)
+                cmd.Parameters(&quot;@GenderIdentifier&quot;).Value = row.Field(Of Integer)(&quot;GenderIdentifier&quot;)
+
+                NewIdentifier = Convert.ToInt32(cmd.ExecuteScalar())
+                Yield New NewRecord With
+                    {
+                        .IncomingIdentifier = row.Field(Of Integer)(&quot;Id&quot;), .OutGoingIdentifier = NewIdentifier
+                    }
+
+            Next
+        End Using
+    End Using
+
+End Function</pre>
+<div class="preview">
+<pre class="js">Public&nbsp;Iterator&nbsp;<span class="js__object">Function</span>&nbsp;Add(ByVal&nbsp;pTable&nbsp;As&nbsp;DataTable)&nbsp;As&nbsp;IEnumerable(Of&nbsp;NewRecord)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Dim&nbsp;NewIdentifier&nbsp;As&nbsp;Integer&nbsp;=&nbsp;<span class="js__num">0</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;Using&nbsp;cn&nbsp;As&nbsp;SqlConnection&nbsp;=&nbsp;New&nbsp;SqlConnection&nbsp;With&nbsp;<span class="js__brace">{</span>.ConnectionString&nbsp;=&nbsp;ConnectionString<span class="js__brace">}</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Using&nbsp;cmd&nbsp;As&nbsp;SqlCommand&nbsp;=&nbsp;New&nbsp;SqlCommand&nbsp;With&nbsp;<span class="js__brace">{</span>.Connection&nbsp;=&nbsp;cn<span class="js__brace">}</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmd.CommandText&nbsp;=&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;SQL&gt;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INSERT&nbsp;INTO&nbsp;dbo.Persons1&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FirstName,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LastName,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GenderIdentifier,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IsDeleted&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;VALUES&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@FirstName,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@LastName,&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@GenderIdentifier,<span class="js__num">0</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SELECT&nbsp;CAST(scope_identity()&nbsp;AS&nbsp;int);&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/SQL&gt;.Value&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmd.Parameters.Add(New&nbsp;SqlParameter&nbsp;With&nbsp;<span class="js__brace">{</span>.ParameterName&nbsp;=&nbsp;<span class="js__string">&quot;@FirstName&quot;</span>,&nbsp;.DbType&nbsp;=&nbsp;DbType.<span class="js__object">String</span><span class="js__brace">}</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmd.Parameters.Add(New&nbsp;SqlParameter&nbsp;With&nbsp;<span class="js__brace">{</span>.ParameterName&nbsp;=&nbsp;<span class="js__string">&quot;@LastName&quot;</span>,&nbsp;.DbType&nbsp;=&nbsp;DbType.<span class="js__object">String</span><span class="js__brace">}</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmd.Parameters.Add(New&nbsp;SqlParameter&nbsp;With&nbsp;<span class="js__brace">{</span>.ParameterName&nbsp;=&nbsp;<span class="js__string">&quot;@GenderIdentifier&quot;</span>,&nbsp;.DbType&nbsp;=&nbsp;DbType.Int32<span class="js__brace">}</span>)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cn.Open()&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For&nbsp;Each&nbsp;row&nbsp;As&nbsp;DataRow&nbsp;In&nbsp;pTable.Rows&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmd.Parameters(<span class="js__string">&quot;@FirstName&quot;</span>).Value&nbsp;=&nbsp;row.Field(Of&nbsp;<span class="js__object">String</span>)(<span class="js__string">&quot;FirstName&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmd.Parameters(<span class="js__string">&quot;@LastName&quot;</span>).Value&nbsp;=&nbsp;row.Field(Of&nbsp;<span class="js__object">String</span>)(<span class="js__string">&quot;LastName&quot;</span>)&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cmd.Parameters(<span class="js__string">&quot;@GenderIdentifier&quot;</span>).Value&nbsp;=&nbsp;row.Field(Of&nbsp;Integer)(<span class="js__string">&quot;GenderIdentifier&quot;</span>)&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NewIdentifier&nbsp;=&nbsp;Convert.ToInt32(cmd.ExecuteScalar())&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Yield&nbsp;New&nbsp;NewRecord&nbsp;With&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">{</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.IncomingIdentifier&nbsp;=&nbsp;row.Field(Of&nbsp;Integer)(<span class="js__string">&quot;Id&quot;</span>),&nbsp;.OutGoingIdentifier&nbsp;=&nbsp;NewIdentifier&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="js__brace">}</span>&nbsp;
+&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Next&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;Using&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;End&nbsp;Using&nbsp;
+&nbsp;
+End&nbsp;<span class="js__object">Function</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode"><span style="font-size:small">&nbsp;Please read&nbsp; the comments in the Add method as they describe the reasoning for using an iterator and would suggest using this also even in a single user environment.</span></div>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-size:2em; color:#ff0000">More Information</span></p>
+<p><span style="font-size:small"><strong>Before running the sample make sure to run the script for creating the database and populating it with data.</strong></span></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

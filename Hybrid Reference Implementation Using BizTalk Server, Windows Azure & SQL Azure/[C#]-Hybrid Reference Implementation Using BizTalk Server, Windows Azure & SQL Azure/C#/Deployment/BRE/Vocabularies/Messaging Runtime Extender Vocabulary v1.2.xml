@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<brl xmlns="http://schemas.microsoft.com/businessruleslanguage/2002">
+  <vocabulary id="b9bd2340-1e15-41ff-975b-96d0002a3b62" name="Messaging Runtime Extender Vocabulary" uri="" description="">
+    <version major="1" minor="2" description="" modifiedby="YOURDOMAIN\youraccount" date="2011-02-17T17:22:39.2538361-08:00" />
+    <vocabularydefinition id="41ddc967-269e-4a62-8d41-0076ed66db7e" name="Execute BRE Policy (By Policy Name)" description="">
+      <bindingdefinition>
+        <classmemberbindingdefinition member="SetPolicyInfo" type="void">
+          <classinfo class="ExecuteRulesEnginePolicyTask" instance="0">
+            <assembly>Contoso.Cloud.Integration.BizTalk.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+            <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.BizTalk.Core\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.BizTalk.Core.dll-->
+            <namespace>Contoso.Cloud.Integration.BizTalk.Core.RuntimeTasks</namespace>
+          </classinfo>
+          <argument position="0">
+            <valuedefinitionliteral type="string">
+              <string />
+            </valuedefinitionliteral>
+          </argument>
+        </classmemberbindingdefinition>
+      </bindingdefinition>
+      <formatstring language="en-US" string="Execute BRE Policy {0}" delimiter="{[0-9]+}">
+        <argument position="0">
+          <valuedefinitionliteral type="string">
+            <string />
+          </valuedefinitionliteral>
+        </argument>
+      </formatstring>
+    </vocabularydefinition>
+  </vocabulary>
+</brl>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Scripts">
+    <File Path="Scripts\App.js" Url="Scripts/App.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery-1.9.1.min.map" Url="Scripts/jquery-1.9.1.min.map" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery-1.9.1.min.js" Url="Scripts/jquery-1.9.1.min.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery-1.9.1.js" Url="Scripts/jquery-1.9.1.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery-1.9.1.intellisense.js" Url="Scripts/jquery-1.9.1.intellisense.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jspdf\jspdf.js" Url="Scripts/jspdf/jspdf.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jspdf\libs\base64.js" Url="Scripts/jspdf/libs/base64.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jspdf\libs\sprintf.js" Url="Scripts/jspdf/libs/sprintf.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery.base64.js" Url="Scripts/jquery.base64.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\html2canvas.js" Url="Scripts/html2canvas.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\bootstrap.min.js" Url="Scripts/bootstrap.min.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\tableExport.js" Url="Scripts/tableExport.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\jquery.dataTables.js" Url="Scripts/jquery.dataTables.js" ReplaceContent="TRUE" />
+  </Module>
+</Elements>

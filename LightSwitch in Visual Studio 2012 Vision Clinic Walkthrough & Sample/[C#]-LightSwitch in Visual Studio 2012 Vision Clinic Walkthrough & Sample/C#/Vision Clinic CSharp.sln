@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 11
+Project("{ECD6D718-D1CF-4119-97F3-97C25A0DFBF9}") = "Vision Clinic CSharp", "Vision Clinic CSharp\Vision Clinic CSharp.lsproj", "{785CA325-9E9F-4185-83DA-CAD457DC831E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+		{26BCD247-6CEC-4EA9-806C-38453BEFE043}.0 = {DCA0C602-EAF4-4E25-98AF-9BA937BBBF6A}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{26BCD247-6CEC-4EA9-806C-38453BEFE043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26BCD247-6CEC-4EA9-806C-38453BEFE043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26BCD247-6CEC-4EA9-806C-38453BEFE043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26BCD247-6CEC-4EA9-806C-38453BEFE043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43DEEADA-269B-447F-895C-07FDF15D969E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43DEEADA-269B-447F-895C-07FDF15D969E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43DEEADA-269B-447F-895C-07FDF15D969E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43DEEADA-269B-447F-895C-07FDF15D969E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{785CA325-9E9F-4185-83DA-CAD457DC831E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{785CA325-9E9F-4185-83DA-CAD457DC831E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{785CA325-9E9F-4185-83DA-CAD457DC831E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{785CA325-9E9F-4185-83DA-CAD457DC831E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCA0C602-EAF4-4E25-98AF-9BA937BBBF6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA0C602-EAF4-4E25-98AF-9BA937BBBF6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA0C602-EAF4-4E25-98AF-9BA937BBBF6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA0C602-EAF4-4E25-98AF-9BA937BBBF6A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

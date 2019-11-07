@@ -1,0 +1,15 @@
+﻿<Application x:Class="wpf_ComboBoxColumn.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:wpf_ComboBoxColumn"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <local:ColourCollection x:Key="ColourSource">
+            <!--<local:SimpleColour ColourString="Yellow" Id="1"/>
+            <local:SimpleColour ColourString="Blue" Id="2"/>
+            <local:SimpleColour ColourString="Red" Id="3"/>
+            <local:SimpleColour ColourString="Green" Id="4"/>
+            <local:SimpleColour ColourString="Purple" Id="5"/>-->
+        </local:ColourCollection>
+    </Application.Resources>
+</Application>

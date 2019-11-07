@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExcelImporter.Vsix", "ExcelImporter\ExcelImporter.Vsix\ExcelImporter.Vsix.vbproj", "{94BADF02-30FE-44D5-9CD1-8B8383B80F2E}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExcelImporter.Client", "ExcelImporter\ExcelImporter.Client\ExcelImporter.Client.vbproj", "{3B359C94-39C0-4705-971E-0E74C5A05871}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExcelImporter.Client.Design", "ExcelImporter\ExcelImporter.Client.Design\ExcelImporter.Client.Design.vbproj", "{7E658DBA-77A0-40FD-8F74-9C414800DB31}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExcelImporter.Common", "ExcelImporter\ExcelImporter.Common\ExcelImporter.Common.vbproj", "{A797D352-24B8-40AD-835A-137C13AD9229}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExcelImporter.Design", "ExcelImporter\ExcelImporter.Design\ExcelImporter.Design.vbproj", "{708F50B7-00C7-439E-B7F1-FA59544E7C18}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExcelImporter.Lspkg", "ExcelImporter\ExcelImporter.Lspkg\ExcelImporter.Lspkg.vbproj", "{7EFA5FD0-E70B-4715-9448-DE264F057FD2}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "ExcelImporter.Server", "ExcelImporter\ExcelImporter.Server\ExcelImporter.Server.vbproj", "{62125244-51ED-4477-BAE6-8A2CCF7BD7A5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94BADF02-30FE-44D5-9CD1-8B8383B80F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94BADF02-30FE-44D5-9CD1-8B8383B80F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94BADF02-30FE-44D5-9CD1-8B8383B80F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94BADF02-30FE-44D5-9CD1-8B8383B80F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B359C94-39C0-4705-971E-0E74C5A05871}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B359C94-39C0-4705-971E-0E74C5A05871}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B359C94-39C0-4705-971E-0E74C5A05871}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B359C94-39C0-4705-971E-0E74C5A05871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E658DBA-77A0-40FD-8F74-9C414800DB31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E658DBA-77A0-40FD-8F74-9C414800DB31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E658DBA-77A0-40FD-8F74-9C414800DB31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E658DBA-77A0-40FD-8F74-9C414800DB31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A797D352-24B8-40AD-835A-137C13AD9229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A797D352-24B8-40AD-835A-137C13AD9229}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A797D352-24B8-40AD-835A-137C13AD9229}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A797D352-24B8-40AD-835A-137C13AD9229}.Release|Any CPU.Build.0 = Release|Any CPU
+		{708F50B7-00C7-439E-B7F1-FA59544E7C18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{708F50B7-00C7-439E-B7F1-FA59544E7C18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{708F50B7-00C7-439E-B7F1-FA59544E7C18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{708F50B7-00C7-439E-B7F1-FA59544E7C18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EFA5FD0-E70B-4715-9448-DE264F057FD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EFA5FD0-E70B-4715-9448-DE264F057FD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EFA5FD0-E70B-4715-9448-DE264F057FD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EFA5FD0-E70B-4715-9448-DE264F057FD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62125244-51ED-4477-BAE6-8A2CCF7BD7A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62125244-51ED-4477-BAE6-8A2CCF7BD7A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62125244-51ED-4477-BAE6-8A2CCF7BD7A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62125244-51ED-4477-BAE6-8A2CCF7BD7A5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

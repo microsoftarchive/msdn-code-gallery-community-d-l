@@ -1,0 +1,33 @@
+﻿<Application   
+  x:Class="HRApp.App"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:app="clr-namespace:HRApp"
+  xmlns:res="clr-namespace:HRApp.Resources"
+  xmlns:appsvc="clr-namespace:System.ServiceModel.DomainServices.Client.ApplicationServices;assembly=System.ServiceModel.DomainServices.Client.Web"  
+  Startup="Application_Startup"
+  UnhandledException="Application_UnhandledException">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Assets/Styles.xaml"/> 
+                <ResourceDictionary>
+                    <res:ResourceWrapper x:Key="ResourceWrapper" />
+                    <app:NotOperatorValueConverter x:Key="NotOperatorValueConverter" />
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>                
+    </Application.Resources>
+
+
+    <Application.ApplicationLifetimeObjects>
+        <app:WebContext>
+            <app:WebContext.Authentication>
+                <appsvc:FormsAuthentication/>
+                <!--<appsvc:WindowsAuthentication/>-->
+            </app:WebContext.Authentication>
+        </app:WebContext>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>

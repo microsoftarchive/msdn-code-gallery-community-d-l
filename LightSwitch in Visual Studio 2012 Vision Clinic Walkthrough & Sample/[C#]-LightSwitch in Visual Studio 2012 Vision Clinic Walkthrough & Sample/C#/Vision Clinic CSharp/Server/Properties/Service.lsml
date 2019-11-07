@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModelFragment xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication
+    Name="LightSwitchServiceApplication"
+    Version="1.0.0.0">
+    <ServiceApplication.Attributes>
+      <ModuleNamespace
+        Namespace="LightSwitchApplication" />
+    </ServiceApplication.Attributes>
+  </ServiceApplication>
+  <DataService
+    DataProvider="EntityFrameworkDataProvider"
+    EntityContainer="LightSwitchCommonModule:ApplicationData"
+    Name="ApplicationDataMapping">
+    <AssociationSetMapping
+      AssociationSet="Invoice_Patients">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Invoice_Patients" />
+        <SsdlAssociationSetEnd
+          End="LightSwitchCommonModule:ApplicationData/Members[Invoice_Patients]/Members[Invoice]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Invoice_Patient" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LightSwitchCommonModule:ApplicationData/Members[Invoice_Patients]/Members[Patient]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <EntitySetMapping
+      EntitySet="Invoices">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="Invoice_Patient"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="Invoice_InvoiceDetails">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Invoice_InvoiceDetails" />
+        <SsdlAssociationSetEnd
+          End="LightSwitchCommonModule:ApplicationData/Members[Invoice_InvoiceDetails]/Members[Invoice]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LightSwitchCommonModule:ApplicationData/Members[Invoice_InvoiceDetails]/Members[InvoiceDetail]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Invoice_InvoiceDetail" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <EntitySetMapping
+      EntitySet="InvoiceDetails">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="Invoice_InvoiceDetail"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="Appointment_Patients">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Appointment_Patients" />
+        <SsdlAssociationSetEnd
+          End="LightSwitchCommonModule:ApplicationData/Members[Appointment_Patients]/Members[Appointment]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Appointment_Patient" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LightSwitchCommonModule:ApplicationData/Members[Appointment_Patients]/Members[Patient]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <EntitySetMapping
+      EntitySet="Appointments">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="Appointment_Patient"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
+  <DataService
+    DataProvider="EntityFrameworkDataProvider"
+    EntityContainer="LightSwitchCommonModule:PrescriptionContoso"
+    Name="PrescriptionContosoDataService">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty
+        Name="DataProviderName"
+        Value="91510608-8809-4020-8897-fba057e22d54" />
+      <ConnectionProperty
+        Name="DataSourceName"
+        Value="067ea0d9-ba62-43f7-9106-34930c60c528" />
+      <ConnectionProperty
+        Name="ProviderInvariantName"
+        Value="System.Data.SqlClient" />
+      <ConnectionProperty
+        Name="ConnectionStringGuid"
+        Value="77cf1d04-f385-4d52-aaed-a31a38f4ce02" />
+      <ConnectionProperty
+        Name="ProviderManifestToken"
+        Value="2008" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping
+      EntitySet="Products">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="Product" />
+        <SsdlProperty
+          Name="ProductID"
+          Nullable="False"
+          Property="LightSwitchCommonModule:Product/Properties[ProductID]"
+          StoreGeneratedPattern="Identity"
+          Type="int" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="ProductName"
+          Nullable="False"
+          Property="LightSwitchCommonModule:Product/Properties[ProductName]"
+          Type="nvarchar" />
+        <SsdlProperty
+          Name="MSRP"
+          Nullable="False"
+          Property="LightSwitchCommonModule:Product/Properties[MSRP]"
+          Type="money" />
+        <SsdlProperty
+          Name="Description"
+          Nullable="True"
+          Property="LightSwitchCommonModule:Product/Properties[Description]"
+          Type="nvarchar(max)" />
+        <SsdlProperty
+          Name="ProductImage"
+          Nullable="True"
+          Property="LightSwitchCommonModule:Product/Properties[ProductImage]"
+          Type="varbinary(max)" />
+        <SsdlProperty
+          Name="Category"
+          Nullable="True"
+          Property="LightSwitchCommonModule:Product/Properties[Category]"
+          Type="nvarchar(max)" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="ProductRebates">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="ProductRebate" />
+        <SsdlProperty
+          Name="ProductRebateID"
+          Nullable="False"
+          Property="LightSwitchCommonModule:ProductRebate/Properties[ProductRebateID]"
+          StoreGeneratedPattern="Identity"
+          Type="int" />
+        <SsdlProperty
+          Name="RebateStart"
+          Nullable="True"
+          Property="LightSwitchCommonModule:ProductRebate/Properties[RebateStart]"
+          Type="smalldatetime" />
+        <SsdlProperty
+          Name="RebateEnd"
+          Nullable="True"
+          Property="LightSwitchCommonModule:ProductRebate/Properties[RebateEnd]"
+          Type="smalldatetime" />
+        <SsdlProperty
+          Name="Rebate"
+          Nullable="True"
+          Property="LightSwitchCommonModule:ProductRebate/Properties[Rebate]"
+          Type="money" />
+        <SsdlForeignKeyProperty
+          Name="ProductID"
+          Nullable="False"
+          PropertyName="ProductID"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_Product_ProductRebate">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_Product_ProductRebate" />
+        <SsdlAssociationSetEnd
+          End="LightSwitchCommonModule:PrescriptionContoso/Members[FK_Product_ProductRebate]/Members[Product]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ProductID" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LightSwitchCommonModule:PrescriptionContoso/Members[FK_Product_ProductRebate]/Members[ProductRebate]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ProductID" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+</ModelFragment>

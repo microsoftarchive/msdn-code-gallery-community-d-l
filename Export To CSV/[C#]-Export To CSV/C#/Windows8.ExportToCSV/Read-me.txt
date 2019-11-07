@@ -1,0 +1,9 @@
+1. The myexportresult.csv is the result of my test.
+
+2. Have attention with the capabilities and File Type Associations
+
+3. See the sample: File access sample 
+http://code.msdn.microsoft.com/windowsapps/File-access-sample-d723e597
+
+4. This sample is related with this topic
+http://social.msdn.microsoft.com/Forums/en-US/winappswithcsharp/thread/45c3e1fd-0cbb-4cde-ada7-fb6757c7959b/

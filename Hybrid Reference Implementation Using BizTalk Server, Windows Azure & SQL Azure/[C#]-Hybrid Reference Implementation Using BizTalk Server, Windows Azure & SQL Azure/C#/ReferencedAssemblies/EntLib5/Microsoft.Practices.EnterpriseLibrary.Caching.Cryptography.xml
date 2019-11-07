@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources.SymmetricStorageEncryptionProviderDataDescription">
+            <summary>
+              Looks up a localized string similar to Encrypts the data in the backing store (but not in memory) using a Symmetric Cryptography Provider defined in the Cryptography Application Block..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources.SymmetricStorageEncryptionProviderDataDisplayName">
+            <summary>
+              Looks up a localized string similar to Symmetric Crypto Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources.SymmetricStorageEncryptionProviderDataNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Symmetric Cryptography Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources.SymmetricStorageEncryptionProviderDataNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources.SymmetricStorageEncryptionProviderDataSymmetricInstanceDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Symmetric Cryptography Provider to use, as configured in the settings for the Cryptography Application Block..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources.SymmetricStorageEncryptionProviderDataSymmetricInstanceDisplayName">
+            <summary>
+              Looks up a localized string similar to Symmetric Crypto Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources.SymmetricStorageEncryptionProviderDataTypeNameDescription">
+            <summary>
+              Looks up a localized string similar to The fully qualified type name of the Symmetric Cryptography Provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.DesignResources.SymmetricStorageEncryptionProviderDataTypeNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Type Name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.EncryptItemsWithSharedSymmetricProviderExtension">
+            <summary>
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IBackingStoreEncryptItemsUsing"/> extension that allows an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.IBackingStore"/> to be encrypted using a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider"/>.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.EncryptItemsWithSharedSymmetricProviderExtension.SymmetricEncryptionProviderNamed(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IBackingStoreEncryptItemsUsing,System.String)">
+            <summary>
+            Specifies the currently configured <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.IBackingStore"/> instance should be encrypted using a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider"/>.
+            </summary>
+            <param name="context">Fluent interface extension point.</param>
+            <param name="cacheStorageEncryptionProviderName">The name of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider"/> instance.</param>
+            <returns>Fluent interface that can be used to further configure the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider"/> instance.</returns>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IEncryptItemsWithSharedSymmetricProvider">
+            <summary>
+            Fluent interface used to configure a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider"/> instance.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IEncryptItemsWithSharedSymmetricProvider.UsingSharedSymmetricEncryptionInstanceNamed(System.String)">
+            <summary>
+            Specifies which <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.ISymmetricCryptoProvider"/> should be used for encryption.
+            </summary>
+            <param name="symmetricEncryptionInstanceName">The name of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.ISymmetricCryptoProvider"/> that should be used for encryption.</param>
+            <returns>Fluent interface to further configure caching configuration.</returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData"/>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.Properties.Resources.SymmetricStorageEncryptionProviderSymmetricInstancePartName">
+            <summary>
+              Looks up a localized string similar to Symmetric provider.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.SymmetricStorageEncryptionProviderDataManageabilityProvider">
+            <summary>
+            Provides a default implementation for <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData"/> that
+            processes policy overrides, performing appropriate logging of 
+            policy processing errors.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.SymmetricStorageEncryptionProviderDataManageabilityProvider.SymmetricInstancePropertyName">
+            <summary>
+            The name of the symmetric instance property.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.SymmetricStorageEncryptionProviderDataManageabilityProvider.#ctor">
+            <summary>
+            Initialize a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.SymmetricStorageEncryptionProviderDataManageabilityProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.SymmetricStorageEncryptionProviderDataManageabilityProvider.AddAdministrativeTemplateDirectives(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)">
+            <summary>
+            Adds the ADM instructions that describe the policies that can be used to override the properties of
+            a specific instance of the configuration element type managed by the receiver.
+            </summary>
+            <param name="contentBuilder">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder"/> to which the Adm instructions are to be appended.</param>
+            <param name="configurationObject">The configuration object instance.</param>
+            <param name="configurationSource">The configuration source from where to get additional configuration
+            information, if necessary.</param>
+            <param name="elementPolicyKeyName">The key for the element's policies.</param>
+            <remarks>
+            The default implementation for this method creates a policy, using 
+            <see cref="P:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProviderBase`1.ElementPolicyNameTemplate"/> to create the policy name and invoking
+            <see cref="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProviderBase`1.AddElementAdministrativeTemplateParts(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,`0,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)"/>
+            to add the policy parts.
+            Subclasses managing objects that must not create a policy must override this method to just add the parts.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.SymmetricStorageEncryptionProviderDataManageabilityProvider.AddElementAdministrativeTemplateParts(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)">
+            <summary>
+            Adds the ADM parts that represent the properties of
+            a specific instance of the configuration element type managed by the receiver.
+            </summary>
+            <param name="contentBuilder">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder"/> to which the Adm instructions are to be appended.</param>
+            <param name="configurationObject">The configuration object instance.</param>
+            <param name="configurationSource">The configuration source from where to get additional configuration
+            information, if necessary.</param>
+            <param name="elementPolicyKeyName">The key for the element's policies.</param>
+            <remarks>
+            Subclasses managing objects that must not create a policy will likely need to include the elements' keys when creating the parts.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.SymmetricStorageEncryptionProviderDataManageabilityProvider.OverrideWithGroupPolicies(Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey)">
+            <summary>
+            Overrides the <paramref name="configurationObject"/>'s properties with the Group Policy values from the 
+            registry.
+            </summary>
+            <param name="configurationObject">The configuration object for instances that must be managed.</param>
+            <param name="policyKey">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey"/> which holds the Group Policy overrides for the 
+            configuration element.</param>
+            <remarks>Subclasses implementing this method must retrieve all the override values from the registry
+            before making modifications to the <paramref name="configurationObject"/> so any error retrieving
+            the override values will cancel policy processing.</remarks>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.Manageability.SymmetricStorageEncryptionProviderDataManageabilityProvider.ElementPolicyNameTemplate">
+            <summary>
+            Gets the template for the name of the policy associated to the object.
+            </summary>
+            <remarks>
+            Elements that override 
+            <see cref="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProviderBase`1.AddAdministrativeTemplateDirectives(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,`0,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)"/>
+            to avoid creating a policy must still override this property.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData">
+            <summary>
+            Configuration data for Symmetric Storage Encryption
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData.#ctor">
+            <summary>
+            Initializes an instance of a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData.#ctor(System.String,System.String)">
+            <summary>
+            Create provider with a specified name and symmetric instance.
+            </summary>
+            <param name="name">The configured name of the provider</param>
+            <param name="symmetricInstance">The full name of a <see cref="T:System.Security.Cryptography.SymmetricAlgorithm"/>.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData.GetCreationExpression">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.Configuration.SymmetricStorageEncryptionProviderData.SymmetricInstance">
+            <summary>
+            Name of symmetric instance
+            </summary>       
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider">
+            <summary>
+            Implementation of Symmetric Storage Encryption used by the Caching Application Block
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider.#ctor(Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.ISymmetricCryptoProvider)">
+            <summary>
+            <para>Initialize a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.SymmetricAlgorithmProvider"/> class.</para>
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider.Encrypt(System.Byte[])">
+            <summary>
+            Encrypts the data passed to this method according to the correct symmetric cryptographic
+            algorithm as defined in configuration
+            </summary>
+            <param name="plaintext">Data to be encrypted</param>
+            <returns>Encrypted data</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.SymmetricStorageEncryptionProvider.Decrypt(System.Byte[])">
+            <summary>
+            Decrypts the data passed to this method according to the correct symmetric cryptographic
+            algoritm as defined in configuration
+            </summary>
+            <param name="ciphertext">Encrypted data to be decrypted</param>
+            <returns>Decrypted data</returns>
+        </member>
+    </members>
+</doc>

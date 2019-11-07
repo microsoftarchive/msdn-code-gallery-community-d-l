@@ -1,0 +1,185 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Grid Sample"
+        MaxWidth="525"
+        MaxHeight="520"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style x:Key="Button" TargetType="{x:Type Button}">
+            <Setter Property="Canvas.Right" Value="10" />
+            <Setter Property="Background" Value="LightBlue" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Height" Value="20" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="132*" />
+            <ColumnDefinition Width="371*" />
+        </Grid.ColumnDefinitions>
+
+
+        <DataGrid Name="dgvDati"
+                  Grid.ColumnSpan="2"
+                  Margin="0,0,90,258"
+                  AutoGenerateColumns="False"
+                  HorizontalScrollBarVisibility="Visible">
+
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ID}" Header="ID" />
+                <DataGridTextColumn Binding="{Binding NOME}" Header="NOME" />
+                <DataGridTextColumn Binding="{Binding COGNOME}" Header="COGNOME" />
+                <DataGridTextColumn Binding="{Binding INDIRIZZO}" Header="INDIRIZZO" />
+                <DataGridTextColumn Binding="{Binding TELEFONO}" Header="TELEFONO" />
+                <DataGridTextColumn Binding="{Binding NAZIONALITA}" Header="NAZIONALITA" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <Button Name="btnLoad"
+                Canvas.Top="48"
+                Margin="12,229,20,232"
+                Click="btnLoad_Click"
+                Content="Load"
+                Style="{StaticResource Button}" />
+
+
+        <Button Name="btnInsert"
+                Canvas.Top="78"
+                Margin="12,260,20,201"
+                Click="btnInsert_Click"
+                Content="Insert"
+                Style="{StaticResource Button}" />
+
+
+        <Button Name="btnDelete"
+                Canvas.Top="108"
+                Margin="12,291,20,170"
+                Click="btnDelete_Click"
+                Content="Delete"
+                Style="{StaticResource Button}" />
+
+
+        <Button Name="btnUpdate"
+                Canvas.Top="108"
+                Margin="12,325,20,136"
+                Click="btnUpdate_Click"
+                Content="Update"
+                Style="{StaticResource Button}" />
+
+
+        <Label Name="lblName"
+               Grid.Column="1"
+               Width="100"
+               Height="30"
+               Margin="16,229,255,222"
+               HorizontalContentAlignment="Left"
+               Content="Name" />
+
+
+        <TextBox Name="txtName"
+                 Grid.Column="1"
+                 Width="100"
+                 Height="20"
+                 Margin="134,231,137,230" />
+
+
+        <Label Name="lblSurname"
+               Grid.Column="1"
+               Width="100"
+               Height="30"
+               Margin="16,258,255,193"
+               HorizontalContentAlignment="Left"
+               Content="Surnme" />
+
+
+        <TextBox Name="txtSurname"
+                 Grid.Column="1"
+                 Width="100"
+                 Height="20"
+                 Margin="134,260,137,201" />
+
+
+        <Label Name="lblAddress"
+               Grid.Column="1"
+               Width="100"
+               Height="30"
+               Margin="16,287,255,164"
+               HorizontalContentAlignment="Left"
+               Content="Address" />
+
+
+        <TextBox Name="txtAddress"
+                 Grid.Column="1"
+                 Width="100"
+                 Height="20"
+                 Margin="134,289,137,172" />
+
+
+        <Label Name="lblTelephone"
+               Grid.Column="1"
+               Width="100"
+               Height="30"
+               Margin="16,316,255,135"
+               HorizontalContentAlignment="Left"
+               Content="Telephone" />
+
+
+        <TextBox Name="txtTelephone"
+                 Grid.Column="1"
+                 Width="100"
+                 Height="20"
+                 Margin="134,318,137,143" />
+
+
+        <Label Name="lblNationality"
+               Grid.Column="1"
+               Width="100"
+               Height="30"
+               Margin="16,345,255,106"
+               HorizontalContentAlignment="Left"
+               Content="Nationality" />
+
+
+        <TextBox Name="txtNationality"
+                 Grid.Column="1"
+                 Width="100"
+                 Height="20"
+                 Margin="134,347,137,114" />
+
+
+        <Label Name="lblId"
+               Grid.Column="1"
+               Width="50"
+               Height="30"
+               Margin="16,374,305,77"
+               HorizontalContentAlignment="Left"
+               Content="Id" />
+
+
+        <TextBox Name="txtId"
+                 Grid.Column="1"
+                 Width="50"
+                 Height="20"
+                 Margin="83,376,137,85" />
+
+        <Button Name="btnExit"
+                Grid.Column="1"
+                Width="100"
+                Height="20"
+                Margin="251,449,20,12"
+                HorizontalContentAlignment="Center"
+                Content="Exit"
+                Style="{StaticResource Button}" />
+
+
+    </Grid>
+</Window>
