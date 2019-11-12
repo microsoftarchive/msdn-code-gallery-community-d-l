@@ -1,0 +1,64 @@
+﻿<controls:ChildWindow
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="FlashCards.UI.EditDialog"
+           Width="829" Height="544" 
+           Title="EditDialog" >
+    
+	<controls:ChildWindow.Style>
+		<StaticResource ResourceKey="ChildWindowStyle"/>
+	</controls:ChildWindow.Style>
+    <Grid x:Name="LayoutRoot" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Rectangle Fill="{StaticResource MainBackgroundBrush}" Stroke="White" RadiusX="6" RadiusY="6" StrokeThickness="4" Margin="0" Grid.RowSpan="3">
+        	<Rectangle.Effect>
+        		<DropShadowEffect BlurRadius="4" ShadowDepth="4" Opacity="0.8"/>
+        	</Rectangle.Effect>
+        </Rectangle>
+        <Image Height="75" x:Name="Logo" Stretch="Uniform" Source="/FlashCards.UI.SL;component/Resource/Images/FlashCardLogo.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="15" />
+        <TextBlock 
+            TextWrapping="Wrap" 
+            Foreground="White" 
+            Style="{StaticResource TextBlockStyle}" 
+            Text="{StaticResource Resource_EditCommercial_Text}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="-5,-40,44,0">
+            <TextBlock.RenderTransform>
+                <TranslateTransform X="20" Y="140" />
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <Grid Grid.Row="1" >
+        	<Grid.ColumnDefinitions>
+        		<ColumnDefinition/>
+        		<ColumnDefinition/>
+        		<ColumnDefinition/>
+        	</Grid.ColumnDefinitions>
+        	<Image x:Name="image1" Source="/FlashCards.UI.SL;component/Resource/Images/EditDeck1small.jpg" HorizontalAlignment="Left" Margin="20,0,5,20" />
+        	<Image x:Name="image2" Source="/FlashCards.UI.SL;component/Resource/Images/EditDeck2small.jpg" Grid.Column="1" Margin="12.5,100,12.5,0"/>
+        	<Image x:Name="image3" Source="/FlashCards.UI.SL;component/Resource/Images/EditDeck3small.jpg" HorizontalAlignment="Right" Grid.Column="2" Margin="5,20,20,0" />
+            
+        </Grid>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right" Margin="0,0,15,10" >
+            <Button x:Name="OKButton" Content="Get desktop version" Click="OKButton_Click" Style="{StaticResource Button_Style}" Margin="0" RenderTransformOrigin="0.287,0.657" />
+            <Button x:Name="CancelButton" Content="Return to game" Click="CancelButton_Click" Style="{StaticResource Button_Style}" />
+        </StackPanel>
+        <Button 
+            HorizontalAlignment="Right" 
+            VerticalAlignment="Top" 
+            Width="40" 
+            Height="40" 
+            Content="Button" 
+            Margin="0,-20,-20,0" 
+        	Style="{StaticResource CloseButtonStyle}" 
+            Click="CancelButton_Click"
+            >
+        	<Button.Effect>
+        		<DropShadowEffect BlurRadius="4" ShadowDepth="4" Opacity="0.8"/>
+        	</Button.Effect>
+        </Button>
+    </Grid>
+</controls:ChildWindow>

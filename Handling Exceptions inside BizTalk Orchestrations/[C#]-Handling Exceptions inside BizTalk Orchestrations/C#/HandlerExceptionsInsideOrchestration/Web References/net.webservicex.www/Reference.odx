@@ -1,0 +1,123 @@
+﻿#if __DESIGNER_DATA
+#error Do not define __DESIGNER_DATA.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<om:MetaModel MajorVersion="1" MinorVersion="3" Core="2b131234-7959-458d-834f-2dc0769ce683" ScheduleModel="66366196-361d-448d-976f-cab5e87496d2" xmlns:om="http://schemas.microsoft.com/BizTalk/2003/DesignerData">
+    <om:Element Type="Module" OID="50713af8-a90d-4403-94b7-d722af95fb85" LowerBound="1.1" HigherBound="39.1">
+        <om:Property Name="ReportToAnalyst" Value="True" />
+        <om:Property Name="Name" Value="HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather_" />
+        <om:Property Name="Signal" Value="False" />
+        <om:Element Type="MethodMessageType" OID="00000000-0000-0000-0000-000000000000" ParentLink="Module_MessageType">
+            <om:Property Name="Url" Value="http://www.webservicex.net/globalweather.asmx" />
+            <om:Property Name="TypeModifier" Value="Public" />
+            <om:Property Name="ReportToAnalyst" Value="True" />
+            <om:Property Name="Name" Value="HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather" />
+            <om:Property Name="Signal" Value="False" />
+            <om:Element Type="MethodMessageOperation" OID="1d394ba7-e886-4f17-9098-38a624b21560" ParentLink="MethodMessageType_MethodMessageOperation">
+                <om:Property Name="OperationName" Value="GetWeather" />
+                <om:Property Name="OperationDirection" Value="Request" />
+                <om:Property Name="Description" Value="Get weather report for all major cities around the world." />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="GetWeather_request" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="WebOperationPart" OID="b3cb8f1b-3540-4e4c-a67f-bb1fcd9195ff" ParentLink="MethodMessageOperation_WebOperationPart">
+                    <om:Property Name="ClassName" Value="System.String" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="CityName" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+                <om:Element Type="WebOperationPart" OID="2222ace7-1a3b-4dc3-9da0-113e7c516efb" ParentLink="MethodMessageOperation_WebOperationPart">
+                    <om:Property Name="ClassName" Value="System.String" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="CountryName" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="MethodMessageOperation" OID="1a487881-26f8-41e4-9db0-9060af775c32" ParentLink="MethodMessageType_MethodMessageOperation">
+                <om:Property Name="OperationName" Value="GetWeather" />
+                <om:Property Name="OperationDirection" Value="Response" />
+                <om:Property Name="Description" Value="Get weather report for all major cities around the world." />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="GetWeather_response" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="WebOperationPart" OID="127d7037-01d2-4d2e-9056-382aff925e3e" ParentLink="MethodMessageOperation_WebOperationPart">
+                    <om:Property Name="ClassName" Value="System.String" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="GetWeatherResult" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="MethodMessageOperation" OID="bfc99d62-83da-4693-9131-290aacb988a9" ParentLink="MethodMessageType_MethodMessageOperation">
+                <om:Property Name="OperationName" Value="GetCitiesByCountry" />
+                <om:Property Name="OperationDirection" Value="Request" />
+                <om:Property Name="Description" Value="Get all major cities by country name(full / part)." />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="GetCitiesByCountry_request" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="WebOperationPart" OID="df5a74af-fbab-4123-90ad-28d3e43c8dd7" ParentLink="MethodMessageOperation_WebOperationPart">
+                    <om:Property Name="ClassName" Value="System.String" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="CountryName" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+            <om:Element Type="MethodMessageOperation" OID="5f4006bd-e082-4ef4-9ab0-ee5360c820cd" ParentLink="MethodMessageType_MethodMessageOperation">
+                <om:Property Name="OperationName" Value="GetCitiesByCountry" />
+                <om:Property Name="OperationDirection" Value="Response" />
+                <om:Property Name="Description" Value="Get all major cities by country name(full / part)." />
+                <om:Property Name="ReportToAnalyst" Value="True" />
+                <om:Property Name="Name" Value="GetCitiesByCountry_response" />
+                <om:Property Name="Signal" Value="False" />
+                <om:Element Type="WebOperationPart" OID="f0057dd1-1660-40dd-b0ad-a759c47769df" ParentLink="MethodMessageOperation_WebOperationPart">
+                    <om:Property Name="ClassName" Value="System.String" />
+                    <om:Property Name="ReportToAnalyst" Value="True" />
+                    <om:Property Name="Name" Value="GetCitiesByCountryResult" />
+                    <om:Property Name="Signal" Value="False" />
+                </om:Element>
+            </om:Element>
+        </om:Element>
+        <om:Element Type="TargetXMLNamespaceAttribute" OID="0a25fb78-d7ec-4ed5-bfc2-bde381a23dd7" ParentLink="Module_CLRAttribute" LowerBound="2.1" HigherBound="3.1">
+            <om:Property Name="TargetXMLNamespace" Value="http://www.webserviceX.NET" />
+            <om:Property Name="Signal" Value="False" />
+        </om:Element>
+    </om:Element>
+</om:MetaModel>
+#endif // __DESIGNER_DATA
+[Microsoft.XLANGs.BaseTypes.BPELExportable(true)]
+[Microsoft.XLANGs.BaseTypes.TargetXmlNamespaceAttribute("http://www.webserviceX.NET")]
+module HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather_
+{
+    [Microsoft.XLANGs.BaseTypes.WebPortBinding(typeof(HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather), "GetWeather", Microsoft.XLANGs.BaseTypes.EXLangSMessageInfo.eRequest)]
+    public messagetype GetWeather_request
+    {
+        body System.String CityName;
+        System.String CountryName;
+    };
+    [Microsoft.XLANGs.BaseTypes.WebPortBinding(typeof(HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather), "GetWeather", Microsoft.XLANGs.BaseTypes.EXLangSMessageInfo.eResponse)]
+    public messagetype GetWeather_response
+    {
+        body System.String GetWeatherResult;
+    };
+    [Microsoft.XLANGs.BaseTypes.WebPortBinding(typeof(HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather), "GetCitiesByCountry", Microsoft.XLANGs.BaseTypes.EXLangSMessageInfo.eRequest)]
+    public messagetype GetCitiesByCountry_request
+    {
+        body System.String CountryName;
+    };
+    [Microsoft.XLANGs.BaseTypes.WebPortBinding(typeof(HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather), "GetCitiesByCountry", Microsoft.XLANGs.BaseTypes.EXLangSMessageInfo.eResponse)]
+    public messagetype GetCitiesByCountry_response
+    {
+        body System.String GetCitiesByCountryResult;
+    };
+    [Microsoft.XLANGs.BaseTypes.WSDLProxyName(typeof(HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather))]
+    public porttype GlobalWeather
+    {
+        requestresponse GetWeather
+        {
+            HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather_.GetWeather_request, HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather_.GetWeather_response
+        };
+        requestresponse GetCitiesByCountry
+        {
+            HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather_.GetCitiesByCountry_request, HandlerExceptionsInsideOrchestration.net.webservicex.www.GlobalWeather_.GetCitiesByCountry_response
+        };
+    };
+}
+

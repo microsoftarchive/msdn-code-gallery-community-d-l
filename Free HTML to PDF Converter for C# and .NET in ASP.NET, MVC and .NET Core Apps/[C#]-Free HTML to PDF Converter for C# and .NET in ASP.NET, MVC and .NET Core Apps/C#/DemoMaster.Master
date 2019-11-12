@@ -1,0 +1,60 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DemoMaster.master.cs"
+    Inherits="HiQPdf_Demo.DemoMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Free HiQPdf HTML to PDF Converter for .NET</title>
+    <link href="styles.css" type="text/css" rel="stylesheet" />
+    <link href="~/DemoFiles/Images/HiQPdf_64x64.ico" rel="shortcut icon" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <table style="width: 900px">
+                <tr>
+                    <td>
+                        <!-- Header -->
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- Body -->
+                        <table style="width: 100%">
+                            <tr>
+                                <td style="border: solid 1px Black; vertical-align: top; text-align: left; padding-left: 5px; padding-right: 10px; padding-bottom: 10px; padding-top: 5px; width: 100px">
+                                    <asp:TreeView ID="treeView" runat="server" ForeColor="Navy">
+                                        <Nodes>
+                                            <asp:TreeNode Text="Free HiQPdf HTML to PDF" ToolTip="Free HiQPdf HTML to PDF" Value="htmlToPdfNode"
+                                                NavigateUrl="~/Default.aspx">
+                                                <asp:TreeNode Text="HTML to PDF Converter Demo" ToolTip="HTML to PDF Converter Demo"
+                                                    Value="htmlToPdf" NavigateUrl="~/Default.aspx"></asp:TreeNode>
+                                            </asp:TreeNode>
+                                            <asp:TreeNode NavigateUrl="~/FullHiQPdfLibrary.aspx" Text="Full HiQPdf Library for .NET" ToolTip="Full HiQPdf Library for .NET" Value="FullHiQPdfLibrary"></asp:TreeNode>
+                                        </Nodes>
+                                        <SelectedNodeStyle BackColor="#E8E8E8" />
+                                    </asp:TreeView>
+                                    <!-- Left -->
+                                </td>
+                                <td style="width: 5px">
+                                    <!-- Middle -->
+                                </td>
+                                <td style="border: solid 1px Black; vertical-align: top; text-align: left; padding-left: 10px; padding-right: 10px; padding-bottom: 10px; padding-top: 5px;">
+                                    <!-- Right -->
+                                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <!-- Footer -->
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

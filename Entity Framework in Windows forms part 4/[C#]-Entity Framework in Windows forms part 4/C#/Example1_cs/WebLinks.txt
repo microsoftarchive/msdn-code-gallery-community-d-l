@@ -1,0 +1,12 @@
+﻿http://techbrij.com/generic-repository-unit-of-work-entity-framework-unit-testing-asp-net-mvc
+
+
+Implementing a generic data access layer using Entity Framework
+https://blog.magnusmontin.net/2013/05/30/generic-dal-using-entity-framework/
+
+http://www.codeproject.com/Articles/814768/CRUD-Operations-Using-the-Generic-Repository-Patte
+
+
+
+https://github.com/autofac/Autofac
+http://autofac.readthedocs.io/en/latest/

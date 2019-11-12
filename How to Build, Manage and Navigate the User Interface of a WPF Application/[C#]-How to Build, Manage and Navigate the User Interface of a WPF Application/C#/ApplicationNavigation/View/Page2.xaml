@@ -1,0 +1,14 @@
+﻿<Page x:Class="ApplicationNavigation.View.Page2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="Page2" Background="#FFFFFADB">
+
+    <Grid VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="Page 2"/>
+        <Button Click="Button_Click"  Content="3. NavigationService" Grid.Row="1" Width="200"/>
+    </Grid>
+</Page>

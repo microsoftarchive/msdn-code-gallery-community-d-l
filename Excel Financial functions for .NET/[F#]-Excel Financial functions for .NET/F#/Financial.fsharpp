@@ -1,0 +1,116 @@
+"General"
+{
+"ProjectIdGuid" = "{671910AD-5F42-41D7-B6F8-0C025284E5B0}"
+}
+"Configurations"
+{
+    "Debug|Win32"
+    {
+    "ProjectType" = "EXE"
+    "OptLevel" = "Off"
+    "StrongNamingLevel" = "None"
+    "OutputPath" = ""
+    "SearchPath" = ""
+    "StrongNameFile" = ""
+    "OutputBase" = ""
+    "CustomCommandLine" = ""
+    "CustomCompiler" = ""
+    "DebugCheck" = "TRUE"
+    "CustomCompilationCheck" = "FALSE"
+    "DebugStartMode" = "0"
+    "StartApp" = ""
+    "StartAppPath" = ""
+    "CustomStartupArguments" = ""
+    }
+    "Release|Win32"
+    {
+    "ProjectType" = "EXE"
+    "OptLevel" = "3"
+    "StrongNamingLevel" = "None"
+    "OutputPath" = ""
+    "SearchPath" = ""
+    "StrongNameFile" = ""
+    "OutputBase" = ""
+    "CustomCommandLine" = ""
+    "CustomCompiler" = ""
+    "DebugCheck" = "FALSE"
+    "CustomCompilationCheck" = "FALSE"
+    "DebugStartMode" = "0"
+    "StartApp" = ""
+    "StartAppPath" = ""
+    "CustomStartupArguments" = ""
+    }
+}
+"Files"
+{
+    "publicenums.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "common.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "tvm.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "loan.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "irr.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "daycountbasis.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "depreciation.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "bonds.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "oddbonds.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "tbill.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "misc.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "wrapperdotnettype.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "excel.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "testinfrastructure.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "testsdef.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "testsexec.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+}
+"ProjStartupServices"
+{
+}
+"Globals"
+{
+}

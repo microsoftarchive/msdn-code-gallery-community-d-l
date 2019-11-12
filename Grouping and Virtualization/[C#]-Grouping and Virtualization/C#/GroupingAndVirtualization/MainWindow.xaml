@@ -1,0 +1,51 @@
+﻿<Window x:Class="GroupingAndVirtualization.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:GroupingAndVirtualization"
+    x:Name="Root"
+    Title="Grouping and Virtualization" Height="300" Width="300">
+    <Grid Margin="10">
+        
+        <!--
+            The ListBox is hooked up to our special collection view 
+            instead of to the data directly.
+        -->
+        <ListBox ItemsSource="{Binding Path=View,ElementName=Root}">
+
+            <ListBox.Resources>
+
+                <!-- This is the template for the data item -->
+                <DataTemplate x:Key="{DataTemplateKey {x:Type local:TestData}}" DataType="{x:Type local:TestData}">
+                    <TextBlock Text="{Binding Path=Name}" Margin="10,0,0,0"/>
+                </DataTemplate>
+
+                <!-- This replaces the GroupStyle -->
+                <DataTemplate x:Key="{DataTemplateKey {x:Type CollectionViewGroup}}" DataType="{x:Type CollectionViewGroup}">
+                    <TextBlock Text="{Binding Path=Name}" FontWeight="Bold" />
+                </DataTemplate>
+
+            </ListBox.Resources>
+
+            <ListBox.ItemContainerStyle>
+
+                <!-- 
+          This container style enables the IsHeader property so that
+          the header containers can be disabled.
+        -->
+                <Style TargetType="{x:Type ListBoxItem}">
+                    <Setter Property="local:FlatGroupListCollectionView.DetectGroupHeaders" Value="True" />
+                    <Style.Triggers>
+                        <Trigger Property="local:FlatGroupListCollectionView.IsHeader" Value="True">
+                            <!-- Remove IsEnabled=false to allow the header to be selected -->
+                            <Setter Property="IsEnabled" Value="false" />
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+            </ListBox.ItemContainerStyle>
+
+        </ListBox>
+
+    </Grid>
+</Window>

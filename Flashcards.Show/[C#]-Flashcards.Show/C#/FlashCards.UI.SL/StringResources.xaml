@@ -1,0 +1,114 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="Resource_DeckViewLabel">Choose a card deck</system:String>
+    <system:String x:Key="Resource_CreateNewCardDeck">Create New Card Deck</system:String>
+    <system:String x:Key="Resource_CreateNewCard">Create New Card</system:String>
+    <system:String x:Key="Resource_EnterCardDeckName">Enter a name for your card deck</system:String>
+    <system:String x:Key="Resource_UpdatingDeck">Updating the Deck..</system:String>
+    <system:String x:Key="Resource_Deck">Deck:</system:String>
+    <system:String x:Key="Resource_Mode">Mode:</system:String>
+    <system:String x:Key="Resource_Matches">Matches</system:String>
+    <system:String x:Key="Resource_MatchesLowerCase">Matches</system:String>
+    <system:String x:Key="Resource_ChooseAnotherDeck">Choose another game and play again!</system:String>
+    <system:String x:Key="Resource_SuccessMessage">Great Job!</system:String>
+    <system:String x:Key="Resource_SaveDeck">Save Deck</system:String>
+    <system:String x:Key="Resource_CreateDeck">Create Deck</system:String>
+    <system:String x:Key="Resource_Back">Back</system:String>
+    <system:String x:Key="Resource_About">About</system:String>
+    <system:String x:Key="Resource_Save">Save</system:String>
+    <system:String x:Key="Resource_Preview">Preview</system:String>
+    <system:String x:Key="Resource_Open">Open</system:String>
+    <system:String x:Key="Resource_SaveLink">Save Link</system:String>
+    <system:String x:Key="Resource_TestLink">Test Link</system:String>
+    <system:String x:Key="Resource_OpenURL">Open URL</system:String>
+    <system:String x:Key="Resource_Play">Play</system:String>
+    <system:String x:Key="Resource_Image">Image</system:String>
+    <system:String x:Key="Resource_Text">Text</system:String>
+    <system:String x:Key="Resource_Video">Video</system:String>
+    <system:String x:Key="Resource_TTS">TTS</system:String>
+    <system:String x:Key="Resource_URL">URL</system:String>
+    <system:String x:Key="Resource_Cover">Cover</system:String>
+    <system:String x:Key="Resource_Delete">Delete </system:String>
+    <system:String x:Key="Resource_ResetCards">Reset Cards</system:String>
+    <system:String x:Key="Resource_Quit">Quit</system:String>
+    <system:String x:Key="Resource_ForwardArrow">&gt;</system:String>
+    <system:String x:Key="Resource_BackwardArrow">&lt;</system:String>
+    <system:String x:Key="Resource_Photo">Photo</system:String>
+    <system:String x:Key="Resource_Speech">Speech</system:String>
+    <system:String x:Key="Resource_Website">Website</system:String>
+    <system:String x:Key="Resource_ShareDeck">Share Deck</system:String>
+
+    <system:String x:Key="Resource_LearningGame">Learning Game</system:String>
+    <system:String x:Key="Resource_MatchingGame">Matching Game</system:String>
+    <system:String x:Key="Resource_MemoryGame">Memory Game</system:String>
+
+    <system:String x:Key="Resource_AboutText1">Developed for Microsoft by IdentityMine Inc. </system:String>
+    <system:String x:Key="Resource_AboutText2">by</system:String>
+    <system:String x:Key="Resource_AboutText3">Visit us at</system:String>
+    <system:String x:Key="Resource_AboutText4">www.identitymine.com</system:String>
+
+    <system:String x:Key="Resource_ToolTip_CreateDeck">Create Deck</system:String>
+    <system:String x:Key="Resource_ToolTip_AddImage">Add Image</system:String>
+    <system:String x:Key="Resource_ToolTip_AddText">Add Text</system:String>
+    <system:String x:Key="Resource_ToolTip_AddVideo">Add Video</system:String>
+    <system:String x:Key="Resource_ToolTip_AddSpeech">Add Speech</system:String>
+    <system:String x:Key="Resource_ToolTip_RemoveSpeech">Remove Speech</system:String>
+    <system:String x:Key="Resource_ToolTip_AddURL">Add URL</system:String>
+    <system:String x:Key="Resource_ToolTip_MakeThisAsDeck">Make this card represent the deck</system:String>
+    <system:String x:Key="Resource_ToolTip_DeleteCardPair">Delete this card pair</system:String>
+    <system:String x:Key="Resource_ToolTip_CreateNewCard">Create New Card;</system:String>
+    <system:String x:Key="Resource_ToolTip_SaveDeck">Save Deck</system:String>
+    <system:String x:Key="Resource_ToolTip_Back">Back</system:String>
+    <system:String x:Key="Resource_ToolTip_About">About</system:String>
+    <system:String x:Key="Resource_ToolTip_GoBack">Go Back</system:String>
+    <system:String x:Key="Resource_ToolTip_ResetCards">Reset Cards</system:String>
+    <system:String x:Key="Resource_ToolTip_Quit">Quit</system:String>
+    <system:String x:Key="Resource_ToolTip_PreviousCard">Previous Card</system:String>
+    <system:String x:Key="Resource_ToolTip_NextCard">Next Card</system:String>
+    <system:String x:Key="Resource_ToolTip_ShareDeck">Share Deck</system:String>
+
+    <system:String x:Key="Resource_ToolTip_PlayLearningGame">Play a Learning Game</system:String>
+    <system:String x:Key="Resource_ToolTip_PlayMatchingGame">Play a Matching Game</system:String>
+    <system:String x:Key="Resource_ToolTip_PlayMemoryGame">Play a Memory Game</system:String>
+    <system:String x:Key="Resource_ToolTip_EditDeck">Edit This Deck</system:String>
+    <system:String x:Key="Resource_ToolTip_DeleteDeck">Delete this Deck </system:String>
+    <system:String x:Key="Resource_ToolTip_DeleteLink">Delete Link</system:String>
+
+    <system:String x:Key="Resource_MessageBox_CancelEditCaption1">Nice job on the </system:String>
+    <system:String x:Key="Resource_MessageBox_CancelEditCaption2">Deck!</system:String>
+    <system:String x:Key="Resource_MessageBox_CancelEditText">Do you want to Save the Changes?</system:String>
+    <system:String x:Key="Resource_MessageBox_DeleteDeckCaption">Delete </system:String>
+    <system:String x:Key="Resource_MessageBox_DeleteDeckText">Are you sure?</system:String>
+    <system:String x:Key="Resource_MessageBox_DeletePairCaption">Delete !</system:String>
+    <system:String x:Key="Resource_MessageBox_DeletePairText">Are you sure?</system:String>
+    <system:String x:Key="Resource_SaveDialogTitle_ShareDeck">Share Deck </system:String>
+    <system:String x:Key="Resource_SaveDialogTitle_AddImage">Add Image </system:String>
+    <system:String x:Key="Resource_SaveDialogTitle_AddVideo">Add Video </system:String>
+    <system:String x:Key="Resource_MessageBox_ShowHelp">Sorry No Help Available :)</system:String>
+    <system:String x:Key="Resource_JumpList_Task_CreateNewCardDeck">Create New Card Deck</system:String>
+    <system:String x:Key="Resource_JumpList_Task_StartGame">View Decks</system:String>
+    <system:String x:Key="Resource_JumpList_Task_StartAdmin">Manage Decks</system:String>
+
+    <system:String x:Key="Resource_EditCommercial_Text">The web version of FlashCards.Show cannot edit flashcards decks. If you wish to edit this deck or create your own new decks, click the Get desktop version button at the bottom of the screen.</system:String>
+
+    <system:String x:Key="Resource_DownloadingDeck">Downloading deck ({0}%)</system:String>
+    <system:String x:Key="Resource_DeckNotFound">Deck not found</system:String>
+    <system:String x:Key="Resource_NetworkError">Network error, please try again later</system:String>
+    <system:String x:Key="Resource_ServerError">Server error</system:String>
+
+    <system:String x:Key="Resource_DownloadPopup_SendersName">Sender's name:</system:String>
+    <system:String x:Key="Resource_DownloadPopup_DecksKey">Deck's key:</system:String>
+    <system:String x:Key="Resource_DownloadPopup_GetDeckButtonText">Get Deck</system:String>
+    <system:String x:Key="Resource_DownloadPopup_GetDemoDeckButtonText">Get Demo Deck</system:String>
+    <system:String x:Key="Resource_DownloadPopup_Donwloading">Downloading...</system:String>
+
+    <system:String x:Key="Resource_About_Title">About FlashCards.Show</system:String>
+    <system:String x:Key="Resource_About_Text">Developed for Microsoft by Identity Mine and SELA Technology Center.</system:String>
+    
+    <system:String x:Key="Resource_WaitIndicator_CancelButton">Cancel</system:String>
+
+    <system:String x:Key="Resource_Game_Loading">Loading...</system:String>
+
+
+</ResourceDictionary>

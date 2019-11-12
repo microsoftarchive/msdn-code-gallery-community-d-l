@@ -1,0 +1,242 @@
+<Grid 
+  x:Class="IdentityMine.Avalon.Controls.Rotater3DTransition"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  Name="myRoot"
+  Loaded="OnLoaded" ClipToBounds="False"
+  >
+
+  <Grid.Resources>
+
+    <Storyboard x:Key="RotateStoryboard" CurrentStateInvalidated="OnRotateStoryboard" AccelerationRatio="0.5" DecelerationRatio="0.5">
+      <ParallelTimeline  Storyboard.TargetName="MainRotation" Storyboard.TargetProperty="Angle" >
+        <!-- This works in post Beta bits
+        <DoubleAnimation From="{Binding ElementName=myRoot, Path=AngleRotateFrom}" To="{Binding ElementName=myRoot, Path=AngleRotateTo}" Duration="0:0:5"/>
+        -->
+        <DoubleAnimation From="0" To="180" Duration="0:0:2"/>
+      </ParallelTimeline>
+    </Storyboard>
+
+    <Storyboard x:Key="ScaleXStoryboard" AccelerationRatio="0.5" DecelerationRatio="0.5">
+      <ParallelTimeline  Storyboard.TargetName="MainScale" Storyboard.TargetProperty="ScaleX" >
+        <DoubleAnimation From="0" To="0" Duration="0:0:2"/>
+      </ParallelTimeline>
+    </Storyboard>
+
+    <Storyboard x:Key="ScaleYStoryboard" AccelerationRatio="0.5" DecelerationRatio="0.5">
+      <ParallelTimeline  Storyboard.TargetName="MainScale" Storyboard.TargetProperty="ScaleY" >
+        <DoubleAnimation From="0" To="0" Duration="0:0:2"/>
+      </ParallelTimeline>
+    </Storyboard>
+
+    <Storyboard x:Key="TranslateXStoryboard" AccelerationRatio="0.5" DecelerationRatio="0.5">
+      <ParallelTimeline  Storyboard.TargetName="MainTranslate" Storyboard.TargetProperty="OffsetX" >
+        <DoubleAnimation From="0" To="0" Duration="0:0:2"/>
+      </ParallelTimeline>
+    </Storyboard>
+
+    <MeshGeometry3D x:Key="PlaneMeshTop"
+            Positions="-1 -1 0  1 -1 0  -1 1 0  1 1 0"
+            Normals="0 0 1  0 0 1  0 0 1  0 0 1"
+            TextureCoordinates="0 1  1 1  0 0  1 0"
+            TriangleIndices="0 1 2  1 3 2" />
+
+    <MeshGeometry3D x:Key="PlaneMeshBottom"
+          Positions="-1 -1 0  1 -1 0  -1 1 0  1 1 0"
+          Normals="0 0 1  0 0 1  0 0 1  0 0 1"
+          TextureCoordinates="0 1  1 1  0 0  1 0"
+          TriangleIndices="0 1 2  1 3 2" />
+
+
+    <DiffuseMaterial x:Key="MeshMaterial">
+      <DiffuseMaterial.Brush>
+        <RadialGradientBrush >
+          <GradientBrush.GradientStops>
+            <GradientStopCollection>
+              <GradientStop Color="sc#1, 0.1, 0, 0" Offset="1"/>
+              <GradientStop Color="sc#1, 1, 0.1, 0" Offset="0.5"/>
+              <GradientStop Color="sc#1, 1, 1, 0.1" Offset="0"/>
+            </GradientStopCollection>
+          </GradientBrush.GradientStops>
+        </RadialGradientBrush>
+      </DiffuseMaterial.Brush>
+    </DiffuseMaterial>
+
+
+    <DiffuseMaterial x:Key="TransparentMaterial">
+      <DiffuseMaterial.Brush>
+        <SolidColorBrush Color="Transparent" />
+      </DiffuseMaterial.Brush>
+    </DiffuseMaterial>
+
+
+  </Grid.Resources>
+
+  <Viewport3D Name="myViewport3D"  ClipToBounds="False" >
+    <Viewport3D.Camera>
+      <PerspectiveCamera 
+      Position="0,0,1.73" 
+      LookDirection="0,0,-1"
+      UpDirection="0,1,0"
+      NearPlaneDistance="0.25"
+      FarPlaneDistance="20"
+      FieldOfView="45" />
+    </Viewport3D.Camera>
+    <Viewport3D.Children>
+      <ModelVisual3D>
+
+        <!-- Trackball uses this transform -->
+        <ModelVisual3D.Transform>
+          <Transform3DGroup>
+            <Transform3DGroup.Children>
+              <Transform3DCollection >
+
+                <ScaleTransform3D ScaleX="1" ScaleY="1"  ScaleZ="1" />
+                <RotateTransform3D>
+                  <RotateTransform3D.Rotation>
+                    <AxisAngleRotation3D Axis="0 1 0" Angle="0" />
+                  </RotateTransform3D.Rotation>
+                </RotateTransform3D>
+                <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0" />
+
+              </Transform3DCollection>
+            </Transform3DGroup.Children>
+          </Transform3DGroup>
+        </ModelVisual3D.Transform>
+
+        <ModelVisual3D.Content>
+
+          <Model3DGroup >
+            <Model3DGroup.Transform>
+              <Transform3DGroup>
+                <Transform3DGroup.Children>
+                  <Transform3DCollection >
+
+                    <ScaleTransform3D x:Name="MainScale" ScaleX="1" ScaleY="1"  ScaleZ="1" />
+                    <RotateTransform3D>
+                      <RotateTransform3D.Rotation>
+                        <AxisAngleRotation3D x:Name="MainRotation"  Axis="0 1 0" Angle="0" />
+                      </RotateTransform3D.Rotation>
+                    </RotateTransform3D>
+                    <TranslateTransform3D x:Name="MainTranslate" OffsetX="0" OffsetY="0" OffsetZ="0" />
+
+                  </Transform3DCollection>
+                </Transform3DGroup.Children>
+              </Transform3DGroup>
+            </Model3DGroup.Transform>
+
+            <Model3DGroup.Children>
+
+              <!-- Group Child 0 -->
+
+              <Model3DGroup >
+                <Model3DGroup.Transform>
+                  <Transform3DGroup>
+                    <Transform3DGroup.Children>
+                      <Transform3DCollection >
+
+                        <ScaleTransform3D ScaleX="1" ScaleY="1"  ScaleZ="1" />
+                        <RotateTransform3D >
+                          <RotateTransform3D.Rotation >
+                            <AxisAngleRotation3D Axis="0 1 0" Angle="0" />
+                          </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0" />
+
+                      </Transform3DCollection>
+                    </Transform3DGroup.Children>
+                  </Transform3DGroup>
+                </Model3DGroup.Transform>
+
+                <Model3DGroup.Children>
+
+                  <!-- Child 0 -->
+
+                  <GeometryModel3D Geometry="{StaticResource PlaneMeshTop}" Material="{Binding ElementName=myRoot, Path=FrontMaterial}">
+
+                    <GeometryModel3D.Transform>
+                      <Transform3DGroup>
+                        <Transform3DGroup.Children>
+                          <Transform3DCollection>
+
+                            <ScaleTransform3D ScaleX="{Binding ElementName=myRoot, Path=ScaleX}" ScaleY="{Binding ElementName=myRoot, Path=ScaleY}"  ScaleZ="1" />
+                            <RotateTransform3D>
+                              <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D Axis="0 1 0" Angle="0" />
+                              </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                            <TranslateTransform3D OffsetX="{Binding ElementName=myRoot, Path=TranslateX}" OffsetY="{Binding ElementName=myRoot, Path=TranslateY}" OffsetZ="0" />
+
+                          </Transform3DCollection>
+                        </Transform3DGroup.Children>
+                      </Transform3DGroup>
+                    </GeometryModel3D.Transform>
+                  </GeometryModel3D>
+
+
+                  <!-- Child 1 -->
+
+                  <GeometryModel3D Geometry="{StaticResource PlaneMeshBottom}" Material="{Binding ElementName=myRoot, Path=BackMaterial}">
+                    <GeometryModel3D.Transform>
+                      <Transform3DGroup>
+                        <Transform3DGroup.Children>
+                          <Transform3DCollection>
+
+                            <ScaleTransform3D ScaleX="{Binding ElementName=myRoot, Path=ScaleXBack}" ScaleY="{Binding ElementName=myRoot, Path=ScaleYBack}"  ScaleZ="1" />
+                            <RotateTransform3D>
+                              <RotateTransform3D.Rotation>
+                                <AxisAngleRotation3D Axis="0 1 0" Angle="180" />
+                              </RotateTransform3D.Rotation>
+                            </RotateTransform3D>
+                            <TranslateTransform3D OffsetX="{Binding ElementName=myRoot, Path=TranslateXBack}" OffsetY="{Binding ElementName=myRoot, Path=TranslateYBack}" OffsetZ="0" />
+
+                          </Transform3DCollection>
+                        </Transform3DGroup.Children>
+                      </Transform3DGroup>
+                    </GeometryModel3D.Transform>
+                  </GeometryModel3D>
+
+                </Model3DGroup.Children>
+              </Model3DGroup>
+
+              <!-- Group Child 1 -->
+
+              <Model3DGroup >
+                <Model3DGroup.Transform>
+                  <Transform3DGroup>
+                    <Transform3DGroup.Children>
+                      <Transform3DCollection >
+
+                        <ScaleTransform3D ScaleX="1" ScaleY="1"  ScaleZ="1" />
+                        <RotateTransform3D >
+                          <RotateTransform3D.Rotation >
+                            <AxisAngleRotation3D Axis="0 1 0" Angle="0" />
+                          </RotateTransform3D.Rotation>
+                        </RotateTransform3D>
+                        <TranslateTransform3D OffsetX="0" OffsetY="0" OffsetZ="0" />
+
+                      </Transform3DCollection>
+                    </Transform3DGroup.Children>
+                  </Transform3DGroup>
+                </Model3DGroup.Transform>
+
+                <Model3DGroup.Children>
+
+                  <AmbientLight Color="DarkGray"/>
+                  <DirectionalLight Color="White" Direction="-1,-1,-1" />
+                  <DirectionalLight Color="White" Direction="1,1,1" />
+
+                </Model3DGroup.Children>
+              </Model3DGroup>
+
+            </Model3DGroup.Children>
+          </Model3DGroup>
+
+        </ModelVisual3D.Content>
+
+
+      </ModelVisual3D>
+    </Viewport3D.Children>
+  </Viewport3D>
+
+</Grid>

@@ -1,0 +1,494 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="en-gb" http-equiv="Content-Language" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>FSharpChart ReadMe</title>
+<style type="text/css">
+.ms-classic4-main {
+	border-left: .75pt solid black;
+	border-right: .75pt solid black;
+	border-top: 1.5pt solid black;
+	border-bottom: 1.5pt solid black;
+}
+.ms-classic4-top {
+	font-weight: bold;
+	color: white;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid black;
+	background-color: #B4B4CA;
+}
+.ms-classic4-even {
+	color: black;
+	border-style: none;
+	background-color: white;
+	font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.auto-style2 {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.auto-style3 {
+	font-weight: bold;
+	color: white;
+	border-left-style: none;
+	border-right-style: none;
+	border-top-style: none;
+	border-bottom: .75pt solid black;
+	background-color: #B4B4CA;
+	text-align: left;
+}
+    .style1
+    {
+        color: #3366FF;
+    }
+</style>
+</head>
+
+<body>
+
+<h1 class="style1" style="font-family: Arial, Helvetica, sans-serif">FSharpChart</h1>
+    <p class="auto-style2">There are a collection of resources on the web covering FSharpChart; here is 
+a list:</p>
+<ul>
+    <li class="auto-style2">MSDN FSharpChart Documentation (Visualizing Data 
+	with .Net Charts):
+	<a href="http://msdn.microsoft.com/en-us/library/hh273079.aspx">
+	http://msdn.microsoft.com/en-us/library/hh273079.aspx</a> </li>
+	<li class="auto-style2">Chart Controls Documentation:
+        <a href="http://msdn.microsoft.com/en-us/library/dd456632.aspx">
+        http://msdn.microsoft.com/en-us/library/dd456632.aspx</a></li>
+    <li class="auto-style2">Chart Controls Technical Reference:
+        <a href="http://msdn.microsoft.com/en-us/library/dd456726.aspx">
+        http://msdn.microsoft.com/en-us/library/dd456726.aspx</a></li>
+    <li class="auto-style2">FSharpChart - Wrapping System.Windows.Forms.DataVisualization.Charting 
+    Download: <a href="http://code.msdn.microsoft.com/FSharpChart-b59073f5">http://code.msdn.microsoft.com/FSharpChart-b59073f5</a></li>
+    <li class="auto-style2">Getting Started with FSharpChart:
+    <a href="http://blogs.msdn.com/b/fsharpteam/archive/2011/04/15/getting-started-with-fsharpchart.aspx">
+    http://blogs.msdn.com/b/fsharpteam/archive/2011/04/15/getting-started-with-fsharpchart.aspx</a></li>
+    <li class="auto-style2">FSharpChart - Wrapping the 
+    System.Windows.Forms.DataVisualization.Charting Charting Types:
+    <a href="http://blogs.msdn.com/b/dsyme/archive/2011/04/01/fsharpchart-wrapping-the-system-windows-forms-datavisualization-charting-charting-types.aspx">
+    http://blogs.msdn.com/b/dsyme/archive/2011/04/01/fsharpchart-wrapping-the-system-windows-forms-datavisualization-charting-charting-types.aspx</a></li>
+</ul>
+
+    <p class="auto-style2">In addition to several blog posts:</p>
+<ul>
+    <li class="auto-style2">FSharpChart release supporting Stacked Charts and 
+	Markers (version 0.60):
+	<a href="http://blogs.msdn.com/b/carlnol/archive/2011/10/27/fsharpchart-release-supporting-stacked-charts-version-0-60.aspx">
+	http://blogs.msdn.com/b/carlnol/archive/2011/10/27/fsharpchart-release-supporting-stacked-charts-version-0-60.aspx</a> </li>
+	<li class="auto-style2">FSharpChart FSharpChart new release available 
+	(version 0.55):
+	<a href="http://blogs.msdn.com/b/carlnol/archive/2011/10/11/fsharpchart-new-release-available-version-0-55.aspx">
+	http://blogs.msdn.com/b/carlnol/archive/2011/10/11/fsharpchart-new-release-available-version-0-55.aspx</a> </li>
+	<li class="auto-style2">FSharpChart and WPF:
+	<a href="http://blogs.msdn.com/b/carlnol/archive/2011/10/11/fsharpchart-and-wpf.aspx">
+	http://blogs.msdn.com/b/carlnol/archive/2011/10/11/fsharpchart-and-wpf.aspx</a> </li>
+	<li class="auto-style2">FSharpChart new features and code drop availability:
+    <a href="http://blogs.msdn.com/b/carlnol/archive/2011/07/17/fsharpchart-new-features-and-code-drop-availability.aspx">
+    http://blogs.msdn.com/b/carlnol/archive/2011/07/17/fsharpchart-new-features-and-code-drop-availability.aspx</a></li>
+    <li class="auto-style2">FSharpChart and consuming within a WinForms application:
+        <a href="http://blogs.msdn.com/b/carlnol/archive/2011/07/18/fsharpchart-and-consuming-within-a-winforms-application.aspx">
+        http://blogs.msdn.com/b/carlnol/archive/2011/07/18/fsharpchart-and-consuming-within-a-winforms-application.aspx</a></li>
+</ul>
+
+<p class="auto-style2">Here is a brief rundown of the code folder:</p>
+<ul>
+    <li class="auto-style2">bin: Contains a compiled DLL</li>
+	<li class="auto-style2">scripts: Contains the FSharpChart.fsx file</li>
+	<li class="auto-style2">source\fsharpchart: Contains all the source control files.
+    </li>
+    <li class="auto-style2">source\generator: Contains some fsx files used to generate 
+    the original source code. The Generator.Script.fsx file can be used to 
+    create a single FSharpChart.fsx file from all the individual source control 
+    files.</li>
+    <li class="auto-style2">samples\scripts: Contains some sample script files that 
+    demonstrate creating various charts, from the simple to the complex.</li>
+    <li class="auto-style2">samples\winforms: Contains a WinForms application that displays a chart and demonstrates how to change properties at runtime.</li>
+	<li class="auto-style2">samples\wpf: Contains a WPF application that display 
+	a chart.</li>
+</ul>
+<p class="auto-style2">The table below outlines the types of available charts 
+and the documentation location:</p>
+    <p class="auto-style2">
+        <table title="Chart Types" class="ms-classic4-main">
+            <!-- fpstyle: 7,011111000 -->
+            <tr>
+                <th class="auto-style3">
+                    Chart Type</th>
+                <th class="auto-style3">
+                    Documentation</th>
+                <th class="auto-style3">
+                    Description</th>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Point</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456684.aspx">
+					Point Chart</a></td>
+                <td class="ms-classic4-even">
+                    Uses points to represent data points.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>FastPoint</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd489215.aspx">
+					FastPoint Chart</a></td>
+                <td class="ms-classic4-even">
+                    A variation of the
+					<a href="http://msdn.microsoft.com/en-us/library/dd456684.aspx">
+					Point</a> chart type that significantly reduces the drawing 
+					time of a series that contains a very large number of data 
+					points.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Bubble</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456658.aspx">
+					Bubble Chart</a></td>
+                <td class="ms-classic4-even">
+                    A variation of the 					<a href="http://msdn.microsoft.com/en-us/library/dd456684.aspx">
+					Point</a> chart type, where the data points are replaced by 
+					bubbles of different sizes.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Line</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd489252.aspx">
+					Line Chart</a></td>
+                <td class="ms-classic4-even">
+                    Illustrates trends in data with the passing of time.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Spline</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456646.aspx">
+					Spline Chart</a></td>
+                <td class="ms-classic4-even">
+                    A 					<a href="http://msdn.microsoft.com/en-us/library/dd489252.aspx">
+					Line</a> chart that plots a fitted curve through each data 
+					point in a series.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>StepLine</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456618.aspx">
+					Step Line Chart</a></td>
+                <td class="ms-classic4-even">
+                    <span>Similar to the 					<a href="http://msdn.microsoft.com/en-us/library/dd489252.aspx">
+					Line</a> chart type, but uses vertical and horizontal lines 
+					to connect the data points in a series forming a step-like 
+					progression.</span></td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>FastLine</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd489249.aspx">
+					FastLine Chart</a></td>
+                <td class="ms-classic4-even">
+                    A variation of the 					<a href="http://msdn.microsoft.com/en-us/library/dd489252.aspx">
+					Line</a> chart that significantly reduces the drawing time 
+					of a series that contains a very large number of data 
+					points.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Bar</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456715.aspx">
+					Bar Chart</a></td>
+                <td class="ms-classic4-even">
+                    Illustrates comparisons among individual items. </td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>StackedBar</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456771.aspx">
+					Stacked Bar Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays series of the same chart type as stacked bars. </td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>StackedBar100</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd489229.aspx">
+					100% Stacked Bar Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays multiple series of data as stacked bars. The 
+					cumulative proportion of each stacked element is always 100% 
+					of the Y axis.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Column</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd489240.aspx">
+					Column Chart</a></td>
+                <td class="ms-classic4-even">
+                    Uses a sequence of columns to compare values across 
+					categories.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>StackedColumn</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd489221.aspx">
+					Stacked Column Chart</a></td>
+                <td class="ms-classic4-even">
+                    Used to compare the contribution of each value to a total 
+					across categories.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>StackedColumn100</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456741.aspx">
+					100% Stacked Column Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays multiple series of data as stacked columns. The 
+					cumulative proportion of each stacked element is always 100% 
+					of the Y axis.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Area</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456698.aspx">
+					Area Chart</a></td>
+                <td class="ms-classic4-even">
+                    Emphasizes the degree of change over time and shows the 
+					relationship of the parts to a whole.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>SplineArea</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd489217.aspx">
+					Spline Area Chart</a></td>
+                <td class="ms-classic4-even">
+                    An 					<a href="http://msdn.microsoft.com/en-us/library/dd456698.aspx">
+					Area</a> chart that plots a fitted curve through each data 
+					point in a series.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>StackedArea</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456720.aspx">
+					Stacked Area Chart</a></td>
+                <td class="ms-classic4-even">
+                    An 					<a href="http://msdn.microsoft.com/en-us/library/dd456698.aspx">
+					Area</a> chart that stacks two or more data series on top of 
+					one another.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>StackedArea100</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456756.aspx">
+					100% Stacked Area Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays multiple series of data as stacked areas. The 
+					cumulative proportion of each stacked element is always 100% 
+					of the Y axis.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Pie</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456674.aspx">
+					Pie Chart</a></td>
+                <td class="ms-classic4-even">
+                    Shows how proportions of data, shown as pie-shaped pieces, 
+					contribute to the data as a whole.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Doughnut</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456717.aspx">
+					Doughnut Chart</a></td>
+                <td class="ms-classic4-even">
+                    Similar to the 					<a href="http://msdn.microsoft.com/en-us/library/dd456674.aspx">
+					Pie</a>  chart type, except that it has a hole in the center.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even" style="height: 22px">
+                    <span>Stock</span></td>
+                <td class="ms-classic4-even" style="height: 22px">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456733.aspx">
+					Stock Chart</a></td>
+                <td class="ms-classic4-even" style="height: 22px">
+                    Displays significant stock price points including the open, 
+					close, high, and low price points. </td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Candlestick</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456671.aspx">
+					Candlestick Chart</a></td>
+                <td class="ms-classic4-even">
+                    Used to display stock information using high, low, open and 
+					close values. </td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even" style="height: 22px">
+                    <span>Range</span></td>
+                <td class="ms-classic4-even" style="height: 22px">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456630.aspx">
+					Range Chart</a></td>
+                <td class="ms-classic4-even" style="height: 22px">
+                    Displays a range of data by plotting two Y values per data 
+					point, with each Y value being drawn as a line chart.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even" style="height: 22px">
+                    <span>SplineRange</span></td>
+                <td class="ms-classic4-even" style="height: 22px">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456651.aspx">
+					Spline Range Chart</a></td>
+                <td class="ms-classic4-even" style="height: 22px">
+                    Displays a range of data by plotting two Y values per data 
+					point, with each Y value drawn as a line chart. </td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>RangeBar</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456745.aspx">
+					Range Bar Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays separate events that have beginning and end values.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>RangeColumn</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456683.aspx">
+					Range Column Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays a range of data by plotting two Y values per data 
+					point.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Radar</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd489241.aspx">
+					Radar Chart</a></td>
+                <td class="ms-classic4-even">
+                    A circular chart that is used primarily as a data comparison 
+					tool. </td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Polar</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456623.aspx">
+					Polar Chart</a></td>
+                <td class="ms-classic4-even">
+                    A circular graph on which data points are displayed using 
+					the angle, and the distance from the center point.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>ErrorBar</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456729.aspx">
+					Error Bar Chart</a></td>
+                <td class="ms-classic4-even">
+                    Consists of lines with markers that are used to display 
+					statistical information about the data displayed in a graph.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>BoxPlot</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456709.aspx">
+					Box Plot Chart</a></td>
+                <td class="ms-classic4-even">
+                    Consists of one or more box symbols that summarize the 
+					distribution of the data within one or more data sets. </td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Renko</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd489246.aspx">
+					Renko Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays a series of connecting vertical lines where the 
+					thickness and direction of the lines are dependent on the 
+					action of the price value.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>ThreeLineBreak</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456721.aspx">
+					Three Line Break Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays a series of vertical boxes, or lines, that reflect 
+					changes in price values. </td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Kagi</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456639.aspx">
+					Kagi Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays a series of connecting vertical lines where the 
+					thickness and direction of the lines are dependent on the 
+					action of the price value.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>PointAndFigure</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456746.aspx">
+					Point and Figure Chart</a></td>
+                <td class="ms-classic4-even">
+                    Disregards the passage of time and only displays changes in 
+					prices.</td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Funnel</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456679.aspx">
+					Funnel Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays in a funnel shape data that equals 100% when 
+					totaled. </td>
+            </tr>
+            <tr>
+                <td class="ms-classic4-even">
+                    <span>Pyramid</span></td>
+                <td class="ms-classic4-even">
+                    <a href="http://msdn.microsoft.com/en-us/library/dd456749.aspx">
+					Pyramid Chart</a></td>
+                <td class="ms-classic4-even">
+                    Displays data that, when combined, equals 100%. </td>
+            </tr>
+        </table>
+    </p>
+	<p></p>
+</dl>
+
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalon Patient Monitoring", "Avalon Patient Monitoring\Avalon Patient Monitoring.csproj", "{4C718988-54BD-45BC-AFE1-8B9108E873CE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{191275DD-0CB6-4944-81F6-76B5F79D5E80} = {191275DD-0CB6-4944-81F6-76B5F79D5E80}
+		{A01AD98A-6FBE-46B5-8303-C911E828F6A7} = {A01AD98A-6FBE-46B5-8303-C911E828F6A7}
+		{0566032D-086F-493B-8284-C59FA141487D} = {0566032D-086F-493B-8284-C59FA141487D}
+		{F4F0FC21-3975-4573-B5BA-A8EF84143ABC} = {F4F0FC21-3975-4573-B5BA-A8EF84143ABC}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartRotator", "ChartRotator\ChartRotator.csproj", "{A01AD98A-6FBE-46B5-8303-C911E828F6A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartData", "ChartData\ChartData.csproj", "{4FC0D8FD-8BEF-4843-A1B6-E198FA3CE11F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChartVisuals", "ChartVisuals\ChartVisuals.csproj", "{5E01A97B-3162-4A7B-87E1-7E6831C03E9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chart", "Chart\Chart.csproj", "{C0E31DFB-94A7-4D56-9D21-B94FA29F396E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flipper3DTransition", "Flipper3DTransition\Flipper3DTransition.csproj", "{191275DD-0CB6-4944-81F6-76B5F79D5E80}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rotater3DTransition", "Rotater3DTransition\Rotater3DTransition.csproj", "{F4F0FC21-3975-4573-B5BA-A8EF84143ABC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientHelper", "PatientHelper\PatientHelper.csproj", "{0566032D-086F-493B-8284-C59FA141487D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F4F0FC21-3975-4573-B5BA-A8EF84143ABC} = {F4F0FC21-3975-4573-B5BA-A8EF84143ABC}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 9
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://imtfs01:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Avalon\u0020Patient\u0020Monitoring\\Avalon\u0020Patient\u0020Monitoring.csproj
+		SccProjectName1 = Avalon\u0020Patient\u0020Monitoring
+		SccLocalPath1 = Avalon\u0020Patient\u0020Monitoring
+		SccProjectUniqueName2 = Chart\\Chart.csproj
+		SccProjectName2 = Chart
+		SccLocalPath2 = Chart
+		SccProjectUniqueName3 = ChartData\\ChartData.csproj
+		SccProjectName3 = ChartData
+		SccLocalPath3 = ChartData
+		SccProjectUniqueName4 = ChartRotator\\ChartRotator.csproj
+		SccProjectName4 = ChartRotator
+		SccLocalPath4 = ChartRotator
+		SccProjectUniqueName5 = ChartVisuals\\ChartVisuals.csproj
+		SccProjectName5 = ChartVisuals
+		SccLocalPath5 = ChartVisuals
+		SccProjectUniqueName6 = Flipper3DTransition\\Flipper3DTransition.csproj
+		SccProjectName6 = Flipper3DTransition
+		SccLocalPath6 = Flipper3DTransition
+		SccProjectUniqueName7 = Rotater3DTransition\\Rotater3DTransition.csproj
+		SccProjectName7 = Rotater3DTransition
+		SccLocalPath7 = Rotater3DTransition
+		SccProjectUniqueName8 = PatientHelper\\PatientHelper.csproj
+		SccProjectName8 = PatientHelper
+		SccLocalPath8 = PatientHelper
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4C718988-54BD-45BC-AFE1-8B9108E873CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C718988-54BD-45BC-AFE1-8B9108E873CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C718988-54BD-45BC-AFE1-8B9108E873CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C718988-54BD-45BC-AFE1-8B9108E873CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A01AD98A-6FBE-46B5-8303-C911E828F6A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A01AD98A-6FBE-46B5-8303-C911E828F6A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A01AD98A-6FBE-46B5-8303-C911E828F6A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A01AD98A-6FBE-46B5-8303-C911E828F6A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FC0D8FD-8BEF-4843-A1B6-E198FA3CE11F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FC0D8FD-8BEF-4843-A1B6-E198FA3CE11F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FC0D8FD-8BEF-4843-A1B6-E198FA3CE11F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FC0D8FD-8BEF-4843-A1B6-E198FA3CE11F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E01A97B-3162-4A7B-87E1-7E6831C03E9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E01A97B-3162-4A7B-87E1-7E6831C03E9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E01A97B-3162-4A7B-87E1-7E6831C03E9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E01A97B-3162-4A7B-87E1-7E6831C03E9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0E31DFB-94A7-4D56-9D21-B94FA29F396E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0E31DFB-94A7-4D56-9D21-B94FA29F396E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0E31DFB-94A7-4D56-9D21-B94FA29F396E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0E31DFB-94A7-4D56-9D21-B94FA29F396E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{191275DD-0CB6-4944-81F6-76B5F79D5E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{191275DD-0CB6-4944-81F6-76B5F79D5E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{191275DD-0CB6-4944-81F6-76B5F79D5E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{191275DD-0CB6-4944-81F6-76B5F79D5E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4F0FC21-3975-4573-B5BA-A8EF84143ABC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4F0FC21-3975-4573-B5BA-A8EF84143ABC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4F0FC21-3975-4573-B5BA-A8EF84143ABC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4F0FC21-3975-4573-B5BA-A8EF84143ABC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0566032D-086F-493B-8284-C59FA141487D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0566032D-086F-493B-8284-C59FA141487D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0566032D-086F-493B-8284-C59FA141487D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0566032D-086F-493B-8284-C59FA141487D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

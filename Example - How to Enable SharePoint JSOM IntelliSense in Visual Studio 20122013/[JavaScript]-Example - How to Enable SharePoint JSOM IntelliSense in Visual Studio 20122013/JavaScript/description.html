@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/655a3237-6c89-4fd6-9a19-cc5903c1d69aCombined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Example - How to Enable SharePoint JSOM IntelliSense in Visual Studio 2012\2013</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Example - How to Enable SharePoint JSOM IntelliSense in Visual Studio 2012\2013</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SharePoint, Visual Studio 2012, Visual Studio 2013
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            SharePoint, IntelliSense, SharePoint EcmaScript
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last updated</label>
+                    <div id="LastUpdated">7/25/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Enable-ECMA-Client-Object-28e112cd">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p>Introduction</p>
+<div>SharePoint provide a subset of the familiar <strong>server-side object model
+</strong>to the client by using the <strong>SharePoint Client Object Model (SCOM)</strong>.
+<strong>JSOM </strong>is a part of SharePoint Client Object Model that intended for accessing and manipulating SharePoint objects by using JavaScript in an asynchronous. It&rsquo;s provides a comprehensive set of APIs that can be used to perform operations
+ on most SharePoint objects such as<em> Site, Web, List, items, Content Types, User Permission
+</em>and so forth.</div>
+<div>&nbsp;</div>
+<div><img id="92853" src="description/SharePoint Javascript JSOM IntelliSense.png" alt="" width="502" height="308"></div>
+<div></div>
+<div></div>
+<div>Visual Studio <strong>IntelliSense </strong>feature provides a set of options that help developer to make language references easily accessible. When developer write a code, &nbsp;Visual Studio IntelliSense keep context, find the information you need,
+ insert language elements directly into the code.</div>
+<div>&nbsp;</div>
+<h2>Code Description</h2>
+<div>This project contains code to helps you to understand how to Enable ECMA Client Object Model (JSOM) IntelliSense in Visual Studio 2012\2013.</div>
+<div>&nbsp;</div>
+<div>You shloud add <em>reference directive file</em> to your project then add a reference directive in the form of an XML comment as the following:</div>
+<div>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>JavaScript</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">js</span>
+<pre class="hidden">/// &lt;reference path=&quot;~/_layouts/15/init.js&quot; /&gt;
+/// &lt;reference path=&quot;~/_layouts/15/SP.Core.js&quot; /&gt;
+/// &lt;reference path=&quot;~/_layouts/15/SP.Runtime.js&quot; /&gt;
+/// &lt;reference path=&quot;~/_layouts/15/SP.UI.Dialog.js&quot; /&gt;
+/// &lt;reference path=&quot;~/_layouts/15/SP.js&quot; /&gt;</pre>
+<div class="preview">
+<pre class="js"><span class="js__sl_comment">///&nbsp;&lt;reference&nbsp;path=&quot;~/_layouts/15/init.js&quot;&nbsp;/&gt;</span>&nbsp;
+<span class="js__sl_comment">///&nbsp;&lt;reference&nbsp;path=&quot;~/_layouts/15/SP.Core.js&quot;&nbsp;/&gt;</span>&nbsp;
+<span class="js__sl_comment">///&nbsp;&lt;reference&nbsp;path=&quot;~/_layouts/15/SP.Runtime.js&quot;&nbsp;/&gt;</span>&nbsp;
+<span class="js__sl_comment">///&nbsp;&lt;reference&nbsp;path=&quot;~/_layouts/15/SP.UI.Dialog.js&quot;&nbsp;/&gt;</span>&nbsp;
+<span class="js__sl_comment">///&nbsp;&lt;reference&nbsp;path=&quot;~/_layouts/15/SP.js&quot;&nbsp;/&gt;</span></pre>
+</div>
+</div>
+</div>
+<div class="endscriptcode">&nbsp;</div>
+</div>
+<div>A <strong>reference directive (_references.js) </strong>enables Visual Studio to establish a relationship between the script you are currently editing and other scripts. this file should be only one _references.js file for each project and is located should
+ be in the scripts directory.</div>
+<div>&nbsp;</div>
+<h2>Read More:</h2>
+<div><a href="http://social.technet.microsoft.com/wiki/contents/articles/18713.enable-ecma-client-object-model-jsom-intellisense-in-visual-studio-20122013.aspx">Read more (step by step) how to Enable ECMA Client Object Model (JSOM) IntelliSense in Visual Studio
+ 2012\2013</a></div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

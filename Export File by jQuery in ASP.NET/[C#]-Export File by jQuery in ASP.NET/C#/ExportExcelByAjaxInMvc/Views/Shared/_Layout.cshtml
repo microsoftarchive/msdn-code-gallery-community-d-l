@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>@ViewBag.Title</title>
+	<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+	<script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
+	<script src="@Url.Content("~/Scripts/jquery-unified-export-file-1.0.js")" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(function () {
+			$('button.export-excel').bind('click', function () {
+				/*$.UnifiedExportFile(
+					{
+						action: window.location.href,
+						data: { IsExportExcel: true },
+						downloadType: 'Normal',
+						ajaxLoadingSelector: '#loading'
+					});*/
+				/*$.UnifiedExportFile(
+					{
+						action: window.location.href,
+						data: { IsExportExcel: true },
+						downloadType: 'ProgressBar',
+						ajaxLoadingSelector: '#loading'
+					});*/
+				$.UnifiedExportFile(
+					{
+						action: window.location.href,
+						data: { IsExportExcel: true },
+						downloadType: 'Progress',
+						ajaxLoadingSelector: '#loading'
+					});
+
+			});
+		});
+	</script>
+</head>
+
+<body>
+	@RenderBody()
+</body>
+</html>

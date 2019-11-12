@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="FlashCardService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
+  <WebRole name="FlashWCFWebRole">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="FlashCardsService" endpointName="FlashCardsService" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <ConfigurationSettings>
+      <Setting name="DiagnosticsConnectionString" />
+      <Setting name="DataConnectionString" />
+    </ConfigurationSettings>
+    <Endpoints>
+      <InputEndpoint name="FlashCardsService" protocol="http" port="81" />
+    </Endpoints>
+  </WebRole>
+</ServiceDefinition>

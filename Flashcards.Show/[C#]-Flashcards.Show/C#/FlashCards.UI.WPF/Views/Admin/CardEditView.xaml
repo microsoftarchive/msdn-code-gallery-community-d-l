@@ -1,0 +1,127 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:FlashCards.UI.Controls"
+    xmlns:i="http://schemas.microsoft.com/expression/2009/interactivity"
+    xmlns:loc="clr-namespace:FlashCards.UI"
+    xmlns:commands="clr-namespace:FlashCards.Commands;assembly=FlashCards.ViewModel.WPF"
+	mc:Ignorable="d" Focusable="True"
+	x:Class="FlashCards.UI.CardEditView"
+	x:Name="UserControl" Background="Transparent"
+	d:DesignWidth="264.5" d:DesignHeight="299.216" >
+    <UserControl.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../ViewModelMappingAdmin.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
+            <commands:CommandReference  x:Key="delDecal" Command="{Binding RemoveDecal}" />
+
+            <Style x:Key="SviStyle" TargetType="{x:Type controls:ScatterViewItem}">
+                <Setter Property="controls:ScatterCanvas.PinPoint" Value="{Binding PinPoint, Mode=TwoWay}"/>
+                <Setter Property="IsManipulable" Value="True"/>
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="Focusable" Value="False"/>
+                <Setter Property="controls:ScatterCanvas.Center" Value="{Binding Center, Mode=TwoWay}"/>
+                <Setter Property="controls:ScatterCanvas.Size" Value="{Binding Size, Mode=TwoWay}"/>
+                <Setter Property="controls:ScatterCanvas.Orientation" Value="{Binding Orientation, Mode=TwoWay}"/>
+                <Setter Property="controls:ScatterViewItem.IsSelected" Value="{Binding IsSelected, Mode=TwoWay}"/>
+                <Setter Property="CanMove" Value="{Binding CanMove}"/>
+                <Setter Property="CanResize" Value="{Binding CanResize}"/>
+                <Setter Property="Stretch" Value="{Binding Stretch, Mode=TwoWay}"/>
+                <Setter Property="RenderTransformOrigin" Value="0.5,0.5"/>
+                <Setter Property="RenderTransform" >
+                    <Setter.Value>
+                        <RotateTransform Angle="{Binding Orientation}"/>
+                    </Setter.Value>
+                </Setter>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type controls:ScatterViewItem}">
+                            <ControlTemplate.Resources>
+                                <Storyboard x:Key="OnSelected1">
+                                    <DoubleAnimation BeginTime="00:00:00" To="1.0" Duration="00:00:00.0010000" Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity"/>
+                                    <DoubleAnimation BeginTime="00:00:00" To="1.0" Duration="00:00:00.0010000" Storyboard.TargetName="bordershadow" Storyboard.TargetProperty="Opacity"/>
+
+                                </Storyboard>
+                                <Storyboard x:Key="OnUnselected1">
+                                    <DoubleAnimation BeginTime="00:00:00" To="0.0" Duration="00:00:00.0010000"  Storyboard.TargetName="border" Storyboard.TargetProperty="Opacity"/>
+                                    <DoubleAnimation BeginTime="00:00:00" To="0.0" Duration="00:00:00.0010000"  Storyboard.TargetName="bordershadow" Storyboard.TargetProperty="Opacity"/>
+
+                                </Storyboard>
+                            </ControlTemplate.Resources>
+                            <Viewbox Stretch="{TemplateBinding Stretch}"  x:Name="PART_VIEWBOX" d:DesignWidth="243" d:DesignHeight="174" >
+                                <Grid >
+                                    <Grid x:Name="BorderContainer" >
+                                        <Rectangle x:Name="bordershadow" Stretch="Fill" StrokeThickness="1" Opacity="0.0" Stroke="black">
+                                            <Rectangle.Effect>
+                                                <BlurEffect Radius="5" />
+                                            </Rectangle.Effect>
+                                            <Rectangle.RenderTransform>
+                                                <TranslateTransform X="2" Y="2">
+
+                                                </TranslateTransform>
+                                            </Rectangle.RenderTransform>
+                                        </Rectangle>
+                                        <Rectangle x:Name="border" Stretch="Fill" StrokeThickness="1" Opacity="0.0" Stroke="#3399ff"/>
+                                    </Grid>
+                                    <ContentPresenter  Height="Auto" Margin="2"/>
+                                </Grid>
+                            </Viewbox>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="CanMove" Value="False">
+                                    <Setter Property="Visibility" TargetName="BorderContainer" Value="Collapsed" />
+                                </Trigger>
+                                <EventTrigger RoutedEvent="Selector.Unselected">
+                                    <BeginStoryboard x:Name="OnUnselected1_BeginStoryboard" Storyboard="{StaticResource OnUnselected1}"/>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Selector.Selected">
+                                    <BeginStoryboard Storyboard="{StaticResource OnSelected1}"/>
+                                </EventTrigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+        
+    </UserControl.Resources>     
+    	<Grid x:Name="LayoutRoot" >
+			<Grid Margin="0,0,0,-40" RenderTransformOrigin="0.5,0.5">
+    			<Grid.OpacityMask>
+    				<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+    					<GradientStop Color="#60000000"/>
+    					<GradientStop Offset="0.761"/>
+    				</LinearGradientBrush>
+    			</Grid.OpacityMask>
+    			<Grid.RenderTransform>
+    				<TransformGroup>
+    					<ScaleTransform ScaleX="1" ScaleY="1"/>
+    					<SkewTransform AngleX="0" AngleY="0"/>
+    					<RotateTransform Angle="0"/>
+    					<TranslateTransform/>
+    				</TransformGroup>
+    			</Grid.RenderTransform>
+    			<Rectangle Fill="White"   RadiusX="10" RadiusY="10" VerticalAlignment="Bottom" Height="36"/>
+    			<Rectangle x:Name="SelectedStrokeRectangle_Copy2" Stroke="White" StrokeThickness="6" RadiusX="10" RadiusY="10" Margin="-3,0,-3,-3" VerticalAlignment="Bottom" Height="39"/>
+    			<Rectangle x:Name="SelectedStrokeRectangle_Copy" Stroke="#ffcc00" StrokeThickness="6" RadiusX="10" RadiusY="10" Visibility="{Binding IsActive, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="-3" VerticalAlignment="Bottom" Height="39"/>
+    		</Grid>
+			<Rectangle Fill="White"   RadiusX="10" RadiusY="10"/>
+            <Rectangle Fill="{Binding MetaData.ColorBrush}"  RadiusX="10" RadiusY="10"/>
+	    <controls:ScatterView x:Name="ScatterView" IsEnabled="{Binding IsActive}" Background="Transparent" 
+                              ClipToBounds="True" ItemContainerStyle="{StaticResource SviStyle}" Margin="3" ItemsSource="{Binding Decals}" />
+	    <Rectangle x:Name="SelectedStrokeRectangle_Copy1" Stroke="White" StrokeThickness="6" RadiusX="10" RadiusY="10" Margin="-3" IsHitTestVisible="False"/>
+      <Rectangle x:Name="SelectedStrokeRectangle" Stroke="#ffcc00" StrokeThickness="6" RadiusX="10" RadiusY="10" IsHitTestVisible="False"
+                 Visibility="{Binding IsActive, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="-3"/>             
+        </Grid>    
+    
+    <UserControl.InputBindings>
+        <KeyBinding  Key="Delete" Command="{StaticResource delDecal}" />
+    </UserControl.InputBindings>
+</UserControl> 

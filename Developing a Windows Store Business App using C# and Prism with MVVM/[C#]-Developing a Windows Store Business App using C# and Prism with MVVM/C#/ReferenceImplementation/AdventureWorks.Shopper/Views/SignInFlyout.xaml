@@ -1,0 +1,63 @@
+<SettingsFlyout x:Class="AdventureWorks.Shopper.Views.SignInFlyout"
+                    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:prism="using:Microsoft.Practices.Prism.StoreApps"
+                    Title="Login"
+                    Background="{StaticResource SettingsFlyoutBackgroundThemeBrush}"
+                    BorderBrush="{StaticResource AWShopperFlyoutBorderBrush}"
+                    x:Uid="Page"
+                    mc:Ignorable="d"
+                    prism:ViewModelLocator.AutoWireViewModel="true">
+
+        <!-- Settings Panel Content -->
+    <StackPanel x:Name="FlyoutContent">
+        <TextBlock x:Uid="PleaseSignInTextBlock"
+                                Style="{StaticResource TitleTextBlockStyle}"
+                                TextWrapping="Wrap"
+                                Text="Please sign in." />
+        <TextBox Header="UserName"
+                                x:Uid="UserName"
+                                HorizontalAlignment="Left"
+                                Style="{StaticResource SettingFlyoutTextBoxStyle}"
+                                AutomationProperties.AutomationId="UserNameTextBox"
+                                AutomationProperties.IsRequiredForForm="True"
+                                Margin="0,25,0,0"
+                                Width="250"
+                                Text="{Binding UserName, Mode=TwoWay}"
+                                IsEnabled="{Binding IsNewSignIn}" />
+        <PasswordBox  Width="250"
+                                    Header="Password"
+                                    Margin="0,25,0,0"
+                                    x:Name="PasswordBox"
+                                    x:Uid="PasswordBox"
+                                    Style="{StaticResource SettingFlyoutPasswordBoxStyle}"
+                                    AutomationProperties.AutomationId="PasswordBox"
+                                    AutomationProperties.IsRequiredForForm="True"
+                                    HorizontalAlignment="Left"
+                                    Password="{Binding Password,Mode=TwoWay}" />
+        <CheckBox x:Name="SaveCredentialsLabel"
+                                x:Uid="SaveCredentialsLabel"
+                                Foreground="{StaticResource AwShopperFlyoutTextBrush}"
+                                HorizontalAlignment="Left"
+                                Margin="0,20,0,0"
+                                IsChecked="{Binding SaveCredentials,Mode=TwoWay}"
+                                AutomationProperties.AutomationId="SaveCredentialsCheckBox"
+                                Content="Save Credentials?" />
+        <Button x:Uid="SubmitButton"
+                            x:Name="SubmitButton"
+                            Background="{StaticResource AWShopperAccentBrush}"
+                            Content="Submit"
+                            HorizontalAlignment="Stretch"
+                            Foreground="{StaticResource AWShopperButtonForegroundBrush}"
+                            Margin="0,25,0,0"
+                            Command="{Binding SignInCommand}"
+                            AutomationProperties.AutomationId="SignInSubmitButton"/>
+        <TextBlock Style="{StaticResource BasicTextStyle}"
+                                Margin="0,10,0,0"
+                                TextWrapping="Wrap"
+                                Foreground="Red"
+                                Text="{Binding IsSignInInvalid, Converter={StaticResource IsSignInInvalidConverter}}" />
+    </StackPanel>
+</SettingsFlyout>

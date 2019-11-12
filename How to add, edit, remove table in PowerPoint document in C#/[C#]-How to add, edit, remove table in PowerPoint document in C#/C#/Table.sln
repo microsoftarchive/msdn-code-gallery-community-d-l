@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddTable", "AddTable\AddTable.csproj", "{29643323-9BCA-46D8-9121-ABCBB8693134}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessTable", "ProcessTable\ProcessTable.csproj", "{36477F09-DF89-4B69-86D4-60C597F55091}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{29643323-9BCA-46D8-9121-ABCBB8693134}.Debug|x86.ActiveCfg = Debug|x86
+		{29643323-9BCA-46D8-9121-ABCBB8693134}.Debug|x86.Build.0 = Debug|x86
+		{29643323-9BCA-46D8-9121-ABCBB8693134}.Release|x86.ActiveCfg = Release|x86
+		{29643323-9BCA-46D8-9121-ABCBB8693134}.Release|x86.Build.0 = Release|x86
+		{36477F09-DF89-4B69-86D4-60C597F55091}.Debug|x86.ActiveCfg = Debug|x86
+		{36477F09-DF89-4B69-86D4-60C597F55091}.Debug|x86.Build.0 = Debug|x86
+		{36477F09-DF89-4B69-86D4-60C597F55091}.Release|x86.ActiveCfg = Release|x86
+		{36477F09-DF89-4B69-86D4-60C597F55091}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

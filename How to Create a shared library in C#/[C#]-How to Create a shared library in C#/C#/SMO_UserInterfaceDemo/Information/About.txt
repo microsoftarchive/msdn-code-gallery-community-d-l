@@ -1,0 +1,23 @@
+﻿This project shows how to
+
+* See if SQL-Server is installed
+* Get all server instances
+* Get all databases for a service instane
+* Get tables for a table in a database.
+* Get column details for a table.
+
+The methods provided began life in the SMO series below and in this code sample has more functionality then those in the series below
+yet those in the series do indepth into working with SMO and have unit test to validate they function properly.
+
+
+For more details see Karen's MSDN code samples.
+
+SMO Series
+Part 1 https://code.msdn.microsoft.com/Working-with-SQL-Server-2443a157
+Part 2 https://code.msdn.microsoft.com/Working-with-SQL-Server-986fff9e
+Part 3 https://code.msdn.microsoft.com/Working-with-SQL-Server-b204d549
+
+
+MSDN Get default SQL-Server name instance and create database and tables
+https://code.msdn.microsoft.com/Get-default-SQL-Server-b090d9d4
+

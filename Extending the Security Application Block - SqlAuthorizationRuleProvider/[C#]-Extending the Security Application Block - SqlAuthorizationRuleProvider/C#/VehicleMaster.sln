@@ -1,0 +1,126 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Components", "Components", "{E58E54C5-5A8F-41C0-A009-BC6A18DFD617}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{3F2EEF9D-70EA-480A-876B-52617123994D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F06AC1F1-C15C-4DB1-A92B-E9755E54D55E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Components\Infrastructure\Common\Utilities.csproj", "{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 16
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://win-udnn:9090/tfs/udnn
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Components\\Infrastructure\\Common\\Utilities.csproj
+		SccProjectTopLevelParentUniqueName1 = Volvo.VehicleMaster.sln
+		SccProjectName1 = Components/Infrastructure/Common
+		SccLocalPath1 = Components\\Infrastructure\\Common
+		SccProjectUniqueName2 = Components\\Integration\\Gateway\\PublishFire\\PublishFire.csproj
+		SccProjectTopLevelParentUniqueName2 = Volvo.VehicleMaster.sln
+		SccProjectName2 = Components/Integration/Gateway/PublishFire
+		SccLocalPath2 = Components\\Integration\\Gateway\\PublishFire
+		SccProjectUniqueName3 = Components\\Integration\\Gateway\\ReqRep\\ReqRep.csproj
+		SccProjectTopLevelParentUniqueName3 = Volvo.VehicleMaster.sln
+		SccProjectName3 = Components/Integration/Gateway/ReqRep
+		SccLocalPath3 = Components\\Integration\\Gateway\\ReqRep
+		SccProjectUniqueName4 = Components\\Integration\\Proxy\\ReqRep\\ReqRep.csproj
+		SccProjectTopLevelParentUniqueName4 = Volvo.VehicleMaster.sln
+		SccProjectName4 = Components/Integration/Proxy/ReqRep
+		SccLocalPath4 = Components\\Integration\\Proxy\\ReqRep
+		SccProjectUniqueName5 = Components\\Integration\\Proxy\\Subscribe.Facade\\Subscribe.Facade.csproj
+		SccProjectTopLevelParentUniqueName5 = Volvo.VehicleMaster.sln
+		SccProjectName5 = Components/Integration/Proxy/Subscribe.Facade
+		SccLocalPath5 = Components\\Integration\\Proxy\\Subscribe.Facade
+		SccProjectUniqueName6 = Components\\Integration\\Proxy\\Subscribe.WMQListenerService\\Subscribe.WMQListenerService.csproj
+		SccProjectTopLevelParentUniqueName6 = Volvo.VehicleMaster.sln
+		SccProjectName6 = Components/Integration/Proxy/Subscribe.WMQListenerService
+		SccLocalPath6 = Components\\Integration\\Proxy\\Subscribe.WMQListenerService
+		SccProjectUniqueName7 = Components\\Integration\\Proxy\\Subscribe\\Subscribe.csproj
+		SccProjectTopLevelParentUniqueName7 = Volvo.VehicleMaster.sln
+		SccProjectName7 = Components/Integration/Proxy/Subscribe
+		SccLocalPath7 = Components\\Integration\\Proxy\\Subscribe
+		SccProjectUniqueName8 = Components\\UserDomain\\UserDomain.Infrastructure\\UserDomain.Infrastructure.csproj
+		SccProjectTopLevelParentUniqueName8 = Volvo.VehicleMaster.sln
+		SccProjectName8 = Components/UserDomain/UserDomain.Infrastructure
+		SccLocalPath8 = Components\\UserDomain\\UserDomain.Infrastructure
+		SccProjectUniqueName9 = Components\\UserDomain\\UserDomain.Model\\UserDomain.Model.csproj
+		SccProjectTopLevelParentUniqueName9 = Volvo.VehicleMaster.sln
+		SccProjectName9 = Components/UserDomain/UserDomain.Model
+		SccLocalPath9 = Components\\UserDomain\\UserDomain.Model
+		SccProjectUniqueName10 = Components\\UserDomain\\UserDomain.Services\\UserDomain.Services.csproj
+		SccProjectTopLevelParentUniqueName10 = Volvo.VehicleMaster.sln
+		SccProjectName10 = Components/UserDomain/UserDomain.Services
+		SccLocalPath10 = Components\\UserDomain\\UserDomain.Services
+		SccProjectUniqueName11 = Components\\Vehicle\\Vehicle.Infrastructure\\Vehicle.Infrastructure.csproj
+		SccProjectTopLevelParentUniqueName11 = Volvo.VehicleMaster.sln
+		SccProjectName11 = Components/Vehicle/Vehicle.Infrastructure
+		SccLocalPath11 = Components\\Vehicle\\Vehicle.Infrastructure
+		SccProjectUniqueName12 = Components\\Vehicle\\Vehicle.Model\\Vehicle.Model.csproj
+		SccProjectTopLevelParentUniqueName12 = Volvo.VehicleMaster.sln
+		SccProjectName12 = Components/Vehicle/Vehicle.Model
+		SccLocalPath12 = Components\\Vehicle\\Vehicle.Model
+		SccProjectUniqueName13 = Components\\Vehicle\\Vehicle.Services\\Vehicle.Service.csproj
+		SccProjectTopLevelParentUniqueName13 = Volvo.VehicleMaster.sln
+		SccProjectName13 = Components/Vehicle/Vehicle.Services
+		SccLocalPath13 = Components\\Vehicle\\Vehicle.Services
+		SccProjectUniqueName14 = Components\\WebUI\\WebUI.csproj
+		SccProjectTopLevelParentUniqueName14 = Volvo.VehicleMaster.sln
+		SccProjectName14 = Components/WebUI
+		SccLocalPath14 = Components\\WebUI
+		SccProjectUniqueName15 = Resources\\WebUI.Resources\\WebUI.Resources.csproj
+		SccProjectTopLevelParentUniqueName15 = Volvo.VehicleMaster.sln
+		SccProjectName15 = Resources/WebUI.Resources
+		SccLocalPath15 = Resources\\WebUI.Resources
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Volvo.CustomerMaster1.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug - All|Any CPU = Debug - All|Any CPU
+		Debug - All|Mixed Platforms = Debug - All|Mixed Platforms
+		Debug - All|x86 = Debug - All|x86
+		Debug - Web|Any CPU = Debug - Web|Any CPU
+		Debug - Web|Mixed Platforms = Debug - Web|Mixed Platforms
+		Debug - Web|x86 = Debug - Web|x86
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug - All|Any CPU.ActiveCfg = Debug - All|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug - All|Any CPU.Build.0 = Debug - All|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug - All|Mixed Platforms.ActiveCfg = Debug - All|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug - All|Mixed Platforms.Build.0 = Debug - All|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug - All|x86.ActiveCfg = Debug - All|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug - Web|Any CPU.ActiveCfg = Debug - All|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug - Web|Any CPU.Build.0 = Debug - All|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug - Web|Mixed Platforms.ActiveCfg = Debug - All|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug - Web|Mixed Platforms.Build.0 = Debug - All|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug - Web|x86.ActiveCfg = Debug - All|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3F2EEF9D-70EA-480A-876B-52617123994D} = {E58E54C5-5A8F-41C0-A009-BC6A18DFD617}
+		{F06AC1F1-C15C-4DB1-A92B-E9755E54D55E} = {3F2EEF9D-70EA-480A-876B-52617123994D}
+		{66FD29AE-23BF-4FF7-94A7-3F62115BBE18} = {F06AC1F1-C15C-4DB1-A92B-E9755E54D55E}
+	EndGlobalSection
+EndGlobal

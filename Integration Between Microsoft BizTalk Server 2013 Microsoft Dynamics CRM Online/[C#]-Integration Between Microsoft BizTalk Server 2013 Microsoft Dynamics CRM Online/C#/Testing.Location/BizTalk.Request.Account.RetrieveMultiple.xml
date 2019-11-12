@@ -1,0 +1,21 @@
+ <ns0:RetrieveMultiple xmlns:ns0="http://schemas.microsoft.com/xrm/2011/Contracts/Services" xmlns:ns2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:ns3="http://schemas.microsoft.com/xrm/2011/Metadata" xmlns:ns5="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:ns1="http://schemas.datacontract.org/2004/07/System.Collections.Generic" xmlns:ns4="http://schemas.microsoft.com/xrm/2011/Contracts" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <ns0:query xsi:type="ns4:FetchExpression">
+          <ns4:Query>
+            &lt;fetch version=&quot;1.0&quot; output-format=&quot;xml-platform&quot; mapping=&quot;logical&quot; distinct=&quot;false&quot;&gt;
+  &lt;entity name=&quot;account&quot;&gt;
+    &lt;attribute name=&quot;name&quot; /&gt;
+    &lt;attribute name=&quot;primarycontactid&quot; /&gt;
+    &lt;attribute name=&quot;telephone1&quot; /&gt;
+    &lt;attribute name=&quot;accountid&quot; /&gt;
+    &lt;attribute name=&quot;websiteurl&quot; /&gt;
+    &lt;attribute name=&quot;revenue&quot; /&gt;
+    &lt;attribute name=&quot;address1_line1&quot; /&gt;
+    &lt;attribute name=&quot;address1_stateorprovince&quot; /&gt;
+    &lt;attribute name=&quot;address1_city&quot; /&gt;
+    &lt;attribute name=&quot;accountnumber&quot; /&gt;
+    &lt;order attribute=&quot;name&quot; descending=&quot;false&quot; /&gt;
+  &lt;/entity&gt;
+&lt;/fetch&gt;
+          </ns4:Query>
+        </ns0:query>
+      </ns0:RetrieveMultiple>

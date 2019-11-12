@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net">
+	
+  <object name="DomainObjectImplementationClass" 
+			singleton="false" 
+			type="DependencyInjectionWithSpringSample.ImplementationClass2, DependencyInjectionWithSpringSample">
+	
+    <property name="DependentClassToInject">
+      
+			<ref object="DomainObjectDependentClass"/>
+      
+		</property>		
+    
+	</object>
+	
+  <object name="DomainObjectDependentClass" 
+			singleton="false" 
+			type="DependencyInjectionWithSpringSample.DependentClass, DependencyInjectionWithSpringSample">
+		
+    <property name="Message">
+      <value>Dependent Class - Message Property Value Injected by Spring.NET XML Configuration</value>
+    </property>
+    
+	</object>
+	
+</objects>

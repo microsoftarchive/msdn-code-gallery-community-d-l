@@ -1,0 +1,39 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:helpers="clr-namespace:MvvmExample.Helpers"
+        xmlns:vm="clr-namespace:MvvmExample.ViewModel" 
+        x:Class="MvvmExample.ViewModel.MainWindow" WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="400" Width="400" Background="AliceBlue" 
+        DataContext="{DynamicResource ViewModelMain}">
+    <Window.Resources>
+        <vm:ViewModelMain x:Key="ViewModelMain"/>
+    </Window.Resources>
+    <Grid>
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="0.939*"/>
+    		<RowDefinition Height="Auto"/>
+    	</Grid.RowDefinitions>
+        <GroupBox Header="Classic INotifyPropertyChanged Example" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                    	<StackPanel Orientation="Horizontal">
+                    		<ListBox ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" DisplayMemberPath="FirstName" HorizontalAlignment="Left"/>
+                    		<DataGrid ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+	                        <ComboBox ItemsSource="{Binding People}" SelectedItem="{Binding SelectedPerson}" DisplayMemberPath="FirstName" Margin="5,0,0,5" VerticalAlignment="Top"/>
+                    	</StackPanel>
+                        <TextBox x:Name="tb1" Text="{Binding TextProperty1, UpdateSourceTrigger=PropertyChanged}" Margin="5"/>
+                        <TextBlock FontWeight="Bold" Margin="5" Text="The TextBox says '"><Run Text="{Binding TextProperty1}"/><Run Text="'"/></TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
+                <Button Grid.Row="1" Content="Add person" Command="{Binding AddUserCommand}" CommandParameter="{Binding Text, ElementName=tb1}" Margin="5" Focusable="False"/>
+            </Grid>
+        </GroupBox>
+        <Button Content="Next example" VerticalAlignment="Top" HorizontalAlignment="Right" FontWeight="Bold" Foreground="Red" Click="Button_Click" Grid.Row="1" Margin="5"/>
+    </Grid>
+</Window>

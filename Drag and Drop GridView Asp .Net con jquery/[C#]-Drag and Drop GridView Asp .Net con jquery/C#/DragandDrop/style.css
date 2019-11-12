@@ -1,0 +1,69 @@
+﻿.Table {
+    display: table;
+}
+
+.Title {
+    display: table-caption;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    min-width: 450px;
+}
+
+.Heading {
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+}
+
+.Row {
+    display: table-row;
+    min-width: 200px;
+}
+
+.Cell {
+    display: table-cell;
+    border: solid;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.GridSrc td
+    {
+        background-color: #bce8f3;
+        color: black;
+        font-size: 10pt;
+        font-family:Arial;
+        line-height: 200%;
+        cursor: pointer;
+        width:100px
+    }
+    .GridSrc th
+    {
+        background-color: #506165;
+        color: White;
+        font-family:Arial;
+        font-size: 10pt;
+        line-height: 200%;
+        width:100px;
+    }
+    .GridDest td
+    {
+        background-color: #eee !important;
+        color: black;
+        font-family:Arial;
+        font-size: 10pt;
+        line-height: 200%;
+        cursor: pointer;
+        width:100px
+    }
+    .GridDest th
+    {
+        background-color: #6C6C6C !important;
+        color: White;
+        font-family:Arial;
+        font-size: 10pt;
+        line-height: 200%;
+        width:100px
+    }

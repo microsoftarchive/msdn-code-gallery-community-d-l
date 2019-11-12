@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Tenant>
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>@ViewData["Report"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RentalPropertyAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoveInDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaseEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonthlyPayment)
+            </th>            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RentalPropertyAddress)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoveInDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LeaseEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MonthlyPayment)
+                </td>                
+            </tr>
+        }
+    </tbody>
+</table>

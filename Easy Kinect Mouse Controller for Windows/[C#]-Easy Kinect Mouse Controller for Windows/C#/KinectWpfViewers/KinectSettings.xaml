@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="Microsoft.Samples.Kinect.WpfViewers.KinectSettings"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Name="Root" x:ClassModifier="internal"
+             d:DesignHeight="180" d:DesignWidth="600">
+    <StackPanel Orientation="Horizontal" Background="Black" >
+        <StackPanel.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="Margin" Value="3" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Background" Value="LightSteelBlue" />
+            </Style>
+        </StackPanel.Resources>
+        <!--<Border>
+                <StackPanel >
+                    <Label FontWeight="Bold">.AudioStream</Label>
+                </StackPanel>
+            </Border>-->
+        <Border>
+            <StackPanel Margin="2" Grid.Column="1">
+                <Label FontWeight="Bold" Target="{Binding ElementName=ColorStreamEnable}">._ColorStream</Label>
+                <CheckBox IsChecked="True" Name="ColorStreamEnable"
+                                      Checked="ColorStreamEnabled"
+                                      Unchecked="ColorStreamEnabled"
+                                      >Enabled</CheckBox>
+                <ComboBox Name="colorFormats" SelectionChanged="ColorFormatsSelectionChanged" x:FieldModifier="public"/>
+            </StackPanel>
+        </Border>
+        <Border>
+            <StackPanel>
+                <Label FontWeight="Bold" Target="{Binding ElementName=DepthStreamEnable}">._DepthStream</Label>
+                <CheckBox IsChecked="True" Name="DepthStreamEnable"
+                                      Checked="DepthStreamEnabled"
+                                      Unchecked="DepthStreamEnabled"
+                                      >Enabled</CheckBox>
+                <ComboBox Name="depthFormats"  SelectionChanged="DepthFormatsSelectionChanged"  x:FieldModifier="public"/>
+                <StackPanel Orientation="Horizontal" >
+                    <Label Target="{Binding ElementName=depthRanges}" VerticalAlignment="Center">_Range:</Label>
+                    <ComboBox Name="depthRanges" SelectionChanged="DepthRangesSelectionChanged"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border>
+            <StackPanel>
+                <Label FontWeight="Bold" Target="{Binding ElementName=SkeletonStreamEnable}">._SkeletonStream</Label>
+                <CheckBox Checked="SkeletonsChecked" 
+                      Name="SkeletonStreamEnable" Unchecked="SkeletonsChecked">Enabled</CheckBox>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Row="3" Margin="5">
+                    <Label Target="{Binding ElementName=trackingModes}" >_Tracking Mode:</Label>
+                    <ComboBox Name="trackingModes" VerticalAlignment="Center" SelectionChanged="TrackingModesSelectionChanged"  x:FieldModifier="public"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border>
+            <StackPanel >
+                <Label FontWeight="Bold" Target="{Binding ElementName=ElevationAngle}">._ElevationAngle</Label>
+                <TextBox Text="{Binding ElementName=ElevationAngle,Path=Value}" IsEnabled="False"/>
+                <Slider Name="ElevationAngle" Orientation="Vertical" Minimum="-27" Maximum="27" Height="100" HorizontalAlignment="Center" 
+                        TickFrequency="1" TickPlacement="BottomRight" 
+                        ValueChanged="ElevationAngleChanged" IsSnapToTickEnabled="True" />
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

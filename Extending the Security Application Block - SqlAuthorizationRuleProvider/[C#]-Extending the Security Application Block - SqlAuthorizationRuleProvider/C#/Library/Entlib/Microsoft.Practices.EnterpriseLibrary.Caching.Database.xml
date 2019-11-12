@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.Practices.EnterpriseLibrary.Caching.Database</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData">
+            <summary>
+            Configuration information for DataCacheStorageData. This class represents the extra information, over and
+            above what is defined in <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Configuration.CacheStorageData"/>, needed to connect caching to the Data Access Application Block.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData.#ctor">
+            <overloads>
+            Initializes an instance of a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData"/> class.
+            </overloads>
+            <summary>
+            Initializes an instance of a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initialize a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData"/> class with a name, database instance name, and partion name.
+            </summary>
+            <param name="name">
+            The name of the provider.
+            </param>
+            <param name="databaseInstanceName">
+            Name of the database instance to use for storage. Instance must be defined in Data configuration.
+            </param>
+            <param name="partitionName">
+            Name of the particular section inside of a database used to store this provider's data. This 
+            field allows different applications to share the same database safely, preventing any modification of 
+            one application's data by a provider from another application.
+            </param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData.GetRegistrations">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData.DatabaseInstanceName">
+            <summary>
+            Name of the database instance to use for storage. Instance must be defined in Data configuration.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData.PartitionName">
+            <summary>
+            Name of the particular section inside of a database used to store this provider's data. This 
+            field allows different applications to share the same database safely, preventing any modification of 
+            one application's data by a provider from another application.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataDatabaseInstanceNameDescription">
+            <summary>
+              Looks up a localized string similar to Name of the database instance to use for storage of cached data, as configured in the Data Access Application Block..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataDatabaseInstanceNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Database Instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataDescription">
+            <summary>
+              Looks up a localized string similar to Stores the cached data in a database configured through the Data Access Application Block..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataDisplayName">
+            <summary>
+              Looks up a localized string similar to Data Cache Storage.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataNameDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Data Cache Storage provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataPartitionNameDescription">
+             <summary>
+               Looks up a localized string similar to The name of the particular section or partition within the database used to store the cached data. 
+            This allows different applications to share the same database safely, and prevents different applications accessing the same cached data..
+             </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataPartitionNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Partition Name.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataStorageEncryptionDescription">
+            <summary>
+              Looks up a localized string similar to The name of the Encryption Provider to use for this Database Cache Store..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataStorageEncryptionDisplayName">
+            <summary>
+              Looks up a localized string similar to Encryption Provider.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataTypeNameDescription">
+            <summary>
+              Looks up a localized string similar to The fully qualified type name of the Database Cache Storage provider..
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DesignResources.DataCacheStorageDataTypeNameDisplayName">
+            <summary>
+              Looks up a localized string similar to Type Name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IStoreInDatabase">
+            <summary>
+            Fluent interface used to configure a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/> instance.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IStoreInDatabase.UseSharedDatabaseNamed(System.String)">
+            <summary>
+            Specifies the name of the database, or connection string, that should be used to store cache items.
+            </summary>
+            <param name="connectionStringName">The name of the database, or connection string, that should be used to store cache items.</param>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IStoreInDatabase.UsePartition(System.String)">
+            <summary>
+            Specifies the which partition should be used for the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/> instance being configured.
+            </summary>
+            <param name="partitionName">The name of the partition that should be used.</param>
+            <returns>A fluent interface that can be used to further configure the current <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/> instance.</returns>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData"/>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.IStoreInDatabase.EncryptUsing">
+            <summary>
+            Returns a fluent interface that can be used to set up encryption for the current <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/> instance.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData"/>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.DataCacheStorageDataManageabilityProvider">
+            <summary>
+            Provides an implementation for <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData"/> that
+            processes policy overrides, performing appropriate logging of 
+            policy processing errors.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.DataCacheStorageDataManageabilityProvider.DatabaseInstanceNamePropertyName">
+            <summary>
+            The name of the database instance name property.
+            </summary>
+        </member>
+        <member name="F:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.DataCacheStorageDataManageabilityProvider.PartitionNamePropertyName">
+            <summary>
+            The name of the partition property.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.DataCacheStorageDataManageabilityProvider.#ctor">
+            <summary>
+            Initialize a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.DataCacheStorageDataManageabilityProvider"/> class.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.DataCacheStorageDataManageabilityProvider.AddAdministrativeTemplateDirectives(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)">
+            <summary>
+            Adds the ADM instructions that describe the policies that can be used to override the properties of
+            a specific instance of the configuration element type managed by the receiver.
+            </summary>
+            <param name="contentBuilder">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder"/> to which the Adm instructions are to be appended.</param>
+            <param name="configurationObject">The configuration object instance.</param>
+            <param name="configurationSource">The configuration source from where to get additional configuration
+            information, if necessary.</param>
+            <param name="elementPolicyKeyName">The key for the element's policies.</param>
+            <remarks>
+            The default implementation for this method creates a policy, using 
+            <see cref="P:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProviderBase`1.ElementPolicyNameTemplate"/> to create the policy name and invoking
+            <see cref="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProviderBase`1.AddElementAdministrativeTemplateParts(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,`0,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)"/>
+            to add the policy parts.
+            Subclasses managing objects that must not create a policy must override this method to just add the parts.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.DataCacheStorageDataManageabilityProvider.AddElementAdministrativeTemplateParts(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)">
+            <summary>
+            Adds the ADM parts that represent the properties of
+            a specific instance of the configuration element type managed by the receiver.
+            </summary>
+            <param name="contentBuilder">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder"/> to which the Adm instructions are to be appended.</param>
+            <param name="configurationObject">The configuration object instance.</param>
+            <param name="configurationSource">The configuration source from where to get additional configuration
+            information, if necessary.</param>
+            <param name="elementPolicyKeyName">The key for the element's policies.</param>
+            <remarks>
+            Subclasses managing objects that must not create a policy will likely need to include the elements' keys when creating the parts.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.DataCacheStorageDataManageabilityProvider.OverrideWithGroupPolicies(Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey)">
+            <summary>
+            Overrides the <paramref name="configurationObject"/>'s properties with the Group Policy values from the 
+            registry.
+            </summary>
+            <param name="configurationObject">The configuration object for instances that must be managed.</param>
+            <param name="policyKey">The <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.IRegistryKey"/> which holds the Group Policy overrides for the 
+            configuration element.</param>
+            <remarks>Subclasses implementing this method must retrieve all the override values from the registry
+            before making modifications to the <paramref name="configurationObject"/> so any error retrieving
+            the override values will cancel policy processing.</remarks>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.DataCacheStorageDataManageabilityProvider.ElementPolicyNameTemplate">
+            <summary>
+            Gets the template for the name of the policy associated to the object.
+            </summary>
+            <remarks>
+            Elements that override 
+            <see cref="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.ConfigurationElementManageabilityProviderBase`1.AddAdministrativeTemplateDirectives(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Manageability.Adm.AdmContentBuilder,`0,Microsoft.Practices.EnterpriseLibrary.Common.Configuration.IConfigurationSource,System.String)"/>
+            to avoid creating a policy must still override this property.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.Properties.Resources.DataCacheStorageDatabaseInstanceNamePartName">
+            <summary>
+              Looks up a localized string similar to Database instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.Manageability.Properties.Resources.DataCacheStoragePartitionNamePartName">
+            <summary>
+              Looks up a localized string similar to Partition name.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.StoreInDatabaseExtension">
+            <summary>
+            <see cref="T:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.ICachingConfigurationCacheManager"/> extension that allows an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/> to be configured.
+            </summary>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData"/>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Common.Configuration.StoreInDatabaseExtension.StoreCacheMangerItemsInDatabase(Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Fluent.ICachingConfigurationCacheManager,System.String)">
+            <summary>
+            Specifies that current <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.CacheManager"/>'s items should be stored using a <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/> instance.
+            </summary>
+            <param name="backingStoreName">The name of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/> instance.</param>
+            <param name="context">Fluent interface extension point.</param>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore"/>
+            <seealso cref="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.Configuration.DataCacheStorageData"/>
+        </member>
+        <member name="T:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore">
+            <summary>
+            Implementation of a BackingStore to allow CacheItems to be stored through Data Access Application Block.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore.#ctor(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,Microsoft.Practices.EnterpriseLibrary.Caching.BackingStoreImplementations.IStorageEncryptionProvider)">
+            <summary>
+            This is public purely for unit testing purposes and should never be called by application code
+            </summary>
+            <param name="database">Database to use for persistence</param>
+            <param name="databasePartitionName">Partition name in database</param>
+            <param name="encryptionProvider">Provider used for encryption</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore.AddNewItem(System.Int32,Microsoft.Practices.EnterpriseLibrary.Caching.CacheItem)">
+            <summary>
+            Adds new item to persistence store
+            </summary>
+            <param name="storageKey">Unique key for storage item.</param>
+            <param name="newItem">Item to be added to cache. May not be null.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore.Flush">
+            <summary>
+            Flushes all CacheItems from database. If an exception is thrown during the flush, the database is left unchanged.
+            </summary>
+            <remarks>Exceptions thrown depend on the implementation of the underlying database.</remarks>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore.LoadDataFromStore">
+            <summary>
+            Loads data from persistence store.
+            </summary>
+            <returns>Unfiltered hashtable of cache items loaded from persistence store.</returns>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore.Remove(System.Int32)">
+            <summary>
+            Removes the item identified by the key from the database
+            </summary>
+            <param name="storageKey">Key of CacheItem to remove.</param>
+            <remarks>Exceptions thrown depend on the implementation of the underlying database.</remarks>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore.RemoveOldItem(System.Int32)">
+            <summary>
+            Removed existing item stored in persistence store with same key as new item
+            </summary>
+            <param name="storageKey">Item being removed from cache.</param>
+        </member>
+        <member name="M:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore.UpdateLastAccessedTime(System.Int32,System.DateTime)">
+            <summary>
+            Updates the last accessed time for the CacheItem identified by the key
+            </summary>
+            <param name="storageKey">Key of item to update</param>
+            <param name="lastAccessedTime">New timestamp for updated item</param>
+            <remarks>Exceptions thrown depend on the implementation of the underlying database.</remarks>
+        </member>
+        <member name="P:Microsoft.Practices.EnterpriseLibrary.Caching.Database.DataBackingStore.Count">
+            <summary>
+            Returns number of items stored in database
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,30 @@
+using System;
+using System.IO;
+
+namespace Sample
+{
+    class Sample
+    {
+        static void Main(string[] args)
+        {
+            string pathToPdf = @"D:\Office\Tutorials\Input.pdf";
+            string pathToDocx = @"D:\Office\Tutorials\Result.docx";
+
+            //Convert PDF file to DOCX file
+            SautinSoft.PdfFocus f = new SautinSoft.PdfFocus();
+	    	
+            f.OpenPdf(pathToPdf);
+
+            if (f.PageCount > 0)
+            {
+                int result = f.ToWord(pathToDocx);
+                
+                //Show DOCX document
+                if (result==0)
+                {
+                    System.Diagnostics.Process.Start(pathToDocx);
+                }
+            }
+        }
+    }
+}

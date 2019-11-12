@@ -1,0 +1,132 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="http://schemas.microsoft.com/expression/2009/interactivity"
+    xmlns:behav="clr-namespace:IdentityMine.Windows.SimpleMultitouch;assembly=IdentityMine.Windows.SimpleMultitouch"
+    xmlns:controls="clr-namespace:FlashCardUI.Controls"
+	mc:Ignorable="d"
+	x:Class="FlashCardUI.CardsView"
+	x:Name="UserControl"
+	d:DesignWidth="222" d:DesignHeight="196">
+    <UserControl.Resources>
+    <Style x:Key="CardsViewListBoxStyle" TargetType="{x:Type ListBox}">
+			<Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+			<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+			<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+			<Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+			<Setter Property="VerticalContentAlignment" Value="Center"/>
+			<Setter Property="ItemsPanel">
+				<Setter.Value>
+					<ItemsPanelTemplate>
+						<StackPanel Orientation="Horizontal" />
+					</ItemsPanelTemplate>
+				</Setter.Value>
+			</Setter>
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="{x:Type ListBox}">
+						<Grid >
+							<Image Source="/FlashCardUI;Component/Resource/Images/DeckTray.png" Stretch="Fill" Height="Auto" VerticalAlignment="Center"/>
+							
+							<ScrollViewer Focusable="false" Style="{DynamicResource ScrollViewerStyle1}" CanContentScroll="True" >
+                            <i:Interaction.Behaviors>
+                                <behav:ScrollBehavior />
+                            </i:Interaction.Behaviors>
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+							</ScrollViewer>
+							
+						</Grid>
+						<ControlTemplate.Triggers>
+						
+							<Trigger Property="IsGrouping" Value="true">
+								<Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+        <Style x:Key="CardViewsListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="IsSelected" Value="{Binding IsSelected,Mode=OneWayToSource}"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template">
+		        <Setter.Value>
+			        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+			        	<ControlTemplate.Resources>
+			        		<Storyboard x:Key="OnSelected">
+			        			<ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="controls" Storyboard.TargetProperty="(UIElement.Visibility)">
+			        				<DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Visible}"/>
+			        			</ObjectAnimationUsingKeyFrames>
+			        			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+			        				<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1.2"/>
+			        			</DoubleAnimationUsingKeyFrames>
+			        			<DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+			        				<SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1.2"/>
+			        			</DoubleAnimationUsingKeyFrames>
+			        		</Storyboard>
+                            <Storyboard x:Key="OnUnSelected">
+                                <ObjectAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="controls" Storyboard.TargetProperty="(UIElement.Visibility)">
+                                    <DiscreteObjectKeyFrame KeyTime="00:00:00.3000000" Value="{x:Static Visibility.Collapsed}"/>
+                                </ObjectAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.3000000" Value="1"/>
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <Grid x:Name="grid" Background="Transparent" d:DesignWidth="154" d:DesignHeight="106" RenderTransformOrigin="0.5,0.5">
+                            <i:Interaction.Behaviors>
+                                <behav:TapBehavior Tap="TapBehavior_Tap"/>
+                            </i:Interaction.Behaviors>
+                            <Grid.RenderTransform>
+                        		<TransformGroup>
+                        			<ScaleTransform/>
+                        			<SkewTransform/>
+                        			<RotateTransform/>
+                        			<TranslateTransform/>
+                        		</TransformGroup>
+                        	</Grid.RenderTransform>
+                        	<Grid.RowDefinitions>
+                        		<RowDefinition Height="Auto"/>
+                        		<RowDefinition Height="*"/>
+                        	</Grid.RowDefinitions>
+				            <ContentPresenter Grid.Row="1" />
+
+							<StackPanel x:Name="controls" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Center" Width="Auto" Orientation="Horizontal">
+						    	<Button HorizontalAlignment="Stretch" Command="{Binding SetCover}" Width="Auto" Content="Cover"/>
+						    	<Button HorizontalAlignment="Stretch" Command="{Binding DeletePair}" Width="Auto" Content="Delete"/>
+						    </StackPanel>
+                        </Grid>
+			        	<ControlTemplate.Triggers>
+			        		<EventTrigger RoutedEvent="Selector.Unselected">
+			        			<BeginStoryboard x:Name="OnUnSelected_BeginStoryboard" Storyboard="{StaticResource OnUnSelected}"/>
+			        		</EventTrigger>
+			        		<EventTrigger RoutedEvent="Selector.Selected">
+			        			<BeginStoryboard Storyboard="{StaticResource OnSelected}"/>
+			        		</EventTrigger>
+                            
+			        	</ControlTemplate.Triggers>
+			        </ControlTemplate>
+		        </Setter.Value>
+	        </Setter>
+        </Style>
+        
+</UserControl.Resources>
+	<Grid x:Name="LayoutRoot" Margin="0">
+		<ListBox x:Name="lstCard" ItemsSource="{Binding Collection}" SelectedValue="{Binding SelectedCardPair,Mode=TwoWay}" Background="{x:Null}"
+                 BorderBrush="{x:Null}" ItemTemplate="{DynamicResource cardPairSimple}" 
+                  Style="{DynamicResource CardsViewListBoxStyle}" ItemContainerStyle="{DynamicResource CardViewsListBoxItemStyle}">
+            <ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<controls:AnimatedStackPanel Duration="00:00:00.05" Deceleration="0.5"
+                            SelectedItemIndex="{Binding SelectedIndex, ElementName=lstCard}"/>
+				</ItemsPanelTemplate>		
+			</ListBox.ItemsPanel>
+		</ListBox>
+	</Grid>
+</UserControl>

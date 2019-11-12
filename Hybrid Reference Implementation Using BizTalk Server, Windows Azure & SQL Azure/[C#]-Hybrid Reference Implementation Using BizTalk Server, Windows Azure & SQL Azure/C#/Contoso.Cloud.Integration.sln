@@ -1,0 +1,443 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contoso.Cloud.Integration.Azure", "Contoso.Cloud.Integration.Azure", "{8EE08D41-B553-4F7F-97A5-78C15E7DA728}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contoso.Cloud.Integration.BizTalk", "Contoso.Cloud.Integration.BizTalk", "{71ADAF67-F1D1-4596-9D64-1601BD1B6DDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contoso.Cloud.Integration.Shared", "Contoso.Cloud.Integration.Shared", "{6C45FD7C-E0D1-4003-A456-BC4C3DF306FF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{37E6C86A-01C2-4547-AE85-9ED51E7D97D4}"
+	ProjectSection(SolutionItems) = preProject
+		
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build Tools", "Build Tools", "{EE7C1157-461D-4627-8A9E-D1627D64D0C7}"
+	ProjectSection(SolutionItems) = preProject
+		
+		BuildTools\msxsl.exe = BuildTools\msxsl.exe
+		BuildTools\StrongNameKey.pub = BuildTools\StrongNameKey.pub
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Scripts", "Database Scripts", "{6D00652D-A258-42F1-A645-E9B2ADD29A2F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence Queue", "Persistence Queue", "{C6308C53-6FD4-44CF-967F-E91E108B4CFE}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\DatabaseScripts\01 CreateSchema.sql = Deployment\DatabaseScripts\01 CreateSchema.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{D4AD2ED5-86C0-4401-9940-532BCA2451F8}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\DatabaseScripts\Functions\03 udf_ExtractNamespaceName.sql = Deployment\DatabaseScripts\Functions\03 udf_ExtractNamespaceName.sql
+		Deployment\DatabaseScripts\Functions\04 udf_ExtractNamespacePrefix.sql = Deployment\DatabaseScripts\Functions\04 udf_ExtractNamespacePrefix.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stored Procedures", "Stored Procedures", "{74FD240C-79C1-4F09-8342-375081031DB2}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\DatabaseScripts\Procs\05 usp_SqlAzurePersistenceQueue_DequeueXmlData.sql = Deployment\DatabaseScripts\Procs\05 usp_SqlAzurePersistenceQueue_DequeueXmlData.sql
+		Deployment\DatabaseScripts\Procs\06 usp_SqlAzurePersistenceQueue_Enqueue.sql = Deployment\DatabaseScripts\Procs\06 usp_SqlAzurePersistenceQueue_Enqueue.sql
+		Deployment\DatabaseScripts\Procs\07 usp_SqlAzurePersistenceQueue_New.sql = Deployment\DatabaseScripts\Procs\07 usp_SqlAzurePersistenceQueue_New.sql
+		Deployment\DatabaseScripts\Procs\08 usp_SqlAzurePersistenceQueue_QueryXmlData.sql = Deployment\DatabaseScripts\Procs\08 usp_SqlAzurePersistenceQueue_QueryXmlData.sql
+		Deployment\DatabaseScripts\Procs\09 usp_SqlAzurePersistenceQueue_Remove.sql = Deployment\DatabaseScripts\Procs\09 usp_SqlAzurePersistenceQueue_Remove.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tables", "Tables", "{ADF6B9D9-E4B1-4002-B468-6715B3EA2652}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\DatabaseScripts\Tables\02 PersistenceQueue.sql = Deployment\DatabaseScripts\Tables\02 PersistenceQueue.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deployment", "Deployment", "{E46EB27A-C340-4A0F-9290-1D506B33B319}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\DeployBtsApp.cmd = Deployment\DeployBtsApp.cmd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BAM", "BAM", "{2D52FC7E-5026-4D4C-AAC6-557F220DEC3A}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\BAM\DeployLoanAppModels.cmd = Deployment\BAM\DeployLoanAppModels.cmd
+		Deployment\BAM\InventoryDataTrackingActivity.xml = Deployment\BAM\InventoryDataTrackingActivity.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BRE", "BRE", "{CD482981-C075-43CF-A149-1FD72F344D97}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Policies", "Policies", "{D23FF79F-B00C-4DA0-A071-06D03F5028E4}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\BRE\Policies\Contoso.Cloud.Integration.Configuration.xml = Deployment\BRE\Policies\Contoso.Cloud.Integration.Configuration.xml
+		Deployment\BRE\Policies\Contoso.Cloud.Integration.WorkItemHandling.xml = Deployment\BRE\Policies\Contoso.Cloud.Integration.WorkItemHandling.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Vocabularies", "Vocabularies", "{2E421FCA-31AF-4C06-BEC2-1893BCE6EA35}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\BRE\Vocabularies\Application Configuration Vocabulary v1.0.xml = Deployment\BRE\Vocabularies\Application Configuration Vocabulary v1.0.xml
+		Deployment\BRE\Vocabularies\Application Diagnostic Configuration Vocabulary v1.0.xml = Deployment\BRE\Vocabularies\Application Diagnostic Configuration Vocabulary v1.0.xml
+		Deployment\BRE\Vocabularies\BizTalk Message Context Properties v1.0.xml = Deployment\BRE\Vocabularies\BizTalk Message Context Properties v1.0.xml
+		Deployment\BRE\Vocabularies\Loan Application Vocabulary v1.0.xml = Deployment\BRE\Vocabularies\Loan Application Vocabulary v1.0.xml
+		Deployment\BRE\Vocabularies\Loan Application Vocabulary v1.1.xml = Deployment\BRE\Vocabularies\Loan Application Vocabulary v1.1.xml
+		Deployment\BRE\Vocabularies\Loan Application Vocabulary v1.2.xml = Deployment\BRE\Vocabularies\Loan Application Vocabulary v1.2.xml
+		Deployment\BRE\Vocabularies\Messaging Runtime Extender Vocabulary v1.2.xml = Deployment\BRE\Vocabularies\Messaging Runtime Extender Vocabulary v1.2.xml
+		Deployment\BRE\Vocabularies\On-Premise Trace Listener Configuration Vocabulary v1.0.xml = Deployment\BRE\Vocabularies\On-Premise Trace Listener Configuration Vocabulary v1.0.xml
+		Deployment\BRE\Vocabularies\Scalable Transform Service Configuration Vocabulary v1.0.xml = Deployment\BRE\Vocabularies\Scalable Transform Service Configuration Vocabulary v1.0.xml
+		Deployment\BRE\Vocabularies\Work Item Handling Vocabulary v1.0.xml = Deployment\BRE\Vocabularies\Work Item Handling Vocabulary v1.0.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Configuration", "Configuration", "{A2032659-7E3D-402B-9FE1-23831C04F832}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\Configuration\App.config = Deployment\Configuration\App.config
+		Deployment\Configuration\BTSNTSvc64.exe.config = Deployment\Configuration\BTSNTSvc64.exe.config
+		Deployment\Configuration\Machine.config = Deployment\Configuration\Machine.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{AC7E9CBA-44EE-4EE8-90D2-A0CBF062420B}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\Utilities\gacutil.exe = Deployment\Utilities\gacutil.exe
+		Deployment\Utilities\gacutil.exe.config = Deployment\Utilities\gacutil.exe.config
+		Deployment\Utilities\gacutlrc.dll = Deployment\Utilities\gacutlrc.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tracing", "Tracing", "{CE0F4A88-26C3-4C5C-AC3B-985EA600771F}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\Utilities\TracingTools\Default.tmf = Deployment\Utilities\TracingTools\Default.tmf
+		Deployment\Utilities\TracingTools\StopTrace.cmd = Deployment\Utilities\TracingTools\StopTrace.cmd
+		Deployment\Utilities\TracingTools\tracefmt.exe = Deployment\Utilities\TracingTools\tracefmt.exe
+		Deployment\Utilities\TracingTools\tracelog.exe = Deployment\Utilities\TracingTools\tracelog.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Referenced Assemblies", "Referenced Assemblies", "{B11632A4-FB07-43D2-A884-504D1BF61F42}"
+	ProjectSection(SolutionItems) = preProject
+		ReferencedAssemblies\Microsoft.BizTalk.GlobalPropertySchemas.dll = ReferencedAssemblies\Microsoft.BizTalk.GlobalPropertySchemas.dll
+		ReferencedAssemblies\Microsoft.BizTalk.Pipeline.dll = ReferencedAssemblies\Microsoft.BizTalk.Pipeline.dll
+		ReferencedAssemblies\Microsoft.BizTalk.Streaming.dll = ReferencedAssemblies\Microsoft.BizTalk.Streaming.dll
+		ReferencedAssemblies\Microsoft.BizTalk.Tracing.dll = ReferencedAssemblies\Microsoft.BizTalk.Tracing.dll
+		ReferencedAssemblies\Microsoft.BizTalk.XPathReader.dll = ReferencedAssemblies\Microsoft.BizTalk.XPathReader.dll
+		ReferencedAssemblies\Microsoft.EnterpriseSingleSignOn.Interop.dll = ReferencedAssemblies\Microsoft.EnterpriseSingleSignOn.Interop.dll
+		ReferencedAssemblies\Microsoft.RuleEngine.dll = ReferencedAssemblies\Microsoft.RuleEngine.dll
+		ReferencedAssemblies\Microsoft.ServiceBus.Components.dll = ReferencedAssemblies\Microsoft.ServiceBus.Components.dll
+		ReferencedAssemblies\Microsoft.ServiceBus.dll = ReferencedAssemblies\Microsoft.ServiceBus.dll
+		ReferencedAssemblies\Microsoft.ServiceBus.Messaging.dll = ReferencedAssemblies\Microsoft.ServiceBus.Messaging.dll
+		ReferencedAssemblies\Microsoft.WindowsAzure.Diagnostics.dll = ReferencedAssemblies\Microsoft.WindowsAzure.Diagnostics.dll
+		ReferencedAssemblies\Microsoft.XLANGs.BaseTypes.dll = ReferencedAssemblies\Microsoft.XLANGs.BaseTypes.dll
+		ReferencedAssemblies\Microsoft.XLANGs.RuntimeTypes.dll = ReferencedAssemblies\Microsoft.XLANGs.RuntimeTypes.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntLib5", "EntLib5", "{14B271B1-961B-46C7-8450-2677F758B681}"
+	ProjectSection(SolutionItems) = preProject
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Caching.Database.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Caching.Database.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Caching.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Caching.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Caching.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Common.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Common.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Common.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Common.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Data.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Data.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Data.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Data.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.Logging.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.WCF.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Logging.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Logging.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Logging.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Logging.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.AzMan.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.AzMan.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.AzMan.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.AzMan.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.Cache.CachingStore.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.xml = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.xml
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.EnterpriseLibrary.Security.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.ServiceLocation.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.ServiceLocation.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.Unity.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.Unity.dll
+		ReferencedAssemblies\EntLib5\Microsoft.Practices.Unity.Interception.dll = ReferencedAssemblies\EntLib5\Microsoft.Practices.Unity.Interception.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contoso.Cloud.Integration.Tests", "Contoso.Cloud.Integration.Tests", "{BB588C78-F1C9-4AFF-80A5-5C5ECDAA6060}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample Messages", "Sample Messages", "{61BFCC84-9751-493D-A15D-95A4AA4DC3C0}"
+	ProjectSection(SolutionItems) = preProject
+		Tests\Sample Messages\InventoryReport_Med.xml = Tests\Sample Messages\InventoryReport_Med.xml
+		Tests\Sample Messages\InventoryReport_Small.xml = Tests\Sample Messages\InventoryReport_Small.xml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework.csproj", "{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{21F73561-BD22-432E-8D64-8E78585DECE3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalk.Framework", "BizTalk.Framework\BizTalk.Framework.csproj", "{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Services.Contracts", "Azure.Services.Contracts\Azure.Services.Contracts.csproj", "{47242DAF-91FE-4995-B55A-6966399F297C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalk.Components", "BizTalk.Components\BizTalk.Components.csproj", "{84537F6A-A928-441B-9CFD-64D46C52DF23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalk.Maps", "BizTalk.Maps\BizTalk.Maps.btproj", "{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalk.Schemas", "BizTalk.Schemas\BizTalk.Schemas.btproj", "{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BizTalk.Pipelines", "BizTalk.Pipelines\BizTalk.Pipelines.btproj", "{314034DC-D98E-45A4-A35A-EEE84E129857}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Services.Framework", "Azure.Services.Framework\Azure.Services.Framework.csproj", "{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Services.Common", "Azure.Services.Common\Azure.Services.Common.csproj", "{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Services.Persistence", "Azure.Services.Persistence\Azure.Services.Persistence.csproj", "{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Services.ScalableTransform", "Azure.Services.ScalableTransform\Azure.Services.ScalableTransform.csproj", "{16184F8A-88CF-444C-9821-89B719B9AE28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Services.WorkItemProcessor", "Azure.Services.WorkItemProcessor\Azure.Services.WorkItemProcessor.csproj", "{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Services.WorkItemScheduler", "Azure.Services.WorkItemScheduler\Azure.Services.WorkItemScheduler.csproj", "{EA885786-E36B-45EA-B70E-2CF996697BE2}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Azure.Services.Package", "Azure.Services.Package\Azure.Services.Package.ccproj", "{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "Azure.Demo.Package", "Demo\Azure.Demo.Package.ccproj", "{82A8ED24-F704-4AAA-A888-11DC3774A8E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azure.Demo.LoanApplication", "LoanApplication\Azure.Demo.LoanApplication.csproj", "{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{5F94A9D8-6191-4256-A1BB-6FFF32AB3804}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\Contoso.Cloud.Integration.chm = Documentation\Contoso.Cloud.Integration.chm
+		
+		
+		Documentation\Hybrid Solution Architecture.png = Documentation\Hybrid Solution Architecture.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BizTalk", "BizTalk", "{394599FC-0FA5-4A49-BEA3-F6E8101C756A}"
+	ProjectSection(SolutionItems) = preProject
+		Deployment\BizTalk\Contoso.Cloud.Integration.BindingInfo.xml = Deployment\BizTalk\Contoso.Cloud.Integration.BindingInfo.xml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC}.Release|x86.ActiveCfg = Release|Any CPU
+		{21F73561-BD22-432E-8D64-8E78585DECE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21F73561-BD22-432E-8D64-8E78585DECE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21F73561-BD22-432E-8D64-8E78585DECE3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{21F73561-BD22-432E-8D64-8E78585DECE3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{21F73561-BD22-432E-8D64-8E78585DECE3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{21F73561-BD22-432E-8D64-8E78585DECE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21F73561-BD22-432E-8D64-8E78585DECE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21F73561-BD22-432E-8D64-8E78585DECE3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{21F73561-BD22-432E-8D64-8E78585DECE3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{21F73561-BD22-432E-8D64-8E78585DECE3}.Release|x86.ActiveCfg = Release|Any CPU
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D}.Release|x86.ActiveCfg = Release|Any CPU
+		{47242DAF-91FE-4995-B55A-6966399F297C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47242DAF-91FE-4995-B55A-6966399F297C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47242DAF-91FE-4995-B55A-6966399F297C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{47242DAF-91FE-4995-B55A-6966399F297C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{47242DAF-91FE-4995-B55A-6966399F297C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{47242DAF-91FE-4995-B55A-6966399F297C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47242DAF-91FE-4995-B55A-6966399F297C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47242DAF-91FE-4995-B55A-6966399F297C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{47242DAF-91FE-4995-B55A-6966399F297C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{47242DAF-91FE-4995-B55A-6966399F297C}.Release|x86.ActiveCfg = Release|Any CPU
+		{84537F6A-A928-441B-9CFD-64D46C52DF23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84537F6A-A928-441B-9CFD-64D46C52DF23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84537F6A-A928-441B-9CFD-64D46C52DF23}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{84537F6A-A928-441B-9CFD-64D46C52DF23}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{84537F6A-A928-441B-9CFD-64D46C52DF23}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{84537F6A-A928-441B-9CFD-64D46C52DF23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84537F6A-A928-441B-9CFD-64D46C52DF23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84537F6A-A928-441B-9CFD-64D46C52DF23}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{84537F6A-A928-441B-9CFD-64D46C52DF23}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{84537F6A-A928-441B-9CFD-64D46C52DF23}.Release|x86.ActiveCfg = Release|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6}.Release|x86.ActiveCfg = Release|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F}.Release|x86.ActiveCfg = Release|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Debug|Mixed Platforms.Deploy.0 = Debug|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Release|Mixed Platforms.Deploy.0 = Release|Any CPU
+		{314034DC-D98E-45A4-A35A-EEE84E129857}.Release|x86.ActiveCfg = Release|Any CPU
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3}.Release|x86.ActiveCfg = Release|Any CPU
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C}.Release|x86.ActiveCfg = Release|Any CPU
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC}.Release|x86.ActiveCfg = Release|Any CPU
+		{16184F8A-88CF-444C-9821-89B719B9AE28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16184F8A-88CF-444C-9821-89B719B9AE28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16184F8A-88CF-444C-9821-89B719B9AE28}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{16184F8A-88CF-444C-9821-89B719B9AE28}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{16184F8A-88CF-444C-9821-89B719B9AE28}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{16184F8A-88CF-444C-9821-89B719B9AE28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16184F8A-88CF-444C-9821-89B719B9AE28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16184F8A-88CF-444C-9821-89B719B9AE28}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{16184F8A-88CF-444C-9821-89B719B9AE28}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{16184F8A-88CF-444C-9821-89B719B9AE28}.Release|x86.ActiveCfg = Release|Any CPU
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A}.Release|x86.ActiveCfg = Release|Any CPU
+		{EA885786-E36B-45EA-B70E-2CF996697BE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA885786-E36B-45EA-B70E-2CF996697BE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA885786-E36B-45EA-B70E-2CF996697BE2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{EA885786-E36B-45EA-B70E-2CF996697BE2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{EA885786-E36B-45EA-B70E-2CF996697BE2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{EA885786-E36B-45EA-B70E-2CF996697BE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA885786-E36B-45EA-B70E-2CF996697BE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA885786-E36B-45EA-B70E-2CF996697BE2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{EA885786-E36B-45EA-B70E-2CF996697BE2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{EA885786-E36B-45EA-B70E-2CF996697BE2}.Release|x86.ActiveCfg = Release|Any CPU
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69}.Release|x86.ActiveCfg = Release|Any CPU
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8}.Release|x86.ActiveCfg = Release|Any CPU
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{47242DAF-91FE-4995-B55A-6966399F297C} = {8EE08D41-B553-4F7F-97A5-78C15E7DA728}
+		{AE27C81C-81CD-4BC5-BB5C-0CD896B2FED3} = {8EE08D41-B553-4F7F-97A5-78C15E7DA728}
+		{0CCACC2A-E15D-4257-ADAE-AF027FDEA67C} = {8EE08D41-B553-4F7F-97A5-78C15E7DA728}
+		{8822D2DB-084E-44EF-A74C-5CD99BEEE8DC} = {8EE08D41-B553-4F7F-97A5-78C15E7DA728}
+		{16184F8A-88CF-444C-9821-89B719B9AE28} = {8EE08D41-B553-4F7F-97A5-78C15E7DA728}
+		{6014B0FA-7E8B-419D-AF68-123CDDBC1C2A} = {8EE08D41-B553-4F7F-97A5-78C15E7DA728}
+		{EA885786-E36B-45EA-B70E-2CF996697BE2} = {8EE08D41-B553-4F7F-97A5-78C15E7DA728}
+		{D747FE8B-DC8F-4EE2-A6F6-8C3BC41CBF69} = {8EE08D41-B553-4F7F-97A5-78C15E7DA728}
+		{D849A783-F1AE-40CB-A6AD-1D224F5AB85D} = {71ADAF67-F1D1-4596-9D64-1601BD1B6DDB}
+		{84537F6A-A928-441B-9CFD-64D46C52DF23} = {71ADAF67-F1D1-4596-9D64-1601BD1B6DDB}
+		{7D3AC9E6-A8A6-40F8-8B06-A4AD58713AE6} = {71ADAF67-F1D1-4596-9D64-1601BD1B6DDB}
+		{BD32D0FE-9E22-4121-A5E0-DDECF35B708F} = {71ADAF67-F1D1-4596-9D64-1601BD1B6DDB}
+		{314034DC-D98E-45A4-A35A-EEE84E129857} = {71ADAF67-F1D1-4596-9D64-1601BD1B6DDB}
+		{79B9766B-1455-4AA5-AA9C-4A1E5EF379EC} = {6C45FD7C-E0D1-4003-A456-BC4C3DF306FF}
+		{21F73561-BD22-432E-8D64-8E78585DECE3} = {6C45FD7C-E0D1-4003-A456-BC4C3DF306FF}
+		{EE7C1157-461D-4627-8A9E-D1627D64D0C7} = {37E6C86A-01C2-4547-AE85-9ED51E7D97D4}
+		{6D00652D-A258-42F1-A645-E9B2ADD29A2F} = {37E6C86A-01C2-4547-AE85-9ED51E7D97D4}
+		{E46EB27A-C340-4A0F-9290-1D506B33B319} = {37E6C86A-01C2-4547-AE85-9ED51E7D97D4}
+		{B11632A4-FB07-43D2-A884-504D1BF61F42} = {37E6C86A-01C2-4547-AE85-9ED51E7D97D4}
+		{5F94A9D8-6191-4256-A1BB-6FFF32AB3804} = {37E6C86A-01C2-4547-AE85-9ED51E7D97D4}
+		{C6308C53-6FD4-44CF-967F-E91E108B4CFE} = {6D00652D-A258-42F1-A645-E9B2ADD29A2F}
+		{D4AD2ED5-86C0-4401-9940-532BCA2451F8} = {C6308C53-6FD4-44CF-967F-E91E108B4CFE}
+		{74FD240C-79C1-4F09-8342-375081031DB2} = {C6308C53-6FD4-44CF-967F-E91E108B4CFE}
+		{ADF6B9D9-E4B1-4002-B468-6715B3EA2652} = {C6308C53-6FD4-44CF-967F-E91E108B4CFE}
+		{2D52FC7E-5026-4D4C-AAC6-557F220DEC3A} = {E46EB27A-C340-4A0F-9290-1D506B33B319}
+		{CD482981-C075-43CF-A149-1FD72F344D97} = {E46EB27A-C340-4A0F-9290-1D506B33B319}
+		{A2032659-7E3D-402B-9FE1-23831C04F832} = {E46EB27A-C340-4A0F-9290-1D506B33B319}
+		{AC7E9CBA-44EE-4EE8-90D2-A0CBF062420B} = {E46EB27A-C340-4A0F-9290-1D506B33B319}
+		{394599FC-0FA5-4A49-BEA3-F6E8101C756A} = {E46EB27A-C340-4A0F-9290-1D506B33B319}
+		{D23FF79F-B00C-4DA0-A071-06D03F5028E4} = {CD482981-C075-43CF-A149-1FD72F344D97}
+		{2E421FCA-31AF-4C06-BEC2-1893BCE6EA35} = {CD482981-C075-43CF-A149-1FD72F344D97}
+		{CE0F4A88-26C3-4C5C-AC3B-985EA600771F} = {AC7E9CBA-44EE-4EE8-90D2-A0CBF062420B}
+		{14B271B1-961B-46C7-8450-2677F758B681} = {B11632A4-FB07-43D2-A884-504D1BF61F42}
+		{61BFCC84-9751-493D-A15D-95A4AA4DC3C0} = {BB588C78-F1C9-4AFF-80A5-5C5ECDAA6060}
+		{82A8ED24-F704-4AAA-A888-11DC3774A8E8} = {BB588C78-F1C9-4AFF-80A5-5C5ECDAA6060}
+		{6BA0B8D2-BF22-4082-97AD-9BF79479DE78} = {BB588C78-F1C9-4AFF-80A5-5C5ECDAA6060}
+	EndGlobalSection
+EndGlobal

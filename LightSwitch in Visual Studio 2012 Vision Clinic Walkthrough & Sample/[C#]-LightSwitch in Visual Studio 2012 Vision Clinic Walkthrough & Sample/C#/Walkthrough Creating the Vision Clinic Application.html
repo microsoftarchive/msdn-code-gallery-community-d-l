@@ -1,0 +1,1857 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML dir=ltr XMLNS:MSHelp = "http://msdn.microsoft.com/mshelp" xmlns:ddue = 
+"http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink = 
+"http://www.w3.org/1999/xlink" xmlns:tool = "http://www.microsoft.com/tooltip" 
+XMLNS:[default] http://ddue.schemas.microsoft.com/authoring/2003/5 = 
+"http://ddue.schemas.microsoft.com/authoring/2003/5"><HEAD><TITLE>Walkthrough: Creating the Vision Clinic Application</TITLE>
+<META content="text/html; CHARSET=utf-8" http-equiv=Content-Type></META>
+<META name=save content=history></META><LINK rel=stylesheet type=text/css 
+href="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/Classic.css"></LINK>
+<SCRIPT 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/script.js"></SCRIPT>
+
+<META name=GENERATOR content="MSHTML 9.00.8080.16413"></HEAD>
+<BODY><INPUT id=userDataCache class=userDataStyle type=hidden></INPUT><INPUT 
+id=hiddenScrollOffset type=hidden></INPUT><IMG 
+style="WIDTH: 0px; DISPLAY: none; HEIGHT: 0px" id=dropDownImage 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/drpdown.gif"></IMG><IMG 
+style="WIDTH: 0px; DISPLAY: none; HEIGHT: 0px" id=dropDownHoverImage 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/drpdown_orange.gif"></IMG><IMG 
+style="WIDTH: 0px; DISPLAY: none; HEIGHT: 0px" id=collapseImage 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><IMG 
+style="WIDTH: 0px; DISPLAY: none; HEIGHT: 0px" id=expandImage 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/exp.gif"></IMG><IMG 
+style="WIDTH: 0px; DISPLAY: none; HEIGHT: 0px" id=collapseAllImage 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collall.gif"></IMG><IMG 
+style="WIDTH: 0px; DISPLAY: none; HEIGHT: 0px" id=expandAllImage 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/expall.gif"></IMG><IMG 
+style="WIDTH: 0px; DISPLAY: none; HEIGHT: 0px" id=copyImage 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG><IMG 
+style="WIDTH: 0px; DISPLAY: none; HEIGHT: 0px" id=copyHoverImage 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycodeHighlight.gif"></IMG>
+<DIV id=header>
+<TABLE id=topTable width="100%">
+  <TBODY>
+  <TR id=headerTableRow1>
+    <TD align=left><SPAN id=runningHeaderText></SPAN></TD></TR>
+  <TR id=headerTableRow2>
+    <TD align=left><SPAN id=nsrTitle>Walkthrough: Creating the Vision Clinic 
+      Application</SPAN></TD></TR>
+  <TR id=headerTableRow3>
+    <TD><A onclick=OpenSection(seeAlsoToggle) 
+      href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#seeAlsoToggle">See 
+      Also [#seeAlsoToggle]</A></TD></TR></TBODY></TABLE></DIV>
+<DIV id=mainSection>
+<DIV id=mainBody>
+<DIV id=allHistory class=saveHistory onload="loadAll()" 
+onsave="saveAll()"></DIV>
+<P>This walkthrough demonstrates the end-to-end process of creating an 
+application in Visual Studio LightSwitch. You will use many of the features of 
+LightSwitch to create an application for a fictional vision clinic. The 
+application includes capabilities for scheduling appointments and creating 
+invoices. </P>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(prerequisitesToggle) 
+onclick=ExpandCollapse(prerequisitesToggle)><IMG id=prerequisitesToggle 
+class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Prerequisites</SPAN></H2>
+<DIV id=prerequisitesSection class=section name="collapseableSection"><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">Download the PrescriptionContoso database from <A 
+href="http://code.msdn.microsoft.com/lightswitch" target=_blank alt=""><linkText 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">MSDN Code 
+Gallery</linkText></A>. </P></content></DIV>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0E0KB0ABA) 
+onclick=ExpandCollapse(ID0E0KB0ABA)><IMG id=ID0E0KB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Steps</SPAN></H2>
+<DIV id=sectionSection0 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<UL xmlns="">
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#project">Create 
+  a Project [#project]</A><BR>Create the application project.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#entities">Define 
+  Tables [#entities]</A><BR>Add Patient, Invoice, and Invoice Detail 
+  entities.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#ChoiceList">Create 
+  a Choice List [#ChoiceList]</A><BR>Create a list of values.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#Relationship">Define 
+  a Relationship [#Relationship]</A><BR>Link related tables.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#appointment">Add 
+  Another Entity [#appointment]</A><BR>Add the Appointment entity.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#screen">Create 
+  a Screen [#screen]</A><BR>Create a screen to display patients.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#run">Run 
+  the Application [#run]</A><BR>Run the application and enter data.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#data">Connect 
+  to a Database [#data]</A><BR>Connect to an external database.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#product">Make 
+  Changes to Entities [#product]</A><BR>Modify the Products and Product Rebate 
+  entities.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#productlist">Create 
+  a List and Details Screen [#productlist]</A><BR>Create a screen to display 
+  products.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#layout">Change 
+  the Screen Layout [#layout]</A><BR>Modify the layout of the Product List 
+  screen.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#running">Make 
+  Runtime Changes [#running]</A><BR>Make changes in the running application.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#query">Create 
+  a Query [#query]</A><BR>Create a parameterized query and bind it to a 
+  screen.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#computed">Add 
+  a Computed Field [#computed]</A><BR>Create a computed field and add it to a 
+  screen.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#cross">Create 
+  a Cross-database Relationship [#cross]</A><BR>Create a virtual relationship 
+  between entities in different databases.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#invoices">Create 
+  the Invoices Screen [#invoices]</A><BR>Create a screen to display 
+invoices.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#running2">Modify 
+  the Invoices Screen [#running2]</A><BR>Change the layout of the Invoices 
+  screen in the running application.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#logic">Add 
+  Screen Logic [#logic]</A><BR>Write code to calculate dates.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#computed2">Add 
+  More Computed Fields [#computed2]</A><BR>Create more computed fields and add 
+  them to the Invoices screen.<BR>
+  <LI class=unordered><A 
+  href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/preview.html#deploy">Deploy 
+  the Application [#deploy]</A><BR>Publish the application as a 2-tier Desktop 
+  application.<BR></LI></UL></content></DIV></DIV><A name=Project 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0E0IB0ABA) 
+onclick=ExpandCollapse(ID0E0IB0ABA)><IMG id=ID0E0IB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Create 
+a Project</SPAN></H2>
+<DIV id=sectionSection1 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">The first step in creating a LightSwitch application is to open a 
+new project.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAA0IB0ABA) 
+onclick=ExpandCollapse(ID0EAA0IB0ABA)><IMG id=ID0EAA0IB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+create a project</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the &nbsp;<B>Start</B> menu, click <B>All Programs</B> &gt; 
+  <B>Microsoft Visual Studio 2010</B> &gt; <B>Microsoft Visual Studio 
+  LightSwitch</B>.</P>
+  <P xmlns="">The LightSwitch&nbsp;designer appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>New Project</B>.</P>
+  <P xmlns="">The <B>New Project</B> dialog box opens.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Installed Templates</B> list, select the 
+  <B>LightSwitch</B> node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the center pane, select either <B>LightSwitch</B><B>Application 
+  (VB)</B> or <B>LightSwitch</B> <B>Application (C#)</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Name</B> field, type <B>Vision Clinic</B> and then click 
+  <B>OK</B>.</P>
+  <P xmlns="">The <B>Vision Clinic Designer</B> window appears, and the 
+  necessary folders for your project are added to the <B>Solution Explorer</B> 
+  window.</P><IMG alt="The Vision Clinic project" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/2fe9ef54-a751-42f5-affc-d6043545161f.png" 
+  xmlns=""></IMG></content></LI></OL></DIV></DIV></content></DIV></DIV><A 
+name=Entities xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0E0GB0ABA) 
+onclick=ExpandCollapse(ID0E0GB0ABA)><IMG id=ID0E0GB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Define 
+Tables</SPAN></H2>
+<DIV id=sectionSection2 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In LightSwitch, tables are referred to as <I>entities</I>; they 
+model the object that the data represents, in this case a patient. LightSwitch 
+applications use a "forms over data" model, that is, forms or screens that 
+display data from one or more sources. LightSwitch includes an intrinsic 
+database that can be used to store data for your application. In the next step, 
+you will create a database table to store patient information.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0ECA0GB0ABA) 
+onclick=ExpandCollapse(ID0ECA0GB0ABA)><IMG id=ID0ECA0GB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+create the Patient entity</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Vision Clinic Designer</B> window, click <B>Create New 
+  Table</B>.</P>
+  <P xmlns="">The Data Designer appears and a <B>Table1Items</B> node appears 
+  underneath <B>Data Sources</B> in <B>Solution Explorer</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, select the <B>Name</B> property 
+  and type <B>Patient</B>, and then press <B>Enter</B>.</P>
+  <P xmlns="">The name in the <B>Data Designer</B> title bar changes to 
+  "Patient" and the name in <B>Solution Explorer</B> changes to 
+  "Patients".</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Name</B> column click <B>&lt;Add property&gt;</B> and 
+  type <B>FirstName</B>, and then press <B>Enter</B>.</P>
+  <P xmlns="">Notice that the appropriate data type, <B>String</B>, appears in 
+  the <B>Type</B> column, and that the <B>Required</B> field check box is 
+  selected. A patient must have a name.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>LastName</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>Street</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>Street2</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Required</B> column, clear the check box.</P>
+  <P xmlns="">The second line of a street address is optional.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>City</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>State</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>Zip</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>PrimaryPhone</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>PhoneNumber</B> from the 
+  drop-down list.</P>
+  <P xmlns=""><B>PhoneNumber</B> is a <I>custom business type</I> that 
+  represents a common pattern for entering and formatting telephone 
+  numbers.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Required</B> column, clear the check box.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>SecondaryPhone</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>PhoneNumber</B> from the 
+  drop-down list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Required</B> column, clear the check box.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add field&gt;</B> in the <B>Name</B> column and type 
+  <B>Email</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>EmailAddress</B> from the 
+  drop-down list.</P>
+  <P xmlns=""><B>EmailAddress</B> is another custom business type that 
+  represents a correctly formatted e-mail address.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Required</B> column, clear the check box.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>PolicyNumber</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, select the <B>Maximum Length</B> 
+  property and type <B>12</B>.</P>
+  <P xmlns="">This will prevent users from entering a policy number with more 
+  than 12 characters.</P><IMG alt="The Patient entity" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/06d729de-b5f2-4c12-9100-4a8d0fafcca7.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV>
+<P xmlns="">Next you will create two more entities to represent an invoice and 
+invoice line items.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAA0GB0ABA) 
+onclick=ExpandCollapse(ID0EAA0GB0ABA)><IMG id=ID0EAA0GB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+create the Invoice and InvoiceDetail entities</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, click <B>Data Sources</B>. On the 
+  <B>Project</B> menu, click <B>Add Table</B>.</P>
+  <P xmlns="">A new instance of the <B>Data Designer</B> appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, select the <B>Name</B> property. 
+  Type <B>Invoice</B>, and then press <B>Enter</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Name</B> column click <B>&lt;Add property&gt;</B>. Type 
+  <B>InvoiceDate</B>, and then press <B>Enter</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>DateTime</B> from the 
+  drop-down list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Name</B> column click <B>&lt;Add property&gt;</B>. Type 
+  <B>InvoiceDue</B>, and then press <B>Enter</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>DateTime</B> from the 
+  drop-down list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Required</B> column, clear the check box.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Name</B> column click <B>&lt;Add property&gt;</B>. Type 
+  <B>InvoiceStatus</B>, and then press <B>Enter</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>Integer</B> from the 
+  drop-down list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Name</B> column click <B>&lt;Add property&gt;</B>. Type 
+  <B>ShipDate</B>, and then press <B>Enter</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>DateTime</B> from the 
+  drop-down list.</P><IMG alt="The Invoice entity" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/79469b14-63ba-4928-802a-dbc01507c32a.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, click <B>Data Sources</B>. On the 
+  <B>Project</B> menu click <B>Add Table</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, select the <B>Name</B> 
+  property.Type <B>InvoiceDetail</B>, and then press <B>Enter</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Name</B> column click <B>&lt;Add property&gt;</B>.Type 
+  <B>Quantity</B>, and then press <B>Enter</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>Integer</B> from the 
+  drop-down list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>UnitPrice</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>Money</B> from the drop-down 
+  list.</P>
+  <P xmlns=""><B>Money</B> is another custom business type that represents and 
+  correctly formats currency.</P><IMG alt="The InvoiceDetails entity" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/bd7112d1-1a65-414d-a4f2-85667d2ef2e9.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A 
+name=ChoiceList xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0E0EB0ABA) 
+onclick=ExpandCollapse(ID0E0EB0ABA)><IMG id=ID0E0EB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Create 
+a Choice List</SPAN></H2>
+<DIV id=sectionSection3 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will create a <I>choice list</I> for the 
+<B>Invoice</B> entity. A choice list enables you to present the user with a 
+fixed set of values to choose from.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAA0EB0ABA) 
+onclick=ExpandCollapse(ID0EAA0EB0ABA)><IMG id=ID0EAA0EB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+create a choice list</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click 
+  <B>Invoices</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B>, select the <B>InvoiceStatus</B> 
+  field.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, click the <B>Choice List</B> 
+  link.</P><IMG alt="The Choice List dialog box" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/e9156927-3744-4673-8122-cfbca6c8a064.PNG" 
+  xmlns=""></IMG>
+  <P xmlns="">The <B>Choice List</B> dialog box appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Choice List</B> dialog box, enter the following values, 
+  and then click <B>OK</B>.</P>
+  <DIV xmlns="">
+  <H3 class=subHeading></H3>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TH>Value</TH>
+      <TH>Display Name</TH></TR>
+    <TR>
+      <TD>
+        <P><B>0</B></P></TD>
+      <TD>
+        <P><B>Active</B></P></TD></TR>
+    <TR>
+      <TD>
+        <P><B>1</B></P></TD>
+      <TD>
+        <P><B>Paid</B></P></TD></TR>
+    <TR>
+      <TD>
+        <P><B>2</B></P></TD>
+      <TD>
+        <P><B>Overdue</B></P></TD></TR></TBODY></TABLE></DIV>
+  <P xmlns="">When this field is displayed on a screen, it will present the user 
+  with a drop-down list that contains the three <B>Display Name</B> values that 
+  you entered.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A 
+name=Relationship xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0E0CB0ABA) 
+onclick=ExpandCollapse(ID0E0CB0ABA)><IMG id=ID0E0CB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Define 
+a relationship</SPAN></H2>
+<DIV id=sectionSection4 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will define relationships between the 
+<B>Patient</B>, <B>Invoice</B>, and <B>InvoiceDetail</B> entities.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAA0CB0ABA) 
+onclick=ExpandCollapse(ID0EAA0CB0ABA)><IMG id=ID0EAA0CB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+define relationships</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click 
+  <B>Invoices</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Data Designer</B> toolbar, click 
+<B>Relationship</B>.</P>
+  <P xmlns="">The <B>Add New Relationship</B> dialog box appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Add New Relationship dialog box</B>, select the 
+  <B>To</B> column in the <B>Name:</B> row. Select <B>Patient</B>, and then 
+  click <B>OK</B>.</P>
+  <P xmlns="">A one to many relationship is created between the <B>Patient</B> 
+  and <B>Invoice</B> entities; a patient can have multiple 
+  invoices.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Data Designer</B> toolbar, click 
+<B>Relationship</B>.</P>
+  <P xmlns="">The <B>Add New Relationship</B> dialog box appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Add New Relationship dialog box</B>, select the 
+  <B>To</B> column in the <B>Name:</B> row, and select 
+  <B>InvoiceDetail</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>From</B> column in the <B>Multiplicity:</B> row, and 
+  select <B>One</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>To</B> column in the <B>Multiplicity:</B> row, and 
+  select <B>Many</B>, and then click <B>OK</B>.</P>
+  <P xmlns="">A one to many relationship is created between the <B>Invoice</B> 
+  and <B>InvoiceDetail</B> entities; an invoice can have multiple invoice 
+  details.</P><IMG alt="The relationship between Invoice and InvoiceDetail" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/118a10a7-66c7-49cc-98be-1ac2fd0e2211.PNG" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A 
+name=appointment xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0E0AB0ABA) 
+onclick=ExpandCollapse(ID0E0AB0ABA)><IMG id=ID0E0AB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Create 
+the Appointment Entity</SPAN></H2>
+<DIV id=sectionSection5 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will add one more entity to represent an 
+appointment, and then add a relationship and a choice list.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAA0AB0ABA) 
+onclick=ExpandCollapse(ID0EAA0AB0ABA)><IMG id=ID0EAA0AB0ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+add the Appointment entity</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, click <B>Data Sources</B>, and then 
+  on the <B>Project</B> menu click <B>Add Table</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, change the <B>Name</B> to 
+  <B>Appointment</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B>, click <B>&lt;Add property&gt;</B> in 
+  the <B>Name</B> column and type <B>AppointmentTime</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>DateTime</B> from the 
+  drop-down list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>AppointmentType</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>Short Integer</B> from the 
+  drop-down list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>&lt;Add property&gt;</B> in the <B>Name</B> column and 
+  type <B>DoctorNotes</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Accept the default type, <B>String</B>, and clear the 
+  <B>Required</B> check box.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Data Designer</B> toolbar, click 
+  <B>Relationship</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Add New Relationship dialog box</B>, select the 
+  <B>To</B> column in the <B>Name:</B> row. Select <B>Patient</B>, and then 
+  click <B>OK</B>.</P>
+  <P xmlns="">A one to many relationship is created between the <B>Patient</B> 
+  and <B>Appointment</B> entities; a patient can have multiple 
+  appointments.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B>, select the <B>AppointmentType</B> 
+  field.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, click the <B>Choice List</B> 
+  link.</P>
+  <P xmlns="">The <B>Choice List</B> dialog box appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Choice List</B> dialog box, enter the following values, 
+  and then click <B>OK</B>.</P>
+  <DIV xmlns="">
+  <H3 class=subHeading></H3>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TH>Value</TH>
+      <TH>Display Name</TH></TR>
+    <TR>
+      <TD>
+        <P><B>0</B></P></TD>
+      <TD>
+        <P><B>Annual</B></P></TD></TR>
+    <TR>
+      <TD>
+        <P><B>1</B></P></TD>
+      <TD>
+        <P><B>Follow-up</B></P></TD></TR>
+    <TR>
+      <TD>
+        <P><B>2</B></P></TD>
+      <TD>
+        <P><B>Emergency</B></P></TD></TR></TBODY></TABLE></DIV>
+  <P xmlns=""></P><IMG alt="The Appointment entity" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/5b64c7a9-defc-4512-ac11-7929a834cbbd.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=screen 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0E5ABA) 
+onclick=ExpandCollapse(ID0E5ABA)><IMG id=ID0E5ABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Create 
+a Screen</SPAN></H2>
+<DIV id=sectionSection6 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will create a screen to display a list of 
+patients.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAA5ABA) 
+onclick=ExpandCollapse(ID0EAA5ABA)><IMG id=ID0EAA5ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+create a screen</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, click the <B>Screens</B> node, and 
+  then on the <B>Project</B> menu click <B>Add Screen</B>.</P>
+  <P xmlns="">The <B>Add New Screen</B> dialog box opens.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select <B>Editable Grid Screen</B> in the <B>Select a screen 
+  template</B> list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Screen Name</B> text box, type 
+  <B>PatientList</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>Screen Data</B> drop-down list and select 
+  <B>Patients</B>. Click <B>OK</B>.</P><IMG 
+  alt="Defining the PatientList screen" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/b4e146ea-e48e-4900-96db-dffdd6ee22e8.PNG" 
+  xmlns=""></IMG>
+  <P xmlns="">The <B>Screen Designer</B> opens, displaying a hierarchical 
+  representation of the screen layout.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=run 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0E3ABA) 
+onclick=ExpandCollapse(ID0E3ABA)><IMG id=ID0E3ABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Run 
+the Application and Enter Data</SPAN></H2>
+<DIV id=sectionSection7 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">You now have a working application. In the next step, you will run 
+the application and enter some data.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAA3ABA) 
+onclick=ExpandCollapse(ID0EAA3ABA)><IMG id=ID0EAA3ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+run the application</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Press <B>F5</B> to start the application.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the running application, select the <B>PatientList</B> screen 
+  and then click the add <B>+…</B> button.</P>
+  <P xmlns="">An <B>Add New Patient</B> dialog box appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Enter data for a new patient. In the <B>Email</B> field, enter an 
+  invalid value, for example <B>john#example.com</B>.</P><IMG 
+  alt="Invalid email address" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/8fe38197-b3fa-4554-914e-1b8907f02d28.PNG" 
+  xmlns=""></IMG>
+  <P xmlns="">When you move away from the field a red border appears. The 
+  <B>EmailAddress</B> business type has built-in validation rules that can 
+  detect an incorrectly formatted email address.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Correct the error, finish the data entry, and then click 
+  <B>OK</B>.</P>
+  <P xmlns="">The <B>Save</B> button on the application toolbar is now 
+  enabled.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the add <B>+…</B> button. Add data for a second patient and 
+  then click <B>OK</B>. </P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>Save</B> to save your data.</P>
+  <P xmlns="">You can now rearrange the columns in the <B>PatientList</B> grid, 
+  and you can sort on any column.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Close</B> button in the upper-right corner of the 
+  running application to return to design mode.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=data 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0E1ABA) 
+onclick=ExpandCollapse(ID0E1ABA)><IMG id=ID0E1ABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Connect 
+to a Database</SPAN></H2>
+<DIV id=sectionSection8 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will connect to an external database that 
+contains product information.</P>
+<DIV class=alert xmlns="">
+<TABLE cellSpacing=0 cellPadding=0 width="100%">
+  <TBODY>
+  <TR>
+    <TH align=left><IMG class=note 
+      src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/note.gif"></IMG>Note: 
+    </TH></TR>
+  <TR>
+    <TD>Before performing this step, you will have to download and install the 
+      PrescriptionContoso database. The database can be downloaded from <A 
+      href="http://code.msdn.microsoft.com/lightswitch" target=_blank 
+      alt=""><linkText 
+      xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">MSDN Code 
+      Gallery</linkText></A>. Follow the instructions in the Install.htm file to 
+      install the database.
+      <P></P></TD></TR></TBODY></TABLE>
+<P></P></DIV>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAA1ABA) 
+onclick=ExpandCollapse(ID0EAA1ABA)><IMG id=ID0EAA1ABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+attach to a data source</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, select the <B>Data Sources</B> 
+  node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Project</B> menu, click <B>Add Data Source</B>.</P>
+  <P xmlns="">The <B>Attach Data Source</B> wizard opens.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Attach Data Source</B> wizard, click <B>Database</B> and 
+  then click <B>Next</B>.</P>
+  <P xmlns="">The <B>Choose Data Source</B> dialog box appears.</P>
+  <DIV class=alert xmlns="">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH align=left><IMG class=note 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/note.gif"></IMG>Note: 
+      </TH></TR>
+    <TR>
+      <TD>If you have previously connected to a database in LightSwitch, this 
+        dialog box does not appear and you can skip the next step.
+        <P></P></TD></TR></TBODY></TABLE>
+  <P></P></DIV></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Choose Data Source</B> dialog box, click <B>Microsoft 
+  SQL Server</B> <strong>(SQL Client) </strong>and then click <B>Continue</B>.</P>
+  <P xmlns="">The <B>Connection Properties</B> dialog box appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Connection Properties</B> dialog box, enter the values 
+  in the following table, and then click <B>OK</B>.</P>
+  <DIV xmlns="">
+  <H3 class=subHeading></H3>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TH><B>Field</B></TH>
+      <TH><B>Value</B></TH></TR>
+    <TR>
+      <TD>
+        <P><B>Server Name</B></P></TD>
+      <TD>
+        <P><strong>(localdb)\v11.0</strong></P></TD></TR>
+    <TR>
+      <TD>
+        <P><B>Log on to the server</B></P></TD>
+      <TD>
+        <P><B>Use Windows Authentication</B></P></TD></TR>
+    <TR>
+      <TD>
+        <P><B>Select or enter a database name</B></P></TD>
+      <TD>
+        <P><B>C:\Temp\PrescriptionContoso.mdf</B></P></TD></TR></TBODY></TABLE></DIV><IMG 
+  alt="Connection properties" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/eb1938bb-c912-477a-b894-09b374df2b13.PNG" 
+  xmlns=""></IMG>
+  <P xmlns="">The <B>Choose your Database Objects</B> wizard page 
+  appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Expand the <B>Tables</B> node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>Product</B><B></B> and <B>ProductRebate</B> tables 
+  and then click <B>Finish</B>.</P>
+  <P xmlns="">The <B>C_TEMP_PRESCRIPTIONCONTOSO_MDFData</B> data source is added 
+  to the project and entities are created for <B>Products</B><B></B> and 
+  <B>ProductRebates</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, right-click 
+  <B>C_TEMP_PRESCRIPTIONCONTOSO_MDFData</B> and click <B>Rename</B>, the type 
+  <B>PrescriptionContoso</B></P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=product 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EYABA) 
+onclick=ExpandCollapse(ID0EYABA)><IMG id=ID0EYABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Modify 
+the Products and ProductRebate Entities</SPAN></H2>
+<DIV id=sectionSection9 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will make some changes to the ProductRebate 
+and Products entities.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAAYABA) 
+onclick=ExpandCollapse(ID0EAAYABA)><IMG id=ID0EAAYABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+modify the ProductRebate and Products entities</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the 
+  <B>ProductRebates</B> node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>Rebate</B> field and change the <B>Type</B> to 
+  <B>Money</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the <B>Products</B> 
+  node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B>, select the <B>MSRP</B> field and 
+  change the <B>Type</B> to <B>Money</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>ProductImage</B> field and change the <B>Type</B> to 
+  <B>Image</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A 
+name=productlist xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EWABA) 
+onclick=ExpandCollapse(ID0EWABA)><IMG id=ID0EWABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Create 
+a List and Details Screen</SPAN></H2>
+<DIV id=sectionSection10 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will create a screen to display product 
+information.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAAWABA) 
+onclick=ExpandCollapse(ID0EAAWABA)><IMG id=ID0EAAWABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+create a list and details screen</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, select the <B>Screens</B> node. On 
+  the <B>Project</B> menu, click <B>Add Screen</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Add New Screen</B> dialog box, select <B>List and 
+  Details Screen</B> in the <B>Select a screen template</B> list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Screen Name</B> field, type 
+  <B>ProductList</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>Screen Data</B> drop-down list and select 
+  <B>PrescriptionContoso.Products</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Additional Data to Include</B> list, select both 
+  <B>Product Details</B> and <B>Product ProductRebates</B> check boxes, and then 
+  click <B>OK</B>.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A 
+name=layout xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EUABA) 
+onclick=ExpandCollapse(ID0EUABA)><IMG id=ID0EUABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Change 
+the Screen Layout</SPAN></H2>
+<DIV id=sectionSection11 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will change the layout of the 
+<B>ProductList</B> screen.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAAUABA) 
+onclick=ExpandCollapse(ID0EAAUABA)><IMG id=ID0EAAUABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+customize the layout</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Screen Designer</B>, select the <B>Rows Layout |Product 
+  Details</B> node in the <B>Screen Content Tree</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Rows Layout</B> drop-down list, select <B>Picture and 
+  Text</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the following values from the drop-down list for each field 
+  below the <B>Picture and Text</B> node:</P>
+  <DIV xmlns="">
+  <H3 class=subHeading></H3>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TD>
+        <P>Field</P></TD>
+      <TD>
+        <P>Value</P></TD></TR>
+    <TR>
+      <TD>
+        <P><B>(PICTURE)</B></P></TD>
+      <TD>
+        <P><B>Product Image</B></P></TD></TR>
+    <TR>
+      <TD>
+        <P><B>(TITLE)</B></P></TD>
+      <TD>
+        <P><B>Product Name</B></P></TD></TR>
+    <TR>
+      <TD>
+        <P><B>(SUBTITLE)</B></P></TD>
+      <TD>
+        <P><B>MSRP</B></P></TD></TR>
+    <TR>
+      <TD>
+        <P><B>(DESCRIPTION)</B></P></TD>
+      <TD>
+        <P><B>Description</B></P></TD></TR></TBODY></TABLE></DIV><IMG 
+  alt="Picture and Text layout" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/047bbad2-7fc1-4da3-95e8-3fcf165abd9b.PNG" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Press <B>F5</B> to run the application and view the 
+  results.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the running application, click the <B>ProductList</B> menu to 
+  display the screen.</P>
+  <P xmlns="">Keep the application open. In the next step, you will make changes 
+  in the running 
+application.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A 
+name=running xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0ESABA) 
+onclick=ExpandCollapse(ID0ESABA)><IMG id=ID0ESABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Making 
+Changes in the Running Application</SPAN></H2>
+<DIV id=sectionSection12 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will modify the <B>Product List</B> screen 
+while the application is running.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAASABA) 
+onclick=ExpandCollapse(ID0EAASABA)><IMG id=ID0EAASABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+customize a screen at run time</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Product List</B> screen, click the <B>Design Screen</B> 
+  button in the upper-right corner.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the left pane, select the <B>Data Grid | Product Rebates</B> 
+  node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, change the <B>Display Name</B> 
+  property to <B>Contoso Rebates</B>.</P>
+  <P xmlns="">The name also changes in the application window.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>MSRP</B> field and change the <B>Description</B> 
+  property to <B>Suggested price before any rebates.</B>.</P><IMG 
+  alt="Design-time customization" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/4750069d-fe74-465c-a5dc-abdadb705f61.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Save</B> button to return to the running application 
+  and view the changes. Hover over the MSRP field to see the 
+  description.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Close</B> button in the upper-right corner of the 
+  running application to return to design mode.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=query 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EQABA) 
+onclick=ExpandCollapse(ID0EQABA)><IMG id=ID0EQABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Creating 
+a Query</SPAN></H2>
+<DIV id=sectionSection13 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will create a parameterized query and bind it 
+to a screen.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAAQABA) 
+onclick=ExpandCollapse(ID0EAAQABA)><IMG id=ID0EAAQABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+create a parameterized query</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, select the <B>Products</B> node. On 
+  the <B>Project</B> menu, click <B>Add Query</B>.</P>
+  <P xmlns="">The <B>Query Designer</B> appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, select the <B>Name</B> field and 
+  type <B>RelatedProducts</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Query Designer</B>, click <B>Add Filter</B>.</P>
+  <P xmlns="">A filter condition is added to the <B>Filter</B> 
+  section.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the second drop-down list, select 
+<B>Category</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the fourth drop-down list, select 
+  <B>Parameter</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the fifth drop-down list, click <B>Add New</B>.</P>
+  <P xmlns="">A new <B>Parameter</B> named <B>Category</B> of type <B>String</B> 
+  is added to the <B>Parameters</B> section.</P><IMG 
+  alt="The RelatedProducts query" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/42d2575c-bd3a-4a05-b523-6539f073139e.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the <B>ProductList</B> 
+  node to open the <B>Screen Designer</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Screen Designer</B> toolbar, click <B>Add Data 
+  Item</B>.</P>
+  <P xmlns="">The <B>Add Data Item</B> dialog box appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Add Data Item</B> dialog box, click <B>Query</B>. In the 
+  <B>Name</B> column select <B>PrescriptionContoso.RelatedProducts</B> and then 
+  click <B>OK</B>.</P>
+  <P xmlns="">A <B>RelatedProducts</B> node appears in the left 
+  pane.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>Category</B> node under <B>Query 
+  Parameters</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, select the <B>Parameter 
+  Binding</B> property and type 
+  <B>Products.SelectedItem.Category</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the center pane, expand the <B>Add</B> node below the 
+  <B>DataGrid |Contoso Rebates</B> node and click <B>Related 
+  Products</B>.</P><IMG alt="Adding related products" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/9dc3d888-e34f-4bd4-89e9-52b1ee79d546.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Press <B>F5</B> to run the application and view the results.</P>
+  <P xmlns="">Open the <B>Products List</B> screen and notice that a list of 
+  related products is displayed for each selected product.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Close</B> button in the upper-right corner of the 
+  running application to return to design mode.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=computed 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EOABA) 
+onclick=ExpandCollapse(ID0EOABA)><IMG id=ID0EOABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Add 
+a Computed Field</SPAN></H2>
+<DIV id=sectionSection14 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will add a field that uses a computed value. 
+The computed value will be the price of a product after a rebate amount is 
+applied.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0ECAOABA) 
+onclick=ExpandCollapse(ID0ECAOABA)><IMG id=ID0ECAOABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+add a computed field</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the <B>Products</B> 
+  entity node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B>, click <B>&lt;Add Property&gt;</B>. 
+  Type <B>CurrentPrice</B>, and then clcik <B>Tab</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>Money</B> from the drop-down 
+  list.</P>
+  <P xmlns="">In the <B>Properties</B> window, under <B>General</B> the <B>Is 
+  Computed</B> property is selected by default.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, click the <B>Edit Method</B> 
+  link.</P>
+  <P xmlns="">The <B>Code Editor</B> appears and the <B>CurrentPrice_Compute</B> 
+  method is displayed.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Add the following code to the event handler:</P>
+  <DIV class=code xmlns=""><SPAN codeLanguage="VisualBasic">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>Visual Basic&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>Dim rebates As Decimal
+    For Each item In ProductRebates
+        If item.RebateStart &lt;= Date.Today And item.RebateEnd &gt;= Date.Today Then
+            rebates = rebates + item.Rebate
+        End If
+    Next
+
+    result = Me.MSRP - rebates
+</PRE></TD></TR></TBODY></TABLE></SPAN></DIV>
+  <DIV class=code xmlns=""><SPAN codeLanguage="CSharp">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>C#&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>decimal rebates = default(decimal);
+
+            
+            foreach (var item in ProductRebates)
+            {
+                if (item.RebateStart &lt;= System.DateTime.Today &amp;&amp; item.RebateEnd &gt;= System.DateTime.Today)
+                {
+                    rebates = rebates += item.Rebate.Value;
+                }
+            }
+
+            result = this.MSRP - rebates;</PRE></TD></TR></TBODY></TABLE></SPAN></DIV><IMG 
+  alt="Code to calculate the Current Price" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/543a6104-2cfc-4f10-a24a-7b07ee86c482.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV>
+<P xmlns="">In the next step, you will add the computed field to the ProductList 
+screen.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAAOABA) 
+onclick=ExpandCollapse(ID0EAAOABA)><IMG id=ID0EAAOABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+add a computed field to a screen</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the <B>ProductList</B> 
+  screen node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the left pane of the <B>Screen Designer</B>, select the 
+  <B>CurrentPrice</B> node and drag it below the <B>(Description) | 
+  Description</B> node in the center pane. </P><IMG 
+  alt="Current Price after drag and drop" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/4f634b19-e933-4b62-a4ee-5918d433af68.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Press <B>F5</B> to run the application and view the 
+  results.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>ProductList</B> screen, edit the <B>Rebate</B> or 
+  <B>MSRP</B> field. The <B>CurrentPrice</B> is recomputed. Click the 
+  <B>Close</B> button to return to design mode.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Close</B> button in the upper-right corner of the 
+  running application to return to design mode.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=cross 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EMABA) 
+onclick=ExpandCollapse(ID0EMABA)><IMG id=ID0EMABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Create 
+a Cross-database Relationship</SPAN></H2>
+<DIV id=sectionSection15 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will create a virtual relationship between 
+entities in two different databases and display data from two different sources 
+on a single List and Details screen.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAAMABA) 
+onclick=ExpandCollapse(ID0EAAMABA)><IMG id=ID0EAAMABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+create a cross-database relationship</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the 
+  <B>InvoiceDetails</B> entity node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B>, click the <B>Relationship</B> toolbar 
+  button.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Add New Relationship</B> dialog box, select the 
+  <B>Name</B> field in the <B>To</B> column and select <B>Product</B>.</P>
+  <P xmlns="">A new section appears at the bottom of the dialog box. It shows 
+  the related fields in the two entities. If necessary, you could change the 
+  related fields to another field of the same data type, or define multiple 
+  related fields as keys.</P><IMG alt="A cross-database relationship" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/368bc349-7a6f-4f3a-9066-a57072f288c4.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>OK</B> to save the relationship.</P>
+  <P xmlns="">The new relationship is shown as a dotted line in the designer. 
+  This indicates that the entities are in different data sources, in this case 
+  <B>InvoiceDetails</B> from the intrinsic database and <B>Products</B> from the 
+  PrescriptionContoso database.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=invoices 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EKABA) 
+onclick=ExpandCollapse(ID0EKABA)><IMG id=ID0EKABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Create 
+a Screen to Display Invoices</SPAN></H2>
+<DIV id=sectionSection16 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will create a new screen to display 
+invoices.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAAKABA) 
+onclick=ExpandCollapse(ID0EAAKABA)><IMG id=ID0EAAKABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+create a screen</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B> select the <B>Screens</B> node. On the 
+  <B>Project</B> menu, click <B>Add Screen</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Add New Screen</B> dialog box, select <B>List and 
+  Details Screen</B> in the <B>Select a screen template</B> list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Screen Name:</B> text box, type 
+  <B>InvoiceScreen</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>Screen Data</B> drop-down list and select 
+  <B>Invoices</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Additional Data to Include:</B> list, select <B>Invoice 
+  Details </B>and<B> Invoice InvoiceDetails</B>, and then click <B>OK</B> 
+  <B></B>.</P><IMG alt="The InvoiceScreen layout" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/a18a272e-a726-4fc6-aa8a-ccc027602d14.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Expand the <B>Data Grid Row | Invoice Detail</B> node. Select the 
+  <B>Product Product ID</B> node and delete it.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">To reorder the fields, click the <B>UnitPrice</B> node and drag it 
+  underneath the <B>Product</B> node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Press <B>F5</B> to run the application. In the <B></B>Menu, click 
+  <B>Invoice Screen</B> to display the screen.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Invoices</B> pane, click the add <B>+…</B> button.</P>
+  <P xmlns="">Enter some invoice data. Notice how the <B>InvoiceStatus</B> field 
+  provides a drop-down list of values, and the <B>Patient</B> field contains a 
+  button that opens a dialog box that has a list of patients.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Invoice Details</B> pane, click the add <B>+…</B> 
+  button.</P>
+  <P xmlns="">Enter some invoice detail data. Notice how the <B>Product</B> 
+  field provides a drop-down list of products from the PrescriptionContoso 
+  database.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Save</B> button to save your invoice 
+  data.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Keep the application open. In the next step, you will make changes 
+  in the running 
+application.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A 
+name=running2 xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EIABA) 
+onclick=ExpandCollapse(ID0EIABA)><IMG id=ID0EIABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Modify 
+the Invoices Screen</SPAN></H2>
+<DIV id=sectionSection17 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will make some changes to the Invoices screen 
+in the running application.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAAIABA) 
+onclick=ExpandCollapse(ID0EAAIABA)><IMG id=ID0EAAIABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+modify a screen in the running application</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">From the <B>Invoice Screen</B> screen, click the <B>Design 
+  Screen</B> button in the upper-right corner.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the left pane, select the <B>List | Invoices</B> node. Select 
+  <B>DataGrid</B> from the <B>List</B> drop-down list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>Patient</B> node. Use the <B>MoveUp</B> arrow in the 
+  left margin to move it above the <B>Invoice Date</B> node.</P><IMG 
+  alt="The customized Invoice screen" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/3728aa7f-0f81-47b9-b7ba-ef60a03d6252.png" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>Save</B> to return to the running application and view 
+  the changes.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Close</B> button in the upper-right corner of the 
+  running application to return to design mode.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=logic 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EGABA) 
+onclick=ExpandCollapse(ID0EGABA)><IMG id=ID0EGABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Define 
+Screen Logic</SPAN></H2>
+<DIV id=sectionSection18 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will add code to define the default logic for 
+invoice dates.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAAGABA) 
+onclick=ExpandCollapse(ID0EAAGABA)><IMG id=ID0EAAGABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+define screen logic</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the <B>Invoices</B> 
+  entity node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B> click the <B>Write Code</B> drop-down 
+  list on the toolbar. Click the <B>Invoice_Created</B> link.</P>
+  <P xmlns="">The <B>Code Editor</B> opens and displays the 
+  <B>Invoice_Created</B> method.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Invoice_Created</B> method, add the following code to 
+  set default behavior for dates:</P>
+  <DIV class=code xmlns=""><SPAN codeLanguage="VisualBasic">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>Visual Basic&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>InvoiceDate = Date.Today
+InvoiceDue = Date.Today.AddDays(30)
+ShipDate = Date.Today.AddDays(3)</PRE></TD></TR></TBODY></TABLE></SPAN></DIV>
+  <DIV class=code xmlns=""><SPAN codeLanguage="CSharp">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>C#&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>InvoiceDate = System.DateTime.Today;
+InvoiceDue = System.DateTime.Today.AddDays(30);
+ShipDate = System.DateTime.Today.AddDays(3);</PRE></TD></TR></TBODY></TABLE></SPAN></DIV></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the <B>Invoices</B> 
+  entity node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B>, select the <B>InvoiceDate</B> 
+  field.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Write Code</B> drop-down list on the toolbar and then 
+  click the <B>InvoiceDate_Changed</B> link</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>InvoiceDate_Changed</B> method, add the following code 
+  to update dates when the InvoiceDate is changed:</P>
+  <DIV class=code xmlns=""><SPAN codeLanguage="VisualBasic">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>Visual Basic&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>InvoiceDue = InvoiceDate.AddDays(30)
+‘ If the ShipDate is earlier than the new InvoiceDate, update it.
+If ShipDate &lt; InvoiceDate Then
+    ShipDate = InvoiceDate.AddDays(2)
+End If</PRE></TD></TR></TBODY></TABLE></SPAN></DIV>
+  <DIV class=code xmlns=""><SPAN codeLanguage="CSharp">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>C#&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>InvoiceDue = InvoiceDate.AddDays(30); 
+    // If the ShipDate is earlier than the new InvoiceDate, update it
+if (ShipDate &lt; InvoiceDate)
+    {
+        ShipDate = InvoiceDate.AddDays(2);
+    }</PRE></TD></TR></TBODY></TABLE></SPAN></DIV></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the 
+  <B>InvoiceDetails</B> node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B> select the <B>Product</B> field, click 
+  the <B>Write Code</B> drop-down list on the toolbar and then click the 
+  <B>Product_Changed</B> link.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Code Editor</B> , add the following code to set the unit 
+  price and default quantity:</P>
+  <DIV class=code xmlns=""><SPAN codeLanguage="VisualBasic">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>Visual Basic&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>UnitPrice = Product.CurrentPrice
+Quantity = 1</PRE></TD></TR></TBODY></TABLE></SPAN></DIV>
+  <DIV class=code xmlns=""><SPAN codeLanguage="CSharp">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>C#&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>UnitPrice = Product.CurrentPrice;
+
+Quantity = 1;</PRE></TD></TR></TBODY></TABLE></SPAN></DIV></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Press <B>F5</B> to run the application and view the changes. </P>
+  <P xmlns="">Open the <B>Invoice</B> screen and add a new invoice. The date 
+  fields, price and quantity are now automatically updated.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Save</B> button to save your changes.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Close</B> button in the upper-right corner of the 
+  running application to return to design mode.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=computed2 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EEABA) 
+onclick=ExpandCollapse(ID0EEABA)><IMG id=ID0EEABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Add 
+More Computed Fields</SPAN></H2>
+<DIV id=sectionSection19 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will add computed fields for SubTotal, Tax, 
+and Totals to the <B>InvoiceDetails</B> and <B>Invoices</B> entities.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0ECAEABA) 
+onclick=ExpandCollapse(ID0ECAEABA)><IMG id=ID0ECAEABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+add computed fields</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the 
+  <B>InvoiceDetails</B> entity node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B>, click <B>&lt;Add 
+  Property&gt;</B>.Type <B>SubTotal</B>, and then click the 
+  <B>Tab</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>Money</B> from the drop-down 
+  list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, under <B>General Properties</B>, 
+  select the <B>IsComputed</B> check box.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Edit Method</B> link.</P>
+  <P xmlns="">The <B>Code Editor</B> appears and displays the 
+  <B>SubTotal_Compute</B> method.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Add the following code to compute the <B>SubTotal</B>:</P>
+  <DIV class=code xmlns=""><SPAN codeLanguage="VisualBasic">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>Visual Basic&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>result = Quantity * UnitPrice</PRE></TD></TR></TBODY></TABLE></SPAN></DIV>
+  <DIV class=code xmlns=""><SPAN codeLanguage="CSharp">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>C#&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>result = Quantity * UnitPrice;</PRE></TD></TR></TBODY></TABLE></SPAN></DIV></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the <B>Invoices</B> 
+  entity node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B>, click <B>&lt;Add 
+  Property&gt;</B>.Type <B>Tax</B>, and then click <B>Tab</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>Money</B> from the drop-down 
+  list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, select the <B>IsComputed</B> 
+  check box.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Edit Method</B> link.</P>
+  <P xmlns="">The <B>Code Editor</B> opens and displays the <B>Tax_Compute</B> 
+  method.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Replace the <B>Tax_Compute</B> method with the following code to 
+  compute the <B>Tax</B>:</P>
+  <DIV class=code xmlns=""><SPAN codeLanguage="VisualBasic">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>Visual Basic&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>Private Sub Tax_Compute(ByRef result As Decimal)
+    Result =  GetSubTotal() * 0.095
+End Sub
+Protected Function GetSubTotal() As Decimal
+    GetSubtotal = 0
+    For Each item In InvoiceDetails
+        GetSubTotal = GetSubTotal + item.SubTotal
+    Next
+End Function</PRE></TD></TR></TBODY></TABLE></SPAN></DIV>
+  <DIV class=code xmlns=""><SPAN codeLanguage="CSharp">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>C#&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>partial void Tax_Compute(ref decimal result)
+    {
+        result = GetSubTotal() * (decimal)0.095;
+    }
+protected decimal GetSubTotal()
+    {
+        return this.InvoiceDetails.Sum(i =&gt; i.SubTotal);
+    }</PRE></TD></TR></TBODY></TABLE></SPAN></DIV></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the <B>Invoices</B> 
+  entity node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Data Designer</B>, click <B>&lt;Add Property&gt;</B>. 
+  Type <B>Total</B>, and then click <B>Tab</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Type</B> column, select <B>Money</B> from the drop-down 
+  list.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>Properties</B> window, select the <B>IsComputed</B> 
+  check box.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Edit Method</B> link.</P>
+  <P xmlns="">The <B>Code Editor</B> opens and displays the <B>Total_Compute</B> 
+  method.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Add the following code to compute the <B>Tax</B>:</P>
+  <DIV class=code xmlns=""><SPAN codeLanguage="VisualBasic">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>Visual Basic&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>result = GetSubTotal() + Tax</PRE></TD></TR></TBODY></TABLE></SPAN></DIV>
+  <DIV class=code xmlns=""><SPAN codeLanguage="CSharp">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH>C#&nbsp;</TH>
+      <TH><SPAN onfocusin=ChangeCopyCodeIcon(this) class=copyCode 
+        onmouseover=ChangeCopyCodeIcon(this) onfocusout=ChangeCopyCodeIcon(this) 
+        tabIndex=0 onkeypress=CopyCode_CheckKey(this) 
+        onmouseout=ChangeCopyCodeIcon(this) onclick=CopyCode(this)><IMG 
+        class=copyCodeImage name=ccImage align=absMiddle 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/copycode.gif"></IMG>Copy 
+        Code</SPAN></TH></TR>
+    <TR>
+      <TD colSpan=2><PRE>result = GetSubTotal() + Tax;</PRE></TD></TR></TBODY></TABLE></SPAN></DIV></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV>
+<P xmlns="">In the next step, you will add the new fields to the <B>Invoices</B> 
+screen.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAAEABA) 
+onclick=ExpandCollapse(ID0EAAEABA)><IMG id=ID0EAAEABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+add fields to a screen</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B>, double-click the <B>InvoiceScreen</B> 
+  screen node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the center pane, select and expand the <B>Rows Layout | Invoice 
+  Details</B> node.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select and expand the <B>Add </B>drop-down and select 
+  <B>Tax</B>.</P>
+  <P xmlns="">The <B>Tax</B> field is added to the <B>Vertical Stack | 
+  InvoiceDetails</B> section.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Select the <B>Add </B>drop-down again and select the <B>Total</B> 
+  field. </P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Press <B>F5</B> to run the application and view the results. </P>
+  <P xmlns="">Open the <B>Invoice Screen</B> screen. The <B>Tax</B> and 
+  <B>Total</B> fields are now displayed for each invoice row.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Design Screen</B> button to change to the 
+  customization mode.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the left pane, select the <B>Data Grid Row |Invoice Detail</B> 
+  node and expand it.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Add </B>drop-down and select 
+  <B>SubTotal</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click <B>Save</B> to save the change. A <B>SubTotal</B> field is 
+  now displayed in the <B>Invoice Details</B> grid. </P><IMG 
+  alt="The updated Invoice screen" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/0dcde989-66ad-470b-8e6e-dd67abfff82b.PNG" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Click the <B>Close</B> button in the upper-right corner of the 
+  running application to return to design mode.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>File</B> menu, click <B>Save All</B> to save your 
+  work.</P></content></LI></OL></DIV></DIV></content></DIV></DIV><A name=deploy 
+xmlns:cs="urn:the-xml-files:xslt-cs" 
+xmlns:ms="urn:schemas-microsoft-com:xslt"></A><A></A>
+<DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0ECABA) 
+onclick=ExpandCollapse(ID0ECABA)><IMG id=ID0ECABA class=toggle name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>Deploy 
+the Application</SPAN></H2>
+<DIV id=sectionSection20 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">In the next step, you will deploy the application as a 2-tier 
+desktop application.</P>
+<DIV xmlns="">
+<H4 class=subHeading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(ID0EAACABA) 
+onclick=ExpandCollapse(ID0EAACABA)><IMG id=ID0EAACABA class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG><B>To 
+publish a 2-tier desktop application</B></SPAN></H4>
+<DIV class=subSection>
+<OL class=ordered>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Solution Explorer</B> select the <B>Vision Clinic</B> node, 
+  and then on the <B>Build</B> menu, click <B>Publish Vision Clinic</B>.</P>
+  <P xmlns="">The <B>LightSwitch Publish Application Wizard</B> 
+  appears.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Welcome to the LightSwitch Publishing Wizard</B> page, 
+  verify that <B>Desktop</B> is selected and then click 
+  <B>Next</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Application Services</B> page, verify that <B>Local</B> 
+  is selected and then click <B>Next</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Specify Publishing Preference</B> page, select the 
+  <B>Where do you want the application files to be placed?</B> field and type 
+  <B>C:\Publish</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In the <B>How do you want to publish the default database?</B> 
+  section, select <B>Publish directly to database now</B>, and then click 
+  <B>Next</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>LightSwitch Application Database – SQL Database 
+  Connection</B> page, accept the default connection string values and then 
+  click <B>Next</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Install Prerequisites</B> page, accept the default 
+  settings and then click <B>Next</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">On the <B>Other Connection Information</B> page, accept the 
+  default settings and then click <B>Publish</B>.</P></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">In <B>Windows Explorer</B>, locate the <B>C:\Publish</B> directory 
+  and double-click the <B>Setup.exe</B> file to install the application on the 
+  local computer.</P>
+  <DIV class=alert xmlns="">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH align=left><IMG class=note 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/note.gif"></IMG>Note: 
+      </TH></TR>
+    <TR>
+      <TD>To install the application on a different computer, copy the 
+        contents of the Publish folder and all its sub-folders. Before 
+        installing you must complete the steps outlined in the Install.htm file, 
+        which can be found in the Publish folder.
+        <P></P></TD></TR></TBODY></TABLE>
+  <P></P></DIV></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">If an <B>Application Install – Security Warning</B> dialog box 
+  appears, click <B>Install</B>.</P>
+  <P xmlns="">The Vision Clinic application will be installed and 
+  started.</P><IMG alt="The finished application" 
+  src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/a325ca74-5126-4031-992c-be7a62b33d6b.PNG" 
+  xmlns=""></IMG></content>
+  <LI><content xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+  <P xmlns="">Enter some data and verify that the application works as 
+  expected.</P>
+  <DIV class=alert xmlns="">
+  <TABLE cellSpacing=0 cellPadding=0 width="100%">
+    <TBODY>
+    <TR>
+      <TH align=left><IMG class=note 
+        src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/Tip.gif"></IMG>Tip: 
+      </TH></TR>
+    <TR>
+      <TD>If you want to run the Vision Clinic application again, you can open 
+        it from the <B>Start</B> menu.
+        <P></P></TD></TR></TBODY></TABLE>
+  <P></P></DIV></content></LI></OL></DIV></DIV></content></DIV></DIV>
+<DIV>
+<DIV id=sectionSection21 class=section><content 
+xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5">
+<P xmlns="">This completes the Vision Clinic Application walkthrough. You should 
+now have a basic understanding of the end-to-end process of creating a 
+LightSwitch application. </P>
+<P xmlns="">This walkthrough demonstrated the basic capabilities of LightSwitch, 
+but there is much more that you can do with LightSwitch. As you start to build 
+your own applications, you can learn about more capabilities in the product 
+documentation.</P></content></DIV></DIV>
+<H2 class=heading><SPAN style="CURSOR: default" tabIndex=0 
+onkeypress=ExpandCollapse_CheckKey(seeAlsoToggle) 
+onclick=ExpandCollapse(seeAlsoToggle)><IMG id=seeAlsoToggle class=toggle 
+name=toggleSwitch 
+src="Walkthrough%20Creating%20the%20Vision%20Clinic%20Application_files/collapse.gif"></IMG>See 
+Also</SPAN></H2>
+<DIV id=seeAlsoSection class=section name="collapseableSection"><A 
+href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/html/f81bdd63-8673-493d-b63a-6b3ace02dfaf">Getting 
+Started with LightSwitch</A><BR><A 
+href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/html/49e29fd6-2304-4721-905e-7efc8d66b680">LightSwitch 
+Guided Tour</A><BR><A 
+href="file:///C:/Users/shoag/AppData/Local/Temp/DxEditor/DduePreview/Default/987bc6db-4d35-468e-800a-4e4d5fe94fc0/HTM/html/2021a2cf-f684-493f-8d1b-4cdf39bc6eb3">Visual 
+Studio LightSwitch</A><BR></DIV><!--[if gte IE 5]><tool:tip avoidmouse="false" 
+element="seeAlsoToolTip"></tool:tip><tool:tip avoidmouse="false" 
+element="languageFilterToolTip"></tool:tip><![endif]--></DIV>
+<HR>
+</HR>
+<P></P></DIV></BODY></HTML>

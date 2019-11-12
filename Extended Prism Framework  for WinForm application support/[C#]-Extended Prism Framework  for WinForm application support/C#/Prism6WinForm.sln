@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prism6WinForm1", "Prism6WinForm1\Prism6WinForm1\Prism6WinForm1.csproj", "{C4CF2A54-ADE9-4756-AFD7-2FAAE7E89469}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerUtility", "Prism6WinForm1\LoggerUtility\LoggerUtility.csproj", "{5FB6609B-66FA-4D4D-87EE-15B3BEA181E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventManager", "Prism6WinForm1\EventManager\EventManager.csproj", "{BB590646-CB09-4F41-A390-5DB0B1D7DD66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MenuModules", "Prism6WinForm1\MenuModules\MenuModules.csproj", "{02C8744E-BEFF-40A1-8591-65B96EBA5947}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "Prism6WinForm1\DataModel\DataModel.csproj", "{A45EE6A7-8F02-41CA-804A-0EE0F9E09DBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleModules", "Prism6WinForm1\ExampleModules\ExampleModules.csproj", "{563A9975-FD33-40AF-8A56-9CF8902D4A9F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4CF2A54-ADE9-4756-AFD7-2FAAE7E89469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4CF2A54-ADE9-4756-AFD7-2FAAE7E89469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4CF2A54-ADE9-4756-AFD7-2FAAE7E89469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4CF2A54-ADE9-4756-AFD7-2FAAE7E89469}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FB6609B-66FA-4D4D-87EE-15B3BEA181E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FB6609B-66FA-4D4D-87EE-15B3BEA181E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FB6609B-66FA-4D4D-87EE-15B3BEA181E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FB6609B-66FA-4D4D-87EE-15B3BEA181E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB590646-CB09-4F41-A390-5DB0B1D7DD66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB590646-CB09-4F41-A390-5DB0B1D7DD66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB590646-CB09-4F41-A390-5DB0B1D7DD66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB590646-CB09-4F41-A390-5DB0B1D7DD66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02C8744E-BEFF-40A1-8591-65B96EBA5947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02C8744E-BEFF-40A1-8591-65B96EBA5947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02C8744E-BEFF-40A1-8591-65B96EBA5947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02C8744E-BEFF-40A1-8591-65B96EBA5947}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A45EE6A7-8F02-41CA-804A-0EE0F9E09DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A45EE6A7-8F02-41CA-804A-0EE0F9E09DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A45EE6A7-8F02-41CA-804A-0EE0F9E09DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A45EE6A7-8F02-41CA-804A-0EE0F9E09DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{563A9975-FD33-40AF-8A56-9CF8902D4A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{563A9975-FD33-40AF-8A56-9CF8902D4A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{563A9975-FD33-40AF-8A56-9CF8902D4A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{563A9975-FD33-40AF-8A56-9CF8902D4A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

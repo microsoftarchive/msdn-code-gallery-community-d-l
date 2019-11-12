@@ -1,0 +1,5 @@
+#include "Header.h"
+thisicon ICON "edu_mathematics.ico"
+file BITMAP "file.bmp"
+no BITMAP "no.bmp"
+yes BITMAP "yes.bmp"

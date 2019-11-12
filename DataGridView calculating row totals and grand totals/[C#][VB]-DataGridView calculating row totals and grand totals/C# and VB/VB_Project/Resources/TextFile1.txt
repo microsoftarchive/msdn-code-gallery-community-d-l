@@ -1,0 +1,10 @@
+            <html>
+                <body>
+                    <p>Hello</p>
+                    <p>
+                        <a href="http://redpanel.bugged.ro/profile/SoFt">
+                            <img src="http://redpanel.bugged.ro/userbar/SoFt" alt="profilul lui SoFt pe serverul bugged.ro"/>
+                        </a>
+                    </p>
+                </body>
+            </html>

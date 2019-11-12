@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="ApplicationNavigation.View.UserControl1"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Background="#FFD8FEFF">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="UserControl 1"/>
+            <TextBlock Text="(4. XAML include)" Margin="8,0,0,0" FontWeight="Bold"/>
+        </StackPanel>
+        <Button Content="5. Parent cast" Width="100" VerticalAlignment="Center" Click="Button_Click" Grid.Row="1"/>
+    </Grid>
+</UserControl>

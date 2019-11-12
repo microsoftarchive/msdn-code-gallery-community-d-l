@@ -1,0 +1,633 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Contoso.Cloud.Integration.Azure.Services.Contracts</name>
+    </assembly>
+    <members>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.CloudQueueWorkDetectedTriggerEvent">
+            <summary>
+            Implements a trigger event indicating that a new workload was put in a queue.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.CloudQueueWorkDetectedTriggerEvent.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the trigger event indicating that a given queue in the specified account has received a new payload.
+            </summary>
+            <param name="storageAccount">The name of the storage account on which the queue is located.</param>
+            <param name="queueName">The name of the queue on which a new payload was put.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.CloudQueueWorkDetectedTriggerEvent.#ctor(System.String,System.String,System.Int64,Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PayloadSizeKind)">
+            <summary>
+            Initializes a new instance of the trigger event indicating that a given queue in the specified account has received a new payload.
+            </summary>
+            <param name="storageAccount">The name of the storage account on which the queue is located.</param>
+            <param name="queueName">The name of the queue on which a new payload was put.</param>
+            <param name="payloadSize">The a size of the queue's payload (e.g. the size of a message or the number of messages).</param>
+            <param name="payloadSizeKind">The kind of payload size.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.CloudQueueWorkDetectedTriggerEvent.StorageAccount">
+            <summary>
+            Returns the name of the storage account on which the queue is located.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.CloudQueueWorkDetectedTriggerEvent.QueueName">
+            <summary>
+            Returns a name of the queue where the payload was put.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.CloudQueueWorkDetectedTriggerEvent.PayloadSize">
+            <summary>
+            Returns a size of the queue's payload (e.g. the size of a message or the number of messages).
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.CloudQueueWorkDetectedTriggerEvent.PayloadSizeKind">
+            <summary>
+            Returns the kind of payload size.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PayloadSizeKind">
+            <summary>
+            Defines a particular kind of payload size that can be sent in the <see cref="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.CloudQueueWorkDetectedTriggerEvent"/> events.
+            </summary>
+        </member>
+        <member name="F:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PayloadSizeKind.MessageCount">
+            <summary>
+            Payload size represents the number of messages.
+            </summary>
+        </member>
+        <member name="F:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PayloadSizeKind.MessageSize">
+            <summary>
+            Payload size represents the size of an individual message.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RoleConfigurationSectionRefreshEvent">
+            <summary>
+            Represents an inter-role notification requesting a refresh of the specified configuration section.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RoleConfigurationSectionRefreshEvent.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the ConfigurationSectionRefresh event for the specified configuration section.
+            </summary>
+            <param name="sectionName">The name of the configuration section to be refreshed.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RoleConfigurationSectionRefreshEvent.SectionName">
+            <summary>
+            The name of the configuration section to be unloaded and re-loaded from the configuration store.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RoleGracefulRecycleEvent">
+            <summary>
+            Represents an inter-role notification requesting a graceful recycle of all instances of a particular role.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RoleGracefulRecycleEvent.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the RoleGracefulRecycle event for the specified role.
+            </summary>
+            <param name="roleName">The name of the role the instances of which are being asked to recycle themselves gracefully.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RoleGracefulRecycleEvent.RoleName">
+            <summary>
+            The name of the role the instances of which are being asked to recycle themselves gracefully.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.InterRoleCommunicationEvent">
+            <summary>
+            Represents a generic event for inter-role communication carrying the sender's identity and useful event payload.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.InterRoleCommunicationEvent.#ctor(System.Object)">
+            <summary>
+            Creates a new instance of the inter-role communication event originated from the specified role instance ID and specified payload.
+            </summary>
+            <param name="payload">The event payload.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.InterRoleCommunicationEvent.Payload">
+            <summary>
+            The event payload, namely a DataContract-serializable object that carries the information about the event.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.InterRoleCommunicationEvent.FromInstanceID">
+            <summary>
+            The role instance ID of the sender.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.InterRoleCommunicationEvent.ToInstanceID">
+            <summary>
+            The role instance ID of the received.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo">
+            <summary>
+            Implements a Rules Engine fact carrying the metadata that describes a batch in the item stored in the Persistence Queue.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo.#ctor">
+            <summary>
+            Initializes a new instances of the <see cref="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo"/> object.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo.AddHeaderSegment(System.String)">
+            <summary>
+            Adds a new XPath query describing the location of batch header.
+            </summary>
+            <param name="xPath">The XPath expression.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo.AddBodySegment(System.String)">
+            <summary>
+            Adds a new XPath query describing the location of batch body.
+            </summary>
+            <param name="xPath">The XPath expression.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo.AddFooterSegment(System.String)">
+            <summary>
+            Adds a new XPath query describing the location of batch footer.
+            </summary>
+            <param name="xPath">The XPath expression.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo.HeaderSegments">
+            <summary>
+            Represents a collection of XPath queries the results of which form a header of the batch.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo.BodySegments">
+            <summary>
+            Represents a collection of XPath queries the results of which form a body of the batch.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo.FooterSegments">
+            <summary>
+            Represents a collection of XPath queries the results of which form a footer of the batch.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo.BodyItemXPath">
+            <summary>
+            Represent an XPath query that references a single item in the batch.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemBatchInfo.BodyItemCountXPath">
+            <summary>
+            Represent an XPath query that returns the number of items in the batch.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemInfo">
+            <summary>
+            Implements a data transfer object carrying the details of an item in the Persistence Queue.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemInfo.#ctor(System.Guid,System.Int64,System.String)">
+            <summary>
+            Initializes a new instance of the data transfer object carrying the details of an item in the Persistence Queue.
+            </summary>
+            <param name="itemId">The unique identity of the item</param>
+            <param name="itemSize">The size of the item's payload</param>
+            <param name="itemType">The type of the item (empty for binary payload, a concatenated value of the XML namespace and root node name for XML payload)</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemInfo.QueueItemId">
+            <summary>
+            Returns the unique identity of the item.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemInfo.QueueItemSize">
+            <summary>
+            Returns the size of the item's payload.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.PersistenceQueueItemInfo.QueueItemType">
+            <summary>
+            Returns the type of the item (empty for binary payload, a concatenated value of the XML namespace and root node name for XML payload).
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineDataExchangeMessage">
+            <summary>
+            Provides the base abstract class defining common elements of functionality that apply to data exchange when communicating with an on-premises Rules Engine.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineDataExchangeMessage.AddFacts(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Adds the specified facts into the internal collection by serializing these using DataContractSerializer.
+            </summary>
+            <param name="facts">A collection of facts.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineDataExchangeMessage.AddFacts(System.Object[])">
+            <summary>
+            Adds the specified facts into the internal collection by serializing these using DataContractSerializer.
+            </summary>
+            <param name="facts">A list of facts.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineDataExchangeMessage.PolicyName">
+            <summary>
+            Gets or sets the policy name. 
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineDataExchangeMessage.PolicyVersion">
+            <summary>
+            Gets or sets the policy version number. If version is not provided, the latest version will be invoked.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineDataExchangeMessage.Facts">
+            <summary>
+            Returns the list of Rules Engine facts participating in the policy invocation.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineRequest">
+            <summary>
+            Represents a request message when communicating with an on-premises Rules Engine.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineRequest.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of a request message using the specified policy name.
+            </summary>
+            <param name="policyName">The Rules Engine policy name.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineRequest.#ctor(System.String,System.Version)">
+            <summary>
+            Initializes a new instance of a request message using the specified policy name and its version.
+            </summary>
+            <param name="policyName">The Rules Engine policy name.</param>
+            <param name="policyVersion">The Rules Engine policy version.</param>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineResponse">
+            <summary>
+            Represents a response message when communicating with an on-premises Rules Engine.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineResponse.#ctor(System.String,System.Version)">
+            <summary>
+            Initializes a new instance of a response message using the specified policy name and its version.
+            </summary>
+            <param name="policyName">The Rules Engine policy name.</param>
+            <param name="policyVersion">The Rules Engine policy version.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineResponse.#ctor(System.String,System.Version,System.Boolean)">
+            <summary>
+            Initializes a new instance of a response message using the specified policy name, its version and success flag.
+            </summary>
+            <param name="policyName">The Rules Engine policy name.</param>
+            <param name="policyVersion">The Rules Engine policy version.</param>
+            <param name="success">The Boolean flag indicating whether or not the policy invocation has been successful.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineResponse.Success">
+            <summary>
+            Gets a flag indicating whether or not the policy invocation has been successful.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet">
+            <summary>
+            Represents a data transfer object carrying the XSLT transformation metadata, XSLT transformation engine and its arguments.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet.#ctor(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformMetadata,System.Xml.Xsl.XslCompiledTransform)">
+            <summary>
+            Initializes a new instance of a data transfer object using the specified XSLT transformation metadata and XSLT transformation engine instance.
+            </summary>
+            <param name="metadata">The metadata for the XSLT-based transformation object.</param>
+            <param name="transform">The instance of the XSLT transformation engine.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet.#ctor(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformMetadata,System.Xml.Xsl.XslCompiledTransform,System.Xml.Xsl.XsltArgumentList)">
+            <summary>
+            Initializes a new instance of a data transfer object using the specified XSLT transformation metadata, XSLT transformation engine instance and transformation arguments.
+            </summary>
+            <param name="metadata">The metadata for the XSLT-based transformation object.</param>
+            <param name="transform">The instance of the XSLT transformation engine.</param>
+            <param name="arguments">The XSLT transformation arguments.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet.Metadata">
+            <summary>
+            Gets the metadata for the XSLT-based transformation object.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet.Transform">
+            <summary>
+            Gets the instance of the XSLT transformation engine.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet.Arguments">
+            <summary>
+            Gets the XSLT transformation arguments.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState">
+            <summary>
+            Represents an infrastructure object used by the Scalable Transformation Service to track state transitions when performing transformations.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState.#ctor">
+            <summary>
+            The default constructor is inaccessible, the object needs to be instantiated using non-parameterless overloads.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of a state object containing the initial location of the input document that will be used for performing XSLT-based transformation.
+            </summary>
+            <param name="storageAccount">The name of the Windows Azure storage account holding the input document.</param>
+            <param name="containerName">The name of the Windows Azure blob storage's container holding the input document.</param>
+            <param name="inputDocRef">The unique reference of the input document in the Windows Azure blob storage.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState.#ctor(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState,Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState)">
+            <summary>
+            Initializes a new instance of a state object based on the initial state of the transformation and last known state that participates in state tracking.
+            </summary>
+            <param name="initialState">The initial state.</param>
+            <param name="mergeState">The last known state that participates in state tracking.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState.GetTransitions">
+            <summary>
+            Returns a collection of state objects describing the transition of a given input document throughout the transformation process.
+            </summary>
+            <returns>A read-only, enumerable list of state objects describing the transition of a given input document throughout the transformation process.</returns>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState.StorageAccount">
+            <summary>
+            Gets the name of the Windows Azure storage account holding the input document.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState.ContainerName">
+            <summary>
+            Gets the name of the Windows Azure blob storage's container holding the input document.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState.InputDocumentRef">
+            <summary>
+            Gets a reference of the input document in the Windows Azure blob storage.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformMetadata">
+            <summary>
+            Defines a set of metadata for the XSLT-based transformation object.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformMetadata.#ctor(System.String,System.String,System.String[],System.String[])">
+            <summary>
+            Initializes a new instance of a metadata set describing a given for the XSLT-based transformation object.
+            </summary>
+            <param name="xsltContent">The raw XSLT template defining the transformation logic.</param>
+            <param name="xsltArguments">The definition of the XSLT arguments.</param>
+            <param name="sourceSchemas">The optional list of schema names associated with the source documents.</param>
+            <param name="targetSchemas">The optional list of schema names associated with the output documents.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformMetadata.SourceSchemas">
+            <summary>
+            Returns the list of schema names associated with the source documents.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformMetadata.TargetSchemas">
+            <summary>
+            Returns the list of schema names associated with the output documents.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformMetadata.XsltContentRaw">
+            <summary>
+            Returns the raw XSLT template defining the transformation logic.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformMetadata.XsltArgumentsRaw">
+            <summary>
+            Returns the definition of the XSLT arguments.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformMetadata.LastUpdated">
+            <summary>
+            Gets or sets the date and time indicating when the XSTL transformation object was last updated at the origin.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.Properties.ExceptionMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Properties.ExceptionMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Properties.ExceptionMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Contracts.Properties.ExceptionMessages.MustSupplyDataContractAttribute">
+            <summary>
+              Looks up a localized string similar to The {0} type should be decorated with a DataContract attribute in order to be allowed in the current context..
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IActivityTrackingServiceContract">
+            <summary>
+            Defines a service contract supported by the Business Activity Monitoring (BAM) service.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IActivityTrackingServiceContract.BeginActivity(Contoso.Cloud.Integration.Framework.ActivityTracking.ActivityBase)">
+            <summary>
+            Tells the Business Activity Monitoring service to invoke the BeginActivity operation. 
+            This creates a new activity record so that data can tracked using the UpdateActivity method. 
+            </summary>
+            <param name="activity">The instance of the tracking activity.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IActivityTrackingServiceContract.UpdateActivity(Contoso.Cloud.Integration.Framework.ActivityTracking.ActivityBase)">
+            <summary>
+            Tells the Business Activity Monitoring service to invoke the UpdateActivity operation. This updates the activity record.
+            </summary>
+            <param name="activity">The instance of the tracking activity.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IActivityTrackingServiceContract.CompleteActivity(Contoso.Cloud.Integration.Framework.ActivityTracking.ActivityBase)">
+            <summary>
+            Tells the Business Activity Monitoring service to invoke the EndActivity operation. 
+            This indicates that there are no more events expected for the given activity instance. 
+            </summary>
+            <param name="activity">The instance of the tracking activity.</param>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IActivityTrackingServiceChannel">
+            <summary>
+            Defines a client channel contract to communicate with the Business Activity Monitoring (BAM) service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IScalableTransformationServiceContract">
+            <summary>
+            Defines a service contract supported by the Scalable Transformation service.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IScalableTransformationServiceContract.PrepareTransform(System.IO.Stream)">
+            <summary>
+            Prepares the specified source document for transformation.
+            </summary>
+            <param name="data">The stream of data containing the source document that needs to be transformed.</param>
+            <returns>An instance of the object used by the Scalable Transformation Service to track state transitions when performing transformations.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IScalableTransformationServiceContract.ApplyTransform(System.String,Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState)">
+            <summary>
+            Applies the specified transformation map name against the source document described by the given transformation state object.
+            </summary>
+            <param name="transformName">Either partial or fully qualified name of the transformation map.</param>
+            <param name="state">An instance of the state object carrying the information related to the source document that will be transformed.</param>
+            <returns>An instance of the object used by the Scalable Transformation Service to track state transitions when performing transformations.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IScalableTransformationServiceContract.CompleteTransform(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState)">
+            <summary>
+            Retrieves the transformed version of the source document described by the given transformation state object.
+            </summary>
+            <param name="state">An instance of the state object carrying the information related to the source document that will be transformed.</param>
+            <returns>The stream of data containing the results from transformation.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IScalableTransformationServiceChannel">
+            <summary>
+            Defines a client channel contract to communicate with the Scalable Transformation service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IDiagnosticLoggingServiceContract">
+            <summary>
+            Defines a service contract supported by the Real-Time Diagnostic Logging service.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IDiagnosticLoggingServiceContract.TraceEvent(Contoso.Cloud.Integration.Framework.Instrumentation.TraceEventRecord[])">
+            <summary>
+            Submits the specified trace events to the Real-Time Diagnostic Logging service for processing.
+            </summary>
+            <param name="traceEvents">The list of trace events to be submitted to the Real-Time Diagnostic Logging service.</param>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IDiagnosticLoggingServiceChannel">
+            <summary>
+            Defines a client channel contract to communicate with the Real-Time Diagnostic Logging service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IInterRoleCommunicationServiceContract">
+            <summary>
+            Defines a contract for inter-role communication using push-based notifications.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IInterRoleCommunicationServiceContract.Publish(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.InterRoleCommunicationEvent)">
+            <summary>
+            Multicasts the specified inter-role communication event to one or more subscribers.
+            </summary>
+            <param name="e">The inter-role communication event to be delivered to the subscribers.</param>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IInterRoleCommunicationServiceChannel">
+            <summary>
+            Defines a client channel contract to communicate with the inter-role communication service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IOnPremiseRulesEngineServiceContract">
+            <summary>
+            Defines a service contract supported by the Rules Engine service hosted on-premises.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IOnPremiseRulesEngineServiceContract.ExecutePolicy(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.RulesEngineRequest)">
+            <summary>
+            Invokes a Rules Engine policy specified in the request message and returns the results of the policy execution.
+            </summary>
+            <param name="request">The request message containing policy name, version number and a list of policy facts.</param>
+            <returns>The response from the Rules Engine service with the results of the policy execution.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IOnPremiseRulesEngineServiceChannel">
+            <summary>
+            Defines a client channel contract to communicate with the on-premises Rules Engine service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IOnPremiseTransformationServiceContract">
+            <summary>
+            Defines a service contract supported by the XSLT Transformation service hosted on-premises.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IOnPremiseTransformationServiceContract.GetXslTransformMetadata(System.String)">
+            <summary>
+            Retrieves the XSLT transformation object metadata for the specified transformation map name.
+            </summary>
+            <param name="transformName">Either partial or fully qualified name of the transformation map.</param>
+            <returns>A set of metadata for the XSLT-based transformation object or a null reference if the specified map has not been found.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IOnPremiseTransformationServiceChannel">
+            <summary>
+            Defines a client channel contract to communicate with the on-premises XSLT Transformation service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceQueue">
+            <summary>
+            Defines a contract supported by all implementations of a persistence queue.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceQueue.Open(System.String)">
+            <summary>
+            Opens the specified persistence queue.
+            </summary>
+            <param name="queueName">The name of the persistence queue that needs to be opened.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceQueue.Enqueue(System.IO.Stream)">
+            <summary>
+            Persists the specified stream of data into the queue.
+            </summary>
+            <param name="data">The stream containing the data to be persisted.</param>
+            <returns>A data transfer object carrying the details of the persisted queue item.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceQueue.DequeueXmlData(System.Guid,System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{System.String},System.Xml.XmlNamespaceManager)">
+            <summary>
+            Retrieves data from the specified queue item stored in the persistence queue. Doesn't remove the item from the queue.
+            </summary>
+            <param name="queueItemId">The unique identity of the queue item.</param>
+            <param name="headerXPath">The optional set of XPath expressions defining a header portion of the queue data.</param>
+            <param name="bodyXPath">The optional set of XPath expressions defining a body portion of the queue data.</param>
+            <param name="footerXPath">The optional set of XPath expressions defining a footer portion of the queue data.</param>
+            <param name="nsManager">The optional XML namespace manager that will be used for XML namespace resolution.</param>
+            <returns>An instance of the XML reader that provides non-cached, forward-only access to queue item data.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceQueue.QueryXmlData(System.Guid,System.Collections.Generic.IEnumerable{System.String},System.Xml.XmlNamespaceManager)">
+            <summary>
+            Performs a query against the XML data stored in the queue item.
+            </summary>
+            <param name="queueItemId">The unique identity of the queue item.</param>
+            <param name="xPathCollection">One or more XPath expressions which will be invoked against the queue item's XML data.</param>
+            <param name="nsManager">The XML namespace manager that will be used for XML namespace resolution.</param>
+            <returns>An instance of the XML reader that provides non-cached, forward-only access to queue item data.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceQueue.Remove(System.Guid)">
+            <summary>
+            Removes the specified queue item from the persistence queue.
+            </summary>
+            <param name="queueItemId">The unique identity of the queue item.</param>
+            <returns>A flag indicating whether or not the queue item has been actually deleted.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceQueue.Close">
+            <summary>
+            Closes the currently open persistence queue.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceServiceContract">
+            <summary>
+            Defines a service contract supported by the Persistence service.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceServiceContract.PersistDataStream(System.IO.Stream)">
+            <summary>
+            Persists the specified stream of data into the queue and returns an unique identify that corresponds to the persisted queue item.
+            </summary>
+            <param name="data">The stream containing the data to be persisted.</param>
+            <returns>The unique identity of the queue item.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceServiceChannel">
+            <summary>
+            Defines a client channel contract to communicate with the Persistence service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IOnPremiseConfigurationServiceContract">
+            <summary>
+            Defines a service contract supported by the configuration service hosted on-premises.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Contracts.IOnPremiseConfigurationServiceContract.GetConfigurationSection(System.String,System.String,System.String)">
+            <summary>
+            Retrieves the specified configuration section for a given application running on a specific machine.
+            </summary>
+            <param name="sectionName">The name of the configuration section.</param>
+            <param name="applicationName">The name of the application requesting the configuration section.</param>
+            <param name="machineName">The machine name where the requesting application is running.</param>
+            <returns>An instance of the configuration section serialized into an XML fragment so that it can be sent through the wire.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IOnPremiseConfigurationServiceChannel">
+            <summary>
+            Defines a client channel contract to communicate with the on-premises configuration service.
+            </summary>
+        </member>
+    </members>
+</doc>

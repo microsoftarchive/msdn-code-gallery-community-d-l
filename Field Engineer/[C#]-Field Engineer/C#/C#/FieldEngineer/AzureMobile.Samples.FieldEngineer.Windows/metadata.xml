@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mapAppDescription>
+  <title>AzureMobile.Samples.FieldEngineer.WindowsStore</title>
+  <publisher>Developer</publisher>
+  <description>AzureMobile.Samples.FieldEngineer.WindowsStore</description>
+  <icon>appicon.png</icon>
+
+  <!-- Uncomment and update the <configurationFile> element if your map app includes a configuration file -->
+  <!--<configurationFile>myapp.config.xml</configurationFile>-->
+</mapAppDescription>

@@ -1,0 +1,106 @@
+﻿//Trazer todas as Pessoas (Aqui ele já faz LEFT JOIN)
+				//ICollection<Pessoa> Pessoas = Db.Pessoas.Include(x=>x.Telefones).AsNoTracking().ToList<Pessoa>();
+
+				/*var PessoasLeftJoin = Db.Pessoas
+					.AsNoTracking()
+					.GroupJoin(Db.Telefones, p => p.PessoaId, t => t.PessoaId, (p, t) => new { p, t })
+					.SelectMany(temp => temp.t.DefaultIfEmpty(),
+						(p, t) => new
+						{
+							p.p.PessoaId, 
+							p.p.Nome, 
+							p.p.DataNascimento, 
+							telefone = t.Ddd + " " + t.Numero
+						}
+					).AsQueryable();
+
+				PessoasLeftJoin.ToList(); */
+
+				//var PessoasGroupBy = Db.Pessoas
+				//    .AsNoTracking()
+				//    .GroupJoin(Db.Telefones, p => p.PessoaId, t => t.PessoaId, (p, t) => new { p, t })
+				//    .SelectMany(temp => temp.t.DefaultIfEmpty(),
+				//    (p, t) => new
+				//    {
+				//        p.p,
+				//        t
+				//    })
+				//    .GroupBy(x => new
+				//    {
+				//        x.p.PessoaId,
+				//        x.p.Nome
+				//    })
+				//    .Select(a => new
+				//    {
+				//        a.Key.PessoaId, 
+				//        a.Key.Nome,                        
+				//        Qtde = a.LongCount(g => g.t.PessoaId == a.Key.PessoaId)
+				//    }).AsQueryable();
+				//var tst = PessoasGroupBy.ToList();                
+
+				var PessoGJ = Db.Telefones
+					.AsNoTracking()
+					.GroupBy(g => g.PessoaId)
+					.Select(s => new
+					{
+						PessoaId = s.Key,
+						QualityTelefone = (int?)s.Count()
+					}).AsQueryable();
+
+				var PessoasGT = Db.Pessoas
+					.AsNoTracking()
+					.GroupJoin(PessoGJ, p => p.PessoaId, g => g.PessoaId, (p, g) => new { p, g })
+					.SelectMany(temp => temp.g.DefaultIfEmpty(),
+					(p, g) => new
+					{
+						p.p.PessoaId, 
+						p.p.Nome, 
+						p1 = g.PessoaId ?? p.p.PessoaId,
+						Qualitys  = g.QualityTelefone ?? 0  
+					}).AsQueryable();
+
+				var pp = PessoasGT.ToList();
+
+				//var PessoasGroupBy = Db.Pessoas
+				//   .AsNoTracking()
+				//   .GroupJoin(Db.Telefones, p => p.PessoaId, t => t.PessoaId, (p, t) => new { p, t })
+				//   .SelectMany(temp => temp.t.DefaultIfEmpty(),
+				//   (p, t) => new
+				//   {
+				//       p.p.PessoaId,
+				//       p.p.Nome,
+				//       Qtde = p.p.Telefones.Count()
+				//   })
+				//   .Distinct() 
+				//   .AsQueryable();
+				//var tst = PessoasGroupBy.AsNoTracking().ToList();
+
+
+
+			   // var PessoasTelefonesCount =
+			   //     Db.Pessoas.AsNoTracking()
+			   //     .Select(x => new
+			   //     {
+			   //         x.PessoaId, 
+			   //         x.Nome,
+			   //         x.DataNascimento,
+			   //         Qtde = x.Telefones.LongCount()
+			   //     }).AsQueryable();
+
+			   //var rest =  PessoasTelefonesCount.ToList();
+
+
+
+			   IEnumerable rest = Db.TbAs.Select(x => new
+				{
+					x.Id,
+					x.Descricao
+				}).Concat(Db.TbBs.Select(x => new
+				{
+					x.Id,
+					x.Descricao
+				})).AsEnumerable();
+
+				IList<int> vInt = Db.TbBs.Select(g => g.Id).ToList<int>();
+                var text =
+                    Db.TbAs.Where(x => vInt.Contains(x.Id)).ToList();

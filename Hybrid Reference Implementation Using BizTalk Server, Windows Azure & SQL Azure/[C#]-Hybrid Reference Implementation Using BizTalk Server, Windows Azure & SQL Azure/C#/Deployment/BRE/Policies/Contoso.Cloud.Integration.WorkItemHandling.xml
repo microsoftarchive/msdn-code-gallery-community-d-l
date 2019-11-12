@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<brl xmlns="http://schemas.microsoft.com/businessruleslanguage/2002">
+  <ruleset name="Contoso.Cloud.Integration.WorkItemHandling">
+    <version major="1" minor="0" description="" modifiedby="YOURDOMAIN\youraccount" date="2011-02-13T17:58:11.2086818-08:00" />
+    <configuration />
+    <bindings>
+      <class ref="StringDictionaryFact" class="StringDictionaryFact" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Azure.Services.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.Common\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.Common.dll-->
+        <namespace>Contoso.Cloud.Integration.Azure.Services.Common.RulesEngine</namespace>
+      </class>
+      <class ref="PersistenceQueueItemBatchInfo" class="PersistenceQueueItemBatchInfo" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Azure.Services.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.Contracts\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.Contracts.dll-->
+        <namespace>Contoso.Cloud.Integration.Azure.Services.Contracts.Data</namespace>
+      </class>
+      <class ref="MessageTypeFact" class="MessageTypeFact" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Azure.Services.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.Common\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.Common.dll-->
+        <namespace>Contoso.Cloud.Integration.Azure.Services.Common.RulesEngine</namespace>
+      </class>
+      <class ref="PersistenceQueueItemInfo" class="PersistenceQueueItemInfo" instance="0" instances="16" selectivity="1">
+        <assembly>Contoso.Cloud.Integration.Azure.Services.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=23eafc3765008062</assembly>
+        <!--C:\Windows\Microsoft.Net\assembly\GAC_MSIL\Contoso.Cloud.Integration.Azure.Services.Contracts\v4.0_1.0.0.0__23eafc3765008062\Contoso.Cloud.Integration.Azure.Services.Contracts.dll-->
+        <namespace>Contoso.Cloud.Integration.Azure.Services.Contracts.Data</namespace>
+      </class>
+    </bindings>
+    <rule name="Provide Queue Listener Count For Large Inventory Files" priority="0" active="true">
+      <if>
+        <and>
+          <compare operator="equal">
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+            <lhs>
+              <function>
+                <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="68c6d47c-3406-4fa1-80aa-269b1b90c709" />
+                <classmember member="get_QueueItemType" sideeffects="true">
+                  <classref ref="PersistenceQueueItemInfo" />
+                </classmember>
+              </function>
+            </lhs>
+            <rhs>
+              <constant>
+                <string>ContosoInternalSchemas#InventoryReport</string>
+              </constant>
+            </rhs>
+          </compare>
+          <compare operator="greater than or equal to">
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="4ac045f2-f5ad-42cf-8e20-76d3f7f683f1" />
+            <lhs>
+              <function>
+                <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="f737ce97-6ab7-469f-849b-8895151fedc9" />
+                <classmember member="get_QueueItemSize" sideeffects="true">
+                  <classref ref="PersistenceQueueItemInfo" />
+                </classmember>
+              </function>
+            </lhs>
+            <rhs>
+              <constant>
+                <long>1024000</long>
+              </constant>
+            </rhs>
+          </compare>
+        </and>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="eed2545d-75c7-4db0-8e61-b78701a9e1b9" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="StringDictionaryFact" />
+            <argument>
+              <constant>
+                <string>Dequeue Listener Count</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>50</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Provide Inventory DTO Type Name" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="d3e73c97-9001-429d-b258-75f194c15719" />
+              <classmember member="get_Value" sideeffects="true">
+                <classref ref="MessageTypeFact" />
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <string>http://BizTalk_Server_Project1.Inventory#InventoryItems</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="eed2545d-75c7-4db0-8e61-b78701a9e1b9" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="StringDictionaryFact" />
+            <argument>
+              <constant>
+                <string>Data Transfer Object Type</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>InventoryData_DTO</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Provide Queue Listener Count For Medium Inventory Files" priority="0" active="true">
+      <if>
+        <and>
+          <compare operator="equal">
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+            <lhs>
+              <function>
+                <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="68c6d47c-3406-4fa1-80aa-269b1b90c709" />
+                <classmember member="get_QueueItemType" sideeffects="true">
+                  <classref ref="PersistenceQueueItemInfo" />
+                </classmember>
+              </function>
+            </lhs>
+            <rhs>
+              <constant>
+                <string>ContosoInternalSchemas#InventoryReport</string>
+              </constant>
+            </rhs>
+          </compare>
+          <compare operator="greater than">
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="b276a0f4-12d9-4380-b242-135bbfc5e287" />
+            <lhs>
+              <function>
+                <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="f737ce97-6ab7-469f-849b-8895151fedc9" />
+                <classmember member="get_QueueItemSize" sideeffects="true">
+                  <classref ref="PersistenceQueueItemInfo" />
+                </classmember>
+              </function>
+            </lhs>
+            <rhs>
+              <constant>
+                <long>102400</long>
+              </constant>
+            </rhs>
+          </compare>
+          <compare operator="less than">
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="1c177bf4-a970-4669-a768-a74d33af190d" />
+            <lhs>
+              <function>
+                <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="f737ce97-6ab7-469f-849b-8895151fedc9" />
+                <classmember member="get_QueueItemSize" sideeffects="true">
+                  <classref ref="PersistenceQueueItemInfo" />
+                </classmember>
+              </function>
+            </lhs>
+            <rhs>
+              <constant>
+                <long>1024000</long>
+              </constant>
+            </rhs>
+          </compare>
+        </and>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="eed2545d-75c7-4db0-8e61-b78701a9e1b9" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="StringDictionaryFact" />
+            <argument>
+              <constant>
+                <string>Dequeue Listener Count</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>10</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Provide Queue Listener Count For Small Inventory Files" priority="0" active="true">
+      <if>
+        <and>
+          <compare operator="equal">
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+            <lhs>
+              <function>
+                <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="68c6d47c-3406-4fa1-80aa-269b1b90c709" />
+                <classmember member="get_QueueItemType" sideeffects="true">
+                  <classref ref="PersistenceQueueItemInfo" />
+                </classmember>
+              </function>
+            </lhs>
+            <rhs>
+              <constant>
+                <string>ContosoInternalSchemas#InventoryReport</string>
+              </constant>
+            </rhs>
+          </compare>
+          <compare operator="less than or equal to">
+            <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="d4eb2deb-06d3-42c4-af49-ceb21331b1cc" />
+            <lhs>
+              <function>
+                <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="f737ce97-6ab7-469f-849b-8895151fedc9" />
+                <classmember member="get_QueueItemSize" sideeffects="true">
+                  <classref ref="PersistenceQueueItemInfo" />
+                </classmember>
+              </function>
+            </lhs>
+            <rhs>
+              <constant>
+                <long>102400</long>
+              </constant>
+            </rhs>
+          </compare>
+        </and>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="eed2545d-75c7-4db0-8e61-b78701a9e1b9" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="StringDictionaryFact" />
+            <argument>
+              <constant>
+                <string>Dequeue Listener Count</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>5</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Provide Inventory Batch Transform Name" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="d3e73c97-9001-429d-b258-75f194c15719" />
+              <classmember member="get_Value" sideeffects="true">
+                <classref ref="MessageTypeFact" />
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <string>ContosoInternalSchemas#InventoryReport</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="eed2545d-75c7-4db0-8e61-b78701a9e1b9" />
+          <classmember member="Add" sideeffects="true">
+            <classref ref="StringDictionaryFact" />
+            <argument>
+              <constant>
+                <string>Transform Name</string>
+              </constant>
+            </argument>
+            <argument>
+              <constant>
+                <string>InventoryReport_To_InventoryDataDTO</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+    <rule name="Provide Inventory Batch Metadata" priority="0" active="true">
+      <if>
+        <compare operator="equal">
+          <vocabularylink uri="3f0e9bcc-6212-4e6a-853c-e517f157a626" element="05703dd9-1111-40b8-890d-ad7bfc45a925" />
+          <lhs>
+            <function>
+              <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="d3e73c97-9001-429d-b258-75f194c15719" />
+              <classmember member="get_Value" sideeffects="true">
+                <classref ref="MessageTypeFact" />
+              </classmember>
+            </function>
+          </lhs>
+          <rhs>
+            <constant>
+              <string>ContosoInternalSchemas#InventoryReport</string>
+            </constant>
+          </rhs>
+        </compare>
+      </if>
+      <then>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="3210254c-d799-498b-b4dd-6b60773c45e7" />
+          <classmember member="AddHeaderSegment" sideeffects="true">
+            <classref ref="PersistenceQueueItemBatchInfo" />
+            <argument>
+              <constant>
+                <string>InventoryHeader</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="6c29bbca-c407-4cb6-9b30-9f4270a2be5d" />
+          <classmember member="AddBodySegment" sideeffects="true">
+            <classref ref="PersistenceQueueItemBatchInfo" />
+            <argument>
+              <constant>
+                <string>InventoryItemBatchTemplate</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="7621c57e-8662-4b51-95db-96208f0c2f0d" />
+          <classmember member="AddFooterSegment" sideeffects="true">
+            <classref ref="PersistenceQueueItemBatchInfo" />
+            <argument>
+              <constant>
+                <string>InventorySummary</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="7621c57e-8662-4b51-95db-96208f0c2f0d" />
+          <classmember member="AddFooterSegment" sideeffects="true">
+            <classref ref="PersistenceQueueItemBatchInfo" />
+            <argument>
+              <constant>
+                <string>InventoryIRRSegment</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="598c2eba-05e4-4fb3-81eb-4edbbeb7ba01" />
+          <classmember member="set_BodyItemXPath" sideeffects="true">
+            <classref ref="PersistenceQueueItemBatchInfo" />
+            <argument>
+              <constant>
+                <string>InventoryItems</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+        <function>
+          <vocabularylink uri="e628ab57-c8f9-498a-8c40-0a344d015e08" element="2aa4936b-b876-4521-a4e7-8ca09f8d0820" />
+          <classmember member="set_BodyItemCountXPath" sideeffects="true">
+            <classref ref="PersistenceQueueItemBatchInfo" />
+            <argument>
+              <constant>
+                <string>InventoryItemCount</string>
+              </constant>
+            </argument>
+          </classmember>
+        </function>
+      </then>
+    </rule>
+  </ruleset>
+</brl>

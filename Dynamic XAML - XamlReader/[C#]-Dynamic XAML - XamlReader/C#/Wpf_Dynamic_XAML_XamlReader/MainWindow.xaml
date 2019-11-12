@@ -1,0 +1,43 @@
+﻿<Window x:Class="Wpf_Dynamic_XAML_XamlReader.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button Click="Button1_Click">Xaml Button</Button>
+            <Button Click="Button2_Click">txt Button</Button>
+            <Button Click="Button3_Click">Experimental Button</Button>
+        </StackPanel>
+        <StackPanel Name="AddHere" Grid.Column="2">
+
+        </StackPanel>
+        <TextBlock x:Name="UIMessage" Text="{Binding Msg}" 
+                   HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Column="1"
+                   Opacity="{Binding MsgOpacity, Mode=TwoWay, FallbackValue=0}">
+<TextBlock.Style>
+    <Style>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=UIMessage, Path=Opacity}" Value="1">
+                <DataTrigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation 
+                                         Storyboard.TargetProperty="Opacity" 
+                                         From="1" To="0" Duration="0:0:3" FillBehavior="Stop" />
+                                    </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</TextBlock.Style>
+        </TextBlock>
+    </Grid>
+</Window>

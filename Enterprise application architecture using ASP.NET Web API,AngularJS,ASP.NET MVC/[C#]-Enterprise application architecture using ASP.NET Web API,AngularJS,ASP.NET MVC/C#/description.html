@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Header,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=7E8AE736B3916315969078A030E59D3C" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="https://i-msdn.sec.s-msft.com/Combined.css?resources=0:Footer,0:HeaderFooterSprite,0:Footer.NonMtps,1:FooterSock,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;v=687A75FEEFACF9BEAB81BAEA56BF2A0D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Architecting real world web applications with ASP.net MVC C# / SPA</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="https://i1.code.msdn.s-msft.com/content/common/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="https://i1.code.msdn.s-msft.com/content/common/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Architecting real world web applications with ASP.net MVC C# / SPA</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            C#, SQL Server, Bootstrap, autofac, automapper, ASP.NET MVC 5, AngularJS, Entity Framework 6, ASP.NET Web API 2, ASP.NET Identity, Material design
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            REST, Architecture and Design, Single Page Application (SPA), SOLID Principles
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web, Cloud, Data
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        NuGet Package Manager
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/17/2015</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MIT</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="https://code.msdn.microsoft.com/Architecture-real-world-8ac333a2">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1><span style="font-size:x-large">KiksApp</span></h1>
+<p><br>
+<span style="font-size:small">&nbsp; &nbsp; Just a simple C# web app built using</span></p>
+<ul>
+<li><span style="font-size:small">Onion architecture</span> </li><li><span style="font-size:small">ASP.net MVC 5</span> </li><li><span style="font-size:small">ASP.net Web API 2</span> </li><li><span style="font-size:small">AngularJS 1.3</span> </li><li><span style="font-size:small">Entity Framework 6</span> </li><li><span style="font-size:small">Autofac</span> </li><li><span style="font-size:small">Automapper</span> </li><li><span style="font-size:small">Bootstrap</span> </li><li><span style="font-size:small">Material Design</span> </li><li><span style="font-size:small">etc.</span> </li></ul>
+<p><br>
+<span style="font-size:large">What you need to do :&nbsp;</span></p>
+<p><br>
+<strong><span style="font-size:medium">Step 0</span></strong><br>
+<span style="font-size:small">Change the connection string in the web.config in the KiksApp.Web project and app.config in the KiksApp.Data project.</span></p>
+<p><span style="font-size:medium"><strong>Step 1</strong></span><br>
+<span style="font-size:small">Rebuild, then run the project</span></p>
+<p><br>
+<strong><span style="font-size:medium">Step 2</span></strong><br>
+<span style="font-size:small">Login using the following:</span></p>
+<p><span style="font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Username : test@test.com&nbsp; &nbsp;</span></p>
+<p><span style="font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Password : Admin@123</span><br>
+<br>
+</p>
+<h2><br>
+<span style="font-size:medium">What is this project all about?</span></h2>
+<p><span style="font-size:small">This is just a simple application to somewhat showcase what I learned throughout my whole I.T. career.</span></p>
+<p><span style="font-size:small">The main focus of this project is to give other developers an idea on how to architecture real world applications.&nbsp;</span><span style="font-size:small">This architecture is more application to larger applications.</span></p>
+<p><span style="font-size:small">This is built with C#, MVC5, Web API2 for Restful Services, Autofac for Dependency Injection/ Inversion of Control (DI/IOC) Container, Automapper for Model to Model mapping, Entity Framework 6(Code First) as the Object-Relational
+ Mapper(ORM), AngularJS as the Frontend MV* framework, Bootstrap for the overall responsive design incorporated with Google's Material Design.</span><br>
+<br>
+<br>
+<span style="font-size:small">You can check on live action here : &nbsp;<a class="preview" title="http://kiksapp.apphb.com/" href="http://kiksapp.apphb.com/" >http://kiksapp.apphb.com/</a></span></p>
+<p><span style="font-size:small"><a class="preview" title="http://kiksapp.apphb.com/" href="http://kiksapp.apphb.com/" ></a></span><br>
+<span style="font-size:small">For the technologies that I used, just google them&nbsp;</span><span style="font-size:small">out. :D</span></p>
+<h1><br>
+<br>
+<span style="font-size:large; color:#808000"><strong>Do not read this!</strong></span></h1>
+<p><span style="font-size:small">I accept constructive criticisms. Feel free to comment and suggest. ;)</span><br>
+<br>
+<br>
+<span style="font-size:small">You can contact me at :</span><br>
+<span style="font-size:small">Email : francismaustria@gmail.com</span><br>
+<span style="font-size:small">Skype : francis.m.austria</span><br>
+<br>
+<br>
+<span style="font-size:small">Let me know what you think!</span></p>
+<p><br>
+<span style="font-size:small">Get in touch! Cheers!</span></p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

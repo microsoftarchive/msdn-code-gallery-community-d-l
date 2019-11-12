@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>KnockOut JS Validations</title>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/knockout-3.4.1.js"></script>
+    <script src="Scripts/Validations-Without-Plugin.js"></script>
+    <style>
+        .error {
+            color: #D8000C;
+            background-color: #FFBABA;
+            font-family: cursive;
+        }
+        table {
+            border: 1px solid #c71585;
+            padding: 20px;
+        }
+        td {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Knockout JS Validation</caption>
+        <tr>
+            <td>
+                First Name: <input type="text" id="txtFirstName" name="txtFirstName" data-bind='value: txtFirstName, valueUpdate: "afterkeydown"' />
+                <span class="error" data-bind='visible: txtFirstName.hasError, text: txtFirstName.message'></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Last Name: <input type="text" id="txtLastName" name="txtLastName" data-bind='value: txtLastName, valueUpdate: "afterkeydown"' />
+                <span class="error" data-bind='visible: txtLastName.hasError, text: txtLastName.message'></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email: <input type="text" id="txtEmail" name="txtEmail" data-bind='value: txtEmail, valueUpdate: "afterkeydown"' />
+                <span class="error" data-bind='visible: txtEmail.hasError, text: txtEmail.message'></span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Submit" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

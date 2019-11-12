@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<!-- Copyright © Microsoft Corporation. All rights reserved. -->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Internet Explorer Developer Sample</title>
+    <link rel="stylesheet" type="text/css" href="css/base-sdk.css" />
+    <link rel="stylesheet" type="text/css" href="css/allscenarios.css" />
+    <script type="text/javascript" src="script/base-sdk.js"></script>
+    <script type="text/javascript" src="script/scenario4.js"></script>
+</head>
+<body role="application">
+    <div id="header" role="contentinfo"></div>
+
+    <!--Sample title-->
+    <h1 id="sampleTitle">HTML5 Drag and Drop</h1>
+    <h2>Scenario 4: Putting it all together</h2>
+    <p>
+        <a href="default.html">Back to scenarios menu</a>
+    </p>
+
+    <!--Description and code snippet-->
+    <div class="descRegion" role="region" aria-labelledby="descLabel" aria-live="assertive">
+        <h3 id="descLabel">Description</h3>
+        <div class="descContent">
+            <p>
+                Use the dataTransfer object from drag events to set the data to be transferred between 
+                the item being dragged, and the element being dropped on.
+            </p>
+            <p>
+                In this example, you can drag the filled shapes onto the empty shapes. When they match,
+                the elements will combine, but when the shapes don't match then you'll get an error
+                message.
+            </p>
+            <p>
+                To do this, The the item being dragged writes its element ID to the dataTransfer object
+                on the dragStart event. At the drop event, the element being dropped on can read that ID
+                and determine if it is a match.
+            </p>
+            <h3 class="codeLabel">Code</h3>
+<pre>
+&lt;!--Block target shapes from being dragged, handle dragover event by returning false--&gt;
+&lt;div&gt;
+    &lt;div id="emptyTri" ondragover="return false;"&gt;
+        &lt;img draggable="false" alt="empty triangle" src="images/emptyTriangle.png" /&gt;
+    &lt;/div&gt;
+    &lt;div id="emptySqr" ondragover="return false;"&gt;
+        &lt;img draggable="false" alt="empty square" src="images/emptySquare.png" /&gt;
+    &lt;/div&gt;
+    &lt;div id="emptyCirc" ondragover="return false;"&gt;
+        &lt;img draggable="false" alt="empty circle" src="images/emptyCircle.png" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--Set solid shapes to be draggable--&gt;
+&lt;div&gt;            
+    &lt;div id="filledSqr" draggable="true"&gt;
+        &lt;img alt="filled square" src="images/filledSquare.png" /&gt;
+    &lt;/div&gt;
+    &lt;div id="filledTri" draggable="true"&gt;
+        &lt;img alt="filled triangle" src="images/filledTriangle.png" /&gt;
+    &lt;/div&gt;
+    &lt;div id="filledCirc" draggable="true"&gt;
+        &lt;img alt="filled Circle" src="images/filledCircle.png" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    // Remove the 'empty' and 'filled' part of the id's and compare the rest of the strings. 
+    function checkShapeDrop(e) { 
+        var target = this.id.replace("empty", "");
+        var elt = e.dataTransfer.getData('text').replace("filled", "");
+
+        // if we have a match, replace empty shape with filled shape image
+        if (target == elt) {
+            this.children[0].src = "images/empty" + target + "2.png";
+
+            // Remove the original filled image to give illusion that the filled
+            // image is now inside the empty one
+            document.getElementById(e.dataTransfer.getData('text')).style.display = "none";
+        } else { 
+            //not a match
+        } 
+    } 
+ 
+    // When dragging starts, set dataTransfer's data to the element's id.
+    function startShapeDrag(e) {
+        e.dataTransfer.setData('text', this.id);
+    }
+
+    // Assign event listeners to the divs to handle dragging.
+    document.getElementById('filledTri').addEventListener('dragstart', startShapeDrag, false);
+    document.getElementById('filledCirc').addEventListener('dragstart', startShapeDrag, false);
+    document.getElementById('filledSqr').addEventListener('dragstart', startShapeDrag, false);
+    document.getElementById('emptyTri').addEventListener('drop', checkShapeDrop, false);
+    document.getElementById('emptySqr').addEventListener('drop', checkShapeDrop, false);
+    document.getElementById('emptyCirc').addEventListener('drop', checkShapeDrop, false);
+&lt;/script&gt;
+</pre>
+        </div>
+    </div>
+
+    <!--Rendered result-->
+    <div class="resultRegion" role="region" aria-labelledby="resultLabel" aria-live="assertive">
+        <h3 id="resultLabel">Result</h3>
+        <div class="resultContent">
+            <p>Drag the filled shapes onto the empty shapes.</p>
+            <p id="matchStatus">&nbsp;</p>
+            <input type="button" id="shapeButton" value="Reset">
+            <div>
+                <div id="emptyTriangle" class="shape" ondragover="return false;">
+                    <img src="images/emptyTriangle.png" alt="empty triangle" draggable="false" />
+                </div>
+                <div id="emptySquare" class="shape" ondragover="return false;">
+                    <img src="images/emptySquare.png" alt="empty square" draggable="false"/>
+                </div>
+                <div id="emptyCircle" class="shape" ondragover="return false;">
+                    <img src="images/emptyCircle.png" alt="empty circle" draggable="false"/>
+                </div>
+            </div>
+            <div id="filled">
+                <div id="filledSquare" class="shape" draggable="true">
+                    <img src="images/filledSquare.png" alt="filled square" />
+                </div>
+                <div id="filledTriangle" class="shape" draggable="true">
+                    <img src="images/filledTriangle.png" alt="filled triangle" />
+                </div>
+                <div id="filledCircle" class="shape" draggable="true">
+                    <img src="images/filledCircle.png" alt="filled Circle" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer" role="contentinfo"></div>
+  </body>
+</html>

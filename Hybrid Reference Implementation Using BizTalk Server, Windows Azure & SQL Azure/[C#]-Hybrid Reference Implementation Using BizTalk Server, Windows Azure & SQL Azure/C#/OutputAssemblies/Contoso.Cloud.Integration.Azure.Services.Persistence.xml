@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Contoso.Cloud.Integration.Azure.Services.Persistence</name>
+    </assembly>
+    <members>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Persistence.Properties.ExceptionMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Persistence.Properties.ExceptionMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Persistence.Properties.ExceptionMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Persistence.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Persistence.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Persistence.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.Persistence.Properties.Resources.ScopeOpenPersistenceWorkerRoleServiceHost">
+            <summary>
+              Looks up a localized string similar to PersistenceWorkerRole -&gt; Run -&gt; Open Service Host.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Persistence.PersistenceService">
+            <summary>
+            Provides an implementation of the Persistence service that supports the <see cref="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IPersistenceServiceContract"/> contract.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Persistence.PersistenceService.PersistDataStream(System.IO.Stream)">
+            <summary>
+            Persists the specified stream of data into the queue and returns an unique identify that corresponds to the persisted queue item.
+            </summary>
+            <param name="data">The stream containing the data to be persisted.</param>
+            <returns>The unique identity of the queue item.</returns>
+        </member>
+        <member name="E:Contoso.Cloud.Integration.Azure.Services.Persistence.PersistenceService.PersistDataStreamCompleted">
+            <summary>
+            Occurs when the entire data stream has been successfully persisted into the underlying durable store.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.Persistence.PersistenceWorkerRole">
+            <summary>
+            Implements a worker role dedicated to hosting of the Persistence service.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Persistence.PersistenceWorkerRole.OnRoleRun">
+            <summary>
+            Extends the Run phase that is called by Windows Azure runtime after the role instance has been initialized.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Persistence.PersistenceWorkerRole.OnRoleStart">
+            <summary>
+            Extends the OnStart phase that is called by Windows Azure runtime to initialize the role instance.
+            </summary>
+            <returns>True if initialization succeeds, otherwise false.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.Persistence.PersistenceWorkerRole.OnRoleStop">
+            <summary>
+            Extends the OnStop phase that is called by Windows Azure runtime when the role instance is to be stopped.
+            </summary>
+        </member>
+    </members>
+</doc>

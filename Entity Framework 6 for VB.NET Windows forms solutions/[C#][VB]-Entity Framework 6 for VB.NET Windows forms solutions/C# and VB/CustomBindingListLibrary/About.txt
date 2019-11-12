@@ -1,0 +1,5 @@
+﻿This component is from a MSDN code sample (first time using this)
+https://code.msdn.microsoft.com/windowsdesktop/Generic-sortable-binding-47cac3cc/sourcecode?fileId=19212&pathId=410297358
+
+There is also a C# version by another developer which I've used for other code samples.
+http://www.martinwilley.com/net/code/forms/sortablebindinglist.html

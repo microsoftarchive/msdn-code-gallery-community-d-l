@@ -1,0 +1,40 @@
+﻿<Window x:Class="DataTemplateBindingSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:DataTemplateBindingSample"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <local:MainWindowViewModel x:Key="viewModel" />
+        <DataTemplate x:Key="ListItemTemplate">
+            <StackPanel Name="dateTemplateRoot" Orientation="Horizontal">
+                <!-- DataTemplate内でViewModelのコマンドを参照しています -->
+                <!-- StaticResourceで参照する方法 -->
+                <Button Content="{Binding Text}" 
+                        Command="{Binding ViewModelCommand, Source={StaticResource viewModel}}"
+                        CommandParameter="{Binding}"/>
+                <!-- RelativeSourceで参照する方法 -->
+                <Button Content="{Binding Text}" 
+                        Command="{Binding DataContext.ViewModelCommand, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                        CommandParameter="{Binding}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Window.Resources>
+    <Window.DataContext>
+        <StaticResourceExtension ResourceKey="viewModel" />
+    </Window.DataContext>
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock TextWrapping="Wrap"
+                   Padding="2.5"
+                   Text="{Binding OutputMessage}"/>
+        <ItemsControl 
+            Grid.Row="1"
+            Padding="2.5"
+            ItemsSource="{Binding Items}" 
+            ItemTemplate="{DynamicResource ListItemTemplate}" />
+
+    </Grid>
+</Window>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\Users\ankung\Desktop\ContosoMoving\ContosoMoving\Common\My Project\Common.lsml" Checksum="CB38AAE1BFE1D7B0396D373781E4D15EAD052CE1F72F7ACB57165F9E53B76CB0" />
+    <Document FullPath="C:\Users\ankung\Desktop\ContosoMoving\ContosoMoving\Server\My Project\Service.lsml" Checksum="448C0CA7E24882D061AC29715A6011DBD1EFAB76E31B9D2BBDB4FB8B177969C3" />
+  </Documents>
+</ModelDocumentManifest>

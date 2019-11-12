@@ -1,0 +1,21 @@
+﻿Public Class Form1
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim SheetNames As New List(Of String) From {"Sheet1", "Sheet2", "Sheet3", "Sheet4", "Howdy"}
+        Dim InfoList As New List(Of ExcelInfo)
+        DataGridView1.DataSource = Nothing
+        DataGridView1.DataSource = UsedInformation(IO.Path.Combine(Application.StartupPath, "W1.xlsx"), SheetNames)
+        Fixer()
+    End Sub
+End Class
+
+
+Private Sub MonthCalendar1_MouseDown(sender As Object, e As MouseEventArgs) Handles MonthCalendar1.MouseDown
+    Dim info = MonthCalendar1.HitTest(e.Location)
+    If info.HitArea = MonthCalendar.HitArea.Date Then
+        If MonthCalendar1.BoldedDates.Contains(info.Time) Then
+            MonthCalendar1.RemoveBoldedDate(info.Time)
+        Else
+            MonthCalendar1.AddBoldedDate(info.Time)
+        End If
+    End If
+End Sub

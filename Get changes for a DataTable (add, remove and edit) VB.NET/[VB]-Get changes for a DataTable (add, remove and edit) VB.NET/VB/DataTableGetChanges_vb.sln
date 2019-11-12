@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "DataTableLibrary", "DataTableLibrary\DataTableLibrary.vbproj", "{584E35D4-8A60-4629-8413-F7360D7819E2}"
+EndProject
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "WindowsApp1", "WindowsApp1\WindowsApp1.vbproj", "{326DD902-F83C-4864-9CB5-EB1004FCDFEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{584E35D4-8A60-4629-8413-F7360D7819E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{584E35D4-8A60-4629-8413-F7360D7819E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{584E35D4-8A60-4629-8413-F7360D7819E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{584E35D4-8A60-4629-8413-F7360D7819E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326DD902-F83C-4864-9CB5-EB1004FCDFEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326DD902-F83C-4864-9CB5-EB1004FCDFEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326DD902-F83C-4864-9CB5-EB1004FCDFEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326DD902-F83C-4864-9CB5-EB1004FCDFEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {169A030A-006B-4FF7-B4E8-95C25AB0F310}
+	EndGlobalSection
+EndGlobal

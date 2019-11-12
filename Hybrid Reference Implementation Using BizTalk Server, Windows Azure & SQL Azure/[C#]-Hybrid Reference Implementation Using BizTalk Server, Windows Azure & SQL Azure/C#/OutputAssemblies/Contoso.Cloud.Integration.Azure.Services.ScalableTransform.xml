@@ -1,0 +1,521 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Contoso.Cloud.Integration.Azure.Services.ScalableTransform</name>
+    </assembly>
+    <members>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings">
+            <summary>
+            Implements a configuration section which provides access to the configuration settings used by the Scalable Transform service.
+            </summary>
+        </member>
+        <member name="F:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings.DefaultMemoryCacheTimeToLiveSeconds">
+            <summary>
+            Returns the default TTL value for the in-memory cache items.
+            </summary>
+        </member>
+        <member name="F:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings.DefaultBlobCacheTimeToLiveSeconds">
+            <summary>
+            Returns the default TTL value for the blob cache items.
+            </summary>
+        </member>
+        <member name="F:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings.SectionName">
+            <summary>
+            Returns the name of the configuration section represented by this type.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings.AddStorageAccount(System.String)">
+            <summary>
+            Adds a storage account by its name into the collection of storage accounts which will be utilized by Scalable Transform service.
+            </summary>
+            <param name="accountName">The name of the storage account definition configured in the application configuration.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings.SetMemoryCacheTimeToLiveInSeconds(System.Int32)">
+            <summary>
+            Sets the in-memory cache TTL value to the specified number of seconds.
+            </summary>
+            <param name="value">The number of seconds defining the cache item TTL value.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings.SetBlobCacheTimeToLiveInSeconds(System.Int32)">
+            <summary>
+            Sets the blob cache TTL value to the specified number of seconds.
+            </summary>
+            <param name="value">The number of seconds defining the cache item TTL value.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings.CacheStorageAccount">
+            <summary>
+            Gets or sets the name of Windows Azure storage account which used for caching transform objects.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings.MemoryCacheTimeToLive">
+            <summary>
+            Gets or sets the time value indicating how long transform objects will be kept inside non-durable in-memory cache.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings.BlobCacheTimeToLive">
+            <summary>
+            Gets or sets the time value indicating how long transform objects will be kept inside durable cache.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Configuration.ScalableTransformConfigurationSettings.StorageAccounts">
+            <summary>
+            Returns a collection of storage accounts which will be utilized by operations in Scalable Transform service
+            for the purposes of scalability and load balancing.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IXslTransformCacheExtension">
+            <summary>
+            Defines an interface that must be supported by an extension component providing caching capabilities
+            for the XSLT-based transformation objects.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IXslTransformCacheExtension.Get(System.String)">
+            <summary>
+            Looks up for a transform object in the cache and returns its metadata if the specified transform was found.
+            </summary>
+            <param name="transformName">The unique name of the transform object that is being used as a cache key.</param>
+            <returns>An instance of the object carrying the XSLT transformation metadata, XSLT transformation engine and its arguments, or null if the specified transform was not found.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IXslTransformCacheExtension.Put(System.String,Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet)">
+            <summary>
+            Puts the specified transform object and its metadata into the underlying cache.
+            </summary>
+            <param name="transformName">The unique name of the transform object that will be used as a cache key.</param>
+            <param name="transformSet">The object carrying the XSLT transformation metadata, XSLT transformation object and its arguments.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IXslTransformCacheExtension.CacheTimeToLive">
+            <summary>
+            Gets or sets the time value indicating how long transform objects will be kept inside the cache.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IScalableTransformConfigurationExtension">
+            <summary>
+            Defines a contract that must be implemented by an extension responsible for providing 
+            access to the Scalable Transform service configuration settings.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IScalableTransformConfigurationExtension.Settings">
+            <summary>
+            Returns configuration settings used by the Scalable Transform service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.ScalableTransformConfigurationExtension">
+            <summary>
+            Implements the extension responsible for providing access to the Scalable Transform service configuration settings.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.ScalableTransformConfigurationExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.ScalableTransformConfigurationExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.ScalableTransformConfigurationExtension.Settings">
+            <summary>
+            Returns configuration settings used by the Scalable Transform service.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IScalableTransformServiceExtension">
+            <summary>
+            Defines a contract that must be implemented by an extension that supports all Scalable Transformation service operations.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.ScalableTransformServiceExtension">
+            <summary>
+            Implements the extension that supports the Scalable Transformation service operations.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.ScalableTransformServiceExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.ScalableTransformServiceExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.ScalableTransformServiceExtension.PrepareTransform(System.IO.Stream)">
+            <summary>
+            Prepares the specified source document for transformation.
+            </summary>
+            <param name="data">The stream of data containing the source document that needs to be transformed.</param>
+            <returns>An instance of the object used by the Scalable Transformation Service to track state transitions when performing transformations.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.ScalableTransformServiceExtension.ApplyTransform(System.String,Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState)">
+            <summary>
+            Applies the specified transformation map name against the source document described by the given transformation state object.
+            </summary>
+            <param name="transformName">Either partial or fully qualified name of the transformation map.</param>
+            <param name="state">An instance of the state object carrying the information related to the source document that will be transformed.</param>
+            <returns>An instance of the object used by the Scalable Transformation Service to track state transitions when performing transformations.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.ScalableTransformServiceExtension.CompleteTransform(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState)">
+            <summary>
+            Retrieves the transformed version of the source document described by the given transformation state object.
+            </summary>
+            <param name="state">An instance of the state object carrying the information related to the source document that will be transformed.</param>
+            <returns>The stream of data containing the results from transformation.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformCloudBlobCacheExtension">
+            <summary>
+            Implements the extension responsible for caching XSLT-based transform objects in the Windows Azure blob storage.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformCloudBlobCacheExtension.#ctor(Contoso.Cloud.Integration.Framework.Configuration.StorageAccountInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformCloudBlobCacheExtension"/> object using the specified storage account.
+            The storage account will provide a dedicated blob storage container which will be used as a cache.
+            </summary>
+            <param name="storageAccount">The name of the storage account on which the caching blob storage container will be located.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformCloudBlobCacheExtension.Get(System.String)">
+            <summary>
+            Looks up for a transform object in the cache and returns its metadata if the specified transform was found.
+            </summary>
+            <param name="transformName">The unique name of the transform object that is being used as a cache key.</param>
+            <returns>An instance of the object carrying the XSLT transformation metadata, XSLT transformation engine and its arguments, or null if the specified transform was not found.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformCloudBlobCacheExtension.Put(System.String,Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet)">
+            <summary>
+            Puts the specified transform object and its metadata into the underlying cache.
+            </summary>
+            <param name="transformName">The unique name of the transform object that will be used as a cache key.</param>
+            <param name="transformSet">The object carrying the XSLT transformation metadata, XSLT transformation object and its arguments.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformCloudBlobCacheExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformCloudBlobCacheExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformCloudBlobCacheExtension.ContainerName">
+            <summary>
+            Gets or sets the name of the blob storage container that will be used as a cache.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformCloudBlobCacheExtension.CacheTimeToLive">
+            <summary>
+            Gets or sets the time value indicating how long transform objects will be kept inside the cache.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformInProcCacheExtension">
+            <summary>
+            Implements the extension responsible for caching XSLT-based transform objects in the process memory.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformInProcCacheExtension.Get(System.String)">
+            <summary>
+            Looks up for a transform object in the cache and returns its metadata if the specified transform was found.
+            </summary>
+            <param name="transformName">The unique name of the transform object that is being used as a cache key.</param>
+            <returns>An instance of the object carrying the XSLT transformation metadata, XSLT transformation engine and its arguments, or null if the specified transform was not found.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformInProcCacheExtension.Put(System.String,Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet)">
+            <summary>
+            Puts the specified transform object and its metadata into the underlying cache.
+            </summary>
+            <param name="transformName">The unique name of the transform object that will be used as a cache key.</param>
+            <param name="transformSet">The object carrying the XSLT transformation metadata, XSLT transformation object and its arguments.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformInProcCacheExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformInProcCacheExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformInProcCacheExtension.CacheTimeToLive">
+            <summary>
+            Gets or sets the time value indicating how long transform objects will be kept inside the cache.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IXslTransformMetadataProviderExtension">
+            <summary>
+            Defines a contract that needs to be implemented by an extension responsible for providing the XSLT transformation metadata.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IXslTransformMetadataProviderExtension.GetXslTransformMetadata(System.String)">
+            <summary>
+            Returns the XSLT transformation metadata for the specified transform object name.
+            </summary>
+            <param name="transformName">Either partial or fully qualified name of the transformation object.</param>
+            <returns>A set of metadata for the XSLT-based transformation object.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformMetadataProviderExtension">
+            <summary>
+            Provides XSLT transformation metadata directly from the metadata source bypassing any interim caching layers.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformMetadataProviderExtension.GetXslTransformMetadata(System.String)">
+            <summary>
+            Returns the XSLT transformation metadata for the specified transform object name.
+            </summary>
+            <param name="transformName">Either partial or fully qualified name of the transformation object.</param>
+            <returns>A set of metadata for the XSLT-based transformation object.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformMetadataProviderExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformMetadataProviderExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IXslTransformProviderExtension">
+            <summary>
+            Defines a contract that must be implemented by an extension responsible for providing XSLT-based
+            transformation objects to their consumers.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.IXslTransformProviderExtension.GetXslTransform(System.String)">
+            <summary>
+            Returns an object carrying the XSLT transformation metadata, XSLT transformation engine and its arguments.
+            </summary>
+            <param name="transformName">Either partial or fully qualified name of the transformation object.</param>
+            <returns>An instance of the object carrying the XSLT transformation metadata, XSLT transformation engine and its arguments, or null if the specified transform was not found.</returns>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformProviderExtension">
+            <summary>
+            Implements the extension responsible for providing XSLT-based transformation objects to their consumers.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformProviderExtension.GetXslTransform(System.String)">
+            <summary>
+            Returns an object carrying the XSLT transformation metadata, XSLT transformation engine and its arguments.
+            </summary>
+            <param name="transformName">Either partial or fully qualified name of the transformation object.</param>
+            <returns>An instance of the object carrying the XSLT transformation metadata, XSLT transformation engine and its arguments, or null if the specified transform was not found.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformProviderExtension.Attach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been registered in the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Extensions.XslTransformProviderExtension.Detach(Contoso.Cloud.Integration.Azure.Services.Framework.IExtensibleCloudServiceComponent)">
+            <summary>
+            Notifies this extension component that it has been unregistered from the owner's collection of extensions.
+            </summary>
+            <param name="owner">The extensible owner object that aggregates this extension.</param>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Internal.XslTransformCacheItemInfo">
+            <summary>
+            Defines a data transfer object carrying the XSLT cache item metadata. 
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Internal.XslTransformCacheItemInfo.#ctor(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet)">
+            <summary>
+            Instantiate a new instance of the <see cref="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Internal.XslTransformCacheItemInfo"/> object using the specified XSLT transformation metadata.
+            </summary>
+            <param name="transformSet">The object carrying the XSLT transformation metadata, XSLT transformation object and its arguments.</param>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Internal.XslTransformCacheItemInfo.#ctor(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformSet,System.TimeSpan)">
+            <summary>
+            Instantiate a new instance of the <see cref="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Internal.XslTransformCacheItemInfo"/> object using the specified XSLT transformation metadata
+            and a custom cache TTL value.
+            </summary>
+            <param name="transformSet">The object carrying the XSLT transformation metadata, XSLT transformation object and its arguments.</param>
+            <param name="timeToLive">The time value indicating how long cached items will be kept inside the cache.</param>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Internal.XslTransformCacheItemInfo.TransformSet">
+            <summary>
+            Returns an object carrying the XSLT transformation metadata, XSLT transformation object and its arguments.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Internal.XslTransformCacheItemInfo.CreatedOn">
+            <summary>
+            Returns the data/time value indicating when a cache item has been created. This does not indicate when the cache item was added to the cache.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Internal.XslTransformCacheItemInfo.LastUpdated">
+            <summary>
+            Returns the data/time value indicating when a cache item was last updated.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Internal.XslTransformCacheItemInfo.ExpiresOn">
+            <summary>
+            Returns the data/time value indicating when a cache item is set to expire.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Internal.XslTransformCacheItemInfo.IsExpired">
+            <summary>
+            Returns a Boolean flag indicating whether or not a cache item is expired.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages.ApplyTransformOperationFailed">
+            <summary>
+              Looks up a localized string similar to Unable to complete the ApplyTransform operation successfully. Reason: {0}.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages.ApplyTransformOperationFailureInputDocNotFound">
+            <summary>
+              Looks up a localized string similar to Unable to locate the input document {2} on storage account {0} in container {1}..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages.ApplyTransformOperationFailureTransformNotFound">
+            <summary>
+              Looks up a localized string similar to Unable to locate the specified transform {0}..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages.CompleteTransformFailureFinalDocNotFound">
+            <summary>
+              Looks up a localized string similar to Unable to locate the transformed document {2} on storage account {0} in container {1}..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages.CompleteTransformOperationFailed">
+            <summary>
+              Looks up a localized string similar to Unable to complete the ApplyTransform operation successfully. Reason: {0}.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages.FindBlobLocationFailed">
+            <summary>
+              Looks up a localized string similar to Failure to determine the target location for the document being transformed. Please ensure that at least 1 storage account has been associated with the service in the configuration and make sure that the associated storage accounts contain at least 1 blob container..
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages.PrepareTransformOperationFailed">
+            <summary>
+              Looks up a localized string similar to Unable to complete the PrepareTransform operation successfully. Reason: {0}.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.ExceptionMessages.PrepareTransformOperationFailureStreamPersistence">
+            <summary>
+              Looks up a localized string similar to Failure to persist the input document into the designated storage..
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.Resources.ExtensionObjectAssemblyAttributeName">
+            <summary>
+              Looks up a localized string similar to AssemblyName.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.Resources.ExtensionObjectClassAttributeName">
+            <summary>
+              Looks up a localized string similar to ClassName.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.Properties.Resources.ExtensionObjectNamespaceAttributeName">
+            <summary>
+              Looks up a localized string similar to Namespace.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformService">
+            <summary>
+            Provides an implementation of the Scalable Transform service that supports the <see cref="T:Contoso.Cloud.Integration.Azure.Services.Contracts.IScalableTransformationServiceContract"/> contract.
+            This implementation adopts a forwarding technique that relays all calls to the underlying service operations to their respective event handlers.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformService.PrepareTransform(System.IO.Stream)">
+            <summary>
+            Prepares the specified source document for transformation.
+            </summary>
+            <param name="data">The stream of data containing the source document that needs to be transformed.</param>
+            <returns>An instance of the object used by the Scalable Transformation Service to track state transitions when performing transformations.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformService.ApplyTransform(System.String,Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState)">
+            <summary>
+            Applies the specified transformation map name against the source document described by the given transformation state object.
+            </summary>
+            <param name="transformName">Either partial or fully qualified name of the transformation map.</param>
+            <param name="state">An instance of the state object carrying the information related to the source document that will be transformed.</param>
+            <returns>An instance of the object used by the Scalable Transformation Service to track state transitions when performing transformations.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformService.CompleteTransform(Contoso.Cloud.Integration.Azure.Services.Contracts.Data.XslTransformState)">
+            <summary>
+            Retrieves the transformed version of the source document described by the given transformation state object.
+            </summary>
+            <param name="state">An instance of the state object carrying the information related to the source document that will be transformed.</param>
+            <returns>The stream of data containing the results from transformation.</returns>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformService.OnPrepareTransform">
+            <summary>
+            Occurs when the PrepareTransform service operation is invoked.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformService.OnApplyTransform">
+            <summary>
+            Occurs when the ApplyTransform service operation is invoked.
+            </summary>
+        </member>
+        <member name="P:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformService.OnCompleteTransform">
+            <summary>
+            Occurs when the CompleteTransform service operation is invoked.
+            </summary>
+        </member>
+        <member name="T:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformWorkerRole">
+            <summary>
+            Implements a worker role dedicated to hosting of the Scalable Transform service.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformWorkerRole.OnRoleRun">
+            <summary>
+            Extends the Run phase that is called by Windows Azure runtime after the role instance has been initialized.
+            </summary>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformWorkerRole.OnRoleStart">
+            <summary>
+            Extends the OnStart phase that is called by Windows Azure runtime to initialize the role instance.
+            </summary>
+            <returns>True if initialization succeeds, otherwise false.</returns>
+        </member>
+        <member name="M:Contoso.Cloud.Integration.Azure.Services.ScalableTransform.ScalableTransformWorkerRole.OnRoleStop">
+            <summary>
+            Extends the OnStop phase that is called by Windows Azure runtime when the role instance is to be stopped.
+            </summary>
+        </member>
+    </members>
+</doc>

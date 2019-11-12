@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.Title = "ViewPage1";
+}
+
+<h2>ViewPage1</h2>
+<input class="text-box single-line" data-val="true" data-val-required="The Title field is required." id="PendingRequest_Title" name="PendingRequest.Title" type="text" value="2 boxes of pens" /> 
+
+<input class="text-box single-line" data-val="true" data-val-length="The field Title must be a string with a maximum length of 20." data-val-length-max="20" id="PendingRequest_Title" name="PendingRequest.Title" type="text" value="2 boxes of pens" /> 
+
+<input class="text-box single-line" data-val="true" data-val-length="The field Title must be a string with a maximum length of 20." data-val-length-max="20" data-val-required="The Title field is required." id="PendingRequest_Title" name="PendingRequest.Title" type="text" value="2 boxes of pens" /> 
+
+
+@{
+
+    var a = "gv('*.IsComplete') || gv('*.DueOn') < new Date(2012,5,14,8,54,17)";
+}

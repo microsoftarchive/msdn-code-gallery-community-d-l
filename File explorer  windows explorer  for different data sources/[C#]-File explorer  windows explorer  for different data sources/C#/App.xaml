@@ -1,0 +1,109 @@
+﻿<Application x:Class="FileExplorer.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mscorlib="clr-namespace:System;assembly=mscorlib"
+             StartupUri="MainWindow.xaml">
+  <Application.Resources>
+    <mscorlib:String x:Key="IMG_GifIndicator" >./Assets/Indicator_small.gif</mscorlib:String>
+      
+    <Style x:Key="Ux_checkBoxStyle" TargetType="{x:Type CheckBox}" >
+      <Setter Property="ToolTipService.InitialShowDelay" Value="1000" />
+      <Setter Property="ToolTipService.ShowDuration" Value="100000" />
+      <Setter Property="ToolTipService.BetweenShowDelay" Value="2000" />
+      <Setter Property="ToolTipService.HasDropShadow" Value="true" />
+      <Setter Property="ToolTipService.ShowOnDisabled" Value="true" />
+      <Setter Property="ToolTipService.IsEnabled" Value="True" />
+      <!--<Setter Property="FocusVisualStyle" Value="{StaticResource EmptyCheckBoxFocusVisual_Global}" />-->
+      <Setter Property="SnapsToDevicePixels" Value="true"/>
+    </Style>
+
+
+    <Style x:Key="ToolTipStyle_Global" TargetType="{x:Type FrameworkElement}">
+      <Setter Property="Control.Background" Value="{DynamicResource COLOR_FACE}" />
+      <Setter Property="Control.BorderBrush" Value="{DynamicResource COLOR_BORDER}" />
+      <Setter Property="Control.Foreground" Value="{DynamicResource COLOR_TEXT}" />
+
+      <Setter Property="Control.FontSize" Value="{DynamicResource fontsize_normal}" />
+      <Setter Property="Control.SnapsToDevicePixels" Value="true" />
+      <Setter Property="ToolTipService.InitialShowDelay" Value="1000" />
+      <Setter Property="ToolTipService.ShowDuration" Value="100000" />
+      <Setter Property="ToolTipService.BetweenShowDelay" Value="2000" />
+      <Setter Property="ToolTipService.HasDropShadow" Value="true" />
+      <Setter Property="ToolTipService.ShowOnDisabled" Value="true" />
+      <Setter Property="ToolTipService.IsEnabled" Value="True" />
+    </Style>
+
+    <Style x:Key="SearchTextBoxStyle" TargetType="{x:Type TextBox}" BasedOn="{StaticResource ToolTipStyle_Global}">
+      <Setter Property="Background" Value="#fcfcfc"/>
+      <Setter Property="BorderBrush" Value="#B9B9B9"/>
+      <Setter Property="Foreground" Value="{DynamicResource Brush_global_darkgrey}"/>
+      <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Padding" Value="24,2,22,2"/>
+      <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+      <Setter Property="SnapsToDevicePixels" Value="True"/>
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="{x:Type TextBox}">
+            <Border SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" x:Name="Bd" BorderThickness="{TemplateBinding BorderThickness}"
+          BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" CornerRadius="2">
+              <Grid>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                  <!--<Image Source="{DynamicResource IMG_SEARCH}" Width="16" Height="17" Margin="6,0,0,0"/>-->
+                  <TextBlock  Text="Search" Foreground="#c7c6c6" Margin="2,1,0,0" x:Name="markText" Visibility="Collapsed"/>
+                </StackPanel>
+                <ScrollViewer SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" x:Name="PART_ContentHost"/>
+              </Grid>
+            </Border>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsFocused" Value="True">
+                <Setter TargetName="markText" Property="Visibility" Value="Collapsed" />
+              </Trigger>
+              <MultiTrigger>
+                <MultiTrigger.Conditions>
+                  <Condition Property="IsFocused" Value="False" />
+                  <Condition Property="Text" Value="" />
+                </MultiTrigger.Conditions>
+                <Setter TargetName="markText" Property="Visibility" Value="Visible" />
+              </MultiTrigger>
+              <Trigger Property="IsEnabled" Value="false">
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+              </Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+
+    <Style TargetType="{x:Type Button}" x:Key="BrushButtonStyle">
+      <Setter Property="TextOptions.TextFormattingMode" Value="Display"/>
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Foreground" Value="Black" />
+      <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+      <Setter Property="BorderBrush" Value="#ababab" />
+      <Setter Property="BorderThickness" Value="1"/>
+      <Setter Property="Background" Value="#f8f8f8"/>
+      <Setter Property="Height" Value="24"/>
+      <Setter Property="Cursor" Value="Hand"/>
+      <Setter Property="VerticalContentAlignment" Value="Center"/>
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="{x:Type Button}">
+            <Border x:Name="back" SnapsToDevicePixels="True"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    BorderThickness="{TemplateBinding BorderThickness}"
+                    Background="{TemplateBinding Background}" CornerRadius="2">
+              <ContentPresenter x:Name="content"  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding  Content}" Margin="{TemplateBinding Padding}"
+                                FocusVisualStyle="{x:Null}">
+              </ContentPresenter>
+            </Border>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+
+  </Application.Resources>
+</Application>

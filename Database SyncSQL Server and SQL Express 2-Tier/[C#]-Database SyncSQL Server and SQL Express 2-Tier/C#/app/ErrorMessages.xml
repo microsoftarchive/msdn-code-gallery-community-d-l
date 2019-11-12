@@ -1,0 +1,140 @@
+<ErrorMessages>	
+    <ErrorMessage
+	ErrorNumber="50008"
+	ErrorSeverity="Fatal"
+	ErrorFormat="Unable to enumerate changes at the DbPeerSyncProvider for table '{0}' in synchronization scope '{1}'."
+	ErrorCause="Error might have occurred while enumerating Insert/Delete/Update changes at the Server provider."
+	ErrorCorrectiveAction=""
+	ErrorInserts=""
+	ErrorInBOL="No"
+	ErrorOwner="rafikwil"
+	Supportability=""
+	ChangeStatus=""
+	SymbolicName="PSPGetChangesFailed"
+	Component="Microsoft.Synchronization.Data"
+	/>
+	
+    <ErrorMessage
+	ErrorNumber="20015"
+	ErrorSeverity="Fatal"
+	ErrorFormat="The '{0}' enumeration value, '{1}', is not valid."
+	ErrorCause=""
+	ErrorCorrectiveAction=""
+	ErrorInserts=""
+	ErrorInBOL="No"
+	ErrorOwner="rafikwil"
+	Supportability=""
+	ChangeStatus=""
+	SymbolicName="InvalidEnumValue"
+	Component="Microsoft.Synchronization.Data"
+	/>
+
+    <ErrorMessage
+	ErrorNumber="20016"
+	ErrorSeverity="Fatal"
+	ErrorFormat="Table name '{0}' is not valid. This might be caused by one or more of the following issues:  unable to find a SyncAdapter for the specified SyncTable; the table name is null or empty; or the table name contains the keywords SET, FMTONLY, and OFF." 
+	ErrorCause=""
+	ErrorCorrectiveAction=""
+	ErrorInserts=""
+	ErrorInBOL="No"
+	ErrorOwner="rafikwil"
+	Supportability=""
+	ChangeStatus=""
+	SymbolicName="InvalidTableName"
+	Component="Microsoft.Synchronization.Data"
+	/>    
+
+    <ErrorMessage
+       ErrorNumber="20020"
+       ErrorSeverity="Fatal"
+       ErrorFormat="Unable to add the SyncAdapter to the SyncAdapterCollection. A SyncAdapter for table '{0}' already exists."
+       ErrorCause="Each table must have a unique SyncAdapter"
+       ErrorCorrectiveAction=""
+       ErrorInserts=""
+       ErrorInBOL="No"
+       ErrorOwner="rafikwil"
+       Supportability=""
+       ChangeStatus=""
+       SymbolicName="SyncAdapterAlreadyExists"
+       Component="Microsoft.Synchronization.Data"
+	/>
+
+    <ErrorMessage
+       ErrorNumber="20021"
+       ErrorSeverity="Fatal"
+       ErrorFormat="The parameter '{0}' does not exist in the SyncParameterCollection." 
+       ErrorCause=""
+       ErrorCorrectiveAction=""
+       ErrorInserts=""
+       ErrorInBOL="No"
+       ErrorOwner="rafikwil"
+       Supportability=""
+       ChangeStatus=""
+       SymbolicName="InvalidParamName"
+       Component="Microsoft.Synchronization.Data"
+	/>
+
+    <ErrorMessage
+       ErrorNumber="20022"
+       ErrorSeverity="Fatal"
+       ErrorFormat="The parameter '{0}' already exists in the SyncParameterCollection." 
+       ErrorCause=""
+       ErrorCorrectiveAction=""
+       ErrorInserts=""
+       ErrorInBOL="No"
+       ErrorOwner="rafikwil"
+       Supportability=""
+       ChangeStatus=""
+       SymbolicName="DuplicateParamName"
+       Component="Microsoft.Synchronization.Data"
+	/>
+	
+   <ErrorMessage
+       ErrorNumber="20036"
+       ErrorSeverity="Fatal"
+       ErrorFormat="Invalid connection object. Unable to create a new instance of the connection object."
+       ErrorCause=""
+       ErrorCorrectiveAction=""
+       ErrorInserts=""
+       ErrorInBOL="No"
+       ErrorOwner="yiche"
+       Supportability=""
+       ChangeStatus=""
+       SymbolicName="InvalideConnectionArgument"
+       Component="Microsoft.Synchronization.Data"
+	/>		
+
+   <ErrorMessage
+       ErrorNumber="20037"
+       ErrorSeverity="Fatal"
+       ErrorFormat="Failed to execute the command '{0}' for table '{1}'."
+       ErrorCause="The command failed and it rolled-back the transaction"
+       ErrorCorrectiveAction="Make sure the command syntax is correct and it won't cause error that will roll-back the transaction"
+       ErrorInserts=""
+       ErrorInBOL="No"
+       ErrorOwner="yiche"
+       Supportability=""
+       ChangeStatus=""
+       SymbolicName="FailedToExecuteCommand"
+       Component="Microsoft.Synchronization.Data"
+	/>		
+
+
+	
+    <ErrorMessage
+	ErrorNumber="40041"
+	ErrorSeverity="Fatal"
+	ErrorFormat="Missing value for primary key '{0}' in table '{1}'" 
+	ErrorCause=""
+	ErrorCorrectiveAction=""
+	ErrorInserts=""
+	ErrorInBOL="No"
+	ErrorOwner="yiche"
+	Supportability=""
+	ChangeStatus=""
+	SymbolicName="MissingPrimaryKeyValue"
+	Component="Microsoft.Synchronization.Data"
+	/>
+
+
+</ErrorMessages>

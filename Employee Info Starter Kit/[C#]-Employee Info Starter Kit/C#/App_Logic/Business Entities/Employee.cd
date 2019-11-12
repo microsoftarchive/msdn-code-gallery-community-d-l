@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Eisk.BusinessEntities.Employee">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>gwAgY0AwoAlBCmTJaLWRAEYAEKJAxYBmiMQoFFgDKA0=</HashCode>
+      <FileName>data containers\Employee_Validation_And_Default_Values.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Eisk.BusinessEntities.EmployeeWithSupervisorName">
+    <Position X="3.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAUAwIAEAAAAACREQAAAAAAAABAAICAQAAAABAAg=</HashCode>
+      <FileName>data access layer\DatabaseContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Tahoma" Size="8.25" />
+</ClassDiagram>

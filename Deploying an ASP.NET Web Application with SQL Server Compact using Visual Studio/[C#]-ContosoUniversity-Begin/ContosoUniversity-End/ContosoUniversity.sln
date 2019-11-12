@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity", "ContosoUniversity\ContosoUniversity.csproj", "{8C64FA71-58B6-4E31-8749-AD8E7479C802}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity.DAL", "ContosoUniversity.DAL\ContosoUniversity.DAL.csproj", "{072D7A37-4B5B-4D2B-8739-90075758B70F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFiles", "SolutionFiles", "{883FB855-7262-4B71-84C0-B3E2BF5E00D4}"
+	ProjectSection(SolutionItems) = preProject
+		Grant.sql = Grant.sql
+		app_offline.html = app_offline.html
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{072D7A37-4B5B-4D2B-8739-90075758B70F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{072D7A37-4B5B-4D2B-8739-90075758B70F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{072D7A37-4B5B-4D2B-8739-90075758B70F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{072D7A37-4B5B-4D2B-8739-90075758B70F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C64FA71-58B6-4E31-8749-AD8E7479C802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C64FA71-58B6-4E31-8749-AD8E7479C802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C64FA71-58B6-4E31-8749-AD8E7479C802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C64FA71-58B6-4E31-8749-AD8E7479C802}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,89 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ShanuHTML5Chart_VS2013.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SHANU - >HTML5 Chart using Jquery</title>
+
+   
+      <link rel="SHORTCUT ICON" href="Shanu.ico"/>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+
+      <meta http-equiv="Page-Enter" content="blendTrans(Duration=0.0)" />
+    <meta http-equiv="Page-Exit" content="blendTrans(Duration=0.0)" />
+
+   <meta http-equiv="x-ua-compatible" content="IE=9" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form runat="server">
+       
+        <table width="99%" style=" border-bottom:3px solid #3273d5;">
+        <tr>
+
+            <td width=" 250">
+        <table width="99%">
+            <tr>
+                <td>
+                    Created by SHANU
+                    
+</td>              
+
+            </tr>
+        </table>
+        </td>
+        <td  align="center">
+            <h2>Shanu ASP.NET Charts using HTML5 and jQuery</h2>
+
+           
+        </td>
+           
+        </tr>
+    </table>
+    <img src="~/Images/blank.gif" alt="" width="1" height="10" />
+     <table   style="  padding: 5px;width: 99%;table-layout:fixed; border-bottom:3px solid #3273d5;">
+             <tr>
+                 <td >
+                    <table  width="100%" >
+                     <tr>        
+  
+             <td   class="navbar-collapse collapse">
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="Default.aspx">Home</a></li>
+                        <li><a runat="server" href="~/ShanuCharts/shanuLineChart.aspx">Line Chart</a></li>
+                        <li><a runat="server" href="~/ShanuCharts/shanuBarchart.aspx">Bar Chart</a></li>
+                         <li><a runat="server" href="~/ShanuCharts/shanuBubbleChart.aspx">Bubble Chart</a></li>
+                         <li><a runat="server" href="~/ShanuCharts/shanuDonutChart.aspx">Donut Chart</a></li>
+                          <li><a runat="server" href="~/ShanuCharts/shanuLineandBarChart.aspx">Line & Bar Chart</a></li>
+                          <li><a runat="server" href="~/ShanuCharts/shanuPieChart.aspx">Pie Chart</a></li>
+                    </ul>
+
+                </div>
+            </td>
+            </tr>
+            </table>
+            </td>
+            </tr>
+            </table>
+       
+            <asp:ContentPlaceHolder ID="cphBody" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Shanu Chart using HTML5 jQuery </p>
+            </footer>
+       
+    </form>
+</body>
+</html>

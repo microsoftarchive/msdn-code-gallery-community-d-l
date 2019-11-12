@@ -1,0 +1,267 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{65F86197-CE68-4B99-AAB9-EA576272E7A4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClientSample</RootNamespace>
+    <AssemblyName>SftpClient</AssemblyName>
+    <ApplicationIcon>Ftp.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;ASYNC;SFTP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;ASYNC;SFTP</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientController.cs" />
+    <Compile Include="ClientController_Delete.cs" />
+    <Compile Include="ClientController_Directory.cs" />
+    <Compile Include="ClientController_Download.cs" />
+    <Compile Include="ClientController_Move.cs" />
+    <Compile Include="ClientController_Upload.cs" />
+    <Compile Include="FileMask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileMask.Designer.cs">
+      <DependentUpon>FileMask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FileOperation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FileOperation.Designer.cs">
+      <DependentUpon>FileOperation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FolderNamePrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FolderNamePrompt.Designer.cs">
+      <DependentUpon>FolderNamePrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IClientView.cs" />
+    <Compile Include="ClientController_Connection.cs">
+    </Compile>
+    <Compile Include="ClientController_Fields.cs">
+    </Compile>
+    <Compile Include="ClientController_List.cs">
+    </Compile>
+    <Compile Include="Main_View.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sftp\SftpClientPlugin.cs" />
+    <Compile Include="Sftp\SftpLoginInfo.cs" />
+    <Compile Include="Sftp\SftpPropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sftp\SftpPropertiesForm.Designer.cs">
+      <DependentUpon>SftpPropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RichTextBoxTraceListener.cs" />
+    <Compile Include="Messages.cs" />
+    <Compile Include="NewNamePrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewNamePrompt.Designer.cs">
+      <DependentUpon>NewNamePrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sftp\SftpSettingInfo.cs" />
+    <Compile Include="ShellAPI.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SiteLoader.cs" />
+    <Compile Include="SynchronizeFolders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SynchronizeFolders.Designer.cs">
+      <DependentUpon>SynchronizeFolders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DragAndDropListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FileIconManager.cs" />
+    <Compile Include="ListViewItemSorters.cs">
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MoveToRemoteFolder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MoveToRemoteFolder.Designer.cs">
+      <DependentUpon>MoveToRemoteFolder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PasswordPrompt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PasswordPrompt.Designer.cs">
+      <DependentUpon>PasswordPrompt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SettingInfo.cs">
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FileMask.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FileMask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FileOperation.resx">
+      <DependentUpon>FileOperation.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FolderNamePrompt.resx">
+      <DependentUpon>FolderNamePrompt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewNamePrompt.resx">
+      <DependentUpon>NewNamePrompt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sftp\SftpPropertiesForm.resx">
+      <DependentUpon>SftpPropertiesForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SynchronizeFolders.resx">
+      <DependentUpon>SynchronizeFolders.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MoveToRemoteFolder.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>MoveToRemoteFolder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PasswordPrompt.resx">
+      <DependentUpon>PasswordPrompt.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sftp\UnknownHostKey.resx">
+      <DependentUpon>UnknownHostKey.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sftp\UnknownHostKey.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sftp\UnknownHostKey.Designer.cs">
+      <DependentUpon>UnknownHostKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{B4F97281-0DBD-4835-9ED8-7DFB966E87FF}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cert.gif" />
+    <Content Include="Ftp.ico" />
+    <Content Include="res\CreateDir.png" />
+    <Content Include="res\Delete.png" />
+    <Content Include="res\Download.png" />
+    <Content Include="res\Login.png" />
+    <Content Include="res\Logout.png" />
+    <Content Include="res\Move.png" />
+    <Content Include="res\Refresh.png" />
+    <Content Include="res\Settings.png" />
+    <Content Include="res\Upload.png" />
+    <Content Include="res\View.png" />
+    <Content Include="Sites.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="ComponentPro.Common">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>e:\ComponentPro\UltimateStudio v6.0.405282\Bin\Net4_0\ComponentPro.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentPro.FileSystem">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>e:\ComponentPro\UltimateStudio v6.0.405282\Bin\Net4_0\ComponentPro.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentPro.Network">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>e:\ComponentPro\UltimateStudio v6.0.405282\Bin\Net4_0\ComponentPro.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="ComponentPro.Sftp">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>e:\ComponentPro\UltimateStudio v6.0.405282\Bin\Net4_0\ComponentPro.Sftp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

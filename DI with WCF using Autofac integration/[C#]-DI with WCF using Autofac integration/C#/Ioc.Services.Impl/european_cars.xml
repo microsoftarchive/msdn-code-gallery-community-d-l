@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<cars>
+  <car>
+    <register>AGHU774</register>
+    <manufacturingYear>2007</manufacturingYear>
+    <price>37000</price>
+    <color>Red</color>
+    <model>Sedan</model>
+    <manufacturer>Volkwagen</manufacturer>
+    <name>Passat</name>
+  </car>
+  <car>
+    <register>HTYU749</register>
+    <manufacturingYear>2010</manufacturingYear>
+    <price>52000</price>
+    <color>Steel Blue</color>
+    <model>Coupe</model>
+    <manufacturer>Audi</manufacturer>
+    <name>A5</name>
+  </car>
+  <car>
+    <register>HTTU894</register>
+    <manufacturingYear>2009</manufacturingYear>
+    <price>37000</price>
+    <color>Black</color>
+    <model>Variant</model>
+    <manufacturer>Volkwagen</manufacturer>
+    <name>Passat</name>
+  </car>
+  <car>
+    <register>TRHG898</register>
+    <manufacturingYear>2009</manufacturingYear>
+    <price>28000</price>
+    <color>White</color>
+    <model>Sedan</model>
+    <manufacturer>Renault</manufacturer>
+    <name>Laguna</name>
+  </car>
+  <car>
+    <register>YYTU833</register>
+    <manufacturingYear>2008</manufacturingYear>
+    <price>45000</price>
+    <color>Black Pearl</color>
+    <model>Variant</model>
+    <manufacturer>Audi</manufacturer>
+    <name>A6</name>
+  </car>
+  <car>
+    <register>UTYY264</register>
+    <manufacturingYear>2010</manufacturingYear>
+    <price>26000</price>
+    <color>Blue</color>
+    <model>Coupe</model>
+    <manufacturer>Seat</manufacturer>
+    <name>Leon</name>
+  </car>
+</cars>

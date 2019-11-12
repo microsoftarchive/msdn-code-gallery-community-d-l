@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.identitymine.com">
+	<Waveforms>
+		<Waveform>
+			<Name>ECGSinusRhythm</Name>
+			<Data>40.0,40.0,40.0,42.0,44.0,42.0,37.0,38.0,37.0,84.0,20.0,38.0,41.0,43.0,45.0,48.0,48.0,45.0,42.0,41.0</Data>
+		</Waveform>
+		<Waveform>
+			<Name>ECGJunctionalTachy</Name>
+			<Data>20.0,22.0,18.0,76.0,52.0,56.0,16.0,20.0,23.0,24.0,23.0,20.0</Data>
+		</Waveform>
+		<Waveform>
+			<Name>ECGAcceleratedIVR</Name>
+			<Data>52.0,52.0,40.0,28.0,16.0,28.0,56.0,60.0,68.0,60.0,60.0</Data>
+		</Waveform>
+		<Waveform>
+			<Name>Pulse</Name>
+			<Data>79.0,80.0,80.0,79.0,78.0</Data>
+		</Waveform>
+		<Waveform>
+			<Name>O2Saturation</Name>
+			<Data>97.0,98.0,96.0,97.0,98.0,100.0,99.0</Data>
+		</Waveform>
+		<Waveform>
+			<Name>Saw Tooth</Name>
+			<Data>50.0,75.0,50.0,25.0</Data>
+		</Waveform>
+	</Waveforms>
+</Root>

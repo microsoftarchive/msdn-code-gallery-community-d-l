@@ -1,0 +1,8 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    >
+	<FontFamily x:Key="FontFamilyBrand1" >#Helvetica Neue LT Std 67</FontFamily>
+	<FontFamily x:Key="FontFamilyBrand2" >#Helvetica Neue LT Std 47</FontFamily>
+	<SolidColorBrush x:Key="MainAppBackgroundBrush" Color="Transparent"/>
+	<SolidColorBrush x:Key="MainAppInsetRectangleBackgroundBrush" Color="sc#1.000000, 0.716650, 0.716650, 0.716650" />
+</ResourceDictionary>

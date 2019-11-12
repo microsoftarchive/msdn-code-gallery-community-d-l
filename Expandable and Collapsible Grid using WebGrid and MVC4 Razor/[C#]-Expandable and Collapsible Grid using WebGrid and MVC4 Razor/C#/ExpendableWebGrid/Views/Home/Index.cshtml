@@ -1,0 +1,112 @@
+﻿<script language="javascript">
+    function detailSection(id,count) {
+        for (i = 1; i <= count; i++) {
+            if ($('#details1' + id + '_' + (2 * i - 1)).is(':visible')) {
+                $('#details1' + id + '_' + (2 * i - 1)).css('display', 'none');
+                $('#details2' + id + '_' + (2 * i)).css('display', 'none');
+                //            $('#details1' + id+'_3').css('display', 'none');
+                //            $('#details2' + id+'_4').css('display', 'none');
+            } else {
+                $('#details1' + id + '_' + (2 * i - 1)).css('display', 'block');
+                $('#details2' + id + '_' + (2 * i)).css('display', 'block');
+                // $('#details1' + id+'_3').css('display', 'block');
+                //$('#details2' + id+'_4').css('display', 'block');
+            }
+        }
+    }
+    function detailSection1(id, count) {
+        for (i = 1; i <= count; i++) {
+            if ($('#details3' + id + '_' + ( i )).is(':visible')) {
+                $('#details3' + id + '_' + ( i)).css('display', 'none');
+                $('#details4' + id + '_' + (i+1)).css('display', 'none');
+                $('#details5' + id + '_' + (i+2)).css('display', 'none');
+                //            $('#details1' + id+'_3').css('display', 'none');
+                //            $('#details2' + id+'_4').css('display', 'none');
+            } else {
+                $('#details3' + id + '_' + ( i )).css('display', 'block');
+                $('#details4' + id + '_' + (i+1)).css('display', 'block');
+                $('#details5' + id + '_' + ( i+2)).css('display', 'block');
+                // $('#details1' + id+'_3').css('display', 'block');
+                //$('#details2' + id+'_4').css('display', 'block');
+            }
+        }
+    }
+</script>
+@model IEnumerable<ExpendableWebGrid.Models.Order>
+@{
+    ViewBag.Title = "NestedGrid";
+}
+@{
+    var Orders = new List<ExpendableWebGrid.Models.Order>();
+    var products1 = new List<ExpendableWebGrid.Models.Product>();
+    var productsDetails1 = new List<ExpendableWebGrid.Models.ProductDetails>();
+    productsDetails1.Add(new ExpendableWebGrid.Models.ProductDetails { ProductDetailsId = 1, Cost = "$ 345", Color="Black" });
+    products1.Add(new ExpendableWebGrid.Models.Product { ProductId = 1,  ProductDetailsList=productsDetails1,Name = "laptop" });
+    products1.Add(new ExpendableWebGrid.Models.Product { ProductId = 5, ProductDetailsList = productsDetails1, Name = "pen drive" });
+    products1.Add(new ExpendableWebGrid.Models.Product { ProductId = 7, ProductDetailsList = productsDetails1, Name = "Mobile" });
+    Orders.Add(new ExpendableWebGrid.Models.Order { OrderId = 1, ProductList = products1, OrderDate = DateTime.Now });
+    var products2 = new List<ExpendableWebGrid.Models.Product>();
+    products2.Add(new ExpendableWebGrid.Models.Product { ProductId = 3, ProductDetailsList = productsDetails1, Name = "Hard disk" });
+    products2.Add(new ExpendableWebGrid.Models.Product { ProductId = 4, ProductDetailsList = productsDetails1, Name = "Mouse" });
+    Orders.Add(new ExpendableWebGrid.Models.Order { OrderId = 2, ProductList = products2, OrderDate = DateTime.Now });
+    var products3 = new List<ExpendableWebGrid.Models.Product>();
+    products3.Add(new ExpendableWebGrid.Models.Product { ProductId = 2, ProductDetailsList = productsDetails1, Name = "CD" });
+    products3.Add(new ExpendableWebGrid.Models.Product { ProductId = 6, ProductDetailsList = productsDetails1, Name = "Speaker" });
+    Orders.Add(new ExpendableWebGrid.Models.Order { OrderId = 3, ProductList = products3, OrderDate = DateTime.Now });
+    
+    
+        WebGrid topGrid = new WebGrid(Orders);
+        
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+   
+                                                                                                                                       
+ 
+     <div id="grid">
+@topGrid.GetHtml(columns:
+    topGrid.Columns(
+                                topGrid.Column("OrderId", "Order", format: (item) => { return new HtmlString("<a href='#' onclick='detailSection("+ item.WebGrid.Rows.IndexOf(item)+","+item.WebGrid.Rows.Count+")' style='width: 10em'>" + item.OrderId + "</a>"); }),
+            topGrid.Column("ProductList", format: (item1) =>
+        {
+           
+            WebGrid subGrid = new WebGrid(item1.ProductList);
+            var pIndex = item1.WebGrid.Rows.IndexOf(item1);
+            var counter = 0;
+            return subGrid.GetHtml( 
+         columns: subGrid.Columns(
+             subGrid.Column("ProductId", "ProductId", format: (subitem) => { return new HtmlString("<a href='#' id='details1" + pIndex + "_" + ++counter + "' onclick='detailSection1(" + subitem.WebGrid.Rows.IndexOf(subitem) + "," + subitem.WebGrid.Rows.Count + ")'style='text-align: left;color: red;height:120px; width: 175px; padding-right: 1em; display:none;'>" + subitem.ProductId + "</a>"); }),
+             subGrid.Column("Name", "Name", format: (subitem) => { return new HtmlString("<div id='details2"+pIndex+ "_"+ ++counter+"' style='text-align: left;color: red;height:120px; width: 175px; padding-right: 1em; display:none;'>" + subitem.Name + "</div>"); }),
+              topGrid.Column("ProductDetailsList", format: (item2) =>
+        {
+
+            WebGrid subGrid1 = new WebGrid(item2.ProductDetailsList);
+            var pIndex1 = item2.WebGrid.Rows.IndexOf(item2);
+            var counter1 = 0;
+            return subGrid1.GetHtml(
+         columns: subGrid1.Columns(
+             subGrid1.Column("ProductDetailsId", "ProductDetailsId", format: (subitem1) => { return new HtmlString("<div id='details3" + pIndex1 + "_" + ++counter1 + "' style='text-align: left;color: red;height:120px; width: 175px; padding-right: 1em; display:none;'>" + subitem1.ProductDetailsId + "</div>"); }),
+             subGrid1.Column("Cost", "Cost", format: (subitem1) => { return new HtmlString("<div id='details4" + pIndex1 + "_" + ++counter1 + "' style='text-align: left;color: red;height:120px; width: 175px; padding-right: 1em; display:none;'>" + subitem1.Cost + "</div>"); }),
+             subGrid1.Column("Color", "Color", format: (subitem1) => { return new HtmlString("<div id='details5" + pIndex1 + "_" + ++counter1 + "' style='text-align: left;color: red;height:120px; width: 175px; padding-right: 1em; display:none;'>" + subitem1.Color + "</div>"); })
+
+
+        ));
+        }
+            )));
+        })
+        
+        
+         ,topGrid.Column("OrderDate")
+    
+))
+</div> 
+
+</body>
+</html>

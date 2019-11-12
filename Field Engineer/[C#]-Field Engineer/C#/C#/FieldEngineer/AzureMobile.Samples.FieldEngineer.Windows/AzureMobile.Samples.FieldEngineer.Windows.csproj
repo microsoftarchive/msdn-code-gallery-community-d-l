@@ -1,0 +1,392 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\SQLitePCL.3.8.5.1\build\netcore451\SQLitePCL.props" Condition="Exists('..\packages\SQLitePCL.3.8.5.1\build\netcore451\SQLitePCL.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FF3368D3-0307-4F69-973E-DC1B05E4C516}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AzureMobile.Samples.FieldEngineer</RootNamespace>
+    <AssemblyName>AzureMobile.Samples.FieldEngineer.Windows</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformVersion>8.1</TargetPlatformVersion>
+    <MinimumVisualStudioVersion>12</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>AzureMobile.Samples.FieldEngineer.Windows_StoreKey.pfx</PackageCertificateKeyFile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <AppxPackageDir>C:\pgopa\Appx\Release6</AppxPackageDir>
+    <PackageCertificateThumbprint>2D40E9C14CC4EAF99EF95FC02F4E80E0AA4D629F</PackageCertificateThumbprint>
+    <NuGetPackageImportStamp>b09354a9</NuGetPackageImportStamp>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <AppxBundle>Always</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>ARM</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Common\BooleanNegationConverter.cs" />
+    <Compile Include="Common\JobCardTemplateSelector.cs" />
+    <Compile Include="Common\LoadStateEventArgs.cs" />
+    <Compile Include="Common\SaveStateEventArgs.cs" />
+    <Compile Include="Common\SuspensionManagerException.cs" />
+    <Compile Include="CustomControls\FieldEngineerInfoControl.xaml.cs">
+      <DependentUpon>FieldEngineerInfoControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\JobCompletionControl.xaml.cs">
+      <DependentUpon>JobCompletionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DataModels\Customer.cs" />
+    <Compile Include="DataModels\Equipment.cs" />
+    <Compile Include="DataModels\EquipmentSpecification.cs" />
+    <Compile Include="DataModels\Job.cs" />
+    <Compile Include="DataModels\JobGroup.cs" />
+    <Compile Include="DataModels\JobHistory.cs" />
+    <Compile Include="DataSources\AzureDataServices.cs" />
+    <Compile Include="DataSources\Constants.cs" />
+    <Compile Include="DataSources\DataManager.cs" />
+    <Compile Include="DataSources\EquipmentDataSource.cs" />
+    <Compile Include="DataSources\EquipmentSpecificationDataSource.cs" />
+    <Compile Include="DataSources\JobDataSource.cs" />
+    <Compile Include="DataSources\ValidateAzureCredentials.cs" />
+    <Compile Include="EquipmentDetails.xaml.cs">
+      <DependentUpon>EquipmentDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flyout\ManagerDetailsFlyout.xaml.cs">
+      <DependentUpon>ManagerDetailsFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Flyout\PreferencesFlyout.xaml.cs">
+      <DependentUpon>PreferencesFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InternetErrorPage.xaml.cs">
+      <DependentUpon>InternetErrorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JobDetailPage.xaml.cs">
+      <DependentUpon>JobDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JobListPage.xaml.cs">
+      <DependentUpon>JobListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="JobMapPage.xaml.cs">
+      <DependentUpon>JobMapPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\overlay\CapptainOverlayAnnouncement.xaml.cs">
+      <DependentUpon>CapptainOverlayAnnouncement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\overlay\CapptainOverlayNotification.xaml.cs">
+      <DependentUpon>CapptainOverlayNotification.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\overlay\CapptainPageOverlay.cs" />
+    <Compile Include="SearchResultsPage.xaml.cs">
+      <DependentUpon>SearchResultsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Common\SuspensionManager.cs" />
+    <Compile Include="Common\NavigationHelper.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\ObservableDictionary.cs" />
+    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Secrets.cs" />
+    <Compile Include="Utilities\ConnectionHelper.cs" />
+    <Compile Include="Utilities\LocalStoreHelper.cs" />
+    <Compile Include="Utilities\LoginHelper.cs" />
+    <Compile Include="Utilities\PushHelper.cs" />
+    <Compile Include="Utilities\SyncHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="appicon.png" />
+    <Content Include="Assets\Tile_150X150.png" />
+    <Content Include="Assets\Tile_310X310.png" />
+    <Content Include="Assets\Tile_70X70.png" />
+    <Content Include="Assets\SearchLogo.png" />
+    <Content Include="Assets\Tile_310X150.png" />
+    <Content Include="Branding\Background.png" />
+    <Content Include="Data\Background_QuickInfo.png" />
+    <Content Include="Data\EquipmentImages\Dish_1.jpg" />
+    <Content Include="Data\EquipmentImages\Dish_1_Thumb.jpg" />
+    <Content Include="Data\EquipmentImages\HDMI_1.jpg" />
+    <Content Include="Data\EquipmentImages\HDMI_1_Thumb.jpg" />
+    <Content Include="Data\EquipmentImages\HDMI_2.jpg" />
+    <Content Include="Data\EquipmentImages\HDMI_2_Thumb.jpg" />
+    <Content Include="Data\EquipmentImages\RCA_1.jpg" />
+    <Content Include="Data\EquipmentImages\RCA_1_Thumb.jpg" />
+    <Content Include="Data\EquipmentImages\SetTop_1_Thumb.jpg" />
+    <Content Include="Data\EquipmentImages\SetTop_1.jpg" />
+    <Content Include="Data\Hub-Page-Title-Logo.png" />
+    <Content Include="Data\ManagerPic.png" />
+    <Content Include="Data\Pencil-Logo.png" />
+    <Content Include="Data\Tick.png" />
+    <Content Include="metadata.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Package.StoreAssociation.xml" />
+    <Content Include="Resources\CapptainConfiguration.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Resources\html\CapptainAnnouncement.html" />
+    <Content Include="Resources\html\CapptainNotification.html" />
+    <Content Include="Resources\images\CapptainIconClose.png" />
+    <Content Include="Resources\images\CapptainIconNOk.png" />
+    <Content Include="Resources\images\CapptainIconNotification.png" />
+    <Content Include="Resources\images\CapptainIconOk.png" />
+    <None Include="AzureMobile.Samples.FieldEngineer.Windows_StoreKey.pfx" />
+    <None Include="Common\ReadMe.txt" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <PRIResource Include="Strings\en-US\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\SplashScreen.png" />
+    <Content Include="Assets\StoreLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="Branding\CustomStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Branding\CustomTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomControls\FieldEngineerInfoControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomControls\JobCompletionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EquipmentDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flyout\ManagerDetailsFlyout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Flyout\PreferencesFlyout.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="InternetErrorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JobDetailPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="JobListPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="JobMapPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\overlay\CapptainOverlayAnnouncement.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\overlay\CapptainOverlayNotification.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SearchResultsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Bing.Maps.Xaml, Version=1.313.0825.0">
+      <Name>Bing Maps for C#, C++, or Visual Basic %28Bing.Maps.Xaml, Version=1.313.0825.0%29</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, version=12.0">
+      <Name>Microsoft Visual C++ 2013 Runtime Package for Windows</Name>
+    </SDKReference>
+    <SDKReference Include="SQLite.WinRT81, Version=3.8.6">
+      <Name>SQLite for Windows Runtime %28Windows 8.1%29</Name>
+    </SDKReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Capptain.Agent.Portable">
+      <HintPath>..\packages\Capptain.Windows8.1CS.1.1.0\lib\win\Capptain.Agent.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Capptain.Agent.WIN">
+      <HintPath>..\packages\Capptain.Windows8.1CS.1.1.0\lib\win\Capptain.Agent.WIN.dll</HintPath>
+    </Reference>
+    <Reference Include="Capptain.Reach.Portable">
+      <HintPath>..\packages\Capptain.Windows8.1CS.1.1.0\lib\win\Capptain.Reach.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Capptain.Reach.WIN">
+      <HintPath>..\packages\Capptain.Windows8.1CS.1.1.0\lib\win\Capptain.Reach.WIN.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Clients.ActiveDirectory">
+      <HintPath>..\packages\Microsoft.IdentityModel.Clients.ActiveDirectory.2.6.1-alpha\lib\netcore45\Microsoft.IdentityModel.Clients.ActiveDirectory.winmd</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.MobileServices.1.3.0-beta2\lib\netcore45\Microsoft.WindowsAzure.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile.Ext, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WindowsAzure.MobileServices.1.3.0-beta2\lib\netcore45\Microsoft.WindowsAzure.Mobile.Ext.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Mobile.SQLiteStore">
+      <HintPath>..\packages\WindowsAzure.MobileServices.SQLiteStore.1.0.0-beta2\lib\portable-win+net45+wp8+wpa81+monotouch+monoandroid\Microsoft.WindowsAzure.Mobile.SQLiteStore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCL, Version=3.8.5.0, Culture=neutral, PublicKeyToken=bddade01e9c850c5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SQLitePCL.3.8.5.1\lib\netcore451\SQLitePCL.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\win8\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\win8\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
+    <VisualStudioVersion>12.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCL.3.8.5.1\build\netcore451\SQLitePCL.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCL.3.8.5.1\build\netcore451\SQLitePCL.props'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCL.3.8.5.1\build\netcore451\SQLitePCL.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCL.3.8.5.1\build\netcore451\SQLitePCL.targets'))" />
+  </Target>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="..\packages\SQLitePCL.3.8.5.1\build\netcore451\SQLitePCL.targets" Condition="Exists('..\packages\SQLitePCL.3.8.5.1\build\netcore451\SQLitePCL.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

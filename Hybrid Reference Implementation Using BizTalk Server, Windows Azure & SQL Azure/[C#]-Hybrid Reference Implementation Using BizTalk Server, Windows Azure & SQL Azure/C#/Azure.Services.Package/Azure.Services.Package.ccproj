@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>1.4.0</ProductVersion>
+    <ProjectGuid>{d747fe8b-dc8f-4ee2-a6f6-8c3bc41cbf69}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Azure.Services.Config</RootNamespace>
+    <AssemblyName>Azure.Services.Config</AssemblyName>
+    <StartDevelopmentStorage>False</StartDevelopmentStorage>
+    <Name>Contoso.Cloud.Azure.Services.Package</Name>
+    <SccProjectName>
+    </SccProjectName>
+    <SccProvider>
+    </SccProvider>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccLocalPath>
+    </SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- Items for the project -->
+  <ItemGroup>
+    <ServiceDefinition Include="ServiceDefinition.csdef" />
+    <ServiceConfiguration Include="ServiceConfiguration.cscfg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Azure.Services.Persistence\Azure.Services.Persistence.csproj">
+      <Name>Azure.Services.Persistence</Name>
+      <Project>{8822d2db-084e-44ef-a74c-5cd99beee8dc}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>Azure.Services.Persistence</RoleName>
+    </ProjectReference>
+    <ProjectReference Include="..\Azure.Services.ScalableTransform\Azure.Services.ScalableTransform.csproj">
+      <Name>Azure.Services.ScalableTransform</Name>
+      <Project>{16184f8a-88cf-444c-9821-89b719b9ae28}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>Azure.Services.ScalableTransform</RoleName>
+    </ProjectReference>
+    <ProjectReference Include="..\Azure.Services.WorkItemProcessor\Azure.Services.WorkItemProcessor.csproj">
+      <Name>Azure.Services.WorkItemProcessor</Name>
+      <Project>{6014b0fa-7e8b-419d-af68-123cddbc1c2a}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>Azure.Services.WorkItemProcessor</RoleName>
+    </ProjectReference>
+    <ProjectReference Include="..\Azure.Services.WorkItemScheduler\Azure.Services.WorkItemScheduler.csproj">
+      <Name>Azure.Services.WorkItemScheduler</Name>
+      <Project>{ea885786-e36b-45ea-b70e-2cf996697be2}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>Azure.Services.WorkItemScheduler</RoleName>
+    </ProjectReference>
+  </ItemGroup>
+  <!-- Import the target files for this project template -->
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <CloudExtensionsDir Condition=" '$(CloudExtensionsDir)' == '' ">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Windows Azure Tools\1.4\</CloudExtensionsDir>
+  </PropertyGroup>
+  <Import Project="$(CloudExtensionsDir)Microsoft.WindowsAzure.targets" />
+</Project>

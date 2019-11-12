@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#CategoryList").change(function () {
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetBlogDetailByCategoryID")',
+                datatype: JSON,
+                data: { 'categoryId': $("#CategoryList").val() },
+                success: function (data) {
+                    $('#blogTable tbody').empty();
+
+                    $.each(data, function (i, item) {
+                        var rows = "<tr>"
+                + "<td>" + item.PostId + "</td>"
+                + "<td>" + item.PostTitle + "</td>"
+                + "<td>" + item.ShortPostContent + "</td>"
+                + "<td>" + item.MetaDescription + "</td>"
+                + "</tr>";
+                        $('#blogTable tbody').append(rows);
+                    });
+                },
+                error: function (data) { }
+            });
+        });
+    });
+</script>
+<style type="text/css">
+    .zui-table {
+        border: solid 1px #DDEEEE;
+        border-collapse: collapse;
+        border-spacing: 0;
+        width:100%;
+        font: normal 13px Arial, sans-serif;
+    }
+
+        .zui-table thead th {
+            background-color: #DDEFEF;
+            border: solid 1px #DDEEEE;
+            color: #336B6B;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .zui-table tbody td {
+            border: solid 1px #DDEEEE;
+            color: #333;
+            padding: 10px;
+        }
+
+    .zui-table-rounded {
+        border: none;
+    }
+
+        .zui-table-rounded thead th {
+            background-color: #CFAD70;
+            border: none;            
+            color: #333;
+        }
+
+            .zui-table-rounded thead th:first-child {
+                border-radius: 10px 0 0 0;
+            }
+
+            .zui-table-rounded thead th:last-child {
+                border-radius: 0 10px 0 0;
+            }
+
+        .zui-table-rounded tbody td {
+            border: none;
+            border-top: solid 1px #957030;
+            background-color: #EED592;
+        }
+
+        .zui-table-rounded tbody tr:last-child td:first-child {
+            border-radius: 0 0 0 10px;
+        }
+
+        .zui-table-rounded tbody tr:last-child td:last-child {
+            border-radius: 0 0 10px 0;
+        }
+</style>
+<table>
+    <tr>
+        <td>
+            <h2> Get JSON Data with Asp.Net MVC</h2>          
+            <br />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Select Category : @Html.DropDownList("CategoryList")
+        </td>
+    </tr>
+</table>
+<br />
+<table id="blogTable" class="zui-table zui-table-rounded">
+    <thead>
+        <tr>
+            <th>PostId</th>
+            <th>Title</th>
+            <th>Full Content</th>
+            <th>Meta Description</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+

@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="FileExplorer.UCSearchCategory"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:helper="clr-namespace:FileExplorer.Helper">
+
+  <UserControl.Resources>
+
+    <helper:NumberToVisibilityConverter x:Key="numberToVisibilityConverter"/>
+    <SolidColorBrush Color="#FF1F9747" x:Key="borderBrush"/>
+
+    <Style  TargetType="RadioButton">
+      <Setter Property="FontSize" Value="12" />
+      <Setter Property="MinHeight" Value="30" />
+      <Setter Property="Background" Value="Transparent" />
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="RadioButton">
+            <Grid Background="{TemplateBinding Background}">
+              <Border Margin="20,2" Height="26" VerticalAlignment="Center" CornerRadius="4" Name="border"/>
+              <Grid Margin="30,0" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition />
+                  <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{TemplateBinding Content}"
+                           Name="txtCategory"  Grid.Column="0"
+                           HorizontalAlignment="Left"/>
+                <TextBlock Text="{Binding Tag,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType={x:Type RadioButton}}}"
+                           Name="txtCount"  Grid.Column="1"
+                           HorizontalAlignment="Right"/>
+              </Grid>
+            </Grid>
+            <ControlTemplate.Triggers>
+              <Trigger Property="IsChecked" Value="true">
+                <Setter Property="Foreground" Value="White" TargetName="txtCategory"/>
+                <Setter Property="Foreground" Value="White" TargetName="txtCount"/>
+                <Setter Property="Background" Value="{DynamicResource borderBrush}"  TargetName="border"/>
+              </Trigger>
+            </ControlTemplate.Triggers>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+  </UserControl.Resources>
+
+  <Grid HorizontalAlignment="Stretch">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid Grid.Row="0" Height="5"/>
+
+    <Grid HorizontalAlignment="Stretch"  Grid.Row="1">
+
+      <StackPanel Height="{Binding ActualHeight, ElementName=spItems}" VerticalAlignment="Top">
+        <Grid Height="{Binding ActualHeight, ElementName=btnAll}" Background="#FFEFEFEF" />
+        <Grid Height="1" Background="Transparent" SnapsToDevicePixels="True" />
+        <Grid Height="30" Background="Transparent" />
+        <Grid Height="30" Background="#FFEFEFEF" />
+        <Grid Height="30" Background="Transparent" />
+        <Grid Height="30" Background="#FFEFEFEF" />
+        <Grid Height="30" Background="Transparent" />
+      </StackPanel>
+
+      <StackPanel Name="spItems" VerticalAlignment="Top" HorizontalAlignment="Stretch">
+
+        <RadioButton  Content="ALL" Tag="{Binding Path=AllCount}" IsChecked="True"
+                      TextBlock.FontWeight="Bold" Name="btnAll" Click="RadioButton_Click" />
+
+        <Grid Height="1" Background="#FFCBCBCB" SnapsToDevicePixels="True" />
+
+        <RadioButton Content="Images" Tag="{Binding Path=ImageCount}" Name="btnImage" Click="RadioButton_Click"
+                     Visibility="{Binding Path=ImageCount,Converter={StaticResource numberToVisibilityConverter}}"/>
+        <RadioButton Content="Videos" Tag="{Binding Path=VideoCount}" Name="btnVideo" Click="RadioButton_Click"
+                      Visibility="{Binding Path=VideoCount,Converter={StaticResource numberToVisibilityConverter}}"/>
+        <RadioButton Content="Musics" Tag="{Binding Path=MusicCount}" Name="btnMusic" Click="RadioButton_Click"
+                      Visibility="{Binding Path=MusicCount,Converter={StaticResource numberToVisibilityConverter}}"/>
+        <RadioButton Content="Documents" Tag="{Binding Path=DocumentCount}" Name="btnDocument" Click="RadioButton_Click"
+                      Visibility="{Binding Path=DocumentCount,Converter={StaticResource numberToVisibilityConverter}}"/>
+      </StackPanel>
+    </Grid>
+  </Grid>
+</UserControl>

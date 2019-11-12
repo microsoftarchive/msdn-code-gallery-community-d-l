@@ -1,0 +1,240 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:conv="clr-namespace:FlashCards.UI.Converters"
+    xmlns:controls="clr-namespace:FlashCards.UI.Controls"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+    xmlns:behav="clr-namespace:IdentityMine.Windows.SimpleMultitouch;assembly=IdentityMine.Windows.SimpleMultitouch"
+    xmlns:localbehav="clr-namespace:FlashCards.UI.Behaviors"
+	mc:Ignorable="d"
+	xmlns:local="clr-namespace:FlashCards.UI"
+    xmlns:common="clr-namespace:FlashCards.UI.Common"
+	x:Class="FlashCards.UI.DeckEditView"
+	x:Name="UserControl"
+	d:DesignWidth="660.5" d:DesignHeight="450.5" Foreground="White">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../ViewModelMappingGame.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+        
+        <conv:ObjectToVisibility x:Key="objectToVisibility" />
+        <conv:UriToImageConverter x:Key="imageSourceConverter" />
+            <conv:FindCenterableScrollMargin x:Key="scrollmarginConverter" />
+
+            <Style x:Key="CardsViewListBoxStyle" TargetType="{x:Type ListBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBox}">
+                        <Grid >
+
+                            <ScrollViewer Focusable="false" Style="{DynamicResource ScrollViewerStyle1}" CanContentScroll="True" VerticalAlignment="Top" Margin="0,34,0,0" >
+                                <i:Interaction.Behaviors>
+                                    <localbehav:ScrollWithSelectionFocus ItemPanel="{Binding ElementName=panel}"/>
+                                </i:Interaction.Behaviors>
+                                <!--<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>-->
+                                <!--Canvas HorizontalAlignment="Center" -->
+
+
+                                    <Grid>
+                                        <StackPanel x:Name="panel" Loaded="panel_Loaded" IsItemsHost="True" Orientation="Horizontal" VerticalAlignment="Top" 
+                                                    Margin="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Path=ActualWidth, Converter={StaticResource scrollmarginConverter}}"/>
+                                    </Grid>
+                                <!--/Canvas-->
+                                        <!--controls:CenteringStackPanel CenteredIndex="{TemplateBinding SelectedIndex}" IsItemsHost="True" Orientation="Horizontal" VerticalAlignment="Top"/>
+                                    </Canvas-->
+                            </ScrollViewer>
+
+                        </Grid>
+                        <ControlTemplate.Triggers>
+
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CardViewsListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+            <Setter Property="IsSelected" Value="{Binding IsSelected,Mode=TwoWay}"/>
+            <Setter Property="Visibility" Value="{Binding IsDeleted,Converter={StaticResource objectToVisibility},ConverterParameter=False}"/>
+            <Setter Property="Focusable" Value="False"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <Grid Margin="5,0" >
+                    		<Grid x:Name="grid" Background="Transparent" d:DesignWidth="154" d:DesignHeight="106" RenderTransformOrigin="0.5,0.5" Margin="0,65,0,0" d:LayoutOverrides="Width, Height" VerticalAlignment="Top">
+                    			<i:Interaction.Behaviors>
+                    				<behav:TapBehavior Tap="TapBehavior_Tap"/>
+                    			</i:Interaction.Behaviors>
+                    			<Grid.RenderTransform>
+                    				<TransformGroup>
+                    					<ScaleTransform/>
+                    					<SkewTransform/>
+                    					<RotateTransform/>
+                    					<TranslateTransform/>
+                    				</TransformGroup>
+                    			</Grid.RenderTransform>
+                    			<Grid.RowDefinitions>
+                    				<RowDefinition Height="Auto"/>
+                    				<RowDefinition Height="*"/>
+                    			</Grid.RowDefinitions>
+                    			<ContentPresenter Grid.Row="1" VerticalAlignment="Top" />
+
+                    			<StackPanel x:Name="btncontrols" Visibility="Collapsed" HorizontalAlignment="Right" VerticalAlignment="Center" Width="Auto" Orientation="Horizontal" RenderTransformOrigin="0.5,0.5">
+                    				<StackPanel.RenderTransform>
+                    					<TransformGroup>
+                    						<ScaleTransform/>
+                    						<SkewTransform/>
+                    						<RotateTransform/>
+                    						<TranslateTransform Y="18"/>
+                    					</TransformGroup>
+                    				</StackPanel.RenderTransform>
+                    				<Button HorizontalAlignment="Stretch" Click="SetCover_Click" Command="{Binding SetCover}" Width="32" Content="{StaticResource Resource_Cover}" Style="{DynamicResource MakeCoverButtonStyle}" Height="32" Margin="0,0,8,0" ToolTip="{StaticResource Resource_ToolTip_MakeThisAsDeck}"/>
+                    				<Button HorizontalAlignment="Stretch" Command="{Binding DeletePair}" Width="32" Content="{StaticResource Resource_Delete}" Style="{DynamicResource MinusButtonStyle}" Height="32" Margin="0,0,8,0" ToolTip="{StaticResource Resource_ToolTip_DeleteCardPair}"/>
+                    			</StackPanel>
+                    		</Grid>
+                    	</Grid>
+                        <ControlTemplate.Triggers>
+                    		<Trigger Property="Selector.IsSelected" Value="False">
+
+                    		</Trigger>
+                    		<DataTrigger Binding="{Binding IsSelected}" Value="True">
+                    			<Setter Property="Visibility" Value="Visible" TargetName="btncontrols"/>
+                    		   <Setter Property="Margin" Value="0,0,0,0" TargetName="grid"/>
+							</DataTrigger>
+							<DataTrigger Binding="{Binding IsSelected}" Value="False">
+                    			
+							</DataTrigger>
+                    	</ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        </ResourceDictionary>
+        
+    </UserControl.Resources>
+    <Grid>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition />
+    		<ColumnDefinition />
+    	</Grid.ColumnDefinitions>
+		<Image  x:Name="BackgroundImage"  Source="..\..\Resource\Images\FlashCardAdminBackroundImage.png" Stretch="Fill" Grid.ColumnSpan="2"/>
+
+		<Grid Grid.ColumnSpan="2">
+			<Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="0.28*"/>
+                <RowDefinition Height="110"/>
+			</Grid.RowDefinitions>
+
+			<Path x:Name="HemispherePath" Stroke="Black" StrokeThickness="0" Grid.Row="1" Data="M51.75,0.5C68.514862,0.5,84.337364,1.2562981,98.299476,2.5968056L99.5,2.715538 99.5,28.333 0.5,28.333 0.5,3.0786095 0.85435385,3.039341C15.84202,1.4238968,33.220417,0.5,51.75,0.5z" Margin="0" Stretch="Fill" Grid.RowSpan="2">
+				<Path.Fill>
+					<RadialGradientBrush GradientOrigin="0.488,0.373">
+						<GradientStop Color="#FF787878" Offset="0.003"/>
+						<GradientStop Color="#FF2D2D2D" Offset="1"/>
+					</RadialGradientBrush>
+				</Path.Fill>
+			</Path>
+			<local:CardPairEdit x:Name="pairEditControl" Margin="20,45,20,20" DataContext="{Binding SelectedCardPair}" Grid.RowSpan="2"/>
+			<Rectangle Stroke="Black" Grid.Row="2">
+				<Rectangle.Fill>
+					<LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+						<GradientStop Color="#FF292929" Offset="0.309"/>
+						<GradientStop Color="#FF474747" Offset="1"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+			<Rectangle Grid.Row="2" VerticalAlignment="Top" Height="3" Opacity="0.5">
+				<Rectangle.Fill>
+					<LinearGradientBrush EndPoint="0,0.5" StartPoint="1,0.5">
+						<GradientStop Color="#FFBDBDBD" Offset="1"/>
+						<GradientStop Color="White" Offset="0.5"/>
+						<GradientStop Color="#FFBDBDBD"/>
+					</LinearGradientBrush>
+				</Rectangle.Fill>
+			</Rectangle>
+
+           
+               <ListBox Grid.Row="1" x:Name="lstCard" ItemsSource="{Binding Collection}" SelectedValue="{Binding SelectedCardPair, Mode=TwoWay}" Background="{x:Null}"
+                 BorderBrush="{x:Null}" ItemTemplate="{DynamicResource cardPairSimple}" 
+                  Style="{DynamicResource CardsViewListBoxStyle}" ItemContainerStyle="{DynamicResource CardViewsListBoxItemStyle}" VerticalAlignment="Bottom" Grid.RowSpan="2" Margin="0" RenderTransformOrigin="0.5,0.5"
+                  SelectionChanged="lstCard_SelectionChanged">
+               	<ListBox.RenderTransform>
+               		<TransformGroup>
+               			<ScaleTransform/>
+               			<SkewTransform/>
+               			<RotateTransform/>
+               			<TranslateTransform Y="21"/>
+               		</TransformGroup>
+               	</ListBox.RenderTransform>
+                <ListBox.CommandBindings>
+                    <CommandBinding Command="common:Commands.SelectLeft" CanExecute="CommandsSelectLeft_CanExecute" Executed="CommandsSelectLeft_Executed" />
+                    <CommandBinding Command="common:Commands.SelectRight" CanExecute="CommandsSelectRight_CanExecute" Executed="CommandsSelectRight_Executed" />
+                </ListBox.CommandBindings>
+            </ListBox>
+            
+            
+            <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Margin="8,8,143,8">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="Auto"/>
+				</Grid.ColumnDefinitions>
+				<Grid x:Name="card" Width="45" Height="45" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+					<Viewbox Stretch="Fill">
+						<Grid>
+                            <Image Source="/FlashCards.Show;Component/Resource/Images/LargeCardStack.png"/>
+							<Border RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="True" CornerRadius="2" Width="130" Height="130" >
+								<Border.RenderTransform>
+									<TransformGroup>
+										<ScaleTransform/>
+										<SkewTransform/>
+										<RotateTransform/>
+										<TranslateTransform X="-4" Y="3"/>
+									</TransformGroup>
+								</Border.RenderTransform>
+								<Border.Background>
+									<SolidColorBrush/>
+								</Border.Background>
+								<Image Margin="3" Source="{Binding CoverImageSource, Converter={StaticResource imageSourceConverter}}" Stretch="Uniform"  OpacityMask="Black"/>
+							</Border>
+						</Grid>
+					</Viewbox>
+				</Grid>
+				<TextBlock Text="{Binding Title}" FontFamily="Segoe UI Light" FontSize="21.333" HorizontalAlignment="Left" 
+                           VerticalAlignment="Center"  Grid.Column="1" d:LayoutOverrides="Height" Margin="6,0,10,0"/>
+			</Grid>
+			
+            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="190" 
+				Command="{Binding CreateNewCardPair}"  Content="{StaticResource Resource_CreateNewCard}" Grid.Row="1" 
+                    Template="{DynamicResource CreateNewButtonStyle}" Margin="0,0,8,8" ToolTip="{StaticResource Resource_ToolTip_CreateNewCard}"/>
+            
+            <StackPanel HorizontalAlignment="Right" Margin="0,15,10,0" VerticalAlignment="Top" Orientation="Vertical">
+				<Button x:Name="DoneButton" Height="35"  Click="DoneButton_Click"
+					Content="{StaticResource Resource_SaveDeck}" Style="{DynamicResource Button_Style}" ToolTip="{StaticResource Resource_ToolTip_SaveDeck}"/>
+			</StackPanel>
+
+			<local:WaitIndicator Foreground="White" Background="#80FFFFFF" 
+				IndicatorBrush="Orange" IndicatorSize="300"  Text="{StaticResource Resource_UpdatingDeck}" Grid.RowSpan="3"
+				IsWaiting="{Binding IsBusy}" Grid.ColumnSpan="3"/>
+			<Button x:Name="BackButton" Command="{Binding CancelCommand}"
+				Width="100" Content="{StaticResource Resource_Back}" Template="{DynamicResource BackButtonStyle}" ToolTip="{StaticResource Resource_ToolTip_Back}" HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom" Grid.Row="1" Margin="10,0,0,10"/>
+
+            <Button x:Name="HelpButton" Click="HelpButton_Click" Grid.Row="1" Margin="110,0,0,10" HorizontalAlignment="Left" 
+                    VerticalAlignment="Bottom" Width="90" Content="{StaticResource Resource_About}" Template="{DynamicResource HelpButtonStyle}" ToolTip="{StaticResource Resource_ToolTip_About}" Visibility="Visible"/>
+
+        </Grid>
+        <Image HorizontalAlignment="Left" VerticalAlignment="Top" Source="/FlashCards.Show;Component/Resource/Images/FlashCardAdminLogo.png" MaxWidth="540"/>
+	</Grid>
+</UserControl>

@@ -1,0 +1,22 @@
+﻿<Window x:Class="MvvmExample.View.Window2" WindowStartupLocation="CenterScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Background="AliceBlue"
+        Title="Window2" Height="300" Width="300" xmlns:helpers="clr-namespace:MvvmExample.Helpers"
+        helpers:DialogCloser.DialogResult="{Binding CloseWindowFlag}">
+    <GroupBox Header="DependencyObject ViewModel">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.878*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.RowSpan="2">
+                <DataGrid x:Name="dg1" ItemsSource="{Binding People}" CanUserAddRows="False" SelectedItem="{Binding SelectedPerson}" HorizontalAlignment="Left"/>
+                <TextBlock DataContext="{Binding SelectedPerson}" FontWeight="Bold" Margin="5" Text="The Seleted person is '"><Run Text="{Binding FirstName}"/><Run Text=" "/><Run Text="{Binding LastName}"/><Run Text="'"/></TextBlock>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right" Margin="0,0,5,5" Orientation="Vertical" VerticalAlignment="Bottom" Grid.Row="1">
+                <Button Content="Next Example" Command="{Binding NextExampleCommand}" Foreground="Red" HorizontalAlignment="Right" FontWeight="Bold" Grid.Row="1" Margin="5"/>
+                <TextBlock Text="Select a person to enable the button"/>
+            </StackPanel>
+        </Grid>
+    </GroupBox>
+</Window>

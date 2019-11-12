@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Documents>
+    <Document FullPath="C:\1LightSwitch\VisionClinic_VB\VB\Vision Clinic\Common\My Project\Common.lsml" Checksum="04DA84DD098DD623298CC082967087BEB53792A9EA55B5D11EDA84F268320C27" />
+    <Document FullPath="C:\1LightSwitch\VisionClinic_VB\VB\Vision Clinic\Server\My Project\Service.lsml" Checksum="2E7D082CD48E1105209737AA75AA274C9BF98F8B1BAD175B125076A89DE95E4C" />
+  </Documents>
+</ModelDocumentManifest>

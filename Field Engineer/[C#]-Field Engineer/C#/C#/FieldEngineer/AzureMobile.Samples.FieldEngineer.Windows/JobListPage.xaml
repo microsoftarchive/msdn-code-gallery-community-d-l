@@ -1,0 +1,525 @@
+﻿<capptain:CapptainPage
+    xmlns:capptain="using:Capptain.Agent"
+    x:Name="pageRoot"
+    x:Class="AzureMobile.Samples.FieldEngineer.JobListPage"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureMobile.Samples.FieldEngineer"
+    xmlns:common="using:AzureMobile.Samples.FieldEngineer.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:custom ="using:AzureMobile.Samples.FieldEngineer.CustomControls"
+    Loaded="PageRoot_Loaded"
+    mc:Ignorable="d">
+
+    <!--
+    ======================================================================
+    DEFINE PAGE RESOURCES:
+    This includes specific resources to be used by the page. This includes
+    collection view source, page specific styles, etc.
+    ======================================================================
+    -->
+    <Page.Resources>
+        <common:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <CollectionViewSource Source="{Binding ZoomedOutItems}" x:Name="ZoomedOutViewSource"/>
+    </Page.Resources>
+
+    <!--
+    ======================================================================
+    DEFINE ROOT CONTENT GRID:
+        This grid acts as a root panel for the page that defines two rows:
+    - Row 0 contains the back button and page title
+    - Row 1 contains the rest of the page layout
+    ======================================================================
+    -->
+    <Grid Style="{StaticResource LayoutRootStyle}" x:Name="RootGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- 
+        ====================================================================
+        DEFINE PRIMARY VIEW:
+            
+        This is the primary view for the page. It contains the horizontal 
+        listing of the items using Hub with ability for Semantic Zoom.
+        ====================================================================
+        -->
+        <SemanticZoom Grid.RowSpan="2" x:Name="SemanticZoom" ViewChangeStarted="SemanticZoom_OnViewChangeStarted">
+            <SemanticZoom.ZoomedInView>
+
+                <!-- Horizontal Scrolling Hub Control -->
+                <Hub x:Name="NormalHub"  Grid.RowSpan="2" Loaded="NormalHub_Loaded">
+
+                    <!-- Quick Stats section -->
+                    <HubSection Padding="120,100,40,44"  VerticalAlignment="Top">
+                        <HubSection.Header>
+                            <TextBlock Text="Quick Stats" Margin="4,0,10,10" 
+                                               Style="{StaticResource SubheaderTextBlockStyle}" 
+                                               TextWrapping="NoWrap" />
+                        </HubSection.Header>
+                        <DataTemplate>
+                            <StackPanel>
+
+                                <Grid Height="452" Width="310">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="144"/>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="144"/>
+                                        <RowDefinition Height="10"/>
+                                        <RowDefinition Height="144"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="10"/>
+                                        <ColumnDefinition Width="150"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.ColumnSpan="3" Background="{StaticResource TotalJobsBackgroundThemeBrush}">
+                                        <TextBlock Text="{Binding TotalJobsCount}" Style="{StaticResource HeaderTextBlockStyle}" Foreground="White"
+                                          Margin="10,60,10,10"/>
+                                        <TextBlock Text="total jobs" Style="{StaticResource TitleTextBlockStyle}" Foreground="White"
+                                          Margin="10,0,10,10"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Background="{StaticResource PendingJobsBackgroundThemeBrush}">
+                                        <TextBlock Text="{Binding PendingJobsCount}" Style="{StaticResource HeaderTextBlockStyle}" Foreground="White"
+                                          Margin="10,60,10,10"/>
+                                        <TextBlock Text="pending" Style="{StaticResource TitleTextBlockStyle}" Foreground="White"
+                                          Margin="10,0,10,10"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="2" Grid.Column="2" Background="{StaticResource CompletedJobsBackgroundThemeBrush}">
+                                        <TextBlock Text="{Binding CompletedJobsCount}" Style="{StaticResource HeaderTextBlockStyle}" Foreground="White"
+                                          Margin="10,60,10,10"/>
+                                        <TextBlock Text="completed" Style="{StaticResource TitleTextBlockStyle}" Foreground="White"
+                                          Margin="10,0,10,10"/>
+                                    </StackPanel>
+                                    <Button Grid.Row="4" Grid.ColumnSpan="3" Margin="-2,-2,-2,-2" Padding="0" Click="Button_Click">
+                                        <Button.Content>
+                                            <StackPanel Orientation="Horizontal" Background="#e2e2e2">
+                                                <Image Stretch="UniformToFill" Width="150" Source="/Data/ManagerPic.png"
+                                               HorizontalAlignment="Right" />
+                                                <StackPanel Width="155" Orientation="Vertical" Margin="10,0,0,0">
+                                                    <TextBlock Text="Patricia King" Style="{StaticResource TitleTextBlockStyle}"  Margin="10,20,10,0"/>
+                                                    <TextBlock Text="Field manager" Style="{StaticResource SubtitleTextBlockStyle}" Margin="10,5,0,0" />
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="contact" Style="{StaticResource SubtitleTextBlockStyle}" Margin="10,45,5,0" />
+                                                        <AppBarButton RequestedTheme="Dark" Icon="Go" Margin="0,15,0,0" Click="ContactButton_OnClick"/>
+                                                    </StackPanel>
+                                                </StackPanel>
+                                            </StackPanel>
+                                        </Button.Content>
+                                    </Button>
+                                </Grid>
+                            </StackPanel>
+                        </DataTemplate>
+                    </HubSection>
+
+                    <!-- Current job section -->
+                    <HubSection Padding="40,100,40,44"  VerticalAlignment="Top">
+                        <HubSection.Header>
+                            <TextBlock Text="In Progress" Margin="4,0,10,6" 
+                                               Style="{StaticResource SubheaderTextBlockStyle}" 
+                                               TextWrapping="NoWrap" />
+                        </HubSection.Header>
+                        <DataTemplate>
+                            <GridView
+                        ItemTemplate="{StaticResource CurrentJobItemTemplate}"
+                        ItemsSource="{Binding CurrentJob}"
+                        SelectionMode="None"
+                        IsItemClickEnabled="true"
+                        ItemClick="ItemGridView_OnItemClick">
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
+
+                    <!-- Pending Jobs section -->
+                    <HubSection Padding="40,100,40,44">
+                        <HubSection.Header>
+                            <TextBlock Text="Not Started" Margin="4,0,10,6" 
+                                               Style="{StaticResource SubheaderTextBlockStyle}" 
+                                               TextWrapping="NoWrap" />
+                        </HubSection.Header>
+                        <DataTemplate>
+                            <GridView
+                        ItemTemplate="{StaticResource JobItemTemplate}"
+                        ItemsSource="{Binding PendingJobs}"
+                        SelectionMode="None"
+                        IsItemClickEnabled="true"
+                        ItemClick="ItemGridView_OnItemClick">
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
+
+                    <!-- Completed Jobs section -->
+                    <HubSection Padding="40,100,80,44">
+                        <HubSection.Header>
+                            <TextBlock Text="Completed" Margin="4,0,10,6" 
+                                               Style="{StaticResource SubheaderTextBlockStyle}" 
+                                               TextWrapping="NoWrap" />
+                        </HubSection.Header>
+                        <DataTemplate>
+                            <GridView
+                        ItemTemplate="{StaticResource CompletedJobItemTemplate}"
+                        ItemsSource="{Binding CompletedJobs}"
+                        SelectionMode="None"
+                        IsItemClickEnabled="true"
+                        ItemClick="ItemGridView_OnItemClick">
+                            </GridView>
+                        </DataTemplate>
+                    </HubSection>
+
+
+                </Hub>
+            </SemanticZoom.ZoomedInView>
+
+            <!-- Zoomed Out View -->
+            <SemanticZoom.ZoomedOutView>
+                <GridView x:Name="ZoomedOutGrid" 
+                          ItemsSource="{Binding Source={StaticResource ZoomedOutViewSource}}"
+                          SelectionMode="None">
+                    <GridView.ItemTemplate>
+                        <DataTemplate >
+                            <Grid Height="280" Width="240" Background="#884f34">
+                                <TextBlock Text="{Binding Item2}" VerticalAlignment="Top" TextAlignment="Right" TextWrapping="NoWrap" Margin="0,0,20,0" 
+                                        FontSize="104" FontWeight="Light" Foreground="White" />
+                                <TextBlock Text="{Binding Item1}" TextAlignment="Left" VerticalAlignment="Bottom" Margin="15" 
+                       Style="{StaticResource SubheaderTextBlockStyle}" Foreground="White" />
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Margin="116,136,40,46"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                </GridView>
+
+            </SemanticZoom.ZoomedOutView>
+        </SemanticZoom>
+        <!-- 
+        ======================================================================
+        DEFINE SECONDARY VIEW:
+            
+        This is the narrow view for the page. This view is used when the page
+        is resized beyond a specific width. This view represents the vertical
+        listing of the contents displayed in normal view.
+        ======================================================================
+        -->
+        <ScrollViewer Margin="116,120,0,0" x:Name="SnappedView" Visibility="Collapsed"  Grid.RowSpan="2">
+
+            <StackPanel Orientation="Vertical" Loaded="NormalHub_Loaded" Margin="0,0,0,44">
+
+                <!-- Quick Stats section -->
+                <StackPanel  Margin="0,20,0,10">
+                    <TextBlock Text="Quick Stats" Margin="4,0,10,10" 
+                                               Style="{StaticResource SubheaderTextBlockStyle}" 
+                                               TextWrapping="NoWrap" />
+
+
+                    <Grid Height="452" Width="310" HorizontalAlignment="Left" Margin="4,0,0,0" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="144"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="144"/>
+                            <RowDefinition Height="10"/>
+                            <RowDefinition Height="144"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition Width="150"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.ColumnSpan="3" Background="{StaticResource TotalJobsBackgroundThemeBrush}">
+                            <TextBlock Text="{Binding TotalJobsCount}" Style="{StaticResource HeaderTextBlockStyle}" Foreground="White"
+                                          Margin="10,60,10,10"/>
+                            <TextBlock Text="total jobs" Style="{StaticResource TitleTextBlockStyle}" Foreground="White"
+                                          Margin="10,0,10,10"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Background="{StaticResource PendingJobsBackgroundThemeBrush}">
+                            <TextBlock Text="{Binding PendingJobsCount}" Style="{StaticResource HeaderTextBlockStyle}" Foreground="White"
+                                          Margin="10,60,10,10"/>
+                            <TextBlock Text="pending" Style="{StaticResource TitleTextBlockStyle}" Foreground="White"
+                                          Margin="10,0,10,10"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="2" Grid.Column="2" Background="{StaticResource CompletedJobsBackgroundThemeBrush}">
+                            <TextBlock Text="{Binding CompletedJobsCount}" Style="{StaticResource HeaderTextBlockStyle}" Foreground="White"
+                                          Margin="10,60,10,10"/>
+                            <TextBlock Text="completed" Style="{StaticResource TitleTextBlockStyle}" Foreground="White"
+                                          Margin="10,0,10,10"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="4" Grid.ColumnSpan="3"  Orientation="Horizontal" 
+                                        Background="#ab673a">
+                            <Image Stretch="UniformToFill" Width="150" Source="/Data/ManagerPic.png"
+                                       HorizontalAlignment="Right" />
+                            <StackPanel Width="155" Orientation="Vertical" Margin="10,0,0,0">
+
+                                <TextBlock Text="Patricia King" Style="{StaticResource TitleTextBlockStyle}" Foreground="White"
+                                                Margin="10,20,10,0"/>
+                                <TextBlock Text="Field manager" Style="{StaticResource SubtitleTextBlockStyle}" 
+                                               Foreground="White" Margin="10,5,0,0" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="contact" Style="{StaticResource SubtitleTextBlockStyle}" 
+                                                   Foreground="White" Margin="10,45,5,0" />
+                                    <AppBarButton RequestedTheme="Light"
+                                            Icon="Go" Margin="0,15,0,0" Click="ContactButton_OnClick"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </StackPanel>
+
+                <!-- Current job section -->
+                <StackPanel Orientation="Vertical"  Margin="0,20,0,10">
+
+                    <TextBlock Text="In Progress" Margin="4,0,10,6" 
+                                               Style="{StaticResource SubheaderTextBlockStyle}" 
+                                               TextWrapping="NoWrap" />
+
+                    <GridView
+                        ItemTemplate="{StaticResource CurrentJobItemTemplate}"
+                        ItemsSource="{Binding CurrentJob}"
+                        SelectionMode="None"
+                        IsItemClickEnabled="true"
+                        ItemClick="ItemGridView_OnItemClick">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal" Margin="0,0,0,0"  />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </StackPanel>
+
+                <!-- Pending Jobs section -->
+                <StackPanel Orientation="Vertical"  Margin="0,20,0,10">
+
+                    <TextBlock Text="Not Started" Margin="4,0,10,6" 
+                                               Style="{StaticResource SubheaderTextBlockStyle}" 
+                                               TextWrapping="NoWrap" />
+
+                    <GridView
+                        ItemTemplate="{StaticResource JobItemTemplate}"
+                        ItemsSource="{Binding PendingJobs}"
+                        SelectionMode="None"
+                        IsItemClickEnabled="true"
+                        ItemClick="ItemGridView_OnItemClick">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal"  Margin="0,0,0,0" />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+                </StackPanel>
+
+                <!-- Completed Jobs section -->
+                <StackPanel Orientation="Vertical"  Margin="0,20,0,10">
+
+                    <TextBlock Text="Completed" Margin="4,0,10,6" 
+                                               Style="{StaticResource SubheaderTextBlockStyle}" 
+                                               TextWrapping="NoWrap" />
+
+                    <GridView
+                        ItemTemplate="{StaticResource CompletedJobItemTemplate}"
+                        ItemsSource="{Binding CompletedJobs}"
+                        SelectionMode="None"
+                        IsItemClickEnabled="true"
+                        ItemClick="ItemGridView_OnItemClick">
+                        <GridView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <ItemsWrapGrid Orientation="Horizontal"  Margin="0,0,0,0" />
+                            </ItemsPanelTemplate>
+                        </GridView.ItemsPanel>
+                    </GridView>
+
+                </StackPanel>
+
+
+            </StackPanel>
+        </ScrollViewer>
+        <!-- 
+        =======================================================
+        DEFINE PAGE HEADER:
+        This primarily includes Back button and page title. It
+        can also include the SearchBox control as shown below. 
+        =======================================================
+        -->
+        <Grid >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Width="310"  Height="50" VerticalAlignment="Top" HorizontalAlignment="Left"
+                  Background="{StaticResource PageHeaderBackgroundBrush}">
+                <StackPanel Orientation="Horizontal">
+                    <Image  Source="/Data/Hub-Page-Title-Logo.png" Width="280" Height="150" 
+                		Stretch="UniformToFill" Margin="-25,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Right" />
+                </StackPanel>
+            </Grid>
+            <AppBarButton x:Name="backButton" Icon="Back" Height="95" Margin="10,49,10,0"
+                          Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}" 
+                          Opacity="0"
+                          Visibility="{Binding IsEnabled, Converter={StaticResource BooleanToVisibilityConverter}, RelativeSource={RelativeSource Mode=Self}}"
+                          AutomationProperties.Name="Back"
+                          RequestedTheme="Dark"
+                          AutomationProperties.AutomationId="BackButton"
+                          AutomationProperties.ItemType="Navigation Button"/>
+            <TextBlock x:Name="pageTitle" Text ="{Binding CurrentUser}" Style="{StaticResource TitleTextBlockStyle}" Grid.Column="2" 
+                       IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="3,0,30,100" Foreground="#00FFFF" FontSize="20"/>
+            <Border Grid.Column="2" x:Name="SearchBoxPanel" VerticalAlignment="Bottom" Margin="0,0,40,40"
+                    BorderThickness="1"   BorderBrush="{StaticResource TileBorderBrush}" >
+                <SearchBox 
+                    
+                    x:Name="SearchUserControl" AutomationProperties.Name="SearchUserControl"  AutomationProperties.AutomationId="SearchUserControl"
+                    SuggestionsRequested="SearchBoxEventsSuggestionsRequested" 
+                    QuerySubmitted="SearchBoxEventsQuerySubmitted" 
+                    BorderThickness="0" 
+                    Margin="2"
+                    PlaceholderText="Search a job..."
+                    GotFocus="SearchUserControl_GotFocus"
+                    LostFocus="SearchUserControl_LostFocus"
+                    SearchHistoryEnabled ="False"
+                    HorizontalAlignment="Stretch"
+                    Tag="30"
+                    />
+            </Border>
+
+        </Grid>
+
+        <ProgressBar x:Name="ProgressBar" Grid.Row="1" Visibility="Collapsed"  VerticalAlignment="Top" IsIndeterminate="True" RequestedTheme="Light"/>
+
+        <!-- ===================================== -->
+        <!-- VISUAL STYLES                         -->
+        <!-- This is the narrow view for the page. -->
+        <!-- ===================================== -->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="LayoutStates">
+                <VisualState x:Name="PrimaryLayout">
+                    <Storyboard>
+                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SearchBoxPanel" Storyboard.TargetProperty="Width">
+                            <DiscreteObjectKeyFrame KeyTime="0" Value="300"/>
+                        </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="NarrowLayout">
+                    <Storyboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Style">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedLayoutRootStyle}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SearchBoxPanel" Storyboard.TargetProperty="Width">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="36"/>
+                                <!--Search button width(30) + Left & right margin(4) + container left&right border width(2)-->
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SemanticZoom" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SnappedView" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="FontSize">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="40"/>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </Storyboard>
+                </VisualState>
+                <VisualState x:Name="NarrowLayout_SearchboxHeader">
+                    <Storyboard>
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Style">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource SnappedLayoutRootStyle}"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SearchBoxPanel" Storyboard.TargetProperty="(Grid.Column)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="1"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="pageTitle" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SearchBoxPanel" Storyboard.TargetProperty="HorizontalAlignment">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Stretch"/>
+                            </ObjectAnimationUsingKeyFrames>
+
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SemanticZoom" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="SnappedView" Storyboard.TargetProperty="Visibility">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </Storyboard>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+
+    <!-- 
+    ====================================================================
+    DEFINE TOP APP BAR:
+            
+    This is the navigation app bar for the page using which user can 
+    switch between pages.
+    ====================================================================
+    -->
+    <Page.TopAppBar>
+        <AppBar Background="Gray">
+            <GridView SelectionMode="None" x:Name="NavigationGridView"
+                      IsItemClickEnabled="True" ItemClick="NavigationGridView_OnItemClick">
+                <GridView.Items>
+                    <GridViewItem>
+                        <Border Width="110" Height="110" HorizontalAlignment="Left" Background="#3a373a"  Tag="3">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="&#xE10f;" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                       TextAlignment="Center" Style="{StaticResource TitleTextBlockStyle}"  
+                                           Foreground="White" FontFamily="Segoe UI Symbol" FontSize="30"
+                                           Margin="0,30,0,10"/>
+                                <TextBlock Text="Home" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                       TextAlignment="Center" Style="{StaticResource TitleTextBlockStyle}"  Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                    </GridViewItem>
+                    <GridViewItem>
+                        <Border Width="110" Height="110" HorizontalAlignment="Left" Background="#3a373a"  Tag="0">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="&#57676;" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                       TextAlignment="Center" Style="{StaticResource TitleTextBlockStyle}"  
+                                           Foreground="White" FontFamily="Segoe UI Symbol" FontSize="30"
+                                           Margin="0,30,0,10"/>
+                                <TextBlock Text="List View" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                       TextAlignment="Center" Style="{StaticResource TitleTextBlockStyle}"  Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                    </GridViewItem>
+                    <GridViewItem>
+                        <Border Width="110" Height="110" HorizontalAlignment="Left" Background="#3a373a" Tag="1">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="&#57796;" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                       TextAlignment="Center" Style="{StaticResource TitleTextBlockStyle}"  
+                                           Foreground="White" FontFamily="Segoe UI Symbol" FontSize="30"
+                                           Margin="0,30,0,10"/>
+                                <TextBlock Text="Map View" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                       TextAlignment="Center" Style="{StaticResource TitleTextBlockStyle}"  Foreground="White"/>
+                            </StackPanel>
+                        </Border>
+                    </GridViewItem>
+                </GridView.Items>
+
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="5,5,5,-5"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
+        </AppBar>
+    </Page.TopAppBar>
+
+<Page.BottomAppBar>
+        <CommandBar x:Name="bottomCommandBar" RequestedTheme="Light" Background="Gray">
+            <CommandBar.PrimaryCommands>
+                <AppBarButton x:Name="RefreshJobs" Icon="Sync" Label="Sync with server" Click="RefreshJobs_Click" />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="Logout" Icon="OtherUser" Label="Sign out" Click="Logout_Click" />
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
+    </Page.BottomAppBar>
+</capptain:CapptainPage>

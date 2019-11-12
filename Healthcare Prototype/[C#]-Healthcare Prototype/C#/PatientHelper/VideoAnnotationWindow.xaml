@@ -1,0 +1,544 @@
+<Window x:Class="IdentityMine.Avalon.Controls.VideoAnnotationWindow" 
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	Title="Heart Ultrasound" 
+	xmlns:local="clr-namespace:IdentityMine.Avalon.Controls"
+	xmlns:Ink="clr-namespace:System.Windows.Ink;assembly=PresentationCore"
+	Name="DocumentRoot" 
+	Initialized="OnInitialized" Loaded="OnLoaded" KeyDown="OnKeyDown" Width="420" Height="500">
+
+    <FrameworkElement.Resources>
+        <ResourceDictionary>
+            <!-- Button Style -->
+            <Style x:Key="{x:Type Button}" TargetType="{x:Type Button}">
+                
+                <Setter Property="Background" Value="Black" />
+                <Setter Property="BorderBrush" Value="White" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Padding" Value="2" />
+                <Setter Property="FontFamily" Value="Arial" />
+                <Setter Property="FontSize" Value="8pt" />
+                <Setter Property="FontStyle" Value="Normal" />
+                <Setter Property="FontWeight" Value="Normal" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="OuterBorder" Margin="1" CornerRadius="2" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <Border x:Name="InnerBorder" CornerRadius="2" Padding="{TemplateBinding Padding}">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientBrush.GradientStops>
+                                                <GradientStopCollection>
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                    <GradientStop Color="#33000000" Offset="1" />
+                                                </GradientStopCollection>
+                                            </GradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <ContentPresenter x:Name="ContentSite" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                </Border>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsFocused" Value="true">
+                                    <Setter TargetName="OuterBorder" Property="BorderBrush" Value="White" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="InnerBorder" Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientBrush.GradientStops>
+                                                    <GradientStopCollection>
+                                                        <GradientStop Color="#88FFFFFF" Offset="0" />
+                                                        <GradientStop Color="#20000000" Offset="1" />
+                                                    </GradientStopCollection>
+                                                </GradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter TargetName="OuterBorder" Property="BorderBrush" Value="Gray" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter TargetName="InnerBorder" Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientBrush.GradientStops>
+                                                    <GradientStopCollection>
+                                                        <GradientStop Color="#10000000" Offset="0" />
+                                                        <GradientStop Color="#20000000" Offset="1" />
+                                                    </GradientStopCollection>
+                                                </GradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter TargetName="InnerBorder" Property="Background" Value="#EEEEEE" />
+                                    <Setter Property="BorderBrush" Value="Silver" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Foreground" Value="Gray" />
+                    </Trigger>
+                    <Trigger Property="Width" Value="Auto">
+                        <Setter Property="MinWidth" Value="75" />
+                    </Trigger>
+                    <Trigger Property="Height" Value="Auto">
+                        <Setter Property="MinHeight" Value="23" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <Style x:Key="{x:Type ToggleButton}" TargetType="{x:Type ToggleButton}">
+                
+                <Setter Property="Background" Value="Black" />
+                <Setter Property="BorderBrush" Value="White" />
+                <Setter Property="BorderThickness" Value="1" />
+                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Padding" Value="2" />
+                <Setter Property="FontFamily" Value="Arial" />
+                <Setter Property="FontSize" Value="8pt" />
+                <Setter Property="FontStyle" Value="Normal" />
+                <Setter Property="FontWeight" Value="Normal" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ToggleButton}">
+                            <Border x:Name="OuterBorder" Margin="1" CornerRadius="2" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <Border x:Name="InnerBorder" CornerRadius="2" Padding="{TemplateBinding Padding}">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientBrush.GradientStops>
+                                                <GradientStopCollection>
+                                                    <GradientStop Color="Transparent" Offset="0" />
+                                                    <GradientStop Color="#33000000" Offset="1" />
+                                                </GradientStopCollection>
+                                            </GradientBrush.GradientStops>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <ContentPresenter x:Name="ContentSite" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                </Border>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsFocused" Value="true">
+                                    <Setter TargetName="OuterBorder" Property="BorderBrush" Value="White" />
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="InnerBorder" Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientBrush.GradientStops>
+                                                    <GradientStopCollection>
+                                                        <GradientStop Color="#88FFFFFF" Offset="0" />
+                                                        <GradientStop Color="#20000000" Offset="1" />
+                                                    </GradientStopCollection>
+                                                </GradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter TargetName="OuterBorder" Property="BorderBrush" Value="Gray" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter TargetName="InnerBorder" Property="Background">
+                                        <Setter.Value>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                                <GradientBrush.GradientStops>
+                                                    <GradientStopCollection>
+                                                        <GradientStop Color="#10000000" Offset="0" />
+                                                        <GradientStop Color="#20000000" Offset="1" />
+                                                    </GradientStopCollection>
+                                                </GradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter TargetName="InnerBorder" Property="Background" Value="#EEEEEE" />
+                                    <Setter Property="BorderBrush" Value="Silver" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Foreground" Value="Gray" />
+                    </Trigger>
+                    <Trigger Property="Width" Value="Auto">
+                        <Setter Property="MinWidth" Value="75" />
+                    </Trigger>
+                    <Trigger Property="Height" Value="Auto">
+                        <Setter Property="MinHeight" Value="23" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+            <!-- 
+			===================================================================
+			Simple Style for Slider
+			===================================================================
+			-->
+            <!-- Slider Resources -->
+            <Style x:Key="Slider_RepeatButton" TargetType="{x:Type RepeatButton}">
+                
+                <Setter Property="IsTabStop" Value="false" />
+                <Setter Property="Focusable" Value="false" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type RepeatButton}">
+                            <Border Background="Transparent" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style x:Key="Slider_Thumb" TargetType="{x:Type Thumb}">
+                
+                <Setter Property="Width" Value="14" />
+                <Setter Property="Height" Value="14" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Ellipse Stroke="white" StrokeThickness="1" Fill="white" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <Trigger Property="IsDragging" Value="true">
+                        <Setter Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                    <GradientBrush.GradientStops>
+                                        <GradientStopCollection>
+                                            <GradientStop Color="White" Offset="0" />
+                                            <GradientStop Color="#E0E0E0" Offset="1" />
+                                        </GradientStopCollection>
+                                    </GradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="false">
+                        <Setter Property="Background" Value="#E4E4E4" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+           
+            <local:VideoAnnotationData x:Key="VideoAnnotationData" />
+            <Style x:Key="{x:Type ListBox}" TargetType="{x:Type ListBox}" >
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListBox}">
+                            <Canvas IsItemsHost="True" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <ToolTip x:Key="myToolTip" Background="Black">
+                <Grid MaxWidth="200">
+                    <StackPanel>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" TextTrimming="WordEllipsis" Text="{Binding Path=InkTimeSpan}" Foreground="white">
+                        </TextBlock>
+                        <Image Source="pack://application:,,,/Images/Esko-Sario,-MD.png" Width="40" Height="40" Margin="5" />
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" TextWrapping="Wrap" TextTrimming="WordEllipsis" Text="{Binding Path=Description}" Foreground="white">
+                        </TextBlock>
+                    </StackPanel>
+                </Grid>
+            </ToolTip>
+            <Style x:Key="ListBoxItemStocks" TargetType="{x:Type ListBoxItem}">
+                <Setter Property="Canvas.Left" Value="{Binding Path=PositionLeft}" />
+                <Setter Property="Canvas.Top" Value="{Binding Path=PositionTop}" />
+                <Setter Property="ToolTip" Value="{DynamicResource myToolTip}" />
+                <Setter Property="ClipToBounds" Value="False" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                            <ControlTemplate.Resources>
+                                <Storyboard x:Key="SonarAnimation">
+                                    <DoubleAnimationUsingKeyFrames FillBehavior="HoldEnd" BeginTime="00:00:00" Storyboard.TargetName="Ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)">
+                                        <DoubleAnimationUsingKeyFrames.KeyFrames>
+                                            <DoubleKeyFrameCollection>
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:00" />
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="3.2083333333333357" KeyTime="00:00:00.7920000" />
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:01.140000" />
+                                            </DoubleKeyFrameCollection>
+                                        </DoubleAnimationUsingKeyFrames.KeyFrames>
+                                    </DoubleAnimationUsingKeyFrames>
+                                    <DoubleAnimationUsingKeyFrames FillBehavior="HoldEnd" BeginTime="00:00:00" Storyboard.TargetName="Ellipse1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)">
+                                        <DoubleAnimationUsingKeyFrames.KeyFrames>
+                                            <DoubleKeyFrameCollection>
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:00" />
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="3.2083333333333357" KeyTime="00:00:00.7920000" />
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:01.140000" />
+                                            </DoubleKeyFrameCollection>
+                                        </DoubleAnimationUsingKeyFrames.KeyFrames>
+                                    </DoubleAnimationUsingKeyFrames>
+                                    <ColorAnimationUsingKeyFrames FillBehavior="HoldEnd" BeginTime="00:00:00" Storyboard.TargetName="Ellipse1" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)">
+                                        <ColorAnimationUsingKeyFrames.KeyFrames>
+                                            <ColorKeyFrameCollection>
+                                                <SplineColorKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 1, 1, 1" KeyTime="00:00:00" />
+                                                <SplineColorKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="sc#1, 1, 1, 1" KeyTime="00:00:00.4170000" />
+                                                <SplineColorKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 1, 1, 1" KeyTime="00:00:00.7920000" />
+                                            </ColorKeyFrameCollection>
+                                        </ColorAnimationUsingKeyFrames.KeyFrames>
+                                    </ColorAnimationUsingKeyFrames>
+                                    <DoubleAnimationUsingKeyFrames FillBehavior="HoldEnd" BeginTime="00:00:00" Storyboard.TargetName="Ellipse2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleX)">
+                                        <DoubleAnimationUsingKeyFrames.KeyFrames>
+                                            <DoubleKeyFrameCollection>
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:00.4170000" />
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="2.5" KeyTime="00:00:01.1150000" />
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:01.140000" />
+                                            </DoubleKeyFrameCollection>
+                                        </DoubleAnimationUsingKeyFrames.KeyFrames>
+                                    </DoubleAnimationUsingKeyFrames>
+                                    <DoubleAnimationUsingKeyFrames FillBehavior="HoldEnd" BeginTime="00:00:00" Storyboard.TargetName="Ellipse2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[1].(ScaleTransform.ScaleY)">
+                                        <DoubleAnimationUsingKeyFrames.KeyFrames>
+                                            <DoubleKeyFrameCollection>
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:00.4170000" />
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="2.5" KeyTime="00:00:01.1150000" />
+                                                <SplineDoubleKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="1" KeyTime="00:00:01.140000" />
+                                            </DoubleKeyFrameCollection>
+                                        </DoubleAnimationUsingKeyFrames.KeyFrames>
+                                    </DoubleAnimationUsingKeyFrames>
+                                    <ColorAnimationUsingKeyFrames FillBehavior="HoldEnd" BeginTime="00:00:00" Storyboard.TargetName="Ellipse2" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)">
+                                        <ColorAnimationUsingKeyFrames.KeyFrames>
+                                            <ColorKeyFrameCollection>
+                                                <SplineColorKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 1, 1, 1" KeyTime="00:00:00.4170000" />
+                                                <SplineColorKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="sc#1, 1, 1, 1" KeyTime="00:00:00.7920000" />
+                                                <SplineColorKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="sc#0, 1, 1, 1" KeyTime="00:00:01.1250000" />
+                                                <SplineColorKeyFrame KeySpline="0.5,0.5,0.5,0.5" Value="sc#0.5, 1, 1, 1" KeyTime="00:00:01.140000" />
+                                            </ColorKeyFrameCollection>
+                                        </ColorAnimationUsingKeyFrames.KeyFrames>
+                                    </ColorAnimationUsingKeyFrames>
+                                </Storyboard>
+                            </ControlTemplate.Resources>
+                            <Canvas Width="30" Height="30" ClipToBounds="False" Cursor="Hand">
+                                <Rectangle Fill="#00ffffff" Width="45" Height="45">
+                                    <Rectangle.RenderTransform>
+                                        <TranslateTransform X="-15" Y="-15" />
+                                    </Rectangle.RenderTransform>
+                                </Rectangle>
+                                <Canvas x:Name="Canvas1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                    <Ellipse Name="Ellipse1" Stroke="sc#0, 1, 1, 1" Fill="#00ffffff" StrokeThickness="1" Width="16" Height="16">
+                                        <UIElement.RenderTransform>
+                                            <TransformGroup>
+                                                <TransformGroup.Children>
+                                                    <TransformCollection>
+                                                        <TranslateTransform X="-8" Y="-8" />
+                                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        <TranslateTransform X="8" Y="8" />
+                                                    </TransformCollection>
+                                                </TransformGroup.Children>
+                                            </TransformGroup>
+                                        </UIElement.RenderTransform>
+                                    </Ellipse>
+                                    <Ellipse Name="Ellipse2" Stroke="sc#1, 1, 1, 1" Fill="white" StrokeThickness="1" Width="16" Height="16">
+                                        <UIElement.RenderTransform>
+                                            <TransformGroup>
+                                                <TransformGroup.Children>
+                                                    <TransformCollection>
+                                                        <TranslateTransform X="-8" Y="-8" />
+                                                        <ScaleTransform ScaleX="1" ScaleY="1" />
+                                                        <TranslateTransform X="8" Y="8" />
+                                                    </TransformCollection>
+                                                </TransformGroup.Children>
+                                            </TransformGroup>
+                                        </UIElement.RenderTransform>
+                                    </Ellipse>
+                                </Canvas>
+                                <Grid x:Name="NoteDetails" Width="100" Height="20" Cursor="Hand">
+                                    <Grid.RenderTransform>
+                                        <TranslateTransform X="-45" Y="20" />
+                                    </Grid.RenderTransform>
+                                    <Rectangle Fill="black" Stroke="white" RadiusX="6" RadiusY="6" />
+                                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="center" TextTrimming="WordEllipsis" Text="{Binding Path=Description}" Foreground="white">
+                                    </TextBlock>
+                                </Grid>
+                            </Canvas>
+                            <ControlTemplate.Triggers>
+                                <EventTrigger RoutedEvent="ButtonBase.Click">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard Storyboard="{StaticResource SonarAnimation}" />
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                                    <EventTrigger.Actions>
+                                        <BeginStoryboard Storyboard="{StaticResource SonarAnimation}" />
+                                    </EventTrigger.Actions>
+                                </EventTrigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="Ellipse2" Property="Fill" Value="sc#0, 1, 1, 1" />
+                                </Trigger>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter TargetName="Ellipse2" Property="Fill" Value="sc#0.25, 1, 1, 1" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Storyboard x:Key="OnLoaded" CurrentStateInvalidated="OnStoryboardInvalidated" CurrentTimeInvalidated="OnCurrentTimeInvalidated" RepeatBehavior="Forever">
+                <DoubleAnimationUsingPath BeginTime="00:00:00" Storyboard.TargetName="Ellipse2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.X)" Duration="00:00:22.6000000" Source="X">
+                    <DoubleAnimationUsingPath.PathGeometry>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigureCollection>
+                                    <PathFigure StartPoint="370.5,185.5" IsClosed="True">
+                                        <PathFigure.Segments>
+                                            <PathSegmentCollection>
+                                                <BezierSegment Point1="370.5,287.672678718697" Point2="287.672678718697,370.5" Point3="185.5,370.5" IsStroked="True" IsSmoothJoin="True" />
+                                                <BezierSegment Point1="83.3273212813032,370.5" Point2="0.5,287.672678718697" Point3="0.5,185.5" IsStroked="True" IsSmoothJoin="True" />
+                                                <BezierSegment Point1="0.5,83.3273212813032" Point2="83.3273212813032,0.5" Point3="185.5,0.5" IsStroked="True" IsSmoothJoin="True" />
+                                                <BezierSegment Point1="287.672678718697,0.5" Point2="370.5,83.3273212813032" Point3="370.5,185.5" IsStroked="True" IsSmoothJoin="True" />
+                                            </PathSegmentCollection>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathFigureCollection>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </DoubleAnimationUsingPath.PathGeometry>
+                </DoubleAnimationUsingPath>
+                <DoubleAnimationUsingPath FillBehavior="HoldEnd" BeginTime="00:00:00" Storyboard.TargetName="Ellipse2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[5].(TranslateTransform.Y)" Duration="00:00:22.6000000" Source="Y">
+                    <DoubleAnimationUsingPath.PathGeometry>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigureCollection>
+                                    <PathFigure StartPoint="370.5,185.5" IsClosed="True">
+                                        <PathFigure.Segments>
+                                            <PathSegmentCollection>
+                                                <BezierSegment Point1="370.5,287.672678718697" Point2="287.672678718697,370.5" Point3="185.5,370.5" IsStroked="True" IsSmoothJoin="True" />
+                                                <BezierSegment Point1="83.3273212813032,370.5" Point2="0.5,287.672678718697" Point3="0.5,185.5" IsStroked="True" IsSmoothJoin="True" />
+                                                <BezierSegment Point1="0.5,83.3273212813032" Point2="83.3273212813032,0.5" Point3="185.5,0.5" IsStroked="True" IsSmoothJoin="True" />
+                                                <BezierSegment Point1="287.672678718697,0.5" Point2="370.5,83.3273212813032" Point3="370.5,185.5" IsStroked="True" IsSmoothJoin="True" />
+                                            </PathSegmentCollection>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathFigureCollection>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </DoubleAnimationUsingPath.PathGeometry>
+                </DoubleAnimationUsingPath>
+				<MediaTimeline BeginTime="00:00:00" Duration="00:00:22.6000000" Source="Resources\Media\HeartUltrasound.wmv" Storyboard.TargetName="Heart_Ultrasound_wmv1" />
+            </Storyboard>
+        </ResourceDictionary>
+    </FrameworkElement.Resources>
+    <FrameworkElement.Triggers>
+
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="BeginButton">
+            <EventTrigger.Actions>
+                <BeginStoryboard Name="OnLoaded_BeginButton" Storyboard="{DynamicResource OnLoaded}" />
+            </EventTrigger.Actions>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Button1">
+            <EventTrigger.Actions>
+                <PauseStoryboard BeginStoryboardName="OnLoaded_BeginButton" />
+            </EventTrigger.Actions>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="PauseButton">
+            <EventTrigger.Actions>
+                <PauseStoryboard BeginStoryboardName="OnLoaded_BeginButton" />
+            </EventTrigger.Actions>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="Button2">
+            <EventTrigger.Actions>
+                <ResumeStoryboard BeginStoryboardName="OnLoaded_BeginButton" />
+            </EventTrigger.Actions>
+        </EventTrigger>
+    </FrameworkElement.Triggers>
+    <Grid Background="black">
+        <Viewbox Margin="30" VerticalAlignment="top">
+            <Grid Width="370" Height="370">
+                <Ellipse Margin="0" Fill="black">
+                </Ellipse>
+                <Ellipse Margin="20">
+                    <Shape.Fill>
+                        <RadialGradientBrush>
+                            <GradientBrush.GradientStops>
+                                <GradientStopCollection>
+                                    <GradientStop Color="#FF000000" Offset="1" />
+                                    <GradientStop Color="#FF333333" Offset="0.95" />
+                                    <GradientStop Color="#FF000000" Offset="0.90" />
+                                    <GradientStop Color="#FF000000" Offset="0" />
+                                </GradientStopCollection>
+                            </GradientBrush.GradientStops>
+                        </RadialGradientBrush>
+                    </Shape.Fill>
+                </Ellipse>
+                <MediaElement Stretch="Fill" Name="Heart_Ultrasound_wmv1" Margin="30">
+                    <UIElement.Clip>
+                        <EllipseGeometry RadiusX="155" RadiusY="155" Center="155,155" />
+                    </UIElement.Clip>
+                </MediaElement>
+                <InkCanvas Name="myInkCanvas" Visibility="Collapsed" Background="#00FFFFFF" Margin="30" Cursor="Pen">
+                    <InkCanvas.DefaultDrawingAttributes>
+                        <Ink:DrawingAttributes Ink:Color="#FFffffff" />
+                    </InkCanvas.DefaultDrawingAttributes>
+                    <UIElement.Clip>
+                        <EllipseGeometry RadiusX="155" RadiusY="155" Center="155,155" />
+                    </UIElement.Clip>
+                </InkCanvas>
+                <Viewbox Margin="25">
+                    <Canvas Width="370" Height="370">
+                        <Ellipse Stroke="#ffffff" Width="370" Height="370" StrokeThickness="2" Focusable="False" />
+                        <Ellipse Fill="black" Stroke="white" StrokeThickness="1" Name="Ellipse2" Focusable="False" Width="19" Height="19" Canvas.Left="-10" Canvas.Top="-10">
+                            <!--<Shape.Fill>
+										<RadialGradientBrush GradientOrigin="0.277777777777775,0.347222222222222">
+											<GradientBrush.GradientStops>
+												<GradientStopCollection>
+													<GradientStop Color="#FF000000" Offset="0.80769230769230771"/>
+													<GradientStop Color="sc#1, 0.535211265, 0.535211265, 0.535211265" Offset="0"/>
+												</GradientStopCollection>
+											</GradientBrush.GradientStops>
+										</RadialGradientBrush>
+									</Shape.Fill>-->
+                            <UIElement.RenderTransform>
+                                <TransformGroup>
+                                    <TransformGroup.Children>
+                                        <TransformCollection>
+                                            <TranslateTransform X="-9.5000000000000142" Y="-9.5000000000000142" />
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            <SkewTransform AngleX="0" AngleY="0" />
+                                            <RotateTransform Angle="0" />
+                                            <TranslateTransform X="9.5000000000000142" Y="9.5000000000000142" />
+                                            <TranslateTransform X="0" Y="0" />
+                                        </TransformCollection>
+                                    </TransformGroup.Children>
+                                </TransformGroup>
+                            </UIElement.RenderTransform>
+                        </Ellipse>
+                        <ListBox Name="AnnotationsListBox" SelectionChanged="OnAnnotationsListBox_SelectionChanged" DataContext="{StaticResource VideoAnnotationData}" ItemsSource="{Binding Path=VideoAnnotationItems}" ItemContainerStyle="{DynamicResource ListBoxItemStocks}" Canvas.Left="-10" Canvas.Top="-10" />
+                    </Canvas>
+                </Viewbox>
+            </Grid>
+        </Viewbox>
+        <StackPanel VerticalAlignment="bottom">
+            <TextBlock Name="TimerText" Foreground="white" Margin="10" Text="" VerticalAlignment="top" FontSize="10pt">
+            </TextBlock>
+            <Slider PreviewMouseDown="Slider_MouseDown" PreviewMouseUp="Slider_MouseUp" ValueChanged="Slider_ValueChanged" Minimum="0" Maximum="22" Background="black" Name="Slider1" Width="370" VerticalAlignment="Top" />
+            <TextBox Name="TextBox1" Visibility="Collapsed" Background="black" Foreground="white" FontSize="12pt" HorizontalAlignment="Center" VerticalAlignment="Top" Width="370" Height="100" Margin="10">
+            </TextBox>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="bottom" HorizontalAlignment="center" Margin="0,0,0,10">
+                <ToggleButton Name="ToggleButton1" Click="OnAnnotationToggle" Margin="2,10" Content="Annotate" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" />
+                <Button Margin="2,10" Content="Delete" Click="OnDeleteButton" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="23" />
+                <Button Name="Button1" Visibility="Collapsed" Click="OnPauseButton" Margin="2,10" Content="Pause" HorizontalAlignment="Left" VerticalAlignment="Top" Height="23" />
+              <Button Name="BeginButton" Content="Play"  Margin="2,10" Visibility="Visible" Click="OnBeginButton" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Height="23" />  
+              <Button Name="PauseButton" Margin="2,10" Content="Pause" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="23" />
+                <Button Name="Button2" Click="OnResumeButton" Margin="2,10" Content="Resume" HorizontalAlignment="Left" VerticalAlignment="Top"  Height="23" />
+          
+            </StackPanel>
+        </StackPanel>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="pack://application:,,,/Images/Kim-Abercrombie.png" Width="60px" Margin="10" />
+                <StackPanel Margin="0,10">
+                    <TextBlock Foreground="white" Text="" VerticalAlignment="top" FontSize="10pt">Patient:</TextBlock>
+                    <TextBlock Foreground="white" Text="" VerticalAlignment="top" FontSize="13pt">Kim Abercrombie</TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

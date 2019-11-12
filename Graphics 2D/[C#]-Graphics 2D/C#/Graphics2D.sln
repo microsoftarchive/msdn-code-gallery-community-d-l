@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DGraphics with Touch Screen Animation", "Graphics2DSample3\Graphics2DSample3\2DGraphics with Touch Screen Animation.csproj", "{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DGraphics with Touch Screen AnimationContent", "Graphics2DSample3\Graphics2DSample3Content\2DGraphics with Touch Screen AnimationContent.contentproj", "{31735761-6BA2-4110-8BEB-C8FABDFFEDF6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Any CPU = Release|Any CPU
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}.Debug|Any CPU.ActiveCfg = Debug|Windows Phone
+		{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}.Release|Any CPU.ActiveCfg = Debug|Windows Phone
+		{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}.Release|Any CPU.Build.0 = Debug|Windows Phone
+		{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}.Release|Any CPU.Deploy.0 = Debug|Windows Phone
+		{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{BB4C226D-4EAD-4E0B-9484-59BF78D246B4}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+		{31735761-6BA2-4110-8BEB-C8FABDFFEDF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31735761-6BA2-4110-8BEB-C8FABDFFEDF6}.Debug|Windows Phone.ActiveCfg = Debug|Any CPU
+		{31735761-6BA2-4110-8BEB-C8FABDFFEDF6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{31735761-6BA2-4110-8BEB-C8FABDFFEDF6}.Release|Windows Phone.ActiveCfg = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

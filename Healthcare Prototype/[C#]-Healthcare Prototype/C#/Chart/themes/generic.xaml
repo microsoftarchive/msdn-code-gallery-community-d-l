@@ -1,0 +1,77 @@
+﻿<ResourceDictionary
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:im="clr-namespace:IdentityMine.Avalon.Controls"
+    >
+	<DrawingBrush x:Key="{x:Static im:Chart.DefaultGridBrush}" Viewport="0,0,4,4" ViewportUnits="Absolute" TileMode="None">
+		<DrawingBrush.Drawing>
+			<DrawingGroup>
+				<DrawingGroup.Children>
+					<GeometryDrawing Geometry="M0,0 L1,0 1,0.1, 0,0.1Z">
+						<GeometryDrawing.Brush>
+							<SolidColorBrush Color="#FFDBDAD8" />
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+					<GeometryDrawing Geometry="M0,0 L0,1 0.1,1, 0.1,0Z">
+						<GeometryDrawing.Brush>
+							<SolidColorBrush Color="#FFDBDAD8" />
+						</GeometryDrawing.Brush>
+					</GeometryDrawing>
+				</DrawingGroup.Children>
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	
+	<Style x:Key="{x:Static im:Chart.DefaultGridStyle}" TargetType="{x:Type Canvas}">
+		<Setter Property="Background" Value="{DynamicResource {x:Static im:Chart.DefaultGridBrush}}" />
+	</Style>
+
+	<SolidColorBrush x:Key="{x:Static im:Chart.DefaultSeriesBrush}" Color="Black" />
+
+	<Style x:Key="{x:Static im:Chart.DefaultSeriesStyle}" TargetType="{x:Type Path}">
+		<Setter Property="Stroke" Value="{DynamicResource {x:Static im:Chart.DefaultSeriesBrush}}" />
+		<Setter Property="StrokeThickness" Value="1.5" />
+		<Setter Property="StrokeLineJoin" Value="Round" />
+	</Style>
+	
+	<SolidColorBrush x:Key="{x:Static im:Chart.DefaultShadowBrush}" Color="#FFDBDAD8" />
+
+	<Style x:Key="{x:Static im:Chart.DefaultShadowStyle}" TargetType="{x:Type Path}">
+		<Setter Property="Stroke" Value="{DynamicResource {x:Static im:Chart.DefaultShadowBrush}}" />
+		<Setter Property="StrokeThickness" Value="1.5" />
+		<Setter Property="StrokeLineJoin" Value="Round" />
+	</Style>
+	
+	<SolidColorBrush x:Key="{x:Static im:Chart.DefaultFillBrush}" Color="#7FFFD2B9" />
+	
+	<Style x:Key="{x:Static im:Chart.DefaultFillStyle}" TargetType="{x:Type Path}">
+		<Setter Property="Fill" Value="{DynamicResource {x:Static im:Chart.DefaultFillBrush}}" />
+	</Style>
+	
+	<Style TargetType="{x:Type im:Chart}">
+		<Setter Property="MinWidth" Value="100.0" />
+		<Setter Property="MinHeight" Value="100.0" />
+    <Setter Property="SeriesStyle" Value="{DynamicResource {x:Static im:Chart.DefaultSeriesStyle}}" />
+    <!--
+    <Setter Property="GridStyle" Value="{DynamicResource {x:Static im:Chart.DefaultGridStyle}}" />
+		<Setter Property="SeriesStyle" Value="{DynamicResource {x:Static im:Chart.DefaultSeriesStyle}}" />
+		<Setter Property="ShadowStyle" Value="{DynamicResource {x:Static im:Chart.DefaultShadowStyle}}" />
+		<Setter Property="FillStyle" Value="{DynamicResource {x:Static im:Chart.DefaultFillStyle}}" />
+    -->
+		<Setter Property="Template">
+            <Setter.Value>
+				<ControlTemplate TargetType="{x:Type im:Chart}">
+					<Border Background="{TemplateBinding Background}"
+							BorderBrush="{TemplateBinding BorderBrush}"
+							BorderThickness="{TemplateBinding BorderThickness}">
+                        <Canvas Name="ChartCanvas"
+								Width="{TemplateBinding Width}"
+								Height="{TemplateBinding Height}"
+								ClipToBounds="True"
+								im:Chart.IsChartHost="True" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,131 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/9/2012 4:32:22 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="XPSSTUDIO"
+  DTS:CreatorName="XPSStudio\jamie"
+  DTS:DTSID="{29216FD3-6971-4154-8E25-31602EF56540}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.1750.32"
+  DTS:LocaleID="2057"
+  DTS:ObjectName="Parent"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{2D5B2606-3729-4206-AAA5-B1F54FF21620}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2170B7B8-5788-4727-A219-43EDB82040BD}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="EnumeratedName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\FEL Loop over some names"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{1CFE7791-5CFC-41F9-8AC7-51278C3F3DF4}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="FEL Loop over some names">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="DTS.ForEachItemEnumerator.3"
+        DTS:DTSID="{42B17E23-CAC6-40D9-88B2-C3C7902625D0}"
+        DTS:ObjectName="{42B17E23-CAC6-40D9-88B2-C3C7902625D0}">
+        <DTS:ObjectData>
+          <FEIEItems>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="Tom" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="Dick" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="Harry" />
+            </FEIEItem>
+          </FEIEItems>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\FEL Loop over some names\EPT Execute child package"
+          DTS:CreationName="SSIS.ExecutePackageTask.3"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{F0D7A0D9-1218-4BE1-B3AF-1E569214ED95}"
+          DTS:ExecutableType="SSIS.ExecutePackageTask.3"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="EPT Execute child package"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>Child.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>Name</ParameterName>
+                <BindedVariableOrParameterName>User::EnumeratedName</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{1C95C6FC-8B10-489D-8DED-8BB66A1E935A}"
+          DTS:ObjectName="{1C95C6FC-8B10-489D-8DED-8BB66A1E935A}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::EnumeratedName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204.8,41.6"
+          Id="Package\FEL Loop over some names\EPT Execute child package"
+          TopLeft="26.057147401693,17.8823550432199" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="232.8,114.4"
+          Size="232.8,157.6"
+          Id="Package\FEL Loop over some names"
+          TopLeft="310.672532776873,63.9058832604167" />
+        <AnnotationLayout
+          Text="This sample demonstrates how to use the Execute &#xD;&#xA;Package Task.&#xD;&#xA;The Foreach Loop in Parent.dtsx loops over a &#xD;&#xA;collection of 3 names and passes each to Child.dtsx as &#xD;&#xA;it executes it using the Execute Package Task.  &#xD;&#xA;Child.dtsx simply show a Message Box with the value&#xD;&#xA;of the parameter.&#xD;&#xA;The concepts demonstrated here include:&#xD;&#xA;-Executing a package using the Execute Package Task&#xD;&#xA;-Passing values to package parameters&#xD;&#xA;-Foreach Loop using a Foreach Item Enumerator&#xD;&#xA;&#xD;&#xA;Jamie Thomson&#xA;http://sqlblog.com/blogs/jamie_thomson&#xA;@jamiet"
+          ParentId="Package"
+          FontInfo="{assembly:Null}"
+          Size="318.4,297.6"
+          Id="907b4d76-b70f-48c3-b9d5-a7612a023bb1"
+          TopLeft="6.4175825373531,61.5022633146154" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

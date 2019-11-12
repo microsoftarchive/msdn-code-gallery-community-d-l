@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Players>
+  <Player>
+    <ID>1</ID>
+    <Name>Hristo Stoichkov</Name>
+    <PlaceOfBirth>Plovdiv, Bulgaria</PlaceOfBirth>
+    <DateOfBirth>1966-02-08</DateOfBirth>
+  </Player>
+  <Player>
+    <ID>2</ID>
+    <Name>Ronaldo Luís Nazário de Lima</Name>
+    <PlaceOfBirth>Rio de Janeiro, Brazil</PlaceOfBirth>
+    <DateOfBirth>1976-09-18</DateOfBirth>
+  </Player>
+  <Player>
+    <ID>3</ID>
+    <Name>David Platt</Name>
+    <PlaceOfBirth>Chadderton, Lancashire, England</PlaceOfBirth>
+    <DateOfBirth>1966-06-10</DateOfBirth>
+  </Player>
+  <Player>
+    <ID>4</ID>
+    <Name>Manuel Neuer</Name>
+    <PlaceOfBirth>Gelsenkirchen, West Germany</PlaceOfBirth>
+    <DateOfBirth>1986-03-27</DateOfBirth>
+  </Player>
+  <Player>
+    <ID>5</ID>
+    <Name>James Rodríguez</Name>
+    <PlaceOfBirth>Cúcuta, Colombia</PlaceOfBirth>
+    <DateOfBirth>1991-07-12</DateOfBirth>
+  </Player>
+  <Player>
+    <ID>6</ID>
+    <Name>Dimitar Berbatov</Name>
+    <PlaceOfBirth>Blagoevgrad, Bulgaria</PlaceOfBirth>
+    <DateOfBirth>1981-01-30</DateOfBirth>
+  </Player>
+</Players>

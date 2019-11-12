@@ -1,0 +1,23 @@
+﻿
+.signatureArea {
+    width: 300px;
+}
+
+.signatureCanvas {
+    border: solid;
+    border-width: 1px;
+    border-color: #777777;   
+    background-color: #fff;
+    width: 100%;
+    touch-action: none;
+}
+
+.signatureButton {
+  width: 100px;
+  height: 40px;
+  color: white;
+  background-color: #666666;
+  font-size: 12pt;
+  outline: 0;
+  border-color: white;
+}

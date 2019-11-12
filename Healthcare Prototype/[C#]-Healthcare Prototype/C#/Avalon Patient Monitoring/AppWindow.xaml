@@ -1,0 +1,256 @@
+<Window   
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:d="http://schemas.microsoft.com/expression/interactivedesigner/2006"
+	mc:Ignorable="d"
+	xmlns:im1="clr-namespace:IdentityMine.Avalon.Controls;assembly=Chart"
+	xmlns:im2="clr-namespace:IdentityMine.Avalon.Controls;assembly=ChartRotator"
+	xmlns:im3="clr-namespace:IdentityMine.Avalon.Controls;assembly=ChartVisuals"
+	xmlns:imFlipper3DTransition="clr-namespace:IdentityMine.Avalon.Controls;assembly=Flipper3DTransition"
+	xmlns:imRotater3DTransition="clr-namespace:IdentityMine.Avalon.Controls;assembly=Rotater3DTransition"
+  xmlns:imPatientHelper="clr-namespace:IdentityMine.Avalon.Controls;assembly=PatientHelper"
+		x:Class="Avalon_Patient_Monitoring.AppWindow" 
+		Title="Patient Monitoring" x:Name="MainApplicationWindow"
+		Loaded="OnWindowLoaded"  Initialized="OnWindowInitialized" 
+    	Width="1024" Height="768" 
+      >
+	<Window.Resources>
+    
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Resources\BrandingVisualsResourceDictionary.xaml"/>
+				<ResourceDictionary Source="Resources\StoryboardAnimationResourceDictionary.xaml"/>
+				<ResourceDictionary Source="Resources\ControlStylesandTemplatesResourceDictionary.xaml"/>
+				<ResourceDictionary Source="Resources\LogoResourceDictionary.xaml"/>
+				<ResourceDictionary Source="Resources\ButtonStyle.xaml"/>
+  
+			</ResourceDictionary.MergedDictionaries>
+
+
+			<FontFamily x:Key="FontFamilyBrand1">#Helvetica Neue LT Std 67</FontFamily>
+			<ControlTemplate x:Key="UserIDTemplate">
+				<Grid MinHeight="30">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="238.507343210904"/>
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition/>
+					</Grid.RowDefinitions>
+					<Label FontSize="18" FontFamily="{StaticResource FontFamilyBrand1}" FontWeight="Normal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Width="Auto" Height="Auto" Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="1" MinHeight="15" x:Name="drName1" Content="Dr. Johnson, David" HorizontalContentAlignment="Right" Foreground="#FFFFFF"/>
+				</Grid>
+			</ControlTemplate>
+
+ 
+    
+    </ResourceDictionary>
+	</Window.Resources>
+  <ContentControl Template="{StaticResource OSCheckerContentControlTemplate}" x:Name="OSCheckerContentControl">
+
+  <Grid x:Name="GlobalRoot">
+    <Grid x:Name="Root"  Grid.Row="0"  >
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition  Width="250"  x:Name="Master3DColumnDefinition" />
+        <ColumnDefinition  Width="0.25*"  x:Name="MasterColumnDefinition" />
+        <ColumnDefinition  Width="0.5*"  x:Name="DetailColumnDefinition"/>
+      </Grid.ColumnDefinitions>
+
+      <Grid.RowDefinitions>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="*"/>
+      </Grid.RowDefinitions>
+
+      <!-- Tool Bar -->
+
+      <Grid Name="Toolbar" Background="Transparent" Grid.ColumnSpan="3" Grid.Row="0" >
+        <Image Source="{StaticResource ContosoHealthcare}" HorizontalAlignment="Left" Margin="7" />
+
+        <imPatientHelper:VistaTypeTextBox Style="{StaticResource SearchTextBox}"  Button.Click="SearchTextBoxButtonClick" Name="SearchBox" Width="160" Height="Auto"  ReturnKeyUp="ReturnKeyUpHandler" d:LayoutOverrides="None" HorizontalAlignment="Right" Margin="0,3,45,3" MinHeight="0"/>
+
+        <ComboBox Style="{StaticResource PhysicianSelectorComboBoxStyle}"  HorizontalAlignment="Right" SelectedIndex="0" Foreground="white" FontSize="18" FontFamily="Segoe UI" Margin="0,0,210,0">
+          <ComboBoxItem >Dr. Johnson, David</ComboBoxItem>
+          <ComboBoxItem >Dr. Smith, William</ComboBoxItem>
+        </ComboBox>
+        <Button  HorizontalAlignment="right" Margin="10,2,10,2" VerticalAlignment="Center" Style="{StaticResource LooklessButtonWithHover}" Click="ShowAboutIdentityMineDialog">
+          <Image Source="{StaticResource IMLogoWhite}"    />
+        </Button>
+        
+      </Grid>
+
+      <!-- Master -->
+
+      <Grid Name="Master" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Margin="0,0,5,0">
+
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Name="MasterView2DWrapperFor3DSnap" Margin="0,0,0,0" Grid.RowSpan="1">
+          <Grid.RenderTransform>
+            <TranslateTransform x:Name="MasterView2DWrapperTranslate" />
+          </Grid.RenderTransform>
+          <Grid x:Name="MasterView2D" Margin="0,0,0,0">
+
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition x:Name="WatchlistColumnDefinition" />
+              <ColumnDefinition x:Name="PatientRosterColumnDefinition" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+              <RowDefinition  />
+            </Grid.RowDefinitions>
+
+            <ContentControl x:Name="MasterBackgroundContent" Template="{StaticResource MasterBackgroundTemplate}" Margin="0,0,0,0" Grid.RowSpan="1" Grid.ColumnSpan="2" />
+
+            <!-- Watch List -->
+            <ContentControl x:Name="WatchListHeaderContent" Grid.Column="0" Grid.Row="0" Template="{StaticResource WatchListHeaderTemplate}" VerticalAlignment="Top" Margin="22,10,0,0" Height="39" Grid.RowSpan="1" HorizontalAlignment="Left" Width="93.88" />
+            <ListBox x:Name="WatchList" Grid.Column="0" Grid.Row="0" Style="{StaticResource LooklessListBox}"   DataContext="{Binding Source={StaticResource WLHealthDataXML}, XPath=/healthFirst/patients/patient}" ItemsSource="{Binding}" ItemContainerStyle="{StaticResource WatchListItem}" Margin="17,40,0,0" />
+
+            <!-- Patient Roster -->
+            <ContentControl x:Name="PatientRosterListHeaderContent" Grid.Column="1" Grid.Row="0" Template="{StaticResource PatientRosterListHeaderTemplate}" VerticalAlignment="Top" Margin="2.8421709430404E-14,10,-5.6843418860808E-14,0" Height="35" Grid.RowSpan="1" Grid.ColumnSpan="1" />
+            <ContentControl x:Name="PatientRosterStyleSelectorContent" Grid.Column="1" Grid.Row="0"  HorizontalAlignment="Right" VerticalAlignment="Top"  Template="{StaticResource PatientRosterStyleSelectorTemplate}" Height="30" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" Margin="0,10,5,0" Width="37" Grid.RowSpan="1" />
+
+            <ListBox x:Name="PatientRosterList" Grid.Column="1" Grid.Row="0" ClipToBounds="False" Style="{StaticResource LooklessListBox}"   SelectionChanged="OnPatientRosterSelectionChanged" IsSynchronizedWithCurrentItem="True" DataContext="{Binding Source={StaticResource HealthDataXML}, XPath=/healthFirst/patients/patient}" ItemsSource="{Binding}" ItemContainerStyle="{StaticResource RosterListItem}" Margin="2.8421709430404E-14,40,12,15" />
+
+
+          </Grid>
+
+        </Grid>
+
+        <imRotater3DTransition:Rotater3DTransition Name="PatientMasterRotater3DTransition" DurationTime="0.60" d:IsHidden="true" ScaleX="0.8450" ScaleY="1.0" TranslateX="0.000" TranslateY="0.000" ScaleXTo="0.45" ScaleYTo="1.10" TranslateXTo="-0.33" Visibility="Collapsed" Grid.RowSpan="1" />
+
+        <ListBox x:Name="PatientRosterList3DOverlay" Style="{StaticResource LooklessListBox}" SelectionChanged="OnPatientRoster3DOverlaySelectionChanged" IsSynchronizedWithCurrentItem="True" DataContext="{Binding Source={StaticResource HealthDataXML}, XPath=/healthFirst/patients/patient}" ItemsSource="{Binding}" ItemContainerStyle="{StaticResource RosterListItem}" Opacity="0.0" Visibility="Collapsed" Grid.RowSpan="1">
+          <ListBox.RenderTransform>
+            <TransformGroup>
+              <ScaleTransform ScaleX="0.22" ScaleY="1.1" />
+              <SkewTransform CenterX="0" CenterY="0" AngleX="0" AngleY="-5" />
+              <TranslateTransform X="135" Y="20" />
+            </TransformGroup>
+          </ListBox.RenderTransform>
+        </ListBox>
+
+      </Grid>
+
+      <!-- Detail -->
+
+      <Grid Name="Detail" Grid.Row="1" Grid.Column="2" Margin="0,0,0,0" Grid.ColumnSpan="1" >
+        <Grid Name="DetailBack2DWrapper">
+          <Grid.RenderTransform>
+            <TranslateTransform x:Name="DetailBack2DWrapperTranslate" />
+          </Grid.RenderTransform>
+          <Grid Name="DetailBack2D"  Margin="0,0,0,0" >
+
+            <ContentControl Template="{StaticResource DetailBackgroundTemplate}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="-7,0,0,-4" Width="Auto" Height="Auto" x:Name="DetailBackgroundContent" Content="ContentControl" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment"/>
+            <Grid x:Name="PatientDetails" Margin="0,15,9,0">
+
+              <Grid.RowDefinitions>
+                <RowDefinition  Height="120"  />
+                <RowDefinition  Height="0.6639381270903*"  />
+                <RowDefinition  Height="0.3360618729097*"  />
+                <RowDefinition Height="53"/>
+              </Grid.RowDefinitions>
+
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="245"/>
+                <ColumnDefinition Width="*"/>
+              </Grid.ColumnDefinitions>
+
+              <Rectangle Stroke="{x:Null}" Fill="#FFFFFFFF" RadiusX="4" RadiusY="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="5,3.00000000000003,10,5" Width="Auto" Height="Auto" Grid.Row="1" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="2" x:Name="PatientDetailsBackgroundRectangle"/>
+
+
+              <ContentControl x:Name="PatientDetailHeaderContent" Grid.Row="0" Content="{Binding SelectedItem, ElementName=PatientRosterList}"  ContentTemplate="{StaticResource PatientDetailHeaderTemplate}" Margin="0,10,10,0" Grid.ColumnSpan="3" />
+              <ContentControl x:Name="PatientDetailSelectorContent" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Stretch" Template="{StaticResource PatientDetailSelectorTemplate}" Margin="5,2.8421709430404E-14,0,5" d:LayoutOverrides="Width" />
+              <ContentControl x:Name="PatientDetailLiveMonitorsContent" Grid.Row="1" HorizontalAlignment="Stretch" Template="{StaticResource PatientDetailLiveMonitorsTemplate}" Margin="10,10,5,10" Grid.RowSpan="1" Grid.Column="1" Width="Auto" d:LayoutOverrides="HorizontalAlignment" />
+              <ContentControl x:Name="PatientDetailWorkspaceContent" Grid.Row="1" HorizontalAlignment="Stretch" Template="{StaticResource PatientDetailWorkspaceTemplate}" d:LayoutOverrides="None" Margin="5,10,15,10" Width="Auto" Grid.RowSpan="1" Grid.Column="2" />
+              <ContentControl x:Name="PatientDetailDataGridContent" Grid.Row="2" HorizontalAlignment="Stretch" Template="{StaticResource PatientDetailDataGridTemplate}" Margin="3,3,10,4" Width="Auto" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="2" />
+              <Button x:Name="BackToPatientOverview" Content="Back to Patient Roster" Style="{DynamicResource pdButtonStyle}" Grid.Row="3" Click="OnBackToPatientOverview" VerticalAlignment="Center" Margin="10,0,10,8" Height="30" Grid.ColumnSpan="3"/>
+
+              <Rectangle  HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,0,0,0" Width="1" Height="Auto" Grid.Row="1" Grid.Column="1" x:Name="MonitorWorkspaceSplitterVisualRectangle">
+                <Rectangle.Fill>
+                  <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#00FFFFFF" Offset="1"/>
+                    <GradientStop Color="sc#1, 0.3278404, 0.3278404, 0.3278404" Offset="0.44230769230769229"/>
+                    <GradientStop Color="#00FFFFFF" Offset="0.044871794871794872"/>
+                  </LinearGradientBrush>
+                </Rectangle.Fill>
+              </Rectangle>
+
+              <GridSplitter HorizontalAlignment="Right" Margin="0,0,0,0" Width="7" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" x:Name="MonitorWorkspaceSplitter" Background="{x:Null}" Foreground="{x:Null}"/>
+
+            </Grid>
+          </Grid>
+        </Grid>
+        <Grid Name="DetailFront2DWrapper" d:IsHidden="True">
+          <Grid.RenderTransform>
+            <TranslateTransform x:Name="DetailFront2DWrapperTranslate" />
+          </Grid.RenderTransform>
+          <Grid Name="DetailFront2D" Grid.Column="1" Margin="5,-3,0,-3" Visibility="Visible">
+
+            <Grid x:Name="PatientOverview2D" Margin="0,0,0,0" >
+
+              <Grid.RowDefinitions>
+                <RowDefinition  Height="100"/>
+                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="200"/>
+                <RowDefinition  Height="151"  />
+                <RowDefinition  Height="63"  />
+              </Grid.RowDefinitions>
+
+              <ContentControl x:Name="PatientOverviewHeaderBackgroundContent" Grid.Row="0" Grid.RowSpan="5" Template="{StaticResource PatientOverviewHeaderBackgroundTemplate}" Margin="-5,0,0,0" />
+              <ContentControl x:Name="PatientOverviewHeaderContent" Grid.Row="0" Content="{Binding SelectedItem, ElementName=PatientRosterList}" ContentTemplate="{StaticResource PatientOverviewHeaderTemplate}" Margin="10,20,20,0" />
+              <ContentControl x:Name="PatientOverviewChartContent" Grid.Row="1" Content="{Binding SelectedItem, ElementName=PatientRosterList}" ContentTemplate="{StaticResource PatientOverviewChartTemplate}" Margin="0,0,10,0" />
+              <ContentControl x:Name="PatientOverviewStatusContent" Grid.Row="2"  Template="{StaticResource PatientOverviewStatusTemplate}" Margin="10,0,20,0" />
+              <ContentControl x:Name="PatientOverviewPreviewContent" Grid.Row="3" HorizontalAlignment="Left"  Template="{StaticResource PatientOverviewPreviewTemplate}" Margin="9,26,0,18" Width="199.66" Grid.RowSpan="1" />
+              <ContentControl x:Name="PatientOverviewTaskListContent" Grid.Row="3" HorizontalAlignment="Stretch"  Template="{StaticResource PatientOverviewTaskListTemplate}" Margin="226.14,37,19.9999999999999,73" Width="Auto" Grid.RowSpan="2" />
+              <Button Style="{DynamicResource pdButtonStyle}" Grid.Row="4" Content="Patient Details"  x:Name="PatientDetailButton" Click="OnPatientDetailButton" Margin="10,0,16.9999999999998,18" VerticalAlignment="Bottom" Height="33" />
+
+            </Grid>
+
+            <imFlipper3DTransition:Flipper3DTransition Name="PatientOverview3D" d:IsHidden="true" ScaleX="0.717" ScaleY="1.000" TranslateX="-0.014" TranslateY="0.013" FlipCompleted="PatientOverview3D_FlipCompleted" Margin="5,5,-5,-5"  Visibility="Collapsed" />
+
+          </Grid>
+        </Grid>
+
+        <imRotater3DTransition:Rotater3DTransition Name="PatientDetailRotater3DTransition" d:IsHidden="true" ScaleX="0.71" ScaleY="0.995" TranslateX="-0.0052" TranslateY="-0.010"  ScaleXBack="0.715" ScaleYBack="0.66" TranslateXBack="0.000" TranslateYBack="0.000" Visibility="Collapsed" />
+
+      </Grid>
+
+      <GridSplitter Grid.Row="1" Grid.Column="1" Margin="0,4,1,1" Width="5" x:Name="GridSplitter" Background="{x:Null}" Visibility="Collapsed" />
+
+      <Grid Name="PatientSearchResults" Background="{x:Null}" Grid.Row="1" Grid.Column="0" Width="Auto" Height="Auto" Visibility="Collapsed" Grid.RowSpan="1" Grid.ColumnSpan="3">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="100,100,100,100"  x:Name="Grid">
+          <ContentControl Template="{StaticResource DetailBackgroundTemplate}"  />
+          <DockPanel LastChildFill="True" Margin="10,45,10,20">
+            <Expander x:Name ="MSNExpander" Template="{StaticResource PatientDetailsExpander}" IsExpanded="True" DockPanel.Dock="Bottom" Header="Web Search Results" Margin="5">
+              <ListBox x:Name="PatientMSNSearchList"  Margin="20"  DataContext="{Binding SearchMSNData, Source={StaticResource SearchDataResults}}" ItemsSource="{Binding}" ItemContainerStyle="{StaticResource SearchListItem}" SelectionChanged="PatientMSNSearchList_SelectionChanged" Style="{DynamicResource LooklessListBox}" Background="{x:Null}" BorderBrush="{x:Null}" />
+            </Expander>
+            <Expander x:Name ="LocalExpander" Template="{StaticResource PatientDetailsExpander}" IsExpanded="True" Header="Local Search Results" Margin="5">
+              <ListBox x:Name="PatientLocalSearchList" Margin="20"   DataContext="{Binding SearchXPSData, Source={StaticResource SearchDataResults}}" ItemsSource="{Binding}" ItemContainerStyle="{StaticResource SearchListItem}" SelectionChanged="PatientLocalSearchList_SelectionChanged" Style="{DynamicResource LooklessListBox}" Background="{x:Null}" BorderBrush="{x:Null}" />
+            </Expander>
+          </DockPanel>
+          <Button x:Name="PatientSearchCloseButton" Content="Close"  Click="PatientSearchCloseButton_Click" d:LayoutOverrides="Height" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0" Width="65" />
+          <TextBlock FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0" Width="166" Height="25" x:Name="TextBlock" Foreground="#FFFFFFFF" Text="Search Results" TextWrapping="Wrap"/>
+        </Grid>
+      </Grid>
+    </Grid>
+
+    <Grid Name="SettingsDialog"  Grid.Row="0" Grid.Column="0" Width="Auto" Height="Auto" Visibility="Collapsed" Grid.RowSpan="1" Grid.ColumnSpan="3">
+      <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="100,100,100,100"  x:Name="SettingsDialogRootGrid"  >
+
+        <ContentControl Template="{StaticResource DetailBackgroundTemplate}"  />
+
+        <StackPanel Orientation="Horizontal" Margin="10,45,10,20" VerticalAlignment="Top" HorizontalAlignment="Left" >
+          <TextBlock Foreground="white" FontSize="12" Margin="20">Chart Framerate:</TextBlock>
+          <TextBox x:Name="ChartFramerateTextBox" Height="30" Width="40" />
+        </StackPanel>
+
+
+        <Button x:Name="SettingsDialogCloseButton" Content="Close"  Click="SettingsDialog_Click" d:LayoutOverrides="Height" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0" Width="65" />
+        <TextBlock FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0" Width="166" Height="25" Foreground="#FFFFFFFF" Text="Settings" TextWrapping="Wrap"/>
+      </Grid>
+    </Grid>
+
+  </Grid>
+  </ContentControl>
+</Window>

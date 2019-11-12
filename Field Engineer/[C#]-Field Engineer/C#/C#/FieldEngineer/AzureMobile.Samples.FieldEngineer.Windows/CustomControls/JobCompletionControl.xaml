@@ -1,0 +1,40 @@
+﻿<UserControl
+    x:Class="AzureMobile.Samples.FieldEngineer.CustomControls.JobCompletionControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FieldEngineer.CustomControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="453"
+    d:DesignWidth="400"
+     Loaded="UserControl_Loaded">
+
+    <Grid Background="White">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="JOB COMPLETION" Style="{StaticResource SubheaderTextBlockStyle}" Margin="20,15,0,10" Height="34" Foreground="Gray"></TextBlock>
+            <TextBlock Text="Record the completion time:" Style="{StaticResource SubtitleTextBlockStyle}" Margin="20,0,0,0"/>
+            <TimePicker  Margin="20,10,0,0" />
+
+            <TextBlock Text="Customer name and signature:" Style="{StaticResource SubtitleTextBlockStyle}" Margin="20,10,30,0"/>
+            <TextBlock Text="{Binding Path=FullName}" Style="{StaticResource TitleTextBlockStyle}" 
+                        x:Name="CustomerNameTextbox" Margin="20,5,30,0" />
+            <Border x:Name="CanvasBorder" Margin="20,10,0,0" BorderBrush="Gray" BorderThickness="1" 
+                    HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Canvas x:Name="PanelCanvas" Width="350" Height="170" Margin="0" Background="White"/>
+            </Border>
+            <TextBlock Text="Customer signature is required to complete the job"
+                           Style="{StaticResource BodyTextBlockStyle}" Foreground="Red"
+                           x:Name="ErrorMessage" Margin="20,5,0,5"/>
+            <StackPanel x:Name="ButtonsPanel" Orientation="Horizontal" Margin="20,0,0,10">
+
+                <Button x:Name="SubmitButton" Content="Submit" Background="{StaticResource ButtonBackgroundBrush}"
+                       Foreground="White" Margin="0,10,0,0" FontSize="16" Click="Submit_Click" />
+                <!--<AppBarButton x:Name="CancelButton" Label="Cancel" Icon="Cancel" Click="Erase_Click" 
+                              RequestedTheme="Dark"/>-->
+                <Button x:Name="CancelButton" Content="Clear" Background="{StaticResource ApplicationForegroundThemeBrush}"
+                        Foreground="White" Margin="5,10,0,0" FontSize="16" Click="Erase_Click" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

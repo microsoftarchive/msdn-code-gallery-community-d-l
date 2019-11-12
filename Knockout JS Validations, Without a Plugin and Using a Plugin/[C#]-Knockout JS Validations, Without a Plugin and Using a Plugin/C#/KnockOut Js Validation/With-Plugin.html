@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>KnockOut JS Validations</title>
+    <meta charset="utf-8" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/knockout-3.4.1.js"></script>
+    <script src="Scripts/knockout.validation.js"></script>
+    <script src="Scripts/Validations-Plugin.js"></script>
+    <style>
+        table {
+            border: 1px solid #c71585;
+            padding: 20px;
+        }
+        td {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Knockout JS Validation</caption>
+        <tr>
+            <td>
+                First Name: <input type="text" id="txtFirstName" name="txtFirstName" data-bind='value: txtFirstName' />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Last Name: <input type="text" id="txtLastName" name="txtLastName" data-bind='value: txtLastName' />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email: <input type="text" id="txtEmail" name="txtEmail" data-bind='value: txtEmail' />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="Submit" />
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

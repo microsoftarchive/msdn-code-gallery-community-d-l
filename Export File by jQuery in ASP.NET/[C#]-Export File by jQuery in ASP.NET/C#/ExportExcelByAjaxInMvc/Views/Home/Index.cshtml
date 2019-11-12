@@ -1,0 +1,35 @@
+﻿@model List<ExportExcelByAjaxInMvc.Models.Person>
+@{
+    ViewBag.Title = "Export Excel By Ajax in Asp.Net Mvc";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Export Excel By jQuery Unified Export File in ASP.NET MVC 3</h2>
+
+<table border="1">
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Birthday</th>
+			<th>Birth Place</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var person in Model)
+		{
+			<tr>
+				<th>@person.FirstName</th>
+				<th>@person.LastName</th>
+				<th>@person.Birthday.ToString("MM/dd/yyyy")</th>
+				<th>@person.BirthPlace</th>
+			</tr>
+		}
+	</tbody>
+</table>
+<div>
+	<img id="loading" src="/Content/Images/301.gif" width="50" height="50" style="display: none"/>
+</div>
+<div>
+	<button type="button" class="export-excel">Export Excel</button>
+</div>

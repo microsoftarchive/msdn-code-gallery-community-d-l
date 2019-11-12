@@ -1,0 +1,30 @@
+﻿<Window x:Class="ComboboxDisable.WPFComboboxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ComboboxItemDisable" Height="165" Width="332"
+        xmlns:local="clr-namespace:ComboboxDisable">
+        
+    <Grid Height="130" Width="316">
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="78,12,0,0" Name="comboBox1" VerticalAlignment="Top" Width="120" 
+                  ItemsSource="{Binding Items}" Background="Bisque" Foreground="Black"
+                  SelectedIndex="0" >
+  
+            <!--Resource for Combobox to -->
+            <ComboBox.Resources>
+                <local:ComboboxDisableConverter x:Key="itemDisableconverter"/>
+            </ComboBox.Resources>
+
+            <!--ItemContainer Style for disabling Combobox Item-->
+            <ComboBox.ItemContainerStyle>
+                <Style TargetType="ComboBoxItem">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Content, RelativeSource={RelativeSource Self}, 
+                            Converter={StaticResource itemDisableconverter}}" Value="true">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ComboBox.ItemContainerStyle>
+        </ComboBox>
+    </Grid>
+</Window>

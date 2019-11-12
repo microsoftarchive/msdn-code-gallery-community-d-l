@@ -1,0 +1,118 @@
+﻿/* -- Copyright © Microsoft Corporation. All rights reserved. */
+body
+{
+    background: url("../images/background-sdk.png") left repeat-y;
+    background: url("../images/background-sdk.png") left repeat-y,
+                url("../images/background-sdk.png") right repeat-y;
+    font-family: "Segoe UI Light", Sans-Serif;
+    margin: 25px 50px 75px 50px;
+}
+
+h1 
+{
+    color: #303030;
+    font-size: 36px;
+    line-height: 44px;
+    margin: 0;
+}
+
+h2
+{
+    color: #303030;
+}
+
+h3
+{
+    color: #303030;
+    font-family: "Segoe UI Light";
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+}
+
+p
+{
+    margin-bottom:10px;
+    margin-top:0;
+}
+
+a
+{
+    color: #0072C6;
+    text-decoration: none;
+}
+
+#seeAlsoLabel
+{
+    margin-top: 14px;
+}
+
+.seeAlsoContent h4
+{
+    font-size: 14px;
+    font-weight: normal;
+    margin: 5px 0;
+}
+
+.seeAlsoContent
+{
+    font-size: 14px;
+    line-height: 14px;
+}
+
+#header span
+{
+    color: rgb(0, 24, 143);
+    font-size: 1.1em;
+    margin-left: 3px;
+}
+
+#header a 
+{
+    border: none;
+}
+
+#header a img 
+{
+    border: none;
+}
+
+#footer
+{
+    background-color: #FFF;
+    clear: both;
+    margin-top: 50px;
+    padding-bottom: 10px;
+    width: 650px;
+}
+
+#footer span
+{
+    color: #707070;
+    font-size: 12px;
+}
+
+#footer .company
+{
+    float: left;
+}
+
+#footer .links
+{
+    float: left;
+    margin-left: 100px;
+}
+
+#footer .links a
+{
+    color: #707070;
+    font-size: 12px;
+    margin-left: 8px;
+}
+
+#footer .links .pipe
+{
+    border-right: 1px solid #707070;
+    font-size: 9px;
+    margin-left: 8px;
+}

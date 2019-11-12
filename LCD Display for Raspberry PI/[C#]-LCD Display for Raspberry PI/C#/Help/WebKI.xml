@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="AutoScroll method" Url="html/M-I2CLibrary.Lcd2004.AutoScroll.htm" />
+  <HelpKINode Title="Backlight class">
+    <HelpKINode Title="Backlight Class" Url="html/T-I2CLibrary.LCD2004.Backlight.htm" />
+    <HelpKINode Title="Backlight Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.Backlight.htm" />
+    <HelpKINode Title="about Backlight class" Url="html/T-I2CLibrary.LCD2004.Backlight.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-I2CLibrary.LCD2004.Backlight.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-I2CLibrary.LCD2004.Backlight.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-I2CLibrary.LCD2004.Backlight.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Backlight.LCD_BACKLIGHT_OFF field" Url="html/F-I2CLibrary.LCD2004.Backlight.LCD_BACKLIGHT_OFF.htm" />
+  <HelpKINode Title="Backlight.LCD_BACKLIGHT_ON field" Url="html/F-I2CLibrary.LCD2004.Backlight.LCD_BACKLIGHT_ON.htm" />
+  <HelpKINode Title="BacklightOn method" Url="html/M-I2CLibrary.Lcd2004.BacklightOn.htm" />
+  <HelpKINode Title="BlinkingCursor method" Url="html/M-I2CLibrary.Lcd2004.BlinkingCursor.htm" />
+  <HelpKINode Title="Clear method" Url="html/M-I2CLibrary.Lcd2004.Clear.htm" />
+  <HelpKINode Title="Command class">
+    <HelpKINode Title="Command Class" Url="html/T-I2CLibrary.LCD2004.Command.htm" />
+    <HelpKINode Title="Command Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.Command.htm" />
+    <HelpKINode Title="about Command class" Url="html/T-I2CLibrary.LCD2004.Command.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-I2CLibrary.LCD2004.Command.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-I2CLibrary.LCD2004.Command.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-I2CLibrary.LCD2004.Command.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Command.LCD_CLEARDISPLAY field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_CLEARDISPLAY.htm" />
+  <HelpKINode Title="Command.LCD_CURSORSHIFT field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_CURSORSHIFT.htm" />
+  <HelpKINode Title="Command.LCD_DISPLAYCONTROL field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_DISPLAYCONTROL.htm" />
+  <HelpKINode Title="Command.LCD_ENTRYMODESET field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_ENTRYMODESET.htm" />
+  <HelpKINode Title="Command.LCD_FUNCTIONSET field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_FUNCTIONSET.htm" />
+  <HelpKINode Title="Command.LCD_RETURNHOME field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_RETURNHOME.htm" />
+  <HelpKINode Title="Command.LCD_SETCGRAMADDR field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_SETCGRAMADDR.htm" />
+  <HelpKINode Title="Command.LCD_SETDDRAMADDR field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_SETDDRAMADDR.htm" />
+  <HelpKINode Title="ControlSet class">
+    <HelpKINode Title="ControlSet Class" Url="html/T-I2CLibrary.LCD2004.ControlSet.htm" />
+    <HelpKINode Title="ControlSet Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.ControlSet.htm" />
+    <HelpKINode Title="about ControlSet class" Url="html/T-I2CLibrary.LCD2004.ControlSet.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-I2CLibrary.LCD2004.ControlSet.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-I2CLibrary.LCD2004.ControlSet.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-I2CLibrary.LCD2004.ControlSet.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ControlSet.LCD_BLINKOFF field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_BLINKOFF.htm" />
+  <HelpKINode Title="ControlSet.LCD_BLINKON field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_BLINKON.htm" />
+  <HelpKINode Title="ControlSet.LCD_CURSOROFF field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_CURSOROFF.htm" />
+  <HelpKINode Title="ControlSet.LCD_CURSORON field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_CURSORON.htm" />
+  <HelpKINode Title="ControlSet.LCD_DISPLAYOFF field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_DISPLAYOFF.htm" />
+  <HelpKINode Title="ControlSet.LCD_DISPLAYON field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_DISPLAYON.htm" />
+  <HelpKINode Title="Display method" Url="html/M-I2CLibrary.Lcd2004.Display.htm" />
+  <HelpKINode Title="DisplayMove class">
+    <HelpKINode Title="DisplayMove Class" Url="html/T-I2CLibrary.LCD2004.DisplayMove.htm" />
+    <HelpKINode Title="DisplayMove Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.DisplayMove.htm" />
+    <HelpKINode Title="about DisplayMove class" Url="html/T-I2CLibrary.LCD2004.DisplayMove.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-I2CLibrary.LCD2004.DisplayMove.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-I2CLibrary.LCD2004.DisplayMove.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-I2CLibrary.LCD2004.DisplayMove.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DisplayMove.LCD_CURSORMOVE field" Url="html/F-I2CLibrary.LCD2004.DisplayMove.LCD_CURSORMOVE.htm" />
+  <HelpKINode Title="DisplayMove.LCD_DISPLAYMOVE field" Url="html/F-I2CLibrary.LCD2004.DisplayMove.LCD_DISPLAYMOVE.htm" />
+  <HelpKINode Title="DisplayMove.LCD_MOVELEFT field" Url="html/F-I2CLibrary.LCD2004.DisplayMove.LCD_MOVELEFT.htm" />
+  <HelpKINode Title="DisplayMove.LCD_MOVERIGHT field" Url="html/F-I2CLibrary.LCD2004.DisplayMove.LCD_MOVERIGHT.htm" />
+  <HelpKINode Title="EntryMode class">
+    <HelpKINode Title="EntryMode Class" Url="html/T-I2CLibrary.LCD2004.EntryMode.htm" />
+    <HelpKINode Title="EntryMode Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.EntryMode.htm" />
+    <HelpKINode Title="about EntryMode class" Url="html/T-I2CLibrary.LCD2004.EntryMode.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-I2CLibrary.LCD2004.EntryMode.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-I2CLibrary.LCD2004.EntryMode.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-I2CLibrary.LCD2004.EntryMode.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EntryMode.LCD_ENTRYLEFT field" Url="html/F-I2CLibrary.LCD2004.EntryMode.LCD_ENTRYLEFT.htm" />
+  <HelpKINode Title="EntryMode.LCD_ENTRYRIGHT field" Url="html/F-I2CLibrary.LCD2004.EntryMode.LCD_ENTRYRIGHT.htm" />
+  <HelpKINode Title="EntryMode.LCD_ENTRYSHIFTDECREMENT field" Url="html/F-I2CLibrary.LCD2004.EntryMode.LCD_ENTRYSHIFTDECREMENT.htm" />
+  <HelpKINode Title="EntryMode.LCD_ENTRYSHIFTINCREMENT field" Url="html/F-I2CLibrary.LCD2004.EntryMode.LCD_ENTRYSHIFTINCREMENT.htm" />
+  <HelpKINode Title="FunctionSet class">
+    <HelpKINode Title="FunctionSet Class" Url="html/T-I2CLibrary.LCD2004.FunctionSet.htm" />
+    <HelpKINode Title="FunctionSet Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.FunctionSet.htm" />
+    <HelpKINode Title="about FunctionSet class" Url="html/T-I2CLibrary.LCD2004.FunctionSet.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-I2CLibrary.LCD2004.FunctionSet.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-I2CLibrary.LCD2004.FunctionSet.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-I2CLibrary.LCD2004.FunctionSet.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FunctionSet.LCD_1LINE field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_1LINE.htm" />
+  <HelpKINode Title="FunctionSet.LCD_2LINE field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_2LINE.htm" />
+  <HelpKINode Title="FunctionSet.LCD_4BITMODE field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_4BITMODE.htm" />
+  <HelpKINode Title="FunctionSet.LCD_5x10DOTS field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_5x10DOTS.htm" />
+  <HelpKINode Title="FunctionSet.LCD_5x8DOTS field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_5x8DOTS.htm" />
+  <HelpKINode Title="FunctionSet.LCD_8BITMODE field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_8BITMODE.htm" />
+  <HelpKINode Title="HideCursor method" Url="html/M-I2CLibrary.Lcd2004.HideCursor.htm" />
+  <HelpKINode Title="Home method" Url="html/M-I2CLibrary.Lcd2004.Home.htm" />
+  <HelpKINode Title="I2CLibrary namespace" Url="html/N-I2CLibrary.htm" />
+  <HelpKINode Title="I2CLibrary.Lcd2004 class">
+    <HelpKINode Title="Lcd2004 Class" Url="html/T-I2CLibrary.Lcd2004.htm" />
+    <HelpKINode Title="Lcd2004 Members" Url="html/AllMembers.T-I2CLibrary.Lcd2004.htm" />
+  </HelpKINode>
+  <HelpKINode Title="I2CLibrary.LCD2004 namespace" Url="html/N-I2CLibrary.LCD2004.htm" />
+  <HelpKINode Title="I2CLibrary.LCD2004.Backlight class">
+    <HelpKINode Title="Backlight Class" Url="html/T-I2CLibrary.LCD2004.Backlight.htm" />
+    <HelpKINode Title="Backlight Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.Backlight.htm" />
+  </HelpKINode>
+  <HelpKINode Title="I2CLibrary.LCD2004.Command class">
+    <HelpKINode Title="Command Class" Url="html/T-I2CLibrary.LCD2004.Command.htm" />
+    <HelpKINode Title="Command Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.Command.htm" />
+  </HelpKINode>
+  <HelpKINode Title="I2CLibrary.LCD2004.ControlSet class">
+    <HelpKINode Title="ControlSet Class" Url="html/T-I2CLibrary.LCD2004.ControlSet.htm" />
+    <HelpKINode Title="ControlSet Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.ControlSet.htm" />
+  </HelpKINode>
+  <HelpKINode Title="I2CLibrary.LCD2004.DisplayMove class">
+    <HelpKINode Title="DisplayMove Class" Url="html/T-I2CLibrary.LCD2004.DisplayMove.htm" />
+    <HelpKINode Title="DisplayMove Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.DisplayMove.htm" />
+  </HelpKINode>
+  <HelpKINode Title="I2CLibrary.LCD2004.EntryMode class">
+    <HelpKINode Title="EntryMode Class" Url="html/T-I2CLibrary.LCD2004.EntryMode.htm" />
+    <HelpKINode Title="EntryMode Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.EntryMode.htm" />
+  </HelpKINode>
+  <HelpKINode Title="I2CLibrary.LCD2004.FunctionSet class">
+    <HelpKINode Title="FunctionSet Class" Url="html/T-I2CLibrary.LCD2004.FunctionSet.htm" />
+    <HelpKINode Title="FunctionSet Members" Url="html/AllMembers.T-I2CLibrary.LCD2004.FunctionSet.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Initialize method" Url="html/M-I2CLibrary.Lcd2004.Initialize.htm" />
+  <HelpKINode Title="Lcd2004 class">
+    <HelpKINode Title="Lcd2004 Class" Url="html/T-I2CLibrary.Lcd2004.htm" />
+    <HelpKINode Title="Lcd2004 Members" Url="html/AllMembers.T-I2CLibrary.Lcd2004.htm" />
+    <HelpKINode Title="about Lcd2004 class" Url="html/T-I2CLibrary.Lcd2004.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-I2CLibrary.Lcd2004.htm" />
+    <HelpKINode Title="constructor" Url="html/M-I2CLibrary.Lcd2004.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-I2CLibrary.Lcd2004.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Lcd2004.AutoScroll method" Url="html/M-I2CLibrary.Lcd2004.AutoScroll.htm" />
+  <HelpKINode Title="Lcd2004.BacklightOn method" Url="html/M-I2CLibrary.Lcd2004.BacklightOn.htm" />
+  <HelpKINode Title="Lcd2004.BlinkingCursor method" Url="html/M-I2CLibrary.Lcd2004.BlinkingCursor.htm" />
+  <HelpKINode Title="Lcd2004.Clear method" Url="html/M-I2CLibrary.Lcd2004.Clear.htm" />
+  <HelpKINode Title="Lcd2004.Display method" Url="html/M-I2CLibrary.Lcd2004.Display.htm" />
+  <HelpKINode Title="Lcd2004.HideCursor method" Url="html/M-I2CLibrary.Lcd2004.HideCursor.htm" />
+  <HelpKINode Title="Lcd2004.Home method" Url="html/M-I2CLibrary.Lcd2004.Home.htm" />
+  <HelpKINode Title="Lcd2004.Initialize method" Url="html/M-I2CLibrary.Lcd2004.Initialize.htm" />
+  <HelpKINode Title="Lcd2004.Lcd2004 constructor" Url="html/M-I2CLibrary.Lcd2004.-ctor.htm" />
+  <HelpKINode Title="Lcd2004.LeftToRight method" Url="html/M-I2CLibrary.Lcd2004.LeftToRight.htm" />
+  <HelpKINode Title="Lcd2004.LineCursor method" Url="html/M-I2CLibrary.Lcd2004.LineCursor.htm" />
+  <HelpKINode Title="Lcd2004.Print method" Url="html/M-I2CLibrary.Lcd2004.Print.htm" />
+  <HelpKINode Title="Lcd2004.RightToLeft method" Url="html/M-I2CLibrary.Lcd2004.RightToLeft.htm" />
+  <HelpKINode Title="Lcd2004.ScrollDisplayLeft method" Url="html/M-I2CLibrary.Lcd2004.ScrollDisplayLeft.htm" />
+  <HelpKINode Title="Lcd2004.ScrollDisplayRight method" Url="html/M-I2CLibrary.Lcd2004.ScrollDisplayRight.htm" />
+  <HelpKINode Title="Lcd2004.SetCursor method" Url="html/M-I2CLibrary.Lcd2004.SetCursor.htm" />
+  <HelpKINode Title="LCD_1LINE field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_1LINE.htm" />
+  <HelpKINode Title="LCD_2LINE field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_2LINE.htm" />
+  <HelpKINode Title="LCD_4BITMODE field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_4BITMODE.htm" />
+  <HelpKINode Title="LCD_5x10DOTS field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_5x10DOTS.htm" />
+  <HelpKINode Title="LCD_5x8DOTS field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_5x8DOTS.htm" />
+  <HelpKINode Title="LCD_8BITMODE field" Url="html/F-I2CLibrary.LCD2004.FunctionSet.LCD_8BITMODE.htm" />
+  <HelpKINode Title="LCD_BACKLIGHT_OFF field" Url="html/F-I2CLibrary.LCD2004.Backlight.LCD_BACKLIGHT_OFF.htm" />
+  <HelpKINode Title="LCD_BACKLIGHT_ON field" Url="html/F-I2CLibrary.LCD2004.Backlight.LCD_BACKLIGHT_ON.htm" />
+  <HelpKINode Title="LCD_BLINKOFF field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_BLINKOFF.htm" />
+  <HelpKINode Title="LCD_BLINKON field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_BLINKON.htm" />
+  <HelpKINode Title="LCD_CLEARDISPLAY field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_CLEARDISPLAY.htm" />
+  <HelpKINode Title="LCD_CURSORMOVE field" Url="html/F-I2CLibrary.LCD2004.DisplayMove.LCD_CURSORMOVE.htm" />
+  <HelpKINode Title="LCD_CURSOROFF field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_CURSOROFF.htm" />
+  <HelpKINode Title="LCD_CURSORON field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_CURSORON.htm" />
+  <HelpKINode Title="LCD_CURSORSHIFT field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_CURSORSHIFT.htm" />
+  <HelpKINode Title="LCD_DISPLAYCONTROL field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_DISPLAYCONTROL.htm" />
+  <HelpKINode Title="LCD_DISPLAYMOVE field" Url="html/F-I2CLibrary.LCD2004.DisplayMove.LCD_DISPLAYMOVE.htm" />
+  <HelpKINode Title="LCD_DISPLAYOFF field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_DISPLAYOFF.htm" />
+  <HelpKINode Title="LCD_DISPLAYON field" Url="html/F-I2CLibrary.LCD2004.ControlSet.LCD_DISPLAYON.htm" />
+  <HelpKINode Title="LCD_ENTRYLEFT field" Url="html/F-I2CLibrary.LCD2004.EntryMode.LCD_ENTRYLEFT.htm" />
+  <HelpKINode Title="LCD_ENTRYMODESET field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_ENTRYMODESET.htm" />
+  <HelpKINode Title="LCD_ENTRYRIGHT field" Url="html/F-I2CLibrary.LCD2004.EntryMode.LCD_ENTRYRIGHT.htm" />
+  <HelpKINode Title="LCD_ENTRYSHIFTDECREMENT field" Url="html/F-I2CLibrary.LCD2004.EntryMode.LCD_ENTRYSHIFTDECREMENT.htm" />
+  <HelpKINode Title="LCD_ENTRYSHIFTINCREMENT field" Url="html/F-I2CLibrary.LCD2004.EntryMode.LCD_ENTRYSHIFTINCREMENT.htm" />
+  <HelpKINode Title="LCD_FUNCTIONSET field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_FUNCTIONSET.htm" />
+  <HelpKINode Title="LCD_MOVELEFT field" Url="html/F-I2CLibrary.LCD2004.DisplayMove.LCD_MOVELEFT.htm" />
+  <HelpKINode Title="LCD_MOVERIGHT field" Url="html/F-I2CLibrary.LCD2004.DisplayMove.LCD_MOVERIGHT.htm" />
+  <HelpKINode Title="LCD_RETURNHOME field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_RETURNHOME.htm" />
+  <HelpKINode Title="LCD_SETCGRAMADDR field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_SETCGRAMADDR.htm" />
+  <HelpKINode Title="LCD_SETDDRAMADDR field" Url="html/F-I2CLibrary.LCD2004.Command.LCD_SETDDRAMADDR.htm" />
+  <HelpKINode Title="LeftToRight method" Url="html/M-I2CLibrary.Lcd2004.LeftToRight.htm" />
+  <HelpKINode Title="LineCursor method" Url="html/M-I2CLibrary.Lcd2004.LineCursor.htm" />
+  <HelpKINode Title="Print method" Url="html/M-I2CLibrary.Lcd2004.Print.htm" />
+  <HelpKINode Title="RightToLeft method" Url="html/M-I2CLibrary.Lcd2004.RightToLeft.htm" />
+  <HelpKINode Title="ScrollDisplayLeft method" Url="html/M-I2CLibrary.Lcd2004.ScrollDisplayLeft.htm" />
+  <HelpKINode Title="ScrollDisplayRight method" Url="html/M-I2CLibrary.Lcd2004.ScrollDisplayRight.htm" />
+  <HelpKINode Title="SetCursor method" Url="html/M-I2CLibrary.Lcd2004.SetCursor.htm" />
+</HelpKI>

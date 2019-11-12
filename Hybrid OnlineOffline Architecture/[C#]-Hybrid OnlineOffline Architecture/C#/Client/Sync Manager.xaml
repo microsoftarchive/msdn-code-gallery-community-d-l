@@ -1,0 +1,17 @@
+﻿<Window x:Class="Client.SyncManager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:Client.Properties"
+        xmlns:my="clr-namespace:Client"
+        Title="Sync Manager" Height="199" Width="300">
+    <Window.Resources>
+        <p:Settings x:Key="Settings" />
+    </Window.Resources>
+    <Grid DataContext="{Binding Source={StaticResource Settings}, Path=Default}">
+        <Button Content="Start" Height="23" HorizontalAlignment="Left" Name="start" VerticalAlignment="Top" Width="75" Click="start_Click" Margin="93,48,0,0" />
+        <Button Content="Synchronise" Height="23" HorizontalAlignment="Left" Margin="93,87,0,0" Name="synchronise" VerticalAlignment="Top" Width="75" Click="synchronise_Click" />
+        <CheckBox Content="Start Online" Height="16" HorizontalAlignment="Left" Margin="38,12,0,0" Name="startOnline" VerticalAlignment="Top" IsChecked="{Binding Path=StartOnline}" />
+        <CheckBox Content="Sync After Close" Height="16" HorizontalAlignment="Right" Margin="0,12,35,0" Name="syncAfterClose" VerticalAlignment="Top" IsChecked="{Binding Path=SyncAfterClose}" />
+        <TextBlock Height="49" HorizontalAlignment="Left" Margin="38,116,0,0" Name="Synchronising" VerticalAlignment="Top" Width="191" FontSize="24" FontWeight="Bold" Foreground="DarkOliveGreen" Text="Synchronising ..." FontStyle="Italic" Visibility="Hidden" />
+    </Grid>
+</Window>

@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+<h2>FieldEngineer Manager View</h2>
+<p class="lead">This View lets you create Jobs and Reset Job status for FieldEngineer Client Apps</p>
+
+
+<div>
+    <ul style="font-size:large">
+        <li>@Html.ActionLink("Create Job", "Create", "Jobs")</li>
+        <li>@Html.ActionLink("Reset Jobs", "Delete", "Jobs")</li>
+    </ul>
+</div>

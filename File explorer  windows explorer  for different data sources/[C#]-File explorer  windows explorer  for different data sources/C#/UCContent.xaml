@@ -1,0 +1,178 @@
+﻿<UserControl x:Class="FileExplorer.UCContent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Name="ucContent"
+             xmlns:control="clr-namespace:FileExplorer"
+             xmlns:helper="clr-namespace:FileExplorer.Helper"
+             xmlns:self="clr-namespace:FileExplorer">
+
+  <UserControl.Resources>
+    <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+    <helper:ReverseVisibilityConverter x:Key="reverseVisibilityConverter"/>
+    <helper:GridColumnWidthConverter x:Key="gridViewWidthConverter" />
+    <helper:AndVisibilityConverter x:Key="andVisibilityConverter" />
+    <helper:ReverseBoolConverter x:Key="reverseBoolConverter" />
+
+    <!-- Up arrow -->
+    <DataTemplate x:Key="AscSortHeaderTemplate">
+      <DockPanel  Background="Transparent">
+        <TextBlock Text="{Binding }"  />
+        <Path x:Name="arrow" StrokeThickness="1" Fill="#FF4C4A4A"  Data="M 5,10 L 15,10 L 10,5 L 5,10" />
+      </DockPanel>
+    </DataTemplate>
+
+    <!-- Down arrow -->
+    <DataTemplate x:Key="DescSortHeaderTemplate">
+      <DockPanel Background="Transparent">
+        <TextBlock Text="{Binding}" />
+        <Path x:Name="arrow" StrokeThickness="1" Fill="#FF4C4A4A" Data="M 5,5 L 10,10 L 15,5 L 5,5" />
+      </DockPanel>
+    </DataTemplate>
+
+    <!-- Normal -->
+    <DataTemplate x:Key="NormalSortHeaderTemplate">
+      <DockPanel>
+        <TextBlock Text="{Binding }" />
+      </DockPanel>
+    </DataTemplate>
+
+    <SolidColorBrush x:Key="DefaultListBorder" Color="#88828790"/>
+
+  </UserControl.Resources>
+
+  <Grid>
+    <Grid Grid.Row="0">
+      <ListView  Margin="0,0,2,0" Name="lvContent"
+                 SelectionMode="Extended" TextBlock.Foreground="Black"
+                 Background="Transparent" BorderBrush="{StaticResource DefaultListBorder}"
+                 ItemsSource="{Binding ContentView,ElementName=ucContent}"
+                 MouseDoubleClick="lvContent_MouseDoubleClick"
+                 ButtonBase.Click="Header_Click"
+                 ContextMenuService.IsEnabled="false"
+                 Style="{x:Null}">
+        <ListView.Resources>
+          <Style TargetType="{x:Type ScrollBar}" BasedOn="{StaticResource {x:Type ScrollBar}}">
+            <Setter Property="ContextMenu" Value="{x:Null}"/>
+          </Style>
+          <Style TargetType="{x:Type MenuItem}" BasedOn="{StaticResource {x:Type MenuItem}}">
+            <Setter Property="Visibility" Value="Collapsed"/>
+          </Style>
+        </ListView.Resources>
+
+        <ListView.View>
+          <GridView x:Name="contentView">
+
+            <GridViewColumn  Width="30"
+                             self:ColumnWidthHelper.MinWidth="30"
+                             self:ColumnWidthHelper.MaxWidth="50">
+              <GridViewColumn.Header >
+                <CheckBox x:Name="chkAll" Background="Transparent"
+                           IsEnabled="{Binding IsCheckEnabled,ElementName=ucContent}"
+                           IsChecked="{Binding IsChecked,Mode=TwoWay,ElementName=ucContent}"
+                           VerticalAlignment="Center"  HorizontalAlignment="Left"/>
+              </GridViewColumn.Header>
+
+              <GridViewColumn.CellTemplate>
+                <DataTemplate >
+                  <CheckBox Margin="2,0,0,0" x:Name="chk"
+                            Click="ItemCheckBox_Click"
+                            IsEnabled="{Binding IsEnabled}"
+                            IsChecked="{Binding IsChecked,Mode=TwoWay}"
+                            VerticalAlignment="Center" >
+                    <CheckBox.Resources>
+                      <Style TargetType="CheckBox" BasedOn="{StaticResource Ux_checkBoxStyle}">
+                        <Style.Triggers>
+                          <Trigger Property="IsEnabled"  Value="False">
+                            <Setter Property="Opacity" Value=".5" />
+                            <Setter Property="Background" Value="#808080" />
+                            <Setter Property="Foreground" Value="#808080" />
+                          </Trigger>
+                        </Style.Triggers>
+                      </Style>
+                    </CheckBox.Resources>
+                  </CheckBox>
+
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+
+            <GridViewColumn Width="200" x:Name="colName"   Header="{DynamicResource IDS_LIST_VIEW_COLUMN_NAME}"
+                            HeaderTemplate="{StaticResource AscSortHeaderTemplate}"
+                            self:ColumnWidthHelper.MinWidth="100" self:ColumnWidthHelper.MaxWidth="400"
+                            self:ColumnWidthHelper.SortPropertyName="Name">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate >
+                  <StackPanel Orientation="Horizontal" Margin="0,2" >
+                    <Image Source="{Binding Icon}"  Margin="1,0,5,0" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding Title}" VerticalAlignment="Center"  TextTrimming="CharacterEllipsis"
+                               Width="{Binding Path=Width,ElementName=colName,Converter={StaticResource gridViewWidthConverter}}"
+                               ToolTip="{Binding Title}"/>
+                  </StackPanel>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+
+            <GridViewColumn x:Name="colMTime"
+                            Header="{DynamicResource IDS_LIST_VIEW_COLUMN_MODIFIED}"  Width="150"
+                            self:ColumnWidthHelper.MinWidth="80" self:ColumnWidthHelper.MaxWidth="250"
+                            self:ColumnWidthHelper.SortPropertyName="LastModifyTime">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate >
+                  <TextBlock Text="{Binding LastModifyTimeString}" VerticalAlignment="Center"  TextTrimming="CharacterEllipsis"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+
+            <GridViewColumn x:Name="colSize"
+                            Header="{DynamicResource IDS_LIST_VIEW_COLUMN_SIZE}" Width="80"
+                            self:ColumnWidthHelper.MinWidth="50" self:ColumnWidthHelper.MaxWidth="150"
+                            self:ColumnWidthHelper.SortPropertyName="Size">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding SizeString}" VerticalAlignment="Center"  TextTrimming="CharacterEllipsis"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+
+            <GridViewColumn x:Name="colTypeName"
+                             Header="{DynamicResource IDS_LIST_VIEW_COLUMN_TYPE}" Width="120"
+                             self:ColumnWidthHelper.MinWidth="80" self:ColumnWidthHelper.MaxWidth="200"
+                             self:ColumnWidthHelper.SortPropertyName="TypeName">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding TypeName}" VerticalAlignment="Center"  TextTrimming="CharacterEllipsis"/>
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+
+
+            <GridViewColumn x:Name="colFolder"
+                            Width="{Binding FolderPathWidth, ElementName=ucContent}"
+                            Header="{DynamicResource IDS_FOLDER}"
+                            self:ColumnWidthHelper.MinWidth="0" self:ColumnWidthHelper.MaxWidth="300"
+                            self:ColumnWidthHelper.SortPropertyName="FolderPath">
+              <GridViewColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding FolderPath}" VerticalAlignment="Center"  TextTrimming="CharacterEllipsis"
+           ToolTip="{Binding FolderPath}" />
+                </DataTemplate>
+              </GridViewColumn.CellTemplate>
+            </GridViewColumn>
+
+          </GridView>
+        </ListView.View>
+      </ListView>
+    </Grid>
+
+    <Grid Grid.Row="0">
+      <control:ImageAnim VerticalAlignment="Top" HorizontalAlignment="Center"
+                         Source="{StaticResource IMG_GifIndicator}" Width="50" Height="50" Margin="0,80,0,0"
+                         Visibility="{Binding IsLoading,ElementName=ucContent,Converter={StaticResource booleanToVisibilityConverter}}"/>
+
+      <TextBlock Text="{Binding EmptyHint,ElementName=ucContent}"
+                   VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,50,0,0"
+                   Visibility="{Binding IsEmpty,ElementName=ucContent,Converter={StaticResource booleanToVisibilityConverter}}"/>
+    </Grid>
+  </Grid>
+
+</UserControl>

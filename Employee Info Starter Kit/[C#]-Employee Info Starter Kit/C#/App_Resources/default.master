@@ -1,0 +1,107 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="Master_Default" CodeBehind="default.master.cs" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>EISK - Employee Info Starter Kit</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="description" content="Description of your web page goes here." />
+    <link rel="Shortcut Icon" href='<%# ResolveUrl ("~/App_Resources/images/favicon.ico") %>' />
+    <meta name="keywords" content="Keywords for you web page go here. Each keyword or group of keyword phrases are separated by a comma. Keep this keyword list short and relevant to the content of this specific page and also relevant to the tile of the specific page" />
+    <script type='text/javascript' src='<%# ResolveUrl ("~/App_Resources/client-scripts/framework/jquery-1.5.1.min.js") %>'></script>
+    <script type='text/javascript' src='<%# ResolveUrl ("~/App_Resources/client-scripts/app/left-menu.js") %>'></script>
+    <asp:ContentPlaceHolder ID="HeadContentPlaceHolder" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <div class="FullWidth HeaderTop HeaderGrad clearfix">
+        <div class="container_24 clearfix Header">
+            <a href="~" class="branding grid_11 alpha" runat="server"></a>
+            <div class="grid_13 UtilityMenu omega">
+                <div class="info-area">
+                    <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                        <LoggedInTemplate>
+                            Welcome <span class="bold">
+                                <asp:LoginName ID="HeadLoginName" runat="server" />
+                            </span>! |
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                    <asp:LinkButton runat="server" Text="Generate Data" ID="lbtGenerateTestData" OnClick="lbtGenerateTestData_Click" />
+                    |
+                    <asp:LoginStatus ID="HeadLoginStatus" runat="server" LogoutAction="Redirect" LogoutText="Logout"
+                        LogoutPageUrl="~/secured/log-in/log-out.aspx" />
+                </div>
+                <%-- <div class="search-box">
+                    <input type="text" id="search" class="text autoclear" accesskey="4" value="Search" />
+                </div>--%>
+            </div>
+        </div>
+    </div>
+    <div class="FullWidth ContentMain">
+        <div class="container_24 clearfix ContentArea">
+            <div class="grid_5 alpha">
+                <ul id="menu">
+                    <!-- menu rendering starts here -->
+                    <asp:Repeater runat="server" ID="rptrMenu" DataSourceID="SiteMapDataSource1" EnableViewState="False">
+                        <ItemTemplate>
+                            <li><a href="<%# this.ResolveUrl(Eval("Url") as string) %>">
+                                <%# Eval("Title") %></a>
+                                <asp:Repeater ID="rptrSubmenu" runat="server" DataSource='<%# ((SiteMapNode) Container.DataItem).ChildNodes %>'>
+                                    <HeaderTemplate>
+                                        <ul>
+                                    </HeaderTemplate>
+                                    <ItemTemplate>
+                                        <li><a href="<%# this.ResolveUrl(Eval("Url") as string) %>">
+                                            <%# Eval("Title") %></a> </li>
+                                    </ItemTemplate>
+                                    <FooterTemplate>
+                                        </ul>
+                                    </FooterTemplate>
+                                </asp:Repeater>
+                            </li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                    <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" />
+                    <!-- menu rendering ends here -->
+                </ul>
+            </div>
+            <div class="grid_19 omega">
+                <div class="temp breadCrumb clearfix">
+                    <asp:SiteMapPath ID="SiteMapPath1" runat="server" CssClass="bc-container">
+                        <RootNodeStyle CssClass="first" />
+                        <NodeStyle />
+                        <CurrentNodeStyle CssClass="last" />
+                        <PathSeparatorStyle CssClass="bc-seperator" />
+                        <PathSeparatorTemplate>
+                        </PathSeparatorTemplate>
+                    </asp:SiteMapPath>
+                </div>
+                <asp:Literal runat="server" ID="ltlMessage" EnableViewState="false"></asp:Literal>
+                <asp:ContentPlaceHolder ID="BodyContentPlaceholder" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    <div class="FullWidth FooterMain ThemeGrad">
+        <div class="container_24 clearfix">
+            <div class="grid_14 clearfix eisk-info alpha suffix_1">
+                <p class="grid_14 branding-x2 alpha" title="Employee Info Starter Kit">
+                </p>
+                <p>
+                    Employee Info Starter Kit is a web application that illustrate a wide range of architectural
+                    guidelines and samples to address different types of real world challenges faced
+                    by web application developers.<br />
+                </p>
+                <p>
+                    Copyright &copy; <%= System.DateTime.Now.Year %> <a href="http://blog.ashraful.net" target="_blank">Ashraful Alam</a> <br />
+                    Project Site: <a href="http://eisk.codeplex.com" target="_blank">EISK</a> | 
+                    Product Release: <%= System.Reflection.Assembly.GetAssembly(typeof(Master_Default)).GetName().Version.ToString() %>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

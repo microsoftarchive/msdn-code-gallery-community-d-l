@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Installation and Build Dependencies</title>
+    <style type="text/css">
+        body { font-family: sans-serif }
+        h1 { text-align: center }
+        ol ol { list-style-type: lower-roman }
+    </style>
+</head>
+<body>
+    <h1>Installation and Build Dependencies</h1>
+    <h2>Configuration Files</h2>
+    <p>Remember that settings from dependent projects&#39; .config may need to be manually merged into the main application&#39;s .config.</p>
+    <h2>Database Server</h2>
+    <ol>
+        <li>Install SQL Server.</li>
+        <li>Build the Server project, then deploy the SQLCMD script from its output folder. Alternatively, double-click Server.publish.xml do build and publish.</li>
+    </ol>
+    <p>When deploying synchronisation capabilities to an existing database, the following two adjustments must be made to each table:</p>
+    <ol>
+        <li>Add a timestamp column.</li>
+        <li>Add a trigger that will update the timestamp when a row changes.</li>
+    </ol>
+    <h2>Web Server</h2>
+    <ol>
+        <li>Install the Services project as an IIS application.</li>
+        <li>Enable net.tcp transport.</li>
+        <li>Edit the .config file to ensure that the connection strings and WCF configuration are correct.</li>
+    </ol>
+    <h2>Client</h2>
+    <ol>
+        <li>Install SQL Server Express on the client.</li>
+        <li>Create an empty database called Client.</li>
+        <li>Install the client application.</li>
+        <li>Edit the client&#39;s .config to ensure that the connection strings and WCF configuration are correct.<ol>
+            <li>The Tables setting is a CSV list of which tables to synchronise.</li>
+            </ol>
+        </li>
+    </ol>
+    <h2>ApexSQL Diff API</h2>
+    <p>ApexSQL&#39;s licensing requires certain files to be available to the application at runtime. These are copied to the output directory by post-build events in the
+        Services and Client applications. Beware that the WCF services will pop up a modal dialog upon the first schema synchronisation during the trial period, so someone
+        has to be watching out for this.</p>
+    <h3>x64</h3>
+    <p>The ApexSQL assemblies are x86. WcfSvcHost runs as x64. If you're running the solution from the IDE on an x64 machine, open a Visual Studio Command Prompt with administrator privileges
+        at <a href="file:///C:/Program Files (x86)/Microsoft Visual Studio 10.0/Common7/IDE">C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE</a>. Then run:</p>
+    <pre>copy WcfSvcHost.exe WcfSvcHost.exe.bak
+corflags /32BIT+ WcfSvcHost.exe /Force
+sn -Vr WcfSvcHost.exe</pre>
+    <h3>Synchronisation Conflicts</h3>
+    <p>In the event of a conflict, the server always wins. This can probably be changed to client always wins, but the API does not allow for anything else.</p>
+    <p>Deleted rows are not synchronised.</p>
+    <h2>Diagnostics</h2>
+    <p>The client and server are both configured to write WCF trace logs. The client also writes a plain-text error log. Inspect these to determine why it isn&#39;t working.
+    </p>
+    <h3>Common problems:</h3>
+    <ol>
+        <li>WAS must be running on the web server, and .NET 4 correctly registered with IIS.</li>
+        <li>The Services application requires write permissions for the location of its configuration log.</li>
+        <li>Requests from the client must make their way to the database server with a valid database logon that has the necessary permissions.</li>
+    </ol>
+    <h2>The IdRanges Table</h2>
+    <p>When a client connects to the server for the first time, it requests an ID range. These are tracked in the IdRanges table, and are negative. The server uses 
+        positive IDs.
+        The IdRange setting in the&nbsp; Service&#39;s .config defines how many IDs to allocate to each client. The same range is used across all tables.</p>
+    <h2>Solution Dependencies</h2>
+    <ul>
+        <li>The Database project uses <a href="http://msdn.microsoft.com/en-gb/data/hh297027">SQL Server Data Tools</a>.</li>
+        <li>The Client project uses <a href="http://www.ninject.org/">Ninject</a>, which can be installed with <a href="http://nuget.org/">NuGet</a>.</li>
+        <li>The Client project also uses the <a href="http://visualstudiogallery.msdn.microsoft.com/bd351303-db8c-4771-9b22-5e51524fccd3">Notify Property Weaver extension</a>
+            to implement INotifyPropertyChanged.</li>
+        <li>The Client and Services projects use <a href="http://www.apexsql.com/sql_tools_diffapi.aspx">ApexSQL Diff API</a>.</li>
+    </ul>
+    <h2>Schema Synchronisation</h2>
+    <p>The service and client have a SchemaVersion setting. Before the client synchronises, it checks the server's schema version. If this is greater than the client's
+        schema, it will download a snapshot of the server's schema, and synchronise its local database. The ApexSqlTables setting in SyncClient is a comma-delimited list
+        of regular expressions indicating which tables to synchronise. Ensure that none of the expressions match tracking tables.</p>
+</body>
+</html>

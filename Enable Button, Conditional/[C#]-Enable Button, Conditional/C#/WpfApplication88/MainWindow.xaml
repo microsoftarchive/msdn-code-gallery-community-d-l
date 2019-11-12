@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfApplication88.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        <DataGrid ItemsSource="{Binding MyList}" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}"/>
+                <DataGridCheckBoxColumn Header="Select" Binding="{Binding IsSelected, UpdateSourceTrigger=PropertyChanged}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Something is selected, do stuff!" Command="{Binding DoStuffCommand}" Width="200" Margin="0,10,0,0"/>
+    </StackPanel>
+</Window>

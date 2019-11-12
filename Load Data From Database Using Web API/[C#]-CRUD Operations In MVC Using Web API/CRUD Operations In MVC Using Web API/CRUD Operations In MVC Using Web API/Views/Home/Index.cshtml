@@ -1,0 +1,51 @@
+﻿<div class="jumbotron">
+    <a href="http://SibeeshPassion.com" class="btn btn-primary btn-lg"><h3>My Subscribers - Sibeesh Passion</h3></a>
+    
+    @section scripts
+        {
+        <script>
+            $(document).ready(function () {
+                $.ajax(
+                    {
+                        type: 'GET',
+                        dataType: 'json',
+                        contentType: 'application/json;charset=utf-8',
+                        url: 'http://localhost:3064/api/Subscribers',
+                        success: function (data) {
+                            try {
+                                debugger;
+                                var html = '<table><thead><th>Mail ID</th><th>Subscription ID</th><th>Subscription Date</th></thead><tbody>';
+                                $.each(data, function (key, val) {
+                                    debugger;
+                                    html += '<tr><td>'
+                                        + '<a ' + 'href="mailto:' + val.MailID + '">' + val.MailID + '</a>' +
+                                    '</td><td>' + val.SubscriberID + '</td><td>' + val.SubscribedDate + '</td></tr>';
+                                });
+                                html += '</tbody></table>';
+                                $('#myGrid').html(html);
+                            } catch (e) {
+                                console.log('Error while formatting the data : ' + e.message)
+                            }
+                        },
+                        error: function (xhrequest, error, thrownError) {
+                            console.log('Error while ajax call: ' + error)
+                        }
+
+                    }
+                    );
+            });
+        </script>
+
+    }
+    <style>
+        table,tr,td,th {
+            border:1px solid #ccc;
+            border-radius:5px;
+            padding:10px;
+            margin:10px;
+        }
+
+    </style>    
+    <div id="myGrid"></div>
+    <p><a href="http://SibeeshPassion.com" >Learn more &raquo;</a></p>
+</div>

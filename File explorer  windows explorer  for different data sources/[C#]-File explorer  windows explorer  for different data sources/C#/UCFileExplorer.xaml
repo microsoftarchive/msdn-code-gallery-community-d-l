@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="FileExplorer.UCFileExplorer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:self="clr-namespace:FileExplorer"
+             xmlns:helper="clr-namespace:FileExplorer.Helper"
+             Name="ucFileExplorer">
+  <UserControl.Resources>
+    <BooleanToVisibilityConverter x:Key="booleanToVisibilityConverter"/>
+    <helper:ReverseVisibilityConverter x:Key="reverseVisibilityConverter"/>
+    <helper:AndConverter x:Key="andConverter"/>
+    <helper:ReverseBoolConverter x:Key="reverseBoolConverter" />
+  </UserControl.Resources>
+
+  <Grid>
+
+    <Grid.RowDefinitions>
+      <RowDefinition  Height="auto"/>
+      <RowDefinition  Height="*"/>
+      <RowDefinition  Height="auto"/>
+    </Grid.RowDefinitions>
+
+    <Grid Grid.Row="0">
+      <self:UCSearchBox SearchKeyword="{Binding SearchViewModel.SearchKeyword,Mode=TwoWay}"
+                        NotFoundHint="{Binding SearchViewModel.NotFoundHint}"
+                        IsSearching="{Binding SearchViewModel.IsSearching}"
+                        IsSearchCompleted="{Binding SearchViewModel.IsSearchCompleted}"
+                        Visibility="{Binding Path=IsSearchEnabled,ElementName=ucFileExplorer,Converter={StaticResource booleanToVisibilityConverter}}"/>
+    </Grid>
+
+    <Grid Grid.Row="1">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition  Width="*"/>
+        <ColumnDefinition  Width="2*"/>
+      </Grid.ColumnDefinitions>
+
+      <Grid Grid.Column="0" HorizontalAlignment="Stretch">
+        <self:UCTree x:Name="ucTree" Visibility="{Binding SearchViewModel.IsSearchEnabled,Converter={StaticResource reverseVisibilityConverter}}"/>
+        <self:UCSearchCategory DataContext="{Binding SearchViewModel}"
+                               Visibility="{Binding IsSearchEnabled,Converter={StaticResource booleanToVisibilityConverter}}"/>
+      </Grid>
+
+      <Grid Grid.Column="1">
+        <self:UCContent  x:Name="ucContent" ContentView="{Binding ContentView}"
+                         EmptyHint="{DynamicResource IDS_FOLDER_EMPTY_HINT}"
+                         IsEnabled="{Binding CurrentFolder.IsEnabled}"
+                         IsChecked="{Binding CurrentFolder.IsChecked,Mode=TwoWay}"
+                         self:ColumnWidthHelper.Folder="{Binding CurrentFolder}"
+                         Visibility="{Binding SearchViewModel.IsSearchEnabled,Converter={StaticResource reverseVisibilityConverter}}">
+          <self:UCContent.IsLoading>
+            <MultiBinding Converter="{StaticResource andConverter}">
+              <Binding Path="CurrentFolder.IsLoading" />
+              <Binding Path="ContentView.IsEmpty" />
+            </MultiBinding>
+          </self:UCContent.IsLoading>
+
+          <self:UCContent.IsEmpty>
+            <MultiBinding Converter="{StaticResource andConverter}">
+              <Binding Path="CurrentFolder.IsLoading" Converter="{StaticResource reverseBoolConverter}"/>
+              <Binding Path="ContentView.IsEmpty" />
+            </MultiBinding>
+          </self:UCContent.IsEmpty>
+        </self:UCContent>
+
+        <self:UCContent  x:Name="ucSearchContent" DataContext="{Binding SearchViewModel}"
+                         ContentView="{Binding ContentView}"
+                         EmptyHint="{DynamicResource IDS_FOLDER_SEARCH_EMPTY_HINT}"
+                         Visibility="{Binding IsSearchEnabled,Converter={StaticResource booleanToVisibilityConverter}}"
+                         IsLoading="{Binding IsSearching}"
+                         IsChecked="{Binding IsChecked,Mode=TwoWay}"
+                         FolderPathWidth="200">
+          <self:UCContent.IsEmpty>
+            <MultiBinding Converter="{StaticResource andConverter}">
+              <Binding Path="IsSearching" Converter="{StaticResource reverseBoolConverter}"/>
+              <Binding Path="ContentView.IsEmpty" />
+            </MultiBinding>
+          </self:UCContent.IsEmpty>
+        </self:UCContent>
+
+      </Grid>
+    </Grid>
+
+    <!-- Test code for tree -->
+    <Grid Grid.Row="2"  Height="60" >
+
+      <StackPanel Grid.Row="0" Orientation="Horizontal"  >
+        <Button Content="Local" Width="60" Margin="20,0,0,0" Click="btnSource_Click"/>
+        <Button Content="Cloud"  Width="60" Margin="20,0,0,0" Click="btnSource_Click"/>
+        <Button Content="Json" Width="60" Margin="20,0,0,0" Click="btnSource_Click"/>
+        <Button Content="CDRom" Width="60" Margin="20,0,0,0" Click="btnSource_Click"/>
+
+        <Button Content="Get Path" x:Name="btnGet" Width="80" Margin="20,0,0,0"  Click="btnGet_Click" Background="#ff8888cc"/>
+        <Button Content="Set Path" x:Name="btnSet" Width="80" Margin="20,0,0,0" Click="btnSet_Click" Background="#ff8888cc"/>
+      </StackPanel>
+
+    </Grid>
+
+  </Grid>
+</UserControl>

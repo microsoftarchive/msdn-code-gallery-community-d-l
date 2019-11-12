@@ -1,0 +1,43 @@
+﻿<header>
+</header>
+<div  class="featured">
+    <section>
+     Search : <input type="text" id="txtSearch" />
+    </section>  
+   
+    
+    <script type="text/javascript">
+        $(function () {
+            $('#txtSearch').autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: '/api/values',
+                        type: 'GET',
+                        cache: false,
+                        data: request,
+                        dataType: 'json',
+                        success: function (json) {
+                            // call autocomplete callback method with results  
+                            response($.map(json, function (i, val) {
+                                return {
+                                    label: i,
+                                    value: val
+                                }
+                            }));
+                        },
+                        error: function (XMLHttpRequest, textStatus, errorThrown) {
+                            //alert('error - ' + textStatus);
+                            console.log('error', textStatus, errorThrown);
+                        }
+                    });
+                },
+                minLength: 2,
+                select: function (event, ui) {
+                    alert('you have selected ' + ui.item.label + ' ID: ' + ui.item.value);
+                    $('#txtSearch').val(ui.item.label);
+                    return false;
+                }
+            })
+        });
+   </script>
+</div>
