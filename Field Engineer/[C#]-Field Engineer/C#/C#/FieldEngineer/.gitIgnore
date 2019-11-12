@@ -1,4 +1,0 @@
-.nuget/NuGet.exe
-*.csproj.user
-packages/*
-performance/

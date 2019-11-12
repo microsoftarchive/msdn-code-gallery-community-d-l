@@ -1,5 +1,0 @@
-IMPORTANT: Use GenerateDatabae.sql to create the database, tables and data before running the projects else an exception will be thrown.
-
-See also an article/code sample I did for common DataGridViewComboBox operations: https://code.msdn.microsoft.com/DataGridview-ComboBox-usage-26010f73
-
-

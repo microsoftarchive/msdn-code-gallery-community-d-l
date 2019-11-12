@@ -1,9 +1,0 @@
-﻿<Window x:Class="LocalTileLayer.WPF.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <m:Map Name="MyMap" Center="51.554,0.6877" ZoomLevel="15" CredentialsProvider="YOUR_BING_MAPS_KEY"/>
-    </Grid>
-</Window>

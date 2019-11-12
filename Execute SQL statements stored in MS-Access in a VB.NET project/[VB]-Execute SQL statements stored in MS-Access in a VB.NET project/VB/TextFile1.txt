@@ -1,6 +1,0 @@
-﻿This is the original SQL that we are working on in MainForm, cmdWhere2 click event.
-
-PARAMETERS CountryParam Text ( 255 );
-SELECT Customer.CustomerID, Customer.CompanyName AS Company, Customer.ContactName AS Contact, Customer.ContactTitle AS Title, Customer.Address, Customer.City, Customer.PostalCode AS Postal, Customer.Country, Customer.Phone
-FROM Customer
-WHERE Country=CountryParam;

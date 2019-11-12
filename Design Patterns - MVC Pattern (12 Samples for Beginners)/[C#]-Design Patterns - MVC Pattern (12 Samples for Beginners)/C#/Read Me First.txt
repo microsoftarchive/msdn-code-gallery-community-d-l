@@ -1,8 +1,0 @@
-Download Visual Studio 2010 Ultimate and ASP.NET MVC3
-
-VS2010:	 http://www.microsoft.com/en-us/download/details.aspx?id=12187
-ASP.NET MVC3 : http://www.asp.net/mvc/mvc3
-
-While running samples in this solution remember to close all opened files.
-
-Otherwise you will face compilation errors. 

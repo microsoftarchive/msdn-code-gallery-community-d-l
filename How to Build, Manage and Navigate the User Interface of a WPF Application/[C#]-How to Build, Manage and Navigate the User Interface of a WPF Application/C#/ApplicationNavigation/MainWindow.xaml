@@ -1,6 +1,0 @@
-﻿<NavigationWindow x:Class="ApplicationNavigation.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Navigation Window" Height="600" Width="550" 
-        Background="#FFFFE9E9" Source="View/Page0.xaml" >
-</NavigationWindow>

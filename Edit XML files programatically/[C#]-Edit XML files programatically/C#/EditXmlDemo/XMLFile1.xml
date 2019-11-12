@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<appSettings>
-  <add key="URL" value="http://" />
-  <add key="Server2ClientPort" value="1234" />
-  <add key="ServerAddress" value="hello" />
-</appSettings>

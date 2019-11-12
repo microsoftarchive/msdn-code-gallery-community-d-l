@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="f0c462c2-2502-40b5-8ffd-a0418c9efcfe" solutionId="f0c462c2-2502-40b5-8ffd-a0418c9efcfe" resetWebServer="false" sharePointProductVersion="15.0" name="RestExt" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
-  <assemblies>
-    <projectOutputAssembly location="CJG.ServerStub.dll" deploymentTarget="GlobalAssemblyCache" projectPath="..\CJG.ServerStub\CJG.ServerStub.csproj" />
-  </assemblies>
-  <projectItems>
-    <projectItemReference itemId="e6927d03-38b7-4448-b06d-91296884224a" />
-  </projectItems>
-</package>

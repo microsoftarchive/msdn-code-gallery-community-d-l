@@ -1,5 +1,0 @@
-﻿USE [FlowTransactionServerDB]
-GO
-
-CREATE TABLE [dbo].[Table_1]([Id] [nvarchar](50) NOT NULL, [CreatedOn] DATETIME NOT NULL DEFAULT GETDATE(), CONSTRAINT [PK_Table_A] PRIMARY KEY CLUSTERED ([Id] ASC)) ON [PRIMARY]
-GO

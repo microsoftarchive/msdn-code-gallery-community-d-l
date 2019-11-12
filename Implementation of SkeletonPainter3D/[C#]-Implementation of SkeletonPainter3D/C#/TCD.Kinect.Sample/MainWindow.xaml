@@ -1,9 +1,0 @@
-﻿<Window x:Class="TCD.Kinect.Sample.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:kinect="clr-namespace:TCD.Kinect.Controls;assembly=TCD.Kinect.Controls"
-        Title="TCD.Kinect.Sample" Height="350" Width="525" Loaded="MainWindow_Loaded">
-    <Grid>
-        <kinect:SkeletonPainter3D x:Name="painter" Background="Black" IsAnaglyphEnabled="False" CameraFieldOfView="70" CameraPosition="0,0.5,-1" CameraLookAt="0,0,2" />
-    </Grid>
-</Window>

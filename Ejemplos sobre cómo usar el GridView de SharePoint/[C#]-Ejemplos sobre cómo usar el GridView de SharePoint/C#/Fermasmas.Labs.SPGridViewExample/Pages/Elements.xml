@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
-  <Module Name="Pages" Url="Lists/AsgardPagesLibrary" List="101">
-    <File Path="Pages\AsgardWebPartPage.aspx" Url="AsgardWebPartPage.aspx" Type="GhostableInLibrary" />
-  </Module>
-</Elements>

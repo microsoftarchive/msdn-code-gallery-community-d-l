@@ -1,8 +1,0 @@
-﻿<Window x:Class="EasyWpfLoginNavigateExample.View.Window2"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Another window" Height="100" Width="250" WindowStartupLocation="CenterScreen">
-    <Grid>
-        <TextBlock Text="Opened by ApplicationController" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </Grid>
-</Window>

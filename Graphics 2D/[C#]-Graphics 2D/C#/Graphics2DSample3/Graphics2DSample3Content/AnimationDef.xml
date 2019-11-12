@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Animations>
-  <Definition FrameWidth="204" FrameHeight="204" 
-              SheetRows="1" SheetColumns="10" 
-              Speed="10" 
-              SheetName="WalkingCartoon"/>
-</Animations>

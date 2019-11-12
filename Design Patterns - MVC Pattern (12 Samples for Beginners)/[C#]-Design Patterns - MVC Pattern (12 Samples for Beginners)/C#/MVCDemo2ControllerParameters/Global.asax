@@ -1,1 +1,0 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="MVCDemo2ControllerParameters.MvcApplication" Language="C#" %>

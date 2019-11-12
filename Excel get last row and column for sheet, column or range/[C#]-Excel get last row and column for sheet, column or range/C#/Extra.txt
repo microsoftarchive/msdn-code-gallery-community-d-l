@@ -1,8 +1,0 @@
-If by chance you are a vb.net developer then check out my code sample below
-
-Excel get used rows and columns
-https://code.msdn.microsoft.com/Excel-get-used-rows-and-15b43cb7
-
-The samples in the above code sample are the same topic but done differently and are lacking
-in same areas and vis-versa for this article so in short, same topic different methods.
-

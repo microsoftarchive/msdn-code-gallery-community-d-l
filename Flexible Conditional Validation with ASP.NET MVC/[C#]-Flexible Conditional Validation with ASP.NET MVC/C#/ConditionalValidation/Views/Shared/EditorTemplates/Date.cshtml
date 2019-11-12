@@ -1,7 +1,0 @@
-﻿@model DateTime
-@{
-    // might want to use formats based on the user's locale ;-)
-    var serverDateFormat = "dd/MM/yyyy";
-    var clientDateFormat = "dd/mm/yy"; 
-}           
-@Html.TextBox("", Model.ToString(serverDateFormat), new { data_dateformat = clientDateFormat })

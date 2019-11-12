@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<sites>
-  <add address="" port="" userName="" password="" security="0" desc="&lt;Empty&gt;"/>
-  <add address="demo.componentpro.com" port="22" userName="test" password="test" security="0" desc="ComponentPro SFTP Test Server - SSH Server"/>
-</sites>

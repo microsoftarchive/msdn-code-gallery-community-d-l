@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Factory="System.ServiceModel.Activation.WebServiceHostFactory" Service="WSFederationSecurityTokenService.WSFederationSecurityTokenService" CodeBehind="WSFederationSecurityTokenService.svc.cs" %>

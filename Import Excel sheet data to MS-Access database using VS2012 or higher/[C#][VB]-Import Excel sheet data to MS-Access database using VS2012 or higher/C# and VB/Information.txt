@@ -1,1 +1,0 @@
-A solution which shows how to import data from MS-Excel to MS-Access.

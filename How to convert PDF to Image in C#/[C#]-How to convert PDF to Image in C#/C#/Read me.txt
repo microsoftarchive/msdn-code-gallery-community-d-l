@@ -1,2 +1,0 @@
-This PQScan.PDFToImage.dll is only for .net 2.0 in x86.
-We also provide PDF To Image SDK for .net 3.5, .net 4.0, and .net 4.5 in both x86 and x64. You can see http://www.pqscan.com/pdf-to-image/ for more.

@@ -1,9 +1,0 @@
-﻿@model ASPNETMVC_SSRS_Demo.Models.ReportInfo
-
-<H1>
-    @Model.ReportDescription
-</H1>
- 
-<iframe id="frmReport" src="@Model.ReportURL" frameborder="0" style="@String.Format("width:{0}%; height: {1}px;", Model.Width, Model.Height)" scrolling="no">
- 
-</iframe>

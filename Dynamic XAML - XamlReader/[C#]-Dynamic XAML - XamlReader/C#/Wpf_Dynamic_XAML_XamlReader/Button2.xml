@@ -1,8 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Button 
-    Width="120"
-    Height="24"
-    Command="{Binding Hello}"
-    >
-    Button in xml File
-</Button>

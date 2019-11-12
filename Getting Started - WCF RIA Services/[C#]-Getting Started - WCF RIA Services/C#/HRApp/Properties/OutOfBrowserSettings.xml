@@ -1,7 +1,0 @@
-﻿<OutOfBrowserSettings ShortName="HRApp Application" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
-  <OutOfBrowserSettings.Blurb>HRApp Application on your desktop; at home, at work or on the go.</OutOfBrowserSettings.Blurb>
-  <OutOfBrowserSettings.WindowSettings>
-    <WindowSettings Title="HRApp Application" />
-  </OutOfBrowserSettings.WindowSettings>
-  <OutOfBrowserSettings.Icons />
-</OutOfBrowserSettings>
