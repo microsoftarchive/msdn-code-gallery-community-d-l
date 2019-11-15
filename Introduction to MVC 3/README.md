@@ -27,22 +27,22 @@
 <h3>What You'll Build</h3>
 <p class="auto-style1">You'll implement a simple movie-listing application that supports creating, editing and listing movies from a database. Below are two screenshots of the application you&rsquo;ll build. It includes a page that displays a list of movies
  from a database:</p>
-<p class="auto-style1"><img src="49573-windowslivewriter_introtoasp.netmvc3_e539_movieswithvarioussm_thumb%5b1%5d.png" alt="" width="651" height="412"></p>
+<p class="auto-style1"><img src="http://i1.code.msdn.s-msft.com/introduction-to-mvc-3-10d1b098/image/file/49573/1/windowslivewriter_introtoasp.netmvc3_e539_movieswithvarioussm_thumb%5b1%5d.png" alt="" width="651" height="412"></p>
 <p>&nbsp;</p>
 <p>The application also lets you add, edit, and delete movies as well as see details about individual ones. All data-entry scenarios include validation to ensure that the data stored in the database is correct.</p>
-<p><img src="49574-windowslivewriter_introtoasp.netmvc3_e539_createerror_thumb_1%5b1%5d.png" alt="" width="623" height="715"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/introduction-to-mvc-3-10d1b098/image/file/49574/1/windowslivewriter_introtoasp.netmvc3_e539_createerror_thumb_1%5b1%5d.png" alt="" width="623" height="715"></p>
 <p>&nbsp;</p>
 <h3>Skills You'll Learn</h3>
 <p>Here's what you'll learn:</p>
 <ul>
-<li><img src="19356-aspnet.png" alt="" width="16" height="16">&nbsp;<a href="http://www.asp.net/mvc/tutorials/getting-started-with-mvc3-part1-cs" target="_blank">How to create a new
- ASP.NET MVC project</a>&nbsp; </li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/adding-a-controller" target="_blank"><img src="19356-aspnet.png" alt="" width="16" height="16">&nbsp;How
- to add a controller </a></li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/adding-a-view"><img src="19356-aspnet.png" alt="" width="16" height="16">&nbsp;How to add a view
-</a></li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/adding-a-model"><img src="19356-aspnet.png" alt="" width="16" height="16">&nbsp;How to&nbsp;access
- your Model's Data from a controller </a></li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/accessing-your-model's-data-from-a-controller"><img src="19356-aspnet.png" alt="" width="16" height="16">&nbsp;How
- to add a create method and create view </a></li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/adding-a-new-field"><img src="19356-aspnet.png" alt="" width="16" height="16">&nbsp;How to add a
- new field to a data model and view </a></li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model"><img src="19356-aspnet.png" alt="" width="16" height="16">&nbsp;How
- to enable data validation </a></li><li><img src="19356-aspnet.png" alt="" width="16" height="16">&nbsp;<a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods">How
+<li><img src="http://i2.code.msdn.microsoft.com/introduction-to-mvc-3-10d1b098/image/file/19356/1/aspnet.png" alt="" width="16" height="16">&nbsp;<a href="http://www.asp.net/mvc/tutorials/getting-started-with-mvc3-part1-cs" target="_blank">How to create a new
+ ASP.NET MVC project</a>&nbsp; </li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/adding-a-controller" target="_blank"><img src="http://i2.code.msdn.microsoft.com/introduction-to-mvc-3-10d1b098/image/file/19356/1/aspnet.png" alt="" width="16" height="16">&nbsp;How
+ to add a controller </a></li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/adding-a-view"><img src="http://i2.code.msdn.microsoft.com/introduction-to-mvc-3-10d1b098/image/file/19356/1/aspnet.png" alt="" width="16" height="16">&nbsp;How to add a view
+</a></li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/adding-a-model"><img src="http://i2.code.msdn.microsoft.com/introduction-to-mvc-3-10d1b098/image/file/19356/1/aspnet.png" alt="" width="16" height="16">&nbsp;How to&nbsp;access
+ your Model's Data from a controller </a></li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/accessing-your-model's-data-from-a-controller"><img src="http://i2.code.msdn.microsoft.com/introduction-to-mvc-3-10d1b098/image/file/19356/1/aspnet.png" alt="" width="16" height="16">&nbsp;How
+ to add a create method and create view </a></li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/adding-a-new-field"><img src="http://i2.code.msdn.microsoft.com/introduction-to-mvc-3-10d1b098/image/file/19356/1/aspnet.png" alt="" width="16" height="16">&nbsp;How to add a
+ new field to a data model and view </a></li><li><a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/adding-validation-to-the-model"><img src="http://i2.code.msdn.microsoft.com/introduction-to-mvc-3-10d1b098/image/file/19356/1/aspnet.png" alt="" width="16" height="16">&nbsp;How
+ to enable data validation </a></li><li><img src="http://i2.code.msdn.microsoft.com/introduction-to-mvc-3-10d1b098/image/file/19356/1/aspnet.png" alt="" width="16" height="16">&nbsp;<a href="http://www.asp.net/mvc/tutorials/getting-started-with-aspnet-mvc3/cs/improving-the-details-and-delete-methods">How
  to&nbsp;implement edit, details, and delete views</a> </li></ul>
 <p>&nbsp;</p>
 <h3>Getting Started</h3>

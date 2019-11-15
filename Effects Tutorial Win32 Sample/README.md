@@ -25,7 +25,7 @@ GitHub</a>.</p>
 <a href="http://go.microsoft.com/fwlink/?LinkId=320437">DXUT for Direct3D 11</a> framework and
 <a href="http://go.microsoft.com/fwlink/p/?LinkId=271568">Effects 11 library</a> for Win32 desktop applications.</p>
 <h1>Tutorial11</h1>
-<p><img id="121859" src="121859-tutorial11.jpg" alt="" width="200" height="150"></p>
+<p><img id="121859" src="http://i1.code.msdn.s-msft.com/effects-tutorial-win32-b03b8501/image/file/121859/1/tutorial11.jpg" alt="" width="200" height="150"></p>
 <p>This tutorial will emphasize on the capabilities of the vertex shader. It is meant to show the users the possibilities of allowing manipulation of vertices.</p>
 <p>The outcome of this tutorial will be a wave effect imposed on the character model from the previous tutorial. This effect is done entirely by the GPU with no CPU interaction with the data.</p>
 <h2>Vertex Shader</h2>
@@ -44,7 +44,7 @@ GitHub</a>.</p>
  effect, as it would be easier to determine the effects on the screen, since the x and y axis are apparent.</p>
 <pre>&nbsp;&nbsp;&nbsp; output.Pos = mul( output.Pos, View );<br>&nbsp;&nbsp;&nbsp; output.Pos = mul( output.Pos, Projection );&nbsp;</pre>
 <h1>Tutorial12</h1>
-<p><img id="121860" src="121860-tutorial12.jpg" alt="" width="200" height="150"></p>
+<p><img id="121860" src="http://i1.code.msdn.s-msft.com/effects-tutorial-win32-b03b8501/image/file/121860/1/tutorial12.jpg" alt="" width="200" height="150"></p>
 <p>This tutorial focuses on the pixel shader and its capabilities. There are many things that can be accomplished with the pixel shader, and some of the more common functions are listed. The pixel shader will apply an environment map to the object.</p>
 <p>The outcome of the tutorial is that the model will become shiny, and it will reflect its surrounding environment.</p>
 <h2>Pixel Shaders</h2>
@@ -79,7 +79,7 @@ GitHub</a>.</p>
 <p>As a bonus, we included the code to do the original flat texture lookup, and computed that as the diffuse term. To play with the amount of reflection, you can modulate cReflect by a scaling factor against cDiffuse and experiment with the results. You can
  have a very reflective character or a somewhat dull character.</p>
 <h1>Tutorial13</h1>
-<p><img id="121861" src="121861-tutorial13.jpg" alt="" width="200" height="150"></p>
+<p><img id="121861" src="http://i1.code.msdn.s-msft.com/effects-tutorial-win32-b03b8501/image/file/121861/1/tutorial13.jpg" alt="" width="200" height="150"></p>
 <p>This tutorial will explore a part of the graphics pipeline that has not been touched in the previous tutorials. We will be touching upon some basic geometry shader functionality.</p>
 <p>The outcome of this tutorial is that the model will have a second layer extruded from the model. Note that the original model is still preserved at the center.</p>
 <h2>Geometry Shader</h2>
@@ -130,7 +130,7 @@ GitHub</a>.</p>
 <pre>&nbsp;&nbsp;&nbsp; TriStream.RestartStrip();</pre>
 <p>This new triangle stream is then sent to the pixel shader, which will operate on this data and draw it to the render target.</p>
 <h1>Tutorial14</h1>
-<p><img id="121862" src="121862-tutorial14.jpg" alt="" width="200" height="150"></p>
+<p><img id="121862" src="http://i1.code.msdn.s-msft.com/effects-tutorial-win32-b03b8501/image/file/121862/1/tutorial14.jpg" alt="" width="200" height="150"></p>
 <p>This tutorial will explore a very important, but often overlooked aspect of Direct3D 11 programming, state. While not as glamorous or as flashy as shaders, state changes are indispensibly important when it comes to graphics programming. In fact, the same
  shader can have drastically different visual results based solely upon the state of the device at the time of rendering.</p>
 <p>In this tutorial we will explore 3 main types of state objects, BlendStates, DepthStencilStates, and RasterizerStates. At the end of the tutorial, you should have a much better understanding of the way in which states interact to produce different representations
@@ -171,7 +171,7 @@ GitHub</a>.</p>
 <p>By using the SrcAlphaBlendingAdd structure above, we can translate the equation into the following</p>
 <pre>&nbsp;&nbsp;&nbsp; OutputPixel = ( SourceColor.rgba * SourceColor.aaaa ) ADD ( DestColor.rgba * (1,1,1,1) )</pre>
 <p>Graphically this can be displayed by the following diagram.</p>
-<p><img id="121863" src="121863-diagram.png" alt="" width="648" height="514"></p>
+<p><img id="121863" src="http://i1.code.msdn.s-msft.com/effects-tutorial-win32-b03b8501/image/file/121863/1/diagram.png" alt="" width="648" height="514"></p>
 <p>&nbsp;</p>
 <p>Thus, the output color is dependent on the color that was already in the framebuffer at the time of drawing. Different selections in the combo box will result in the quad being draw with different techniques, and hence, different Blend States. Each Blend
  State changes the variables to the equation, so be sure to experiment with them all. See if you can predict what will happen just by looking at the Blend State.</p>

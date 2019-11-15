@@ -72,7 +72,7 @@ GitHub</a>.</p>
 <p>Lastly, we must perform the simulation. The core of the simulation is unchanged; however, this time we need only search for potential neighbors within the adjacent cells. All we need to do is calculate our grid cell ID and the cell IDs of the neighboring
  cells. Using this we can look up the particles in those cells by looking at the indices built in the previous step. Then we check if the particle is within the search radius and perform the simulation same as before.</p>
 <h2>HDRToneMapping11</h2>
-<p><img id="96345" src="96345-hdrtonemappingcs11.jpg" alt="" width="90" height="68"></p>
+<p><img id="96345" src="http://i1.code.msdn.s-msft.com/directcompute-graphics-425de5a8/image/file/96345/1/hdrtonemappingcs11.jpg" alt="" width="90" height="68"></p>
 <p>HDRToneMappingCS11 shows how to setup and run the compute shader(CS), which is one of the most exciting new features of Direct3D 11. Although the sample only utilizes the CS to implement HDR tone-mapping, the concept should extend easily to other post-processing
  algorithms, as well as to more general calculations.</p>
 <h3>Overview</h3>
@@ -116,7 +116,7 @@ GitHub</a>.</p>
 <p>In order to update each single particle, the position of every other particles need to be accessed. This is very I/O intensive. To increase I/O efficiency, we use Compute Shader shared memory to cache a tile of particles, and then update against these cached
  particles instead of fetching them directly from video memory. Refer to NBodyGravityCS11.hlsl to see how this is done.&nbsp;</p>
 <h2>OIT11</h2>
-<p><img id="96346" src="96346-oit11.jpg" alt="" width="91" height="68"></p>
+<p><img id="96346" src="http://i1.code.msdn.s-msft.com/directcompute-graphics-425de5a8/image/file/96346/1/oit11.jpg" alt="" width="91" height="68"></p>
 <p>Demonstrates a technique for achieving order-independent transparency in Direct3D 11.</p>
 <h3>Overview</h3>
 <p>This sample, demonstrates a technique for achieving order-independent transparency in Direct3D 11. In other words, primitives can be drawn in any order, and transparency will be handled correctly. The technique works by buffering transparent pixels as they

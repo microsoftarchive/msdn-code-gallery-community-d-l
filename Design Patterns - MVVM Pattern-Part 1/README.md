@@ -145,7 +145,7 @@ http://gallery.technet.microsoft.com/OOPS-Principles-SOLID-017627d2/view/Reviews
 <div><span style="color:#008000; font-size:medium">&nbsp;</span>&nbsp;</div>
 <div><span style="color:#008000; font-size:medium">How MVVM Pattern Works?</span></div>
 <div>&nbsp;</div>
-<div><img id="65130" src="65130-mvvm.png" alt="" width="600" height="176"></div>
+<div><img id="65130" src="http://i1.gallery.technet.s-msft.com/mvvm-a18c737f/image/file/65130/1/mvvm.png" alt="" width="600" height="176"></div>
 <div><span style="color:#008000; font-size:small">&nbsp;</span></div>
 <div><span style="color:#008000; font-size:small">Look at&nbsp;the above flow diagram and communications between each component.&nbsp;</span></div>
 <div><span style="color:#808000; font-size:small">&nbsp;</span></div>
@@ -425,7 +425,7 @@ http://practicalmvvm.com/Manifesto/</a></span></div>
 <div class="endscriptcode"><span style="color:#808000; font-size:small">
 <div class="endscriptcode"></div>
 <span style="color:#000000; font-size:small"><span style="color:#000000; font-size:small">Thank you for reading my article. Drop all your questions/comments in QA tab give me your feedback with
-<span style="color:#3366ff"><img id="67168" src="67168-ratings.png" alt="" width="74" height="15">
+<span style="color:#3366ff"><img id="67168" src="http://i1.code.msdn.s-msft.com/oops-principles-solid-7a4e69bf/image/file/67168/1/ratings.png" alt="" width="74" height="15">
 <span style="color:#000000">star rating (1 Star - Very Poor, 5&nbsp;Star -&nbsp;Very Nice).
 </span></span></span>
 <div class="endscriptcode"><span style="color:#3366ff">&nbsp;</span></div>

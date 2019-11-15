@@ -70,9 +70,9 @@
 <h2>Example 2.3</h2>
 <p>The best method to generate the Menu in an MVVM context is to get the UI to generate the controls, based on data in the ViewModel. I have created a MyMenuItem class, which defines Header, Command and Children. I then bind a collection of these items and
  their children to the ItemsSource of a Menu, which is an ItemsControl. I then bind the class's properties to the control's properties in the ItemContainerStyle. The Menu is then auto-generated&nbsp;</p>
-<p><img id="110634" src="110634-bloggif_5323a39895c64.gif" alt=""></p>
+<p><img id="110634" src="http://i1.code.msdn.s-msft.com/windowsdesktop/easy-wpf-login-navigate-7a8d34a0/image/file/110634/1/bloggif_5323a39895c64.gif" alt=""></p>
 <p>I hope to write this up on TechNet WIki soon, with more images and code snippets, but meanwhile I hope you find this useful.</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><img src="-anithanks1.gif" alt="" style="display:block; margin-left:auto; margin-right:auto"></p>
+<p><img src="http://213.163.64.28/aniThanks1.gif" alt="" style="display:block; margin-left:auto; margin-right:auto"></p>

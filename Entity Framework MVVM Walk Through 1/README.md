@@ -80,7 +80,7 @@ This first sample will offer Create, Read, Update and Delete (CRUD) on Customers
 Now you have a database you can start using Entity Framework. <br>
 The first thing you're going to need is an Entity Data Model. <br>
 If this is a new subject to you then you are probably best taking a look at this <a href="http://msdn.microsoft.com/en-us/data/jj206878" target="_blank">
-page <img title="This link is external to TechNet Wiki. It will open in a new window." src="-10_5f00_external.png" border="0" alt="">
+page <img title="This link is external to TechNet Wiki. It will open in a new window." src="http://social.technet.microsoft.com/wiki/cfs-file.ashx/__key/communityserver-components-sitefiles/10_5F00_external.png" border="0" alt="">
 </a><br>
 That video is pretty good but somewhat outdated and aimed at a console application, the approach for EF6 is still very similar though.&nbsp;<br>
 <br>
@@ -215,7 +215,7 @@ Another approach which is fairly popular is to make the entity a member of a Vie
  another layer of control over what processing you apply to each property as it is set but at the price of a fair bit of code.<br>
 Although it uses a plain class rather than an entity you can see this in the sample
 <a href="https://gallery.technet.microsoft.com/WPF-Highlight-Changed-a77976d4" target="_blank">
-here <img title="This link is external to TechNet Wiki. It will open in a new window." src="-10_5f00_external.png" border="0" alt="">
+here <img title="This link is external to TechNet Wiki. It will open in a new window." src="http://social.technet.microsoft.com/wiki/cfs-file.ashx/__key/communityserver-components-sitefiles/10_5F00_external.png" border="0" alt="">
 </a>, along with a code snippet to speed up writing those particular property wrappers.</p>
 <p><span>The author's opinion is that if you need extra functionality then introduce the complexity of a wrapper. &nbsp;If you don't then it's added complexity for no gain.</span><br>
 Such wrapping adds a bit more complexity and this article is intended to be as simple as practical so the approach is good, but not used here.</p>
@@ -344,7 +344,7 @@ Another alternative would be to use delayed binding and get the data in viewmode
 <div class="endscriptcode">
 <div class="endscriptcode">As you can see from the snippet, the Navigate command holds an instance of a View which will be used again on navigation after the first call. &nbsp;State is therefore maintained. &nbsp;If, for whatever reason, you did not wish
  to retain state then you could instead instantiate a new UserControl every time.&nbsp;</div>
-<p>NavigateMessage is subscribed to by the MainWindow code behind. &nbsp;The method called make the UserControl passed in the message the contents of the MainWindow Frame. This uses MVVM Light messaging and the technique is described in greater detail&nbsp;<a href="https://code.msdn.microsoft.com/Communicating-Between-64ffead2" target="_blank">here&nbsp;<img title="This link is external to TechNet Wiki. It will open in a new window." src="-10_5f00_external.png" border="0" alt=""></a></p>
+<p>NavigateMessage is subscribed to by the MainWindow code behind. &nbsp;The method called make the UserControl passed in the message the contents of the MainWindow Frame. This uses MVVM Light messaging and the technique is described in greater detail&nbsp;<a href="https://code.msdn.microsoft.com/Communicating-Between-64ffead2" target="_blank">here&nbsp;<img title="This link is external to TechNet Wiki. It will open in a new window." src="http://social.technet.microsoft.com/wiki/cfs-file.ashx/__key/communityserver-components-sitefiles/10_5F00_external.png" border="0" alt=""></a></p>
 <p>MainWindow code behind.</p>
 </div>
 <div class="scriptcode">

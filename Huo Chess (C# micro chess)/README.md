@@ -47,7 +47,7 @@ Codeproject Huo Chess site</a>).</p>
 <em>ComputerMove</em> function) and then tries all possible moves it can make. It analyzes these moves up to the thinking depth I have defined (via the
 <em>ComputerMove</em> -&gt; <em>Analyze_Move_1_HumanMove</em>&nbsp;-&gt;&nbsp;<em>Analyze_Move_2_ComputerMove</em>&nbsp;path), measures the score (see
 <em>CountScore</em> function) of the final position reached from all possible move variants and &ndash; finally &ndash; chooses the move that leads to the most promising (from a score point of view) position (<em>ComputerMove</em> function).</p>
-<p><img id="123672" src="123672-huo%20chess%200_961%20algorithm_1_small.jpg" alt="" width="600" height="508"><br>
+<p><img id="123672" src="http://i1.code.msdn.s-msft.com/windowsapps/huo-chess-c-c-vb-micro-fea2bb87/image/file/123672/1/huo%20chess%200_961%20algorithm_1_small.jpg" alt="" width="600" height="508"><br>
 <br>
 IMPORTANT NOTE by Author [Spyridon I. Kakos]: Huo Chess is intelligently designed, but it also evolves. The current version is stable. If you happen to play with Huo Chess and find any problems, make sure to tell me so that I can see what the problem is and
  try to fix it. Thanks in advance for your feedback and comments!</p>

@@ -38,7 +38,7 @@
 <p>All application&nbsp;functionality and navigation is done by the ViewModels</p>
 <p>&nbsp;</p>
 <h2><strong>MainWindow - Classic INotifyPropertyChanged</strong></h2>
-<p><img id="66203" src="66203-mvvm1.png" alt="" width="456" height="395"></p>
+<p><img id="66203" src="http://i1.code.msdn.s-msft.com/easy-mvvm-examples-fb8c409f/image/file/66203/1/mvvm1.png" alt="" width="456" height="395"></p>
 <p>This is the classic MVVM configuration,&nbsp;implementing INotifyPropertyChanged in a base class (ViewModelBase)</p>
 <p>The ViewModel is attached by the View itself, in XAML. This&nbsp;is fine&nbsp;if the ViewModel constructor has no parameters.</p>
 <p>It has a ListBox, DataGrid and ComboBox all with ItemsSource to the same collection, and the same SeletedItem.</p>
@@ -48,7 +48,7 @@
 <p>Closing the Window is just a nasty code behind hack, the simplest and worst of the examples.</p>
 <p>&nbsp;</p>
 <h2><strong>Window1</strong></h2>
-<p><img id="66204" src="66204-mvvm2.png" alt="" width="345" height="304"></p>
+<p><img id="66204" src="http://i1.code.msdn.s-msft.com/easy-mvvm-examples-fb8c409f/image/file/66204/1/mvvm2.png" alt="" width="345" height="304"></p>
 <p>This window simply shows how you can attach the ViewModel to the DataContext in code, done by MainWindow.</p>
 <p>&nbsp;</p>
 <div class="scriptcode">
@@ -105,7 +105,7 @@
 <p>Closing this Window uses the nicest way to do it, using an Attached&nbsp;Behaviour (Property)&nbsp;with a binding to a flag in the ViewModelBase. In our ViewModel we simply call CloseWindow()</p>
 <p>&nbsp;</p>
 <h2><strong>Window 2</strong></h2>
-<p><img id="66205" src="66205-mvvm3.png" alt="" width="316" height="295"></p>
+<p><img id="66205" src="http://i1.code.msdn.s-msft.com/easy-mvvm-examples-fb8c409f/image/file/66205/1/mvvm3.png" alt="" width="316" height="295"></p>
 <p>This example shows the alternative to INotifyPropertyChanged - DependencyObject and Dependency Properties.</p>
 <p>&nbsp;</p>
 <div class="scriptcode">
@@ -156,7 +156,7 @@ public&nbsp;static&nbsp;readonly&nbsp;DependencyProperty&nbsp;SelectedPersonProp
 <div class="endscriptcode">In this example, we still use the Attached Property in the Window XAML, to close the Window, but the property is another Dependency Property in the ViewModel.</div>
 <div class="endscriptcode"></div>
 <h2 class="endscriptcode"><strong>Window 3</strong></h2>
-<div class="endscriptcode"><img id="66206" src="66206-mvvm4.png" alt="" width="437" height="363"></div>
+<div class="endscriptcode"><img id="66206" src="http://i1.code.msdn.s-msft.com/easy-mvvm-examples-fb8c409f/image/file/66206/1/mvvm4.png" alt="" width="437" height="363"></div>
 <div class="endscriptcode">A POCO class in WPF/MVVM terms is one that does not provide any PropertyChanged events. This would usually be legacy code modules, or&nbsp;converting from WinForms.</div>
 <div class="endscriptcode"></div>
 <div class="endscriptcode">If a POCO class is used in the classic INPC setup, things start to go wrong.</div>
@@ -167,11 +167,11 @@ public&nbsp;static&nbsp;readonly&nbsp;DependencyProperty&nbsp;SelectedPersonProp
 <div class="endscriptcode">Also, clicking the button to add a new person does not seem to work, until you try to add a user in the DataGrid.</div>
 <div class="endscriptcode"></div>
 <h2 class="endscriptcode"><strong>Window 4</strong></h2>
-<div class="endscriptcode"><img id="66207" src="66207-mvvm5.png" alt="" width="437" height="386"></div>
+<div class="endscriptcode"><img id="66207" src="http://i1.code.msdn.s-msft.com/easy-mvvm-examples-fb8c409f/image/file/66207/1/mvvm5.png" alt="" width="437" height="386"></div>
 <div class="endscriptcode">This example is simply an extension to the previous example, where I have added the ViewModelBase and PropertyChanged event on the timer property. Now you can see the time updating.</div>
 <div class="endscriptcode"></div>
 <h2 class="endscriptcode"><strong>Window 5</strong></h2>
-<div class="endscriptcode"><img id="66208" src="66208-mvvm6.png" alt="" width="537" height="379"></div>
+<div class="endscriptcode"><img id="66208" src="http://i1.code.msdn.s-msft.com/easy-mvvm-examples-fb8c409f/image/file/66208/1/mvvm6.png" alt="" width="537" height="379"></div>
 <div class="endscriptcode"></div>
 <div class="endscriptcode">What if you have a business object that handles all the work, like a database layer or web service?</div>
 <div class="endscriptcode">This&nbsp;may therefore be&nbsp;a closed object that you cannot enrich with INPC on it's properties.</div>
@@ -183,4 +183,4 @@ public&nbsp;static&nbsp;readonly&nbsp;DependencyProperty&nbsp;SelectedPersonProp
 <p><span style="font-size:small"><strong><a href="http://social.technet.microsoft.com/wiki/contents/articles/13536.easy-mvvm-examples.aspx">http://social.technet.microsoft.com/wiki/contents/articles/13536.easy-mvvm-examples.aspx</a></strong></span></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><img src="-anithanks1.gif" alt="" style="margin-right:auto; margin-left:auto; display:block"></p>
+<p><img src="http://213.163.64.28/aniThanks1.gif" alt="" style="margin-right:auto; margin-left:auto; display:block"></p>

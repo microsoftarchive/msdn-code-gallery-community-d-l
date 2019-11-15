@@ -43,7 +43,7 @@
 <p><em>8) Export GridView to Text File.<br>
 </em></p>
 <p><em>9) Export GridView to Print.</em></p>
-<p><em><img id="107487" src="107487-grid.png" alt="" width="586" height="188"><br>
+<p><em><img id="107487" src="http://i1.code.msdn.s-msft.com/export-gridview-to-07c9f836/image/file/107487/1/grid.png" alt="" width="586" height="188"><br>
 </em></p>
 <p><em>Here I explain How to Export GridView in a different file Format using ASP.NET and C#.<br>
 </em></p>

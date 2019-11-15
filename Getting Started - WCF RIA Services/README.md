@@ -38,7 +38,7 @@
 Silverlight Business Application</strong>.</p>
 <p>5.&nbsp; Change the project name to &lsquo;HRApp&rsquo;. Click <strong>OK</strong>.</p>
 <p>&nbsp;</p>
-<p><img src="19421-pic1.png" alt="" width="841" height="494"></p>
+<p><img src="http://i3.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19421/1/pic1.png" alt="" width="841" height="494"></p>
 <p>&nbsp;</p>
 <p>There are a couple of things to notice once the project is created:</p>
 <ol>
@@ -47,7 +47,7 @@ Silverlight Business Application</strong>.</p>
  to <strong>Modify Web.config file</strong> to enable debugging. </li></ol>
 <p>&nbsp;NOTE &ndash; The default User Registration implementation requires SQL Server Express be installed on the machine.</p>
 <p>&nbsp;</p>
-<p><img src="19428-pic2.png" alt="" width="260" height="590"></p>
+<p><img src="http://i3.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19428/1/pic2.png" alt="" width="260" height="590"></p>
 <p>&nbsp;</p>
 <h2>Setting up the application</h2>
 <p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the client project, open <strong>MainPage.xaml</strong>.</p>
@@ -77,7 +77,7 @@ HRApp</strong> project, select <strong>Add, </strong>and<strong> </strong>then s
 <strong>Silverlight</strong> and in <strong>Templates</strong> pane, select <strong>
 Silverlight Page</strong>. Name the new item &lsquo;EmployeeList.xaml&rsquo; and click
 <strong>Add.</strong></p>
-<img src="19429-pic3.png" alt="" width="849" height="451"></div>
+<img src="http://i1.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19429/1/pic3.png" alt="" width="849" height="451"></div>
 <div></div>
 <div>
 <p>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Open <strong>EmployeeList.xaml</strong> and add the following XAML code between the &lt;Grid&gt; tags</p>
@@ -129,7 +129,7 @@ Silverlight Page</strong>. Name the new item &lsquo;EmployeeList.xaml&rsquo; and
 </div>
 <p>&nbsp;</p>
 <p>13.&nbsp;&nbsp;&nbsp;&nbsp; Run the application and you will notice a new link button (&lsquo;Employee List&rsquo;) has been added.</p>
-<p><img src="19430-pic4.png" alt="" width="847" height="600"></p>
+<p><img src="http://i4.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19430/1/pic4.png" alt="" width="847" height="600"></p>
 <p>&nbsp;</p>
 <div>
 <h1>Adding Business Logic to a .NET RIA Services application</h1>
@@ -145,22 +145,22 @@ New Item</strong>. The<strong> Add New Item </strong>dialog box is displayed.</p
 ADO.NET Entity Data Model</strong>. Name the data model &lsquo;AdventureWorks.edmx&rsquo; and click
 <strong>Add</strong>.</p>
 <p>&nbsp;</p>
-<p><img src="19431-pic5.png" alt="" width="817" height="453"></p>
+<p><img src="http://i4.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19431/1/pic5.png" alt="" width="817" height="453"></p>
 </div>
 <p>&nbsp;</p>
 <p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the <strong>Entity Data Model Wizard</strong>, choose to generate the Model from an existing database and click
 <strong>Next</strong>.</p>
 <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select the connection to the <strong>AdventureWorks</strong> database and then set the name of the entity connection settings to
 <strong>AdventureWorks_DataEntities</strong>.</p>
-<p><img src="19432-pic6.png" alt="" width="625" height="557"></p>
+<p><img src="http://i2.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19432/1/pic6.png" alt="" width="625" height="557"></p>
 <p>&nbsp;</p>
 <p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Select Next.</p>
 <p>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Expand the Tables node and choose the <strong>
 Employee</strong> table to be used by the Entity Data model.&nbsp; Set the model namespace to &lsquo;AdventureWorks_DataModel&rsquo;.</p>
-<p><img src="19433-pic7.png" alt="" width="624" height="554"></p>
+<p><img src="http://i4.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19433/1/pic7.png" alt="" width="624" height="554"></p>
 <p>&nbsp;</p>
 <p>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Click <strong>Finish</strong>. The entity data model appears in the designer.</p>
-<p><img src="19434-pic8.png" alt="" width="258" height="548"></p>
+<p><img src="http://i4.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19434/1/pic8.png" alt="" width="258" height="548"></p>
 <p>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; On the <strong>Build</strong> menu, select
 <strong>Build Solution</strong>.</p>
 <h2>Add a Domain Service Object and Query for Data</h2>
@@ -170,7 +170,7 @@ New Item</strong>. The <strong>Add New Item</strong> dialog box is displayed.</p
 <p>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the <strong>Categories</strong> pane, select
 <strong>Web</strong>, and in the <strong>Templates</strong> pane, select <strong>
 Domain Service Class</strong>. Name the new item &lsquo;OrganizationService&rsquo;.</p>
-<p><img src="19435-pic9.png" alt="" width="833" height="483"></p>
+<p><img src="http://i4.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19435/1/pic9.png" alt="" width="833" height="483"></p>
 <p>&nbsp;</p>
 <p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Click <strong>Add</strong></p>
 <div>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the <strong>Add New Domain Service Class</strong> dialog, select
@@ -178,7 +178,7 @@ Domain Service Class</strong>. Name the new item &lsquo;OrganizationService&rsqu
 <strong>Generate associated classes for metadata</strong>. Also, ensure that the <strong>
 Enable client access</strong> checkbox is checked.</div>
 <div></div>
-<div><img src="19436-pic10.png" alt="" width="448" height="548"></div>
+<div><img src="http://i1.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19436/1/pic10.png" alt="" width="448" height="548"></div>
 <div></div>
 <div>
 <p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Click <strong>OK</strong>.</p>
@@ -307,7 +307,7 @@ Dragging a <strong>DataGrid</strong> into the XAML editor adds a reference to th
 <p>&nbsp;</p>
 <p>17.&nbsp;&nbsp;&nbsp;&nbsp; Run the application. Click the <strong>Employee List</strong> link when the application is loaded to see the
 <strong>DataGrid</strong>.</p>
-<p><img src="19437-pic11.png" alt="" width="830" height="528"></p>
+<p><img src="http://i1.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19437/1/pic11.png" alt="" width="830" height="528"></p>
 </div>
 </div>
 </div>
@@ -350,7 +350,7 @@ Dragging a <strong>DataGrid</strong> into the XAML editor adds a reference to th
 <p>&nbsp;</p>
 <p>6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Run the application and click the <strong>
 Employee List</strong> link. Notice that employees 1, 2, and 4 no longer appear in the list because they are not salaried.</p>
-<p><img src="19438-pic12.png" alt="" width="782" height="497"></p>
+<p><img src="http://i1.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19438/1/pic12.png" alt="" width="782" height="497"></p>
 <p>&nbsp;</p>
 <h3>Add a Domain Data Source</h3>
 <p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the client project, open <strong>EmployeeList.xaml</strong>.</p>
@@ -512,7 +512,7 @@ Employee List</strong> link. The data will be sorted by Vacation Hours and you c
 </div>
 <p>&nbsp;</p>
 <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Run the Application and filter the Employee List using the &ldquo;Min Vacation Hours Filter&rdquo; Text Box</p>
-<p><img src="19439-pic13.png" alt="" width="740" height="470"></p>
+<p><img src="http://i1.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19439/1/pic13.png" alt="" width="740" height="470"></p>
 <p>&nbsp;</p>
 <p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Drag a <strong>DataPager </strong>from the toolbox on to
 <strong>EmployeeList.xaml</strong>. Add the <strong>DataPager</strong> just below the
@@ -537,7 +537,7 @@ Employee List</strong> link. The data will be sorted by Vacation Hours and you c
 <p>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Run the application and click the <strong>
 employee list</strong> link. You will see only 5 rows of filtered data per page and pager controls below the
 <strong>DataGrid</strong>.</p>
-<p><img src="19440-pic14.png" alt="" width="795" height="516"></p>
+<p><img src="http://i2.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19440/1/pic14.png" alt="" width="795" height="516"></p>
 <p>&nbsp;</p>
 <div>
 <h1>Master Detail</h1>
@@ -610,7 +610,7 @@ xmlns:dataForm=&quot;clr-namespace:<a class="libraryLink" href="http://msdn.micr
 <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Run the application and click the <strong>
 employee list</strong> link. The <strong>DataForm</strong> displays details of the item selected in the
 <strong>DataGrid</strong>.</p>
-<p><img src="19441-pic15.png" alt="" width="777" height="538"></p>
+<p><img src="http://i4.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19441/1/pic15.png" alt="" width="777" height="538"></p>
 <p>&nbsp;</p>
 <div>
 <h1>Updating the Database</h1>
@@ -735,7 +735,7 @@ OrganizationService.cs/vb</strong> and add a custom method called &lsquo;Approve
 </div>
 <h2>Basic Validation</h2>
 <p>The <strong>DataForm</strong> control has the ability to show validation errors that come from the Data Access Layer (DAL). For example, enter a non-integer value in the Vacation Hours field in the detail view and a validation error is displayed.</p>
-<p><img src="19442-pic16.png" alt="" width="822" height="512"></p>
+<p><img src="http://i4.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19442/1/pic16.png" alt="" width="822" height="512"></p>
 <p>&nbsp;</p>
 <p>Checking the <strong>Generate associated classes for metadata</strong> option in the
 <strong>New Domain Service Class</strong> wizard caused a file named <strong>OrganizationService.metadata.cs/vb</strong> to be generated automatically in the
@@ -768,7 +768,7 @@ Build Solution</strong>.</p>
 <p>4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Run the application.</p>
 <p>5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Click on the <strong>Employee List</strong> link. Select an employee and click the pencil icon in the upper right hand corner of the data form to enable editing. Enter a value into the Vacation Hours field that is not within
  the valid range (0-70). You will see a validation error. Also note that the Gender field is required and cannot be left empty.</p>
-<p><img src="19443-pic17.png" alt="" width="791" height="494"></p>
+<p><img src="http://i4.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19443/1/pic17.png" alt="" width="791" height="494"></p>
 <h2>Custom Validation</h2>
 <p>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In Solution Explorer, right-click the <strong>
 HRApp.Web</strong> project, select <strong>Add</strong>, and then select <strong>
@@ -825,7 +825,7 @@ Code File</strong>. Name the new item &lsquo;OrganizationService.shared.cs&rsquo
 <p>7.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Run the application.</p>
 <p>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Click on the <strong>Employee List</strong> link. Enter a value for the
 <strong>Gender</strong> field that is not &rsquo;M&rsquo; or &rsquo;F&rsquo;.</p>
-<p><img src="19444-pic18.png" alt="" width="726" height="484"></p>
+<p><img src="http://i4.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19444/1/pic18.png" alt="" width="726" height="484"></p>
 <p>&nbsp;</p>
 <h2>Add a new record</h2>
 <p>You will now create a user interface to allow the addition of new employee records to the database. The validation rules that you added in the previous sections will automatically be applied in the new user interface.</p>
@@ -836,7 +836,7 @@ HRApp </strong>project, select<strong> Add</strong>, and then select <strong>New
 <strong>Silverlight</strong>, and in the <strong>Templates </strong>pane, select <strong>
 Silverlight Child Window</strong>. Name the new item &lsquo;EmployeeRegistrationWindow.xaml&rsquo; and click
 <strong>Add</strong>.</p>
-<p><img src="19445-pic19.png" alt="" width="781" height="424"></p>
+<p><img src="http://i4.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19445/1/pic19.png" alt="" width="781" height="424"></p>
 <p>3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Open <strong>EmployeeRegistrationWindow.xaml.cs/vb</strong> and add the following using/Imports statement:</p>
 <p>&nbsp;</p>
 <div class="scriptcode">
@@ -1076,7 +1076,7 @@ End&nbsp;Class&nbsp;
 <p>17.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Run the application.</p>
 <p>18.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Click the <strong>employee list</strong> link. You can now add new employees to the database by clicking the &lsquo;Add Employee&rsquo; button. To ensure that the new employee appears in the list, mark the employee
  as Salaried. Earlier you modified the application to only load salaried employees.</p>
-<p><img src="19446-pic20.png" alt="" width="815" height="543"></p>
+<p><img src="http://i1.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19446/1/pic20.png" alt="" width="815" height="543"></p>
 <p>&nbsp;</p>
 <div>
 <h1>Authentication</h1>
@@ -1158,7 +1158,7 @@ employee list</strong> link.</p>
 <p>8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter your credentials to login, or click
 <strong>register</strong>.</p>
 <p>After login is completed, you are redirected to the Employee List page and the employee&rsquo;s sabbatical is approved.</p>
-<p><img src="19447-pic21.png" alt="" width="731" height="487"></p>
+<p><img src="http://i1.code.msdn.microsoft.com/getting-started-wcf-ria-1469cbe2/image/file/19447/1/pic21.png" alt="" width="731" height="487"></p>
 <p>&nbsp;</p>
 <div>
 <h1>Completed Projects</h1>

@@ -26,7 +26,7 @@
 <h3 id="Introduction">Introduction</h3>
 <p>This sample provides and end to end location scenario with a Windows Store app using Bing Maps and a
 <strong>Windows Azure Mobile Services </strong>backend. It shows how to add places to the Map, store place coordinates in a Mobile Services table, and how to query for places near your current&nbsp;location.</p>
-<p><img id="74255" width="640" src="74255-my-places-search-radius.png" alt="" height="400"></p>
+<p><img id="74255" width="640" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/74255/1/my-places-search-radius.png" alt="" height="400"></p>
 <h3 id="Prerequisites">Prerequisites</h3>
 <ul>
 <li>Visual Studio 2013 Express for Windows or higher </li><li><a href="http://go.microsoft.com/fwlink/?LinkID=322092">Bing Maps for Windows 8.1 Store apps</a>
@@ -49,12 +49,12 @@
 <p>Create a new <strong>Mobile Service</strong> from the Windows Azure Management Portal.</p>
 <p>To do this, log in to the <a href="https://manage.windowsazure.com">Windows Azure Management Portal</a>, navigate to Mobile Services and click
 <strong>New</strong>.</p>
-<p><img id="106775" width="133" src="106775-new-button.png" alt="New Button" height="57"></p>
+<p><img id="106775" width="133" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106775/1/new-button.png" alt="New Button" height="57"></p>
 <p>Expand <strong>Compute | Mobile Service</strong>, then click <strong>Create</strong>.</p>
 <p>In the <strong>Create a Mobile Service</strong> page, type a subdomain name for the new mobile service in the
 <strong>URL</strong> textbox (e.g. <em>myplacesservice</em>) and wait for name verification. Once name verification completes, select
 <em>Create a new SQL Database</em> in the <strong>Database</strong> dropdown list and click the right arrow button to go to the next page.</p>
-<p><img id="106776" width="680" src="106776-create-new-mobile-service.png" alt="Create new Mobile Service" height="450"></p>
+<p><img id="106776" width="680" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106776/1/create-new-mobile-service.png" alt="Create new Mobile Service" height="450"></p>
 <p>This displays the <strong>Specify database settings</strong> page.</p>
 <blockquote>
 <p><strong>Note:</strong> As part of this sample, you create a new SQL database instance and server. You can reuse this new database and administer it as you would with any other SQL database instance. If you already have a database in the same region as the
@@ -62,16 +62,16 @@
 </blockquote>
 <p>In <strong>Name</strong>, type the name of the new database, then type <strong>
 Login Name</strong>, which is the administrator login name for the new SQL database server, type and confirm the password, and click the check button to complete the process.</p>
-<p><img id="106777" width="680" src="106777-new-mobile-service-step-2.png" alt="New Mobile Service step 2" height="450"></p>
+<p><img id="106777" width="680" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106777/1/new-mobile-service-step-2.png" alt="New Mobile Service step 2" height="450"></p>
 <p>You have now created a new mobile service that can be used by your mobile apps.</p>
 </li><li>
 <p>Connect the Windows 8 app to Mobile Services.</p>
 <p>Get the <strong>Mobile Service URL</strong> and <strong>Mobile Service Key</strong> values. Browse to your Mobile Service dashboard, copy the service URL and click
 <strong>Manage Keys</strong> on the bottom bar.</p>
-<p><img id="106778" width="271" src="106778-mobile-service-settings-dashboard.png" alt="Mobile Service URL" height="249"></p>
+<p><img id="106778" width="271" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106778/1/mobile-service-settings-dashboard.png" alt="Mobile Service URL" height="249"></p>
 <p><em>Mobile Service URL</em></p>
 <p>Now copy the <strong>Application Key</strong> value.</p>
-<p><img id="106779" width="500" src="106779-mobile-service-settings-keys.png" alt="Mobile Services Access Key" height="350"></p>
+<p><img id="106779" width="500" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106779/1/mobile-service-settings-keys.png" alt="Mobile Services Access Key" height="350"></p>
 </li><li>
 <p>In Visual Studio, open the <strong>Windows Store</strong> app provided in this sample and open the
 <strong>App.xaml.cs</strong> file in the solution. Replace the placeholders <strong>
@@ -96,17 +96,17 @@ Login Name</strong>, which is the administrator login name for the new SQL datab
 </li><li>
 <p>In <strong>Server Explorer</strong>, right click on the <strong>Windows Azure</strong> node and select
 <strong>Import Subscription...</strong>.</p>
-<p><img title="Import Subscription Menu" id="106780" width="383" src="106780-import-subscription-menu.png" alt="Import Subscription Menu" height="262"></p>
+<p><img title="Import Subscription Menu" id="106780" width="383" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106780/1/import-subscription-menu.png" alt="Import Subscription Menu" height="262"></p>
 </li><li>
 <p>Click on <strong>Download subscription file</strong>, log in to your Windows Azure account (if required) and click Save when your browser requests to save the file.</p>
-<p><img title="Download Subscription File" id="106781" width="550" src="106781-import-subscription-download.png" alt="Download Subscription File" height="206"></p>
+<p><img title="Download Subscription File" id="106781" width="550" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106781/1/import-subscription-download.png" alt="Download Subscription File" height="206"></p>
 <blockquote>
 <p><strong>Note:</strong> The login window is displayed in the browser, which may be behind your Visual Studio window. Remember to make a note of where you saved the downloaded .publishsettings file.</p>
 </blockquote>
 </li><li>
 <p>Click <strong>Browse</strong>, navigate to the location where you saved the .publishsettings file, select the file, then click
 <strong>Open</strong> and then <strong>Import</strong>. Visual Studio imports the data needed to connect to your Windows Azure subscription.</p>
-<p><img title="Import Subscription" id="106782" width="550" src="106782-import-subscription-import.png" alt="Import Subscription" height="206"></p>
+<p><img title="Import Subscription" id="106782" width="550" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106782/1/import-subscription-import.png" alt="Import Subscription" height="206"></p>
 <blockquote>
 <p><strong>Security Note:</strong> After importing the publish settings, consider deleting the downloaded .publishsettings file as it contains information that can be used by others to access your account. Secure the file if you plan to keep it for use in other
  connected app projects.</p>
@@ -115,11 +115,11 @@ Login Name</strong>, which is the administrator login name for the new SQL datab
 <p>Expand <strong>Mobile Services</strong> under <strong>Windows Azure</strong>, right-click your mobile service and select
 <strong>Create Table</strong>. Create a new table named <strong>Place</strong> and set the permissions for Insert, Update, Delete, and Read to
 <strong>&quot;Anybody with the application key&quot;</strong>.</p>
-<p><img id="106783" width="500" src="106783-create-place-table.png" alt="Create Place Table" height="484"></p>
+<p><img id="106783" width="500" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106783/1/create-place-table.png" alt="Create Place Table" height="484"></p>
 </li><li>
 <p>Once the table is created, you need to modify it to support a geography data type. To do this, go back to the Management Portal, go to the SQL Server you created for the Mobile Service and select
 <strong>Manage</strong>.</p>
-<p><img id="106784" width="236" src="106784-managing-your-sql-server-database.png" alt="Managing your SQL Server database" height="60"></p>
+<p><img id="106784" width="236" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106784/1/managing-your-sql-server-database.png" alt="Managing your SQL Server database" height="60"></p>
 <p><em>Managing your SQL Server database</em></p>
 </li><li>
 <p>If prompted to update the firewall rules to include the IP address of your computer, click
@@ -127,18 +127,18 @@ Login Name</strong>, which is the administrator login name for the new SQL datab
 </li><li>
 <p>Log in to the SQL Database Management Portal using your SQL Server credentials. Make sure the database for your Mobile Services is selected on the left panel and go to
 <strong>Design</strong>.</p>
-<p><img id="106785" width="223" src="106785-designing-your-database.png" alt="Designing your database" height="162"></p>
+<p><img id="106785" width="223" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106785/1/designing-your-database.png" alt="Designing your database" height="162"></p>
 <p><em>Designing your database</em></p>
 </li><li>
 <p>Select the <strong>Place</strong> table and click <strong>Edit</strong>.</p>
-<p><img id="106786" width="633" src="106786-editing-the-place-table.png" alt="Editing the Place table" height="243"></p>
+<p><img id="106786" width="633" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106786/1/editing-the-place-table.png" alt="Editing the Place table" height="243"></p>
 <p><em>Editing the Place table</em></p>
 </li><li>
 <p>Add the following columns to the table: <strong>title</strong> as <strong>nvarchar(50)</strong> (mark it as required),
 <strong>description</strong> as <strong>nvarchar(max)</strong> and <strong>location</strong> as
 <strong>geography</strong> (mark it as required). The <strong>location</strong> column will store the coordinates of the different places that will be shown in the Windows Store app. Click
 <strong>Save</strong> to finish the updates.</p>
-<p><img id="106787" width="812" src="106787-updating-table-definition.png" alt="Updating table definition" height="462"></p>
+<p><img id="106787" width="812" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106787/1/updating-table-definition.png" alt="Updating table definition" height="462"></p>
 <p><em>Updating table definition</em></p>
 </li><li>
 <p>Now that your table is updated, go back to the Visual Studio. In Server Explorer, expand the
@@ -178,11 +178,11 @@ insert.js</strong> script file and select <strong>Edit script</strong>.</p>
 </blockquote>
 <p>Go to the Management Portal, and select your mobile service. Under the <strong>
 API</strong> tab, click <strong>Create Custom API</strong>.</p>
-<p><img id="106788" width="740" src="106788-create-custom-api.png" alt="Create custom API" height="160"></p>
+<p><img id="106788" width="740" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106788/1/create-custom-api.png" alt="Create custom API" height="160"></p>
 <p><em>Create custom API</em></p>
 <p>In the enter <strong>places</strong> in the API Name field, and make sure all permission levels are set to
 <strong>Anybody with the Application Key</strong>. Click the check mark to continue.</p>
-<p><img id="106789" width="650" src="106789-custom-api-configuration.png" alt="Custom API configuration" height="560"></p>
+<p><img id="106789" width="650" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106789/1/custom-api-configuration.png" alt="Custom API configuration" height="560"></p>
 <p><em>Custom API options</em></p>
 </li><li>
 <p>Select the custom API you just created and replace the script with the following code.</p>
@@ -213,7 +213,7 @@ API</strong> tab, click <strong>Create Custom API</strong>.</p>
 </li><li>
 <p>Switch to Visual Studio and open <strong>Package.appxmanifest</strong>. Select the
 <strong>Capabilities</strong> tab and check the <strong>Location</strong> option. Your application is now able to retrieve the current location of the device.</p>
-<p><img id="106790" width="806" src="106790-adding-location-capability-to-the-application.png" alt="Adding Location capability to the application manifest" height="476"></p>
+<p><img id="106790" width="806" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106790/1/adding-location-capability-to-the-application.png" alt="Adding Location capability to the application manifest" height="476"></p>
 <p><em>Adding Location capability to the application manifest</em></p>
 </li><li>
 <p>Open <strong>MainPage.xaml.cs</strong>, locate the <strong>LoadMap</strong> method and replace the placeholder with your Bing Maps account key.</p>
@@ -344,17 +344,17 @@ Geolocator</strong> object which allows you to read the position using Latitude 
 Allow</strong> and the Bing Maps will be positioned on your location.</p>
 </li><li>
 <p>Press and hold (or right-click with the mouse) the map inside the radius circle around your location and fill the values in the displayed dialog box.</p>
-<p><img id="106791" width="1280" src="106791-my-places-add-a-place.png" alt="my-places-add-a-place" height="800"></p>
+<p><img id="106791" width="1280" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106791/1/my-places-add-a-place.png" alt="my-places-add-a-place" height="800"></p>
 </li><li>
 <p>When saved, the new place will be displayed on the map as a blue pin. You can click on it to display its information.</p>
-<p><img id="106792" width="1919" src="106792-my-places-radial-search-result.png" alt="my-places-radial-search-result" height="1199"></p>
+<p><img id="106792" width="1919" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106792/1/my-places-radial-search-result.png" alt="my-places-radial-search-result" height="1199"></p>
 </li><li>
 <p>You can play around with the radius filter options and continue adding places.</p>
-<p><img id="106793" width="1280" src="106793-my-places-search-radius.png" alt="my-places-search-radius" height="799"></p>
+<p><img id="106793" width="1280" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106793/1/my-places-search-radius.png" alt="my-places-search-radius" height="799"></p>
 </li></ol>
 <h3 id="Known_Issues">Known Issues</h3>
 <p>When running the sample if your Bing Maps control displays the following image:</p>
-<p><img id="106794" width="285" src="106794-bing-maps-unsupported.png" alt="bing-maps-unsupported" height="184"></p>
+<p><img id="106794" width="285" src="http://i1.code.msdn.s-msft.com/windowsapps/geolocation-sample-end-to-5d9ee245/image/file/106794/1/bing-maps-unsupported.png" alt="bing-maps-unsupported" height="184"></p>
 <p>See this MSDN article related to the supported regions in Bing Maps: <a href="http://msdn.microsoft.com/en-us/library/jj670541.aspx">
 http://msdn.microsoft.com/en-us/library/jj670541.aspx</a>. You can set the property
 <strong>Map.HomeRegion</strong> to any of the supported regions to workaround the problem.</p>

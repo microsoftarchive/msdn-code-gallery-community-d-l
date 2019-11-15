@@ -44,7 +44,7 @@ Image.Save(string filename, ImageFormat format) </strong>, you can save the extr
 <p><span style="font-size:small"><strong>&nbsp;</strong><br>
 </span></p>
 <p><span style="font-size:small"><strong>Screenshots of extract text and image from PDF</strong></span></p>
-<p><span style="font-size:small"><strong><img id="120682" src="120682-tni4.png" alt="" width="683" height="431"><br>
+<p><span style="font-size:small"><strong><img id="120682" src="http://i1.code.msdn.s-msft.com/extracting-text-and-image-d47ac957/image/file/120682/1/tni4.png" alt="" width="683" height="431"><br>
 </strong></span></p>
 <p><span style="font-size:20px; font-weight:bold"><span style="font-size:small">&nbsp;</span><br>
 </span></p>

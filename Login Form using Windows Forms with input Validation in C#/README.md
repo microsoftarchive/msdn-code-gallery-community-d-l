@@ -35,8 +35,8 @@
 <li><span style="font-size:small">You may change the Properties of the Form to look similar to the screenshot of the login form with the help of following screenshots:</span>
 </li></ul>
 <div><span style="font-size:small">&nbsp;</span></div>
-<div><img id="166448" src="166448-properties1.jpg" alt="" width="643" height="419"></div>
-<div><img id="166450" src="166450-properties2.jpg" alt="" width="643" height="537"></div>
+<div><img id="166448" src="https://i1.code.msdn.s-msft.com/login-form-using-windows-a2bd41b4/image/file/166448/1/properties1.jpg" alt="" width="643" height="419"></div>
+<div><img id="166450" src="https://i1.code.msdn.s-msft.com/login-form-using-windows-a2bd41b4/image/file/166450/1/properties2.jpg" alt="" width="643" height="537"></div>
 <div></div>
 <div><span style="font-size:small">once the design is done, proceed to step2.</span></div>
 <div><span style="font-size:small"><br>

@@ -23,7 +23,7 @@
 <p><img id="153324" src="153324-capture.png" alt="" width="657" height="394"></p>
 <p><span style="font-size:20px; font-weight:bold">Description</span></p>
 <p>Once you are done with registration, the following keys will be generated:</p>
-<p><a href="http://venkatbaggu.com/wp-content/uploads/2014/12/reCAPTCHA-keys.png"><img class="wp-image-466" src="-recaptcha-keys-1024x166.png" alt="reCAPTCHA  keys"></a></p>
+<p><a href="http://venkatbaggu.com/wp-content/uploads/2014/12/reCAPTCHA-keys.png"><img class="wp-image-466" src="http://www.codeproject.com/KB/asp/874150/reCAPTCHA-keys-1024x166.png" alt="reCAPTCHA  keys"></a></p>
 <div class="Caption">reCAPTCHA keys</div>
 <p><strong>Site key</strong>: is used to display the widget in your page or code.</p>
 <p><strong>Secret key</strong>: can be used as communication between your site and Google to verify the user response whether the reCAPTCHA is valid or not.</p>

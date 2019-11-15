@@ -404,7 +404,7 @@ $(&lsquo;#activity&rsquo;).tableExport(<span class="js__brace">{</span>&nbsp;typ
 <p><span style="font-size:small">After the data is manipulated, data is formulated in the Excel format.</span><br>
 <span style="font-size:small">You can learn more in the attachment.</span></p>
 <p><span style="font-size:small">Output</span></p>
-<div class="wp-caption x_alignnone" id="attachment_10926"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2014/10/export.png"><img class="size-full x_wp-image-10926" src="-export.png" alt="Export From HTML Table" width="290" height="100"></a>
+<div class="wp-caption x_alignnone" id="attachment_10926"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2014/10/export.png"><img class="size-full x_wp-image-10926" src="http://sibeeshpassion.com/wp-content/uploads/2014/10/export.png" alt="Export From HTML Table" width="290" height="100"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">Export From HTML Table</span></p>
 </div>

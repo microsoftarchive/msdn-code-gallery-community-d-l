@@ -16,7 +16,7 @@
 <p>これは次の記事のサンプルコードをベースにしています。</p>
 <blockquote>
 <div>@IT 2013/04/25 掲載<br>
-<img id="68637" src="68637-gyoumu_newallarticle_icon_61_1349480145.gif" alt="" width="80" height="60"><br>
+<img id="68637" src="http://i1.code.msdn.s-msft.com/windowsapps/metrotips-10-cb520e60/image/file/68637/1/gyoumu_newallarticle_icon_61_1349480145.gif" alt="" width="80" height="60"><br>
 <strong><a href="http://www.atmarkit.co.jp/ait/articles/1304/25/news064.html" target="_blank">デザイン画面でデータをバインドするには？［Win 8／WP 8］</a></strong><br>
 前回までで紹介したデータ・バインドの方法では、実際にどのような表示になるかは実行してみないと分からない。実行する前にVisual Studioのデザイン画面で表示を確かめることはできないだろうか？
 <br>
@@ -156,7 +156,7 @@ MSDN</a> とか <a href="http://twitter.com/okazuki">@okazuki</a> の<a href="ht
 <div class="endscriptcode">&nbsp;</div>
 <p>これで完成です。<br>
 <br>
-<img id="81356" src="81356-20130428_icommand01.png" alt="" width="683" height="384"></p>
+<img id="81356" src="http://i1.code.msdn.s-msft.com/windowsapps/icommand-button-command-bf4b7a2f/image/file/81356/1/20130428_icommand01.png" alt="" width="683" height="384"></p>
 <p>実行すると、秒が偶数のときに [今だ!!] ボタンが有効になるので、 その間にクリックすると背景がピンクに変わります。</p>
 <p>&nbsp;</p>
 <h2>補足</h2>

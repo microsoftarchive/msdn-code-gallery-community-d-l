@@ -30,7 +30,7 @@
 <p>The package is a SSIS 2012 package so you will need SSIS2012 (or later) installed.</p>
 <p><span style="font-size:20px; font-weight:bold">Description</span></p>
 <p>This sample is intended to demonstrate how one might populate an Object variable with a recordset and then loop over that recordset using a Foreach Loop.</p>
-<p><img src="55006-executesqlforeach_controlflow.jpg" alt="" width="674" height="348"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/execute-sql-task-and-4aaea562/image/file/55006/1/executesqlforeach_controlflow.jpg" alt="" width="674" height="348"></p>
 <p>Within the Foreach Loop it then outputs the enumerated data in a Script Task and then extracts some data from the database using the enumerated&nbsp;CustomerID. However, the real purpose of this sample is to demonstrate how an Execute SQL Task and a Foreach
  Loop can work in concert with each other.</p>
 <p>Although the primary scenarrio for this sample if populating an object variable and then looping over it there are a number of other concepts explored here:</p>

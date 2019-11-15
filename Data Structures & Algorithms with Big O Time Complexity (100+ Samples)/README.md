@@ -329,4 +329,4 @@
 <p><span style="font-size:small">Visit my all other articles here&nbsp;<a href="http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=User&f%5B0%5D.Value=Srigopal%20Chitrapu">http://code.msdn.microsoft.com/site/search?f%5B0%5D.Type=User&amp;f%5B0%5D.Value=Srigopal%20Chitrapu</a></span></p>
 <p><span style="font-size:medium; color:#008000">Help me with feedback:</span></p>
 <p><span style="font-size:small">Thank you for reading my article. Drop all your questions/comments in QA tab give me your feedback with
-<img id="67168" width="74" height="15" src="67168-ratings.png" alt=""> star rating (1 Star - Very Poor, 5&nbsp;Star -&nbsp;Very Nice). &nbsp;</span></p>
+<img id="67168" width="74" height="15" src="http://i1.code.msdn.s-msft.com/oops-principles-solid-7a4e69bf/image/file/67168/1/ratings.png" alt=""> star rating (1 Star - Very Poor, 5&nbsp;Star -&nbsp;Very Nice). &nbsp;</span></p>

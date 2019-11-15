@@ -113,11 +113,11 @@ What&rsquo;s new in WebView in Windows 8.1</a>&nbsp;and there is an interesting 
 <h1>Running the application</h1>
 <p>&nbsp;</p>
 <div class="entry-content">
-<p><img src="-webview1.jpg?w=584" alt="The webview" width="584" height="328"></p>
+<p><img src="http://i2.wp.com/s20.postimg.org/ep1brhnfh/webview1.jpg?w=584" alt="The webview" width="584" height="328"></p>
 <p>&nbsp;</p>
 <p>And clicking in the button we will get the url value, as we can see in the following image:</p>
 <p>&nbsp;</p>
-<p><img src="-webview2.jpg?w=584" alt="The webview's scriptnotify event handler" width="584" height="114"></p>
+<p><img src="http://i2.wp.com/s20.postimg.org/ffu1x9pst/webview2.jpg?w=584" alt="The webview's scriptnotify event handler" width="584" height="114"></p>
 </div>
 <p>&nbsp;</p>
 <h1><span>Source Code Files</span></h1>
@@ -135,4 +135,4 @@ What&rsquo;s new in WebView in Windows 8.1</a>&nbsp;and there is an interesting 
 </blockquote>
 <p><em><em><em><em><em><br>
 </em></em></em></em></em></p>
-<p><a title="shopify analytics tool" href="http://statcounter.com/shopify/" target="_blank"><img src="-" alt="shopify analytics tool" style="border:none"></a></p>
+<p><a title="shopify analytics tool" href="http://statcounter.com/shopify/" target="_blank"><img src="http://c.statcounter.com/10247856/0/fbddae77/1/" alt="shopify analytics tool" style="border:none"></a></p>

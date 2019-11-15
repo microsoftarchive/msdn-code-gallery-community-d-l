@@ -115,7 +115,7 @@ message handler</a>. Message handlers can intercept the requests as they go thro
 <div class="wlWriterEditableSmartContent" id="scid:9ce6104f-a9aa-4a17-a79f-3a39532ebf7c:11e18aec-99e2-4b7b-b195-e36965847517" style="margin:0px; display:inline; float:none; padding:0px">
 </div>
 <p>Next, let&rsquo;s add a new project to the solution, and ASP.NET Empty Web Application, and add a NuGet reference to the jQuery project. With that, we can add an HTML page and add some controls to test the controller.</p>
-<p><img src="49864-2772.image_3f533a2c.png" alt="" width="392" height="218"><a href="$image[6].png"></a></p>
+<p><img src="http://i1.code.msdn.s-msft.com/implementing-cors-support-a677ab5d/image/file/49864/1/2772.image_3f533a2c.png" alt="" width="392" height="218"><a href="$image[6].png"></a></p>
 <p>With that ready, we can bind the &ldquo;click&rdquo; events from the buttons to make calls to the controller, as shown below (this isn&rsquo;t beautiful code by any means, with a little more time I&rsquo;d have combined many of the functions, but for a quick
  sample, this works)</p>
 <p>&nbsp;</p>
@@ -214,7 +214,7 @@ $(<span class="js__string">&quot;#delete&quot;</span>).click(<span class="js__op
 <div class="wlWriterEditableSmartContent" id="scid:9ce6104f-a9aa-4a17-a79f-3a39532ebf7c:259f5c55-b03c-4162-80ee-775b857476bc" style="margin:0px; display:inline; float:none; padding:0px">
 </div>
 <p>Time to test the page. After setting <em>both projects</em> as the startup projects in the Visual Studio solution, we can F5 and start clicking on the buttons. Oops, nothing works &ndash; they all print the error on the result &lt;div&gt; element.</p>
-<p><img src="49865-3463.image_048b9156.png" alt="" width="351" height="207"><a href="$image[10].png"></a></p>
+<p><img src="http://i1.code.msdn.s-msft.com/implementing-cors-support-a677ab5d/image/file/49865/1/3463.image_048b9156.png" alt="" width="351" height="207"><a href="$image[10].png"></a></p>
 <p>That&rsquo;s where CORS enters the picture. We need to get the controller to return the appropriate headers, otherwise no cross-domain requests will succeed. Let&rsquo;s add a new message handler to deal with those requests. The code is shown below. If the
  request contain the &ldquo;Origin&rdquo; header, we&rsquo;ll treat it as a CORS request, and after dispatching the message through the pipeline (base.SendAsync), we&rsquo;ll add the &ldquo;Access-Control-Allow-Origin&rdquo; header to let the browser know that
  we&rsquo;re fine with that request.</p>
@@ -316,7 +316,7 @@ $(<span class="js__string">&quot;#delete&quot;</span>).click(<span class="js__op
 <div class="wlWriterEditableSmartContent" id="scid:9ce6104f-a9aa-4a17-a79f-3a39532ebf7c:bcaf3285-378e-4ca6-a8b6-2b7285a1fd97" style="margin:0px; display:inline; float:none; padding:0px">
 </div>
 <p>That&rsquo;s it. We can now call in any CORS-capable browser, as shown below.</p>
-<p><img src="49866-3060.image_3d363b63.png" alt="" width="465" height="329"><a href="$image[14].png"></a></p>
+<p><img src="http://i1.code.msdn.s-msft.com/implementing-cors-support-a677ab5d/image/file/49866/1/3060.image_3d363b63.png" alt="" width="465" height="329"><a href="$image[14].png"></a></p>
 <h3>Security considerations</h3>
 <p>The cross-domain restrictions in many browsers exist for a reason, so please understand the security implications of enabling such requests with CORS (or JSONP) before doing so in production systems.</p>
 <p>&nbsp;</p>

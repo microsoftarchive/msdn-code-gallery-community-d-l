@@ -147,4 +147,4 @@
 <p style="text-align:justify"><em>This application is just an illustration of what wonders can be done with Graphics in realtime processing and threading usage in the application. This does not give good accurate visible results for negative values. When the
  application is run, it plots the graph from the right side of the screen sliding towards the left of the screen. Running the application produces the screen as shown below :
 </em></p>
-<p style="text-align:justify"><em>&nbsp;<img src="48126-pic1.jpg" alt="" width="890" height="488"></em></p>
+<p style="text-align:justify"><em>&nbsp;<img src="http://i1.code.msdn.s-msft.com/vstudio/dynamic-plotting-of-graph-573eef2f/image/file/48126/1/pic1.jpg" alt="" width="890" height="488"></em></p>

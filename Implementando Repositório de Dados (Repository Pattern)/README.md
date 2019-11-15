@@ -64,7 +64,7 @@
 <h1>Criando a Solution</h1>
 <p><span style="font-size:small">Vamos criar uma nova solution no Visual Studio no meu caso &eacute; o 2012 e dentro dela criar uma pasta chamada &quot;<em>1 - Data</em>&quot; e dentro desta pasta criaremos um novo projeto do tipo &quot;<em>Class Library</em>&quot; onde ter&aacute;
  nossos objetos de trabalho bem como entidades de dominio, classe de configura&ccedil;&atilde;o das entidades, classe de contexto etc. Criem o projeto com a mesma estrutura de pasta demostrada aqui ok. Vejamos:&nbsp;</span></p>
-<p><span style="font-size:small"><img id="132595" src="132595-1.jpg" alt="" width="276" height="171"></span></p>
+<p><span style="font-size:small"><img id="132595" src="https://i1.code.msdn.s-msft.com/implementando-repositrio-aabcdbce/image/file/132595/1/1.jpg" alt="" width="276" height="171"></span></p>
 <p><span style="font-size:small">Vamos criar uma classe Base.cs que servira de base em comum dentre todas as entidades do projeto, as entidades herdar&atilde;o dela o campo &quot;id&quot; pois todos as entidades ter&atilde;o c&oacute;digos para representa-las visto que
  as entidades seram copias fieis das tabelas do nosso banco de dados. Vejamos:&nbsp;</span></p>
 <div class="scriptcode">
@@ -536,7 +536,7 @@
 <div class="endscriptcode"><span style="font-size:small"><br>
 </span></div>
 <div class="endscriptcode"></div>
-<div class="endscriptcode"><span style="font-size:small"><img id="132604" src="132604-2.jpg" alt="" width="277" height="338"></span></div>
+<div class="endscriptcode"><span style="font-size:small"><img id="132604" src="https://i1.code.msdn.s-msft.com/implementando-repositrio-aabcdbce/image/file/132604/1/2.jpg" alt="" width="277" height="338"></span></div>
 <div class="endscriptcode"><span style="font-size:small"><br>
 </span></div>
 <div class="endscriptcode"></div>
@@ -614,14 +614,14 @@
 <div class="endscriptcode"><span style="font-size:small"><br>
 </span></div>
 <div class="endscriptcode"></div>
-<div class="endscriptcode"><img id="132605" src="132605-3.jpg" alt="" width="273" height="341"></div>
+<div class="endscriptcode"><img id="132605" src="https://i1.code.msdn.s-msft.com/implementando-repositrio-aabcdbce/image/file/132605/1/3.jpg" alt="" width="273" height="341"></div>
 </div>
 <div class="endscriptcode"><span style="font-size:small">&nbsp;</span></div>
 <div class="endscriptcode"><span style="font-size:small">Altera&ccedil;&atilde;o executada no banco de dados :</span></div>
 <div class="endscriptcode"><span style="font-size:small"><br>
 </span></div>
 <div class="endscriptcode"></div>
-<div class="endscriptcode"><span style="font-size:small"><img id="132606" src="132606-4.jpg" alt="" width="733" height="202"><br>
+<div class="endscriptcode"><span style="font-size:small"><img id="132606" src="https://i1.code.msdn.s-msft.com/implementando-repositrio-aabcdbce/image/file/132606/1/4.jpg" alt="" width="733" height="202"><br>
 </span></div>
 <div class="endscriptcode"><span style="font-size:small"><br>
 </span></div>

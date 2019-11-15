@@ -21,15 +21,15 @@
 <p>You can scale Grid, Canvas, etc&hellip; but not Application itself... Let windows doing scaling your application with minimum coding &nbsp;&hellip;</p>
 <p>The easiest way to size correctly WPF application is wrapping all your users control inside MAIN user control and using MAIN user control in Window Application.</p>
 <p>100%</p>
-<p><img id="156842" src="156842-1.png" alt="" width="350" height="250"></p>
+<p><img id="156842" src="https://code.msdn.microsoft.com/windowsapps/site/view/file/156842/1/1.PNG" alt="" width="350" height="250"></p>
 <p>200%</p>
-<p><img id="156844" src="156844-2.png" alt="" width="350" height="250"></p>
+<p><img id="156844" src="https://code.msdn.microsoft.com/windowsapps/site/view/file/156844/1/2.png" alt="" width="350" height="250"></p>
 <p>50%</p>
-<p><img id="156845" src="156845-3.png" alt="" width="350" height="250"></p>
+<p><img id="156845" src="https://code.msdn.microsoft.com/windowsapps/site/view/file/156845/1/3.png" alt="" width="350" height="250"></p>
 <h1>Building the Sample</h1>
 <p>Make sure that your MAIN UserControl does not assign Width and Height &hellip;</p>
 <p>Use only MinWidth and MinHeight &nbsp;</p>
-<p><img id="156846" src="156846-4.png" alt="" width="500" height="70"></p>
+<p><img id="156846" src="https://code.msdn.microsoft.com/windowsapps/site/view/file/156846/1/4.png" alt="" width="500" height="70"></p>
 <p>Do not use <strong>RenderingTransfer,</strong> it will scale User Control inside window &ndash; we need to have different behavior &hellip;</p>
 <p>&nbsp;</p>
 <p><span style="text-decoration:line-through">&nbsp;&nbsp;&nbsp; </span><span style="text-decoration:line-through">&lt;</span><span style="text-decoration:line-through">UserControl.RenderTransform</span><span style="text-decoration:line-through">&gt;</span></p>

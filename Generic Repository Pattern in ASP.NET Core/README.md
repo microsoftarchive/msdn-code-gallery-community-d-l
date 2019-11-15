@@ -33,25 +33,25 @@
 </li><li>Run the application. </li></ol>
 <h1>Running the Sample</h1>
 <p>To run the sample, hit F5 or choose the Debug | Start Debugging menu command. You will see the author list screen. From this screen you have author listing screen as shown in below figure.</p>
-<p><img id="164018" src="164018-1.png" alt="" width="532" height="317"></p>
+<p><img id="164018" src="https://i1.code.msdn.s-msft.com/generic-repository-pattern-f133bca4/image/file/164018/1/1.png" alt="" width="532" height="317"></p>
 <p>Figure 1: Author listing</p>
 <p>Now click on &ldquo;Add Author&rdquo; button to add new author in the application as per following screen.</p>
-<p><img id="164019" src="164019-2.png" alt="" width="728" height="469"></p>
+<p><img id="164019" src="https://i1.code.msdn.s-msft.com/generic-repository-pattern-f133bca4/image/file/164019/1/2.png" alt="" width="728" height="469"></p>
 <p>Figure2: Add Author</p>
 <p>As per figure 1, Edit button uses to edit individual author as per following figure.</p>
-<p><img id="164020" src="164020-3.png" alt="" width="727" height="407"></p>
+<p><img id="164020" src="https://i1.code.msdn.s-msft.com/generic-repository-pattern-f133bca4/image/file/164020/1/3.png" alt="" width="727" height="407"></p>
 <p>Figure 3: Edit Author</p>
 <p>As per figure 1, Book button uses to add new with respect an author as per following figure.</p>
-<p><img id="164021" src="164021-4.png" alt="" width="628" height="355"></p>
+<p><img id="164021" src="https://i1.code.msdn.s-msft.com/generic-repository-pattern-f133bca4/image/file/164021/1/4.png" alt="" width="628" height="355"></p>
 <p>Figure 4: Add New Book</p>
 <p>Now click on Book menu from the top and shows book listing screen as per following screen.</p>
-<p><img id="164022" src="164022-5.png" alt="" width="610" height="418"></p>
+<p><img id="164022" src="https://i1.code.msdn.s-msft.com/generic-repository-pattern-f133bca4/image/file/164022/1/5.png" alt="" width="610" height="418"></p>
 <p>Figure 5: Book Listing</p>
 <p>As per figure 5, Edit button uses to edit individual book as per following figure.</p>
-<p><img id="164023" src="164023-6.png" alt="" width="726" height="464"></p>
+<p><img id="164023" src="https://i1.code.msdn.s-msft.com/generic-repository-pattern-f133bca4/image/file/164023/1/6.png" alt="" width="726" height="464"></p>
 <p>Figure 6: Edit Book</p>
 <p>As per figure 5, Delete button uses to delete individual book as per following figure.</p>
-<p><img id="164024" src="164024-7.png" alt="" width="727" height="465"></p>
+<p><img id="164024" src="https://i1.code.msdn.s-msft.com/generic-repository-pattern-f133bca4/image/file/164024/1/7.png" alt="" width="727" height="465"></p>
 <p>Figure 7: Delete Book</p>
 <h1>Source Code Overview</h1>
 <p>Most of folders play same role as in MVC application but there are following more folder and files.</p>

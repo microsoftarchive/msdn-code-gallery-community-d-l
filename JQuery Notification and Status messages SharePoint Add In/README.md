@@ -24,7 +24,7 @@
 
 <h1>Introduction</h1>
 <p>IntroductionThere are multiple ways we can show notifications or status from SharePoint Add In, in this article we can find more detail about SharePoint Out of box notification, status and JQuery notification implementation logic</p>
-<p><img id="148772" src="148772-main%20notification%20-%20copy.jpg" alt="" width="683" height="324"></p>
+<p><img id="148772" src="https://i1.code.msdn.s-msft.com/notification-and-status-34bd280f/image/file/148772/1/main%20notification%20-%20copy.jpg" alt="" width="683" height="324"></p>
 <p><br>
 <strong>Solution compatibility</strong></p>
 <p>This sample is tested with SharePoint Online</p>

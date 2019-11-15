@@ -32,7 +32,7 @@
 <p><span>Open Database &gt; Right Click on Table &gt; Add New Table &gt; Add Columns &gt; Save &gt; Enter table name &gt; Ok.&nbsp;</span></p>
 <div>In this example, I have used one tables as below&nbsp;<br>
 <br>
-<div class="separator"><a href="http://1.bp.blogspot.com/-ey7ihsSsApQ/U7RbKPqPX_I/AAAAAAAABDU/sr6zNwg5Tps/s1600/Capturedb.PNG"><img src="-capturedb.png" border="0" alt=""></a></div>
+<div class="separator"><a href="http://1.bp.blogspot.com/-ey7ihsSsApQ/U7RbKPqPX_I/AAAAAAAABDU/sr6zNwg5Tps/s1600/Capturedb.PNG"><img src="http://1.bp.blogspot.com/-ey7ihsSsApQ/U7RbKPqPX_I/AAAAAAAABDU/sr6zNwg5Tps/s1600/Capturedb.PNG" border="0" alt=""></a></div>
 </div>
 <h2 class="subhead"><span>Step-4: Add Entity Data Model.</span></h2>
 <p><span>Go to Solution Explorer &gt; Right Click on Project name form Solution Explorer &gt; Add &gt; New item &gt; Select ADO.net Entity Data Model under data &gt; Enter model name &gt; Add.</span><br>

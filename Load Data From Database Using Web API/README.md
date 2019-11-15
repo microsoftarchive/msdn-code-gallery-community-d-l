@@ -24,12 +24,12 @@
 <p><span style="font-size:small"><strong><em>What is a Web API?</em></strong></span></p>
 <p><span style="font-size:small">A Web API is a kind of a framework which makes building HTTP services easier than ever. It can be used almost everywhere including wide range of clients, mobile devices, browsers etc. It contains normal MVC features like Model,
  Controller, Actions, Routing etc. Support all HTTP verbs like POST, GET, DELETE, PUT.</span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10874"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Why-Web-API.png"><img class="size-full x_x_x_wp-image-10874" src="-why-web-api.png" alt="Why Web API" width="550" height="377"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10874"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Why-Web-API.png"><img class="size-full x_x_x_wp-image-10874" src="http://sibeeshpassion.com/wp-content/uploads/2015/10/Why-Web-API.png" alt="Why Web API" width="550" height="377"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">Why Web API</span></p>
 </div>
 <p><span style="font-size:small"><em>Image Courtesy : blogs.msdn.com</em></span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10875"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Why-Web-API1-e1446290457816.png"><img class="size-full x_x_x_wp-image-10875" src="-why-web-api1-e1446290457816.png" alt="Why Web API" width="650" height="454"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10875"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Why-Web-API1-e1446290457816.png"><img class="size-full x_x_x_wp-image-10875" src="http://sibeeshpassion.com/wp-content/uploads/2015/10/Why-Web-API1-e1446290457816.png" alt="Why Web API" width="650" height="454"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">Why Web API</span></p>
 </div>
@@ -40,11 +40,11 @@
 <p><span style="font-size:small"><strong><br>
 </strong></span></p>
 <p><span style="font-size:small">We will create our project in Visual Studio 2015. To create a project click File-&gt; New-&gt; Project.</span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10151"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_1-e1440410870120.png"><img class="size-full x_x_x_wp-image-10151" src="-crud_in_mvc_using_web_api_1-e1440410870120.png" alt="CRUD_in_MVC_Using_Web_API" width="650" height="450"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10151"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_1-e1440410870120.png"><img class="size-full x_x_x_wp-image-10151" src="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_1-e1440410870120.png" alt="CRUD_in_MVC_Using_Web_API" width="650" height="450"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">CRUD_in_MVC_Using_Web_API</span></p>
 </div>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10161"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_2-e1440410926817.png"><img class="size-full x_x_x_wp-image-10161" src="-crud_in_mvc_using_web_api_2-e1440410926817.png" alt="CRUD_in_MVC_Using_Web_API" width="650" height="590"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10161"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_2-e1440410926817.png"><img class="size-full x_x_x_wp-image-10161" src="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_2-e1440410926817.png" alt="CRUD_in_MVC_Using_Web_API" width="650" height="590"></a>
 </span>
 <p class="wp-caption-text"><br>
 <span style="font-size:small">CRUD_in_MVC_Using_Web_API</span></p>
@@ -55,12 +55,12 @@
 <p><span style="font-size:small"><strong><br>
 </strong></span></p>
 <p><span style="font-size:small">Now we will create a controller in our project.</span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10171"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Adding_Control.png"><img class="size-full x_x_x_wp-image-10171" src="-crud_in_mvc_using_web_api_adding_control.png" alt="CRUD_in_MVC_Using_Web_API_Adding_Control" width="652" height="596"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10171"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Adding_Control.png"><img class="size-full x_x_x_wp-image-10171" src="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Adding_Control.png" alt="CRUD_in_MVC_Using_Web_API_Adding_Control" width="652" height="596"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">CRUD_in_MVC_Using_Web_API_Adding_Control</span></p>
 </div>
 <p><span style="font-size:small">Select&nbsp;<em>Empty API Controller</em>&nbsp;as template.</span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10191"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Select_APIControl.png"><img class="size-full x_x_x_wp-image-10191" src="-crud_in_mvc_using_web_api_select_apicontrol.png" alt="CRUD_in_MVC_Using_Web_API_Select_APIControl" width="638" height="430"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10191"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Select_APIControl.png"><img class="size-full x_x_x_wp-image-10191" src="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Select_APIControl.png" alt="CRUD_in_MVC_Using_Web_API_Select_APIControl" width="638" height="430"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">CRUD_in_MVC_Using_Web_API_Select_APIControl</span></p>
 <p class="wp-caption-text"><span style="font-size:small"><br>
@@ -87,7 +87,7 @@
 <p><span style="font-size:small"><strong>Create Database</strong></span></p>
 <p><span style="font-size:small"><strong><br>
 </strong></span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10201"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Create_Database-e1440412525937.png"><img class="size-full x_x_x_wp-image-10201" src="-crud_in_mvc_using_web_api_create_database-e1440412525937.png" alt="CRUD_in_MVC_Using_Web_API_Create_Database" width="650" height="449"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10201"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Create_Database-e1440412525937.png"><img class="size-full x_x_x_wp-image-10201" src="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Create_Database-e1440412525937.png" alt="CRUD_in_MVC_Using_Web_API_Create_Database" width="650" height="449"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">CRUD_in_MVC_Using_Web_API_Create_Database</span></p>
 <p class="wp-caption-text"><span style="font-size:small"><br>
@@ -96,7 +96,7 @@
 <p><span style="font-size:small">Once you created the database, you can see your database in App_Data folder.</span></p>
 <p><span style="font-size:small"><br>
 </span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10211"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Created_DB.png"><img class="size-full x_x_x_wp-image-10211" src="-crud_in_mvc_using_web_api_created_db.png" alt="CRUD_in_MVC_Using_Web_API_Created_DB" width="335" height="135"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10211"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Created_DB.png"><img class="size-full x_x_x_wp-image-10211" src="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Created_DB.png" alt="CRUD_in_MVC_Using_Web_API_Created_DB" width="335" height="135"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">CRUD_in_MVC_Using_Web_API_Created_DB</span></p>
 <p class="wp-caption-text"><span style="font-size:small"><br>
@@ -105,7 +105,7 @@
 <p><span style="font-size:small">Now will add a new table to our database.</span></p>
 <p><span style="font-size:small"><br>
 </span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10221"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Adding_Table.png"><img class="size-full x_x_x_wp-image-10221" src="-crud_in_mvc_using_web_api_adding_table.png" alt="CRUD_in_MVC_Using_Web_API_Adding_Table" width="347" height="294"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10221"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Adding_Table.png"><img class="size-full x_x_x_wp-image-10221" src="http://sibeeshpassion.com/wp-content/uploads/2015/08/CRUD_in_MVC_Using_Web_API_Adding_Table.png" alt="CRUD_in_MVC_Using_Web_API_Adding_Table" width="347" height="294"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">CRUD_in_MVC_Using_Web_API_Adding_Table</span></p>
 <p class="wp-caption-text"><span style="font-size:small"><br>
@@ -136,7 +136,7 @@
 <div class="syntaxhighlighter sql"><span style="font-size:small"><br>
 </span></div>
 </div>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10868"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API.png"><img class="size-full x_x_x_wp-image-10868" src="-load-data-from-database-using-web-api.png" alt="Load Data From Database Using Web API" width="261" height="293"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10868"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API.png"><img class="size-full x_x_x_wp-image-10868" src="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API.png" alt="Load Data From Database Using Web API" width="261" height="293"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">Load Data From Database Using Web API</span></p>
 <p class="wp-caption-text"><span style="font-size:small"><br>
@@ -146,7 +146,7 @@
  I have given the name as SP. And in the next steps select the tables, stored procedures, and views you want.</span></p>
 <p><span style="font-size:small"><br>
 </span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10869"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API-2.png"><img class="size-large x_x_x_wp-image-10869" src="-load-data-from-database-using-web-api-2-1024x711.png" alt="Load Data From Database Using Web API " width="634" height="440"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10869"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API-2.png"><img class="size-large x_x_x_wp-image-10869" src="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API-2-1024x711.png" alt="Load Data From Database Using Web API " width="634" height="440"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">Load Data From Database Using Web API</span></p>
 <p class="wp-caption-text"><span style="font-size:small"><br>
@@ -374,7 +374,7 @@ INSERT&nbsp;INTO&nbsp;[dbo].[tbl_Subscribers]&nbsp;([SubscriberID],&nbsp;[MailID
 <p><span style="font-size:small">So the data is inserted. Isn&rsquo;t it?</span></p>
 <p><span style="font-size:small"><br>
 </span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10870"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API-3.png"><img class="size-full x_x_x_wp-image-10870" src="-load-data-from-database-using-web-api-3.png" alt="Load Data From Database Using Web API " width="517" height="200"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10870"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API-3.png"><img class="size-full x_x_x_wp-image-10870" src="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API-3.png" alt="Load Data From Database Using Web API " width="517" height="200"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">Load Data From Database Using Web API</span></p>
 <p class="wp-caption-text"><span style="font-size:small"><br>
@@ -439,7 +439,7 @@ INSERT&nbsp;INTO&nbsp;[dbo].[tbl_Subscribers]&nbsp;([SubscriberID],&nbsp;[MailID
 </div>
 </div>
 <p><span style="font-size:small">If everything goes fine, you will get the output as follows.</span></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_10871"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API-4-e1446288898428.png"><img class="size-full x_x_x_wp-image-10871" src="-load-data-from-database-using-web-api-4-e1446288898428.png" alt="Load Data From Database Using Web API" width="650" height="497"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_10871"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API-4-e1446288898428.png"><img class="size-full x_x_x_wp-image-10871" src="http://sibeeshpassion.com/wp-content/uploads/2015/10/Load-Data-From-Database-Using-Web-API-4-e1446288898428.png" alt="Load Data From Database Using Web API" width="650" height="497"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">Load Data From Database Using Web API</span></p>
 </div>

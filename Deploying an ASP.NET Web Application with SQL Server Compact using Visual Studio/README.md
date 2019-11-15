@@ -41,13 +41,13 @@ Contoso University web application</a>. The <em>.zip</em> file contains multiple
 <p>(For the screen shots in this tutorial, the project folder is located in the root directory on the
 <code>C</code>: drive.)</p>
 <p>Start Visual Studio, open the project, and press CTRL-F5 to run it.</p>
-<p><a href="http://i3.asp.net/media/2872421/Windows-Live-Writer_Deployment-to-a-Hosting-Provider-Deployi_97F1_Home_page_4.png?cdn_id=2014-05-21-001"><img src="-windows-live-writer_deployment-to-a-hosting-provider-deployi_97f1_home_page_thumb_1.png?cdn_id=2014-05-21-001" border="0" alt="Home_page" width="634" height="185"></a></p>
+<p><a href="http://i3.asp.net/media/2872421/Windows-Live-Writer_Deployment-to-a-Hosting-Provider-Deployi_97F1_Home_page_4.png?cdn_id=2014-05-21-001"><img src="http://i2.asp.net/media/2872427/Windows-Live-Writer_Deployment-to-a-Hosting-Provider-Deployi_97F1_Home_page_thumb_1.png?cdn_id=2014-05-21-001" border="0" alt="Home_page" width="634" height="185"></a></p>
 <p>The website pages are accessible from the menu bar and let you perform the following functions:</p>
 <ul>
 <li>Display student statistics (the About page). </li><li>Display, edit, delete, and add students. </li><li>Display and edit courses. </li><li>Display and edit instructors. </li><li>Display and edit departments. </li></ul>
 <p>Following are screen shots of a few representative pages.</p>
-<p><a href="http://i2.asp.net/media/2872433/Windows-Live-Writer_Deployment-to-a-Hosting-Provider-Deployi_97F1_Students_Page_1.png?cdn_id=2014-05-21-001"><img src="-windows-live-writer_deployment-to-a-hosting-provider-deployi_97f1_students_page_thumb_1.png?cdn_id=2014-05-21-001" border="0" alt="Students_Page" width="638" height="292"></a></p>
-<p><a href="http://i3.asp.net/media/2872445/Windows-Live-Writer_Deployment-to-a-Hosting-Provider-Deployi_97F1_Add_Students_Page_1.png?cdn_id=2014-05-21-001"><img src="-windows-live-writer_deployment-to-a-hosting-provider-deployi_97f1_add_students_page_thumb_1.png?cdn_id=2014-05-21-001" border="0" alt="Add_Students_Page" width="637" height="222"></a></p>
+<p><a href="http://i2.asp.net/media/2872433/Windows-Live-Writer_Deployment-to-a-Hosting-Provider-Deployi_97F1_Students_Page_1.png?cdn_id=2014-05-21-001"><img src="http://i1.asp.net/media/2872439/Windows-Live-Writer_Deployment-to-a-Hosting-Provider-Deployi_97F1_Students_Page_thumb_1.png?cdn_id=2014-05-21-001" border="0" alt="Students_Page" width="638" height="292"></a></p>
+<p><a href="http://i3.asp.net/media/2872445/Windows-Live-Writer_Deployment-to-a-Hosting-Provider-Deployi_97F1_Add_Students_Page_1.png?cdn_id=2014-05-21-001"><img src="http://i3.asp.net/media/2872451/Windows-Live-Writer_Deployment-to-a-Hosting-Provider-Deployi_97F1_Add_Students_Page_thumb_1.png?cdn_id=2014-05-21-001" border="0" alt="Add_Students_Page" width="637" height="222"></a></p>
 <h2>Reviewing Application Features that Affect Deployment</h2>
 <p>The following features of the application affect how you deploy it or what you have to do to deploy it. Each of these is explained in more detail in the following tutorials in the series.</p>
 <ul>

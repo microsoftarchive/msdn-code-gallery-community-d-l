@@ -62,26 +62,26 @@
 <p><span><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large">The following steps will show you how to create Xamarin.Forms project in Mac system with&nbsp;&nbsp;Visual Studio,</span></span></p>
 </div>
 <p><span><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large">F</span></span><span><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large">irst, open the Visual Studio for Mac. And Click on New Project&nbsp;</span></span></p>
-<p class="separator"><img src=":-project.png" border="0" alt="" width="640" height="354"></p>
+<p class="separator"><img src="https://4.bp.blogspot.com/-TfR3NWXi7aI/W5ZyNMVZccI/AAAAAAAABWg/ADjnBS8t0nwEVrhzKYHK4JlUWf1D7hX0QCLcBGAs/s640/Project.png" border="0" alt="" width="640" height="354"></p>
 <p>&nbsp;</p>
 <div>
 <p class="separator"><span style="font-family:verdana,sans-serif"><span style="font-family:verdana,sans-serif"><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large">After that, we need to select whether you're doing Xamarin.Forms or Xamarin.</span></span></span><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large">Android
  or Xamarin.iOS project. if we want to create Xamarin.Forms project just follow the below screenshot.</span></p>
 <div>
 <div>
-<p><span style="font-family:verdana,sans-serif"><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large"><img src=":-selecttemplate.png" border="0" alt="" width="640" height="464"></span></span></p>
+<p><span style="font-family:verdana,sans-serif"><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large"><img src="https://4.bp.blogspot.com/-Zn-BaixaSX0/W5ZyOSDV0pI/AAAAAAAABWo/p8RekhumjF8ATtS7nZ6nKOnHlPyY2-uCACLcBGAs/s640/SelectTemplate.png" border="0" alt="" width="640" height="464"></span></span></p>
 </div>
 </div>
 </div>
 </div>
 <div>
 <p><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large">Give the App Name i.e ListViewDemo.</span></p>
-<p><img src=":-projectname.png" border="0" alt="" width="640" height="462"></p>
+<p><img src="https://1.bp.blogspot.com/-ji7MCxB_LT4/W5ZyM3ZIHhI/AAAAAAAABWc/rbvlW1xGtR4SKEpsDc8kgNhHZmsB2L-3wCEwYBhgL/s640/ProjectName.png" border="0" alt="" width="640" height="462"></p>
 <p class="separator"><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large"><strong>Note:</strong>&nbsp;</span></p>
 <p class="separator"><span style="font-family:times,&quot;times new roman&quot;,serif"><span style="font-size:large">I</span><span style="font-size:large">n the above screen under Shared Code, select use .NET Standard or Use Shared Library.&nbsp;</span><span style="font-size:large">Then
  click on Next Button and below screenshot will show you how to browse to save the project on our PC.</span></span></p>
 <div>
-<p><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large"><img src=":-browse.png" border="0" alt="" width="640" height="464"><span style="font-family:Verdana,Arial,Helvetica,sans-serif; font-size:10px">&nbsp;</span></span></p>
+<p><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large"><img src="https://1.bp.blogspot.com/-YipJQUI0muo/W5ZyM2shUCI/AAAAAAAABWY/BIRWSBQTas8xLUqIHTiN835Svnp30vgOQCLcBGAs/s640/Browse.png" border="0" alt="" width="640" height="464"><span style="font-family:Verdana,Arial,Helvetica,sans-serif; font-size:10px">&nbsp;</span></span></p>
 </div>
 <p class="separator"><span style="font-size:large"><span style="font-family:times,&quot;times new roman&quot;,serif">After click on Create, button it will create the ListViewDemo Xamarin.Forms project like below</span></span></p>
 <div></div>
@@ -94,7 +94,7 @@
 <ul>
 <li><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large"><em><strong><em><strong>ListViewDemo</strong></em>.iOS:</strong>&nbsp;It is for iOS</em></span>
 </li></ul>
-<p class="separator"><a href="https://1.bp.blogspot.com/-OmK8vEY6lJg/W5ZyNy_O6xI/AAAAAAAABWk/MlfioRy2AtExIrg-JTLAHOKiL6Tz4FccwCEwYBhgL/s1600/ProjectStructure.png"><img src=":-projectstructure.png" border="0" alt="" width="640" height="306"></a></p>
+<p class="separator"><a href="https://1.bp.blogspot.com/-OmK8vEY6lJg/W5ZyNy_O6xI/AAAAAAAABWk/MlfioRy2AtExIrg-JTLAHOKiL6Tz4FccwCEwYBhgL/s1600/ProjectStructure.png"><img src="https://1.bp.blogspot.com/-OmK8vEY6lJg/W5ZyNy_O6xI/AAAAAAAABWk/MlfioRy2AtExIrg-JTLAHOKiL6Tz4FccwCEwYBhgL/s640/ProjectStructure.png" border="0" alt="" width="640" height="306"></a></p>
 <p class="separator"><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large">We need to follow below few steps to change selected-item background color for ListView.</span></p>
 <p class="separator"><strong><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large">.Net Standard/PCL:</span>&nbsp;</strong></p>
 </div>
@@ -428,5 +428,5 @@ namespace&nbsp;ListViewDemo.CustomControls&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&n
 </div>
 <div>
 <p><strong><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large">Output:</span></strong></p>
-<p class="separator"><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large"><a href="https://1.bp.blogspot.com/-I0vb1F0OCYQ/W5Z9d7tw1JI/AAAAAAAABXE/1cHUYO16oXQHV3kSz0K38_6XahjJpHouwCLcBGAs/s1600/iOS.png"><img src=":-ios.png" border="0" alt="" width="177" height="400"></a><a href="https://4.bp.blogspot.com/-Ws49Pgjsih8/W5Z9d114LfI/AAAAAAAABXI/0VX-r2YUrbUYBEF_nxFXLadxknKHce2YgCLcBGAs/s1600/Android.png"><img src=":-android.png" border="0" alt="" width="208" height="400"></a></span></p>
+<p class="separator"><span style="font-family:times,&quot;times new roman&quot;,serif; font-size:large"><a href="https://1.bp.blogspot.com/-I0vb1F0OCYQ/W5Z9d7tw1JI/AAAAAAAABXE/1cHUYO16oXQHV3kSz0K38_6XahjJpHouwCLcBGAs/s1600/iOS.png"><img src="https://1.bp.blogspot.com/-I0vb1F0OCYQ/W5Z9d7tw1JI/AAAAAAAABXE/1cHUYO16oXQHV3kSz0K38_6XahjJpHouwCLcBGAs/s400/iOS.png" border="0" alt="" width="177" height="400"></a><a href="https://4.bp.blogspot.com/-Ws49Pgjsih8/W5Z9d114LfI/AAAAAAAABXI/0VX-r2YUrbUYBEF_nxFXLadxknKHce2YgCLcBGAs/s1600/Android.png"><img src="https://4.bp.blogspot.com/-Ws49Pgjsih8/W5Z9d114LfI/AAAAAAAABXI/0VX-r2YUrbUYBEF_nxFXLadxknKHce2YgCLcBGAs/s400/Android.png" border="0" alt="" width="208" height="400"></a></span></p>
 </div>

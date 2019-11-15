@@ -25,7 +25,7 @@
 <p><span style="font-size:small">Click File-&gt; New-&gt; Project then select MVC application. Before going to start the coding part, make sure that all the required extensions/references are installed. Below are the required things to start with.</span></p>
 <li><span style="font-size:small">Datatables Package</span> </li><li><span style="font-size:small">jQuery</span>
 <p><span style="font-size:small">You can all the items mentioned above from NuGet. Right click on your project name and select Manage NuGet packages.</span></p>
-<div class="wp-caption x_x_alignnone" id="attachment_11235"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/02/Manage-NuGet-Package-Window-e1455700665396.png"><img class="size-full x_x_wp-image-11235" src="-manage-nuget-package-window-e1455700665396.png" alt="Manage NuGet Package Window" width="650" height="432"></a>
+<div class="wp-caption x_x_alignnone" id="attachment_11235"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/02/Manage-NuGet-Package-Window-e1455700665396.png"><img class="size-full x_x_wp-image-11235" src="http://sibeeshpassion.com/wp-content/uploads/2016/02/Manage-NuGet-Package-Window-e1455700665396.png" alt="Manage NuGet Package Window" width="650" height="432"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">Manage NuGet Package Window</span></p>
 </div>
@@ -647,11 +647,11 @@ namespace&nbsp;jQuery_Datatable_With_Server_Side_Data.Controllers&nbsp;
 </div>
 <p><span style="font-size:small">We have done everything!. Can we see the output now?</span></p>
 <p><strong><span style="font-size:small">Output</span></strong></p>
-<div class="wp-caption x_x_alignnone" id="attachment_11267"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/02/jQuery-Datatable-With-Server-Side-Data.png"><img class="size-large x_x_wp-image-11267" src="-jquery-datatable-with-server-side-data-1024x596.png" alt="jQuery Datatable With Server Side Data" width="634" height="369"></a>
+<div class="wp-caption x_x_alignnone" id="attachment_11267"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/02/jQuery-Datatable-With-Server-Side-Data.png"><img class="size-large x_x_wp-image-11267" src="http://sibeeshpassion.com/wp-content/uploads/2016/02/jQuery-Datatable-With-Server-Side-Data-1024x596.png" alt="jQuery Datatable With Server Side Data" width="634" height="369"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">jQuery Datatable With Server Side Data</span></p>
 </div>
-<div class="wp-caption x_x_alignnone" id="attachment_11268"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/02/jQuery-Datatable-With-Server-Side-Data-Search.png"><img class="size-large x_x_wp-image-11268" src="-jquery-datatable-with-server-side-data-search-1024x379.png" alt="jQuery Datatable With Server Side Data Search" width="634" height="235"></a>
+<div class="wp-caption x_x_alignnone" id="attachment_11268"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/02/jQuery-Datatable-With-Server-Side-Data-Search.png"><img class="size-large x_x_wp-image-11268" src="http://sibeeshpassion.com/wp-content/uploads/2016/02/jQuery-Datatable-With-Server-Side-Data-Search-1024x379.png" alt="jQuery Datatable With Server Side Data Search" width="634" height="235"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">jQuery Datatable With Server Side Data Search</span></p>
 </div>

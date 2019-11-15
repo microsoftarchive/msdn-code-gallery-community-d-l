@@ -44,25 +44,25 @@
 <li>Microsoft account </li><li>GitHub </li><li>LinkedIn </li></ul>
 <p>after successfully joining it will redirect to subscriptionsmpage. Request new trials for any of the product by selecting the checkbox. Process: Click on Request new trials &gt; Face - Preview &gt; Agree Term &gt; Subscribe Here you can see I have attached
  a screenshot of my subscription. In the Keys column from Key 1 click on &ldquo;Show&rdquo; to preview the API Key, click &ldquo;Copy&rdquo; to copy the key for further use. Key can be regenerate by clicking on &ldquo;Regenerate&rdquo;.</p>
-<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_8.png"><img class="alignnone size-large x_x_x_x_x_x_wp-image-3797" src="-fapi_8-1024x544.png" alt="" width="640" height="340"></a></p>
+<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_8.png"><img class="alignnone size-large x_x_x_x_x_x_wp-image-3797" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_8-1024x544.png" alt="" width="640" height="340"></a></p>
 <p>So fur we are done with the subscription process, now let&rsquo;s get started with the ASP.Net MVC sample application.</p>
 <h3><strong>Create Sample Application:&nbsp;</strong></h3>
-<p>Before going to start the experiment let&rsquo;s make sure Visual Studio 2015 is installed on development machine. let&rsquo;s open Visual Studio 2015, From the File menu, click on New &gt; Project.&nbsp;<a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_1.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3784" src="-fapi_1.png" alt=""></a></p>
+<p>Before going to start the experiment let&rsquo;s make sure Visual Studio 2015 is installed on development machine. let&rsquo;s open Visual Studio 2015, From the File menu, click on New &gt; Project.&nbsp;<a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_1.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3784" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_1.png" alt=""></a></p>
 <p>Select ASP.Net Web Application, name it as you like, I just named it &ldquo;FaceAPI_MVC&rdquo; click Ok button to proceed on for next step. Choose empty template for the sample application, select &ldquo;MVC&rdquo; check box then click Ok.</p>
-<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_2.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3785" src="-fapi_2.png" alt=""></a></p>
+<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_2.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3785" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_2.png" alt=""></a></p>
 <p>In our empty template let&rsquo;s now create MVC controller and generate views by scaffolding.</p>
-<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_3.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3786" src="-fapi_3.png" alt="" width="271" height="275"></a></p>
+<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_3.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3786" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_3.png" alt="" width="271" height="275"></a></p>
 <h3><strong>Add AngularJS:&nbsp;</strong></h3>
 <p>We need to add packages in our sample application. To do that go to Solution Explorer Right Click on Project &gt; Manage NuGet Package</p>
-<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_4.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3792" src="-fapi_4.png" alt="" width="538" height="368"></a></p>
+<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_4.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3792" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_4.png" alt="" width="538" height="368"></a></p>
 <p>In Package Manager Search by typing &ldquo;angularjs&rdquo;, select package then click Install.</p>
-<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_5.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3793" src="-fapi_5.png" alt=""></a>&nbsp;</p>
+<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_5.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3793" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_5.png" alt=""></a>&nbsp;</p>
 <p>After installing &ldquo;angularjs&rdquo; package we need to reference it in our layout page, also we need to define app root using &ldquo;ng-app&rdquo; directive.&nbsp;</p>
-<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_6.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3794" src="-fapi_6.png" alt="" width="562" height="228"></a></p>
+<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_6.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3794" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_6.png" alt="" width="562" height="228"></a></p>
 <p>If you are new to angularjs, please get a basic overview on angularjs with MVC application from here:&nbsp;<a href="http://shashangka.com/2016/01/17/asp-net-mvc-5-with-angularjs-part-1">http://shashangka.com/2016/01/17/asp-net-mvc-5-with-angularjs-part-1</a>&nbsp;&nbsp;</p>
 <h3><strong>Install &amp; Configure the Face API:</strong></h3>
 <p>We need to add<strong>&nbsp;&ldquo;Microsoft.ProjectOxford.Face&rdquo;&nbsp;</strong>library in our sample application. Type and search like below screen then select and Install.</p>
-<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_7.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3795" src="-fapi_7.png" alt=""></a></p>
+<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_7.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3795" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_7.png" alt=""></a></p>
 <p><strong>Web.Config:&nbsp;</strong>&nbsp;In application Web.Config add a new configuration setting in appSettings section with our previously generated API Key.</p>
 <p>&nbsp;</p>
 <div class="scriptcode">
@@ -726,13 +726,13 @@ CroppedFace.Save(croppedImgFullPath,&nbsp;ImageFormat.Jpeg);&nbsp;
 <p>&nbsp;</p>
 <h3><strong>Upload images to detect faces:</strong></h3>
 <p>Browse Image from local folder to upload and detect faces.</p>
-<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_11.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3813" src="-fapi_11.png" alt=""></a></p>
+<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_11.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3813" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_11.png" alt=""></a></p>
 <h3><strong>Mark faces in the image:</strong></h3>
 <p>Detected faces will mark with white rectangle.</p>
-<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_9.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3798" src="-fapi_9.png" alt="" width="503" height="533"></a></p>
+<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_9.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3798" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_9.png" alt="" width="503" height="533"></a></p>
 <h3><strong>List detected faces with face information:</strong></h3>
 <p>List and&nbsp;Separate&nbsp;the faces with detailed&nbsp;face information.</p>
-<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_10.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3799" src="-fapi_10.png" alt="" width="483" height="425"></a></p>
+<p><a href="http://shashangka.com/wp-content/uploads/2017/01/fapi_10.png"><img class="alignnone size-full x_x_x_x_x_x_wp-image-3799" src="http://shashangka.com/wp-content/uploads/2017/01/fapi_10.png" alt="" width="483" height="425"></a></p>
 <h3><strong>Summary:</strong></h3>
 <p>You have just seen how to call Face API to detect faces in an Image. Hope this will help to make application more smart and intelligent&nbsp;🙂.</p>
 <p><strong>References:</strong></p>

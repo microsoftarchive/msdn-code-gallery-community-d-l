@@ -27,7 +27,7 @@
  go and implement the same in your application too. Shall we?</p>
 <p><strong>Create a HTML page</strong></p>
 <p>To work with Knockout JS, we need a page right. Let&rsquo;s create it first. Before we do that, please do not forget to install Knockout JS and jQuery from NuGet.</p>
-<div class="wp-caption x_alignnone" id="attachment_12074"><a href="http://sibeeshpassion.com/wp-content/uploads/2017/03/Installing_KnockOut_JS_from_NuGet.png"><img class="size-large x_wp-image-12074" src="-installing_knockout_js_from_nuget-1024x537.png" alt="Installing_KnockOut_JS_from_NuGet" width="634" height="332"></a>
+<div class="wp-caption x_alignnone" id="attachment_12074"><a href="http://sibeeshpassion.com/wp-content/uploads/2017/03/Installing_KnockOut_JS_from_NuGet.png"><img class="size-large x_wp-image-12074" src="http://sibeeshpassion.com/wp-content/uploads/2017/03/Installing_KnockOut_JS_from_NuGet-1024x537.png" alt="Installing_KnockOut_JS_from_NuGet" width="634" height="332"></a>
 <p class="wp-caption-text">Installing_KnockOut_JS_from_NuGet</p>
 </div>
 <div></div>
@@ -179,12 +179,12 @@ Here&nbsp;<em>.extend({ isRequired: &ldquo;You missed First Name&rdquo; });</em>
 Every observables will be having their own hasError and message properties. And have you noticed that we are usig&nbsp;<em>valueUpdate: &ldquo;afterkeydown&rdquo;</em>&nbsp;in each data-bind event of our control. This is for initiating validation. Now let&rsquo;s
  run our application and see whether it is working fine or not.</div>
 </div>
-<div class="wp-caption x_alignnone" id="attachment_12075"><a href="http://sibeeshpassion.com/wp-content/uploads/2017/03/Knockout-JS-validation-without-a-plugin-demo.gif"><img class="size-full x_wp-image-12075" src="-knockout-js-validation-without-a-plugin-demo.gif" alt="Knockout JS validation without a plugin demo" width="680" height="494"></a>
+<div class="wp-caption x_alignnone" id="attachment_12075"><a href="http://sibeeshpassion.com/wp-content/uploads/2017/03/Knockout-JS-validation-without-a-plugin-demo.gif"><img class="size-full x_wp-image-12075" src="http://sibeeshpassion.com/wp-content/uploads/2017/03/Knockout-JS-validation-without-a-plugin-demo.gif" alt="Knockout JS validation without a plugin demo" width="680" height="494"></a>
 <p class="wp-caption-text">Knockout JS validation without a plugin demo</p>
 </div>
 <p><strong>Knockout JS validation using a plugin &ndash; easy way</strong></p>
 <p>As we are going to use a plugn, we need to install it from the NuGet first. You can always get the plugin from&nbsp;<a href="https://github.com/Knockout-Contrib/Knockout-Validation" target="_blank">here</a></p>
-<div class="wp-caption x_alignnone" id="attachment_12076"><a href="http://sibeeshpassion.com/wp-content/uploads/2017/03/Knockout_Validation_JS_from_NuGet.png"><img class="size-large x_wp-image-12076" src="-knockout_validation_js_from_nuget-1024x514.png" alt="Knockout_Validation_JS_from_NuGet" width="634" height="318"></a>
+<div class="wp-caption x_alignnone" id="attachment_12076"><a href="http://sibeeshpassion.com/wp-content/uploads/2017/03/Knockout_Validation_JS_from_NuGet.png"><img class="size-large x_wp-image-12076" src="http://sibeeshpassion.com/wp-content/uploads/2017/03/Knockout_Validation_JS_from_NuGet-1024x514.png" alt="Knockout_Validation_JS_from_NuGet" width="634" height="318"></a>
 <p class="wp-caption-text">Knockout_Validation_JS_from_NuGet</p>
 </div>
 <p>Can we create our view model now?</p>
@@ -278,7 +278,7 @@ You can see that, there is only few lines of codes when it compared to the old o
 </div>
 </div>
 <p>Please don&rsquo;t forget to include the&nbsp;<em>knockout.validation.js</em>&nbsp;in your page. If everything is ready, run your application and see the output.</p>
-<div class="wp-caption x_alignnone" id="attachment_12077"><a href="http://sibeeshpassion.com/wp-content/uploads/2017/03/Knockout-JS-validation-with-plugin-demo.gif"><img class="size-full x_wp-image-12077" src="-knockout-js-validation-with-plugin-demo.gif" alt="Knockout JS validation with plugin demo" width="646" height="483"></a>
+<div class="wp-caption x_alignnone" id="attachment_12077"><a href="http://sibeeshpassion.com/wp-content/uploads/2017/03/Knockout-JS-validation-with-plugin-demo.gif"><img class="size-full x_wp-image-12077" src="http://sibeeshpassion.com/wp-content/uploads/2017/03/Knockout-JS-validation-with-plugin-demo.gif" alt="Knockout JS validation with plugin demo" width="646" height="483"></a>
 <p class="wp-caption-text">Knockout JS validation with plugin demo</p>
 </div>
 <p>That&rsquo;s all for today. You can always download the source code attached to see the complete code and application. Happy coding!.</p>

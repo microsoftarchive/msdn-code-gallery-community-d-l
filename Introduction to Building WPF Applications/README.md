@@ -32,5 +32,5 @@
 </li><li>
 <p>Binding the UI to data to both populate the UI from data and keep the data and UI synchronized.</p>
 </li></ul>
-<p><img id="GettingStartedFigure5" title="ExpenseIt sample screen shots" src="-ic387438.png" alt="ExpenseIt sample screen shots"></p>
+<p><img id="GettingStartedFigure5" title="ExpenseIt sample screen shots" src="http://i.msdn.microsoft.com/dynimg/IC387438.png" alt="ExpenseIt sample screen shots"></p>
 </div>

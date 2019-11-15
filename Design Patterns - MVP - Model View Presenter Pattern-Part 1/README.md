@@ -145,12 +145,12 @@ http://code.msdn.microsoft.com/Design-Patterns-MVVM-Model-d4b512f0</a></span><sp
 <span style="color:#000000">t</span></span><span style="color:#000000">o</span> facilitate testing the presenter,&nbsp;the presenter will have a reference to the<span style="color:#000000"> view interface
 </span>instead of to the concrete implementation of the view. View interface expose the view&rsquo;s state elements.&nbsp;By doing this,&nbsp;we can easily replace the real view with a mock implementation to run tests</span>.</div>
 <div class="saveHistory">&nbsp;</div>
-<div class="saveHistory"><img id="67753" src="67753-2.png" alt="" width="562" height="327"></div>
+<div class="saveHistory"><img id="67753" src="http://i1.code.msdn.s-msft.com/design-patterns-mvp-model-3b691ddc/image/file/67753/1/2.png" alt="" width="562" height="327"></div>
 <p><span style="color:#008000; font-size:medium">One of my client's application architecture:</span></p>
 <p><span style="color:#000000; font-size:x-small">I will explain soon, how we implented and what components we have used.
 </span></p>
-<p><span style="color:#008000; font-size:medium"><img id="67924" src="67924-image007.gif" alt="" width="272" height="399"></span></p>
-<p><span style="color:#008000; font-size:medium"><img id="67925" src="67925-image005.gif" alt="" width="333" height="323"></span></p>
+<p><span style="color:#008000; font-size:medium"><img id="67924" src="http://i1.code.msdn.s-msft.com/design-patterns-mvp-model-3b691ddc/image/file/67924/1/image007.gif" alt="" width="272" height="399"></span></p>
+<p><span style="color:#008000; font-size:medium"><img id="67925" src="http://i1.code.msdn.s-msft.com/design-patterns-mvp-model-3b691ddc/image/file/67925/1/image005.gif" alt="" width="333" height="323"></span></p>
 <p><span style="color:#008000; font-size:medium">Implementing a View Class:</span></p>
 <p><span style="font-size:small">The view (a web page, a user control, or a master page) contains user interface elements.
 </span><br>
@@ -231,7 +231,7 @@ http://code.msdn.microsoft.com/Design-Patterns-MVVM-Model-d4b512f0</a></span><sp
 <p><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium">Steps to Implement:</span></span></span></p>
 <p><span style="color:#000000; font-size:small"><span style="color:#000000; font-size:small"><span style="color:#000000; font-size:small">Let us go through the few code snippets from the attached sample.</span></span></span></p>
 <p><span style="color:#000000; font-size:small"><span style="color:#000000; font-size:small"><span style="color:#000000; font-size:small">Create a solution and add the projects with specified names as shown below.</span></span></span></p>
-<p><img id="67909" src="67909-11.png" alt="" width="277" height="397"></p>
+<p><img id="67909" src="http://i1.code.msdn.s-msft.com/design-patterns-mvp-model-3b691ddc/image/file/67909/1/11.png" alt="" width="277" height="397"></p>
 <p><span style="color:#000000; font-size:small"><span style="color:#000000; font-size:small">Step 1: Create a simple Model - CustomerModel.cs</span></span></p>
 <div class="scriptcode">
 <div class="pluginEditHolder" pluginCommand="mceScriptCode">
@@ -522,11 +522,11 @@ http://www.nuget.org/packages/WebFormsMVP</a></span></p>
 <p><span style="font-size:small">&nbsp;</span></p>
 <p><span style="font-size:small"><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium">Output:
 <span style="color:#333300; font-size:small">AddCustomer.aspx</span></span></span></span></span></p>
-<p><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><img id="67910" src="67910-12.png" alt="" width="463" height="271"></span></span></span></p>
+<p><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><img id="67910" src="http://i1.code.msdn.s-msft.com/design-patterns-mvp-model-3b691ddc/image/file/67910/1/12.png" alt="" width="463" height="271"></span></span></span></p>
 <p><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small">ListCustomer.aspx</span></span></span></span></p>
-<p><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small"><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small"><img id="67911" src="67911-13.png" alt="" width="559" height="206"></span></span></span></span></span></span></span></span></p>
+<p><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small"><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small"><img id="67911" src="http://i1.code.msdn.s-msft.com/design-patterns-mvp-model-3b691ddc/image/file/67911/1/13.png" alt="" width="559" height="206"></span></span></span></span></span></span></span></span></p>
 <p><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small"><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small">EditCustomer.aspx</span></span></span></span></span></span></span></span></p>
-<p><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small"><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small"><img id="67912" src="67912-14.png" alt="" width="588" height="241"></span></span></span></span></span></span></span></span></p>
+<p><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small"><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium"><span style="color:#333300; font-size:small"><img id="67912" src="http://i1.code.msdn.s-msft.com/design-patterns-mvp-model-3b691ddc/image/file/67912/1/14.png" alt="" width="588" height="241"></span></span></span></span></span></span></span></span></p>
 <p><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="font-size:medium">Few Disadvantage of MVP:</span></span></span></p>
 <p><span style="font-size:small"><span style="font-size:small"><span style="font-size:small">1. There are more solution elements to manage.
 <br>
@@ -535,7 +535,7 @@ http://www.nuget.org/packages/WebFormsMVP</a></span></p>
 </span><span style="font-size:small">must be notified. Typically, notification is implemented with events.
 </span></span></span></p>
 <p><span style="color:#808000; font-size:small"><span style="color:#000000; font-size:small">Thank you for reading my article. Drop all your questions/comments in QA tab give me your feedback with
-<span style="color:#3366ff"><img id="67168" src="67168-ratings.png" alt="" width="74" height="15">
+<span style="color:#3366ff"><img id="67168" src="http://i1.code.msdn.s-msft.com/oops-principles-solid-7a4e69bf/image/file/67168/1/ratings.png" alt="" width="74" height="15">
 <span style="color:#000000">star rating (1 Star - Very Poor, 5&nbsp;Star -&nbsp;Very Good).
 </span></span></span></p>
 <div class="endscriptcode"><span style="color:#3366ff">&nbsp;</span></div>

@@ -27,12 +27,12 @@
 <p><span style="font-size:small">Using the code</span></p>
 <p><span style="font-size:small">To start with, you need to create a web application. Here I am using Visual Studio 2012 and C# as the language.</span><br>
 <span style="font-size:small">Once you created the application, you need to create a RESX file by clicking the &ldquo;New Item&rdquo;</span></p>
-<p><span style="font-size:small"><img src="-usingresxfileincsharp1.png" alt=""></span></p>
-<p><span style="font-size:small"><img src="-usingresxfileincsharp2.png" alt=""></span></p>
+<p><span style="font-size:small"><img src="http://sibeeshpassion.com/Content/Images/UsingRESXFileinCSharp1.png" alt=""></span></p>
+<p><span style="font-size:small"><img src="http://sibeeshpassion.com/Content/Images/UsingRESXFileinCSharp2.png" alt=""></span></p>
 <p><span style="font-size:small">Now you can see a new file in your solution explorer named Resource1.resx</span></p>
-<p><span style="font-size:small"><img src="-usingresxfileincsharp3.png" alt=""></span></p>
+<p><span style="font-size:small"><img src="http://sibeeshpassion.com/Content/Images/UsingRESXFileinCSharp3.png" alt=""></span></p>
 <p><span style="font-size:small">So our RESX file is ready right? Now we can set some values to that.&nbsp;You can see the values I set to my RESX file in the preceding image.</span></p>
-<p><span style="font-size:small"><img src="-usingresxfileincsharp4.png" alt=""></span></p>
+<p><span style="font-size:small"><img src="http://sibeeshpassion.com/Content/Images/UsingRESXFileinCSharp4.png" alt=""></span></p>
 <p><span style="font-size:small">Now add a web page and go to the code behind by right click&#43;view code . What you need to do next is, adding needed namespaces. You can find out them from the preceding code block.</span></p>
 <div>
 <div class="syntaxhighlighter csharp" id="highlighter_829970">
@@ -102,5 +102,5 @@ using&nbsp;<a class="libraryLink" href="https://msdn.microsoft.com/en-US/library
  my resource file name. The function&nbsp;<em>GetString</em>&nbsp;is used to read the resource file properties.&nbsp;</span></p>
 <p><span style="font-size:small">Output</span></p>
 <p><span style="font-size:small">Now it is time to see the output.</span></p>
-<p><span style="font-size:small"><img src="-usingresxfileincsharp5.png" alt=""></span></p>
+<p><span style="font-size:small"><img src="http://sibeeshpassion.com/Content/Images/UsingRESXFileinCSharp5.png" alt=""></span></p>
 </li>

@@ -75,7 +75,7 @@ Session storage is per-page-per-window and is limited to the lifetime of the win
 <table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="text-align:center; margin-left:auto; margin-right:auto">
 <tbody>
 <tr>
-<td><a href="http://lh3.ggpht.com/-MMrqCLaZi1k/UYiPviPE-cI/AAAAAAAABZc/pWGl9l6zupo/s1600-h/image%25255B10%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="-image_thumb%25255b8%25255d.png?imgmax=800" alt="image" width="494" height="24" style="border-width:0px; float:none; padding-top:0px; padding-left:0px; margin-left:auto; display:block; padding-right:0px; margin-right:auto; border-style:solid"></a></td>
+<td><a href="http://lh3.ggpht.com/-MMrqCLaZi1k/UYiPviPE-cI/AAAAAAAABZc/pWGl9l6zupo/s1600-h/image%25255B10%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="http://lh5.ggpht.com/-X_dUWtg58co/UYiPwAYIIwI/AAAAAAAABZk/E2SOpYxtvmA/image_thumb%25255B8%25255D.png?imgmax=800" alt="image" width="494" height="24" style="border-width:0px; float:none; padding-top:0px; padding-left:0px; margin-left:auto; display:block; padding-right:0px; margin-right:auto; border-style:solid"></a></td>
 </tr>
 <tr>
 <td class="tr-caption">Input</td>
@@ -181,7 +181,7 @@ Session storage is per-page-per-window and is limited to the lifetime of the win
 <table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="text-align:center; margin-left:auto; margin-right:auto">
 <tbody>
 <tr>
-<td><a href="http://2.bp.blogspot.com/-aKPqjkv0rBQ/UYkoGbvUj5I/AAAAAAAABZ0/YukjAV86dk4/s1600/local.png" style="margin-left:auto; margin-right:auto"><img src="-local.png" alt="" width="400" height="148" style="border-width:0px; border-style:solid"></a></td>
+<td><a href="http://2.bp.blogspot.com/-aKPqjkv0rBQ/UYkoGbvUj5I/AAAAAAAABZ0/YukjAV86dk4/s1600/local.png" style="margin-left:auto; margin-right:auto"><img src="http://2.bp.blogspot.com/-aKPqjkv0rBQ/UYkoGbvUj5I/AAAAAAAABZ0/YukjAV86dk4/s400/local.png" alt="" width="400" height="148" style="border-width:0px; border-style:solid"></a></td>
 </tr>
 <tr>
 <td class="tr-caption">Local Storage</td>
@@ -191,7 +191,7 @@ Session storage is per-page-per-window and is limited to the lifetime of the win
 <table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="text-align:center; margin-left:auto; margin-right:auto">
 <tbody>
 <tr>
-<td><a href="http://4.bp.blogspot.com/-nOKMPgbPbn4/UYkoGvb1KtI/AAAAAAAABZ4/E2V9ODIf8Xw/s1600/session.png" style="margin-left:auto; margin-right:auto"><img src="-session.png" alt="" width="400" height="150" style="border-width:0px; border-style:solid"></a></td>
+<td><a href="http://4.bp.blogspot.com/-nOKMPgbPbn4/UYkoGvb1KtI/AAAAAAAABZ4/E2V9ODIf8Xw/s1600/session.png" style="margin-left:auto; margin-right:auto"><img src="http://4.bp.blogspot.com/-nOKMPgbPbn4/UYkoGvb1KtI/AAAAAAAABZ4/E2V9ODIf8Xw/s400/session.png" alt="" width="400" height="150" style="border-width:0px; border-style:solid"></a></td>
 </tr>
 <tr>
 <td class="tr-caption">Session Storage</td>

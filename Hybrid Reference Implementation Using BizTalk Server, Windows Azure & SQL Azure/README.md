@@ -52,7 +52,7 @@ Service Bus</a> provides the endpoint in the Cloud through which all traffic bet
  are dispatched for processing.</p>
 <h2>Hybrid Solution Architecture</h2>
 <p>The following diagram depicts the architecture of the hybrid reference implementation:</p>
-<p style="text-align:justify"><img src="41288-hybridsolutionarch.png" alt=""></p>
+<p style="text-align:justify"><img src="http://i1.code.msdn.s-msft.com/hybrid-reference-ef46d563/image/file/41288/1/hybridsolutionarch.png" alt=""></p>
 <h2>Getting More Information</h2>
 <p>This description is not intended to be fully reflective in the depth and details of the hybrid reference implementation. For more information, please visit the
 <a href="http://windowsazurecat.com/2011/08/hybrid-reference-implementation-biztalk-server-windows-azure-sql-azure/" target="_blank">

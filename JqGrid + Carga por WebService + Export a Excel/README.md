@@ -26,7 +26,7 @@
 <p><em>Este ejemplo hace uso de Tirand JqGrid, asi como la versi&oacute;n 1.7.2 de JQuery y 1.8.21 de JQueryUI. Todos estos ficheros js ya estan incluidos en la propia soluci&oacute;n.</em></p>
 <p><span style="font-size:20px; font-weight:bold">Descripci&oacute;n</span></p>
 <p><em>El ejemplo presentado Soluciona la necesidad de exportar a Excel los datos del Grid por medio de una p&aacute;gina aspx (Export2Excel.aspx), la cual se encarga de generar y retornar los datos en formato Excel.</em></p>
-<p><em><img id="97144" src="97144-jqgridtest1.png" alt="" width="600" height="328"><br>
+<p><em><img id="97144" src="http://i1.code.msdn.s-msft.com/jqgrid-carga-por-e3df6eaa/image/file/97144/1/jqgridtest1.png" alt="" width="600" height="328"><br>
 </em></p>
 <p><em>El M&eacute;tod que realiza la funcio&oacute;n de generar la respuesta Excel es la siguiente:</em></p>
 <p>&nbsp;</p>

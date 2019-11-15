@@ -163,5 +163,5 @@ In the following table, those properties which have Yes in the binding will have
  object originated from a database it probably has an Id you don't want to see and something else you are expecting to see in the items. &nbsp;In that case it is the Id you use.</span><br>
 <span>The&nbsp;</span><span style="color:#808080; font-family:monospace">SelectedValue</span><span>&nbsp; is a binding to the property DataGridRowViewModel which will change as the user selects an item.</span></p>
 <p>&nbsp;</p>
-<p><span><img id="125326" src="125326-anithanks1.gif" alt="" width="471" height="156"><br>
+<p><span><img id="125326" src="http://i1.code.msdn.s-msft.com/windowsdesktop/easy-combobox-in-datagrid-752d9d18/image/file/125326/1/anithanks1.gif" alt="" width="471" height="156"><br>
 </span></p>

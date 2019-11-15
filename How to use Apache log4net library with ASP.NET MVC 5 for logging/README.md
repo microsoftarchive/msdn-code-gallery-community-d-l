@@ -27,7 +27,7 @@
 <h1><span>Building the Sample</span></h1>
 <p><strong>Step1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong>
 Open Visual Studio 2013 for Web and create a new ASP.Net Web application selecting MVC template.</p>
-<p><img id="126685" src="126685-1.jpg" alt="" width="512" height="655"></p>
+<p><img id="126685" src="https://i1.code.msdn.s-msft.com/how-to-use-apache-log4net-0d969339/image/file/126685/1/1.jpg" alt="" width="512" height="655"></p>
 <p><img alt=""></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -37,14 +37,14 @@ Open Visual Studio 2013 for Web and create a new ASP.Net Web application selecti
 </li><li>Search for &lsquo;log4net&rsquo; and Install. </li></ul>
 <p>&nbsp;</p>
 <p><img alt=""></p>
-<p><img id="126686" src="126686-2.png" alt="" width="523" height="321"></p>
+<p><img id="126686" src="https://i1.code.msdn.s-msft.com/how-to-use-apache-log4net-0d969339/image/file/126686/1/2.png" alt="" width="523" height="321"></p>
 <p>&nbsp;</p>
 <p><img alt=""></p>
-<p><img id="126687" src="126687-3.png" alt="" width="874" height="576"></p>
+<p><img id="126687" src="https://i1.code.msdn.s-msft.com/how-to-use-apache-log4net-0d969339/image/file/126687/1/3.png" alt="" width="874" height="576"></p>
 <p>Once installation is successful we can see the log4net dll added under the Solution explorer Reference section as shown below.</p>
 <p>&nbsp;</p>
 <p><img alt=""></p>
-<p><img id="126688" src="126688-4.png" alt="" width="531" height="285"></p>
+<p><img id="126688" src="https://i1.code.msdn.s-msft.com/how-to-use-apache-log4net-0d969339/image/file/126688/1/4.png" alt="" width="531" height="285"></p>
 <p><strong>Step 3:</strong> Next we need to configure our application to use log4net logging framework. Add below line in your startup.cs file in ASP.Net MVC5 Solution folder. The below line of code provides information about log4net configuration file.</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -59,7 +59,7 @@ Open Visual Studio 2013 for Web and create a new ASP.Net Web application selecti
 </div>
 </div>
 </div>
-<div class="endscriptcode">&nbsp;<img id="126689" src="126689-5.png" alt="" width="1254" height="476"></div>
+<div class="endscriptcode">&nbsp;<img id="126689" src="https://i1.code.msdn.s-msft.com/how-to-use-apache-log4net-0d969339/image/file/126689/1/5.png" alt="" width="1254" height="476"></div>
 <p><img alt=""></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -120,7 +120,7 @@ Open Visual Studio 2013 for Web and create a new ASP.Net Web application selecti
 <p><strong>Step 7 :</strong> Use the logger.Error() method to log messages when needed.</p>
 <p>&nbsp;</p>
 <p><img alt=""></p>
-<p><img id="126690" src="126690-6.png" alt="" width="1231" height="387"></p>
+<p><img id="126690" src="https://i1.code.msdn.s-msft.com/how-to-use-apache-log4net-0d969339/image/file/126690/1/6.png" alt="" width="1231" height="387"></p>
 <p>Run and application and we can see the log file generated under the logs folder under the application root directory as configured in the web config file.</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

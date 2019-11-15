@@ -36,7 +36,7 @@ code sample on GitHub</a> where there are two class projects, one C#, one VB.NET
 <a href="http://spreadsheetlight.com/" target="_blank">SpreadSheetLight library</a> (it's free and works with both C# and VB.NET yet all documentation and samples are in C#) which show a better way to get the last cell address of a sheet with much less code
  then Excel automation.</span></p>
 <p><span style="color:#ffffff">.</span></p>
-<p><img id="104300" src="104300-s2.png" alt="" width="498" height="256"><img id="104299" src="104299-s1.png" alt="" width="713" height="521"></p>
+<p><img id="104300" src="http://i1.code.msdn.s-msft.com/excel-get-used-rows-and-15b43cb7/image/file/104300/1/s2.png" alt="" width="498" height="256"><img id="104299" src="http://i1.code.msdn.s-msft.com/excel-get-used-rows-and-15b43cb7/image/file/104299/1/s1.png" alt="" width="713" height="521"></p>
 <p>&nbsp;</p>
 <div class="scriptcode">
 <div class="pluginEditHolder" pluginCommand="mceScriptCode">
@@ -483,7 +483,7 @@ End&nbsp;Module&nbsp;
 <h2>Update 5/2017</h2>
 <p><span style="font-size:small">I have posted a slimmed down version <a href="https://github.com/karenpayneoregon/excel-usedrowscolumns/tree/master/MSDN_ExcelUsedRowsColumns">
 on GitHub</a> with minor enhancements.</span></p>
-<p><span style="font-size:small"><img id="173477" src="173477-githubscreenshot.jpg" alt="" width="504" height="433"><br>
+<p><span style="font-size:small"><img id="173477" src="https://i1.code.msdn.s-msft.com/excel-get-used-rows-and-15b43cb7/image/file/173477/1/githubscreenshot.jpg" alt="" width="504" height="433"><br>
 </span></p>
 <h1>More Information</h1>
 <p><span style="font-size:small"><a href="http://code.msdn.microsoft.com/Basics-of-using-Excel-4453945d">Basics of using Excel automation in VB.NET with emphasis on creating and destroy</a></span></p>

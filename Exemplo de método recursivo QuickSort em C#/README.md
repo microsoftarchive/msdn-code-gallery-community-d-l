@@ -41,7 +41,7 @@
 <p><span style="font-size:small">Esse exemplo foi feito para demostrar usando somente dados intei</span><span style="font-size:small">ros, mas pode ser facilmente adaptado para</span><span style="font-size:small">&nbsp;ordenar outros dados</span></p>
 <p>&nbsp;</p>
 <p><strong><span style="font-size:x-large">Exemplo de Funcionamento</span></strong></p>
-<p><img id="136595" src="136595-sorting_quicksort_anim.gif" alt="" width="280" height="214" style="line-height:15px; float:left"></p>
+<p><img id="136595" src="https://i1.code.msdn.s-msft.com/exemplo-de-mtodo-recursivo-1f51a7d8/image/file/136595/1/sorting_quicksort_anim.gif" alt="" width="280" height="214" style="line-height:15px; float:left"></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>

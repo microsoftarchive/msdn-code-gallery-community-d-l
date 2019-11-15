@@ -147,44 +147,44 @@ select&nbsp;*&nbsp;from&nbsp;ShoppingDetails&nbsp;
 <div class="endscriptcode">
 <p>After installing all the prerequisites listed above and ASP.NET Core Blazor Language Services, click Start &gt;&gt; Programs &gt;&gt; Visual Studio 2017 &gt;&gt; Visual Studio 2017 on your desktop. Click New &gt;&gt; Project. Select Web &gt;&gt; ASP.NET
  Core Angular Web Application. Enter your project name and click OK.</p>
-<img id="205940" src="205940-3.png" alt="" width="558" height="251"></div>
+<img id="205940" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205940/1/3.png" alt="" width="558" height="251"></div>
 <div class="endscriptcode"></div>
 <div class="endscriptcode">
 <p>Select Blazor (ASP.NET Core hosted) and click ok</p>
-<img id="205941" src="205941-4.png" alt="" width="479" height="246"></div>
+<img id="205941" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205941/1/4.png" alt="" width="479" height="246"></div>
 <div class="endscriptcode">
 <p>After creating ASP.NET Core Blazor Application, wait for few seconds. You will see below structure in solution explorer.</p>
-<p><img id="205942" src="205942-4_0.png" alt="" width="254" height="412"></p>
+<p><img id="205942" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205942/1/4_0.png" alt="" width="254" height="412"></p>
 <p><strong style="font-size:2em">What is new in ASP.NET Core Blazor solution?</strong></p>
 <p>When we create our new ASP.NET Core Blazor application we can see as there will be 3 projects will be automatically created in the solution Explorer.</p>
 <p><strong style="font-size:1.5em">Client Project</strong></p>
 <p>The first project created as the Client project and it will be as our Solutionname.Client and here we can see as our Solutionname as &ldquo;BlazorASPCORE&rdquo;. As the project named as client and this project will be mainly focused for all the client-side
  view. Here we will be adding all our page view to be display in the client side in browser.</p>
-<p><img id="205943" src="205943-5.png" alt="" width="249" height="327"></p>
+<p><img id="205943" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205943/1/5.png" alt="" width="249" height="327"></p>
 <p>We can see as few of sample page has been already added here and we can also see a shared folder same like our MVC application where will be having the Sharedfolder and Layout page for the Master page.Here in Blazor we have the MainLayout which will be work
  like the Master page and NavMenu for the left side menu display.</p>
 <p><strong style="font-size:1.5em">Server Project</strong></p>
 <p>As the name indicating this project will be used as a Server project. This project is mainly used to create all our Controllers and WEB API Controllers to perform all business logic and perform CRUD operation using WEB API&rsquo;s. In our demo application
  we will be adding a Web API in this Server project and all the WEB API in our Client application. This Server project will be work like get/set the data from Database and from our Client project we bind or send the result to this server to perform the CRUD
  operation in database.</p>
-<p><img id="205944" src="205944-6.png" alt="" width="280" height="148"></p>
+<p><img id="205944" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205944/1/6.png" alt="" width="280" height="148"></p>
 <p><strong style="font-size:1.5em">Shared Project</strong></p>
 <p>As the name indicating this project work like a shred project. This project works as a Model for our Server project and for the Client project. The Model declared in this Shared project will be used in both the Server and in the Client project. We also install
  all the packages needed for our project here, for example to use the Entity Framework we install all the packages in this Shared project.</p>
-<p><img id="205946" src="205946-7.png" alt="" width="189" height="60"></p>
+<p><img id="205946" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205946/1/7.png" alt="" width="189" height="60"></p>
 <p><strong style="font-size:1.5em">Run to test the application</strong></p>
 <p>When we run the application, we can see that the left side has navigation and the right side contains the data. We can see as the default sample pages and menus will be displayed in our Blazor web site. We can use the pages or remove it and start with our
  own page.</p>
-<p><img id="205947" src="205947-8.png" alt="" width="502" height="264"></p>
+<p><img id="205947" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205947/1/8.png" alt="" width="502" height="264"></p>
 <p>Now let&rsquo;s see how to add new page perform the online Shopping website.</p>
 <p><strong style="font-size:2em">Using Entity Framework</strong></p>
 <p>To use the Entity Framework in our Blazor application we need to install the below packages</p>
 <p><strong style="font-size:1.5em">Install the Packages</strong></p>
 <p>Go to Tools and then select -&gt; NuGet Package Manager -&gt; Package Manager Console.</p>
-<p><img id="205948" src="205948-9.png" alt="" width="395" height="194"></p>
+<p><img id="205948" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205948/1/9.png" alt="" width="395" height="194"></p>
 <p>&nbsp;</p>
 <p>You can see the Console at the bottom of the VS 2017 IDE and in right side of the combobox on the console select the Default project as your shared project&rdquo; Select Shared&rdquo;</p>
-<p><img id="205949" src="205949-10.png" alt="" width="564" height="132"></p>
+<p><img id="205949" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205949/1/10.png" alt="" width="564" height="132"></p>
 <p>You can see the PM&gt; and copy and paste the below line to install the Database Provider package. This package is used to set the database provider as SQL Servder.</p>
 <div class="scriptcode">
 <div class="pluginEditHolder" pluginCommand="mceScriptCode">
@@ -226,23 +226,23 @@ select&nbsp;*&nbsp;from&nbsp;ShoppingDetails&nbsp;
 </div>
 </div>
 <div class="endscriptcode">&nbsp;Press enter create connection string, Model Class and Database Context.</div>
-<div class="endscriptcode"><img id="205951" src="205951-14.png" alt="" width="235" height="152"></div>
+<div class="endscriptcode"><img id="205951" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205951/1/14.png" alt="" width="235" height="152"></div>
 <p>&nbsp;</p>
 <p>We can see ItemDetails and ShoppingDetails Model class and ShoppingDBContext class has been created in our Shared project. We will be using this Model and DBContext in our Server project to create our Web API.&nbsp;</p>
 <p><strong style="font-size:2em">Working with Web API&nbsp;</strong></p>
 <p><span>To create our WEB API Controller, right click Controllers folder. Click Add New Controller.</span></p>
-<p><span><img id="205953" src="205953-15.png" alt="" width="464" height="158"><br>
+<p><span><img id="205953" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205953/1/15.png" alt="" width="464" height="158"><br>
 </span></p>
 <p><span>Here we will be using Scaffold method to create our WEB API. We select API Controller with actions, using Entity Framework.</span></p>
-<p><span><img id="205954" src="205954-16.png" alt="" width="454" height="247"><br>
+<p><span><img id="205954" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205954/1/16.png" alt="" width="454" height="247"><br>
 </span></p>
 <p><span>Select our Model and DatabaseContext from the Shared project.</span></p>
-<p><span><img id="205955" src="205955-17.png" alt="" width="486" height="189"><br>
+<p><span><img id="205955" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205955/1/17.png" alt="" width="486" height="189"><br>
 </span></p>
 <p><span>Select our ItemDetails Model from the Shared Project.</span></p>
-<p><img id="205956" src="205956-18.png" alt="" width="401" height="277"></p>
+<p><img id="205956" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205956/1/18.png" alt="" width="401" height="277"></p>
 <p><span>Select the Data Context Class as our ShoppingDBContext from the Shared project. Our Controller name will be automatically added if you need you can change it and click the ADD.</span></p>
-<p><span><img id="205958" src="205958-19.png" alt="" width="490" height="179"><br>
+<p><span><img id="205958" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205958/1/19.png" alt="" width="490" height="179"><br>
 </span></p>
 <p>We will be using only the Get method from our Web API.</p>
 <p>Same like this we also create a Web API for our ShoppingDetails.</p>
@@ -281,9 +281,9 @@ select&nbsp;*&nbsp;from&nbsp;ShoppingDetails&nbsp;
 <p>To test Get Method, we can run our project and copy the GET method API path. Here, we can see our API path to get api/ItemDetails /&nbsp;</p>
 <p><br>
 Run the program and paste API path to test our output.<strong>&nbsp;</strong></p>
-<p><img id="205959" src="205959-21.png" alt="" width="566" height="233"></p>
+<p><img id="205959" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205959/1/21.png" alt="" width="566" height="233"></p>
 <p>For ShoppingDetails we can get both the Itemdetails and ShoppingDetails table result. Here we can see the result from Web API path /api/ ShoppingDetails</p>
-<p><img id="205961" src="205961-21-0.png" alt="" width="554" height="108"></p>
+<p><img id="205961" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205961/1/21-0.png" alt="" width="554" height="108"></p>
 <p>Now we will bind all this WEB API Json result in our Razor View page from our Client project for display the Shopping List.</p>
 <p><strong style="font-size:2em">Working with Client Project</strong></p>
 <p><strong>Note:</strong> In this article we will create 2 Razor pages. In one Razor page we will display the Item Details and users can do shopping by adding selected item to cart and do save the shopped details to the database. In Home page we bind the shopping
@@ -291,9 +291,9 @@ Run the program and paste API path to test our output.<strong>&nbsp;</strong></p
 <p><strong style="font-size:1.5em">Creating Shopping Page</strong></p>
 <p><strong style="font-size:1.17em">Add Razor View</strong></p>
 <p>To add the Razor view page right click the Pages folder from the Client project. Click on Add &gt;&gt; New Item</p>
-<p><img id="205963" src="205963-22.png" alt="" width="562" height="169"></p>
+<p><img id="205963" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205963/1/22.png" alt="" width="562" height="169"></p>
 <p>Select Razor View &gt;&gt; Enter your page name, here we have given the name as Shopping.chtml</p>
-<p><img id="205964" src="205964-23.png" alt="" width="497" height="244"></p>
+<p><img id="205964" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205964/1/23.png" alt="" width="497" height="244"></p>
 <p>In Razor view Page we have 3 parts of code as first is the Import part where we import all the references and models for using in the view, HTML design and data bind part and finally we have the function part to call all the web API to bind in our HTML page
  and also to perform client-side business logic to be displayed in View page.</p>
 <p><strong style="font-size:1.17em">Import part</strong></p>
@@ -637,7 +637,7 @@ Run the program and paste API path to test our output.<strong>&nbsp;</strong></p
 </div>
 </div>
 <h3><strong style="font-size:1em">Shopping Cart Quantity Add and Reduce</strong></h3>
-<p><strong><img id="205971" src="205971-32.png" alt="" width="507" height="266"><br>
+<p><strong><img id="205971" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205971/1/32.png" alt="" width="507" height="266"><br>
 </strong></p>
 <p>In Shopping Cart user can increase /decrease the shopping Quantity and when user clicks on the up Image nearby Qty then we call the IncreaseQty method and in this method, we do increment the Quantity also update the Total Amount. Same like this when user
  click on down icon we do call DecreaseQty method to do in reverse order to decrement the quantity along with updating the Total Amount.</p>
@@ -792,7 +792,7 @@ protected&nbsp;override&nbsp;async&nbsp;Task&nbsp;OnInitAsync()&nbsp;
 </div>
 </div>
 <div class="endscriptcode">&nbsp;<strong style="font-size:1.17em">Cancel Order</strong></div>
-<p><img id="205976" src="205976-33.png" alt="" width="515" height="309"></p>
+<p><img id="205976" src="https://i1.code.msdn.s-msft.com/lets-learn-to-make-30a1901b/image/file/205976/1/33.png" alt="" width="515" height="309"></p>
 </div>
 When users click on the Cancel Order button we call the deleteConfirm method and pass the selected ShoppingDetails ID for deletion. Before deletion we get the conformation message as &ldquo;Are you Sure to Cancel your Item order &ldquo; .
 <div class="scriptcode">

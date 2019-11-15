@@ -306,7 +306,7 @@
 </div>
 </div>
 <p><span style="font-size:small">As the grid definition is over,it is time to run our application and check whether the grid is loading fine or not.</span></p>
-<div class="wp-caption x_x_alignnone" id="attachment_11721"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/06/Grid-with-check-box-selection-e1467177190846.png"><img class="size-full x_x_wp-image-11721" src="-grid-with-check-box-selection-e1467177190846.png" alt="Grid with check box selection" width="650" height="357"></a>
+<div class="wp-caption x_x_alignnone" id="attachment_11721"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/06/Grid-with-check-box-selection-e1467177190846.png"><img class="size-full x_x_wp-image-11721" src="http://sibeeshpassion.com/wp-content/uploads/2016/06/Grid-with-check-box-selection-e1467177190846.png" alt="Grid with check box selection" width="650" height="357"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">Grid with check box selection</span></p>
 </div>
@@ -345,7 +345,7 @@
 </div>
 </div>
 <p><span style="font-size:small">We are just deleting the other row selection in the event&nbsp;<em>rowselect</em>. Now run your application again, I am sure you will be able to select only one row at a time.</span></p>
-<div class="wp-caption x_x_alignnone" id="attachment_11722"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/06/Grid-with-radio-button-selection-e1467177640220.png"><img class="size-full x_x_wp-image-11722" src="-grid-with-radio-button-selection-e1467177640220.png" alt="Grid with radio button selection" width="650" height="351"></a>
+<div class="wp-caption x_x_alignnone" id="attachment_11722"><span style="font-size:small"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/06/Grid-with-radio-button-selection-e1467177640220.png"><img class="size-full x_x_wp-image-11722" src="http://sibeeshpassion.com/wp-content/uploads/2016/06/Grid-with-radio-button-selection-e1467177640220.png" alt="Grid with radio button selection" width="650" height="351"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:small">Grid with radio button selection</span></p>
 </div>

@@ -29,7 +29,7 @@
 <p>You could write a desktop application for cached data and a web application for live data, but why maintain two applications just to handle changes in connectivity? A more intelligent data source is needed; one that can choose at run-time whether to use
  a local data cache, or your application server.</p>
 <h2>Architecture</h2>
-<p><img id="71541" src="71541-architecture.png" alt="architecture diagram" width="697" height="426"></p>
+<p><img id="71541" src="http://i1.code.msdn.s-msft.com/windowsdesktop/hybrid-onlineoffline-fa5fa119/image/file/71541/1/architecture.png" alt="architecture diagram" width="697" height="426"></p>
 <p>The database, data access layer, and business logic are deployed to both the server and client. The server exposes its business logic through a service layer, which the client's online proxy connects to. The client also has an offline proxy for accessing
  its local copy of the business logic.</p>
 <p>Both proxies implement <code>IProxy</code>, which itself implements the business logic's interface. The client application accesses business logic through a reference to

@@ -57,29 +57,29 @@
 <p><span style="font-family:verdana,sans-serif; font-size:small">The following steps will show you how to create Xamarin.Forms project in Mac system with&nbsp;&nbsp;Visual Studio,</span></p>
 </div>
 <p><span style="font-family:verdana,sans-serif; font-size:small">First, open the Visual Studio for Mac. And click on New Project.</span></p>
-<p class="separator"><span style="font-size:small"><a href="https://2.bp.blogspot.com/-t41O04XukYQ/WiuGAPVEcyI/AAAAAAAAAjw/GCSkXZR4M88M1Yt_ROYoZAFV06g4XoSpwCLcBGAs/s1600/XamarinStudio.png"><img src=":-xamarinstudio.png" border="0" alt="" width="640" height="352"></a></span></p>
+<p class="separator"><span style="font-size:small"><a href="https://2.bp.blogspot.com/-t41O04XukYQ/WiuGAPVEcyI/AAAAAAAAAjw/GCSkXZR4M88M1Yt_ROYoZAFV06g4XoSpwCLcBGAs/s1600/XamarinStudio.png"><img src="https://2.bp.blogspot.com/-t41O04XukYQ/WiuGAPVEcyI/AAAAAAAAAjw/GCSkXZR4M88M1Yt_ROYoZAFV06g4XoSpwCLcBGAs/s640/XamarinStudio.png" border="0" alt="" width="640" height="352"></a></span></p>
 <div>
 <p><span style="font-family:verdana,sans-serif; font-size:small">After that, we need to select whether you're doing Xamarin.Forms or Xamarin.</span><span style="font-family:verdana,sans-serif">Android or Xamarin.iOS project. if we want to create Xamarin.Forms
  project just follow the below screenshot.</span><span style="font-family:verdana,sans-serif">&nbsp;</span></p>
 </div>
 <div>
-<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://3.bp.blogspot.com/--PCa5O0j10k/WiuGwTRu-eI/AAAAAAAAAj0/nIAoJ314sa0cfIvFqMbZsHj2I8E37HixACLcBGAs/s1600/SelectType.png"><img src=":-selecttype.png" border="0" alt="" width="640" height="462"></a></span></p>
+<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://3.bp.blogspot.com/--PCa5O0j10k/WiuGwTRu-eI/AAAAAAAAAj0/nIAoJ314sa0cfIvFqMbZsHj2I8E37HixACLcBGAs/s1600/SelectType.png"><img src="https://3.bp.blogspot.com/--PCa5O0j10k/WiuGwTRu-eI/AAAAAAAAAj0/nIAoJ314sa0cfIvFqMbZsHj2I8E37HixACLcBGAs/s640/SelectType.png" border="0" alt="" width="640" height="462"></a></span></p>
 <p><span style="font-family:verdana,sans-serif; font-size:small">Then we have to give the App Name i.e RoundedCornerViewDemo.</span></p>
 </div>
 </div>
 <div>
-<p class="separator"><span style="font-size:small"><a href="https://2.bp.blogspot.com/-aFfxPgGr8cM/WiuHVn90ZMI/AAAAAAAAAj4/Kb7G0Qq2Q1AExeTQxPhmSjqQdVytdYrBQCLcBGAs/s1600/ProjectName.png"><img src=":-projectname.png" border="0" alt="" width="640" height="466"></a></span></p>
+<p class="separator"><span style="font-size:small"><a href="https://2.bp.blogspot.com/-aFfxPgGr8cM/WiuHVn90ZMI/AAAAAAAAAj4/Kb7G0Qq2Q1AExeTQxPhmSjqQdVytdYrBQCLcBGAs/s1600/ProjectName.png"><img src="https://2.bp.blogspot.com/-aFfxPgGr8cM/WiuHVn90ZMI/AAAAAAAAAj4/Kb7G0Qq2Q1AExeTQxPhmSjqQdVytdYrBQCLcBGAs/s640/ProjectName.png" border="0" alt="" width="640" height="466"></a></span></p>
 <p>&nbsp;</p>
 <p><span style="font-size:small"><strong style="font-family:verdana,sans-serif; font-size:small">Note:</strong><span style="font-family:verdana,sans-serif">&nbsp;In the above screen under Shared Code, select Portable class Library or Use Shared Library.</span></span></p>
 <p class="separator"><span style="font-family:verdana,sans-serif; font-size:small">Then click on Next Button the following screenshot will be displayed. In that screen, we have to browse the file path where we want&nbsp;to save that application on our PC.</span></p>
 <p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><br>
 </span></p>
-<p class="separator"><span style="font-size:small"><a href="https://2.bp.blogspot.com/-JHZVrwpEy-o/WiuImBXeLAI/AAAAAAAAAj8/_fHSCksUutQqOHyxB5sRecOPsDs5GD1_wCLcBGAs/s1600/XamarinBrowseLocation.png"><img src=":-xamarinbrowselocation.png" border="0" alt="" width="640" height="466"></a></span></p>
+<p class="separator"><span style="font-size:small"><a href="https://2.bp.blogspot.com/-JHZVrwpEy-o/WiuImBXeLAI/AAAAAAAAAj8/_fHSCksUutQqOHyxB5sRecOPsDs5GD1_wCLcBGAs/s1600/XamarinBrowseLocation.png"><img src="https://2.bp.blogspot.com/-JHZVrwpEy-o/WiuImBXeLAI/AAAAAAAAAj8/_fHSCksUutQqOHyxB5sRecOPsDs5GD1_wCLcBGAs/s640/XamarinBrowseLocation.png" border="0" alt="" width="640" height="466"></a></span></p>
 <p class="separator">&nbsp;</p>
 <p class="separator"><span style="font-family:verdana,sans-serif; font-size:small">After Click on Create, button it will create the RoundedCornerViewDemo Xamarin.Forms project like this</span></p>
 <p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><br>
 </span></p>
-<p class="separator"><span style="font-size:small"><a href="https://4.bp.blogspot.com/-451FH6vuaPA/WiuKYh7tHhI/AAAAAAAAAkE/jOO34CMC0xonlu9rpACrofzIkcMuAZaiQCLcBGAs/s1600/Xamarin.FormsProject.png"><img src=":-xamarin.formsproject.png" border="0" alt="" width="640" height="352"></a></span></p>
+<p class="separator"><span style="font-size:small"><a href="https://4.bp.blogspot.com/-451FH6vuaPA/WiuKYh7tHhI/AAAAAAAAAkE/jOO34CMC0xonlu9rpACrofzIkcMuAZaiQCLcBGAs/s1600/Xamarin.FormsProject.png"><img src="https://4.bp.blogspot.com/-451FH6vuaPA/WiuKYh7tHhI/AAAAAAAAAkE/jOO34CMC0xonlu9rpACrofzIkcMuAZaiQCLcBGAs/s640/Xamarin.FormsProject.png" border="0" alt="" width="640" height="352"></a></span></p>
 <p class="separator"><span style="font-family:verdana,sans-serif; font-size:small">And project structure will be.</span></p>
 <div></div>
 <ul>
@@ -93,7 +93,7 @@
 </span></li></ul>
 <p class="separator"><span style="font-size:small"><br>
 </span></p>
-<p class="separator"><span style="font-size:small"><a href="https://1.bp.blogspot.com/-mg-epc4wGlU/WiualWe7-_I/AAAAAAAAAkQ/7ufKgbsR5-UVXvANYngK9HZ_hmAhjJwtQCLcBGAs/s1600/Xamarin.Forms%2BProjectStructure.png"><img src=":-xamarin.forms%2bprojectstructure.png" border="0" alt="" width="250" height="640"></a></span></p>
+<p class="separator"><span style="font-size:small"><a href="https://1.bp.blogspot.com/-mg-epc4wGlU/WiualWe7-_I/AAAAAAAAAkQ/7ufKgbsR5-UVXvANYngK9HZ_hmAhjJwtQCLcBGAs/s1600/Xamarin.Forms%2BProjectStructure.png"><img src="https://1.bp.blogspot.com/-mg-epc4wGlU/WiualWe7-_I/AAAAAAAAAkQ/7ufKgbsR5-UVXvANYngK9HZ_hmAhjJwtQCLcBGAs/s640/Xamarin.Forms%2BProjectStructure.png" border="0" alt="" width="250" height="640"></a></span></p>
 <p class="separator"><span style="font-family:verdana,sans-serif; font-size:small">We need to follow below few steps to make corner radius for the view.</span></p>
 <div>
 <p><span style="font-size:small"><strong style="font-family:verdana,sans-serif; font-size:small">1. Portable Class Library (PCL):</strong></span></p>
@@ -546,7 +546,7 @@
 <p><span style="font-size:small"><strong><span style="font-family:verdana,sans-serif">Output:</span></strong></span></p>
 <p><span style="font-size:small"><strong><span style="font-family:verdana,sans-serif"><br>
 </span></strong></span></p>
-<p class="separator"><span style="font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a href="https://3.bp.blogspot.com/-7LrOsB8-pAA/WizJWqsIBrI/AAAAAAAAAmU/lOaLk9IOttgYrP41zAFZ0Aq3mmGIT8QSgCLcBGAs/s1600/Andoid.png"><img src=":-andoid.png" border="0" alt="" width="250" height="400"></a><a href="https://1.bp.blogspot.com/-oPbeQfSy9QU/WizJWlZDpXI/AAAAAAAAAmQ/4_gp2mCPK0Ef2bGl7SiBJxQyppE3-ceKACLcBGAs/s1600/iOS.png"><img src=":-ios.png" border="0" alt="" width="232" height="400"></a></span></p>
+<p class="separator"><span style="font-size:small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a href="https://3.bp.blogspot.com/-7LrOsB8-pAA/WizJWqsIBrI/AAAAAAAAAmU/lOaLk9IOttgYrP41zAFZ0Aq3mmGIT8QSgCLcBGAs/s1600/Andoid.png"><img src="https://3.bp.blogspot.com/-7LrOsB8-pAA/WizJWqsIBrI/AAAAAAAAAmU/lOaLk9IOttgYrP41zAFZ0Aq3mmGIT8QSgCLcBGAs/s400/Andoid.png" border="0" alt="" width="250" height="400"></a><a href="https://1.bp.blogspot.com/-oPbeQfSy9QU/WizJWlZDpXI/AAAAAAAAAmQ/4_gp2mCPK0Ef2bGl7SiBJxQyppE3-ceKACLcBGAs/s1600/iOS.png"><img src="https://1.bp.blogspot.com/-oPbeQfSy9QU/WizJWlZDpXI/AAAAAAAAAmQ/4_gp2mCPK0Ef2bGl7SiBJxQyppE3-ceKACLcBGAs/s400/iOS.png" border="0" alt="" width="232" height="400"></a></span></p>
 <p><span style="font-size:small"><strong><span style="font-family:verdana,sans-serif"><br>
 </span></strong></span></p>
 </div>

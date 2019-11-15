@@ -105,7 +105,7 @@ Contacts</strong> for my <strong>Department</strong> (here please note that I am
 <table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="margin-left:auto; margin-right:auto; text-align:center">
 <tbody>
 <tr>
-<td style="text-align:center"><a href="https://lh3.googleusercontent.com/-H3mrB9R2yd4/V76qZRpHkbI/AAAAAAAAEME/sSrD2R7hw4s/s1600-h/image%25255B10%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src=":-image_thumb%25255b6%25255d.png?imgmax=800" border="0" alt="image" width="450" height="86" style="border-width:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
+<td style="text-align:center"><a href="https://lh3.googleusercontent.com/-H3mrB9R2yd4/V76qZRpHkbI/AAAAAAAAEME/sSrD2R7hw4s/s1600-h/image%25255B10%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="https://lh3.googleusercontent.com/-FKRbXoIp1iA/V76qaDKQOnI/AAAAAAAAEMI/j7Vf_lEGEqA/image_thumb%25255B6%25255D.png?imgmax=800" border="0" alt="image" width="450" height="86" style="border-width:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
 </tr>
 <tr>
 <td class="tr-caption" style="text-align:center">Contacts of Department</td>
@@ -123,7 +123,7 @@ Contact</strong> in the <strong>Department</strong>.<br>
 <table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="margin-left:auto; margin-right:auto; text-align:center">
 <tbody>
 <tr>
-<td style="text-align:center"><a href="https://lh3.googleusercontent.com/-lSFaZTaCAjc/V76qaq1-CgI/AAAAAAAAEMM/6IecmuqPxNI/s1600-h/image%25255B9%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src=":-image_thumb%25255b5%25255d.png?imgmax=800" border="0" alt="image" width="450" height="107" style="border-width:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
+<td style="text-align:center"><a href="https://lh3.googleusercontent.com/-lSFaZTaCAjc/V76qaq1-CgI/AAAAAAAAEMM/6IecmuqPxNI/s1600-h/image%25255B9%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="https://lh3.googleusercontent.com/-PMPuK7HpJT8/V76qbaLrPaI/AAAAAAAAEMQ/_IG3YSYsESY/image_thumb%25255B5%25255D.png?imgmax=800" border="0" alt="image" width="450" height="107" style="border-width:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
 </tr>
 <tr>
 <td class="tr-caption" style="text-align:center">Contacts in the table</td>
@@ -158,7 +158,7 @@ This time I am thrown with an error.</p>
 <table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="margin-left:auto; margin-right:auto; text-align:center">
 <tbody>
 <tr>
-<td style="text-align:center"><a href="https://lh3.googleusercontent.com/-StopYgAjLqE/V76qcU_uFEI/AAAAAAAAEMU/6IhlxvB5AWs/s1600-h/image%25255B15%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src=":-image_thumb%25255b9%25255d.png?imgmax=800" border="0" alt="image" width="590" height="322" style="border-width:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
+<td style="text-align:center"><a href="https://lh3.googleusercontent.com/-StopYgAjLqE/V76qcU_uFEI/AAAAAAAAEMU/6IhlxvB5AWs/s1600-h/image%25255B15%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="https://lh3.googleusercontent.com/-iQEMt3AzY_A/V76qddXbsFI/AAAAAAAAEMY/EUNO93yfkc8/image_thumb%25255B9%25255D.png?imgmax=800" border="0" alt="image" width="590" height="322" style="border-width:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
 </tr>
 <tr>
 <td class="tr-caption" style="text-align:center">Error</td>
@@ -222,7 +222,7 @@ Contacts</strong> as <strong>DbSet</strong>&nbsp;in <strong>MyDbContext</strong>
 <table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="margin-left:auto; margin-right:auto; text-align:center">
 <tbody>
 <tr>
-<td style="text-align:center"><a href="https://lh3.googleusercontent.com/-NrPa0TVC9wA/V76qeDTHlGI/AAAAAAAAEMc/Rx8hn-IHKVw/s1600-h/image%25255B20%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src=":-image_thumb%25255b12%25255d.png?imgmax=800" border="0" alt="image" width="400" height="77" style="border:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
+<td style="text-align:center"><a href="https://lh3.googleusercontent.com/-NrPa0TVC9wA/V76qeDTHlGI/AAAAAAAAEMc/Rx8hn-IHKVw/s1600-h/image%25255B20%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="https://lh3.googleusercontent.com/-xPQSFt3l25A/V76qeqY91GI/AAAAAAAAEMg/yGx7g0xmsBY/image_thumb%25255B12%25255D.png?imgmax=800" border="0" alt="image" width="400" height="77" style="border:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
 </tr>
 <tr>
 <td class="tr-caption" style="text-align:center">Contacts of Department</td>
@@ -234,7 +234,7 @@ Contacts</strong> as <strong>DbSet</strong>&nbsp;in <strong>MyDbContext</strong>
 <table class="tr-caption-container" cellspacing="0" cellpadding="0" align="center" style="margin-left:auto; margin-right:auto; text-align:center">
 <tbody>
 <tr>
-<td style="text-align:center"><a href="https://lh3.googleusercontent.com/-lpx1bTi7Th4/V76qfJ2FFAI/AAAAAAAAEMk/mFam9JtdeBU/s1600-h/image%25255B25%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src=":-image_thumb%25255b15%25255d.png?imgmax=800" border="0" alt="image" width="400" height="73" style="border:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
+<td style="text-align:center"><a href="https://lh3.googleusercontent.com/-lpx1bTi7Th4/V76qfJ2FFAI/AAAAAAAAEMk/mFam9JtdeBU/s1600-h/image%25255B25%25255D.png" style="margin-left:auto; margin-right:auto"><img title="image" src="https://lh3.googleusercontent.com/-4RDEXn2UwQI/V76qf5Bl9MI/AAAAAAAAEMo/sUfXaS9vJOU/image_thumb%25255B15%25255D.png?imgmax=800" border="0" alt="image" width="400" height="73" style="border:0px; display:block; float:none; margin-left:auto; margin-right:auto; padding-left:0px; padding-right:0px; padding-top:0px"></a></td>
 </tr>
 <tr>
 <td class="tr-caption" style="text-align:center">Contacts in the table</td>

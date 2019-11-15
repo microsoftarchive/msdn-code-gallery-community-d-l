@@ -52,5 +52,5 @@ based on zoom factor and data concentration
 </li></ul>
 <p><br>
 Here is a screenshot of the application, showing hotspots of restaurants in Seattle:</p>
-<p><img id="85453" src="85453-win8sdsheatmap_small.jpg" alt="" width="643" height="362"></p>
+<p><img id="85453" src="http://i1.code.msdn.s-msft.com/heat-maps-of-bing-maps-sds-883bcdb5/image/file/85453/1/win8sdsheatmap_small.jpg" alt="" width="643" height="362"></p>
 <h1>&nbsp;</h1>

@@ -19,16 +19,16 @@
 <p>Another important thing for&nbsp;Tessnet2 work is get the languages packages, get it&nbsp;<a href="http://code.google.com/p/tesseract-ocr/downloads/list">here</a>&nbsp;for the languages you want. For the sample we are use english language.</p>
 <p>Let's start the sample.</p>
 <p>Create one console aplication:<br>
-<img src="-consoleapplication.png" alt="console aplication"></p>
+<img src="http://s15.postimg.org/ljc4hphuz/consoleapplication.png" alt="console aplication"></p>
 <p>Then copy the folder with binaries and languages packages to the same folder.<br>
 Note: Don&acute;t forget unzip the languanges packages until have the tessdata folder with eng.DangAmbigs, eng.freq-dawg, eng.inttemp, eng.normproto, eng.pffmtable, eng.unicharset, eng.user-words and eng.word-dawg files.<br>
 The aspect should be something like:</p>
-<p><img src="-ocrtest.png" alt="ocr test folder"></p>
+<p><img src="http://s10.postimg.org/inosi2s09/ocrtest.png" alt="ocr test folder"></p>
 <p>Now add the&nbsp;Tessnet2 reference to the project, do a right click in References &gt; Add References &gt; Browse&gt; Select the folder with&nbsp;C:\OCRTest\tessnet2\Release64\tessnet2_64.dll and click Ok.</p>
 <p>After add the reference for&nbsp;<a class="libraryLink" href="http://msdn.microsoft.com/en-US/library/System.Drawing.aspx" target="_blank" title="Auto generated link to System.Drawing">System.Drawing</a>:<br>
-<img src="-reference.png" alt="reference"></p>
+<img src="http://s8.postimg.org/5bnlhkdol/reference.png" alt="reference"></p>
 <p>Now we need configure the project to compile in x64, for it Right Click in project&gt; Properties&gt;Build&gt; Platform target</p>
-<p><img src="-config.png" alt="configs"></p>
+<p><img src="http://s13.postimg.org/nm9d2avyv/config.png" alt="configs"></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>In Program.cs add the following code:</p>
@@ -65,7 +65,7 @@ The aspect should be something like:</p>
 </div>
 </div>
 <p>and run the application, this give an error:</p>
-<p><img src="-error.png" alt="error"></p>
+<p><img src="http://s17.postimg.org/5372htbvz/error.png" alt="error"></p>
 <p>to solve this go to directory and change the App.config:</p>
 <p>&nbsp;</p>
 <div class="scriptcode">
@@ -89,9 +89,9 @@ The aspect should be something like:</p>
 <p>&nbsp;</p>
 <p>Make sure you added the right paths to the Program.cs file!!<strong> I got the sample and changed the path for image and for tessdata and it works well!!<br>
 </strong></p>
-<div class="endscriptcode"><img id="115248" src="115248-tessnet%202.png" alt="" width="738" height="361"></div>
+<div class="endscriptcode"><img id="115248" src="http://i1.code.msdn.s-msft.com/windowsdesktop/how-to-use-tessnet2-library-716be12f/image/file/115248/1/tessnet%202.png" alt="" width="738" height="361"></div>
 <div class="endscriptcode"></div>
 <p>&nbsp;</p>
 <p><span style="font-size:2em">More Information</span></p>
 <p><em>sk me on twitter @saramgsilva</em></p>
-<p><a><img src="-" alt="free hit counter" style="border:none"></a></p>
+<p><a><img src="http://c.statcounter.com/10001033/0/70862059/1/" alt="free hit counter" style="border:none"></a></p>

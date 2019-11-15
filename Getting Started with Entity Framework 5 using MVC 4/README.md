@@ -33,21 +33,21 @@ http://www.asp.net/mvc/tutorials/getting-started-with-ef-5-using-mvc-4/creating-
 <li>Right click on the zip file, click <strong>Properties</strong>, and click the
 <strong>Unblock</strong> button.<br>
 <br>
-<img src="-unblock.png?cdn_id=2014-05-21-001" alt="" width="377" height="516"><br>
+<img src="http://i1.asp.net/media/4356708/unblock.PNG?cdn_id=2014-05-21-001" alt="" width="377" height="516"><br>
 <br>
 </li><li>Unzip the file. </li><li>Double-click the <em>CUx.sln</em> file to launch Visual Studio. </li><li>From the <strong>Tools</strong> menu, click <strong>Library Package Manager</strong>, then
 <strong>Package Manager Console</strong>.<br>
 <br>
-<img src="-pmc.png?cdn_id=2014-05-21-001" alt="" width="652" height="309"><br>
+<img src="http://i2.asp.net/media/4356702/PMC.png?cdn_id=2014-05-21-001" alt="" width="652" height="309"><br>
 <br>
 </li><li>In the Package Manager Console (PMC), click <strong>Restore</strong>.<br>
 <br>
-<img src="-pmc2.png?cdn_id=2014-05-21-001" alt="" width="591" height="226"><br>
+<img src="http://i3.asp.net/media/4356696/PMC2.PNG?cdn_id=2014-05-21-001" alt="" width="591" height="226"><br>
 <br>
 </li><li>Exit Visual Studio. </li><li>Restart Visual Studio, opening the solution file you closed in the step above.
 </li><li>In the Package Manager Console (PMC), enter the <code>Update-Database</code> command:<br>
 <br>
-<img src="-updb.png?cdn_id=2014-05-21-001" alt="" width="589" height="225"><br>
+<img src="http://i3.asp.net/media/4356690/upDb.PNG?cdn_id=2014-05-21-001" alt="" width="589" height="225"><br>
 <br>
 <div class="note">
 <p>Note: If you get the following error:<br>
@@ -57,5 +57,5 @@ http://www.asp.net/mvc/tutorials/getting-started-with-ef-5-using-mvc-4/creating-
 Exit and restart Visual Studio.</p>
 </div>
 <p>Each migration will run, then the seed method will run. You can now run the app.</p>
-<img src="-pmc3.png?cdn_id=2014-05-21-001" alt="" width="589" height="300">
+<img src="http://i3.asp.net/media/4356684/pmc3.PNG?cdn_id=2014-05-21-001" alt="" width="589" height="300">
 </li></ol>

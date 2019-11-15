@@ -424,7 +424,7 @@ ParserContext</a> - the context in question being those namespaces.</p>
 <div class="endscriptcode">It should break on that line and you can examine what you have.</div>
 <div class="endscriptcode">Put the mouse over el, drop down the magnifying glass visualiser options and choose xml.</div>
 <div class="endscriptcode"></div>
-<div class="endscriptcode"><img id="131747" src="131747-xml.png" alt="" width="1164" height="388"></div>
+<div class="endscriptcode"><img id="131747" src="https://i1.gallery.technet.s-msft.com/wpf-dynamic-xaml-xamlreader-ac52b67d/image/file/131747/1/xml.png" alt="" width="1164" height="388"></div>
 <div class="endscriptcode"></div>
 <div class="endscriptcode">You should then see:</div>
 <div class="endscriptcode">

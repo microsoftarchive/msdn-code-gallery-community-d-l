@@ -39,7 +39,7 @@ Service Bus Explorer</a>&nbsp;is used to debug the application and trace the eve
 </li><li>The emulator uses a separate Task for each device. </li><li>The Service Bus Explorer is used to read events from the receive device-to-cloud (D2C) endpoint exposed by the IoT Hub. The latter is an&nbsp;Event Hubs-compatible endpoint and its name is
 <strong>messages/events</strong>. </li></ul>
 <p>The following picture shows the architecture of the solution:</p>
-<p style="text-align:center"><img id="143304" src="143304-architecture.png" alt="" width="700"></p>
+<p style="text-align:center"><img id="143304" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143304/1/architecture.png" alt="" width="700"></p>
 <h1>References</h1>
 <p>IoT Hubs</p>
 <ul>
@@ -85,7 +85,7 @@ Service Bus Explorer</a>&nbsp;is used to debug the application and trace the eve
 <a href="https://msdn.microsoft.com/en-us/library/microsoft.azure.devices.registrymanager.aspx">
 RegistryManager</a>&nbsp;class&nbsp;and send messages to the IoT Hub using the <a href="https://msdn.microsoft.com/en-us/library/microsoft.azure.devices.client.deviceclient.aspx">
 DeviceClient</a>&nbsp;class. The application creates a separate task for each emulated device.</p>
-<p style="text-align:center"><img id="143283" src="143283-emulator02.png" alt="" width="660"></p>
+<p style="text-align:center"><img id="143283" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143283/1/emulator02.png" alt="" width="660"></p>
 <h3>Remarks</h3>
 <ol>
 <li><strong>Connection String</strong>: specifies the IoT Hub connection string. </li><li><strong>Min Value</strong>: specifies the minimum value for the telemetry data.
@@ -176,10 +176,10 @@ Payload </strong>class used by the application as telemetry data. At runtime, me
 </li><li>
 <p>In the jumpbar, click <strong>New</strong>, then click <strong>Internet of Things</strong>, and then click
 <strong>IoT Hub</strong>.</p>
-<p><img id="143284" src="143284-create-iot-hub1.png" alt="" width="660" style="display:block; margin-left:auto; margin-right:auto"></p>
+<p><img id="143284" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143284/1/create-iot-hub1.png" alt="" width="660" style="display:block; margin-left:auto; margin-right:auto"></p>
 </li><li>
 <p>In the <strong>New IoT Hub</strong> blade, specify the desired configuration for the IoT Hub.</p>
-<p><img id="143285" src="143285-create-iot-hub2.png" alt="" width="312" height="720" style="display:block; margin-left:auto; margin-right:auto"></p>
+<p><img id="143285" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143285/1/create-iot-hub2.png" alt="" width="312" height="720" style="display:block; margin-left:auto; margin-right:auto"></p>
 <ul>
 <li>In the <strong>Name</strong> box, enter a name to identify your IoT hub. When the
 <strong>Name</strong> is validated, a green check mark appears in the <strong>Name</strong> box.
@@ -191,22 +191,22 @@ Using resource groups to manage your Azure resources</a>. </li><li>Use <strong>L
 </li><li>
 <p>Once the new IoT hub options are configured, click <strong>Create</strong>. It can take a few minutes for the IoT hub to be created. To check the status, you can monitor the progress on the Startboard. Or, you can monitor your progress from the Notifications
  section.</p>
-<p><img id="143286" src="143286-create-iot-hub3.png" alt="" width="485" height="124" style="display:block; margin-left:auto; margin-right:auto"></p>
+<p><img id="143286" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143286/1/create-iot-hub3.png" alt="" width="485" height="124" style="display:block; margin-left:auto; margin-right:auto"></p>
 </li><li>
 <p>After the IoT hub has been created successfully, open the blade of the new IoT Hub, and select the
 <strong>Key</strong> icon on the top.</p>
-<p><img id="143289" src="143289-key.png" alt="" width="585" height="812" style="display:block; margin-left:auto; margin-right:auto"><br>
+<p><img id="143289" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143289/1/key.png" alt="" width="585" height="812" style="display:block; margin-left:auto; margin-right:auto"><br>
 <br>
 </p>
 </li><li>
 <p>Select the Shared access policy called <strong>iothubowner</strong>, then copy and take note of the connection string on the right blade.</p>
-<p style="text-align:center"><img id="143290" src="143290-connectionstring2.png" alt="" width="660"><br>
+<p style="text-align:center"><img id="143290" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143290/1/connectionstring2.png" alt="" width="660"><br>
 <br>
 </p>
 </li><li>Click the <strong>All settings </strong>link, then click the Messaging link to open the Event Hub blade and create a new consumer group called
 <strong>ServiceBusExplorer</strong>. If your IoT Hub solution uses the <strong>$Default</strong> consumer group, you need to create a dedicated consumer group to&nbsp;receive messages from the IoT Hub using the Service Bus Explore.
 </li></ol>
-<p><img id="143291" src="143291-consumergroup.png" alt="" width="660"></p>
+<p><img id="143291" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143291/1/consumergroup.png" alt="" width="660"></p>
 <p>Your IoT Hub is now created, and you have the connection string you need to complete this tutorial.</p>
 </div>
 <h2>Configure the Device Emulator</h2>
@@ -217,12 +217,12 @@ Using resource groups to manage your Azure resources</a>. </li><li>Use <strong>L
 <h2>Use the Service Bus Explorer</h2>
 <p>Make sure to use&nbsp;<a href="https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a">Service Bus Explorer</a>&nbsp;3.0.4 or higher. Click the
 <strong>Actions </strong>menu and select the <strong>Create IoT Hub Listener</strong> menu item.</p>
-<p><img id="143292" src="143292-iothublistener.png" alt="" style="display:block; margin-left:auto; margin-right:auto"></p>
+<p><img id="143292" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143292/1/iothublistener.png" alt="" style="display:block; margin-left:auto; margin-right:auto"></p>
 <p>Enter the <strong>IoT Hub Connection String</strong> and <strong>Consumer Group</strong> in the dialog that opens and then press the
 <strong>Ok </strong>button.</p>
-<p><img id="143293" src="143293-parameters.png" alt="" width="616" height="225" style="display:block; margin-left:auto; margin-right:auto"></p>
+<p><img id="143293" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143293/1/parameters.png" alt="" width="616" height="225" style="display:block; margin-left:auto; margin-right:auto"></p>
 <p>Click the <strong>Start </strong>button to start receiving messages from the IoT Hub.&nbsp;</p>
-<p style="text-align:center"><img id="143294" src="143294-sbe02.png" alt="" width="660"></p>
+<p style="text-align:center"><img id="143294" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143294/1/sbe02.png" alt="" width="660"></p>
 <p>Enable <strong>Tracking </strong>checkbox&nbsp;if you want trace incoming messages. To display messages, click the Events tab (point 1 in the picture below) and select a message from the grid (point 2 in the picture below). The Event Text control (point
  3 in the picture below) shows the message body, where the Event Custom Properties control (point 4 in the picture below) shows the payload custom properties.</p>
-<p><img id="143295" src="143295-eventstab.png" alt="" width="660"></p>
+<p><img id="143295" src="https://i1.code.msdn.s-msft.com/how-to-read-events-from-an-1641eb1b/image/file/143295/1/eventstab.png" alt="" width="660"></p>

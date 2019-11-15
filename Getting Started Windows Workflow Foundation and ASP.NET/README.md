@@ -28,19 +28,19 @@ Gettings Started: Windows Workflow Foundation</a>. This article describes the ea
 <p>To hold things easy, we will create a very simple greeting application. The user will type in his name into a TextBox, clicks a button and a greeting with his name will appear. Sounds simple? It is!</p>
 <h1>File - New - Project</h1>
 <p>Start by creating an empty Visual Studio Solution:</p>
-<p><img title="Create a blank solution" src="-createblanksolution.jpg" alt="Create a blank solution" style="border:0px solid currentColor"></p>
+<p><img title="Create a blank solution" src="http://img6.imageshack.us/img6/6831/createblanksolution.jpg" alt="Create a blank solution" style="border:0px solid currentColor"></p>
 <p>Name it whatever you want. We will now add two projects to this solution - An <em>
 ASP.NET Empty Web Application</em> (Workflow.Web) and an <em>Activitiy Library</em> (WorkflowLibrary).</p>
-<p><img title="Create the ASP.NET Web Application" src="-createaspnetemptywebapp.jpg" alt="Create the ASP.NET Web Application"></p>
+<p><img title="Create the ASP.NET Web Application" src="http://img703.imageshack.us/img703/4301/createaspnetemptywebapp.jpg" alt="Create the ASP.NET Web Application"></p>
 <div></div>
-<p><img title="Create the Activity Library" src="-createactivitylibrary.jpg" alt="Create the Activity Library"></p>
+<p><img title="Create the Activity Library" src="http://img560.imageshack.us/img560/2087/createactivitylibrary.jpg" alt="Create the Activity Library"></p>
 <p>&nbsp;</p>
 <h1>Set it up</h1>
 <h2>On the side of our Workflow</h2>
 <p>For now, just delete the Activity1.xaml file.</p>
 <h2>On the side of our Website</h2>
 <p>Create a new Web Form and name it Default.aspx:</p>
-<p><img title="Add the Web Form" src="-createdefaultaspx.jpg" alt="Add the Web Form"></p>
+<p><img title="Add the Web Form" src="http://img535.imageshack.us/img535/5041/createdefaultaspx.jpg" alt="Add the Web Form"></p>
 <p>We need four controls on our site:</p>
 <ul>
 <li>A Label, which only shows &quot;Your name: &quot;; no more functionality </li><li>A TextBox, where the user can type in his name </li><li>A Button, which will be trigger the workflow </li><li>A Label, which displays the result of the workflow, our greeting </li></ul>
@@ -87,16 +87,16 @@ ASP.NET Empty Web Application</em> (Workflow.Web) and an <em>Activitiy Library</
 <em>ArgUserName</em>, the direction <em>In</em> and the Argument type <em>String</em>. The second argument takes the name
 <em>Result</em>, the direction <em>Out</em> and the Argument type <em>String</em>, too.</p>
 <p>In both cases you can leave the cell for the Default value empty. The Result will look like this:</p>
-<p><img title="Creating the In and Out arguments" src="-argumentstab.jpg" alt="Creating the In and Out arguments" style="border:0px solid currentColor"></p>
+<p><img title="Creating the In and Out arguments" src="http://img856.imageshack.us/img856/146/argumentstab.jpg" alt="Creating the In and Out arguments" style="border:0px solid currentColor"></p>
 <p>Add a <strong>Sequence Activity</strong> to it. The <strong>Sequence Activity</strong> ensures that the child activities runs according to a single defined ordering.</p>
-<p><img title="Adding a Sequence Activity" src="-addsequence.jpg" alt="Adding a Sequence Activity" width="522" height="640" style="width:522px; height:640px"></p>
+<p><img title="Adding a Sequence Activity" src="http://img695.imageshack.us/img695/2086/addsequence.jpg" alt="Adding a Sequence Activity" width="522" height="640" style="width:522px; height:640px"></p>
 <p>Inside the <strong>Sequence Activity</strong> add an <strong>Assign Activity</strong>. This activity will assign the greeting to our earlier created
 <em>Result</em> argument.</p>
 <p>The <em>To</em> property will be our Result argument. The <em>Value</em> property can be created with the Expression Editor. The next picture shows the expression.</p>
-<p><img title="Assign the greeting to the Out argument" src="-expressioneditor.jpg" alt="Assign the greeting to the Out argument"></p>
+<p><img title="Assign the greeting to the Out argument" src="http://img59.imageshack.us/img59/1296/expressioneditor.jpg" alt="Assign the greeting to the Out argument"></p>
 <p>Please note, every expression in the Workflow Designer must be a Visual Basic expression.</p>
 <p>The result should look as follows:</p>
-<p><img title="The finished workflow" src="-workflowend.jpg" alt="The finished workflow" width="503" height="600" style="width:503px; height:600px"></p>
+<p><img title="The finished workflow" src="http://img9.imageshack.us/img9/3084/workflowend.jpg" alt="The finished workflow" width="503" height="600" style="width:503px; height:600px"></p>
 <p>&nbsp;</p>
 <h1>Combine it</h1>
 <p>To complete our application, add a reference to the <em>WorkflowLibrary</em> in our web application. We also need the
@@ -142,7 +142,7 @@ ASP.NET Empty Web Application</em> (Workflow.Web) and an <em>Activitiy Library</
 <em>object</em>. As the last thing we just have to get our <em>Result</em> argument out of the
 <em>Dictionary</em> and assign it to our greeting Label.</p>
 <p>That's it! Run the project! The result should look like this:</p>
-<p><img title="The result" src="-resultsite.jpg" alt="The result"></p>
+<p><img title="The result" src="http://img546.imageshack.us/img546/223/resultsite.jpg" alt="The result"></p>
 <p>&nbsp;</p>
 <h1>Lessons Learned</h1>
 <p>We have seen how to create a simple workflow with <em>In</em> and <em>Out</em> arguments and how values could be assigned. We have also seen how to invoke a workflow, how to pass in arguments and how to retrieve arguments from the workflow. At the UI side

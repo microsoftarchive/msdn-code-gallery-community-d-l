@@ -190,12 +190,12 @@ http://code.msdn.microsoft.com/Design-Patterns-MVVM-Model-d4b512f0</a></span><sp
 </span>
 <div></div>
 <div></div>
-<div><span style="color:#008000; font-size:medium"><span style="font-size:medium"><img id="68478" src="68478-mvcpagelifecycle.png" alt="" width="640" height="385"></span></span></div>
+<div><span style="color:#008000; font-size:medium"><span style="font-size:medium"><img id="68478" src="http://i1.code.msdn.s-msft.com/design-patterns-mvc-pattern-aa79900b/image/file/68478/1/mvcpagelifecycle.png" alt="" width="640" height="385"></span></span></div>
 <div></div>
 <div></div>
 <div><span style="color:#008000; font-size:medium"><span style="font-size:medium"><span style="color:#008000; font-size:medium"><span style="font-size:medium">ASP.NET MVC&nbsp;Low Level Page Life Cycle?</span></span></span></span></div>
 </div>
-<div><span style="color:#008000; font-size:medium"><span style="font-size:medium"><img id="68479" src="68479-mvcpagelifecycledetail.png" alt="" width="612" height="1049"></span></span></div>
+<div><span style="color:#008000; font-size:medium"><span style="font-size:medium"><img id="68479" src="http://i1.code.msdn.s-msft.com/design-patterns-mvc-pattern-aa79900b/image/file/68479/1/mvcpagelifecycledetail.png" alt="" width="612" height="1049"></span></span></div>
 <div><span style="color:#008000; font-size:medium"><span style="color:#ff0000; font-size:small">
 <p><span style="color:#008000; font-size:medium">MVC2.0 New Features:</span></p>
 <p><span style="color:#000000">1. Templated Helpers:</span></p>
@@ -367,7 +367,7 @@ Work In Progress -&nbsp;I am still updating the content and samples in parallel.
 <div class="endscriptcode"><span style="color:#808000; font-size:small">
 <div class="endscriptcode"><span style="color:#000000; font-size:small">&nbsp;</span></div>
 <div class="endscriptcode"><span style="color:#000000; font-size:small"><span style="color:#3366ff"><span style="color:#000000"><span style="color:#000000; font-size:small">Thank you for reading my article. Drop all your questions/comments in QA tab give
- me your feedback with <span style="color:#3366ff"><img id="67168" src="67168-ratings.png" alt="" width="74" height="15">
+ me your feedback with <span style="color:#3366ff"><img id="67168" src="http://i1.code.msdn.s-msft.com/oops-principles-solid-7a4e69bf/image/file/67168/1/ratings.png" alt="" width="74" height="15">
 <span style="color:#000000">star rating (1 Star - Very Poor, 5&nbsp;Star -&nbsp;Very Good).
 </span></span></span>&nbsp;</span></span></span></div>
 <div class="endscriptcode"><span style="color:#000000; font-size:small">&nbsp;</span>

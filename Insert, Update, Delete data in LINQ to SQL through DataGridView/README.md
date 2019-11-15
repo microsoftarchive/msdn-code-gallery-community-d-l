@@ -44,7 +44,7 @@
 </li></ul>
 <p>&nbsp;</p>
 <p>Diagram:</p>
-<p><img id="133239" src="133239-linq-to-sql.jpg" alt="" width="624" height="354"></p>
+<p><img id="133239" src="https://i1.code.msdn.s-msft.com/insert-update-delete-data-f39f431c/image/file/133239/1/linq-to-sql.jpg" alt="" width="624" height="354"></p>
 <p>Insert Data:</p>
 <p>&nbsp;</p>
 <div class="scriptcode">

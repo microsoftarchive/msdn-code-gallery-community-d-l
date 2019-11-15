@@ -83,10 +83,10 @@
  is demonstrated in following screen shot.</div>
 <div class="endscriptcode"></div>
 <div class="endscriptcode"></div>
-<div class="endscriptcode"><img id="141169" src="141169-folder_multiselection.jpg" alt="" width="624" height="518"></div>
+<div class="endscriptcode"><img id="141169" src="https://i1.code.msdn.s-msft.com/vstudio/file-system-tree-view-3a28325c/image/file/141169/1/folder_multiselection.jpg" alt="" width="624" height="518"></div>
 <p>It also possible to limit tree to only select files from specified drive by setting RootDrive property to some valid path or drive. Control also has two methods, Expand and Collapse, to either expand or collapse specified path in tree. Both these features
  can seen in screenshot below.</p>
-<p><img id="141171" src="141171-root_path_and_expansion.jpg" alt="" width="624" height="518"></p>
+<p><img id="141171" src="https://i1.code.msdn.s-msft.com/vstudio/file-system-tree-view-3a28325c/image/file/141171/1/root_path_and_expansion.jpg" alt="" width="624" height="518"></p>
 <h1><span>Source Code Files</span></h1>
 <ul>
 <li><em>FileSystemNode.vb - base class for the custom TreeNode classes.<br>

@@ -39,11 +39,11 @@ in this article</a>.</p>
 Observer &gt; Configure &gt; Add</strong>. Please notice that only the Console observer is implemented. Via
 <strong>Messages &gt; Generate ...</strong> you can generate logging mesages then, which are displayed in the console window of the application.</p>
 <h1>Screenshots</h1>
-<p><img id="94650" src="94650-observerproperties.png" alt="" width="438" height="249"></p>
+<p><img id="94650" src="http://i1.code.msdn.s-msft.com/logging-in-a-multithreaded-aa4fee15/image/file/94650/1/observerproperties.png" alt="" width="438" height="249"></p>
 <p>Observer setup</p>
-<p><img id="94651" src="94651-singlethreadedoutput.png" alt="" width="677" height="247"></p>
+<p><img id="94651" src="http://i1.code.msdn.s-msft.com/logging-in-a-multithreaded-aa4fee15/image/file/94651/1/singlethreadedoutput.png" alt="" width="677" height="247"></p>
 <p>Single-threaded logging output</p>
-<p><img id="94652" src="94652-multithreadedloggingoutput.png" alt="" width="677" height="343"></p>
+<p><img id="94652" src="http://i1.code.msdn.s-msft.com/logging-in-a-multithreaded-aa4fee15/image/file/94652/1/multithreadedloggingoutput.png" alt="" width="677" height="343"></p>
 <p>Multi-threaded logging output</p>
 <h1>More Information</h1>
 <p>You can find a detailed description <a title="Describing Blog Post" href="http://blog.instance-factory.com/?p=181" target="_blank">

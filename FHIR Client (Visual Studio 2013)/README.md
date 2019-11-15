@@ -34,7 +34,7 @@ Introduction</h1>
 </li><li><strong>history</strong> - retrieve the history information about a Patient resource on a FHIR server
 </li><li><strong>search</strong> - search for a patient by name </li></ul>
 <p>The command line client supports a help function for listing available commands and paramters.</p>
-<p><img id="114265" src="114265-fpat.png" alt="" width="617" height="280"></p>
+<p><img id="114265" src="http://i1.code.msdn.s-msft.com/client-for-hl7-fhir-server-0709be0b/image/file/114265/1/fpat.png" alt="" width="617" height="280"></p>
 <h1><span>Building the Sample</span></h1>
 <p>Simply start the build command in Visual Studio. Any required NuGet packages will be automatically downloaded.</p>
 <p><span style="font-size:20px; font-weight:bold">Description</span></p>

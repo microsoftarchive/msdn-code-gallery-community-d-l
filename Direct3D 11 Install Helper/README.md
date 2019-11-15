@@ -27,13 +27,13 @@ Direct3D 11 Deployment for Game Developers</a> article for more details.</p>
  D3D11Install.exe can be used as a stand-alone tool for deploying the Direct3D 11 update, or it can be used directly by installers.</p>
 <p>The message depends on the system and the current configuration.</p>
 <p><strong>Windows Vista / Windows Server 2008 Service Pack 2 w/ KB 971644, Windows 7, or Windows 8</strong></p>
-<p><img src="57674-capture3.jpg" alt="" width="360" height="144"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/direct3d-11-install-helper-3044575e/image/file/57674/1/capture3.jpg" alt="" width="360" height="144"></p>
 <p><strong>Windows Vista / Windows Server 2008 RTM or Service Pack 1:</strong></p>
-<p><img src="57673-capture2.jpg" alt="" width="473" height="301"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/direct3d-11-install-helper-3044575e/image/file/57673/1/capture2.jpg" alt="" width="473" height="301"></p>
 <p><strong>Windows Vista / Windows Server 2008 Service Pack 2 without the KB 971644 update:</strong></p>
-<p><img src="57672-capture.jpg" alt="" width="461" height="230"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/direct3d-11-install-helper-3044575e/image/file/57672/1/capture.jpg" alt="" width="461" height="230"></p>
 <p><strong>Windows XP</strong></p>
-<h1><img src="57675-capture4.jpg" alt="" width="354" height="144"></h1>
+<h1><img src="http://i1.code.msdn.s-msft.com/direct3d-11-install-helper-3044575e/image/file/57675/1/capture4.jpg" alt="" width="354" height="144"></h1>
 <h1>Localization</h1>
 <p>The D3D11Install program is localized for Brazilian Portuguese, Dutch, English, French, German, Italian, Japanese, Korean, Polish, Russian, Simplified Chinese, Spanish, Swedish, Traditional Chinese, Czech and Norwegian (Bokmal).</p>
 <h1>Building with Visual Studio 2012</h1>

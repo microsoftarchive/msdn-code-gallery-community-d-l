@@ -47,7 +47,7 @@
 <div>Below Figure shows the static structure of this pattern. The UML class diagram is surprisingly simple because
 <em>Singleton</em> consists of a simple class that holds a reference to a single instance of itself.</div>
 <div>&nbsp;</div>
-<div>&nbsp;<img id="63544" src="63544-stp.png" alt="" width="195" height="88"></div>
+<div>&nbsp;<img id="63544" src="http://i1.gallery.technet.s-msft.com/dive-into-singleton-pattern-91ef8a8f/image/file/63544/1/stp.png" alt="" width="195" height="88"></div>
 <div><span style="color:#008000; font-size:medium">Singleton Pattern Principle:</span></div>
 <div></div>
 <div>This approach ensures that only one instance is created and only when the instance is needed.</div>
@@ -268,7 +268,7 @@
 <div class="endscriptcode">&nbsp;</div>
 <div class="endscriptcode"></div>
 <p><span style="color:#000000; font-size:small">Thank you for reading my article. Drop all your questions/comments in QA tab give me your feedback with
-<span style="color:#3366ff"><img id="67168" src="67168-ratings.png" alt="" width="74" height="15">
+<span style="color:#3366ff"><img id="67168" src="http://i1.code.msdn.s-msft.com/oops-principles-solid-7a4e69bf/image/file/67168/1/ratings.png" alt="" width="74" height="15">
 <span style="color:#000000">star rating (1 Star - Very Poor, 5&nbsp;Star -&nbsp;Very Good).
 </span></span></span></p>
 <div class="endscriptcode"><span style="color:#3366ff">&nbsp;</span></div>

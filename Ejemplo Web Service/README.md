@@ -57,7 +57,7 @@
 <div class="post-body x_x_entry-content"></div>
 <div class="post-body x_x_entry-content"><strong><span><br>
 </span></strong></div>
-<div class="post-body x_x_entry-content"><strong id="internal-source-marker_0.16307367430999875"><span>&nbsp;</span><img src=":-iczsslbcmuss39ctevidlnt-kp2e4i7vf0y0cq0xnplzav479onfwbgdlllqddeollspt1c87f7no4zr-sokkhozd6o9jlq2a_fkdzp3-skeadpi-lu" alt="" width="400" height="261"><br>
+<div class="post-body x_x_entry-content"><strong id="internal-source-marker_0.16307367430999875"><span>&nbsp;</span><img src="https://lh4.googleusercontent.com/icZSslBcmUSS39CteVIDLnT-KP2e4i7vf0y0CQ0xnPLZav479ONfWBGdllLQddeoLlspT1c87F7No4Zr-SoKKhoZd6O9JLQ2a_fkDzP3-sKeADPI-lU" alt="" width="400" height="261"><br>
 <br>
 </strong></div>
 <div class="post-body x_x_entry-content"></div>
@@ -70,19 +70,19 @@
 <span>Se genera un c&oacute;digo y una jerarqu&iacute;a de archivos como la de la izquierda (en la imagen de abajo), ya con esto tenemos un servicio muy b&aacute;sico del tipo Hola Mundo, que ser&aacute; suficiente por ahora, a este codigo generado por VS2010
  se le han hecho ligeros cambios, dejamos de la mano del lector descubrir cuales fueron.</span><br>
 <br>
-<strong id="internal-source-marker_0.16307367430999875"><img src=":-pg5np-qthxk114opggg51fo8exh0senjeqgsfa9b0lgsqda7tn_zu1tbkjtpbdpepqfx2gzs2g0zg3ovicoekmekdw_abda-hdk4pmynqhessd5glco" alt="" width="489px;" height="242px;"></strong><br>
+<strong id="internal-source-marker_0.16307367430999875"><img src="https://lh5.googleusercontent.com/Pg5np-QtHXK114OpgGg51fO8eXh0seNJeQGsfa9B0lGSqDA7TN_zu1TbKJTPbDpepQFX2gZs2G0Zg3OVICOEKMEkdw_ABdA-hDK4PMynqHESsD5gLco" alt="" width="489px;" height="242px;"></strong><br>
 <br>
 <br>
 <span>Corremos el servicio con la tecla F5 y abrimos otra instancia del Visual Studio 2010 y creamos una ASP.NET Web Application</span></strong><br>
 <strong><span><br>
 </span></strong><br>
-<strong id="internal-source-marker_0.16307367430999875"><img src=":-ezg7vq9sqty3-yqjj41uwfnxasq-d_knogem_j2d6gazcezgmzi2jzlvw1kiql_i_4ffsj-v118cvihfwg97lkmvfbhdwrd8odrnxfxd-00ctx5et_o" alt="" width="513px;" height="236px;"></strong>&nbsp;<strong><br>
+<strong id="internal-source-marker_0.16307367430999875"><img src="https://lh6.googleusercontent.com/eZG7VQ9sqty3-yQjj41UwfNXAsQ-d_KnogEm_j2d6GAzCezgMZi2JZlvw1kIQL_i_4fFSJ-V118cvIHFwG97LkmVfBHDwrD8ODRNxFXD-00CtX5ET_o" alt="" width="513px;" height="236px;"></strong>&nbsp;<strong><br>
 <br>
 <span><br>
 </span></strong><br>
 <strong><span>Agregamos un TextBox y un Button, en el evento click del button, ponemos el codigo como esta en la imagen anterior</span><br>
 <br>
 <br>
-<span>Este es el resultado de la ejecuci&oacute;n de la aplicaci&oacute;n:</span><img src=":-sugczrfpvbhcfufyd3jlmxit9f9i-j_pqqklc4jwjmltfvyesccv8dvevpmfpmjks5iafh4qbqt7unq0_gwvop9_t8qthnto3-z2g-ygysuqrivyady" alt="" width="518px;" height="282px;"><br>
+<span>Este es el resultado de la ejecuci&oacute;n de la aplicaci&oacute;n:</span><img src="https://lh3.googleusercontent.com/SUgCzRfPVBHcFUFYD3jLMxit9F9I-J_pqQKLC4jWJmlTFvyeSCCv8dvEVpmFpMjkS5IaFH4qBQt7UNq0_GWVOp9_T8QthNtO3-z2g-yGySUqrIVyaDY" alt="" width="518px;" height="282px;"><br>
 <br>
 </strong></div>

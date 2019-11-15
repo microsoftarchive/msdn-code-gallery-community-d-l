@@ -31,7 +31,7 @@
 - Visual Studio</span></span></p>
 <p><span style="font-size:20px"><span style="font-size:small"><span style="font-size:small"><strong>Detailed Steps:</strong></span></span></span></p>
 <p style="text-align:justify"><span style="font-size:20px"><span style="font-size:small"><span style="font-size:small">STEP 1. Create a Winform Application, design the Form1 as below, double click the Run button to write code.</span></span></span></p>
-<p><span style="font-size:20px"><span style="font-size:small"><span style="font-size:small"><img id="127458" src="127458-1.png" alt="" width="477" height="236"><br>
+<p><span style="font-size:20px"><span style="font-size:small"><span style="font-size:small"><img id="127458" src="https://i1.code.msdn.s-msft.com/find-and-highlight-text-in-09ca0320/image/file/127458/1/1.png" alt="" width="477" height="236"><br>
 </span></span></span></p>
 <div class="scriptcode">
 <div class="pluginEditHolder" pluginCommand="mceScriptCode">
@@ -103,12 +103,12 @@
 </div>
 <p class="endscriptcode"><span style="font-size:small">STEP 4. Run the code, a dialog box will pop up, then input any text that we want to find and input another text that we want to insert. Here, I will find &quot;Unity&quot; and replace it with &quot;XXXXX&quot; in the sample
  file I prepared.</span></p>
-<p class="endscriptcode"><span style="font-size:small"><img id="127461" src="127461-2.png" alt="" width="472" height="232"></span></p>
+<p class="endscriptcode"><span style="font-size:small"><img id="127461" src="https://i1.code.msdn.s-msft.com/find-and-highlight-text-in-09ca0320/image/file/127461/1/2.png" alt="" width="472" height="232"></span></p>
 <p class="endscriptcode">&nbsp;</p>
 <p class="endscriptcode"><span style="font-size:small"><strong>Screenshot of the result file:</strong></span></p>
 <p class="endscriptcode"><span style="font-size:small"><strong><br>
 </strong></span></p>
-<p class="endscriptcode"><span style="font-size:small"><strong><img id="127462" src="127462-3.png" alt="" width="642" height="384"><br>
+<p class="endscriptcode"><span style="font-size:small"><strong><img id="127462" src="https://i1.code.msdn.s-msft.com/find-and-highlight-text-in-09ca0320/image/file/127462/1/3.png" alt="" width="642" height="384"><br>
 </strong></span></p>
 <p class="endscriptcode"><span style="font-size:small"><strong><br>
 </strong></span></p>

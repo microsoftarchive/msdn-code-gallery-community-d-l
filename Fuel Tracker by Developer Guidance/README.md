@@ -29,6 +29,6 @@
 </span><br>
 <span style="font-family:arial,helvetica,sans-serif; font-size:small"><span style="font-family:arial,helvetica,sans-serif; font-size:small">&nbsp;&bull; How to prepare and upload&nbsp;an application&nbsp;for the Windows Phone Marketplace.<br>
 </span></span>&nbsp;</p>
-<p><img src="19307-fueltracker_screenshot1_50.png" alt="" width="200" height="335"><img src="19308-fueltracker_screenshot2_50.png" alt="" width="204" height="335"></p>
+<p><img src="http://i3.code.msdn.microsoft.com/fuel-tracker-sample-9fe58263/image/file/19307/1/fueltracker_screenshot1_50.png" alt="" width="200" height="335"><img src="http://i3.code.msdn.microsoft.com/fuel-tracker-sample-9fe58263/image/file/19308/1/fueltracker_screenshot2_50.png" alt="" width="204" height="335"></p>
 <p><strong>&nbsp;</strong></p>
 <p>&nbsp;</p>

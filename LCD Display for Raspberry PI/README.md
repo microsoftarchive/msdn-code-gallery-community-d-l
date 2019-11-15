@@ -24,7 +24,7 @@
 Introduction</h1>
 <p>A&nbsp;Raspberry PI running Windows 10 IoT Core shall provide some information on a simple LCD display with 4 rows of 20 characters. The LCD display shall be connected to the Raspberry PI over the I2C bus. This connection requires only 4 wires.</p>
 <p>As LCD display I have selected a Sainsmart LCD2004. You can buy it for less than 15 US Dollar.</p>
-<p><img id="172223" src="172223-hardware.png" alt=""></p>
+<p><img id="172223" src="https://i1.code.msdn.s-msft.com/lcd-display-for-raspberry-217c5fa2/image/file/172223/1/hardware.png" alt=""></p>
 <p>&nbsp;</p>
 <p>A datasheet for the LCD display and also for the I2C Bus Port expander used to connect the LCD Display with the Raspberry PI is included in the sample code. The LCD2004&nbsp;comes with&nbsp;the I2C Bus Port Expander connected as follows:</p>
 <div class="scriptcode">
@@ -68,7 +68,7 @@ Introduction</h1>
 </li></ol>
 <p>The pinouts for the Raspberry PI can be found either <a href="https://www.raspberrypi.org/blog/pinout-for-gpio-connectors/">
 here</a> or by an internet search for &quot;Raspberry PI GPIO image&quot;. Here is how the connection looks in my test setup:</p>
-<p><img id="172231" src="172231-connections-512x205.png" alt="" width="512" height="205"></p>
+<p><img id="172231" src="https://i1.code.msdn.s-msft.com/lcd-display-for-raspberry-217c5fa2/image/file/172231/1/connections-512x205.png" alt="" width="512" height="205"></p>
 <p><em><br>
 </em></p>
 <h1><span>Building the Sample</span></h1>

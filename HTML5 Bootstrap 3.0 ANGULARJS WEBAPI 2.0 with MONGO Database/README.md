@@ -55,12 +55,12 @@
 <ul>
 <li>Click &ldquo;Blank Solution&rdquo; </li><li>Enter Name as &ldquo;ProductsManagement&rdquo; </li></ul>
 </li></ul>
-<p><strong>&nbsp;</strong><em>&nbsp;<img id="143545" src="143545-screen_3.png" alt="" width="941" height="575"></em><strong>&nbsp;</strong></p>
+<p><strong>&nbsp;</strong><em>&nbsp;<img id="143545" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143545/1/screen_3.png" alt="" width="941" height="575"></em><strong>&nbsp;</strong></p>
 <p>2. <strong>Add UI project&nbsp;</strong>&nbsp;</p>
 <ul>
 <li>Right click on the solution created in step 1 </li><li>Click Add and then New Project </li><li>In the Add New Project window click Web and then Click ASP.Net Web Application
 </li><li>Name the application I am naming it as &ldquo;Ui&rdquo; </li><li>Click Ok </li><li>In next window select &ldquo;Empty&rdquo; and click &ldquo;Ok&rdquo; </li></ul>
-<p><img id="143546" src="143546-screen_4.png" alt="" width="756" height="568"></p>
+<p><img id="143546" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143546/1/screen_4.png" alt="" width="756" height="568"></p>
 <p><span style="font-family:Calibri; font-size:small">Now in the Ui project setup the
 <strong>Angular Js</strong> and the <strong>Bootstrap 3</strong> by installing the nuget packages. Follow the below steps.</span><span style="font-family:Calibri; font-size:small">&nbsp;</span></p>
 <ul>
@@ -72,7 +72,7 @@
 <ul>
 <li>AngularJS </li><li>AngularJS Core </li><li>AngularJS Route </li></ul>
 <div></div>
-<p><img id="143548" src="143548-screen_5.png" alt="" width="886" height="593"></p>
+<p><img id="143548" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143548/1/screen_5.png" alt="" width="886" height="593"></p>
 <div></div>
 <p>Now lets setup the Bootstrap in the UI Project created in step 2 above, follow the below steps.</p>
 <div></div>
@@ -83,7 +83,7 @@
 <ul>
 <li>Bootstrap </li></ul>
 <div></div>
-<p><img id="143549" src="143549-screen_6.png" alt="" width="886" height="593"></p>
+<p><img id="143549" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143549/1/screen_6.png" alt="" width="886" height="593"></p>
 <div></div>
 <p>With this step we have successfully installed the default bootstrap framework in our UI project.</p>
 <p>Now to get the better style we will&nbsp;replace the CSS from the bootstrap.min.css file by downloading the bootstrap CSS from the
@@ -108,15 +108,15 @@
 <li>index.html </li><li>products.html </li></ol>
 </li></ol>
 <p><span style="font-family:Calibri; font-size:small">With the above steps the Ui project structure should look like as below.</span><strong>&nbsp;</strong><em>&nbsp;</em></p>
-<p><img id="143792" src="143792-project_struct_ui.png" alt=""></p>
+<p><img id="143792" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143792/1/project_struct_ui.png" alt=""></p>
 <p>&nbsp;</p>
 <p><span>Below screen displays the Application&nbsp;Ui&nbsp;of our Product Management application. The screen is divided into two main sections. The first section will displays the existing products and the second section provides the Ui to add new products
  into database.</span></p>
-<p><span><img id="143796" src="143796-screen_8.png" alt=""><br>
+<p><span><img id="143796" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143796/1/screen_8.png" alt=""><br>
 </span></p>
 <p><span style="font-family:Calibri; font-size:small">Every product has the &ldquo;Edit&rdquo; button attached with it , the idea is when the user clicks the &ldquo;Edit&rdquo; button Bootstrap model popup will open by displaying the information of selected
  product to edit. User will change the details and clicks the&nbsp;Update button.</span></p>
-<p><img id="143800" src="143800-screen_17.png" alt="" width="606" height="299"></p>
+<p><img id="143800" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143800/1/screen_17.png" alt="" width="606" height="299"></p>
 <p><span style="font-family:Calibri; font-size:small">&nbsp;</span><strong>3. Add Web Api 2.0&nbsp;project in Solution</strong></p>
 <p>&nbsp;Now we have to add the Web Api 2.0 project in our solution which will work as the service layer&nbsp;between&nbsp;the Ui project and the Mongo Database. follow the below steps.</p>
 <ol>
@@ -134,19 +134,19 @@
 <div></div>
 <p>3.In add new project window choose Web template and then select <strong>&ldquo;Asp.Net Web Application&rdquo;
 </strong>provide the name as <strong>&ldquo;Api&rdquo;</strong></p>
-<div><img id="143797" src="143797-screen_9.png" alt=""></div>
+<div><img id="143797" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143797/1/screen_9.png" alt=""></div>
 <div></div>
 <div>4.Click Ok</div>
 <ol>
 </ol>
 <div></div>
 <p>5.In next window select &ldquo;Web Api&rdquo; as template</p>
-<p><img id="143798" src="143798-screen_10.png" alt=""></p>
+<p><img id="143798" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143798/1/screen_10.png" alt=""></p>
 <ol>
 </ol>
 <div></div>
 <p>6.Click Change Authentication and in the popup select no authentication.</p>
-<p><img id="143799" src="143799-screen_11.png" alt="" width="706" height="313"></p>
+<p><img id="143799" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143799/1/screen_11.png" alt="" width="706" height="313"></p>
 <div></div>
 <ol>
 </ol>
@@ -166,11 +166,11 @@
 </li><li><span style="font-size:x-small">PostAddProduct</span><span style="font-family:Consolas; font-size:x-small"><span style="font-family:Consolas">&nbsp;</span></span>&nbsp;<span style="font-family:Consolas; font-size:x-small"><span style="font-family:Consolas">&nbsp;</span></span>
 </li><li><span style="font-size:x-small">PostUpdateProduct </span></li></ul>
 <p><span style="font-family:Calibri; font-size:small">Now our Api&nbsp;project&nbsp; structure should look like as below.</span></p>
-<p><img id="143803" src="143803-screen_19.png" alt=""></p>
+<p><img id="143803" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143803/1/screen_19.png" alt=""></p>
 <p><span style="font-family:Calibri; font-size:small">Now let&rsquo;s setup the Mongo Database Drivers In our Web Api project.</span></p>
 <p><span style="font-family:Calibri; font-size:small">Right click the Api project and click &ldquo;Manage Nuget Packages&rdquo; search &ldquo;Mongo&rdquo; and select the MongoDB Driver from the list&nbsp; click &quot;Install&quot; and the Click &quot;I Accept&quot;.</span><span style="font-family:Calibri; font-size:small"><br>
 </span></p>
-<p><span style="font-family:Calibri; font-size:small"><img id="143802" src="143802-screen_18.png" alt=""></span></p>
+<p><span style="font-family:Calibri; font-size:small"><img id="143802" src="https://i1.code.msdn.s-msft.com/windowsdesktop/html5-with-bootstrap-30-d34d94d7/image/file/143802/1/screen_18.png" alt=""></span></p>
 <p>This will install the Mongo Drivers in our Web Api Project.</p>
 <p><strong>Defination of&nbsp;&quot;Product&quot; Model in Api Project </strong><strong>&nbsp;</strong><em>&nbsp;</em></p>
 <p>&nbsp;</p>

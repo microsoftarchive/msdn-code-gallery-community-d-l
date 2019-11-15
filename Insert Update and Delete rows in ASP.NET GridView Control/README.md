@@ -94,9 +94,9 @@
 <p><span style="font-size:small"><em><em><em><em><em><em>BusinessLogic -&gt;&nbsp;<em>UI finally BL return data to UI</em></em></em></em></em></em></em></span></p>
 <p><span style="font-size:small"><em><em><em><em><em><em><em><br>
 </em></em></em></em></em></em></em></span></p>
-<p><em><em><em><em><em><em><em><span><img id="60729" src="60729-20120707_02.jpg" alt="" width="1274" height="497"><br>
+<p><em><em><em><em><em><em><em><span><img id="60729" src="http://i1.code.msdn.s-msft.com/insert-update-delete-rows-b0a2d4e2/image/file/60729/1/20120707_02.jpg" alt="" width="1274" height="497"><br>
 </span></em></em></em></em></em></em></em></p>
-<p><img id="60730" src="60730-20120707_01.jpg" alt="" width="1274" height="497"></p>
+<p><img id="60730" src="http://i1.code.msdn.s-msft.com/insert-update-delete-rows-b0a2d4e2/image/file/60730/1/20120707_01.jpg" alt="" width="1274" height="497"></p>
 <p><span style="font-size:20px; font-weight:bold">Description</span></p>
 <p><span style="color:#000000">In Default.aspx source code we have to add</span></p>
 <p><span style="color:#000000">This&nbsp;is used to Edit the Row in Gridview.</span><span style="color:#000000">Here I am going to Edit only two columns name and marks.</span></p>

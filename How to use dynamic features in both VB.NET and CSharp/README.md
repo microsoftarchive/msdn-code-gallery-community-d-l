@@ -22,7 +22,7 @@
 <p><strong><em>And in fact for VB.NET, we also have such features, but you should do these things first:</em></strong></p>
 <p><strong><em>1) Everything define as an &quot;Object&quot; value.</em></strong></p>
 <p><strong><em>2) Close &quot;Option Exclipit&quot; by switching it to &quot;Off&quot; so as to make Visual Basic have the function of Late binding&quot; in &quot;Properties&quot;=&gt;&quot;Compiler&quot;</em></strong></p>
-<p><em><img id="176464" src="176464-%e6%8d%95%e8%8e%b7.png" alt="" width="361" height="79"><br>
+<p><em><img id="176464" src="https://i1.code.msdn.s-msft.com/dynamic-samples-a565d727/image/file/176464/1/%e6%8d%95%e8%8e%b7.png" alt="" width="361" height="79"><br>
 </em></p>
 <h1><span>Building the Sample</span></h1>
 <p><em>At least VS 2010 (net framework MUST BE 4.0 or later version).</em></p>

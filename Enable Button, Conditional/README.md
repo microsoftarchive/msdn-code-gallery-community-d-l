@@ -18,7 +18,7 @@
 
 <h1>Introduction</h1>
 <p>This is just a simple sample to show how Commands can trigger the enabled or disabled state of a button, and how you can define that state by other factors in the view, like in this case, if any CheckBoxes are checked, in the CheckBox column of a DataGrid.</p>
-<p><img id="65907" src="65907-condit.png" alt="" width="347" height="242" style="margin-right:auto; margin-left:auto; display:block"></p>
+<p><img id="65907" src="http://i1.code.msdn.s-msft.com/enable-button-conditional-dfcf46c0/image/file/65907/1/condit.png" alt="" width="347" height="242" style="margin-right:auto; margin-left:auto; display:block"></p>
 <p>&nbsp;</p>
 <h1><span>Building the Sample</span></h1>
 <p>Just download, unzip, open and run!</p>
@@ -80,4 +80,4 @@ here</a>.</p>
 <p><a href="http://social.msdn.microsoft.com/Forums/en/wpf/thread/24c8be07-8b16-46f8-aa4e-0d4b53b09358"></a></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><img src="-anithanks1.gif" alt="" style="margin-right:auto; margin-left:auto; display:block"></p>
+<p><img src="http://213.163.64.28/aniThanks1.gif" alt="" style="margin-right:auto; margin-left:auto; display:block"></p>

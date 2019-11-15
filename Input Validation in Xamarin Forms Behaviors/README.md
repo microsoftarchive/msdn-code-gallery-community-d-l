@@ -22,7 +22,7 @@
 <p dir="ltr"><span style="font-size:small">Xamarin.Forms behaviors are created by deriving from the Behavior or Behavior&lt;T&gt; class,&nbsp;where&nbsp;T&nbsp;is the type of the control (Entry, DateTime, etc) to which the behavior should apply.
 </span></p>
 <p dir="ltr"><span style="font-size:small">In this article I will demonstrates how to create and consume Xamarin.Forms behaviors and Input Validation using xamarin Forms Behaviors.</span></p>
-<p dir="ltr"><span><img src=":-hhsxeoxduelrwsbsjwraketyy4ska1gh45iavh1tll7ue0pz4ijsylo7qq8e9aom-zxzydfu2rm_rtndnu3ygtg38nbklgc_-5qo7_updrvpfvbil6d4pkazhqmnlllu07or5m7tfti6tmajpw" alt="" width="624" height="324"></span></p>
+<p dir="ltr"><span><img src="https://lh6.googleusercontent.com/hhSxeOXDUElRWsBsJwrakeTyy4skA1gh45IavH1tLl7Ue0pz4iJSylO7QQ8E9aom-ZxzyDfU2rm_RtnDNu3Ygtg38NbKLgc_-5qO7_uPdRVPfVbil6d4pKazhQmnlLlU07OR5m7TftI6tmAjpw" alt="" width="624" height="324"></span></p>
 <h1 dir="ltr"><span>Why We Need Behaviors?</span></h1>
 <p dir="ltr"><span style="font-size:small">Normally we will write validation code into the code-behind because it directly interacts with the API of the control so that we can create Behaviors and reuse into the different control. We can be used to provide
  a full range of functionality to controls, like below </span></p>
@@ -46,17 +46,17 @@
 <p dir="ltr"><span style="font-size:small">Let's start with creating a new Xamarin Forms Project in Visual Studio.<br class="kix-line-break">
 <br class="kix-line-break">
 Open Run - Type Devenev.Exe and enter - New Project (Ctrl&#43;Shift&#43;N) - select Blank Xaml App (Xamarin.Forms Portable) template</span></p>
-<p dir="ltr"><span><img src=":-_xsuyss59-7zzgzmyp0ukr2undqplrvcabh8rhz5-iyq09p0_p48xc8cbsw0spbkooow986qn4bvr0hodmbstgkdwc-uoeyjyx9tcjzw8o4kwxjjwwzie_5x1ao94apl2am-qr5fnxjjt4datq" alt="" width="623" height="353"></span></p>
+<p dir="ltr"><span><img src="https://lh3.googleusercontent.com/_xSuYss59-7ZZgzMyP0Ukr2uNdqpLrvCabH8RHZ5-IYq09p0_p48xc8cbsw0SPbkoOow986Qn4bvr0HodmBstGKDWC-UoEyJyX9TcJZW8O4KWXjJWwzIE_5x1AO94apl2Am-qr5FNxJJt4dAtQ" alt="" width="623" height="353"></span></p>
 <p dir="ltr"><span style="font-size:small">You can find my previous article for more about create new xamarin.Form application from
 <a href="http://www.c-sharpcorner.com/article/how-to-create-first-xamarin-form-application/">
 Here</a>.</span></p>
 <p dir="ltr"><strong><span style="font-size:small">Step 2 &ndash; Create new class and inherits from the Behavior:</span></strong></p>
 <p dir="ltr"><span style="font-size:small">Create a new class and inherits from the Behavior or Behavior&lt;T&gt; class .We can add behavior to any control so you can specify your control name instead of T.</span></p>
-<p dir="ltr"><span><img src=":-qwixcgif_yozm4zegbuisri9kkai15chmckgbovugdxc1lwj4zvjbj0ys7v3zo3uexwfdgmragcksfjh6u8yx1wbllejd0jgxqbcuoewrfr3qxmphjxdlan5gmtaadjjo-iyxt-flgmxjyu_9w" alt="" width="338" height="299"></span></p>
+<p dir="ltr"><span><img src="https://lh6.googleusercontent.com/qwixCgIf_YOzm4ZegbUIsrI9KKAi15chmCKGBOVuGDxc1LwJ4zvJbJ0yS7V3ZO3UEXWFdgmRAgckSfJh6U8YX1WBlLEjD0jgXqbCUOewRFr3qXmpHJxDlAN5gmTaAdJjo-iyxT-flgMXjyu_9w" alt="" width="338" height="299"></span></p>
 <p dir="ltr"><strong><span style="font-size:small">Step 2 &ndash;Override Behavior class method:</span></strong></p>
 <p dir="ltr"><span style="font-size:small">We need to override OnAttachedTo and OnDetachingFrom method from our validation class</span></p>
 <p>&nbsp;</p>
-<p dir="ltr"><span><img src=":-otg68zqdfa3vjckbki2qdyqix1m2i3nuv8vytbaw2r5cxphwmge8zuvojoae7tjo-vcz-1zbbs8yvdiagvjfqejjok34xl9hqv4mpc5rnd7iedozwefagkaltvw9ewytcyynib-nwmtplne7ca" alt="" width="624" height="431"></span></p>
+<p dir="ltr"><span><img src="https://lh5.googleusercontent.com/oTG68zQDfA3vjCKbki2qdYQix1m2i3NUV8VyTBaW2R5CXPHWMGE8ZuvOJoae7TJo-Vcz-1zBBS8yvdiAgvjfqEjJoK34xL9HQv4Mpc5rnd7iedOzWEfagkAlTvW9ewyTcyYnIb-nwmtpLne7cA" alt="" width="624" height="431"></span></p>
 <p>&nbsp;</p>
 <p dir="ltr"><span style="font-size:small">The&nbsp;<strong>OnAttachedTo&nbsp;</strong>method is fired immediately after the behavior is attached to a control. This can be used to register event handlers or perform other setup that's required to support the
  behavior functionality.</span></p>
@@ -693,5 +693,5 @@ Here</a>.</span></p>
 <p dir="ltr"><span style="font-size:small">You can download sample source code and run the application .
 </span></p>
 <p><br>
-<span><img src=":-waqr9ym0yzarm-n0n6krpvu5by7bio-ln7tl0lh4qh25gavac2zjcy0hepbvlakybzvicbyhhjj3viqgswds1camywrlw2bme7ufaquh73p9cacckwh08c7rhaep-fdswsak9l6cb4vtglzl1q" alt="" width="297" height="579"><span id="docs-internal-guid-eaaa2ce9-8bac-71d7-d247-e8ad34e77181"><span><img src=":-0rmbnojjbq_mj5fhkxlwxlyfkbmm7h1luo_uhitdd_qv49bszvw8ghnam_m_1zt5to3c6uatact21y44uv_h4dgufhc1-rcl01pndre8c_kzagixdvdvbp-_fqzvwgillnabywvdgj8mwnrvtq" alt="" width="319" height="574"></span></span></span><span>
+<span><img src="https://lh4.googleusercontent.com/WAQR9yM0yZarm-n0N6kRPVU5by7BiO-LN7tl0lh4QH25gAVAc2zjCy0hEpBvLakYbzvICbYHhJj3VIQgswDS1caMyWrlw2BMe7UFAQuh73p9caCcKWH08c7RHaep-fdSwsak9L6Cb4VTGlzl1Q" alt="" width="297" height="579"><span id="docs-internal-guid-eaaa2ce9-8bac-71d7-d247-e8ad34e77181"><span><img src="https://lh4.googleusercontent.com/0RMbNOJJbq_MJ5FhKxLWxLYfkbMM7h1luO_uhiTdD_qV49bSZVW8GHNaM_m_1ZT5tO3C6UatAct21Y44uV_H4DGuFHc1-rcl01pnDrE8c_KZagiXDvDVBp-_FqzVWGilLnabYWvdGJ8MwNrvTQ" alt="" width="319" height="574"></span></span></span><span>
 </span></p>

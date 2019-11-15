@@ -17,7 +17,7 @@
 - 06/24/2013
 ## Description
 
-<h1><img src="44288-figure1.jpg" alt="" width="689" height="394"></h1>
+<h1><img src="http://i1.code.msdn.s-msft.com/execute-sql-statements-aa3015b5/image/file/44288/1/figure1.jpg" alt="" width="689" height="394"></h1>
 <p><span style="color:#ffffff">.</span></p>
 <h1>Introduction</h1>
 <p><span style="font-size:small">This project demonstrates using SQL statements stored in a MS-Access database. One reason this would be helpful is when your project has one or more quires that are static in nature, meaning they never change during the execution

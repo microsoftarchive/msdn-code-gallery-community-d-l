@@ -36,17 +36,17 @@
 <span style="font-size:small">Suppose we have a web application used for exporting Persons data to the excel and send back to the client. We want to show the progress status of exporting excel file instead of being a full postback.</span></p>
 <p><span style="font-size:small"><strong>Export File using jQuery Unified Export File in asp.net web forms</strong></span><br>
 <span style="font-size:small">Normal way:</span></p>
-<p><img src="-download?projectname=exportfilebyjqueryaspnet&downloadid=721648" alt="" width="525" height="570"></p>
+<p><img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=exportfilebyjqueryaspnet&DownloadId=721648" alt="" width="525" height="570"></p>
 <p><span style="font-size:small">Progress way:</span></p>
-<p><img src="-download?projectname=exportfilebyjqueryaspnet&downloadid=721680" alt="" width="526" height="572"></p>
+<p><img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=exportfilebyjqueryaspnet&DownloadId=721680" alt="" width="526" height="572"></p>
 <p><span style="font-size:small">ProgressBar way:</span></p>
-<p><img src="-download?projectname=exportfilebyjqueryaspnet&downloadid=721682" alt="" width="534" height="577"></p>
+<p><img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=exportfilebyjqueryaspnet&DownloadId=721682" alt="" width="534" height="577"></p>
 <p><span style="font-size:small"><strong>Export File using jQuery Unified Export File in asp.net MVC 3</strong></span><br>
 <span style="font-size:small">Normal way:</span></p>
-<p><img src="-download?projectname=exportfilebyjqueryaspnet&downloadid=721683" alt="" width="533" height="576"></p>
+<p><img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=exportfilebyjqueryaspnet&DownloadId=721683" alt="" width="533" height="576"></p>
 <p><span style="font-size:small">Progress way:</span></p>
-<p><img src="-download?projectname=exportfilebyjqueryaspnet&downloadid=721708" alt="" width="534" height="576"></p>
+<p><img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=exportfilebyjqueryaspnet&DownloadId=721708" alt="" width="534" height="576"></p>
 <p><span style="font-size:small">ProgressBar way:</span></p>
-<p><img src="-download?projectname=exportfilebyjqueryaspnet&downloadid=721709" alt="" width="534" height="576"></p>
+<p><img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=exportfilebyjqueryaspnet&DownloadId=721709" alt="" width="534" height="576"></p>
 <p><span style="font-size:small"><strong>MORE INFORMATION</strong></span><br>
 <span style="font-size:small">In order to know further details, please access the web address (<a href="https://exportfilebyjqueryaspnet.codeplex.com/">https://exportfilebyjqueryaspnet.codeplex.com/</a>) and (<a href="https://jqueryunifiedexportfile.codeplex.com/">https://jqueryunifiedexportfile.codeplex.com/</a>)</span></p>

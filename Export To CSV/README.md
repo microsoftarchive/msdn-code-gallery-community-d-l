@@ -131,10 +131,10 @@
 </div>
 <p>There is an important point in that class:</p>
 <p>The ListSeparator that you have defined in</p>
-<p><img id="74525" src="74525-listseparator.png" alt="" width="546" height="339"></p>
+<p><img id="74525" src="http://i1.code.msdn.s-msft.com/windowsapps/export-to-csv-sample-b31b50cf/image/file/74525/1/listseparator.png" alt="" width="546" height="339"></p>
 <p>can be found programatticaly using System.Globalization.CultureInfo.CurrentCulture.TextInfo.ListSeparator</p>
 <p>But is dependes the list of languages preferences:</p>
-<p><img id="74526" src="74526-language.png" alt="" width="443" height="301"></p>
+<p><img id="74526" src="http://i1.code.msdn.s-msft.com/windowsapps/export-to-csv-sample-b31b50cf/image/file/74526/1/language.png" alt="" width="443" height="301"></p>
 <p>&nbsp;</p>
 <p>If i choose English the ListSeparator is , and for my excel is ; because is that i have in my regional settings</p>
 <p>If i choose Portugues the LisSeparator is ; and for my excel is ; too and it works well.</p>
@@ -146,10 +146,10 @@
 </li><li>CsvExport is the class that convert the data into csv file. </li></ul>
 <h1>Result</h1>
 <p><strong>In the Windows 8 App:</strong></p>
-<p><img id="73835" src="73835-wind8appresult.png" alt="" width="609" height="338"></p>
+<p><img id="73835" src="http://i1.code.msdn.s-msft.com/windowsapps/export-to-csv-sample-b31b50cf/image/file/73835/1/wind8appresult.png" alt="" width="609" height="338"></p>
 <p>&nbsp;</p>
 <p><strong>The myexportresult.csv file opened in Excel:</strong></p>
-<p><strong><img id="73836" src="73836-excelresult.png" alt="" width="591" height="318"><br>
+<p><strong><img id="73836" src="http://i1.code.msdn.s-msft.com/windowsapps/export-to-csv-sample-b31b50cf/image/file/73836/1/excelresult.png" alt="" width="591" height="318"><br>
 </strong></p>
 <p><strong><br>
 </strong></p>

@@ -27,7 +27,7 @@
 
 <h1>Introduction</h1>
 <p>This sample shows many methods for creating and navigating between views, manipulating individual controls&nbsp;and managing specific areas of the view.</p>
-<p><img id="63418" src="63418-clip1.gif" alt="" style="margin-right:auto; margin-left:auto; display:block"></p>
+<p><img id="63418" src="http://i1.code.msdn.s-msft.com/how-to-build-manage-and-fdd0074a/image/file/63418/1/clip1.gif" alt="" style="margin-right:auto; margin-left:auto; display:block"></p>
 <p>&nbsp;</p>
 <h1><span>Building the Sample</span></h1>
 <p>Just download, unblock, unzip, open and run!</p>
@@ -47,4 +47,4 @@
 <li>MainWindow&nbsp;- NavigationWindow.Source </li><li>Page0 - XAML Hyperlink </li><li>Page1 - Frame.Navigate </li><li>Page2 - NavigationService </li><li>Page3 - XAML Markup (include) </li><li>UserControl1 - Parent cast </li><li>UserControl2 - IoC (ish) </li><li>UserControl3 - ApplicationController (global static class) </li><li>UserControl4 - Event </li><li>UserControl5 - Mediator </li><li>UserControl6 - Binding </li><li>UserControl7 - MVVM dashboard example </li><li>App.xaml - XAML based&nbsp;sample data&nbsp;&quot;Person Array&quot; </li></ul>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><img src="-anithanks1.gif" alt="" style="margin-right:auto; margin-left:auto; display:block"></p>
+<p><img src="http://213.163.64.28/aniThanks1.gif" alt="" style="margin-right:auto; margin-left:auto; display:block"></p>

@@ -610,49 +610,49 @@
 <p>Now that we have all the parts of the component, we need to zip it together and import it in Microsoft Dynamics NAV. This is again as you would do for any other add-in.</p>
 <p>Create a zip file with the following structure:</p>
 <p>&nbsp;</p>
-<p><img id="125229" src="125229-folders.png" alt="" width="276" height="95"></p>
+<p><img id="125229" src="http://i1.code.msdn.s-msft.com/extensibility-for-the-7600738d/image/file/125229/1/folders.png" alt="" width="276" height="95"></p>
 <p>Put the manifest at the root, the JavaScript file in the script folder and the CSS file in the Stylesheet folder.</p>
 <p>Open any of the Microsoft Dynamics NAV clients (Windows, Web or Tablet) and go to the Control Add-ins page. Create a new entry named SignatureControl and enter the public key token that you saved earlier. Import the zip file.</p>
 <p>&nbsp;</p>
-<p><img id="125230" src="125230-addinspage.png" alt="" width="665" height="307"></p>
+<p><img id="125230" src="http://i1.code.msdn.s-msft.com/extensibility-for-the-7600738d/image/file/125230/1/addinspage.png" alt="" width="665" height="307"></p>
 &nbsp; &nbsp;
 <h1>The C/SIDE side of things</h1>
 <p>Now that our add-in is sitting comfortably within the confines of the Microsoft Dynamics NAV database, we need to add it to page. But before that, we want a place to save the signature image data. In this fabricated example, I will add the signature to the
  Sales Invoice card page from the Mini app (1304) which is based on the Sales Header table.</p>
 <p>In Object Designer, open the Sales Header table and add BLOB field called &lsquo;SignatureImage&rsquo;</p>
 &nbsp; &nbsp;
-<p><img id="125231" src="125231-tablet.png" alt="" width="611" height="455"></p>
+<p><img id="125231" src="http://i1.code.msdn.s-msft.com/extensibility-for-the-7600738d/image/file/125231/1/tablet.png" alt="" width="611" height="455"></p>
 <p>&nbsp;</p>
 <p>Now&nbsp;add the actual control page by opening page 1304 and add the control into a separate group.</p>
 <p>&nbsp;</p>
-<p>&nbsp; &nbsp; <img id="125232" src="125232-page.png" alt="" width="665" height="330"></p>
-<p>&nbsp;<img id="125233" src="125233-pageprops.png" alt="" width="535" height="290"></p>
+<p>&nbsp; &nbsp; <img id="125232" src="http://i1.code.msdn.s-msft.com/extensibility-for-the-7600738d/image/file/125232/1/page.png" alt="" width="665" height="330"></p>
+<p>&nbsp;<img id="125233" src="http://i1.code.msdn.s-msft.com/extensibility-for-the-7600738d/image/file/125233/1/pageprops.png" alt="" width="535" height="290"></p>
 <p>By now you should be able to fire up this page and see how our control looks like. To do that open the client of your choice in the mini app. Navigate to the Sales Invoices and open the Sales Invoice card page.</p>
 <p>&nbsp;</p>
 <p>You should see the signature control. Try to draw in with the mouse or with your finger if you are on a touch enabled device.</p>
 <p>&nbsp;</p>
-<p><img id="125235" src="125235-controlonpage.png" alt="" width="489" height="351"></p>
+<p><img id="125235" src="http://i1.code.msdn.s-msft.com/extensibility-for-the-7600738d/image/file/125235/1/controlonpage.png" alt="" width="489" height="351"></p>
 &nbsp; &nbsp;
 <p>Even the clear button works already and allows you to delete your doodles.</p>
 <p>The last part that we are missing is to save and retrieve the pixels to the Microsoft Dynamics NAV database. To do that we need to write a bit of C/AL code</p>
 <h1>The C/AL code</h1>
 <p>If you recall how we defined the add-in interface, we have three triggers to take care of: AddInReady, UpdateSignature and SignatureSaved.</p>
 <p>&nbsp;</p>
-<p>&nbsp; &nbsp;<img id="125236" src="125236-calcode1.png" alt="" width="640" height="401"></p>
+<p>&nbsp; &nbsp;<img id="125236" src="http://i1.code.msdn.s-msft.com/extensibility-for-the-7600738d/image/file/125236/1/calcode1.png" alt="" width="640" height="401"></p>
 <p>Nothing surprising here. The really interesting methods are <strong>SaveSignature</strong> and
 <strong>GetDataUriFromImage</strong>.</p>
 <p>This is where the conversion from between the URL encoded image string and a Microsoft Dynamics NAV BLOB occurs.</p>
 <p>The most convenient way to do this is to use the power of .NET for regular expressions matching and memory streams.</p>
 <p>So, let&rsquo;s create a <strong>SaveSignature</strong> method and add the following .NET type variables to the locals:</p>
 <p>&nbsp;</p>
-<p>&nbsp;<img id="125237" src="125237-calcode2.png" alt="" width="583" height="274"></p>
+<p>&nbsp;<img id="125237" src="http://i1.code.msdn.s-msft.com/extensibility-for-the-7600738d/image/file/125237/1/calcode2.png" alt="" width="583" height="274"></p>
 <p>&nbsp;</p>
 <p>The URL encoded representation of the image contains some goo around the actual pixel information. With .NET regular expressions, we strip the header by matching it and preserving the rest.</p>
 <p>What is left is a base 64 encoded string, which we can convert to a byte array using the .net Convert utility class. We then pass it to the memory stream and save it to the Microsoft Dynamics NAV table as a BLOB.</p>
-<p>&nbsp;<img id="125238" src="125238-calcode3.png" alt="" width="665" height="177"></p>
+<p>&nbsp;<img id="125238" src="http://i1.code.msdn.s-msft.com/extensibility-for-the-7600738d/image/file/125238/1/calcode3.png" alt="" width="665" height="177"></p>
 <p>&nbsp;</p>
 <p>Obtaining the encoded URI is obviously the reverse operation. This is somewhat simpler; after reading the BLOB, we just need to re-add the header.&nbsp;</p>
-<p><img id="125239" src="125239-calcode4.png" alt="" width="631" height="162"></p>
+<p><img id="125239" src="http://i1.code.msdn.s-msft.com/extensibility-for-the-7600738d/image/file/125239/1/calcode4.png" alt="" width="631" height="162"></p>
 <p>Finally, we want to update the drawing, when we navigate the records:</p>
 <p>&nbsp;</p>
 <h1>That&rsquo;s it!</h1>

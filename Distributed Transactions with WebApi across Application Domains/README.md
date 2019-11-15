@@ -26,11 +26,11 @@
  cannot find each other by their NetBIOS names, or the support for network transactions is not enabled for one of the two transaction managers. (Exception from HRESULT: 0x8004D02A)</em>.</p>
 <p>To check this precondition you can simply <strong>ping </strong>one server from another and vice-versa.</p>
 <p>The DTC must be enabled for network access. The settings used for this example are show in the following image:</p>
-<p><img id="137905" src="137905-componentservice.png" alt="" width="714" height="404"></p>
-<p><img id="137903" src="137903-dtc_properties.png" alt="" width="468" height="512"></p>
+<p><img id="137905" src="https://i1.code.msdn.s-msft.com/distributed-transactions-c7e0a8c2/image/file/137905/1/componentservice.png" alt="" width="714" height="404"></p>
+<p><img id="137903" src="https://i1.code.msdn.s-msft.com/distributed-transactions-c7e0a8c2/image/file/137903/1/dtc_properties.png" alt="" width="468" height="512"></p>
 <p><img alt=""></p>
 <p>In the end, the DTC service must be running:</p>
-<p><img id="137906" src="137906-services.png" alt="" width="1006" height="330"></p>
+<p><img id="137906" src="https://i1.code.msdn.s-msft.com/distributed-transactions-c7e0a8c2/image/file/137906/1/services.png" alt="" width="1006" height="330"></p>
 <p><img alt=""></p>
 <p><span style="font-size:20px; font-weight:bold">Description</span></p>
 <p>With this example, I created a client WebAPI application working as server. This endpoint exposes an action to save data posted from a client. The client, a console application,
@@ -204,8 +204,8 @@ WebAPI application</h2>
 <ul>
 <li>Commit client and server </li><li>Rollback client and server </li><li>Exception server side (resulting in a server and client rollback) </li><li>Exception client side (resulting in a server and client rollback) </li></ul>
 <p>When the client application start, it asks you for what kind of test do you want. In case of positive commitment (0), a green message is reported, followed by a server call used to get all records inserted since now:</p>
-<p><img id="137891" src="137891-ok.png" alt="" width="681" height="361"></p>
+<p><img id="137891" src="https://i1.code.msdn.s-msft.com/distributed-transactions-c7e0a8c2/image/file/137891/1/ok.png" alt="" width="681" height="361"></p>
 <p><img alt=""></p>
 <p>In negative cases (1,2,3), the resulting message will be in red, followed by a server call to retrieve all the record from the server DB to check that no new record was inserted.</p>
-<p><img id="137890" src="137890-ko.png" alt="" width="682" height="374"></p>
+<p><img id="137890" src="https://i1.code.msdn.s-msft.com/distributed-transactions-c7e0a8c2/image/file/137890/1/ko.png" alt="" width="682" height="374"></p>
 <p><img alt=""></p>

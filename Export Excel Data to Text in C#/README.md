@@ -31,7 +31,7 @@
 <p style="text-align:justify"><span style="font-size:20px"><span style="font-size:small"><span style="font-size:20px"><span style="font-size:small"><strong><img id="128078" src="128078-1.png" alt="" width="700" height="441"><br>
 </strong></span></span></span></span></p>
 <p><strong><span style="font-size:small">Text:</span></strong></p>
-<p><img id="128082" src="128082-3.png" alt="" width="617" height="304"></p>
+<p><img id="128082" src="https://i1.code.msdn.s-msft.com/export-excel-data-to-text-015bc013/image/file/128082/1/3.png" alt="" width="617" height="304"></p>
 <h1>More Information</h1>
 <p style="text-align:justify"><span style="font-size:small"><span style="font-size:small"><span lang="EN" style="font-size:10pt">Spire.XLS for .NET is a professional and powerful Excel component which enables developers/programmers to operate Excel files with
  their ASP.NET web sites and Windows Forms applications. It supports to operate both for the old Excel 97-2003 format (.xls) and for the new Excel 2007,Excel 2010 and Excel 2013 (.xlsx, .xlsb, .xlsm), along with Open Office(.ods) format. It allows developers

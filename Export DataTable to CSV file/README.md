@@ -21,14 +21,14 @@ Logic working with ANY chars in the column(s), it uses StringBuilder for build o
 <p><strong><span style="font-size:1.17em">Description&nbsp;</span></strong></p>
 <p>Select button [Export To CSV] and [Save] or [Open] file.</p>
 <p>&nbsp;</p>
-<p><img id="164057" src="164057-csv1.png" alt="" width="388" height="299"></p>
+<p><img id="164057" src="https://code.msdn.microsoft.com/windowsapps/site/view/file/164057/1/CSV1.PNG" alt="" width="388" height="299"></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
-<p><img id="164058" src="164058-csv2.png" alt="" width="378" height="305"></p>
+<p><img id="164058" src="https://code.msdn.microsoft.com/windowsapps/site/view/file/164058/1/CSV2.PNG" alt="" width="378" height="305"></p>
 <p>See Example below.</p>
 <p>&nbsp;</p>
-<p><img id="164059" src="164059-csv3.png" alt="" width="437" height="371"></p>
+<p><img id="164059" src="https://code.msdn.microsoft.com/windowsapps/site/view/file/164059/1/CSV3.PNG" alt="" width="437" height="371"></p>
 <p>&nbsp;</p>
 <p><em>&nbsp;</em></p>
 <h3><span>Build the Sample<br>

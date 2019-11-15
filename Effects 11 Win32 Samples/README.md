@@ -112,7 +112,7 @@ Gouraud and Flat shade modes</h4>
  that position. The positions of these vertices are displaced such that the screen-space size in pixels is equal to the g_pointSize variable.</p>
 <p>This sample does not show how to emulate point sprite functionality, which is closely related to point rendering.</p>
 <h2>InstancingFX11</h2>
-<p><img id="121875" src="121875-instancing.jpg" alt="" width="200" height="150"></p>
+<p><img id="121875" src="http://i1.code.msdn.s-msft.com/effects-11-win32-samples-cce82a4d/image/file/121875/1/instancing.jpg" alt="" width="200" height="150"></p>
 <p><em><strong>This is the Direct3D 10 Instancing sample updated for Direct3D 11.</strong></em></p>
 <p>Reducing the number of draw calls made in any given frame is one way to improve graphics performance for a 3D application. The need for multiple draw calls in a scene arises from the different states required by different parts of the scene. These states
  often include matrices and material properties. One way to combat these issues is to use Instancing and Texture Arrays. In this sample, instancing enables the application to draw the same object multiple times in multiple places without the need for the CPU

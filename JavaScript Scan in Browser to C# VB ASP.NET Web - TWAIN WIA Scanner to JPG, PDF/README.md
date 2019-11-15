@@ -68,7 +68,7 @@ Scan documents from TWAIN WIA scanners in browsers and upload to the server side
 <div class="clear"></div>
 <h1><span>Building the Sample</span></h1>
 <p>Download the zip and unzip it. Open with Visual Studio 2013 or higher. Press F5 to launch it.</p>
-<p><img src="-screen-scannerjs.png" alt="Scanner.js" width="500"></p>
+<p><img src="http://asprise.com/scan/scannerjs/img/screen-scannerjs.png" alt="Scanner.js" width="500"></p>
 <p><em>&nbsp;</em><span style="font-size:20px; font-weight:bold">Scan Images as JPEG from TWAIN WIA Scanners to Web Pages</span></p>
 <p>Below is a complete sample <a href="http://asprise.com/document-scan-upload-image-browser/ie-chrome-firefox-scanner-docs.html" target="_blank">
 page that scans documents from scanners and displays the scanned images</a> on it:</p>
@@ -203,11 +203,11 @@ page that scans documents from scanners and displays the scanned images</a> on i
 </div>
 <h1>More Information</h1>
 <p style="font-size:15px; line-height:22px; margin-top:0px; color:#333333; font-family:proxima_nova_rgregular,&quot;Droid Sans&quot;,sans-serif; font-style:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-indent:0px; text-transform:none; white-space:normal; widows:2; word-spacing:0px; background-color:#ffffff">
-<a href="http://asprise.com/document-scan-upload-image-browser/direct-to-server-php-asp.net-overview.html" target="_blank" style="text-decoration:none; color:#0066aa"><img src="-icon-scan-32.png" alt="" width="28" align="middle" style="border:0px none; margin-right:8px">Learn
+<a href="http://asprise.com/document-scan-upload-image-browser/direct-to-server-php-asp.net-overview.html" target="_blank" style="text-decoration:none; color:#0066aa"><img src="http://asprise.com/res/img/icon-scan-32.png" alt="" width="28" align="middle" style="border:0px none; margin-right:8px">Learn
  more about Scanner.JS: JavaScript browser based scan from TWAIN WIA Scanners</a></p>
 <p style="font-size:15px; line-height:22px; margin-top:0px; color:#333333; font-family:proxima_nova_rgregular,&quot;Droid Sans&quot;,sans-serif; font-style:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-indent:0px; text-transform:none; white-space:normal; widows:2; word-spacing:0px; background-color:#ffffff">
-<a href="http://asprise.com/document-scan-upload-image-browser/ie-chrome-firefox-scanner-docs.html" target="_blank" style="text-decoration:none; color:#0066aa"><img src="-icon-book-32.png" alt="" width="28" align="middle" style="border:0px none; margin-right:8px">Access
+<a href="http://asprise.com/document-scan-upload-image-browser/ie-chrome-firefox-scanner-docs.html" target="_blank" style="text-decoration:none; color:#0066aa"><img src="http://asprise.com/res/img/icon-book-32.png" alt="" width="28" align="middle" style="border:0px none; margin-right:8px">Access
  to Scanner.js Developer's Guide</a></p>
 <p style="font-size:15px; line-height:22px; color:#333333; font-family:proxima_nova_rgregular,&quot;Droid Sans&quot;,sans-serif; font-style:normal; font-weight:normal; letter-spacing:normal; orphans:2; text-align:start; text-indent:0px; text-transform:none; white-space:normal; widows:2; word-spacing:0px; background-color:#ffffff">
-<a href="https://github.com/Asprise/scannerjs.javascript-scanner-access-in-browsers-chrome-ie.scanner.js" target="_blank" style="text-decoration:none; color:#0066aa"><img src="-icon-github-32.png" alt="" width="28" align="middle" style="border:0px none; margin-right:8px">View
+<a href="https://github.com/Asprise/scannerjs.javascript-scanner-access-in-browsers-chrome-ie.scanner.js" target="_blank" style="text-decoration:none; color:#0066aa"><img src="http://asprise.com/res/img/icon-github-32.png" alt="" width="28" align="middle" style="border:0px none; margin-right:8px">View
  Scanner.js Samples on Github</a></p>

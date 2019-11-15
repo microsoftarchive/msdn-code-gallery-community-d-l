@@ -693,7 +693,7 @@ e.CellStyle.BackColor&nbsp;=&nbsp;color1;&nbsp;
 <p><strong><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">Note :Connection String</span></strong></p>
 <p><span style="font-family:Consolas; font-size:12.6667px">You can find &quot;DBConnection.txt&quot; inside bin folder,Change the connection string to your SQL Server DB Setting.</span></p>
 <p><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">Change Connection String in Code:</span></p>
-<p><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas"><img id="142372" src="142372-6.png" alt="" width="600" height="350"><br>
+<p><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas"><img id="142372" src="https://i1.code.msdn.s-msft.com/datagridview-gantt-style-16180d03/image/file/142372/1/6.png" alt="" width="600" height="350"><br>
 </span></p>
 <p><span lang="EN-US" style="font-size:9.5pt; font-family:Consolas">You can find a &quot;BizBase.cs&quot; &nbsp;inside Helper/Biz Folder.Change the connection string to your local SQL Server Connection string.</span></p>
 <div id="_mcePaste" class="mcePaste" style="left:-10000px; top:282px; width:1px; height:1px; overflow:hidden">
@@ -702,7 +702,7 @@ e.CellStyle.BackColor&nbsp;=&nbsp;color1;&nbsp;
 <span style="font-style:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">We will create a&nbsp;</span><strong style="outline:0px; color:#333333; line-height:21px; font-family:Roboto,sans-serif; font-size:14px; font-style:normal"><span style="outline:0px; color:#000000">SCHED_Master</span></strong><span style="font-style:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">&nbsp;table
  under the Database&nbsp;</span><strong style="outline:0px; color:#333333; line-height:21px; font-family:Roboto,sans-serif; font-size:14px; font-style:normal">'<span style="outline:0px; color:#000000">projectDB</span></strong><span style="font-style:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">'.
  The following is the script to create a database, table and sample insert query. Run this script in your SQL Server. I have used SQL Server 2012.</span><br style="font-style:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; outline:0px; color:#333333">
-<img id="140423" src="140423-19.jpg" alt="" width="571" height="204"></em></div>
+<img id="140423" src="https://code.msdn.microsoft.com/site/view/file/140423/1/19.JPG" alt="" width="571" height="204"></em></div>
 <div><span style="font-size:20px; font-weight:bold">Description</span></div>
 <div><em>Create SQl Table and Insert Sample Records.</em>&nbsp;</div>
 <div class="scriptcode"><a href="https://code.msdn.microsoft.com/Dynamic-scheduling-using-35328360/description#" class="copyCode">Copy code</a>
@@ -968,7 +968,7 @@ e.CellStyle.BackColor&nbsp;=&nbsp;color1;&nbsp;
 <h1 class="endscriptcode">&nbsp;<span style="font-weight:normal; font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">If we run the procedure the final output will be like this. Here we can see I will display the result of every
  week using the Pivot query.</span></h1>
 <div class="endscriptcode">&nbsp;</div>
-<img id="140425" src="140425-17.jpg" alt="" width="604" height="157"></div>
+<img id="140425" src="https://code.msdn.microsoft.com/site/view/file/140425/1/17.JPG" alt="" width="604" height="157"></div>
 <div><span style="font-size:14px; line-height:21px; font-family:Roboto,sans-serif; color:#333333">For the actual data in the Pivot list I will display the result as:&nbsp;</span></div>
 <ul style="font-size:14px; line-height:21px; font-family:Roboto,sans-serif; outline:0px; color:#333333">
 <li style="outline:0px"><strong style="outline:0px"><span style="outline:0px; color:#000000">&ldquo;-1&rdquo;</span>&nbsp;:&nbsp;</strong>For End Date of both the scheduled and actual result. In my program I will check for the produced value, if its &ldquo;-1&rdquo;
@@ -979,5 +979,5 @@ e.CellStyle.BackColor&nbsp;=&nbsp;color1;&nbsp;
  days. I will be using Green to display the schedule days. </li></ul>
 <div style="font-size:14px; line-height:21px; font-family:Roboto,sans-serif; outline:0px; color:#333333">
 This is only a sample procedure that provides a sample program for the project schedule. You can custamize this table, procedure and program depending on your requirements. You can set your own rule and status to display the result.</div>
-<h1>&nbsp;<img id="140426" src="140426-14.jpg" alt="" width="628" height="202"></h1>
+<h1>&nbsp;<img id="140426" src="https://code.msdn.microsoft.com/site/view/file/140426/1/14.JPG" alt="" width="628" height="202"></h1>
 </div>

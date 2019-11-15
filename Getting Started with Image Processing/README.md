@@ -17,7 +17,7 @@
 
 <h3><span style="font-size:small">Introduction</span></h3>
 <p><span style="font-size:small">This sample helps you get started with Image Processing using C# and Windows Forms. This is so that the sample is simple enough for all to understand and so we can focus on the actual image processing code or algorithms.</span></p>
-<p><span style="font-size:small"><img id="113117" src="113117-imageprocessingscreenshot.png" alt="" width="550"><br>
+<p><span style="font-size:small"><img id="113117" src="http://i1.code.msdn.s-msft.com/getting-started-with-image-74a37d8b/image/file/113117/1/imageprocessingscreenshot.png" alt="" width="550"><br>
 </span></p>
 <p><span style="font-size:small">This sample just gets the ball rolling, implementing basic effects or image processing algorithms. Of course, there are many other effects and if you need any specific one, please do let me know. I would be happy to update the
  sample with your inputs and if there is sufficient demand, may be migrate this to a WPF version as well :)</span></p>

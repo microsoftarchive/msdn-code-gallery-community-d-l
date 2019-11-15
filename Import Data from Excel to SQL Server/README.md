@@ -23,7 +23,7 @@
 <p>In many time you will find yourself with some Excel file need to be saved or Export to SQL Server,I know it possible by using SQL Server Import and Export Wizard.But this depend on business Scenario itself ,so one&nbsp; of the scenario is creating web application
  or windows application that read Excel file and Move it to SQL SERVER Database,so this sample assume that you have one of those scenarios.</p>
 <h1>Sample Demo</h1>
-<p><a href="http://dotnetfinder.files.wordpress.com/2012/03/image.png"><img title="image" src="-image_thumb.png" border="0" alt="image" width="244" height="52" style="padding-left:0pt; padding-right:0pt; display:inline; padding-top:0pt; border-width:0pt; margin:0pt"></a></p>
+<p><a href="http://dotnetfinder.files.wordpress.com/2012/03/image.png"><img title="image" src="http://dotnetfinder.files.wordpress.com/2012/03/image_thumb.png" border="0" alt="image" width="244" height="52" style="padding-left:0pt; padding-right:0pt; display:inline; padding-top:0pt; border-width:0pt; margin:0pt"></a></p>
 <p>As you can see from the above image the sample contain the page which byself contain three controls</p>
 <ol>
 <li>FileUpload Control to allow you browse and upload excel file </li><li>Button to Import data from excel and export it to SQL Server </li><li>Label to show the message about uploading status </li></ol>
@@ -33,9 +33,9 @@
 <ol>
 <li>Create an IIS web site </li><li>Change .Net Framework to 4.0 for Application Pool of this site </li><li>Create Excel file and make sure that file contain the column name as following image
 </li></ol>
-<p><a href="http://dotnetfinder.files.wordpress.com/2012/03/image1.png"><img title="image" src="-image_thumb1.png" border="0" alt="image" width="169" height="159" style="padding-left:0pt; padding-right:0pt; display:block; padding-top:0pt; border:0pt none; margin:0pt auto"></a></p>
+<p><a href="http://dotnetfinder.files.wordpress.com/2012/03/image1.png"><img title="image" src="http://dotnetfinder.files.wordpress.com/2012/03/image_thumb1.png" border="0" alt="image" width="169" height="159" style="padding-left:0pt; padding-right:0pt; display:block; padding-top:0pt; border:0pt none; margin:0pt auto"></a></p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.Create Table in SQL Server and make sure has the same Columns name with appropriate columns data type.</p>
-<p><a href="http://dotnetfinder.files.wordpress.com/2012/03/image2.png"><img title="image" src="-image_thumb2.png" border="0" alt="image" width="240" height="76" style="padding-left:0pt; padding-right:0pt; display:block; padding-top:0pt; border:0pt none; margin-left:auto; margin-right:auto"></a></p>
+<p><a href="http://dotnetfinder.files.wordpress.com/2012/03/image2.png"><img title="image" src="http://dotnetfinder.files.wordpress.com/2012/03/image_thumb2.png" border="0" alt="image" width="240" height="76" style="padding-left:0pt; padding-right:0pt; display:block; padding-top:0pt; border:0pt none; margin-left:auto; margin-right:auto"></a></p>
 <p><span style="font-size:20px; font-weight:bold">Description</span></p>
 <p><em>This sample work as I mentioned above by ask user to upload Excel file (*.xsl,*.xslx) and then check the content type of that file then open excel file and save it's data to SQL Server Database.&nbsp;
 <br>

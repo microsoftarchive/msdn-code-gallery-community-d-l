@@ -20,7 +20,7 @@
  installing Microsoft PowerPoint on your machine. Using Spire.Presentation for .NET, you also can insert charts in your PowerPoint document with C#. Spire.Presentation supports column charts, cylinder charts, cone charts, pyramid charts, clustered charts, line
  charts, pie charts, bar charts, area charts, scatter charts, stock charts, surface charts, contour charts, doughnut charts, bubble charts and radar charts.</p>
 <p>Effective Screenshot:</p>
-<p><img id="122277" src="122277-insert_chart_ppt.png" alt="" width="670" height="504"></p>
+<p><img id="122277" src="http://i1.code.msdn.s-msft.com/insert-chart-to-powerpoint-0c2c848b/image/file/122277/1/insert_chart_ppt.png" alt="" width="670" height="504"></p>
 <p><span class="fs15">As an independent PowerPoint .NET component, Spire.Presentation for .NET doesn't need Microsoft PowerPoint installed on the machine. And it is compatible with other .NET applications.</span></p>
 <p>By using Spire.Presentation for .NET, developers can export presentation slides to PDF and image (Bitmap, JPG, PNG, EMF, TIFF, GIF and WMF) formats. It supports SmartArt shapre, MSO Charts components and presentation printing.</p>
 <p><span class="fs15">Spire.Presentation for .NET supports Microsoft PowerPoint 97 - 2003 and Microsoft PowerPoint 2007, 2010.PPT, PPS, PPTX, PPSX.</span></p>

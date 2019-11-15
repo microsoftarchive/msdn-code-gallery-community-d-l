@@ -21,7 +21,7 @@
  the argument.<br>
 In order to achieve my goal I used a SharePoint Framework Application Customizer, the code is really easy, in fact in the onRender() method basically I inject the Google Analytics code necessary to monitor the site in the head tag, here my solution on github:</p>
 <p><a rel="noopener" href="https://github.com/giuleon/js-application-analytics" target="_blank">https://github.com/giuleon/js-application-analytics</a></p>
-<p><em><img id="174306" src="174308-js-application-google-analytics.gif.gif" alt="Giuliano De Luca | Blog | Implementing Google Analytics on SharePoint Online" width="700px"><br>
+<p><em><img id="174306" src="https://i1.code.msdn.s-msft.com/implementing-google-cb2cc027/image/file/174308/1/js-application-google-analytics.gif.gif" alt="Giuliano De Luca | Blog | Implementing Google Analytics on SharePoint Online" width="700px"><br>
 </em></p>
 <p><span style="font-size:20px; font-weight:bold">Description</span></p>
 <p><span>Feel free to give your contribution is more than welcome.</span></p>

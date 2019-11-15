@@ -233,7 +233,7 @@
 </div>
 </div>
 <div class="endscriptcode">&nbsp;</div>
-<p><img id="136680" src="136680-mvvm1.png" alt="" width="463" height="699"></p>
+<p><img id="136680" src="https://i1.code.msdn.s-msft.com/windowsdesktop/learn-simple-mvvm-and-8beb6bf0/image/file/136680/1/mvvm1.png" alt="" width="463" height="699"></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong><br>

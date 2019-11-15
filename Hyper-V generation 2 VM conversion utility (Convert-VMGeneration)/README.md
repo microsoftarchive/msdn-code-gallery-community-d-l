@@ -30,8 +30,8 @@ my&nbsp;blog</a> or provide a rating above ^^^. Thank you! :)</p>
  no essential data exists, and use an exported/backup copy of the generation 1 virtual machine as the source for the conversion.<span><br>
 &nbsp;</span><span> <br>
 </span></p>
-<p><span><img id="100204" src="100204-ps%20windows%201.01.jpg" alt="" width="703" height="598"></span></p>
-<p><span><img id="100205" src="100205-converted%20vm%201.01.jpg" alt="" width="710" height="1137"></span></p>
+<p><span><img id="100204" src="http://i1.code.msdn.s-msft.com/convert-vmgeneration-81ddafa2/image/file/100204/1/ps%20windows%201.01.jpg" alt="" width="703" height="598"></span></p>
+<p><span><img id="100205" src="http://i1.code.msdn.s-msft.com/convert-vmgeneration-81ddafa2/image/file/100205/1/converted%20vm%201.01.jpg" alt="" width="710" height="1137"></span></p>
 <h1><span>Requirements</span></h1>
 <p><span>Convert-VMGeneration must be run on Windows 8.1 or Windows Server 2012 R2 with the Hyper-V feature/role enabled. It has not been tested on server core installations of Windows Server 2012 R2 or Microsoft Hyper-V Server 2012 R2.</span><span> Convert-VMGeneration
  supports the following guest operating systems:</span></p>

@@ -288,7 +288,7 @@
 </div>
 <p></p>
 <p>The EmployeeService class looks very clean and simple. Please notice, the employee class has been passed to BaseService as an entity.</p>
-<p><img id="171162" src="171162-xx.png" alt="" width="529" height="279"></p>
+<p><img id="171162" src="https://i1.code.msdn.s-msft.com/how-to-use-sqlite-with-96f22fac/image/file/171162/1/xx.png" alt="" width="529" height="279"></p>
 <p>Similarly, you can update, search employees as given in the below sample methods.</p>
 <p></p>
 <div class="scriptcode">

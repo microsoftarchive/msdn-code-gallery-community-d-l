@@ -24,9 +24,9 @@
 <p>Once your account is setup, navigate to&nbsp;<a href="https://dev.twitter.com/">https://dev.twitter.com</a>&nbsp;and sign in with your twitter credentails.&nbsp;</p>
 <div class="separator">You need to enter your application details. You need a Name, Description &amp; a Website (Your application's publicly accessible home page). You can add a Callback URL but its not really required. (Note: The name can't include the word
  &quot;twitter&quot;.)</div>
-<div class="separator"><a href="http://1.bp.blogspot.com/-ldsFSYRXGME/Ux02_MLXGPI/AAAAAAAABXk/BhkYJmZNmuI/s1600/2.PNG"><img src="-2.png" border="0" alt="" width="400" height="230"></a></div>
+<div class="separator"><a href="http://1.bp.blogspot.com/-ldsFSYRXGME/Ux02_MLXGPI/AAAAAAAABXk/BhkYJmZNmuI/s1600/2.PNG"><img src="http://1.bp.blogspot.com/-ldsFSYRXGME/Ux02_MLXGPI/AAAAAAAABXk/BhkYJmZNmuI/s1600/2.PNG" border="0" alt="" width="400" height="230"></a></div>
 <p>&nbsp;</p>
-<div class="separator"><a href="http://4.bp.blogspot.com/-xV70008u0a8/Ux02_e4QUUI/AAAAAAAABXg/ECISM1eYJw0/s1600/3.PNG"><img src="-3.png" border="0" alt="" width="400" height="230"></a></div>
+<div class="separator"><a href="http://4.bp.blogspot.com/-xV70008u0a8/Ux02_e4QUUI/AAAAAAAABXg/ECISM1eYJw0/s1600/3.PNG"><img src="http://4.bp.blogspot.com/-xV70008u0a8/Ux02_e4QUUI/AAAAAAAABXg/ECISM1eYJw0/s1600/3.PNG" border="0" alt="" width="400" height="230"></a></div>
 <div class="separator"></div>
 <div class="separator"></div>
 <div class="separator"></div>
@@ -35,13 +35,13 @@
 <div class="separator">You should now get directed to the application page. By default, the first tab (&quot;Details&quot; tab) is visible. You must click the &quot;Api Keys&quot; tab and then click the &quot;Create my access token&quot; button (you will need to scroll down). This in
  turn generates the access tokens (you may need to refresh the page). Your Keys and Access Tokens should now be available for use.</div>
 <div class="separator"></div>
-<div class="separator"><a href="http://1.bp.blogspot.com/-GaKCAIUT2w0/Ux07S0RrG8I/AAAAAAAABX0/G51TUd8R7Qg/s1600/1.PNG"><img src="-1.png" border="0" alt="" width="400" height="231"></a></div>
+<div class="separator"><a href="http://1.bp.blogspot.com/-GaKCAIUT2w0/Ux07S0RrG8I/AAAAAAAABX0/G51TUd8R7Qg/s1600/1.PNG"><img src="http://1.bp.blogspot.com/-GaKCAIUT2w0/Ux07S0RrG8I/AAAAAAAABX0/G51TUd8R7Qg/s1600/1.PNG" border="0" alt="" width="400" height="231"></a></div>
 <p>&nbsp;</p>
-<div class="separator"><a href="http://2.bp.blogspot.com/-SuvpqryUwKo/Ux07S3DDhrI/AAAAAAAABX4/M26O5jS5Tok/s1600/2.PNG"><img src="-2.png" border="0" alt="" width="400" height="193"></a></div>
+<div class="separator"><a href="http://2.bp.blogspot.com/-SuvpqryUwKo/Ux07S3DDhrI/AAAAAAAABX4/M26O5jS5Tok/s1600/2.PNG"><img src="http://2.bp.blogspot.com/-SuvpqryUwKo/Ux07S3DDhrI/AAAAAAAABX4/M26O5jS5Tok/s1600/2.PNG" border="0" alt="" width="400" height="193"></a></div>
 <p>&nbsp;</p>
-<div class="separator"><a href="http://2.bp.blogspot.com/-LK2lmMJXgq4/Ux07S7g8JsI/AAAAAAAABX8/Qupg3u2RomI/s1600/3.PNG"><img src="-3.png" border="0" alt="" width="400" height="251"></a></div>
+<div class="separator"><a href="http://2.bp.blogspot.com/-LK2lmMJXgq4/Ux07S7g8JsI/AAAAAAAABX8/Qupg3u2RomI/s1600/3.PNG"><img src="http://2.bp.blogspot.com/-LK2lmMJXgq4/Ux07S7g8JsI/AAAAAAAABX8/Qupg3u2RomI/s1600/3.PNG" border="0" alt="" width="400" height="251"></a></div>
 <p>&nbsp;</p>
-<div class="separator"><a href="http://4.bp.blogspot.com/-JicQOZpZ2zw/Ux07ToB91fI/AAAAAAAABYE/qcat0M9q7XA/s1600/4.PNG"><img src="-4.png" border="0" alt="" width="400" height="356"></a></div>
+<div class="separator"><a href="http://4.bp.blogspot.com/-JicQOZpZ2zw/Ux07ToB91fI/AAAAAAAABYE/qcat0M9q7XA/s1600/4.PNG"><img src="http://4.bp.blogspot.com/-JicQOZpZ2zw/Ux07ToB91fI/AAAAAAAABYE/qcat0M9q7XA/s1600/4.PNG" border="0" alt="" width="400" height="356"></a></div>
 <div class="separator"></div>
 <div class="separator"></div>
 <div class="separator"></div>

@@ -19,7 +19,7 @@
 <p><span style="font-family:Tahoma; font-size:small">Think of catching a &ldquo;Generic Exception&rdquo; as the equivalent of doing a &ldquo;catch { }&rdquo; block in C#
 <strong><span style="text-decoration:underline">with no exception declared</span></strong>. &ldquo;General Exception&rdquo; allows BizTalk to deal with any exception it may catch and re-throw, there&rsquo;s no way to get the exception message at that point.
 </span></p>
-<p style="text-align:center"><span style="font-family:Tahoma; font-size:small"><a rel="WLPP;url=http://sandroaspbiztalkblog.files.wordpress.com/2009/10/general-exception.jpg?w=300" href="http://sandroaspbiztalkblog.files.wordpress.com/2009/10/general-exception.jpg?w=300"><img class="aligncenter" src="-general-exception.jpg?w=300" alt=""></a></span></p>
+<p style="text-align:center"><span style="font-family:Tahoma; font-size:small"><a rel="WLPP;url=http://sandroaspbiztalkblog.files.wordpress.com/2009/10/general-exception.jpg?w=300" href="http://sandroaspbiztalkblog.files.wordpress.com/2009/10/general-exception.jpg?w=300"><img class="aligncenter" src="http://sandroaspbiztalkblog.files.wordpress.com/2009/10/general-exception.jpg?w=300" alt=""></a></span></p>
 <h1>How can I get Exception Message</h1>
 <p><span style="font-family:Tahoma; font-size:small">You can accomplish this by changing the exception type to <a class="libraryLink" href="https://msdn.microsoft.com/en-US/library/System.Exception.aspx" target="_blank" title="Auto generated link to System.Exception">System.Exception</a> or another type (<a class="libraryLink" href="https://msdn.microsoft.com/en-US/library/System.Web.Services.Protocols.SoapException.aspx" target="_blank" title="Auto generated link to System.Web.Services.Protocols.SoapException">System.Web.Services.Protocols.SoapException</a>):
 </span></p>
@@ -27,7 +27,7 @@
 <li><span style="font-family:Tahoma; font-size:small">In &ldquo;Exception Object Type&rdquo; property select: &lt;.NET Exception&hellip;&gt;</span>
 </li><li><span style="font-family:Tahoma; font-size:small">In Artifact Type windows, select <a class="libraryLink" href="https://msdn.microsoft.com/en-US/library/System.Exception.aspx" target="_blank" title="Auto generated link to System.Exception">System.Exception</a></span>
 </li></ul>
-<p style="text-align:center"><a rel="WLPP;url=http://sandroaspbiztalkblog.files.wordpress.com/2009/10/system-exception.jpg?w=270" href="http://sandroaspbiztalkblog.files.wordpress.com/2009/10/system-exception.jpg?w=270"><img class="aligncenter" src="-system-exception.jpg?w=270" alt=""></a></p>
+<p style="text-align:center"><a rel="WLPP;url=http://sandroaspbiztalkblog.files.wordpress.com/2009/10/system-exception.jpg?w=270" href="http://sandroaspbiztalkblog.files.wordpress.com/2009/10/system-exception.jpg?w=270"><img class="aligncenter" src="http://sandroaspbiztalkblog.files.wordpress.com/2009/10/system-exception.jpg?w=270" alt=""></a></p>
 <p><span style="font-family:Tahoma; font-size:small">By selecting another type, you are able to define &ldquo;Exception Object Name&rdquo;, in this case, &ldquo;ex&rdquo;, and then for getting the error message is just like C#: &ldquo;ex.Message&rdquo; or &ldquo;ex.ToString()&rdquo;.
 </span></p>
 <p><span style="font-family:Tahoma; font-size:small">See sample 1.<br>
@@ -58,6 +58,6 @@
 <p><strong>Sandro Pereira</strong><br>
 <a href="http://www.devscope.net/">DevScope</a>&nbsp;| MVP &amp; MCTS BizTalk Server 2010<br>
 <a href="http://sandroaspbiztalkblog.wordpress.com/">http://sandroaspbiztalkblog.wordpress.com/</a>&nbsp;|&nbsp;<a href="http://twitter.com/sandro_asp">@sandro_asp</a></p>
-<p><a href="http://www.devscope.net/"><img id="129835" src="129835-devscope-monochrome-black.png" alt="" width="166" height="51"></a></p>
+<p><a href="http://www.devscope.net/"><img id="129835" src="https://gallery.technet.microsoft.com/site/view/file/129835/1/devscope-monochrome-black.png" alt="" width="166" height="51"></a></p>
 <p><span style="font-family:Tahoma; font-size:small"><br>
 </span></p>

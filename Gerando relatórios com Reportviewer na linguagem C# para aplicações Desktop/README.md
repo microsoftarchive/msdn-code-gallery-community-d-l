@@ -41,7 +41,7 @@ clique aqui &nbsp;para ver o Script SQL </a></span><br>
 </strong>ou aperte <strong>CTRL &#43; SHIFT &#43; N</strong></span></div>
 <div style="text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Selecione
 <strong>Visual&nbsp;C#&gt; Windows Form Application</strong>&nbsp;e crie um projeto com o nome de&nbsp;<strong>RelatorioReportViewer</strong></span></div>
-<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-_ktnYM2FfjY/TxwVeulJvcI/AAAAAAAAAPw/KVdvKE8FjjU/s1600/RP0.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="-rp0.jpg" border="0" alt="" width="320" height="194"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-_ktnYM2FfjY/TxwVeulJvcI/AAAAAAAAAPw/KVdvKE8FjjU/s1600/RP0.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="http://4.bp.blogspot.com/-_ktnYM2FfjY/TxwVeulJvcI/AAAAAAAAAPw/KVdvKE8FjjU/s320/RP0.jpg" border="0" alt="" width="320" height="194"></span></a></div>
 <div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Adicione um&nbsp;&nbsp;formul&aacute;rio&nbsp;no projeto&nbsp;e coloque o nome dele de&nbsp;<strong>FrmVisualizador</strong></span></div>
@@ -50,7 +50,7 @@ clique aqui &nbsp;para ver o Script SQL </a></span><br>
 no&nbsp;formul&aacute;rio</span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><strong><br>
 </strong></span></div>
-<div class="separator" style="clear:both; text-align:center"><a href="http://2.bp.blogspot.com/-ERPRg85B5sU/TxwYxvsvJtI/AAAAAAAAAP4/fq-VBFroLlk/s1600/RP1.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="-rp1.jpg" border="0" alt="" width="320" height="170"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://2.bp.blogspot.com/-ERPRg85B5sU/TxwYxvsvJtI/AAAAAAAAAP4/fq-VBFroLlk/s1600/RP1.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="http://2.bp.blogspot.com/-ERPRg85B5sU/TxwYxvsvJtI/AAAAAAAAAP4/fq-VBFroLlk/s320/RP1.jpg" border="0" alt="" width="320" height="170"></span></a></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Clique com o bot&atilde;o direito em cima do projeto&nbsp;<strong>RelatorioReportViewer &nbsp;</strong>v&aacute; em
@@ -61,14 +61,14 @@ no&nbsp;formul&aacute;rio</span></div>
 </strong></span></div>
 <span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span><br>
-<div class="separator" style="clear:both; text-align:center"><a href="http://2.bp.blogspot.com/-cs4F41H0TGA/TxwbRTZgCVI/AAAAAAAAAQA/4EKuPQ6V2zk/s1600/RP3.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="-rp3.jpg" border="0" alt="" width="320" height="195"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://2.bp.blogspot.com/-cs4F41H0TGA/TxwbRTZgCVI/AAAAAAAAAQA/4EKuPQ6V2zk/s1600/RP3.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="http://2.bp.blogspot.com/-cs4F41H0TGA/TxwbRTZgCVI/AAAAAAAAAQA/4EKuPQ6V2zk/s320/RP3.jpg" border="0" alt="" width="320" height="195"></span></a></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><strong><br>
 </strong></span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><strong><br>
 </strong></span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Dentro da aba Repot Data v&aacute; em NEW &gt; DATASET</span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Caso n&atilde;o consiga visualizar a aba, clique dentro do relat&oacute;rio e aperte CTRL &#43; ALT &#43; D</span></div>
-<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-gHTXSJng0AI/TxwxoKs8JWI/AAAAAAAAAQI/AHpG1_Z_Bu0/s1600/RP4.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="-rp4.jpg" border="0" alt="" width="320" height="166"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-gHTXSJng0AI/TxwxoKs8JWI/AAAAAAAAAQI/AHpG1_Z_Bu0/s1600/RP4.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="http://3.bp.blogspot.com/-gHTXSJng0AI/TxwxoKs8JWI/AAAAAAAAAQI/AHpG1_Z_Bu0/s320/RP4.jpg" border="0" alt="" width="320" height="166"></span></a></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Automaticamente ser&aacute; aberto o
@@ -87,12 +87,12 @@ no&nbsp;formul&aacute;rio</span></div>
 </li></ol>
 <span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span><br>
-<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a href="http://2.bp.blogspot.com/--qo8IpcOWXQ/Txwyy8wdjRI/AAAAAAAAAQQ/Fc-SCGaJ7tM/s1600/RP5.jpg" style="margin-left:1em; margin-right:1em; text-align:center"><img src="-rp5.jpg" border="0" alt="" width="320" height="247"></a></span></div>
+<div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a href="http://2.bp.blogspot.com/--qo8IpcOWXQ/Txwyy8wdjRI/AAAAAAAAAQQ/Fc-SCGaJ7tM/s1600/RP5.jpg" style="margin-left:1em; margin-right:1em; text-align:center"><img src="http://2.bp.blogspot.com/--qo8IpcOWXQ/Txwyy8wdjRI/AAAAAAAAAQQ/Fc-SCGaJ7tM/s320/RP5.jpg" border="0" alt="" width="320" height="247"></a></span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 4. Clique em<strong> Next &gt;
 </strong>duas vezes, uma <a href="http://msdn.microsoft.com/pt-br/library/system.data.common.dbconnectionstringbuilder.connectionstring(v=vs.90).aspx" target="_blank">
 Connection String</a> ser&aacute; salva</span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5. Escolha a tabela que criamos no come&ccedil;o da explica&ccedil;&atilde;o</span></div>
-<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-tOtZOdQK1uc/Txw1Tz6VMDI/AAAAAAAAAQY/iNxwqcz_Bs8/s1600/RP5.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="-rp5.jpg" border="0" alt="" width="320" height="245"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-tOtZOdQK1uc/Txw1Tz6VMDI/AAAAAAAAAQY/iNxwqcz_Bs8/s1600/RP5.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="http://4.bp.blogspot.com/-tOtZOdQK1uc/Txw1Tz6VMDI/AAAAAAAAAQY/iNxwqcz_Bs8/s320/RP5.jpg" border="0" alt="" width="320" height="245"></span></a></div>
 <div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 6. Clique em
@@ -103,7 +103,7 @@ Connection String</a> ser&aacute; salva</span></div>
 </strong>e clique em<strong> OK</strong></span></div>
 <div class="separator" style="clear:both; text-align:left"><strong><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></strong></div>
-<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-6J_sAiMbFvA/Txw2indvx6I/AAAAAAAAAQg/LqKc18jo5Nk/s1600/RP6.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="-rp6.jpg" border="0" alt="" width="320" height="170"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-6J_sAiMbFvA/Txw2indvx6I/AAAAAAAAAQg/LqKc18jo5Nk/s1600/RP6.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="http://3.bp.blogspot.com/-6J_sAiMbFvA/Txw2indvx6I/AAAAAAAAAQg/LqKc18jo5Nk/s320/RP6.jpg" border="0" alt="" width="320" height="170"></span></a></div>
 <div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">O Dataset ir&aacute; aparecer no
@@ -116,7 +116,7 @@ DataSetName</strong> defina como&nbsp;<strong>DataSet_Produtos</strong></span></
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Depois selecione as colunas que quer mostrar na Table.</span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
-<div class="separator" style="clear:both; text-align:center"><a href="http://1.bp.blogspot.com/-fDAvUD5Oa44/Txw4_c65DzI/AAAAAAAAAQo/lFRU9GSz_4g/s1600/RP7.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="-rp7.jpg" border="0" alt="" width="320" height="171"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://1.bp.blogspot.com/-fDAvUD5Oa44/Txw4_c65DzI/AAAAAAAAAQo/lFRU9GSz_4g/s1600/RP7.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="http://1.bp.blogspot.com/-fDAvUD5Oa44/Txw4_c65DzI/AAAAAAAAAQo/lFRU9GSz_4g/s320/RP7.jpg" border="0" alt="" width="320" height="171"></span></a></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Volte para o FrmVisualizador e defina o<strong>&nbsp;Relatorio_Produtos.rdlc
@@ -127,7 +127,7 @@ DataSetName</strong> defina como&nbsp;<strong>DataSet_Produtos</strong></span></
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Isso vai fazer com que quando o formul&aacute;rio for maximizado, o relat&oacute;rio tamb&eacute;m ser&aacute;</span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
-<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-HdRkMRarykI/Txw6-wpA4sI/AAAAAAAAAQw/kV0N71GAIA4/s1600/RP8.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="-rp8.jpg" border="0" alt="" width="320" height="171"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-HdRkMRarykI/Txw6-wpA4sI/AAAAAAAAAQw/kV0N71GAIA4/s1600/RP8.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="http://4.bp.blogspot.com/-HdRkMRarykI/Txw6-wpA4sI/AAAAAAAAAQw/kV0N71GAIA4/s320/RP8.jpg" border="0" alt="" width="320" height="171"></span></a></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">No Form1 adicione um bot&atilde;o para chamar o
@@ -142,7 +142,7 @@ DataSetName</strong> defina como&nbsp;<strong>DataSet_Produtos</strong></span></
 <div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Executando o projeto e clicando no bot&atilde;o para abrir o Frm_Visualizador teremos</span></div>
-<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-3kqGy_kyjXo/Txw82ZIs18I/AAAAAAAAAQ4/4maQjEFjiPw/s1600/RP9.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="-rp9.jpg" border="0" alt="" width="320" height="171"></span></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-3kqGy_kyjXo/Txw82ZIs18I/AAAAAAAAAQ4/4maQjEFjiPw/s1600/RP9.jpg" style="margin-left:1em; margin-right:1em"><span style="font-family:Verdana,sans-serif; font-size:x-small"><img src="http://3.bp.blogspot.com/-3kqGy_kyjXo/Txw82ZIs18I/AAAAAAAAAQ4/4maQjEFjiPw/s320/RP9.jpg" border="0" alt="" width="320" height="171"></span></a></div>
 <div class="separator" style="clear:both; text-align:center"><span style="font-family:Verdana,sans-serif; font-size:x-small"><br>
 </span></div>
 <div class="separator" style="clear:both; text-align:left"><span style="font-family:Verdana,sans-serif; font-size:x-small">Al&eacute;m de ser f&aacute;cil de montar, com reportviewer temos a op&ccedil;&atilde;o de expotar os dados para:</span></div>

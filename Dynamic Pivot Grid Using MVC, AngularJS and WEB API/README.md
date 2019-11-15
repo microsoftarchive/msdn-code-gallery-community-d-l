@@ -393,7 +393,7 @@ In the select method I have used&nbsp;<strong>$http.get</strong>&nbsp;to get the
 </div>
 </div>
 <div class="endscriptcode"><span>&nbsp;</span><span>First I will bind all the Actual data from database. Here we can see all the data from database has been displayed total of nearly 43 records. We will create a Dynamic Pivot report from this actual data.</span></div>
-<div class="endscriptcode"><img id="145094" src="145094-17.png" alt="" width="569" height="461"></div>
+<div class="endscriptcode"><img id="145094" src="https://i1.code.msdn.s-msft.com/dynamic-pivot-grid-using-b7e15f2c/image/file/145094/1/17.png" alt="" width="569" height="461"></div>
 <div class="endscriptcode"></div>
 <div class="endscriptcode"><span>&nbsp;</span><strong><span>Pivot result to display the Price Sum by Toy Name for each Toy Type</span></strong>
 <p><span>In this pivot report .I will display the Toy Type in rows and Toy Name as Columns. In our form Load method we already stored all the Unique Toy Name in Array which will be bind as Column. Now in this method I will add the Unique Toy Type to be displayed
@@ -523,7 +523,7 @@ In the select method I have used&nbsp;<strong>$http.get</strong>&nbsp;to get the
 </div>
 </div>
 </div>
-<div class="endscriptcode">&nbsp;<img id="145097" src="145097-18.png" alt="" width="886" height="190"></div>
+<div class="endscriptcode">&nbsp;<img id="145097" src="https://i1.code.msdn.s-msft.com/dynamic-pivot-grid-using-b7e15f2c/image/file/145097/1/18.png" alt="" width="886" height="190"></div>
 <span>&nbsp;</span><strong><span>Column Total:</span></strong>
 <p>To display the Column Total at each row end .In this method I will calculate each row result and return the value to bind in MVC page.&nbsp;</p>
 <div class="scriptcode">
@@ -598,7 +598,7 @@ In the select method I have used&nbsp;<strong>$http.get</strong>&nbsp;to get the
 <p><strong>&nbsp;</strong>The same logic as above has been used to calculate and bind the Pivot report for Monthly Toy Name summery details. Here we can see the final put will be looks like this as in Rows I will bind Toy Type (Toy Category) Toy Name, Toy Image
  as static and all the Month Number in Columns Dynamically. Same like above function I will calculate all the Toy Summery price per Month and display in each row with Row Total, Column Total and Grand Total.</p>
 </div>
-<img id="145098" src="145098-19.png" alt="" width="562" height="488"></div>
+<img id="145098" src="https://i1.code.msdn.s-msft.com/dynamic-pivot-grid-using-b7e15f2c/image/file/145098/1/19.png" alt="" width="562" height="488"></div>
 <div class="endscriptcode"></div>
 <div class="endscriptcode"><strong><span>Search Button Click</span></strong>
 <p><span>In the search button click I will call the SearchMethod to bind the result. In Search method I will clear all the array value and rebind all the Pivot Grid with new result.</span>&nbsp;</p>
@@ -627,7 +627,7 @@ In the select method I have used&nbsp;<strong>$http.get</strong>&nbsp;to get the
 </div>
 </div>
 </div>
-<div class="endscriptcode">&nbsp;<img id="145099" src="145099-20.png" alt="" width="559" height="464"></div>
+<div class="endscriptcode">&nbsp;<img id="145099" src="https://i1.code.msdn.s-msft.com/dynamic-pivot-grid-using-b7e15f2c/image/file/145099/1/20.png" alt="" width="559" height="464"></div>
 </div>
 <div class="endscriptcode">&nbsp;<span style="font-size:2em">Source Code Files</span></div>
 <ul>

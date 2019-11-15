@@ -32,6 +32,6 @@
 <p><span style="font-size:20px; font-weight:bold">Description</span></p>
 <p>To draw a rectangle first press the button that says &quot;Start Drawing&quot;. This will add all the required map events. Simply press the button again when you want to exit drawing mode.</p>
 <p>Here is a screenshot of the finished app with a rectangle that has just been drawn on it.</p>
-<p><img width="931" height="691" id="148137" src="148137-wpfrectangle.png" alt="" style="width:550px; height:447px"></p>
+<p><img width="931" height="691" id="148137" src="https://i1.code.msdn.s-msft.com/draw-rectangles-on-bing-ce083d0e/image/file/148137/1/wpfrectangle.png" alt="" style="width:550px; height:447px"></p>
 <p><em><br>
 </em></p>

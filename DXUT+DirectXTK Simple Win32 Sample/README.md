@@ -33,10 +33,10 @@ GitHub</a>.</p>
 </li><li>Several textures are loaded using DDSTextureLoader&nbsp;&nbsp; </li></ul>
 <p><strong>Note: </strong>Because of the different versions of XAudio2 for Win32 desktop apps, this sample does not demonstrate
 <em>DirectXTK for Audio</em>.</p>
-<p><img id="121871" src="121871-simplesampletk.jpg" alt="" width="612" height="480"></p>
+<p><img id="121871" src="http://i1.code.msdn.s-msft.com/dxutdirectxtk-simple-win32-9cf797e9/image/file/121871/1/simplesampletk.jpg" alt="" width="612" height="480"></p>
 <h1>ModelViewerTK</h1>
 <p>This is a simple viewer application for loading .sdkmesh, .cmo, and .vbo&nbsp;files using DirectXTK's Model class and allowing viewing of the loaded model.</p>
-<p><img id="121872" src="121872-modelviewertk.jpg" alt="" width="576" height="480"></p>
+<p><img id="121872" src="http://i1.code.msdn.s-msft.com/dxutdirectxtk-simple-win32-9cf797e9/image/file/121872/1/modelviewertk.jpg" alt="" width="576" height="480"></p>
 <h1>Changes to DXUT</h1>
 <p>This solution includes a DXUT_DirectXTK_2012.vcxproj and DXUTOpt_DirectxTK_2012.vcxproj based on the original DXUT_2012.vcxproj and DXUTOpt_2012.vcxproj files with the following changes:</p>
 <ul>

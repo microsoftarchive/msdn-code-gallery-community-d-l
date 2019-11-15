@@ -28,7 +28,7 @@
 <div class="MsoNormal">Think that in a library system we want to calculate membership cost per year and it will depend on the number of books he borrow per one time.</div>
 <div class="MsoNormal"></div>
 <div class="MsoNormal">1. Start Visula Studio and create new Class Library called LibraryOperations.</div>
-<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-jymJ5LN9fB0/TrSdv-mQDTI/AAAAAAAAAXY/keX1hOnO4C0/s1600/mock1.JPG" style="margin-left:1em; margin-right:1em"><img src="-mock1.jpg" border="0" alt="" width="400" height="243"></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://4.bp.blogspot.com/-jymJ5LN9fB0/TrSdv-mQDTI/AAAAAAAAAXY/keX1hOnO4C0/s1600/mock1.JPG" style="margin-left:1em; margin-right:1em"><img src="http://4.bp.blogspot.com/-jymJ5LN9fB0/TrSdv-mQDTI/AAAAAAAAAXY/keX1hOnO4C0/s400/mock1.JPG" border="0" alt="" width="400" height="243"></a></div>
 <div class="MsoNormal"></div>
 <p>&nbsp;2. Delete the Class1 and Create new class called Member as bellow.<br>
 <br>
@@ -119,19 +119,19 @@ Note that here we used Dependency Injection design pattern.This will allow us to
 <br>
 <br>
 </p>
-<div class="separator" style="clear:both; text-align:center"><a href="http://1.bp.blogspot.com/-uFCgpSzl9-s/TrSopwZbiJI/AAAAAAAAAXg/gO6w_42pWYs/s1600/moq2.JPG" style="margin-left:1em; margin-right:1em"><img src="-moq2.jpg" border="0" alt="" width="640" height="387"></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://1.bp.blogspot.com/-uFCgpSzl9-s/TrSopwZbiJI/AAAAAAAAAXg/gO6w_42pWYs/s1600/moq2.JPG" style="margin-left:1em; margin-right:1em"><img src="http://1.bp.blogspot.com/-uFCgpSzl9-s/TrSopwZbiJI/AAAAAAAAAXg/gO6w_42pWYs/s640/moq2.JPG" border="0" alt="" width="640" height="387"></a></div>
 <p>Delete UnitTest1.cs class from your test project.<br>
 <br>
 7. Now go to LibraryCore class and right click on CalculateMemberShipCost method name and select Create Unit Tests.<br>
 <br>
 </p>
-<div class="separator" style="clear:both; text-align:center"><a href="http://2.bp.blogspot.com/-flx-7wWDfOQ/TrSqGw_az-I/AAAAAAAAAXo/4U6bfJGTR9I/s1600/moq3.JPG" style="margin-left:1em; margin-right:1em"><img src="-moq3.jpg" border="0" alt="" width="640" height="340"></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://2.bp.blogspot.com/-flx-7wWDfOQ/TrSqGw_az-I/AAAAAAAAAXo/4U6bfJGTR9I/s1600/moq3.JPG" style="margin-left:1em; margin-right:1em"><img src="http://2.bp.blogspot.com/-flx-7wWDfOQ/TrSqGw_az-I/AAAAAAAAAXo/4U6bfJGTR9I/s640/moq3.JPG" border="0" alt="" width="640" height="340"></a></div>
 <p><br>
 Now Create Unit Tests window will appear. You can select that you want to test in this class and you can select the Out put Test project that the test class want to add.Also you can add any wanted Assembly that you want to use for unit testing.(Here I will
  not add the our moq library here.Because i rather like to add it using add reference option.If you like you can add it in here).Now click on OK button and VS will create&nbsp; LibraryCoreTest.cs for you.<br>
 <br>
 </p>
-<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-4K6YggPvPpI/TrSr9W1v0NI/AAAAAAAAAXw/OqEZhN9tseU/s1600/moq4.JPG" style="margin-left:1em; margin-right:1em"><img src="-moq4.jpg" border="0" alt="" width="640" height="475"></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://3.bp.blogspot.com/-4K6YggPvPpI/TrSr9W1v0NI/AAAAAAAAAXw/OqEZhN9tseU/s1600/moq4.JPG" style="margin-left:1em; margin-right:1em"><img src="http://3.bp.blogspot.com/-4K6YggPvPpI/TrSr9W1v0NI/AAAAAAAAAXw/OqEZhN9tseU/s640/moq4.JPG" border="0" alt="" width="640" height="475"></a></div>
 <p><br>
 8. Now we will add Moq.dll to our TestProject using add reference option. Note that here I'm using 4.0 version since I'm using .Net framework 4.Now we will implement our LibraryCoreTest class as bellow.<br>
 <br>
@@ -224,7 +224,7 @@ Then we Create&nbsp; a Member object and tell the assing that object to _mock ob
 So other part of our method we can implement in normal way and if we run the unit test now we will get successfully message like this.<br>
 <br>
 </p>
-<div class="separator" style="clear:both; text-align:center"><a href="http://2.bp.blogspot.com/-MdTiHaI_VV8/TrS2ekqhECI/AAAAAAAAAX4/OkfqgyHpt64/s1600/moq5.JPG" style="margin-left:1em; margin-right:1em"><img src="-moq5.jpg" border="0" alt="" width="640" height="174"></a></div>
+<div class="separator" style="clear:both; text-align:center"><a href="http://2.bp.blogspot.com/-MdTiHaI_VV8/TrS2ekqhECI/AAAAAAAAAX4/OkfqgyHpt64/s1600/moq5.JPG" style="margin-left:1em; margin-right:1em"><img src="http://2.bp.blogspot.com/-MdTiHaI_VV8/TrS2ekqhECI/AAAAAAAAAX4/OkfqgyHpt64/s640/moq5.JPG" border="0" alt="" width="640" height="174"></a></div>
 <p><br>
 Happy Coding :)<br>
 <br>

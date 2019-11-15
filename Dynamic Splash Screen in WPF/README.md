@@ -47,7 +47,7 @@
 <p>4) Message</p>
 <p>Replace first image &quot;<strong>StaticSplashScreen.png</strong>&quot; with your <strong>
 Logo</strong>.</p>
-<p><img id="109468" src="109468-doc2pdf.gif" alt="" width="506" height="310"></p>
+<p><img id="109468" src="http://i1.code.msdn.s-msft.com/dynamic-flash-screen-in-wpf-6b1f1dc4/image/file/109468/1/doc2pdf.gif" alt="" width="506" height="310"></p>
 <p>1) Create Startup Folder in your project and add static Splash Image, Dynamic Splash Class File and Static Flash Screen.</p>
 <p>You can define animation and progress bar on splash Screen Window.</p>
 <p>The DynamicSplashScreen.cs which require the namespace,</p>

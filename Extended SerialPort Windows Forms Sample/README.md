@@ -39,7 +39,7 @@ There are no special requirements or instructions for building the sample necces
 <h1><br>
 Description of the UI</h1>
 <p>screenshot</p>
-<p>&nbsp;<img id="60594" src="60594-ellenst_klein.jpg" alt="" width="692" height="479"></p>
+<p>&nbsp;<img id="60594" src="http://i1.code.msdn.s-msft.com/extended-serialport-10107e37/image/file/60594/1/ellenst_klein.jpg" alt="" width="692" height="479"></p>
 <p><strong>Main menuestrip</strong></p>
 <p>File &gt; Load config<br>
 File &gt; save conifig<br>

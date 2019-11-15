@@ -383,11 +383,11 @@
 <p><strong><span style="font-size:medium">Output</span></strong></p>
 <p><strong><span style="font-size:medium"><br>
 </span></strong></p>
-<div class="wp-caption x_x_x_alignnone" id="attachment_11215"><span style="font-size:medium"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/02/Dynamic-Angular-JS-Tabs-In-MVC-Figure-1.png"><img class="size-large x_x_x_wp-image-11215" src="-dynamic-angular-js-tabs-in-mvc-figure-1-1024x232.png" alt="Dynamic Angular JS Tabs In MVC Figure 1" width="634" height="144"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_11215"><span style="font-size:medium"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/02/Dynamic-Angular-JS-Tabs-In-MVC-Figure-1.png"><img class="size-large x_x_x_wp-image-11215" src="http://sibeeshpassion.com/wp-content/uploads/2016/02/Dynamic-Angular-JS-Tabs-In-MVC-Figure-1-1024x232.png" alt="Dynamic Angular JS Tabs In MVC Figure 1" width="634" height="144"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:medium">Dynamic Angular JS Tabs In MVC Figure 1</span></p>
 </div>
-<div class="wp-caption x_x_x_alignnone" id="attachment_11216"><span style="font-size:medium"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/02/Dynamic-Angular-JS-Tabs-In-MVC-Figure-2.png"><img class="size-large x_x_x_wp-image-11216" src="-dynamic-angular-js-tabs-in-mvc-figure-2-1024x249.png" alt="Dynamic Angular JS Tabs In MVC Figure 2" width="634" height="154"></a>
+<div class="wp-caption x_x_x_alignnone" id="attachment_11216"><span style="font-size:medium"><a href="http://sibeeshpassion.com/wp-content/uploads/2016/02/Dynamic-Angular-JS-Tabs-In-MVC-Figure-2.png"><img class="size-large x_x_x_wp-image-11216" src="http://sibeeshpassion.com/wp-content/uploads/2016/02/Dynamic-Angular-JS-Tabs-In-MVC-Figure-2-1024x249.png" alt="Dynamic Angular JS Tabs In MVC Figure 2" width="634" height="154"></a>
 </span>
 <p class="wp-caption-text"><span style="font-size:medium">Dynamic Angular JS Tabs In MVC Figure 2</span></p>
 </div>

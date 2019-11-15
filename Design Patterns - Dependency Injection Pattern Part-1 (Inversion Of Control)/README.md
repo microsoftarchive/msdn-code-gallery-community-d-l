@@ -36,7 +36,7 @@
 <span style="font-size:small">6.&nbsp;SOLID principles. </span><span style="font-size:small">(Refer
 <a href="http://gallery.technet.microsoft.com/OOPS-Principles-SOLID-017627d2">http://gallery.technet.microsoft.com/OOPS-Principles-SOLID-017627d2</a>)</span></p>
 <p><span style="color:#008000; font-size:medium">Problem Statement:</span></p>
-<p><span style="color:#808000; font-size:small"><img id="65389" src="65389-1.png" alt="" width="234" height="138"></span></p>
+<p><span style="color:#808000; font-size:small"><img id="65389" src="http://i1.gallery.technet.s-msft.com/inversion-of-control-with-b7ed6976/image/file/65389/1/1.png" alt="" width="234" height="138"></span></p>
 <p>&nbsp;</p>
 <p><span style="color:#808000; font-size:small">Tight Coupling: (Compilation time)</span><br>
 <span style="font-size:small">We have classes that have dependencies on services or components whose concrete type is specified at design time. In this example, ClassA has dependencies on ServiceA and ServiceB.</span></p>
@@ -47,7 +47,7 @@
 <span style="font-size:small">&bull;&nbsp;Classes contain repetitive code for creating, locating, and managing their dependencies.</span><br>
 <span style="font-size:small">&bull;&nbsp;Using Factories (Abstract Factory &amp; Factory Method) creates tight coupling and make application to re compile every time when there is any change in dependencies.</span></p>
 <p><span style="color:#008000; font-size:medium">Solution:</span></p>
-<p><span style="font-size:small"><img id="65390" src="65390-2.png" alt="" width="576" height="179"></span></p>
+<p><span style="font-size:small"><img id="65390" src="http://i1.gallery.technet.s-msft.com/inversion-of-control-with-b7ed6976/image/file/65390/1/2.png" alt="" width="576" height="179"></span></p>
 <p>&nbsp;</p>
 <p><span style="font-size:small">1.&nbsp;Modular Programming - Loose Coupling&nbsp; (Run time)</span><br>
 <span style="font-size:small">2.&nbsp;TDD (Test Driven Development)</span><br>
@@ -63,7 +63,7 @@ http://gallery.technet.microsoft.com/OOPS-Principles-SOLID-017627d2</a></span></
 <span style="font-size:small">With Inversion of Control principle, the flow depends on the object graph that is instantiated by the assembler and is made possible by object interactions being defined through abstractions.
 </span><br>
 <span style="font-size:small">The binding process is achieved through dependency injection and service locator design patterns.</span></p>
-<p><img id="65391" src="65391-2.png" alt="" width="576" height="179"></p>
+<p><img id="65391" src="http://i1.gallery.technet.s-msft.com/inversion-of-control-with-b7ed6976/image/file/65391/1/2.png" alt="" width="576" height="179"></p>
 <p><span style="font-size:small">Conceptual view of the Service Locator and Dependency Injection patterns
 </span></p>
 <p><span style="color:#008000; font-size:medium">IoC Implementation Ways:</span></p>
@@ -83,7 +83,7 @@ http://gallery.technet.microsoft.com/OOPS-Principles-SOLID-017627d2</a></span></
  than being linked together themselves. </span><br>
 <span style="font-size:small">Use a Builder object to obtain valid instances of the object's dependencies and pass them to the object during the object's creation and/or initialization. As shown below.</span></p>
 <p>&nbsp;</p>
-<p><img id="65392" src="65392-3.png" alt="" width="301" height="143"></p>
+<p><img id="65392" src="http://i1.gallery.technet.s-msft.com/inversion-of-control-with-b7ed6976/image/file/65392/1/3.png" alt="" width="301" height="143"></p>
 <p><span style="font-size:small">Conceptual view of the Dependency Injection pattern
 </span></p>
 <p><span style="color:#008000; font-size:medium">Main forms of dependency injection are:</span></p>
@@ -118,7 +118,7 @@ http://gallery.technet.microsoft.com/OOPS-Principles-SOLID-017627d2</a></span></
 <div class="endscriptcode"><span style="color:#808000; font-size:small">&nbsp;</span></div>
 <div class="endscriptcode"><span style="color:#808000; font-size:small">Step1: Add Spring.NET reference to the new console application:</span></div>
 <div class="endscriptcode"><span style="color:#808000; font-size:small">&nbsp;</span></div>
-<div class="endscriptcode"><span style="color:#808000; font-size:small"><img id="67770" src="67770-2.png" alt="" width="282" height="287"></span></div>
+<div class="endscriptcode"><span style="color:#808000; font-size:small"><img id="67770" src="http://i1.code.msdn.s-msft.com/dependency-injection-with-5702acaf/image/file/67770/1/2.png" alt="" width="282" height="287"></span></div>
 <div class="endscriptcode"><span style="color:#808000; font-size:small">&nbsp;</span></div>
 <div class="endscriptcode"><span style="color:#808000; font-size:small">Step2: Add required configuration to Config.xml as shown below:</span><span style="color:#808000; font-size:small">&nbsp;</span></div>
 <div class="scriptcode">
@@ -258,14 +258,14 @@ http://gallery.technet.microsoft.com/OOPS-Principles-SOLID-017627d2</a></span></
 </span></div>
 <div class="endscriptcode"><span style="color:#808000; font-size:small">Step4: Run the application and verify the output.</span></div>
 <div class="endscriptcode"><span style="color:#808000; font-size:small">&nbsp;</span></div>
-<div class="endscriptcode"><span style="color:#008000; font-size:medium"><img id="67769" src="67769-1.png" alt="" width="677" height="343"></span></div>
+<div class="endscriptcode"><span style="color:#008000; font-size:medium"><img id="67769" src="http://i1.code.msdn.s-msft.com/dependency-injection-with-5702acaf/image/file/67769/1/1.png" alt="" width="677" height="343"></span></div>
 <div class="endscriptcode"></div>
 <div class="endscriptcode"></div>
 <div class="endscriptcode"><span style="color:#000000; font-size:small"><strong>Part 2:
 </strong>Continue reading&nbsp;about implementing Dependency Injection with Unity Application Blocks&nbsp;here&nbsp;<a href="http://code.msdn.microsoft.com/Dependency-Injection-with-d9222c2f">http://code.msdn.microsoft.com/Dependency-Injection-with-d9222c2f</a>&nbsp;&nbsp;</span></div>
 <div class="endscriptcode"><span style="color:#000000; font-size:small">&nbsp;</span></div>
 <div class="endscriptcode"><span style="color:#000000; font-size:small"><span style="color:#000000; font-size:small">Thank you for reading my article. Drop all your questions/comments in QA tab give me your feedback with
-<span style="color:#3366ff"><img id="67168" src="67168-ratings.png" alt="" width="74" height="15">
+<span style="color:#3366ff"><img id="67168" src="http://i1.code.msdn.s-msft.com/oops-principles-solid-7a4e69bf/image/file/67168/1/ratings.png" alt="" width="74" height="15">
 <span style="color:#000000">star rating (1 Star - Very Poor, 5&nbsp;Star -&nbsp;Very Good).
 </span></span></span>
 <div class="endscriptcode"><span style="color:#3366ff">&nbsp;</span></div>

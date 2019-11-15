@@ -22,7 +22,7 @@
 <p>The common solution is paging but paging itself will not help too much you can end with hundred or thousands of page numbers.So new solution now is on the surface and it's called &quot;Infinite Scroll&quot;.Infinite Scroll allow you to load chunk of data when you
  scroll down of the page and inject it inside the page, it will load data each time you scrolling down on the page.</p>
 <h1>Demo</h1>
-<p><img src="50738-iscroll.gif" alt="" width="535" height="334"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/infinite-scroll-like-bing-bc05262b/image/file/50738/1/iscroll.gif" alt="" width="535" height="334"></p>
 <p><span style="font-size:20px; font-weight:bold">Description</span></p>
 <p>As I told you in the int<em>roduction Infinite Scroll is becoming more and more populer it's in evreywhere starting with Bing,Google,Facebook,Twitter,Linkedin.etc.</em></p>
 <p><em>The idea of infinite scrolling is so simple and it can be </em>summarized <em>

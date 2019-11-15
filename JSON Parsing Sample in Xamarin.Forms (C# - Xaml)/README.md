@@ -18,7 +18,7 @@
 <p><span style="color:#ff0000"><strong><span style="font-family:verdana,sans-serif; font-size:small">You can also read this article from my original blog
 <a title="MyBlog" href="http://bsubramanyamraju.blogspot.in/2017/04/xamarinforms-consuming-rest-webserivce_17.html" target="_blank">
 here</a>.</span></strong></span></p>
-<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://4.bp.blogspot.com/-nskxSyxc198/WPSyd9TlbHI/AAAAAAAADO4/TA6xY-hQUkA7LLiP71vY3COORC9wdNVZQCLcB/s1600/JSONSampleScreen.jpg"><img src=":-jsonsamplescreen.jpg" border="0" alt="" width="640" height="380"></a></span></p>
+<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://4.bp.blogspot.com/-nskxSyxc198/WPSyd9TlbHI/AAAAAAAADO4/TA6xY-hQUkA7LLiP71vY3COORC9wdNVZQCLcB/s1600/JSONSampleScreen.jpg"><img src="https://4.bp.blogspot.com/-nskxSyxc198/WPSyd9TlbHI/AAAAAAAADO4/TA6xY-hQUkA7LLiP71vY3COORC9wdNVZQCLcB/s640/JSONSampleScreen.jpg" border="0" alt="" width="640" height="380"></a></span></p>
 <p>&nbsp;</p>
 <p class="separator"><strong style="font-size:small">Requirements:</strong></p>
 <ul>
@@ -64,14 +64,14 @@ here</a>.</span></strong></span></p>
 </li><li><span style="font-family:verdana,sans-serif; font-size:small">The New Project dialog appears. The left pane of the dialog lets you select the type of templates to display. In the left pane, expand&nbsp;<strong>Installed&nbsp;</strong>&gt;&nbsp;<strong>Templates&nbsp;</strong>&gt;&nbsp;<strong>Visual
  C#</strong>&nbsp;&gt;&nbsp;<strong>Cross-Platform</strong>. The dialog's center pane displays a list of project templates for Xamarin cross platform apps.</span>
 </li><li><span style="font-family:verdana,sans-serif; font-size:small">In the center pane, select the Cross Platform App (Xamarin.Forms or Native) template.&nbsp;In the Name text box, type &quot;RestDemo&quot;. Click OK to create the project.
-<p class="separator"><a href="https://3.bp.blogspot.com/-pZyeveTtr5M/WPOA9dlKmbI/AAAAAAAADK4/BoIiYokrxhEnZ7ehTc74A5WUg0Srml5XACLcB/s1600/RestDemo.PNG"><img src=":-restdemo.png" border="0" alt="" width="640" height="390"></a></p>
+<p class="separator"><a href="https://3.bp.blogspot.com/-pZyeveTtr5M/WPOA9dlKmbI/AAAAAAAADK4/BoIiYokrxhEnZ7ehTc74A5WUg0Srml5XACLcB/s1600/RestDemo.PNG"><img src="https://3.bp.blogspot.com/-pZyeveTtr5M/WPOA9dlKmbI/AAAAAAAADK4/BoIiYokrxhEnZ7ehTc74A5WUg0Srml5XACLcB/s640/RestDemo.PNG" border="0" alt="" width="640" height="390"></a></p>
 <p class="separator">And in next dialog, select Blank App=&gt;Xamarin.Forms=&gt;PCL.The selected App template creates a minimal mobile app that compiles and runs but contains no user interface controls or data. You add controls to the app over the course
  of this tutorial.</p>
 </span></li><li>
-<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://4.bp.blogspot.com/-s_hyRg8XJIk/WPOB5upXjBI/AAAAAAAADLE/-a2NZ_I8ZmAUBWW9RRIm2AZ4Wefy_QUDACLcB/s1600/RestDemo2.PNG"><img src=":-restdemo2.png" border="0" alt="" width="640" height="350"></a></span></p>
+<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://4.bp.blogspot.com/-s_hyRg8XJIk/WPOB5upXjBI/AAAAAAAADLE/-a2NZ_I8ZmAUBWW9RRIm2AZ4Wefy_QUDACLcB/s1600/RestDemo2.PNG"><img src="https://4.bp.blogspot.com/-s_hyRg8XJIk/WPOB5upXjBI/AAAAAAAADLE/-a2NZ_I8ZmAUBWW9RRIm2AZ4Wefy_QUDACLcB/s640/RestDemo2.PNG" border="0" alt="" width="640" height="350"></a></span></p>
 </li><li>
 <p class="separator"><span style="font-family:verdana,sans-serif; font-size:small">Next dialog will ask for you to confirm that your UWP app support min &amp; target versions. For this sample, I target the app with minimum version 10.0.10240 like below:</span></p>
-<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://2.bp.blogspot.com/-9V31M3qBhKY/WPODrp0VAYI/AAAAAAAADLQ/iNRmZu_ALI0g7bqlpAUOPjMo2pxN9S61QCLcB/s1600/2.UWPTargetVersion.PNG"><img src=":-2.uwptargetversion.png" border="0" alt=""></a></span></p>
+<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://2.bp.blogspot.com/-9V31M3qBhKY/WPODrp0VAYI/AAAAAAAADLQ/iNRmZu_ALI0g7bqlpAUOPjMo2pxN9S61QCLcB/s1600/2.UWPTargetVersion.PNG"><img src="https://2.bp.blogspot.com/-9V31M3qBhKY/WPODrp0VAYI/AAAAAAAADLQ/iNRmZu_ALI0g7bqlpAUOPjMo2pxN9S61QCLcB/s1600/2.UWPTargetVersion.PNG" border="0" alt=""></a></span></p>
 </li></ul>
 <div>
 <p><span style="font-family:verdana,sans-serif; font-size:small"><strong>2. How to check network status from Xamarin.Forms app?</strong></span></p>
@@ -89,10 +89,10 @@ here</a>.</span></strong></span></p>
 </div>
 <div>
 <p><span style="font-family:verdana,sans-serif; font-size:small">Go to solution explorer and right click on your solution=&gt;Manage NuGet Packages for solution.</span></p>
-<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://1.bp.blogspot.com/-1h7KogxhiYI/WPOHOXIZ8tI/AAAAAAAADLg/82sUUgL6Kc4FIeVKcMizaUuHhm5uycC9QCLcB/s1600/Nuget.PNG"><img src=":-nuget.png" border="0" alt="" width="640" height="498"></a></span></p>
+<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://1.bp.blogspot.com/-1h7KogxhiYI/WPOHOXIZ8tI/AAAAAAAADLg/82sUUgL6Kc4FIeVKcMizaUuHhm5uycC9QCLcB/s1600/Nuget.PNG"><img src="https://1.bp.blogspot.com/-1h7KogxhiYI/WPOHOXIZ8tI/AAAAAAAADLg/82sUUgL6Kc4FIeVKcMizaUuHhm5uycC9QCLcB/s640/Nuget.PNG" border="0" alt="" width="640" height="498"></a></span></p>
 <p><span style="font-family:verdana,sans-serif; font-size:small">Now search for&nbsp;</span><strong style="font-family:verdana,sans-serif; font-size:small">Xam.Plugin.Connectivity</strong><span style="font-family:verdana,sans-serif; font-size:small">&nbsp;NuGet
  package. On the right side, make sure select all platform projects&nbsp;and install it.</span><span style="font-family:verdana,sans-serif; font-size:small">&nbsp;</span></p>
-<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://1.bp.blogspot.com/-05PDB_TLAME/WPOHCfHY-MI/AAAAAAAADLc/pX4cTPcWSQMvjHV6YqUzrsDVPdFdfgVmQCLcB/s1600/Xam.Plugin.Connectivity.PNG"><img src=":-xam.plugin.connectivity.png" border="0" alt="" width="640" height="220"></a></span></p>
+<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://1.bp.blogspot.com/-05PDB_TLAME/WPOHCfHY-MI/AAAAAAAADLc/pX4cTPcWSQMvjHV6YqUzrsDVPdFdfgVmQCLcB/s1600/Xam.Plugin.Connectivity.PNG"><img src="https://1.bp.blogspot.com/-05PDB_TLAME/WPOHCfHY-MI/AAAAAAAADLc/pX4cTPcWSQMvjHV6YqUzrsDVPdFdfgVmQCLcB/s640/Xam.Plugin.Connectivity.PNG" border="0" alt="" width="640" height="220"></a></span></p>
 <p><span style="font-family:verdana,sans-serif; font-size:small">&nbsp;</span></p>
 <p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><strong>Step 2:</strong></span></p>
 <p><span style="font-family:verdana,sans-serif; font-size:small">&nbsp;</span></p>
@@ -106,7 +106,7 @@ here</a>.</span></strong></span></p>
 <div>
 <p><span style="font-family:verdana,sans-serif; font-size:small"><span style="font-family:verdana,sans-serif">&nbsp;</span><br>
 </span></p>
-<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://3.bp.blogspot.com/-NcOCdkpY7pw/WPOKXm9teRI/AAAAAAAADLs/_UYnRdjDJpYguWeEt4-NKOXCVwSNc2_KACLcB/s1600/AndroidManifest.PNG"><img src=":-androidmanifest.png" border="0" alt="" width="640" height="532"></a></span></p>
+<p class="separator"><span style="font-family:verdana,sans-serif; font-size:small"><a href="https://3.bp.blogspot.com/-NcOCdkpY7pw/WPOKXm9teRI/AAAAAAAADLs/_UYnRdjDJpYguWeEt4-NKOXCVwSNc2_KACLcB/s1600/AndroidManifest.PNG"><img src="https://3.bp.blogspot.com/-NcOCdkpY7pw/WPOKXm9teRI/AAAAAAAADLs/_UYnRdjDJpYguWeEt4-NKOXCVwSNc2_KACLcB/s640/AndroidManifest.PNG" border="0" alt="" width="640" height="532"></a></span></p>
 <p><strong style="font-family:verdana,sans-serif; font-size:small">Step 3:</strong></p>
 <div>
 <p class="separator"><span style="font-family:verdana,sans-serif; font-size:small">Create a class name &quot;NetworkCheck.cs&quot;, and here I placed it in the&nbsp;Model&nbsp;folder. After creating a class, add below method to find network status.</span></p>
@@ -145,10 +145,10 @@ here</a>.</span></strong></span></p>
  explorer and right click on your solution=&gt;Manage NuGet Packages for a solution =&gt; search for&nbsp;</span><strong style="font-family:verdana,sans-serif; font-size:small">Microsoft.Net.Http</strong><span style="font-family:verdana,sans-serif; font-size:small">&nbsp;NuGet
  Package=&gt;on the right side, make sure select all platform projects&nbsp;and install it.</span></p>
 <span style="font-family:verdana,sans-serif; font-size:small"><span style="font-family:verdana,sans-serif">
-<p class="separator"><a href="https://4.bp.blogspot.com/-UafKBM4cYhk/WPOOthksRoI/AAAAAAAADL4/TD5xK8Imr9o623r84Kd7E_qkiNNlJy5yQCLcB/s1600/Microsoft.Net.Http.PNG"><img src=":-microsoft.net.http.png" border="0" alt="" width="640" height="220"></a></p>
+<p class="separator"><a href="https://4.bp.blogspot.com/-UafKBM4cYhk/WPOOthksRoI/AAAAAAAADL4/TD5xK8Imr9o623r84Kd7E_qkiNNlJy5yQCLcB/s1600/Microsoft.Net.Http.PNG"><img src="https://4.bp.blogspot.com/-UafKBM4cYhk/WPOOthksRoI/AAAAAAAADL4/TD5xK8Imr9o623r84Kd7E_qkiNNlJy5yQCLcB/s640/Microsoft.Net.Http.PNG" border="0" alt="" width="640" height="220"></a></p>
 <p class="separator"><strong>Note:&nbsp;</strong>To add &quot;<strong>Microsoft.Net.Http</strong>&quot;, you must install &quot;Microsoft.Bcl.Build&quot; from Nuget. Otherwise, you will get an error like &quot;Could not install package 'Microsoft.Bcl.Build 1.0.14'. You are trying
  to install this package into a project that targets 'Xamarin.iOS,Version=v1.0', but the package does not contain any assembly references or content files that are compatible with that framework.&quot;</p>
-<p class="separator"><a href="https://1.bp.blogspot.com/-H5O_tqwYU2A/WPOPsrknnXI/AAAAAAAADME/7MuwzS6ZKIEUCTq758K5i7cNh_XgvaAoACLcB/s1600/Microsoft.Bcl.Build.PNG"><img src=":-microsoft.bcl.build.png" border="0" alt="" width="640" height="218"></a></p>
+<p class="separator"><a href="https://1.bp.blogspot.com/-H5O_tqwYU2A/WPOPsrknnXI/AAAAAAAADME/7MuwzS6ZKIEUCTq758K5i7cNh_XgvaAoACLcB/s1600/Microsoft.Bcl.Build.PNG"><img src="https://1.bp.blogspot.com/-H5O_tqwYU2A/WPOPsrknnXI/AAAAAAAADME/7MuwzS6ZKIEUCTq758K5i7cNh_XgvaAoACLcB/s640/Microsoft.Bcl.Build.PNG" border="0" alt="" width="640" height="218"></a></p>
 <p class="separator"><strong>Step 2:</strong></p>
 <p class="separator">Now it is time to use HttpClient for consuming&nbsp;webservice&nbsp;and before that we need to check the network connection. Please note that In below code you need to replace your&nbsp;URL, or you can also find the demo webservice url
  from the source code given below about this article.</p>
@@ -251,7 +251,7 @@ here</a>.</span></strong></span></p>
  NuGet Packages for a solution</strong>&nbsp;=&gt; search for Newtonsoft.Json&nbsp;NuGet Package=&gt;on the right side, make sure select all platform projects and install it.</div>
 </span>
 <p>&nbsp;</p>
-<p class="separator"><span style="font-family:verdana,sans-serif"><a href="https://1.bp.blogspot.com/-ZERA0_wJxUo/WPStXK0D7wI/AAAAAAAADOo/EO90iHpHnW8HRgjy_lVemhnvvM0aK0oPwCLcB/s1600/Newtonsoft.PNG"><img src=":-newtonsoft.png" border="0" alt="" width="640" height="222"></a></span></p>
+<p class="separator"><span style="font-family:verdana,sans-serif"><a href="https://1.bp.blogspot.com/-ZERA0_wJxUo/WPStXK0D7wI/AAAAAAAADOo/EO90iHpHnW8HRgjy_lVemhnvvM0aK0oPwCLcB/s1600/Newtonsoft.PNG"><img src="https://1.bp.blogspot.com/-ZERA0_wJxUo/WPStXK0D7wI/AAAAAAAADOo/EO90iHpHnW8HRgjy_lVemhnvvM0aK0oPwCLcB/s640/Newtonsoft.PNG" border="0" alt="" width="640" height="222"></a></span></p>
 <br>
 <p class="separator"><span style="font-family:verdana,sans-serif"><strong>Step 3:&nbsp;</strong>And finally, write below code to parse above JSON response.</span></p>
 <div class="scriptcode">
@@ -401,15 +401,15 @@ here</a>.</span></strong></span></p>
 </li></ol>
 <p class="separator"><span style="font-family:verdana,sans-serif"><strong><span style="text-decoration:underline">Demo Screens from Android:</span></strong></span>&nbsp;</p>
 <span style="font-family:verdana,sans-serif">
-<p class="separator"><a href="https://4.bp.blogspot.com/-8ml5LqsSCsI/WPSeJUaW7uI/AAAAAAAADN4/t5ukytLbrn8rkkCWcg24-w3Xsss5YheLgCEw/s1600/AndroidJSONScreen.PNG"><img src=":-androidjsonscreen.png" border="0" alt=""></a></p>
+<p class="separator"><a href="https://4.bp.blogspot.com/-8ml5LqsSCsI/WPSeJUaW7uI/AAAAAAAADN4/t5ukytLbrn8rkkCWcg24-w3Xsss5YheLgCEw/s1600/AndroidJSONScreen.PNG"><img src="https://4.bp.blogspot.com/-8ml5LqsSCsI/WPSeJUaW7uI/AAAAAAAADN4/t5ukytLbrn8rkkCWcg24-w3Xsss5YheLgCEw/s1600/AndroidJSONScreen.PNG" border="0" alt=""></a></p>
 <p class="separator">&nbsp;</p>
-<p class="separator"><a href="https://1.bp.blogspot.com/-cBsm38-puM0/WPShDY_EC1I/AAAAAAAADOU/v-ZZ_eekskAczYPbd21VCEe4YmdCuc8bwCLcB/s1600/AndroidJSONScreen2.PNG"><img src=":-androidjsonscreen2.png" border="0" alt=""></a></p>
+<p class="separator"><a href="https://1.bp.blogspot.com/-cBsm38-puM0/WPShDY_EC1I/AAAAAAAADOU/v-ZZ_eekskAczYPbd21VCEe4YmdCuc8bwCLcB/s1600/AndroidJSONScreen2.PNG"><img src="https://1.bp.blogspot.com/-cBsm38-puM0/WPShDY_EC1I/AAAAAAAADOU/v-ZZ_eekskAczYPbd21VCEe4YmdCuc8bwCLcB/s1600/AndroidJSONScreen2.PNG" border="0" alt=""></a></p>
 <p class="separator">&nbsp;</p>
 <p class="separator"><strong><span style="text-decoration:underline"><span style="font-family:verdana,sans-serif">Demo Screens from Windows10 UWP:</span></span></strong></p>
-<p class="separator"><strong><span style="text-decoration:underline"><a href="https://4.bp.blogspot.com/-bOAgmVfckQI/WPSeMmNk-5I/AAAAAAAADOA/AAFhVkc_cpoAiGSoSf3HU18dDhuRZDcHACEw/s1600/UWPScreen.PNG"><img src=":-uwpscreen.png" border="0" alt="" width="640" height="505"></a></span></strong></p>
+<p class="separator"><strong><span style="text-decoration:underline"><a href="https://4.bp.blogspot.com/-bOAgmVfckQI/WPSeMmNk-5I/AAAAAAAADOA/AAFhVkc_cpoAiGSoSf3HU18dDhuRZDcHACEw/s1600/UWPScreen.PNG"><img src="https://4.bp.blogspot.com/-bOAgmVfckQI/WPSeMmNk-5I/AAAAAAAADOA/AAFhVkc_cpoAiGSoSf3HU18dDhuRZDcHACEw/s640/UWPScreen.PNG" border="0" alt="" width="640" height="505"></a></span></strong></p>
 <p class="separator"><strong><br>
 </strong></p>
-<p class="separator"><a href="https://4.bp.blogspot.com/-MLMJLLBs5dw/WPShE4CeG3I/AAAAAAAADOY/tx6-HCeE6F8p1LKTxIsNvuYXPzXoQ9PVwCLcB/s1600/UWPScreen2.PNG"><img src=":-uwpscreen2.png" border="0" alt="" width="640" height="504"></a></p>
+<p class="separator"><a href="https://4.bp.blogspot.com/-MLMJLLBs5dw/WPShE4CeG3I/AAAAAAAADOY/tx6-HCeE6F8p1LKTxIsNvuYXPzXoQ9PVwCLcB/s1600/UWPScreen2.PNG"><img src="https://4.bp.blogspot.com/-MLMJLLBs5dw/WPShE4CeG3I/AAAAAAAADOY/tx6-HCeE6F8p1LKTxIsNvuYXPzXoQ9PVwCLcB/s640/UWPScreen2.PNG" border="0" alt="" width="640" height="504"></a></p>
 <p class="separator"><span style="color:#ff0000"><strong><strong>You can also read this article from my original blog&nbsp;<a title="MyBlog" href="http://bsubramanyamraju.blogspot.in/2017/04/xamarinforms-consuming-rest-webserivce_17.html" target="_blank">here</a>.</strong></strong></span></p>
 <p class="separator"><strong><strong><span>&nbsp;</span></strong>FeedBack Note:</strong>&nbsp;Please share your thoughts, what you think about this post, Is this post really helpful for you? Otherwise, it would be very happy, if you have any thoughts for
  to implement this requirement in any other way? I always welcome if you drop comments on this post and it would be impressive.</p>

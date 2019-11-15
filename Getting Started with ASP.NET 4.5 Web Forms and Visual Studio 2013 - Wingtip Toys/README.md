@@ -57,7 +57,7 @@ support for multiple ASP.NET frameworks</a> (Web Forms, MVC, and Web API). </li>
 ASP.NET and Web Tools for Visual Studio 2013 Release Notes</a>.</p>
 <h1>The Wingtip Toys Sample Application</h1>
 <p>The following screen shots provide a quick view of the ASP.NET Web forms application that you will create in this tutorial series. When you run the application from Visual Studio&nbsp;Express&nbsp;2013 for Web, you will see the following web Home page.</p>
-<p><img id="146998" src="146998-wingtiptoys.png" alt="" width="1008" height="539" style="width:625px; height:357px"></p>
+<p><img id="146998" src="https://i1.code.msdn.s-msft.com/getting-started-with-221c01f5/image/file/146998/1/wingtiptoys.png" alt="" width="1008" height="539" style="width:625px; height:357px"></p>
 <p>&nbsp;</p>
 <h1>Download the Sample Application</h1>
 <p>After installing the prerequisites, you are ready to begin creating the new Web project that is presented in this tutorial series. If you would like to run the sample application that this tutorial series creates, you can download it from the MSDN Samples

@@ -174,7 +174,7 @@ the Update</span> <span class="hps">3 and</span> <span class="hps">framemork</sp
 <span class="hps">At runtime</span>&nbsp;<span class="hps">by executing</span>&nbsp;<span class="hps">this code</span>&nbsp;<span class="hps">when you press the</span>&nbsp;<span class="hps">button</span>&nbsp;<span class="hps">Button1</span>&nbsp;<span class="hps">will</span>&nbsp;<span class="hps">this
  situation.</span></em></p>
 <p><span><br>
-<span>&nbsp;<a href="http://social.technet.microsoft.com/wiki/cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-05/7624.Nuova-immagine-bitmap.bmp"><img src="-7624.nuova-immagine-bitmap.bmp" alt=" "></a></span><span><br>
+<span>&nbsp;<a href="http://social.technet.microsoft.com/wiki/cfs-file.ashx/__key/communityserver-wikis-components-files/00-00-00-00-05/7624.Nuova-immagine-bitmap.bmp"><img src="http://social.technet.microsoft.com/wiki/resized-image.ashx/__size/200x0/__key/communityserver-wikis-components-files/00-00-00-00-05/7624.Nuova-immagine-bitmap.bmp" alt=" "></a></span><span><br>
 <br>
 </span><em><span class="hps">Here's how it</span>&nbsp;<span class="hps">will appear</span>&nbsp;<span class="hps">in the</span>&nbsp;<span class="hps">ListBox</span>&nbsp;<span class="hps">value</span>&nbsp;<span class="hps">consists of</span>&nbsp;<span class="hps">two
  properties of the</span>&nbsp;<span class="hps">Customer</span>&nbsp;<span class="hps">class</span>,&nbsp;<span class="hps">without the</span>&nbsp;<span class="hps">MultiBinding</span>&nbsp;<span class="hps">we</span>&nbsp;<span class="hps">had

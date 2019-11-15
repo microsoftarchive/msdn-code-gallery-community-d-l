@@ -236,14 +236,14 @@ Donor.cs</div>
 <h1>Step-5&nbsp;Add a Controller<span style="font-size:small"><em>&nbsp;</em></span></h1>
 <h1 class="scriptcode">Right-Click the Controller folder and create a new <strong>
 DonorsController.</strong></h1>
-<p class="scriptcode"><strong><img src="57512-5.jpg" alt="" width="513" height="322"></strong></p>
+<p class="scriptcode"><strong><img src="http://i1.code.msdn.s-msft.com/aspnet-mvc-4-with-bing-maps-947ae78c/image/file/57512/1/5.jpg" alt="" width="513" height="322"></strong></p>
 <p>Click <strong>Add</strong>. Visual Web Developer creates the following files and folders:</p>
 <ul>
 <li><em>A DonorController.cs</em> file in the project's <em>Controllers</em> folder.
 </li><li>A <em>Donors</em> folder in the project's <em>Views</em> folder. </li><li><em>Create.cshtml, Delete.cshtml, Details.cshtml, Edit.cshtml</em>, and <em>Index.cshtml</em> in the new
 <em>Views\Donors </em>folder. </li></ul>
 <p>Run the application and browse to the Donors controller by appending <em>/Donors</em> to the URL in the address bar of your browser</p>
-<p><img src="57511-6.jpg" alt="" width="593" height="419"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/aspnet-mvc-4-with-bing-maps-947ae78c/image/file/57511/1/6.jpg" alt="" width="593" height="419"></p>
 <div class="scriptcode"><span style="font-size:small"><em>For more information and complete source code&nbsp;, see
 <a href="http://blooddonors.codeplex.com/">http://blooddonors.codeplex.com/</a></em></span></div>
 <p>&nbsp;</p>

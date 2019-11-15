@@ -14,13 +14,13 @@
 - 05/08/2017
 ## Description
 
-<p><span>As stated by&nbsp;</span><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/Welcome" target="_blank">Azure Cognitive Services Welcome Page&nbsp;<img title="This link is external to TechNet Wiki. It will open in a new window." src=":-10_5f00_external.png" border="0" alt="Jump">&nbsp;</a><span>,
+<p><span>As stated by&nbsp;</span><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/Welcome" target="_blank">Azure Cognitive Services Welcome Page&nbsp;<img title="This link is external to TechNet Wiki. It will open in a new window." src="https://social.technet.microsoft.com/wiki/cfs-file.ashx/__key/communityserver-components-sitefiles/10_5F00_external.png" border="0" alt="Jump">&nbsp;</a><span>,
  &quot;Microsoft Cognitive Services (formerly Project Oxford) are a set of APIs, SDKs and services available to developers to make their applications more intelligent, engaging and discoverable. Microsoft Cognitive Services expands on Microsoft&rsquo;s evolving
  portfolio of machine learning APIs and enables developers to easily add intelligent features &ndash; such as emotion and video detection; facial, speech and vision recognition; and speech and language understanding &ndash; into their applications. Our vision
  is for more personal computing experiences and enhanced productivity aided by systems that increasingly can see, hear, speak, understand and even begin to reason&quot;</span><br>
 <br>
 <span>Amongst those services, we will see here Microsoft Face API, &quot;a cloud-based service that provides the most advanced face algorithms. Face API has two main functions: face detection with attributes and face recognition&quot; (</span><a href="https://docs.microsoft.com/en-us/azure/cognitive-services/face/overview" target="_blank">Cognitive
- Services Face API Overview&nbsp;<img title="This link is external to TechNet Wiki. It will open in a new window." src=":-10_5f00_external.png" border="0" alt="Jump">&nbsp;</a><span>).
+ Services Face API Overview&nbsp;<img title="This link is external to TechNet Wiki. It will open in a new window." src="https://social.technet.microsoft.com/wiki/cfs-file.ashx/__key/communityserver-components-sitefiles/10_5F00_external.png" border="0" alt="Jump">&nbsp;</a><span>).
  We'll treat each of those function later in the article, while looking closer at them as we develop our sample solution.</span></p>
 <h2>Connect and query webservice</h2>
 <p><br>

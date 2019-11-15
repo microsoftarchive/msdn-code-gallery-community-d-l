@@ -36,7 +36,7 @@
 </li><li>Report/ReportTemplate View &ndash; displays the requested report. </li></ul>
 <p>Below is the structure of the ASPNETMVC_SSRS_Demo project. As you can see in the Solution explorer, Under Controller folder I have HomeComtroller and ReportController, and under the Views&nbsp;folder&nbsp;I have the Home folder with Index view and Report
  folder with ReportTemplate view.</p>
-<p><img id="158733" src="158733-capture1.png" alt="" width="900" height="587"></p>
+<p><img id="158733" src="https://i1.code.msdn.s-msft.com/how-to-display-ssrs-report-e3f6be05/image/file/158733/1/capture1.png" alt="" width="900" height="587"></p>
 <p>Next step&nbsp;is Installing the reporting package - ReportViewer for MVC from nuGet. This is the most important step. You can install any nuGet package using any one of the following ways.</p>
 <ol>
 <li>Using the package manager console </li></ol>
@@ -47,7 +47,7 @@
 <p>I am showing you steps for installing the ReportViewerForMvc using the package manager console.</p>
 <p><strong>Using package manager console:</strong></p>
 <p>Click on Tools -&gt; Nuget Package Manager.</p>
-<p><img id="158734" src="158734-capture2.png" alt="" width="900" height="665"></p>
+<p><img id="158734" src="https://i1.code.msdn.s-msft.com/how-to-display-ssrs-report-e3f6be05/image/file/158734/1/capture2.png" alt="" width="900" height="665"></p>
 <p>The package manager console will open</p>
 <p><img id="158706" src="158706-capture3.png" alt="" width="900" height="870"></p>
 <p>&nbsp;</p>

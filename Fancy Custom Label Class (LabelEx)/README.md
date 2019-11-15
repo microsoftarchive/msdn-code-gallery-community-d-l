@@ -60,7 +60,7 @@
 <h1>Introduction</h1>
 <p><em><span style="font-size:small">If you would like to add some fancy looking text to your windows forms application then adding the LabelEx class to your application or Toolbox will help make it a snap. Designed to replace the plain look of a standard Label
  when you want a fancy look to match your applications theme. Here is just some idea of the looks you can get.</span></em></p>
-<p><em><span style="font-size:small"><img id="115872" src="115872-demoimage.png" alt="" width="725" height="575"><br>
+<p><em><span style="font-size:small"><img id="115872" src="http://i1.code.msdn.s-msft.com/fancy-custom-label-class-ff18dbd1/image/file/115872/1/demoimage.png" alt="" width="725" height="575"><br>
 </span></em></p>
 <h1><span>Building the Sample</span></h1>
 <p><em><span style="font-size:small">This was built using VS2008 on an x86 machine targeting .Net 3.5</span></em></p>

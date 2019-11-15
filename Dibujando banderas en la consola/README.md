@@ -20,7 +20,7 @@
  precisas posible.</p>
 <h1><span>Construyendo el ejemplo</span></h1>
 <p style="text-align:justify">&iexcl;S&oacute;lo compila y listo! Nota, sin embargo, que la aplicaci&oacute;n est&aacute; localizada y soporta dos idiomas: ingl&eacute;s de E.E.U.U. (por defecto) y espa&ntilde;ol de M&eacute;xico.&nbsp;</p>
-<p><img src="49356-flag.png" alt="" width="533" height="265" style="display:block; margin-left:auto; margin-right:auto"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/dibujando-banderas-en-la-46c3f4fe/image/file/49356/1/flag.png" alt="" width="533" height="265" style="display:block; margin-left:auto; margin-right:auto"></p>
 <p><span style="font-size:20px; font-weight:bold">Descripci&oacute;n</span></p>
 <p style="text-align:justify">La aplicaci&oacute;n tiene una serie de clases: una abstracta y varias que heredan de &eacute;sta. El m&eacute;todo que emplean para pintar la bandera es dividirla en sectores iguales (tanto horizontal como verticalmente), determinados
  por las propiedades WidthSectors y HeightSectors. Las clases hijas sobreescriben estas propiedades dependiendo de sus necesidades.&nbsp;</p>

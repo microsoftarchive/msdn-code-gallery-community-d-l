@@ -17,7 +17,7 @@
 
 <h1>Introduction</h1>
 <p><strong><span style="color:red"><strong>*</strong></span>&nbsp;Kindly view my Youtube Video Link to learn&nbsp;<a href="https://youtu.be/hgcsZfICAfk" target="_blank">Easy SQL SERVER Tool Using C#</a>.</strong><span>&nbsp;</span></p>
-<p><span><a href="https://youtu.be/hgcsZfICAfk" target="_blank"><img id="146958" src="146958-utube.png" alt="" width="555" height="330"></a><br>
+<p><span><a href="https://youtu.be/hgcsZfICAfk" target="_blank"><img id="146958" src="https://i1.code.msdn.s-msft.com/easy-sql-server-tool-using-6b0b7795/image/file/146958/1/utube.png" alt="" width="555" height="330"></a><br>
 </span></p>
 <p><span>Easy SQL Server Tool will allow users to Create SQL Server Database, Delete Database, Load all Database Names from a SQL selected Server, Create a New Table, Insert records to Table, Select Records from Table and bind the result to grid, Export the
  selected result to CSV file format, Delete Table, Delete ALL Records from a Table without writing any SQL Script.</span></p>

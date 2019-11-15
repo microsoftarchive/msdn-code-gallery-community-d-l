@@ -26,7 +26,7 @@
 <p><a href="http://www.pinvoke.net/default.aspx/user32.mouse_event">http://www.pinvoke.net/default.aspx/user32.mouse_event</a></p>
 <p><a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms646260(v=vs.85).aspx">https://msdn.microsoft.com/en-us/library/windows/desktop/ms646260(v=vs.85).aspx</a></p>
 <p>&nbsp;</p>
-<p><img id="222127" src="222127-mousemove.png" alt="" width="226" height="238"></p>
+<p><img id="222127" src="https://i1.code.msdn.s-msft.com/windowsapps/how-to-programmatically-d5df5d37/image/file/222127/1/mousemove.png" alt="" width="226" height="238"></p>
 <p>Use arrow &quot;Left&quot;, &quot;Right&quot;, &quot;Up&quot;, &quot;Down&quot; for move Mouse Cursor, Use &quot;L&quot; for simulate Left Press, &quot;R&quot; for simulate &quot;R&quot; press... If you press &quot;L&quot; or &quot;R&quot; application lost focus... you will need focus again ...</p>
 <p>&nbsp;</p>
 <p>For simulate press, button use this approach&nbsp;</p>

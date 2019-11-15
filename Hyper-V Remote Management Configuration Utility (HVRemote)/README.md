@@ -24,7 +24,7 @@
 blog</a>, add a comment to this <a class="externalLink" href="http://blogs.technet.com/jhoward/archive/2008/11/14/configure-hyper-v-remote-management-in-seconds.aspx">
 post</a>, or provide a rating above ^^^. Thank you! :)</p>
 <p>&nbsp;</p>
-<p><img id="79409" src="79409-hvremote.jpg" alt="" width="677" height="535"></p>
+<p><img id="79409" src="http://i1.code.msdn.s-msft.com/hyper-v-remote-management-26d127c6/image/file/79409/1/hvremote.jpg" alt="" width="677" height="535"></p>
 <h1><br>
 10-second guide</h1>
 <p>&nbsp;</p>

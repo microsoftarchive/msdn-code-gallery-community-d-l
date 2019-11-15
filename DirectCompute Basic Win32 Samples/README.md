@@ -47,7 +47,7 @@ GitHub</a>.</p>
 <p>&nbsp;</p>
 <h2>ComputeShaderSort11</h2>
 <p>This sample demonstrates the basic usage of the DirectX 11 Compute Shader 4.0 feature to implement a bitonic sort algorithm. It also highlights the considerations that must be taken to achieve good performance.</p>
-<p><img id="94435" src="94435-computeshadersort11.jpg" alt="" width="90" height="45"></p>
+<p><img id="94435" src="http://i1.code.msdn.s-msft.com/directcompute-basic-win32-7d5a7408/image/file/94435/1/computeshadersort11.jpg" alt="" width="90" height="45"></p>
 <h4>Bitonic Sort</h4>
 <p><a href="http://en.wikipedia.org/wiki/Bitonic_sorter">Bitonic sort</a> is a simple algorithm that works by sorting the data set into alternating ascending and descending sorted sequences. These sequences can then be combined and sorted to produce larger
  sequences. This is repeated until you produce one final ascending sequence for the sorted data.</p>

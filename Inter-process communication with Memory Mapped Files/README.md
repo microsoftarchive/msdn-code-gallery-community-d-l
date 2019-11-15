@@ -27,7 +27,7 @@ MemoryMappedFileManager</strong>,&nbsp;plus&nbsp;a Windows and a Console applica
 in the Solution Explorer, then select the <strong>Debug | Start new instance</strong> command from the context menu. Repeat this action for the
 <em>MemoryMappedFileManagerWindowsApp</em>. In this way, you can execute both the applications within the same instance of Visual Studio and, of course, you can insert breakpoints in any point of the code.</div>
 <div></div>
-<div><img src="54352-memorymappedfile.png" alt="" width="695" height="469"></div>
+<div><img src="http://i1.code.msdn.s-msft.com/inter-process-communication-e96e94e7/image/file/54352/1/memorymappedfile.png" alt="" width="695" height="469"></div>
 <div></div>
 <div>You can write what you want in the Console application. When you press ENTER, the message will be written to the Memory Mapped File that is read from the Windows application. The latter, in turn, writes a message that is read from the Console application
  and written in red.</div>

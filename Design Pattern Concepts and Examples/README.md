@@ -32,9 +32,9 @@
 <p><span style="font-size:20px; font-weight:bold">Description</span></p>
 <p><a href="/site/view/file/75675/1/DP1.png" target="_blank"><img id="75675" src="75675-dp1.png" alt="Screen Shot at run time" width="500"></a></p>
 <p>Application in action.</p>
-<p><a href="http://i1.code.msdn.s-msft.com/design-pattern-concepts-feba4faf/image/file/75953/1/cdstrategydp.png" target="_blank"><img id="75953" src="75953-cdstrategydp.png" alt="Strategy Pattern" width="500"></a></p>
+<p><a href="http://i1.code.msdn.s-msft.com/design-pattern-concepts-feba4faf/image/file/75953/1/cdstrategydp.png" target="_blank"><img id="75953" src="http://i1.code.msdn.s-msft.com/design-pattern-concepts-feba4faf/image/file/75953/1/cdstrategydp.png" alt="Strategy Pattern" width="500"></a></p>
 <p>Class diagram of Strategy Pattern</p>
-<p><a href="http://i1.code.msdn.s-msft.com/design-pattern-concepts-feba4faf/image/file/75954/1/cdobserverdp.png" target="_blank"><img id="75954" src="75954-cdobserverdp.png" alt="Observer Pattern" width="500"></a></p>
+<p><a href="http://i1.code.msdn.s-msft.com/design-pattern-concepts-feba4faf/image/file/75954/1/cdobserverdp.png" target="_blank"><img id="75954" src="http://i1.code.msdn.s-msft.com/design-pattern-concepts-feba4faf/image/file/75954/1/cdobserverdp.png" alt="Observer Pattern" width="500"></a></p>
 <p>Class diagram of Observer Pattern</p>
 <h1><span>Source Code Files</span></h1>
 <p><span>For StrategyPattern</span></p>

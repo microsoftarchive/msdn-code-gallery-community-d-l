@@ -120,7 +120,7 @@ namespace&nbsp;LINQ_B_to_A.Controllers&nbsp;
 </table>
 </div>
 </div>
-<div class="wp-caption x_alignnone" id="attachment_12367"><a href="http://sibeeshpassion.com/wp-content/uploads/2017/05/LINQ-Basic-to-Advanced-Index-View-e1494741059608.png"><img class="size-full x_wp-image-12367" src="-linq-basic-to-advanced-index-view-e1494741059608.png" alt="LINQ Basic to Advanced Index View" width="634" height="197"></a>
+<div class="wp-caption x_alignnone" id="attachment_12367"><a href="http://sibeeshpassion.com/wp-content/uploads/2017/05/LINQ-Basic-to-Advanced-Index-View-e1494741059608.png"><img class="size-full x_wp-image-12367" src="http://sibeeshpassion.com/wp-content/uploads/2017/05/LINQ-Basic-to-Advanced-Index-View-e1494741059608.png" alt="LINQ Basic to Advanced Index View" width="634" height="197"></a>
 <p class="wp-caption-text">LINQ Basic to Advanced Index View</p>
 </div>
 </li>

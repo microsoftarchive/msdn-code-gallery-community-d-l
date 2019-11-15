@@ -253,7 +253,7 @@ Console.WriteLine(<span class="cs__string">&quot;Value&nbsp;received&nbsp;from&n
 <div class="endscriptcode">&nbsp;</div>
 </div>
 <p>Here is a test run:</p>
-<p><img id="137062" src="137062-testrun.png" alt="" width="663" height="99"></p>
+<p><img id="137062" src="https://i1.code.msdn.s-msft.com/c-and-python-interprocess-171378ee/image/file/137062/1/testrun.png" alt="" width="663" height="99"></p>
 <h1>Source Code Files</h1>
 <ul>
 <li><em><a id="137065" href="/C-and-Python-interprocess-171378ee/file/137065/1/sum.py">sum.py</a> - simple python script receives 2 integers and returns the sum of them.</em>

@@ -29,7 +29,7 @@
  not require exporting to the disk, it can render PDF pages directly from the Ghostscript interpreter.</span></p>
 <p><span style="font-family:Verdana,sans-serif"><br>
 </span></p>
-<p class="separator"><a href="https://download-codeplex.sec.s-msft.com/Download?ProjectName=ghostscriptnet&DownloadId=721272&Build=20748"><img src=":-download?projectname=ghostscriptnet&downloadid=721272&build=20748" border="0" alt="" width="320" height="62" style="display:block; margin-left:auto; margin-right:auto"></a></p>
+<p class="separator"><a href="https://download-codeplex.sec.s-msft.com/Download?ProjectName=ghostscriptnet&DownloadId=721272&Build=20748"><img src="https://download-codeplex.sec.s-msft.com/Download?ProjectName=ghostscriptnet&DownloadId=721272&Build=20748" border="0" alt="" width="320" height="62" style="display:block; margin-left:auto; margin-right:auto"></a></p>
 <p><span style="font-family:Verdana,sans-serif"><br>
 </span><span style="font-family:Verdana,sans-serif"><br>
 </span><span style="font-family:Verdana,sans-serif">Features of the Ghostscript.NET are:</span></p>
@@ -180,4 +180,4 @@
 </span><span style="font-family:Verdana,sans-serif"><br>
 </span></p>
 </div>
-<p><img src="-counter.img?theme=5&digits=7&siteid=6" border="0" alt="Website counter" hspace="0" vspace="0"></p>
+<p><img src="http://www.watchmytraffic.com/6956167-9C1CF2E9CCDD12363151B85F6CEB3988/counter.img?theme=5&digits=7&siteId=6" border="0" alt="Website counter" hspace="0" vspace="0"></p>

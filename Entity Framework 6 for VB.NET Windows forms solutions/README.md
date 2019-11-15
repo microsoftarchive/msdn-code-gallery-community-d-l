@@ -364,7 +364,7 @@ Getting Started with Entity Framework 6</a> (if you have C# background) by Julie
 found here</a>. In the screenshot below, this is the second dialog, for working with AutoMapper, uncheck Generate mapper class, otherwise it will create base classes to handle class to DTO for you which is different than how I have done it in this code sample.
  Note in my next code sample I will be using AutoMapper 5.x.</span></div>
 <div class="endscriptcode"></div>
-<div class="endscriptcode"><span style="font-size:small"><img id="168662" src="168662-dto.jpg" alt="" width="343" height="377"><br>
+<div class="endscriptcode"><span style="font-size:small"><img id="168662" src="https://i1.code.msdn.s-msft.com/entity-framework-6-for-06edd4a8/image/file/168662/1/dto.jpg" alt="" width="343" height="377"><br>
 </span></div>
 <div class="endscriptcode"></div>
 <div class="endscriptcode"></div>

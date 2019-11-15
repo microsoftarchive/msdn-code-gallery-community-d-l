@@ -28,7 +28,7 @@ Service Pack 1</a>, the<a href="http://www.microsoft.com/downloads/en/details.as
 <h2>Running the Sample</h2>
 <p>To run the sample, navigate to the Vsix\Bin\Debug or the Vsix\Bin\Release folder.&nbsp; Double click the ExcelImporter.Vsix package.&nbsp; This will install the extension on your machine.&nbsp;</p>
 <p>Create a new LightSwitch application.&nbsp; Double click on the Properties node underneath the application in Solution Explorer.&nbsp; Select Extensions and check off LightSwitch Utilities.&nbsp; This will enable the extension for your application.</p>
-<p><img src="45119-extensionproperties.png" alt="" width="618" height="221"></p>
+<p><img src="http://i1.code.msdn.s-msft.com/excel-importer-for-visual-61dd4a90/image/file/45119/1/extensionproperties.png" alt="" width="618" height="221"></p>
 <p><img alt=""></p>
 <h2>Using the Excel Importer</h2>
 <p>In your application, add a screen for some table.&nbsp; For example, create a Table called Customer with a single String property called Name. Add a new Editable Grid screen for Customers.&nbsp; Create a new button for the screen called ImportfromExcel.&nbsp;

@@ -289,15 +289,15 @@ Now add a new view in the View folder.<br>
 </span></span><span style="font-family:'Segoe UI'; font-size:x-small"><br>
 Now let's run the application to see the output.<br>
 <br>
-<img src="-img2.jpg" border="0" alt="img2.jpg" width="522" height="479"><br>
+<img src="http://www.c-sharpcorner.com/UploadFile/raj1979/mvvm-pattern-using-wpf-in-visual-studio-2012/Images/img2.jpg" border="0" alt="img2.jpg" width="522" height="479"><br>
 Image 2.<br>
 <br>
 Now select any row in the grid and click the &quot;Update&quot; button.<br>
 <br>
-<img src="-img3.jpg" border="0" alt="img3.jpg" width="520" height="478"><br>
+<img src="http://www.c-sharpcorner.com/UploadFile/raj1979/mvvm-pattern-using-wpf-in-visual-studio-2012/Images/img3.jpg" border="0" alt="img3.jpg" width="520" height="478"><br>
 Image 3.<br>
 <br>
-<img src="-img4.jpg" border="0" alt="img4.jpg" width="521" height="476"><br>
+<img src="http://www.c-sharpcorner.com/UploadFile/raj1979/mvvm-pattern-using-wpf-in-visual-studio-2012/Images/img4.jpg" border="0" alt="img4.jpg" width="521" height="476"><br>
 Image 4.<br>
 <br>
 For more information, download the attached sample.</span>&nbsp; &nbsp;</em></p>

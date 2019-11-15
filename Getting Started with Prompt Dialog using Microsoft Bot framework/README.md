@@ -24,7 +24,7 @@
  automation.</span></p>
 <p dir="ltr"><span><img id="178592" src="178592-demo.gif" alt="" width="531" height="1002"><br>
 </span></p>
-<p dir="ltr"><span><img src=":--sn7dtilb9nbxzljkhvmb19t3k0-1ggsjzyygbqhrtgjbtcg2rze_wndjjjgb1yoxgv5rbgsexx32u_6qklogzfymzlqsrh85pgq2xrvclijjinorns7ajhvwx6ymoy0iyfugahiqvv1d2vcaw" alt="" width="624" height="308"></span></p>
+<p dir="ltr"><span><img src="https://lh5.googleusercontent.com/-Sn7DTIlB9NbXZLjkHvMB19T3k0-1gGSjzYYgBQHRTgjbtcG2rzE_wnDjJjgb1yoXGv5rBgsEXx32u_6QKLoGZfYmzLqsrh85pgq2XrVClIJjiNORns7ajHVWx6Ymoy0IyFUGAhIQvV1d2VCaw" alt="" width="624" height="308"></span></p>
 <h1 dir="ltr"><span>Prerequisite:</span></h1>
 <p dir="ltr"><span style="font-size:small">I have explained about Bot framework Installation, deployment and implementation the below article
 </span></p>
@@ -43,9 +43,9 @@
 <h1 dir="ltr"><span>Create New Bot Service:</span></h1>
 <p dir="ltr"><span style="font-size:small">Let&rsquo;s create a new bot service application using Visual Studio 2017. Open Visual Studio &gt; Select File &gt; Create New Project (Ctrl &#43; Shift &#43;N) &gt; Select Bot application
 </span></p>
-<p dir="ltr"><span><img src=":-pfmvnvbyso02wg7448ik2hderxiivg4dbtuhe9sr8xyihawq3b3zmsuvybs6aoozqvrsw2gq9434smdlgg-ikf77atbhsgrpe91db6aao-9uxaofgmlxt755pbxgwgvpqetfg7np2mg9-n9tiw" alt="" width="497" height="346"></span></p>
+<p dir="ltr"><span><img src="https://lh3.googleusercontent.com/pFMVNvBySo02Wg7448ik2HDeRxIiVg4dbtuHe9sR8XyiHawq3B3ZmSUvyBS6aooZqvrsw2Gq9434SMdlGG-IKf77atBHsGrpe91dB6AaO-9uXaOfGMLXT755PbXGwgvpqETfg7nP2mg9-n9TIw" alt="" width="497" height="346"></span></p>
 <p dir="ltr"><span style="font-size:small">The Bot application template was created with all the components and all required NuGet references installed in the solutions and add new annualplanDialog class to the project.</span></p>
-<p dir="ltr"><span><img src=":-p38muoyx14dt-rsbnuhbh56v9ofi5qqk2dct2drf412vvjn8zjhmumkboydgjxcpycdgic-kkqifcm_gxohazwj6hlvrhsanescljrzjljwqrv_396ejdfjmyydipgvx8vypsnsmcxn_rhqvwa" alt="" width="352" height="435"></span></p>
+<p dir="ltr"><span><img src="https://lh5.googleusercontent.com/p38MUoYX14Dt-rsBnuHbh56v9OFI5qQK2DcT2drf412Vvjn8ZJHmUMKBOYdgJXCpYCDgIC-KKqiFCm_gXohAZwJ6HlvrhSanEsCLJrzJLJWQrV_396ejdfJMyydiPGvX8VypsNSMCXn_RhQVWA" alt="" width="352" height="435"></span></p>
 <p dir="ltr"><span style="font-size:small">In this Solution, we have three main class MessagesController.cs , RootDialog.cs and AnnualPlanDialog class . Let us start discussing here.</span></p>
 <h1 dir="ltr"><span>RootDialog Class</span><span>:</span></h1>
 <h3 dir="ltr"><span>Step 1:</span></h3>
@@ -162,10 +162,10 @@
 <p></p>
 <p dir="ltr"><span><br>
 <span style="font-size:small">Welcome banner its look like below &nbsp;</span></span></p>
-<p dir="ltr"><span><img src=":-fzfvv8sqzzjuqzvmf3gvlgfhbzlaumnakjgulchm0fabpfrn6f8aozuy5i8rb56xcof4miz0xofwdliehdbcgfucvoyvuclzozacaq1769rl4dgjhcxrvxq9hdodwgivjampm6qbi-w-8llsua" alt="" width="426" height="524"></span></p>
+<p dir="ltr"><span><img src="https://lh4.googleusercontent.com/FzfVV8SQzZJUQZvMf3gVlGFHBzLaumNaKjGuLCHM0FABPFrN6F8AoZuy5I8rB56xcof4miZ0XoFwdliehDBcGFuCVOyvUClzoZACaq1769Rl4DGjhCxRVXQ9hDOdWgivJAmPM6QbI-w-8lLSUA" alt="" width="426" height="524"></span></p>
 <h1 dir="ltr"><span>Step 4: Custom Prompt Dialog:</span></h1>
 <p dir="ltr"><span style="font-size:small">The custom prompts a dialog for asking the user to select a registration plan, which he/she is interested. Like below Design .</span></p>
-<p dir="ltr"><span><img src=":-tdw5cl0ajvjh2u9wqlm4eqsivex9erinkexkms8tl7zxmikh9alfdwvbzuq2thztc4dh8vvphuz2ycvnibondp2teiz3lap7p7qiugk8jznrab5kckqkc7exvwfpp82mvrljqdniv4jj5j7wia" alt="" width="435" height="278"></span></p>
+<p dir="ltr"><span><img src="https://lh3.googleusercontent.com/TdW5cL0AjVjH2U9wQLM4EQSIvEx9EriNkeXKMS8Tl7ZXmIkh9alfDwVbZuq2tHztc4dH8Vvphuz2ycVnibondp2TeiZ3lAp7P7qiuGK8JZnraB5KckQKc7ExVWFpp82MvRLjqdnIv4jj5j7WIA" alt="" width="435" height="278"></span></p>
 <p dir="ltr"><span style="font-size:small">Define the enum for different type pass. it&rsquo;s a prompt list item
 </span></p>
 <p></p>
@@ -521,7 +521,7 @@
 <div class="endscriptcode">&nbsp;</div>
 <p></p>
 <p><span style="font-size:small">After execute above code, the output look like below</span></p>
-<p dir="ltr"><span><img src=":-ikiecbkzhq1sz9eblrwoyilx6h2gdls2oi-sgdrxbc1ejtv22meamjuxwis8eajyb2gcwdaeasdojg4sfyueiqdoxwop7u0oesvwsfunztjytz6gpkdwoqihpmfl-9r-uicfgwf0m3jooywgvg" alt="" width="543" height="675"></span></p>
+<p dir="ltr"><span><img src="https://lh6.googleusercontent.com/iKIeCBkzHQ1SZ9ebLRWoyiLx6h2GdLS2Oi-SGDRxBC1EjTv22MEAMJuxWiS8EAjYb2gCWdAeAsDojG4sFYUEIQdoXwop7u0OesvwSFuNzTJYTz6GPkdWoQIhpmfL-9r-uICfgwF0M3JOoYWGVg" alt="" width="543" height="675"></span></p>
 <h1 dir="ltr"><span>MessagesController Class :</span></h1>
 <p dir="ltr"><span style="font-size:small">The RootDialog class is added to the conversation in the MessageController class via the Post() method. In the Post() method, the call to Conversation.SendAsync() creates an instance of the RootDialog, adds it to the
  dialog stack to make it the active dialog, calling the RootDialog.StartAsync() from Post method</span></p>
@@ -651,7 +651,7 @@
 <h1 dir="ltr"><span>Run Bot Application:</span></h1>
 <p dir="ltr"><span style="font-size:small">The emulator is a desktop application that lets we test and debug our bot on localhost. Now, you can click on &quot;Run the application&quot; in Visual studio and execute in the browser.</span></p>
 <h1 dir="ltr"><span><br class="kix-line-break">
-</span><span><img src=":-gm9gu8p6hq83xqbbhtbdteacqytuua1lsdk_hj8s9eu4kotqqermb9vdwush58nuwp1mgshwynisz4mbf2gcvqvfe2s6gdq8ky8-1i8gdywnnn0fj3u4apprtkpdipbhqbkdqr4rtx2nnb4z9g" alt="" width="624" height="199"></span><span><br class="kix-line-break">
+</span><span><img src="https://lh5.googleusercontent.com/gm9GU8P6HQ83xQbBhtbDTeacqYTuua1LsDK_HJ8s9Eu4koTqqErmB9vDwUsh58nUwP1mgsHwyNiSz4mbf2gcvqVFE2S6gDq8ky8-1i8GDyWnnn0fj3U4apprtKpdipbhQBkDqR4rtX2nnb4z9g" alt="" width="624" height="199"></span><span><br class="kix-line-break">
 </span><span><br class="kix-line-break">
 </span><span>Test Application on Bot Emulator</span></h1>
 <p dir="ltr"><span style="font-size:small">You can follow the below steps for test your bot application.</span></p>
@@ -665,7 +665,7 @@
 </li><li dir="ltr">
 <p dir="ltr"><span style="font-size:small">You won't need to specify Microsoft App ID and Microsoft App Password for localhost testing, so click on &quot;Connect&quot;.</span></p>
 </li></ol>
-<p dir="ltr"><span><img src=":-va-r_sztkmq8pxh6rc42vqptk6ma2vlwkmq0zkbopxkju1em7jktok1brlm_saz5mo2w40aapn713tkxlppgop2-cw_qwhueagys6ml5wtxngu4tx96narocgfyg7kq0slipkcuq5ga2f0ijpg" alt="" width="454" height="837"></span></p>
+<p dir="ltr"><span><img src="https://lh5.googleusercontent.com/va-R_szTkmQ8PxH6Rc42vqPTk6MA2VLwKMQ0zkBOPXkjU1eM7JKtoK1brLM_sAZ5mo2W40aaPN713TKXlpPgop2-Cw_qWhueAgys6Ml5wTXnGU4tx96NaROCGFYG7kq0sliPkcuq5gA2F0ijpg" alt="" width="454" height="837"></span></p>
 <h1 dir="ltr"><span>Summary:</span></h1>
 <p dir="ltr"><span style="font-size:small">In this article, how to use prompts and how you can use them to collect information from the users. If you have any questions/ feedback/ issues, please write in the comment box.</span></p>
 <p>&nbsp;</p>

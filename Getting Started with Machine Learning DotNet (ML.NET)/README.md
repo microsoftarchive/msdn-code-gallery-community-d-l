@@ -53,28 +53,28 @@ Visual Studio 2017 15.6 or later</a>&nbsp;with the &quot;.NET Core cross-platfor
 <p><strong>Step 1 -&nbsp;Create C# Console Application</strong></p>
 <p>After installing the prerequisites, click Start &gt;&gt; Programs &gt;&gt; Visual Studio 2017 &gt;&gt; Visual Studio 2017 on your desktop. Click New &gt;&gt; Project. Select Visual C# &gt;&gt; Windows Desktop &gt;&gt; Console APP (.Net Framework). Enter
  your project name and click OK.</p>
-<p><img id="206805" src="206805-1.png" alt="" width="481" height="205"></p>
+<p><img id="206805" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206805/1/1.png" alt="" width="481" height="205"></p>
 <p><strong>Step 2 &ndash;&nbsp;Add Microsoft ML package</strong></p>
 <p>Right click on your project and click on Manage NuGet Packages.</p>
-<p><img id="206806" src="206806-2.png" alt="" width="303" height="204"></p>
+<p><img id="206806" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206806/1/2.png" alt="" width="303" height="204"></p>
 <p>Select Browse tab and search for Microsoft.ML</p>
-<p><img id="206807" src="206807-3.png" alt="" width="466" height="106"></p>
+<p><img id="206807" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206807/1/3.png" alt="" width="466" height="106"></p>
 <p>Click on Install, I Accept and wait till the installation complete.</p>
 <p>We can see as the Microsoft.ML package was been installed and all the references for Microsoft.ML has been added in our project references.</p>
-<p><img id="206808" src="206808-4.png" alt="" width="313" height="356"></p>
+<p><img id="206808" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206808/1/4.png" alt="" width="313" height="356"></p>
 <p><strong>Step 3 &ndash;&nbsp;Creating Train and Evaluate Data</strong></p>
 <p>Now we need to create a Model training and evaluate dataset. For creating this we will add two csv file one for training and one for the evaluate. We will create a new folder called data in our project to add our csv files.</p>
 <p><strong>Add Data Folder:</strong></p>
 <p>Right click the project and Add New Folder and name the folder as &ldquo;Data&rdquo;</p>
-<p><img id="206809" src="206809-5.png" alt="" width="496" height="215"></p>
+<p><img id="206809" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206809/1/5.png" alt="" width="496" height="215"></p>
 <p><strong>Creating Train CSV file</strong></p>
 <p>Right click the Data folder click on Add &gt;&gt; New Item &gt;&gt; select the text file and name it as &ldquo;StockTrain.csv&rdquo;</p>
-<p><img id="206810" src="206810-6.png" alt="" width="444" height="251"></p>
+<p><img id="206810" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206810/1/6.png" alt="" width="444" height="251"></p>
 <p>Select the properties of the &ldquo;StockTrain.csv&rdquo; change the Copy to Output Directory to
 <strong>&ldquo;Copy always&rdquo;</strong></p>
-<p><strong><img id="206811" src="206811-7.png" alt="" width="272" height="241"></strong></p>
+<p><strong><img id="206811" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206811/1/7.png" alt="" width="272" height="241"></strong></p>
 <p>Add your csv file data like below.</p>
-<p><img id="206812" src="206812-8.png" alt="" width="331" height="257"></p>
+<p><img id="206812" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206812/1/8.png" alt="" width="331" height="257"></p>
 <p>Here we have added the data with the fallowing fields.</p>
 <p>Note that we need to fix the label and the features.</p>
 <p><strong>Label: </strong>Label is the field which we need to predict in our sample here TotalStockQty is the Label where we will be predicting the Total remaining Stock Quantity of an item. Other all fields we make it as features.</p>
@@ -86,7 +86,7 @@ Visual Studio 2017 15.6 or later</a>&nbsp;with the &quot;.NET Core cross-platfor
 <p><strong>TotalStockQty</strong> - Total no of item stock in location.(Label)&nbsp;</p>
 <p>Note:&nbsp; we need minimum 100 records of data to be added to train our Model</p>
 <p>Same like this we add one more CSV file and add similar information for evaluate. We have created one more csv file name as &ldquo;StockTest.csv&rdquo;&nbsp;&nbsp;</p>
-<p><img id="206813" src="206813-9.png" alt="" width="288" height="180"></p>
+<p><img id="206813" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206813/1/9.png" alt="" width="288" height="180"></p>
 <p><strong>Step 4 &ndash;&nbsp;Creating Class for Input Data and Prediction</strong></p>
 <p>Now we need to create a class for Input Data and prediction for doing this right click our project and add new class and name it as &ldquo;ItemStock.cs&rdquo;</p>
 <p>In our class first, we need to import the Microsoft.ML.Runtime.Api</p>
@@ -173,7 +173,7 @@ using&nbsp;Microsoft.ML.Transforms;&nbsp;
 <p>We set the Traincsv data,Evaluate data and Model data path. For the traindata we give &ldquo;StockTrain.csv&rdquo; path and same like that for the evaluate csv file.</p>
 <p>The final trained model needs to be saved for evaluating and produce results. For this we set modelpath with the &ldquo;Model.zip&rdquo; file. The trained model will be saved in the zip fil automatically during runtime of the program our bin folder with
  all needed files.</p>
-<p><img id="206814" src="206814-10.png" alt="" width="536" height="77"></p>
+<p><img id="206814" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206814/1/10.png" alt="" width="536" height="77"></p>
 <div class="scriptcode">
 <div class="pluginEditHolder" pluginCommand="mceScriptCode">
 <div class="title"><span>C#</span></div>
@@ -207,7 +207,7 @@ using&nbsp;Microsoft.ML.Transforms;&nbsp;
 <p>&nbsp;In order to run with our async Task Main method we need the change the Language version to C#7.1</p>
 <p>In the Project Properties &gt;&gt; Build tab &gt;&gt; click on Advance button at the bottom and change the
 <strong>Language Version</strong> to <strong>C#7.1</strong></p>
-<p><img id="206815" src="206815-11.png" alt="" width="508" height="355"></p>
+<p><img id="206815" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206815/1/11.png" alt="" width="508" height="355"></p>
 <p><strong>Working with Training Model</strong></p>
 <p>First, we need to train the model and save the model to the zip file for this in our main method we call the predictionModel method and pass the ItemStock and itemStockQtyPrediction class and return the model to the main method.</p>
 <div class="scriptcode">
@@ -358,9 +358,9 @@ using&nbsp;Microsoft.ML.Transforms;&nbsp;
 </div>
 </div>
 <p>We can see in our StockTrain.csv file we have added the values of above stock1 and we can see as we have given TotalStockQty as 90 and the Model need to predict this result and produce the result.</p>
-<p><img id="206816" src="206816-12.png" alt="" width="378" height="35"></p>
+<p><img id="206816" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206816/1/12.png" alt="" width="378" height="35"></p>
 <p>Same like that for Stock2 also we have added the values in the StockTrain.csv file , we can see as we have given TotalStockQty as 4800 and the Model need to predict this result and produce the result.</p>
-<p><img id="206817" src="206817-13.png" alt="" width="249" height="16"></p>
+<p><img id="206817" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206817/1/13.png" alt="" width="249" height="16"></p>
 <p>&nbsp;<strong>Produce the Model Predicted results</strong></p>
 <p>In our program main method, we will add the below code at the bottom after Train and Evaluate method calling to predict the Stock Quantity details and display the final predicted results from model to users in command window.</p>
 <p>Here we display both Stock1 and Stock2 prediction results. The prediction.TotalStockQty will have the model predicted results and we display the results to the end users of the predicted Stock Quantity with actual input given by us.</p>
@@ -390,11 +390,11 @@ using&nbsp;Microsoft.ML.Transforms;&nbsp;
 <p>When we can run the program, we can see the result in the command window like below.</p>
 <p>We can see the Rms value as: 0.052 as we already discussed in this article if the Rms vale is near to 0 then the model is good in prediction and also, we can see the RSquared =0.999 as we already discussed in this article as if the RSquared value is near
  to 1 then the model is good and we can see the predicted result of both the Stock1 and Stock2 as both has predicted same Stock quantity as the actual. Our Model is very good in prediction and the predicted value is exactly same as the actual value.</p>
-<p><img id="206818" src="206818-15.png" alt="" width="400" height="317"></p>
+<p><img id="206818" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206818/1/15.png" alt="" width="400" height="317"></p>
 <p><strong>Trained Model Information </strong></p>
 <p>After we build and run the program we can see the Model.zip file in Data folder inside the Application root bin folder. We can also see our StockTrain and StockTest csv file, The Model will be trained with this csv file and trained model result will be stored
  in Model.zip file for predict the result.</p>
-<p><img id="206819" src="206819-14.png" alt="" width="221" height="121"></p>
+<p><img id="206819" src="https://i1.code.msdn.s-msft.com/getting-started-with-34722da0/image/file/206819/1/14.png" alt="" width="221" height="121"></p>
 <h1><span>Source Code Files</span></h1>
 <ul>
 <li><em><em><span>MLNETStock.zip - 2018-08-13</span>.</em></em> </li></ul>

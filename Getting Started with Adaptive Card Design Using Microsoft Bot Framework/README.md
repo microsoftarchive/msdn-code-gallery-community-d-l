@@ -19,7 +19,7 @@
 <p dir="ltr"><span style="font-size:small">The Bot Framework has supported the different type of rich cards and provides a richer interaction experience to the user. In this article, I will share about how to integrate adaptive card UI design in Bot Application.
  The <a href="http://adaptivecards.io/">Adaptive Card</a> can contain any combination of text, speech, images, buttons, and input controls.Adaptive Cards are created using the JSON format specified in Adaptive Cards schema and Microsoft provided Microsoft.AdaptiveCards
  NuGet package for &nbsp;&nbsp;.Net Developer to building these cards and handles the serialization.</span></p>
-<p dir="ltr"><span><img src=":-q88cvbd35d6tvelirxdmmnbse6ybek2wqtxqnomhujyf0slzwixop1celqpcpy6gwexrevudpedqnzia3eollkibava3ggjemye_dpmclowstviexl43zxe97q33xjuakuld0jwlqvf1tncs7w" alt="" width="434" height="426"></span></p>
+<p dir="ltr"><span><img src="https://lh4.googleusercontent.com/Q88cvbD35D6TVElIrxDmmNBSe6yBek2wqtXQnoMhUJyF0sLzwIXOP1CeLQpcpy6GwexrevudpEdQNziA3eolLkIBava3ggjemye_DpMCLOwSTvIEXL43ZxE97q33XJuAkULd0jWLQvf1tncS7w" alt="" width="434" height="426"></span></p>
 <h1 dir="ltr"><span>Prerequisite:</span></h1>
 <p dir="ltr"><span style="font-size:small">I have explained about Bot framework Installation, deployment and implementation in the below article
 </span></p>
@@ -46,15 +46,15 @@
 <p>&nbsp;</p>
 <h1 dir="ltr"><span>Create New Bot Application:</span></h1>
 <p dir="ltr"><span style="font-size:small">Let's create a new bot application using Visual Studio 2017. Open Visual Studio &gt; Select File &gt; Create New Project (Ctrl &#43; Shift &#43;N) &gt; Select Bot application.</span></p>
-<p dir="ltr"><span><img src=":-ewehgold7fueezvamx7wwpfc4ekkg2cogawx7x58pqgkjm7yndtcvqzr767qr7u2umsgx15x3jbtebueondq0jqvj9ztmiszvmxsowjlbccpzxx71xds4zkmfsrf3isfclbqo9xgsan2mmjm8g" alt="" width="624" height="331"></span></p>
+<p dir="ltr"><span><img src="https://lh6.googleusercontent.com/EwEHGoLd7FUEEzvAMx7wWpFC4EkKg2CogaWX7x58PqgKJm7yNdtcvqzR767qr7U2umSgx15x3jbTeBUEONDQ0Jqvj9ZtMiSZvmxsOwJlbcCPZXX71Xds4ZKmfsRF3IsfClBQO9xGSAN2mMJm8g" alt="" width="624" height="331"></span></p>
 <p dir="ltr"><span style="font-size:small">The Bot application template was created with all the components and all required NuGet references installed in the solutions.</span></p>
-<p dir="ltr"><span><img src=":-wvbx5nztwgtujqgmwnv5f2b0n37103jf3p5kp8xkukwoipgp8hbesa-dtbblee3b1poyzkmck5vp4llejdiztvw_q2kj9fkhgomd5zwjy7wrugevqpqw4crcz73tfozg7dy1ni6gfdl5ofq5jq" alt="" width="326" height="352"></span></p>
+<p dir="ltr"><span><img src="https://lh4.googleusercontent.com/wVBx5nZtwGTUjQgMwnV5f2B0N37103jf3P5kP8XKUKwOipgp8HBEsA-dTbbLEe3B1poyzKmCk5Vp4LlEJDizTVW_Q2kj9FKHgOmD5zwJy7wRuGEvqpqW4cRCZ73TFozG7dy1nI6gFDl5oFq5JQ" alt="" width="326" height="352"></span></p>
 <h1 dir="ltr"><span>Install AdaptiveCard Nuget package:</span></h1>
 <p dir="ltr"><span style="font-size:small">The <a href="https://www.nuget.org/packages/Microsoft.AdaptiveCards/">
 Microsoft.AdaptiveCards</a> library implements classes for building and serializing adaptive card objects and Visual studio intelligent will help us for implement Adaptive card in the bot application.</span></p>
 <p dir="ltr"><span style="font-size:small">Right click on Solution &gt; Select Manage NuGet Package for Solution &gt; Search &ldquo; Microsoft AdaptiveCards&rdquo; &gt; select Project and Install the package
 </span></p>
-<p dir="ltr"><span><img src=":-jihb5ignidhyuhg5vfbp_lk2iacgmiqvcnyt2jnrxe7uha1ytnldfn-fbt9azezf8yuh3r3akcy6zy11pzbetckau_u68fxhu_soec5q9th8rkgrcgi_k_ejj6qyr59-etoeajyfwqlhd6ho9q" alt="" width="623" height="304"></span></p>
+<p dir="ltr"><span><img src="https://lh6.googleusercontent.com/JIHB5ignIDHyuhG5vfBp_Lk2IaCgmIqvCnyT2JnRxE7UHA1YtnLdFn-FbT9AZeZf8Yuh3r3AKcy6Zy11PZBeTckau_u68fxhU_SOEC5Q9tH8rkGRCGi_K_ejJ6QyR59-ETOeaJYFwQlhd6hO9Q" alt="" width="623" height="304"></span></p>
 <h1 dir="ltr"><span>Create New AdaptiveCardDialog Class:</span></h1>
 <h3 dir="ltr"><span>Step 1:</span></h3>
 <p dir="ltr"><span style="font-size:small">You can Create new AdaptiveCardDialog class for a show the Adaptive dialog. Right Click on project &gt; Select Add New Item &gt; Create a class that is marked with the [Serializable] attribute (so the dialog can be
@@ -257,11 +257,11 @@ Microsoft.AdaptiveCards</a> library implements classes for building and serializ
 <div class="endscriptcode"><span style="font-size:small">&nbsp;After user enter the first message,
 </span>bot<span style="font-size:small"> will reply welcome message and list of demo option and wait for user input like below</span></div>
 </div>
-<p dir="ltr"><span><img src=":-wm9gfzd2olu6h11r4-9ag14qc7heyhz_w-velpwz6f1jdvm8xwjmh2rzkthk4s2rm_xzauouks3lxqcefzxjwqxvtgs_w49hkhoc1hx99kz8_bxcqw6uw4o73fcedfaynkxh2fa1ykvxzdkgkq" alt="" width="525" height="265"></span></p>
+<p dir="ltr"><span><img src="https://lh3.googleusercontent.com/Wm9gFZD2oLu6H11R4-9AG14Qc7hEYhz_w-vELPWz6F1JDVM8XwJmh2RzKtHk4S2rM_xZauouKs3lXQcefzxJWQxvTgs_w49hkhoc1hx99KZ8_bXcqW6uw4O73FCEDFAynkxh2FA1YkvxzDkgKQ" alt="" width="525" height="265"></span></p>
 <h1 dir="ltr"><span>Step 4: Design Adaptive Card </span></h1>
 <p dir="ltr"><span style="font-size:small">The Adaptive Cards are created using JSON, but with the Microsoft.AdaptiveCards NuGet we can create them by composing card objects. We can create AdaptiveCard objects and attach to the attachment and post message to
  a message</span></p>
-<p dir="ltr"><span><img src=":-jr9c_vye6houjxkd2pnmuyzib1kh_qqfigrbdyhu6mhz3jodhotpsuchxq5bqp2eega0l64dbel3e_j9-y_9hpm_qfzpknp3qnuupn5opg8qh-qpnzn1elan03v-mvfvnec-gd7le60zhbax7q" alt="" width="266" height="323"></span></p>
+<p dir="ltr"><span><img src="https://lh6.googleusercontent.com/JR9c_vye6hOUJXKd2pNMUYZIb1kh_qqfiGRbdYHu6MHz3JodHoTPsUChXq5bQP2EEgA0L64Dbel3E_J9-Y_9HpM_QFzpknp3qnUuPn5oPg8qH-QPnZN1elaN03V-MvfvnEC-Gd7le60zHbAx7Q" alt="" width="266" height="323"></span></p>
 <p dir="ltr"><span style="font-size:small">The following code showing design the welcome message with image, textblock and speech.</span></p>
 <div dir="ltr">
 <div class="scriptcode">
@@ -360,7 +360,7 @@ Microsoft.AdaptiveCards</a> library implements classes for building and serializ
 </div>
 <div class="endscriptcode"><span style="font-size:small">&nbsp;The above code will generate adaptive card and reply to the user</span></div>
 </div>
-<p dir="ltr"><span><img src=":-afclyidjqympyl2abjnixk-_nrowe9b55qh0x8jvdtuhhljwajvy7lsgdzl0dotakqsufgbkotgqdbmijhzu3xser2g3cl4rbp_shd-wndaskxuy4nwvub6htfnamqxv-3nwzanhrflfjlavtq" alt="" width="371" height="180"></span></p>
+<p dir="ltr"><span><img src="https://lh4.googleusercontent.com/AfClYiDjqYmPyl2AbJNixK-_nroWe9b55qH0X8JvDtUHHlJwaJvy7lSgdZL0DotAkqSufGbKoTgQdbMIjhzU3XSER2G3CL4RBP_sHd-wNDaSkxuy4nwvuB6htFnaMQXV-3NwZAnhRfLfjlavTQ" alt="" width="371" height="180"></span></p>
 <p>&nbsp;</p>
 <h1 dir="ltr"><span>Step 5: Design Adaptive Card with Column:</span></h1>
 <p dir="ltr"><span style="font-size:small">The Adaptive Cards contain many elements that allow to design UI content in a common and consistent way.
@@ -377,7 +377,7 @@ Microsoft.AdaptiveCards</a> library implements classes for building and serializ
 </li><li dir="ltr">
 <p dir="ltr"><span style="font-size:small">ImageSet and Image - The ImageSet allows for the inclusion of a collection images like a photo set, and the Image element allows for the inclusion of images.</span></p>
 </li></ol>
-<p dir="ltr"><span><img src=":-n7izar8jm5rowjle9e2cqgabjrej2rg2z9vjb80x-hxkh1zb_ivwkzl6odebohilpx3xxpw3hrbzafsre1jy06xamg4pchbkncwoki3tgblj5xpomx-t6elziqvonlpy0_jbbfrfsfpltnivqg" alt="" width="407" height="517"></span></p>
+<p dir="ltr"><span><img src="https://lh5.googleusercontent.com/N7iZAR8jm5rowjle9e2CQgaBjreJ2rg2z9VjB80x-hxKh1Zb_IvWKzl6ODEBOhILpx3xxpw3HRBZaFsRe1jY06xaMg4PchBkNCwoKI3TGBLJ5xpOmX-t6ElZiqVONLpY0_jBbFRfSFPLtNivQg" alt="" width="407" height="517"></span></p>
 <p><span style="font-size:small">The following code showing, adding multiple columns and design the UI Adaptive Card</span></p>
 <div dir="ltr">
 <div class="scriptcode">
@@ -586,7 +586,7 @@ Microsoft.AdaptiveCards</a> library implements classes for building and serializ
 </div>
 <div class="endscriptcode"><span style="font-size:small">&nbsp;The above code will generate following card design and reply the message</span></div>
 </div>
-<p dir="ltr"><span><img src=":-vydsqutnkxyadobhbklnudwu4d2frp0bgrbmz-jf90kfaapwzlobontm1g5xvgtqcafjttyce-nc-ly9evyj7nvouvtyxnxqwb1rcwexzlxqauhxgju_cue8zbp8p9vttulfzt4yduhcny3dow" alt="" width="352" height="278"></span></p>
+<p dir="ltr"><span><img src="https://lh3.googleusercontent.com/vYDsquTnKXyaDObHBKlNUDWu4D2FRp0BGRBmZ-JF90kFAAPwZloBoNTm1g5XVgTqcaFjTtYcE-NC-Ly9EVyJ7nvoUvtYXnxQwb1rCwexzLxqaUHxGju_cUE8ZbP8p9VTtuLfZT4yDUhcNy3dow" alt="" width="352" height="278"></span></p>
 <h1 dir="ltr"><span>Step 6: Adaptive Card Design with Input Control:</span></h1>
 <p dir="ltr"><span style="font-size:small">The Adaptive Cards can include input controls for collecting information from the user, it will support following input control is : Text, Date, Time, Number and for selecting options(choiceset) and toggle .</span></p>
 <p dir="ltr"><span style="font-size:small">The following sample code included collecting basic information from the users with action button
@@ -745,11 +745,11 @@ Microsoft.AdaptiveCards</a> library implements classes for building and serializ
 </div>
 <div class="endscriptcode"><span style="font-size:small">&nbsp;The above code will return following adaptive card design</span></div>
 </div>
-<p dir="ltr"><span><img src=":-ug-klmlip22023-lxv9p4owuz2edtn2q7wcn8ne5ubwbz9bo5pyf4vi1omj2niuqiid9ko1dxprhdawjjrpytfe2wqzwsavzlgd-x97z01x65zj8nk-wzsguyv2vnwwg34_klqmx7fbqirejfg" alt="" width="376" height="650"></span></p>
+<p dir="ltr"><span><img src="https://lh5.googleusercontent.com/UG-Klmlip22023-lxV9p4owuZ2edTN2Q7wCn8Ne5UbWBz9bO5Pyf4VI1oMJ2nIuQIid9ko1dXprHDaWJJRpYtFE2WQzwsaVZlgd-X97Z01X65ZJ8nK-wZsGuyV2vNwWg34_KlqMX7fbQIrEJfg" alt="" width="376" height="650"></span></p>
 <h1 dir="ltr"><span>Run Bot Application</span></h1>
 <p dir="ltr"><span style="font-size:small">The emulator is a desktop application that lets us test and debug our bot on localhost. Now, you can click on &quot;Run the application&quot; in Visual studio and execute in the browser</span><span><br class="kix-line-break">
 </span><span><br class="kix-line-break">
-</span><span><img src=":-mfbxfkkym8dkqvbha0ae6s3qtnzp_fku3fixsnh8opnpqb0-v9giwevgjgrdogr51tfv8dutcfgpzidjecjrji54ewbsg2q5pzyxi8wtcrmyxa1jhz9776yynltoclrtkr0rz_zrtxvwh_4mfa" alt="" width="624" height="223"></span></p>
+</span><span><img src="https://lh5.googleusercontent.com/mfbXfKKYM8DKQVbha0ae6S3QtNzP_FKU3fIXSnH8OpNpqB0-V9giWEVgjGRDoGr51TFv8DutCfGPzidJECjRJi54EwbSG2q5pZYxi8WtcRMyXA1JHZ9776yyNltoClRTkR0rZ_zrtxvwh_4mfA" alt="" width="624" height="223"></span></p>
 <h1 dir="ltr"><span>Test Application on Bot Emulator</span></h1>
 <p dir="ltr"><span style="font-size:small">You can follow the below steps to test your bot application.</span></p>
 <ol>
@@ -762,7 +762,7 @@ Microsoft.AdaptiveCards</a> library implements classes for building and serializ
 </li><li dir="ltr">
 <p dir="ltr"><span style="font-size:small">You won't need to specify Microsoft App ID and Microsoft App Password for localhost testing, so click on &quot;Connect&quot;.</span><span><br class="kix-line-break">
 </span><span><br class="kix-line-break">
-</span><span><img src=":-ug-klmlip22023-lxv9p4owuz2edtn2q7wcn8ne5ubwbz9bo5pyf4vi1omj2niuqiid9ko1dxprhdawjjrpytfe2wqzwsavzlgd-x97z01x65zj8nk-wzsguyv2vnwwg34_klqmx7fbqirejfg" alt="" width="376" height="650"></span></p>
+</span><span><img src="https://lh5.googleusercontent.com/UG-Klmlip22023-lxV9p4owuZ2edTN2Q7wCn8Ne5UbWBz9bO5Pyf4VI1oMJ2nIuQIid9ko1dXprHDaWJJRpYtFE2WQzwsaVZlgd-X97Z01X65ZJ8nK-wZsGuyV2vNwWg34_KlqMX7fbQIrEJfg" alt="" width="376" height="650"></span></p>
 </li></ol>
 <h1 dir="ltr"><span>Summary</span></h1>
 <p dir="ltr"><span style="font-size:small">In this article, you&nbsp;learned how to create a Bot application using Visual Studio 2017 and create adaptive design and input from using bot framework. If you have any questions/feedback/ issues, please write in
