@@ -1,0 +1,33 @@
+﻿@model IQueryable<LINQ_B_to_A.Models.City>
+<style>
+    dd, dt, pre {
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5px;
+        width: auto;
+        width: 20%;
+    }
+
+    dd {
+        background-color: #a9a9a9
+    }
+    pre {
+        width: auto;
+    }
+</style>
+<dd>City Names</dd>
+@foreach (var ctyObj in Model)
+{
+    <dt>@ctyObj.CityName</dt>
+}
+<pre>
+        public ActionResult LoadAll()
+        {
+            var loadAllData = (from d in DtContext.Cities where d.CityName.StartsWith("C") select d).Take(10);
+
+            //Method Chain Format
+            var loadAllData1 = DtContext.Cities.Where(d => d.CityName.StartsWith("C")).Take(10);
+
+            return PartialView(loadAllData);
+        }
+</pre>

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<input type="button" class="btn-info" onclick="location.href='@Url.Action("LoadAll","Home")'" value="Load All"/>
+<input type="button" class="btn-info" onclick="location.href='@Url.Action("JoinWithWhere","Home")'" value="Join With Where" />
+<input type="button" class="btn-info" onclick="location.href='@Url.Action("LeftJoin","Home")'" value="Left Join" />
+<input type="button" class="btn-info" onclick="location.href='@Url.Action("DistinctSample","Home")'" value="Distinct Sample" />
+<input type="button" class="btn-info" onclick="location.href='@Url.Action("EqualsSamples","Home")'" value="Equals Sample" />
+<input type="button" class="btn-info" onclick="location.href='@Url.Action("NotEqualsSamples","Home")'" value="Not Equals" />
+<input type="button" class="btn-info" onclick="location.href='@Url.Action("PagingQueries","Home")'" value="Paging Queries" />
+<input type="button" class="btn-info" onclick="location.href='@Url.Action("MathQueries","Home")'" value="Math Queries" />
+<input type="button" class="btn-info" onclick="location.href='@Url.Action("StringQueries","Home")'" value="String Queries" />
+<input type="button" class="btn-info" onclick="location.href='@Url.Action("SelectMany","Home")'" value="Select Many" />

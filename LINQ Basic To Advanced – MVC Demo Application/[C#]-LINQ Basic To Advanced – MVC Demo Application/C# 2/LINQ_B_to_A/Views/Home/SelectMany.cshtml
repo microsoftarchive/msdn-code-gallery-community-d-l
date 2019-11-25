@@ -1,0 +1,52 @@
+﻿@model IQueryable<LINQ_B_to_A.Models.Invoice>
+<style>
+    td, th, thead, pre {
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5px;
+        width: auto;
+        width: 20%;
+    }
+
+    caption {
+        background-color: #a9a9a9
+    }
+
+    pre {
+        width: auto;
+    }
+</style>
+
+<table>
+    <caption>Invoice Details</caption>
+    <tr>
+        <th>Order ID</th>
+        <th>Invoice ID</th>
+        <th>Invoice Date</th>
+    </tr>
+    @foreach (var @item in Model)
+    {
+        <tr>
+            <td>@item.OrderID</td>
+            <td>@item.InvoiceID</td>
+            <td>@item.InvoiceDate</td>
+        </tr>
+    }
+</table>
+<caption>Select Many</caption>
+<pre>
+     /// <summary>
+        /// Linq query with SelectMany
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SelectMany()
+        {
+            var selectMany = DtContext.Orders.SelectMany(order => order.Invoices).Take(10);
+            var select = DtContext.Orders.Select(order => order.Invoices).Take(10);
+            return PartialView("SelectMany", selectMany);
+        }
+</pre>
+
+
+
+

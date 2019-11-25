@@ -1,0 +1,67 @@
+﻿@model IEnumerable<LINQ_B_to_A.Models.OrderAndOrderLines>
+<style>
+    td, th, thead,pre {
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5px;
+        width: auto;
+        width: 20%;
+    }
+
+    caption {
+        background-color: #a9a9a9
+    }
+    pre {
+        width: auto;
+    }
+</style>
+
+<table>
+    <caption>Order Details</caption>
+    <tr>
+        <th>Order ID</th>
+        <th>Description</th>
+        <th>Quantity</th>
+    </tr>
+    @foreach (var @item in Model)
+    {
+        <tr>
+            <td>@item.OrderId</td>
+            <td>@item.Description</td>
+            <td>@item.Quantity</td>
+        </tr>
+    }
+</table>
+<pre>
+    <code>
+     public ActionResult JoinWithWhere()
+        {
+            var loadAllData = (from oOrders in DtContext.Orders
+                               join oOrderLines in DtContext.OrderLines
+                               on oOrders.OrderID equals oOrderLines.OrderID
+                               orderby oOrders.OrderID
+                               select new OrderAndOrderLines()
+                               {
+                                   OrderId = oOrders.OrderID,
+                                   Description = oOrderLines.Description,
+                                   Quantity = oOrderLines.Quantity
+                               }).Take(10);
+            //Method Chain Format
+            var asMethodChain = DtContext.Orders.Join(DtContext.OrderLines, oOrders => oOrders.OrderID,
+                    oOrderLines => oOrderLines.OrderID,
+                    (oOrders, oOrderLines) => new { oOrders, oOrderLines })
+                .OrderBy(o => o.oOrders.OrderID)
+                .Select(s => new OrderAndOrderLines()
+                {
+                    OrderId = s.oOrders.OrderID,
+                    Description = s.oOrderLines.Description,
+                    Quantity = s.oOrderLines.Quantity
+                }).Take(10);
+
+            return PartialView(loadAllData);
+        }
+    </code>
+</pre>
+
+
+

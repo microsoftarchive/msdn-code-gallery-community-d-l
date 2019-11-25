@@ -1,0 +1,66 @@
+﻿@model IEnumerable<LINQ_B_to_A.Models.OrderAndOrderLines>
+<style>
+    td, th, thead, pre {
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5px;
+        width: auto;
+        width: 20%;
+    }
+
+    caption {
+        background-color: #a9a9a9
+    }
+    pre {
+        width: auto;
+    }
+</style>
+
+<table>
+    <caption>Order Details</caption>
+    <tr>
+        <th>Order ID</th>
+        <th>Description</th>
+        <th>Quantity</th>
+    </tr>
+    @foreach (var @item in Model)
+    {
+        <tr>
+            <td>@item.OrderId</td>
+            <td>@item.Description</td>
+            <td>@item.Quantity</td>
+        </tr>
+    }
+</table>
+<pre>
+    public ActionResult LeftJoin()
+        {
+            var loadAllData = (from oOrder in DtContext.Orders
+                               join oOrderLine in DtContext.OrderLines
+                               on oOrder.OrderID equals oOrderLine.OrderID
+                               into lftOrder
+                               from afterJoined in lftOrder.DefaultIfEmpty()
+                               orderby oOrder.OrderID descending
+                               select new OrderAndOrderLines()
+                               {
+                                   OrderId = oOrder.OrderID,
+                                   Description = afterJoined.Description
+                               }).Take(10).ToList();
+            //Method Chain Format
+            var lftJoinMethodChain = (DtContext.Orders.GroupJoin(DtContext.OrderLines,
+                    oOrder => oOrder.OrderID, oOrderLine => oOrderLine.OrderID,
+                    (oOrder, lftJoin) => new { oOrder, lftJoin })
+                .SelectMany(sm => sm.lftJoin.DefaultIfEmpty(), (sm, afterJoin) => new { sm, afterJoin })
+                .OrderByDescending(o => o.sm.oOrder.OrderID)
+                .Select(s => new OrderAndOrderLines()
+                {
+                    OrderId = s.sm.oOrder.OrderID,
+                    Description = s.afterJoin.Description
+                })).Take(10).ToList();
+
+            return PartialView(loadAllData);
+        }
+</pre>
+
+
+

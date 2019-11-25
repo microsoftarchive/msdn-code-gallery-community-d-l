@@ -1,0 +1,69 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">Contact Information</h3>
+</div>
+<div class="modal-body">
+    <form class="form-horizontal" name="contactForm" novalidate>
+        <fieldset>
+            <legend></legend>
+            <div class="form-group">
+                <label for="firstname" class="col-lg-2 control-label">First name</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="firstName" name="firstname" placeholder="First name" ng-model="contact.firstName" required>
+                    <p ng-show="contactForm.firstname.$invalid && !contactForm.firstname.$pristine" class="help-block">First name is required.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="lastname" class="col-lg-2 control-label">Last name</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Last name" ng-model="contact.lastName" required>
+                    <p ng-show="contactForm.lastname.$invalid && !contactForm.lastname.$pristine" class="help-block">Last name is required.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="col-lg-2 control-label">Email</label>
+                <div class="col-lg-10">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" ng-model="contact.email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
+                    <p ng-show="contactForm.email.$invalid && !contactForm.email.$pristine" class="help-block"> Email is required. (e.g. email@email.com)</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="telephone" class="col-lg-2 control-label">Telephone</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="telephone" name="telephone" placeholder="Telephone" ng-model="contact.telephone">
+                    <p ng-show="contactForm.telephone.$invalid && !contactForm.telephone.$pristine" class="help-block"> Telephone no. is required.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mobile" class="col-lg-2 control-label">Mobile</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile" ng-model="contact.mobilePhone" required>
+                    <p ng-show="contactForm.mobile.$invalid && !contactForm.mobile.$pristine" class="help-block"> Mobile no. is required.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="address" class="col-lg-2 control-label">Address</label>
+                <div class="col-lg-10">
+                    <input type="text" class="form-control" id="address" name="address" placeholder="Address" ng-model="contact.address" required>
+                    <p ng-show="contactForm.address.$invalid && !contactForm.address.$pristine" class="help-block"> Address is required.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="description" class="col-lg-2 control-label">Description</label>
+                <div class="col-lg-10">
+                    <textarea class="form-control" rows="3" id="description" name="description" required ng-model="contact.description"></textarea>
+                    <p ng-show="contactForm.description.$invalid && !contactForm.desription.$pristine" class="help-block"> Description about this contact is required</p>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default" ng-click="">Cancel</button>
+    <button type="submit" class="btn btn-primary" ng-click="Commands.saveContact(contact)" ng-disabled="contactForm.$invalid">Submit</button>
+</div>

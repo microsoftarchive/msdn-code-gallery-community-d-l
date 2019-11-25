@@ -1,0 +1,49 @@
+﻿<div class="row">
+    <div class="container-fluid">
+        <div class="bs-component">
+            <span class="pull-left"><a class="btn btn-success" ng-click="Modals.open()"><span class="mdi-social-person-add"></span></a></span>
+            <section class="col-md-4 pull-right"><input type="text" class="form-control input-lg" placeholder="Search" ng-model="search"></section>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="bs-component">
+        <div class="list-group">
+            <div class="col-md-4" ng-repeat="contact in contacts | filter:search | orderBy:'lastName'">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="list-group-item">
+                            <div class="row-picture">
+                                <img class="circle" src="http://lorempixel.com/56/56/people/{{$index}}" alt="icon">
+                            </div>
+                            <div class="row-content">
+                                <h4 class="list-group-item-heading">{{contact.firstName}} {{contact.lastName}}</h4>
+                                <p class="list-group-item-text">{{contact.email}}</p>
+                                <p class="list-group-item-text">{{contact.telephone}}</p>
+                                <p class="list-group-item-text"> {{contact.mobilePhone}}</p>
+                                <p class="list-group-item-text">{{contact.address}}</p>
+                                <p class="list-group-item-text">{{contact.description}}</p>
+
+                                <!--<p class="list-group-item-text"><i class="glyphicon glyphicon-envelope"></i> {{contact.email}}</p>
+                                <p class="list-group-item-text"><i class="glyphicon glyphicon-phone-alt"></i> {{contact.telephone}}</p>
+                                <p class="list-group-item-text"><i class="glyphicon glyphicon-phone"></i> {{contact.mobilePhone}}</p>
+                                <p class="list-group-item-text"><i class="glyphicon glyphicon-home"></i> {{contact.address}}</p>
+                                <p class="list-group-item-text"><i class="glyphicon glyphicon-info-sign"></i> {{contact.description}}</p>-->
+                            </div>
+                            <div class="pull-right">
+                                <a class="btn btn-xs btn-primary" ng-click="Modals.open(contact)">
+                                    <span class="glyphicon glyphicon-edit"></span>
+                                </a>
+                                <a class="btn btn-xs btn-warning" ng-click="Modals.deleteContact(contact.id)">
+                                    <span class="glyphicon glyphicon-trash"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

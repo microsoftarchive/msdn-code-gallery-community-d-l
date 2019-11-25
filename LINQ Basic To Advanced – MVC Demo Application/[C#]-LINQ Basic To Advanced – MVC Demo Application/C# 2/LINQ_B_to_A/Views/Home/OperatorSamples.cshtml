@@ -1,0 +1,83 @@
+﻿@model IQueryable<LINQ_B_to_A.Models.City>
+<style>
+    td, th, thead, pre {
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5px;
+        width: auto;
+        width: 20%;
+    }
+
+    caption {
+        background-color: #a9a9a9
+    }
+
+    pre {
+        width: auto;
+    }
+</style>
+
+<table>
+    <caption>City Details</caption>
+    <tr>
+        <th>City ID</th>
+        <th>City Name</th>
+        <th>City Location</th>
+    </tr>
+    @foreach (var @item in Model)
+    {
+        <tr>
+            <td>@item.CityID</td>
+            <td>@item.CityName</td>
+            <td>@item.Location</td>
+        </tr>
+    }
+</table>
+
+<pre>
+    public ActionResult EqualsSamples()
+        {
+            var objEquals = (from objCity in DtContext.Cities
+                                       where objCity.CityName.Equals("Troy")
+                                       select objCity).Take(2);
+            //Method Chain Format
+            var objEquals1 = DtContext.Cities.Where(d => d.CityName.Equals("Troy")).Take(2);
+            
+            return PartialView("OperatorSamples", objEquals);
+        }
+
+        public ActionResult NotEqualsSamples()
+        {
+            var objNotEquals = (from objCity in DtContext.Cities
+                where objCity.CityName != "Troy"
+                select objCity).Take(5);
+
+            var objNotEquals1 = (from objCity in DtContext.Cities
+                where !objCity.CityName.Equals("Troy")
+                select objCity).Take(5);
+
+            //Method Chain Format
+            var objNotEquals2 = DtContext.Cities.Where(d => d.CityName != "Troy").Take(2);
+
+            var objNotEquals3 = DtContext.Cities.Where(d => !d.CityName.Equals("Troy")).Take(2);
+
+            return PartialView("OperatorSamples", objNotEquals);
+        }
+        
+        public ActionResult PagingQueries()
+        {
+            var objNotEquals = (from objCity in DtContext.Cities
+                where objCity.CityName != "Troy"
+                orderby objCity.CityName ascending 
+                select objCity).Skip(5).Take(5);
+
+            //Method Chain Format
+            var objNotEquals2 = DtContext.Cities.Where(d => d.CityName != "Troy").Skip(5).Take(5);
+
+            return PartialView("OperatorSamples", objNotEquals);
+        }
+</pre>
+
+
+
+

@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html ng-app="kiksApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Kiks App</title>
+        @Styles.Render("~/Assets/Styles/CSS")
+</head>
+<body ng-controller="GlobalController">
+    <div class="container body-content">
+        <section class="row" ng-show="Global.isAuthenticated">
+            <a ng-click="Global.logOut()" class="btn btn-lg btn-default pull-right"><span class="mdi-action-settings-power"></span></a>
+        </section>
+
+        <ng-view>
+
+        </ng-view>
+        
+        <hr />
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-6">
+                    &copy; @DateTime.Now.Year - Developed and Designed by Francis M. Austria
+                </div>
+                <div class="col-md-6 pull-right">
+                    <a href="https://twitter.com/kiksaustria" class="twitter-follow-button pull-right" data-show-count="false" data-size="large">Follow kiksaustria</a>
+                    <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+
+                    <a href="https://ph.linkedin.com/pub/francis-austria/a2/115/a0a" class="pull-right">
+                        <img src="https://static.licdn.com/scds/common/u/img/webpromo/btn_viewmy_160x33.png" style="vertical-align:top; margin-right:1em" width="156" height="29" border="0" alt="View Francis Austria's profile on LinkedIn">
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <br />
+    </div>
+
+    @Scripts.Render("~/Assets/Scripts/JS")
+    <script src="~/App/Services/Interceptors/errorHandler.js"></script>
+    <script src="~/App/Services/Interceptors/xmlHttpInterceptor.js"></script>
+    <script src="~/App/Services/Account/storageHandler.js"></script>
+    <script src="~/App/Services/Account/tokenHandler.js"></script>
+    <script src="~/App/Services/Account/authService.js"></script>
+    <script src="~/App/Route/routeConfig.js"></script>
+    <script src="~/App/Services/Contact/contactService.js"></script>
+    <script src="~/App/Controllers/Global/globalController.js"></script>
+    <script src="~/App/Controllers/Account/loginController.js"></script>
+    <script src="~/App/Controllers/Account/registerController.js"></script>
+    <script src="~/App/Controllers/Contact/contactController.js"></script>
+    <script src="~/App/Controllers/Contact/contactFormModalController.js"></script>
+   
+     <script type="text/javascript">
+        $(document).ready(function () {
+            $.material.init();
+        });
+    </script>
+</body>
+</html>
+

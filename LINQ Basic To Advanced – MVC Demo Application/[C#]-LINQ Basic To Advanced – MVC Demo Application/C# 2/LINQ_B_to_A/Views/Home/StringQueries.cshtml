@@ -1,0 +1,81 @@
+﻿
+@model IQueryable<LINQ_B_to_A.Models.StringClass>
+<style>
+    td, th, thead, pre {
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5px;
+        width: auto;
+        width: 20%;
+    }
+
+    caption {
+        background-color: #a9a9a9
+    }
+
+    pre {
+        width: auto;
+    }
+</style>
+
+<table>
+    <caption>String Operators</caption>
+    <tr>
+        
+    </tr>
+    @foreach (var @item in Model)
+    {
+        <tr>
+            <td>Actual: @item.Actual</td>
+            <td>Insert: @item.Insert</td>
+            <td>Remove: @item.Remove</td>
+            <td>Substring: @item.Substring</td>
+            <td>ToLower: @item.ToLower</td>
+            <td>ToUpper: @item.ToUpper</td>
+            <td>TrimEnd: @item.TrimEnd</td>
+            <td>TrimStart: @item.TrimStart</td>
+        </tr>
+    }
+</table>
+<pre>
+        public ActionResult StringQueries()
+        {
+            var objString = (from objInv in DtContext.InvoiceLines
+                where objInv.ExtendedPrice > 10 && objInv.Quantity < 15
+                orderby objInv.InvoiceLineID descending
+                select new StringClass()
+                {
+
+                    Actual = objInv.Description,
+                    Insert = objInv.Description.Insert(2,"SibeeshPassion"),
+                    Remove = objInv.Description.Remove(1,1),
+                    Substring = objInv.Description.Substring(2,3),
+                    ToLower = objInv.Description.ToLower(),
+                    ToUpper = objInv.Description.ToUpper(),
+                    TrimEnd = objInv.Description.TrimEnd(),
+                    TrimStart = objInv.Description.TrimStart()
+                }).Take(2);
+
+            //Method Chain Format
+            var objString2 = DtContext.InvoiceLines
+                .Where(objInv => objInv.ExtendedPrice > 10 && objInv.Quantity < 15)
+                .OrderByDescending(o => o.InvoiceLineID)
+                .Select(objInv => new StringClass()
+                {
+                    Actual = objInv.Description,
+                    Insert = objInv.Description.Insert(2, "SibeeshPassion"),
+                    Remove = objInv.Description.Remove(1, 1),
+                    Substring = objInv.Description.Substring(2, 3),
+                    ToLower = objInv.Description.ToLower(),
+                    ToUpper = objInv.Description.ToUpper(),
+                    TrimEnd = objInv.Description.TrimEnd(),
+                    TrimStart = objInv.Description.TrimStart()
+                }).Take(2);
+
+            return PartialView("StringQueries", objString);
+        }
+</pre>
+
+
+
+

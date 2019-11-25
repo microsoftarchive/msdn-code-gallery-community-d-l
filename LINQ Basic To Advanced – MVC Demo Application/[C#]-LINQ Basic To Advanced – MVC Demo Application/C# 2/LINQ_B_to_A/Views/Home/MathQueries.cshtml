@@ -1,0 +1,71 @@
+﻿
+@model IQueryable<LINQ_B_to_A.Models.MathClass>
+<style>
+    td, th, thead, pre {
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5px;
+        width: auto;
+        width: 20%;
+    }
+
+    caption {
+        background-color: #a9a9a9
+    }
+
+    pre {
+        width: auto;
+    }
+</style>
+
+<table>
+    <caption>Math Operators</caption>
+    <tr>
+        
+    </tr>
+    @foreach (var @item in Model)
+    {
+        <tr>
+            <td>Actual: @item.Actual</td>
+            <td>Round: @item.Round</td>
+            <td>Floor: @item.Floor</td>
+            <td>Ceiling: @item.Ceiling</td>
+            <td>Abs: @item.Abs</td>
+        </tr>
+    }
+</table>
+<pre>
+    public ActionResult MathQueries()
+        {
+            var objMath = (from objInv in DtContext.InvoiceLines
+                          where objInv.ExtendedPrice > 10 && objInv.Quantity < 15
+                          orderby objInv.InvoiceLineID descending
+                          select new MathClass()
+                          {
+                              Actual = objInv.ExtendedPrice,
+                              Round = Math.Round(objInv.ExtendedPrice),
+                              Floor = Math.Floor(objInv.ExtendedPrice),
+                              Ceiling = Math.Ceiling(objInv.ExtendedPrice),
+                              Abs = Math.Abs(objInv.ExtendedPrice)
+                          }).Take(10);
+
+            //Method Chain Format
+            var objMath2 = DtContext.InvoiceLines
+                .Where(objInv => objInv.ExtendedPrice > 10 && objInv.Quantity < 15)
+                .OrderByDescending(o => o.InvoiceLineID)
+                .Select(objInv => new MathClass()
+                {
+                    Actual = objInv.ExtendedPrice,
+                    Round = Math.Round(objInv.ExtendedPrice),
+                    Floor = Math.Floor(objInv.ExtendedPrice),
+                    Ceiling = Math.Ceiling(objInv.ExtendedPrice),
+                    Abs = Math.Abs(objInv.ExtendedPrice)
+                }).Take(10);
+
+            return PartialView("MathQueries", objMath);
+        }
+</pre>
+
+
+
+

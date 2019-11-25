@@ -1,0 +1,36 @@
+﻿@model  List<string>
+<style>
+    dd, dt, pre {
+        border: 1px solid #ccc;
+        padding: 5px;
+        margin: 5px;
+        width: auto;
+        width: 20%;
+    }
+
+    dd {
+        background-color: #a9a9a9
+    }
+
+    pre {
+        width: auto;
+    }
+</style>
+<dd>Order Descriptions</dd>
+@foreach (var orderLinesyObj in Model)
+{
+    <dt>@orderLinesyObj</dt>
+}
+<pre>
+    public ActionResult DistinctSample()
+        {
+            var distictSample = (from oOrder in DtContext.OrderLines
+                                 select oOrder.Description).Distinct().Take(10).ToList();
+
+            //Method Chain Format
+            var distictAsMethodChain = (DtContext.OrderLines.Select(oOrder => oOrder.Description)).Distinct().ToList();
+
+            return PartialView(distictSample);
+        }
+</pre>
+

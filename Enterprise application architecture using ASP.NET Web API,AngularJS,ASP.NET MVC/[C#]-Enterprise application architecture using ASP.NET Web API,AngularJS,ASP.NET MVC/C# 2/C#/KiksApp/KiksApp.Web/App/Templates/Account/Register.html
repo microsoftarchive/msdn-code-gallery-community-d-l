@@ -1,0 +1,55 @@
+﻿<div class="row lg-m-top">
+    <div class="col-lg-offset-2 col-lg-8">
+        <div class="well bs-component">
+            <form class="form-horizontal" name="registrationForm" method="post">
+                <fieldset>
+                    <legend><i class="mdi-action-account-circle"></i>  Register</legend>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2">
+                            <h4>
+                                <strong>
+                                    {{message.description}}
+                                </strong>
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstName" class="col-lg-2 control-label">First name</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" name="firstname" id="firstName" placeholder="First name" ng-model="registration.firstName" required>
+                            <p ng-show="registrationForm.firstname.$invalid && !registrationForm.firstname.$pristine" class="help-block">First name is required.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName" class="col-lg-2 control-label">Last name</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="lastName" name="lastname" placeholder="Last name" ng-model="registration.lastName" required>
+                            <p ng-show="registrationForm.lasname.$invalid && !registrationForm.lastname.$pristine" class="help-block">Last name is required.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                        <div class="col-lg-10">
+                            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" ng-model="registration.email" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" required>
+                            <p ng-show="registrationForm.email.$invalid && !registrationForm.email.$pristine" class="help-block"> Email is required. (format, e.g. email@email.com)</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                        <div class="col-lg-10">
+                            <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password" ng-model="registration.password" required ng-minlength="6">
+                            <p ng-show="registrationForm.password.$invalid && !registrationForm.password.$pristine" class="help-block"> Password must be at least 6 characters. </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-7">
+                            <a href="#/Account/Login" class="btn btn-default">Cancel</a>
+                            <button type="submit" class="btn btn-primary" ng-click="signUp()" ng-disabled="registrationForm.$invalid">Register</button>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
