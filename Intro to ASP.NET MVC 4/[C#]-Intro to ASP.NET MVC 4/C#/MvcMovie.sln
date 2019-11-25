@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Web Developer Express 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMovie", "MvcMovie\MvcMovie.csproj", "{10D7D579-0474-4263-BA68-58728A021F75}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcMovie", "MvcMovie\MvcMovie.csproj", "{51DF8384-476A-4E20-A09F-546CB9E8834D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{10D7D579-0474-4263-BA68-58728A021F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{10D7D579-0474-4263-BA68-58728A021F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{10D7D579-0474-4263-BA68-58728A021F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{10D7D579-0474-4263-BA68-58728A021F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51DF8384-476A-4E20-A09F-546CB9E8834D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51DF8384-476A-4E20-A09F-546CB9E8834D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51DF8384-476A-4E20-A09F-546CB9E8834D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51DF8384-476A-4E20-A09F-546CB9E8834D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

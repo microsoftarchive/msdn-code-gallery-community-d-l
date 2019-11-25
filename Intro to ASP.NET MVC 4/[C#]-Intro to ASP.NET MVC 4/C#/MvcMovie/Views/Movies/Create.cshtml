@@ -6,6 +6,9 @@
 
 <h2>Create</h2>
 
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
 
@@ -43,15 +46,13 @@
             @Html.EditorFor(model => model.Price)
             @Html.ValidationMessageFor(model => model.Price)
         </div>
-
-         <div class="editor-label">
-            @Html.LabelFor(model => model.Rating)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Rating)
-            @Html.ValidationMessageFor(model => model.Rating)
-        </div>
-
+        <div class="editor-label">
+    @Html.LabelFor(model => model.Rating)
+</div>
+<div class="editor-field">
+    @Html.EditorFor(model => model.Rating)
+    @Html.ValidationMessageFor(model => model.Rating)
+</div>
         <p>
             <input type="submit" value="Create" />
         </p>
@@ -61,7 +62,3 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}

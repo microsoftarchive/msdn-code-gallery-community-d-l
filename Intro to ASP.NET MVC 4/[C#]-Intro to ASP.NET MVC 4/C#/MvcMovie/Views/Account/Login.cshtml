@@ -1,4 +1,4 @@
-﻿@model MvcMovie.Models.LoginModel
+@model MvcMovie.Models.LoginModel
 
 @{
     ViewBag.Title = "Log in";
@@ -6,13 +6,14 @@
 
 <hgroup class="title">
     <h1>@ViewBag.Title.</h1>
+    <h2>Enter your user name and password below.</h2>
 </hgroup>
 
-<section id="loginForm">
-<h2>Use a local account to log in.</h2>
-@using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@using (Html.BeginForm((string)ViewBag.FormAction, "Account")) {
+    @Html.ValidationSummary(true, "Log in was unsuccessful. Please correct the errors and try again.")
 
     <fieldset>
         <legend>Log in Form</legend>
@@ -37,14 +38,4 @@
     <p>
         @Html.ActionLink("Register", "Register") if you don't have an account.
     </p>
-}
-</section>
-
-<section class="social" id="socialLoginForm">
-    <h2>Use another service to log in.</h2>
-    @Html.Action("ExternalLoginsList", new { ReturnUrl = ViewBag.ReturnUrl })
-</section>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }

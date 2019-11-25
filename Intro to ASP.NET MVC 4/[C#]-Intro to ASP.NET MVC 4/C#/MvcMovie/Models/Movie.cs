@@ -2,10 +2,8 @@
 using System.Data.Entity;
 using System.ComponentModel.DataAnnotations;
 
-namespace MvcMovie.Models
-{
-    public class Movie
-    {
+namespace MvcMovie.Models {
+    public class Movie {
         public int ID { get; set; }
 
         [Required]
@@ -25,8 +23,7 @@ namespace MvcMovie.Models
         public string Rating { get; set; }
     }
 
-    public class MovieDBContext : DbContext
-    {
+    public class MovieDBContext : DbContext {
         public DbSet<Movie> Movies { get; set; }
     }
 }

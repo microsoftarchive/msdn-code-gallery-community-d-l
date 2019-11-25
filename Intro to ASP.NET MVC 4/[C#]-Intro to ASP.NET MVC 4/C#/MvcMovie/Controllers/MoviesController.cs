@@ -15,43 +15,11 @@ namespace MvcMovie.Controllers
 
         //
         // GET: /Movies/
-        public ActionResult SearchIndex(string movieGenre, string searchString)
-        {
-            var GenreLst = new List<string>();
 
-            var GenreQry = from d in db.Movies
-                           orderby d.Genre
-                           select d.Genre;
-            GenreLst.AddRange(GenreQry.Distinct());
-            ViewBag.movieGenre = new SelectList(GenreLst);
-
-            var movies = from m in db.Movies
-                         select m;
-
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                movies = movies.Where(s => s.Title.Contains(searchString));
-            }
-
-            if (string.IsNullOrEmpty(movieGenre))
-                return View(movies);
-            else
-            {
-                return View(movies.Where(x => x.Genre == movieGenre));
-            }
-
-        }
-
-        //[HttpPost]
-        //public string SearchIndex(FormCollection fc, string searchString)
-        //{
-        //    return "<h3> From [HttpPost]SearchIndex: " + searchString + "</h3>";
-        //}
-
-        public ActionResult Index()
-        {
-            return View(db.Movies.ToList());
-        }
+public ActionResult Index()
+{
+    return View(db.Movies.ToList());
+}
 
         //
         // GET: /Movies/Details/5
@@ -90,33 +58,33 @@ namespace MvcMovie.Controllers
             return View(movie);
         }
 
-        //
-        // GET: /Movies/Edit/5
+//
+// GET: /Movies/Edit/5
 
-        public ActionResult Edit(int id = 0)
-        {
-            Movie movie = db.Movies.Find(id);
-            if (movie == null)
-            {
-                return HttpNotFound();
-            }
-            return View(movie);
-        }
+public ActionResult Edit(int id = 0)
+{
+    Movie movie = db.Movies.Find(id);
+    if (movie == null)
+    {
+        return HttpNotFound();
+    }
+    return View(movie);
+}
 
-        //
-        // POST: /Movies/Edit/5
+//
+// POST: /Movies/Edit/5
 
-        [HttpPost]
-        public ActionResult Edit(Movie movie)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(movie).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(movie);
-        }
+[HttpPost]
+public ActionResult Edit(Movie movie)
+{
+    if (ModelState.IsValid)
+    {
+        db.Entry(movie).State = EntityState.Modified;
+        db.SaveChanges();
+        return RedirectToAction("Index");
+    }
+    return View(movie);
+}
 
         //
         // GET: /Movies/Delete/5
@@ -141,6 +109,30 @@ namespace MvcMovie.Controllers
             db.Movies.Remove(movie);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult SearchIndex(string movieGenre, string searchString) {
+            var GenreLst = new List<string>();
+
+            var GenreQry = from d in db.Movies
+                           orderby d.Genre
+                           select d.Genre;
+            GenreLst.AddRange(GenreQry.Distinct());
+            ViewBag.movieGenre = new SelectList(GenreLst);
+
+            var movies = from m in db.Movies
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString)) {
+                movies = movies.Where(s => s.Title.Contains(searchString));
+            }
+
+            if (string.IsNullOrEmpty(movieGenre))
+                return View(movies);
+            else {
+                return View(movies.Where(x => x.Genre == movieGenre));
+            }
+
         }
 
         protected override void Dispose(bool disposing)

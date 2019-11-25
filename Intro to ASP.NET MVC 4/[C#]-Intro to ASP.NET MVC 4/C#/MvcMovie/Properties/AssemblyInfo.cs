@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MvcMovie")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("MSIT")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("MvcMovie")]
-[assembly: AssemblyCopyright("Copyright © MSIT 2012")]
+[assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8de83b6d-8646-4de4-9e75-bb33add3e4a9")]
+[assembly: Guid("3f004507-06c5-4936-be8e-0e6d1eac01f0")]
 
 // Version information for an assembly consists of the following four values:
 //
